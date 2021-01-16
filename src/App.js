@@ -6,4 +6,5 @@ function App() {
     <Nav />
   );
 }
+
 export default App;
