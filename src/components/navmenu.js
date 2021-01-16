@@ -2,10 +2,14 @@ import './navmenu.css'
 import logo from '../img/7-fallen-logo.png'
 function Menu () {
     return (
-        <ul className="navmenu">
+        <ul className="menu">
+            <li>Test 1</li>
+            <li>Test 2</li>
             <li>
-                <img src={logo}></img>
+                <img className="menu__logo" src={logo}></img>
             </li>
+            <li>Test 3</li>
+            <li>Test 4</li>
         </ul>
     );
 }
