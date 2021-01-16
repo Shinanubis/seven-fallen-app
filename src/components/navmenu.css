@@ -8,6 +8,7 @@
 
 .menu__item{
     color:#363636;
+    text-shadow: 0 0 6px #369200;
 }
 
 .menu__item:first-child{
