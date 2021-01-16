@@ -1,7 +1,7 @@
 .navbar{
     display:flex;
     align-items: center;
-    height: 96px;
+    height: 98px;
     width: 100%;
     background-color: var(--dark-grey);
 }
