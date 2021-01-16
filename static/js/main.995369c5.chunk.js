@@ -1,0 +1,2 @@
+(this["webpackJsonpseven-fallen-app"]=this["webpackJsonpseven-fallen-app"]||[]).push([[0],{10:function(e,n,t){},11:function(e,n,t){"use strict";t.r(n);var s=t(0),c=(t(2),t(3)),r=t.n(c);t(9),t(10);var a=function(){return Object(s.jsx)("h1",{children:"hello world it's a test !!"})};r.a.render(Object(s.jsx)(s.Fragment,{children:Object(s.jsx)(a,{})}),document.getElementById("root"))},9:function(e,n,t){}},[[11,1,2]]]);
+//# sourceMappingURL=main.995369c5.chunk.js.map
