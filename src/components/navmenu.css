@@ -6,6 +6,10 @@
     margin: 0 auto;
 }
 
+.menu__item{
+    color:#303030;
+}
+
 .menu__item:first-child{
     margin-right: 2rem;
 }
