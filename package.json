@@ -12,7 +12,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "nodemon:start": "nodemon --watch ./src/components/*.css --watch ./src/components/*.js --exec \"npm run build\"",
+    "nodemon:start": "nodemon --watch src --exec \"npm run build\"",
     "commit": "git commit -m\"creation de la navbar\"",
     "start": "react-scripts start",
     "build": "react-scripts build && git add . && npm run commit && git push origin main",
