@@ -7,7 +7,7 @@ html{
   color:var(--white);
 }
 
-html,body,div,p,h1,h2,h3,h4{
+html,body,div,p,h1,h2,h3,h4,ul,li{
   margin:0;
   padding: 0;
   border:0;
