@@ -12,8 +12,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "commit": "git commit -m\"creation de la navbar\"",
     "start": "react-scripts start",
-    "build": "react-scripts build && git add .",
+    "build": "react-scripts build && git add . && npm run commit && git push origin main",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
