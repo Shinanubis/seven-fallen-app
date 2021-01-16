@@ -1,5 +1,10 @@
 :root{
   --dark-grey : #202020;
+  --white : #dfdfdf;
+}
+
+html{
+  color:
 }
 
 html,body,div,p,h1,h2,h3,h4{
