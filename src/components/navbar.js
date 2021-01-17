@@ -15,14 +15,14 @@ function Nav() {
             <nav className="navbar">
                 < Menu />
             </nav>
-            <Switch>
-                
-                    <Route exact path="/" component={Landing}/>
-                    <Route strict path="/login" component={Login}/>
-                    <Route strict path="/subscribe" component={Subscribe}/>
-                    <Route component={errorPage}/>
-
-            </Switch>
+            <Wrapper>
+                <Switch>
+                        <Route exact path="/" component={Landing}/>
+                        <Route strict path="/login" component={Login}/>
+                        <Route strict path="/subscribe" component={Subscribe}/>
+                        <Route component={errorPage}/>
+                </Switch>
+            </Wrapper>
         </BrowserRouter>
     );
 }
