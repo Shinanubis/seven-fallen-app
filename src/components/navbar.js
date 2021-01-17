@@ -4,6 +4,7 @@ import Menu from './navmenu'
 import Landing from './landing'
 import Login from './login'
 import Subscribe from './subscribe'
+import errorPage from './404'
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
 
 function Nav() {
@@ -15,11 +16,12 @@ function Nav() {
                 < Menu />
             </nav>
             <Switch>
-                <Wrapper>
+                
                     <Route exact path="/" component={Landing}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/subscribe" component={Subscribe}/>
-                </Wrapper>
+                    <Route strict path="/login" component={Login}/>
+                    <Route strict path="/subscribe" component={Subscribe}/>
+                    <Route component={errorPage}/>
+
             </Switch>
         </BrowserRouter>
     );
