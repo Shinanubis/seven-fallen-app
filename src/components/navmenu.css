@@ -1,9 +1,10 @@
 .menu {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .menu__item{
@@ -13,7 +14,7 @@
     font-weight: 600;
 }
 
-.menu__item:first-child{
+.menu__item:first-child,.menu__connect--item:first-child{
     margin-right: 2rem;
 }
 
@@ -24,4 +25,12 @@
 .menu__logo{
     margin: 0 2rem;
     height: 88px;
+}
+
+.menu__connect{
+    display: flex;
+}
+
+.menu__connect--link{
+    color: var(--white);
 }

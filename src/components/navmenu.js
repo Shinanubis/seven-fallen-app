@@ -10,8 +10,11 @@ function Menu () {
                 <img className="menu__logo" src={logo}></img>
             </li>
             <ul className="menu__connect">
-                <li>
-                    <a href="/login">login</a>
+                <li className="menu__connect--item">
+                    <a className="menu__connect--link" href="/login">Signin</a>
+                </li>
+                <li className="menu__connect--item" >
+                    <a className="menu__connect--link" href="/subscribe">Signup</a>
                 </li>
             </ul>
         </ul>
