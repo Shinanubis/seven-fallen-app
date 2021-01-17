@@ -1,20 +1,28 @@
+import { Link} from 'react-router-dom'
 import './navmenu.css'
 import logo from '../img/7-fallen-logo.png'
+import Audio from './audio'
 function Menu () {
     return (
         <ul className="menu">
-            <li className="menu-item">
-                Version 1.0.0
-            </li>
+                <li className="menu-item">
+                    <p>Version 1.0.0</p>
+                    <Audio/>
+                </li>
             <li>
-                <img className="menu__logo" src={logo}></img>
+                <Link className="menu__link" to="/">
+                    <img className="menu__logo" src={logo} alt="Logo de 7Fallen"/>
+                </Link>
             </li>
             <ul className="menu__connect">
                 <li className="menu__connect--item">
-                    <a className="menu__connect--link" href="/login">Signin</a>
+                    <Link className="menu__connect--link" to="/login">
+                        Signin
+                    </Link>
                 </li>
+
                 <li className="menu__connect--item" >
-                    <a className="menu__connect--link" href="/subscribe">Signup</a>
+                    <Link className="menu__connect--link" to="/subscribe">Signup</Link>
                 </li>
             </ul>
         </ul>

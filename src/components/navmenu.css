@@ -8,11 +8,14 @@
 }
 
 .menu__item{
+    display: flex;
+    align-items: center;
     color:#d4d4d4;
     text-shadow: 0px 0px 4px #369200;
     font-size: 1.25rem;
     font-weight: 600;
 }
+
 
 .menu__item:first-child,.menu__connect--item:first-child{
     margin-right: 2rem;

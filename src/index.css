@@ -7,7 +7,7 @@ html{
   color:var(--white);
 }
 
-html,body,div,p,h1,h2,h3,h4,ul,li,a{
+html,body,div,p,h1,h2,h3,h4,ul,li,a,figure{
   margin:0;
   padding: 0;
   border:0;
@@ -41,4 +41,22 @@ a {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* Utilities */
+
+.title{
+  text-align:center;
+  color:var(--dark-grey);
+}
+
+.d-inline{
+  display: inline;
+}
+
+.page-container{
+  padding:3rem 0;
+  height:calc(100vh - 98px);
+  width:100%;
 }
