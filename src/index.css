@@ -7,7 +7,7 @@ html{
   color:var(--white);
 }
 
-html,body,div,p,h1,h2,h3,h4,ul,li,a,figure{
+html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input{
   margin:0;
   padding: 0;
   border:0;
@@ -31,6 +31,16 @@ li{
 
 a {
   text-decoration:none;
+}
+
+input{
+  padding: .65rem .75rem;
+  border-radius:3px;
+  border: 1px solid #e2e2e2;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -ms-border-radius:3px;
+  -o-border-radius:3px;
 }
 
 #root{
@@ -59,4 +69,18 @@ code {
   padding:3rem 0;
   height:calc(100vh - 98px);
   width:100%;
+}
+
+.btn{
+  padding:.75rem 0;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  box-shadow: 0 0 20px -5px #8f8f8f;
+}
+
+.btn-success{
+  background-color:#89ec2c;
 }
