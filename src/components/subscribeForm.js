@@ -9,7 +9,7 @@ function SubscribeForm() {
             <input className="form--input" id="firstname" name="firstname" type="text" placeholder="Taper votre nom ..."></input>
             <input id="password" className="form--input" name="password" type="password" placeholder="Taper votre mot de passe ..."></input>
             <input id="repassword" className="subscribe__form--input" name="repassword" type="password" placeholder="Retaper votre mot de passe ..."></input>
-            <button className="btn btn-success" type="submit">Valider</button>
+            <button className="btn btn-success" type="button">Valider</button>
         </form>
     )
 }
