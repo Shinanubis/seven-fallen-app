@@ -1,5 +1,5 @@
 .audio-player{
     position: fixed;
-    top:30px;
-    left: 160px;
+    bottom:30px;
+    left: 30px;
 }
