@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.1649aac2.chunk.css",
-    "main.js": "/static/js/main.a20dbe77.chunk.js",
-    "main.js.map": "/static/js/main.a20dbe77.chunk.js.map",
+    "main.css": "/static/css/main.a0170ecf.chunk.css",
+    "main.js": "/static/js/main.0a429076.chunk.js",
+    "main.js.map": "/static/js/main.0a429076.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3feb6fba.js",
     "runtime-main.js.map": "/static/js/runtime-main.3feb6fba.js.map",
     "static/js/2.fddfde0d.chunk.js": "/static/js/2.fddfde0d.chunk.js",
     "static/js/2.fddfde0d.chunk.js.map": "/static/js/2.fddfde0d.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.1649aac2.chunk.css.map": "/static/css/main.1649aac2.chunk.css.map",
+    "static/css/main.a0170ecf.chunk.css.map": "/static/css/main.a0170ecf.chunk.css.map",
     "static/js/2.fddfde0d.chunk.js.LICENSE.txt": "/static/js/2.fddfde0d.chunk.js.LICENSE.txt",
     "static/media/Epic_sound.90a67cfd.ogg": "/static/media/Epic_sound.90a67cfd.ogg",
     "static/media/Epic_sound.d7de96a9.mp3": "/static/media/Epic_sound.d7de96a9.mp3"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.3feb6fba.js",
     "static/js/2.fddfde0d.chunk.js",
-    "static/css/main.1649aac2.chunk.css",
-    "static/js/main.a20dbe77.chunk.js"
+    "static/css/main.a0170ecf.chunk.css",
+    "static/js/main.0a429076.chunk.js"
   ]
 }

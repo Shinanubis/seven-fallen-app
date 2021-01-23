@@ -30,3 +30,13 @@
     font-size: 1rem;
     margin-bottom: 1.75rem;
 }
+
+.remember{
+    margin:.5rem 0 2rem 0;
+    line-height: 1rem;
+}
+
+.remember__checkbox{
+    margin-right:.5rem;
+    margin-left : .125rem;
+}
