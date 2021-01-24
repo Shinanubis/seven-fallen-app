@@ -32,9 +32,9 @@
 }
 
 .remember{
-    color: var(--dark-grey);
     margin:.5rem 0 2rem 0;
     line-height: 1rem;
+    color: var(--dark-grey);
 }
 
 .remember__checkbox{
