@@ -1,29 +1,42 @@
 import './loginForm.css'
-import {Link} from 'react-router-dom'
+import {useState} from 'react'
 
-function loginForm() {
+function LoginForm() {
 
-    const handleSubmit= () => {
-        fetch('https://test-seven.site/api',{
-            method: 'POST',
-            mode: 'cors',
-        })
-        .then((res) => {
-            console.log(res.json())
-        }).catch() 
+    const [emailInput, setEmailInput] = useState('');
+    const [passwordInput, setPasswordInput] = useState('');
+
+    const handleSubmit= (e) => {
+        e.preventDefault()
+        if(emailInput && passwordInput) {
+            fetch('https://test-seven.site/api',{
+                method: 'POST',
+                mode: 'cors',
+            })
+            .then((res) => {
+                console.log(res)
+            }).catch() 
+        }
+    }
+
+    const emailInputChange = (e) => {
+        setEmailInput(e.target.value)
+    }
+
+    const passwordInputChange = (e) => {
+        setPasswordInput(e.target.value)
     }
 
     return (
         <form className="form" onSubmit={handleSubmit}>
             <h2 className="form--title">Login et mot de passe :</h2>
-            <input className="form--input" id="email" name="email" type="text" placeholder="Taper votre email ..."></input>
-            <input id="password" className="form--input" name="password" type="password" placeholder="Password ..."></input>
-            <label htmlFor="remember" className="remember"><input id="remember" className="remember__checkbox" type="checkbox" name="remember"/>Se souvenir de moi </label>
-            {/*<Link className="form--link" to="/subscribe">inscrivez-vous</Link>*/}           
+            <input className="form--input" id="email" name="email" type="email" placeholder="Taper votre email ..." onChange={emailInputChange} value={emailInput}></input>
+            <input id="password" className="form--input" name="password" type="password" placeholder="Password ..." onChange={passwordInputChange} value={passwordInput}></input>
+            <label htmlFor="remember" className="remember"><input id="remember" className="remember__checkbox" type="checkbox" name="remember"/>Se souvenir de moi </label>          
             <button className="btn btn-success" type="submit">Envoyer</button>
 
         </form>
     )
 }
 
-export default loginForm;
+export default LoginForm;
