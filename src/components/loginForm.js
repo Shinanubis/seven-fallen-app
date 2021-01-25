@@ -18,7 +18,8 @@ function LoginForm() {
                 email: emailInput,
                 pwd: passwordInput
             })
-            console.log(body)
+            console.log(body.email)
+            console.log(body.pwd)
             fetch('https://test-seven.site/user',{
                 method: 'POST',
                 headers,
