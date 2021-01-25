@@ -5,8 +5,7 @@ const headers = {
 }
 
 //create User
-async function createUser(url,body) {
-    console.log(body)
+function createUser(url,body) {
     fetch(url,{
         method: 'POST',
         headers,
@@ -19,4 +18,60 @@ async function createUser(url,body) {
     })
 }
 
-export {createUser}; 
+
+//get User
+function getUser(url,body){
+   fetch(url,{
+        method: 'GET',
+        headers,
+        body: JSON.stringify(body)
+    })
+    .then(response => response.json())
+    .then(json => console.log(JSON.stringify(json)))
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+//get all Users
+async function getUsers(){
+    fetch('https://test-seven.site/users',{
+        method: 'GET',
+        headers,
+    })
+    .then(response => response.json())
+    .then(json => console.log(JSON.stringify(json)))
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+//update user 
+async function updateUser(url,body) {
+    fetch(url,{
+        method: 'PUT',
+        headers,
+        body: JSON.stringify(body)
+    })
+    .then(response => response.json())
+    .then(json => console.log(JSON.stringify(json)))
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+//delete a user
+async function deleteUser(url,userId) {
+    fetch(url,{
+        method: 'DELETE',
+        headers,
+        body: JSON.stringify(...userId)
+    })
+    .then(response => response.json())
+    .then(json => console.log(JSON.stringify(json)))
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+export {createUser,getUser,updateUser,deleteUser,getUsers}; 

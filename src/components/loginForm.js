@@ -7,11 +7,6 @@ function LoginForm() {
     const [emailInput, setEmailInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
-    const headers = {
-        'Accept': 'application/json',
-        'Content-type': 'application/json'
-    }
-
     const handleSubmit= (e) => {
         e.preventDefault()
         createUser('https://test-seven.site/user',{emailInput,passwordInput})
