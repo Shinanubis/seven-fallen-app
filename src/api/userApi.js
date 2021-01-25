@@ -34,7 +34,7 @@ function getUser(url,body){
 }
 
 //get all Users
-async function getUsers(){
+function getUsers(){
     fetch('https://test-seven.site/users',{
         method: 'GET',
         headers,
@@ -47,7 +47,7 @@ async function getUsers(){
 }
 
 //update user 
-async function updateUser(url,body) {
+function updateUser(url,body) {
     fetch(url,{
         method: 'PUT',
         headers,
@@ -61,7 +61,7 @@ async function updateUser(url,body) {
 }
 
 //delete a user
-async function deleteUser(url,userId) {
+function deleteUser(url,userId) {
     fetch(url,{
         method: 'DELETE',
         headers,
