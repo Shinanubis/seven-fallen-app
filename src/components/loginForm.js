@@ -6,12 +6,23 @@ function LoginForm() {
     const [emailInput, setEmailInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
+    const headers = {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+    }
+
     const handleSubmit= (e) => {
         e.preventDefault()
         if(emailInput && passwordInput) {
-            fetch('https://test-seven.site/api',{
+            const body = JSON.stringify({
+                email: emailInput,
+                pwd: passwordInput
+            })
+            console.log(body)
+            fetch('https://test-seven.site/user',{
                 method: 'POST',
-                mode: 'cors',
+                headers,
+                body
             })
             .then((res) => {
                 console.log(res)
