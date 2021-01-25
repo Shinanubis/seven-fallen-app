@@ -1,5 +1,6 @@
 import './loginForm.css'
 import {useState} from 'react'
+import {createUser} from '../api/userApi'
 
 function LoginForm() {
 
@@ -13,20 +14,7 @@ function LoginForm() {
 
     const handleSubmit= (e) => {
         e.preventDefault()
-        if(emailInput && passwordInput) {
-            const body = JSON.stringify({
-                email: emailInput,
-                pwd: passwordInput
-            })
-            fetch('https://test-seven.site/user',{
-                method: 'POST',
-                headers,
-                body
-            })
-            .then((res) => {
-                console.log(res)
-            }).catch() 
-        }
+        createUser('https://test-seven.site/user',{emailInput,passwordInput})
     }
 
     const emailInputChange = (e) => {
