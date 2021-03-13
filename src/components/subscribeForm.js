@@ -39,7 +39,7 @@ function SubscribeForm() {
             setValue({...formValues,isValid: false })
         }else{
             setValue({...formValues,isValid: true})
-            createUser('https://test-seven.site/user',formValues)
+            createUser('https://test-seven.site/user/subscribe',formValues)
         }
 
     }
