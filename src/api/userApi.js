@@ -6,8 +6,10 @@ const headers = {
 
 //create User
 function createUser(url,body) {
+    console.log(body)
     fetch(url,{
         method: 'POST',
+        mode: 'cors',
         headers,
         body: JSON.stringify(body)
     })
