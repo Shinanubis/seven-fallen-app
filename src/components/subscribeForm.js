@@ -71,11 +71,8 @@ function SubscribeForm() {
     return (
         <form className="form" onSubmit={handleSubmit}>
             <h2 className="form--title">Inscription :</h2>
-            <input id="email" className="subscribe__form--input"  name="email" type="email" placeholder="Taper votre email ..." onChange={handleChange} onBlur={handleBlur} value={formValues.email} ></input>
-            <input id="firstname" className="subscribe__form--input"  name="firstname" type="text" placeholder="Taper votre prénom ..." onChange={handleChange} onBlur={handleBlur} value={formValues.firstname} ></input>
-            <input id="lastname" className="subscribe__form--input"  name="lastname" type="text" placeholder="Taper votre nom ..." onChange={handleChange} onBlur={handleBlur} value={formValues.lastname} ></input>
-            <input id="password" className="subscribe__form--input" name="password" type="password" placeholder="Taper votre mot de passe ..." onChange={handleChange} onBlur={handleBlur} value={formValues.password} ></input>
-            <input id="repassword" className="subscribe__form--input" name="repassword" type="password" placeholder="Retaper votre mot de passe ..." onChange={handleChange} onBlur={handleBlur} value={formValues.repassword}></input>
+            <input id="email" className="subscribe__form--input"  name="email" type="email" placeholder="Taper votre email ..." onChange={handleChange} onBlur={handleBlur} value={formValues.email} />
+            <input id="username" className="subscribe__form--input" name="username" type="username" placeholder="Tapez votre username " onChange={handleChange} onBlur={handleBlur} value={formValues.username}/>
             <button className="btn btn-success" type="submit"  onClick={handleClick}>Valider</button>
             {checkForm(formValues)}
         </form>
