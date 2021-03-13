@@ -7,13 +7,17 @@ function SubscribeForm() {
     const [counter,setCounter] = useState(0)
     const [formValues, setValue] = useState({
         email:'',
-        username:'',
+        username: '',
         isValid: ''
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
+    };
+    
+    const handleChange = (e) => {
+        console.log(e.target.name)
+    };
 
     const handleBlur = (e) => {
         e.preventDefault()
