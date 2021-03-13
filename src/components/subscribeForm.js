@@ -7,10 +7,7 @@ function SubscribeForm() {
     const [counter,setCounter] = useState(0)
     const [formValues, setValue] = useState({
         email:'',
-        firstname:'',
-        lastname:'',
-        password:'',
-        repassword:'',
+        username:'',
         isValid: ''
     });
 
@@ -18,16 +15,11 @@ function SubscribeForm() {
         e.preventDefault();
     }
 
-    const handleChange = (e) => {
-        e.preventDefault()
-        const {id,value} = e.target
-        setValue({...formValues,[id]:value})
-    }
-
     const handleBlur = (e) => {
         e.preventDefault()
         const {id,value} = e.target
         setValue({...formValues,[id]:value})
+        console.log(formValues)
     }
 
     const handleClick = (e) => {
@@ -71,8 +63,8 @@ function SubscribeForm() {
     return (
         <form className="form" onSubmit={handleSubmit}>
             <h2 className="form--title">Inscription :</h2>
-            <input id="email" className="subscribe__form--input"  name="email" type="email" placeholder="Taper votre email ..." onChange={handleChange} onBlur={handleBlur} value={formValues.email} />
-            <input id="username" className="subscribe__form--input" name="username" type="username" placeholder="Tapez votre username " onChange={handleChange} onBlur={handleBlur} value={formValues.username}/>
+            <input id="email" className="subscribe__form--input"  name="email" type="email" placeholder="Taper votre email ..." onBlur={handleBlur} value={formValues.email} />
+            <input id="username" className="subscribe__form--input" name="username" type="username" placeholder="Tapez votre username " onBlur={handleBlur} value={formValues.username}/>
             <button className="btn btn-success" type="submit"  onClick={handleClick}>Valider</button>
             {checkForm(formValues)}
         </form>
