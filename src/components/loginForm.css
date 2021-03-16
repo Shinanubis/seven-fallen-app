@@ -14,9 +14,11 @@
     box-shadow: 0 0 20px -5px #acacac;
 }
 
-.form--input:not(:last-of-type) {
-    margin-bottom: 1.25rem;
+.form--input{
+    margin-bottom: 1.25rem;  
 }
+
+
 
 .form--title{
     font-size:115%;

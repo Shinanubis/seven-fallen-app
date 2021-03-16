@@ -22,10 +22,9 @@ function LoginForm() {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <h2 className="form--title">Login et mot de passe :</h2>
+            <h2 className="form--title">Login</h2>
             <input className="form--input" id="email" name="email" type="email" placeholder="Taper votre email ..." onChange={emailInputChange} value={emailInput}></input>
-            <input id="password" className="form--input" name="password" type="password" placeholder="Password ..." onChange={passwordInputChange} value={passwordInput}></input>
-            <label htmlFor="remember" className="remember"><input id="remember" className="remember__checkbox" type="checkbox" name="remember"/>Se souvenir de moi </label>          
+            <input id="password" className="form--input" name="password" type="password" placeholder="Password ..." onChange={passwordInputChange} value={passwordInput}></input>       
             <button className="btn btn-success" type="submit">Envoyer</button>
 
         </form>
