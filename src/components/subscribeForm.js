@@ -4,73 +4,58 @@ import './subscribeForm.css'
 
 
 function SubscribeForm() {
-    const [counter,setCounter] = useState(0)
     const [formValues, setValue] = useState({
         email:'',
-        username: '',
-        isValid: ''
+        username: ''
     });
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
     
     const handleChange = (e) => {
-        console.log(e.target.name)
+        e.preventDefault();
+        setValue({...formValues, [e.target.name]:e.target.value});
     };
 
     const handleBlur = (e) => {
-        e.preventDefault()
-        const {id,value} = e.target
-        setValue({...formValues,[id]:value})
-        console.log(formValues)
+        e.preventDefault();
+        setValue({...formValues,[e.target.name]:e.target.value})     
     }
 
     const handleClick = (e) => {
-        e.preventDefault()
-        setCounter(counter + 1)
-        if(Object.values(formValues).every(elmt => elmt === '')){
-            setValue({...formValues,isValid: ''})
-        }else if(Object.values(formValues).some((elmt) => elmt === '')){
-            setValue({...formValues,isValid: false })
-        }else{
-            setValue({...formValues,isValid: true})
-            createUser('https://test-seven.site/api/user/subscribe',formValues)
-        }
-
-    }
-
-    const checkForm = (arg) => {
-
-        if(arg.isValid !== ''){
-
-            if(arg.isValid){
-                return (
-                    <p className="message success">Formulaire envoyé avec succés</p>
-                )
-            }
-            
-            if(!arg.isValid ){
-                return (
-                    <p className="message danger">Echec de l'envoi du formulaire</p>
-                )
-            }
-        }
-
-        if(arg.isValid === '' && counter > 0){
-           return <p className="message info">Veuillez remplir tous le champs du formulaire ...</p>
-        }
-
-
+        e.preventDefault();
+        const data = new FormData();
+        Object.keys(formValues).map((key, index) => {
+            return data.append(key,formValues[key]);
+        });
+        createUser('https://test-seven.site/api/user/subscribe',data);
     }
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form">
             <h2 className="form--title">Inscription :</h2>
-            <input id="email" className="subscribe__form--input"  name="email" type="email" placeholder="Taper votre email ..." onBlur={handleBlur} onChange={handleChange} value={formValues.email} />
-            <input id="username" className="subscribe__form--input" name="username" type="username" placeholder="Tapez votre username " onBlur={handleBlur} onChange={handleChange} value={formValues.username}/>
-            <button className="btn btn-success" type="submit"  onClick={handleClick}>Valider</button>
-            {checkForm(formValues)}
+            <input 
+                id="email" 
+                className="subscribe__form--input"  
+                name="email" 
+                type="email" 
+                placeholder="Taper votre email ..." 
+                onBlur={e => handleBlur(e)} 
+                onChange={e => handleChange(e)} 
+                value={formValues.email} 
+            />
+            <input 
+                id="username" 
+                className="subscribe__form--input" 
+                name="username" type="username" 
+                placeholder="Tapez votre username " 
+                onBlur={e => handleBlur(e)} 
+                onChange={e => handleChange(e)} 
+                value={formValues.username}
+            />
+            <button 
+                className="btn btn-success" 
+                type="submit"  
+                onClick={e => handleClick(e)}>
+                    Valider
+            </button>
         </form>
     )
 }
