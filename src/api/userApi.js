@@ -3,18 +3,7 @@ const headers = {
     'Accept': 'application/json'
 }
 
-// async function ajaxCall(settings){
-//         let data = null;
-//         let response = await fetch(settings.url,{
-//             method: settings.method,
-//             mode: settings.mode,
-//             headers: settings.headers,
-//             body: settings.payload
-//         });
-//         data = await response.json();
-//         return data;
 
-// }
 
 //create User
 async function createUser(url,body) {
@@ -26,23 +15,35 @@ async function createUser(url,body) {
     })
 
     let data = await response.json();
-    console.log(data);
     return data;
+    
 }
 
 
 //get User
 async function getUser(url,body){
-   let response = fetch(url,{
+   let response = await fetch(url,{
         method: 'GET',
         headers,
         body: JSON.stringify(body)
     });
     
-    let data = response.json();
+    let data = await response.json();
+
     return data;
 }
 
+//getUserByUsername
+async function getUserByUsername(url,body){
+    let res = await fetch(url,{
+         mode: 'cors',
+         method: 'POST',
+         headers:headers,
+         body
+    });
+
+    return res;
+ }
 //get all Users
 async function getUsers(){
     let response = await fetch('https://test-seven.site/users',{
@@ -76,4 +77,4 @@ async function deleteUser(url,userId) {
     return data;
 }
 
-export {createUser,getUser,updateUser,deleteUser,getUsers}; 
+export {createUser,getUser, getUserByUsername,updateUser,deleteUser,getUsers}; 

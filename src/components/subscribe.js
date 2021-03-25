@@ -1,11 +1,12 @@
 import SubscribeForm from './subscribeForm'
+import withPortal from './Portal'
 
 function Subscribe () {
-    return (
+    return withPortal(
         <>
-            <h1 className="title">Hi i'm Subscribe Page</h1>
             <SubscribeForm />
-        </>
+        </>,
+        document.getElementById('main')
     )
 }
 

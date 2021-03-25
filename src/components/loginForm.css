@@ -1,7 +1,7 @@
 .form{
     display: flex;
     flex-direction: column;
-    margin: 2rem auto 0 auto;
+    margin: 0 auto;
     width:70%;
     max-width: 400px;
     border-radius: 4px;
@@ -15,10 +15,23 @@
 }
 
 .form--input{
-    margin-bottom: 1.25rem;  
+    margin-bottom: 1.75rem;  
 }
 
+.form--separator{
+    line-height:0.1rem;
+    background-color: #bbbbbb;
+    text-align: center;
+    width:99%;
+    margin:0 auto 2.5rem auto;
+}
 
+.form--separator-text{
+    position:relative;
+    top: -3px;
+    padding:0 6px;
+    background-color: white;
+}
 
 .form--title{
     font-size:115%;
@@ -42,4 +55,8 @@
 .remember__checkbox{
     margin-right:.5rem;
     margin-left : .125rem;
+}
+
+.btn {
+    margin-bottom: 2.5rem;
 }

@@ -1,12 +1,14 @@
 import LoginForm from './loginForm'
+import {createPortal} from 'react-dom'
 
-function Login () {
-    return (
-        <>
-            <h1 className="title">Hi i'm Login Page</h1>
-            <LoginForm />
-        </>
-    )
+
+function Login (props) {
+
+        return createPortal(
+        
+                <LoginForm loginprops = {props} />
+                ,document.getElementById('main')
+            )
 }
 
 export default Login;

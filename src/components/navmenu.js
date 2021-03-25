@@ -1,13 +1,13 @@
 import { Link} from 'react-router-dom'
 import './navmenu.css'
 import logo from '../img/7-fallen-logo.png'
-import Audio from './audio'
+
 function Menu () {
     return (
         <ul className="menu">
                 <li className="menu-item">
                     <p>Version 1.0.0</p>
-                    <Audio/>
+
                 </li>
             <li>
                 <Link className="menu__link" to="/">
