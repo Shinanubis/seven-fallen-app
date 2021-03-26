@@ -64,3 +64,10 @@
 .btn__submit{
     margin-bottom: 2.5rem;
 }
+
+.social__icons--list{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    margin:0 auto;
+}

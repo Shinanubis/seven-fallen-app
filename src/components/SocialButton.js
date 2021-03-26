@@ -3,8 +3,7 @@ import './SocialButton.css'
 const SocialButton = (props) => {
     return (
         <button style={{backgroundColor:props.bgcolor}}className="btn btn__social">
-            {props.icon}
-            {props.text}
+            {props.children}
         </button>
     )
 }

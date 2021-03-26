@@ -1,7 +1,7 @@
 import React from 'react'
 import FacebookLogin from 'react-facebook-login'
 import './FBButton.css'
-import {ImFacebook} from 'react-icons'
+import {ImFacebook} from 'react-icons/im'
 import dotenv from 'dotenv'
 dotenv.config();
 
@@ -31,8 +31,8 @@ function FBButton(props){
                 fields="name,email,picture"
                 onClick={componentClicked}
                 callback={responseFacebook}
-                textButton="Sign on Facebook"
-                icon="fa-facebook"
+                textButton=""
+                icon={<ImFacebook className={"icons facebook__icon"}/>}
             />
         </>
     );
