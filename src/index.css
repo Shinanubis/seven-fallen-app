@@ -87,7 +87,11 @@ code {
 }
 
 .btn{
-  padding: .60rem .60rem;
+  margin-bottom: 1.5rem;
+  padding:1.75vw 0;
+  font-family: Helvetica,sans-serif;
+  font-size:4vw;
+  color:rgb(46, 46, 46);
   width: 99%;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -127,4 +131,29 @@ code {
 .danger{
   background-color:rgba(231, 48, 42, 0.582);
   border: 2px solid rgba(231, 48, 42, 0.151);
+}
+
+@media screen and (min-width: 480px){
+
+}
+
+@media screen and (min-width: 640px){
+  .btn{
+      padding:1.5vw 0;
+      font-size:3vw
+  }
+}
+
+@media screen and (min-width: 920px){
+  .btn{
+    padding:1.125vw 0;
+    font-size:2.25vw
+  }
+}
+
+@media screen and (min-width: 1240px){
+  .btn{
+    padding:.6vw 0;
+    font-size:1.25vw
+  }
 }
