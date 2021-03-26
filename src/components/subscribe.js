@@ -1,12 +1,9 @@
 import SubscribeForm from './subscribeForm'
-import withPortal from './Portal'
+
 
 function Subscribe () {
-    return withPortal(
-        <>
+    return (
             <SubscribeForm />
-        </>,
-        document.getElementById('main')
     )
 }
 

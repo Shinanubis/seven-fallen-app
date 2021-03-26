@@ -1,4 +1,6 @@
 import './navbar.css'
+import Header from '../layouts/Header'
+import Main from '../layouts/Main'
 import Menu from './navmenu'
 import Landing from './landing'
 import Login from './login'
@@ -39,10 +41,12 @@ function Nav() {
 
     return(
         <Router>
-
-            <nav className="navbar">
-               < Menu />
-            </nav>
+            <Header>
+                <nav className="navbar">
+                   < Menu />
+                </nav>
+            </Header>
+            <Main>
             <Switch>
                 {pages.map((elmt, index) => (
                     <Route 
@@ -54,6 +58,7 @@ function Nav() {
                     />
                 ))}
             </Switch>
+            </Main>
         </Router>
     )
 }
