@@ -5,10 +5,6 @@ import logo from '../img/7-fallen-logo.png'
 function Menu () {
     return (
         <ul className="menu">
-                <li className="menu-item">
-                    <p>Version 1.0.0</p>
-
-                </li>
             <li>
                 <Link className="menu__link" to="/">
                     <img className="menu__logo" src={logo} alt="Logo de 7Fallen"/>

@@ -26,8 +26,7 @@
 }
 
 .menu__logo{
-    margin: 0 2rem;
-    height: 88px;
+    height: 10vw;
 }
 
 .menu__connect{
@@ -36,4 +35,22 @@
 
 .menu__connect--link{
     color: var(--white);
+}
+
+@media screen and (min-width: 640px){
+    .menu__logo{
+        height: 8vw;
+    }
+}
+
+@media screen and (min-width: 920px){
+    .menu__logo{
+        height: 6vw;
+    }
+}
+
+@media screen and (min-width: 1240px){
+    .menu__logo{
+        height: 4vw;
+    }
 }
