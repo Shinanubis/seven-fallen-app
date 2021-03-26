@@ -86,8 +86,9 @@ code {
   width:100%;
 }
 
-.btn,.FBButton{
-  padding:.75rem 0;
+.btn{
+  padding: .96rem .60rem;
+  width: 99%;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

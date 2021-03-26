@@ -1,10 +1,11 @@
 import React from 'react'
 import FacebookLogin from 'react-facebook-login'
 import './FBButton.css'
+import {ImFacebook} from 'react-icons'
 import dotenv from 'dotenv'
 dotenv.config();
 
-function FBButton(){
+function FBButton(props){
 
     // const [settings, setSettings] = useState({
     //     isLoggedIn: false,
@@ -13,7 +14,7 @@ function FBButton(){
     //     email:'',
     //     picture:''
     // });
-
+    const bgcolor = props.bgcolor
     const componentClicked = () => {
         console.log("Clicked")
     };
@@ -22,14 +23,16 @@ function FBButton(){
 
     return (
         <>
+
             <FacebookLogin
-                cssClass = "FBButton"
+                cssClass = "btn btn__social fb-color"
                 appId={process.env.REACT_APP_FACEBOOK_ID}
                 autoLoad={false}
                 fields="name,email,picture"
                 onClick={componentClicked}
                 callback={responseFacebook}
-                textButton="Sign on Facebook" 
+                textButton="Sign on Facebook"
+                icon="fa-facebook"
             />
         </>
     );

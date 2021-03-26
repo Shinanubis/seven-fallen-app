@@ -3,6 +3,8 @@ import {useState} from 'react';
 import {getUserByUsername} from '../api/userApi';
 import {Redirect} from "react-router-dom";
 import FBButton from './FBButton';
+import SocialButton from './SocialButton';
+import {FiTwitter} from 'react-icons'
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -36,10 +38,13 @@ function Login() {
             <h2 className="form--title">Login</h2>
             <input className="form--input" id="email" name="email" type="text" placeholder="Enter your username ..." onChange={usernameInputChange} onBlur={usernameInputChange} value={usernameInput}></input>
             <input id="password" className="form--input" name="password" type="password" placeholder="Enter your password ..." onChange={passwordInputChange} onBlur={passwordInputChange} value={passwordInput}></input>       
-            <button className="btn btn-success" type="submit">Envoyer</button>
+            <button className="btn btn-success btn__submit" type="submit">Envoyer</button>
             {redirection ? <Redirect to = {{pathname: redirection}}/> : ''}
             <h2 className="form--separator"><span className="form--separator-text">ou</span></h2>
-            <FBButton />
+            <FBButton bgcolor={'#3b5998'}/>
+            <SocialButton bgcolor={'#C94130'} text={'login on google'}/>
+            <SocialButton bgcolor={'#050708'} text={'login on apple'}/>
+            <SocialButton bgcolor={'#60A5E5'} text={'login on twitter'}/>
         </form>
     )
 }
