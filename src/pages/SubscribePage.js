@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import { createUser } from '../api/userApi';
-import './subscribeForm.css'
+import './SubscribePage.css'
 
 
-function SubscribeForm() {
+function SubscribePage() {
     const [formValues, setValue] = useState({
         email:'',
         username: ''
@@ -60,4 +60,4 @@ function SubscribeForm() {
     )
 }
 
-export default SubscribeForm;
+export default SubscribePage;

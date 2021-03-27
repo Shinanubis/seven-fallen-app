@@ -1,9 +1,9 @@
-import './loginForm.css';
+import './LoginPage.css';
 import {useState} from 'react';
 import {getUserByUsername} from '../api/userApi';
 import {Redirect} from "react-router-dom";
-import FBButton from './FBButton';
-import SocialButton from './SocialButton';
+import FBButton from '../components/FBButton';
+import SocialButton from '../components/SocialButton';
 import {AiOutlineGooglePlus,AiOutlineApple} from 'react-icons/ai'
 import {FiTwitter} from 'react-icons/fi'
 import dotenv from 'dotenv';

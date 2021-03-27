@@ -1,0 +1,114 @@
+.navbar{
+    width: 100%;
+    height:100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    align-items: center;
+    width: 100%;
+    height:100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.menu__bubble{
+    position:absolute;
+    top:calc(-6vh + 4px);
+    left:3vw;
+    height:calc(11vh - 1px);
+    width:calc(11vh - 1px);
+    background-color:rgb(255, 255, 255);
+    border: 1px solid #202020;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    opacity:0;
+    transition: 300ms opacity 100ms ease-in;
+    -webkit-transition: 300ms opacity 100ms ease-in;
+    -moz-transition: 300ms opacity 100ms ease-in;
+    -ms-transition: 300ms opacity 100ms ease-in;
+    -o-transition: 300ms opacity 100ms ease-in;
+    transform-origin: center center;
+}
+
+
+
+.menu__link{
+    cursor:pointer;
+}
+
+.menu__item{
+    display: flex;
+    align-items:center;
+    position:relative;
+    top:0;
+    height:100%;
+    transition:top .350s ease ;
+    -webkit-transition:top .350s ease ;
+    -moz-transition:top .350s ease ;
+    -ms-transition:top .350s ease ;
+    -o-transition:top .350s ease ;
+}
+
+
+.menu__icon{
+    color:#dfdfdf;
+    font-size: 9vw;
+    -webkit-filter: drop-shadow( 0px 0px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow( 0px 0px 2px rgba(0, 0, 0, .7));
+}
+
+
+@media screen and (min-width: 480px){
+    .menu__icon{
+        font-size: 7vw;
+    }
+}
+
+@media screen and (min-width: 680px){
+    .menu__icon{
+        font-size: 6vw;
+    }
+}
+
+@media screen and (min-width: 920px){
+    .menu__icon{
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 1240px){
+    .menu__icon{
+        font-size: 3.5vw;
+    }
+}
+
+
+/* animations && transitions */
+.move-up{
+    top:-6vh;
+    transition:top .350s ease-in-out ;
+    -webkit-transition:top .350s ease-in-out ;
+    -moz-transition:top .350s ease-in-out ;
+    -ms-transition:top .350s ease-in-out ;
+    -o-transition:top .350s ease-in-out ;
+    transform:translateY(10%);
+    -webkit-transform:translateY(10%);
+    -moz-transform:translateY(10%);
+    -ms-transform:translateY(10%);
+    -o-transform:translateY(10%);
+}
+
+.fade-in{
+    opacity:1;
+    transition:300ms opacity .1s ease-in-out ;
+    -webkit-transition:300ms opacity .1s ease-in-out ;
+    -moz-transition:300ms opacity .1s ease-in-out ;
+    -ms-transition:300ms opacity .1s ease-in-out ;
+    -o-transition:300ms opacity .1s ease-in-out ;
+}
