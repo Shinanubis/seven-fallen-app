@@ -6,8 +6,12 @@ import Header from './layouts/Header'
 import Main from './layouts/Main'
 import Menu from './components/Menu'
 
-//Router import
+//Settings import
+import {useState} from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
+
+
+//Components imports
 import Navigation from './components/Navigation'
 
 // Pages import
@@ -18,12 +22,23 @@ import ProfilePage from './pages/ProfilePage'
 import GamersPage from './pages/GamersPage'
 import ErrorPage from './pages/ErrorPage'
 
+//Context import
+import AuthenticationContext from './contexts/Context'
+
 function App() {
+  const [isAuthenticate, setIsAuthenticate] = useState(true)
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setIsAuthenticate(!isAuthenticate);
+  }
+
   const pages = [
     {
       exact: true,
       path:'/',
-      component: LandingPage
+      component: LandingPage,
+
   
     },
     {
@@ -47,27 +62,36 @@ function App() {
     },
     {
 
-      strict: true,
-      path:'/gamers',
-      component: GamersPage
+        strict: true,
+        path:'/gamers',
+        component: GamersPage
     },
     {
         component: ErrorPage
     },
   ]
-  
-  return (
-    <Router basename="/">
-      <Header>
-      </Header>
-      <Main>
-          <Navigation pages={pages}/>
-      </Main>
-      <Footer>
-          <Menu/>
-      </Footer>
-    </Router>
 
+
+
+  return (
+    <AuthenticationContext.Provider value={
+      {
+        pages: pages,
+        login: isAuthenticate,
+        setLogin: handleLogin
+      }
+    }>
+      <Router basename="/">
+        <Header>
+        </Header>
+        <Main>
+            <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
+        </Main>
+        <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
+          <Menu classes={isAuthenticate ? "navbar" : "navbar h-0 fade-out"}/>
+        </Footer>
+      </Router>
+    </AuthenticationContext.Provider>
   );
 }
 

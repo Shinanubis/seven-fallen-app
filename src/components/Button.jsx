@@ -1,17 +1,20 @@
 import React from 'react'
-
 const Button = (props) => {
-    const {classes,bgcolor,color, size} = props
+    const {classes,bgcolor,color, size,onClick, text} = props
+    
     return (
+
         <button 
-            className={classes}
-            style={{"backgroundColor":bgcolor ? bgcolor : "var(--dark-grey)",
-                    "color":color ? color : "var(--white)",
-                    "width":size ?? size + "%" 
-                   }}
             type="button"
+            className = {classes}
+            style={{
+                backgroundColor:bgcolor ?? bgcolor,
+                color:color ?? color,
+                width: size ?? size
+            }}
+            onClick={e => onClick(e)}
         >
-            {props.text}
+        {text}
         </button>
     )
 }

@@ -7,8 +7,8 @@ import './Menu.css'
 
 
 
-function Menu () {
-    
+function Menu (props) {
+    const {classes} = props;
     const initialState = {
         item__1: false,
         item__2: false,
@@ -28,7 +28,7 @@ function Menu () {
     }
 
     return (
-        <nav className="navbar">
+        <nav className={classes}>
             <ul className="menu" >
                 <div className="menu__bubble"></div>
                 <li id="item__1" onClick={handleClick} className={isClicked.item__1 ? "menu__item move-up" : "menu__item"}>

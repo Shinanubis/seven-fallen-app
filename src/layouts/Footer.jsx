@@ -2,8 +2,9 @@ import React from 'react'
 import './Footer.css'
 
 const Footer = (props) => {
+    const {classes} = props; 
     return (
-        <footer className="footer">
+        <footer className={classes}>
             {props.children}
         </footer>
     )

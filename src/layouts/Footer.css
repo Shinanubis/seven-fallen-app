@@ -1,6 +1,11 @@
 .footer{
     display:flex;
     align-items: center;
-    background-color: #080808;
-    height:12vh;
+    position :relative;
+    height: 8vh;
+    transition: height 350s ease;
+    -webkit-transition: height 350s ease;
+    -moz-transition: height 350s ease;
+    -ms-transition: height 350s ease;
+    -o-transition: height 350s ease;
 }
