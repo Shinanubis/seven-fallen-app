@@ -28,11 +28,10 @@ import AuthenticationContext from './contexts/Context'
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false)
-  let history = useHistory()
   const handleLogin = (e,cb) => {
     e.preventDefault();
-    cb('/')
-    return setIsAuthenticate(true);
+    cb('/decks')
+    setIsAuthenticate(true);
   }
 
   const pages = [
@@ -85,8 +84,7 @@ function App() {
       {
         pages: pages,
         login: isAuthenticate,
-        setLogin: handleLogin,
-        hookHistory: useHistory
+        setLogin: handleLogin
       }
     }>
       <Router basename="/">
@@ -96,7 +94,7 @@ function App() {
             <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
         </Main>
         <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
-          <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"}/>
+          <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"} logged={isAuthenticate} />
         </Footer>
       </Router>
     </AuthenticationContext.Provider>

@@ -1,5 +1,4 @@
 import React from 'react'
-import AuthenticationContext from '../contexts/Context'
 import Button from '../components/Button'
 import { useHistory } from "react-router-dom";
 
