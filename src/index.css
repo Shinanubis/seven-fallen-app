@@ -156,15 +156,6 @@ code {
   -o-transition: height 1s ease;
 }
 
-.fade-out{
-  opacity: 0;
-  transition: height 1s ease;
-  -webkit-transition: height 1s ease;
-  -moz-transition: height 1s ease;
-  -ms-transition: height 1s ease;
-  -o-transition: height 1s ease;
-}
-
 /* Media queries */
 
 @media screen and (min-width: 480px){
@@ -197,6 +188,28 @@ code {
     padding:.5vw 0;
     font-size:1vw
   }
+}
+
+/* Transitions Effects */
+
+.fade-out{
+  opacity: 0;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+}
+
+
+.move-down{
+  position:absolute;
+
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
 }
 
 

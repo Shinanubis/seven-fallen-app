@@ -3,11 +3,11 @@
     height:100%;
     width: 100%;
     background-color: var(--dark-grey);
-    transition: all 300ms ease;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
+    transition: bottom 600ms ease,opacity 300ms ease;
+    -webkit-transition: bottom 600ms ease,opacity 300ms ease;
+    -moz-transition: bottom 600ms ease,opacity 300ms ease;
+    -ms-transition: bottom 600ms ease,opacity 300ms ease;
+    -o-transition: bottom 600ms ease,opacity 300ms ease;
 }
 
 .menu {

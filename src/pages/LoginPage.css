@@ -10,12 +10,30 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    background-color:white;
+    background-color:var(--dark-grey);
     box-shadow: 0 0 20px -5px #acacac;
 }
 
 .form--input{
-    margin-bottom: 1.75rem;  
+    outline:none;
+    margin-bottom: 1.75rem;
+    background-color: var(--dark-grey);
+    font-size: 1.125rem;
+    color:var(--white);
+    border:none;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid var(--dark-white);
+    padding-left: 0;
+}
+
+input.form--input:focus{
+    border:none;
+    outline:none;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid var(--dark-white);
+    color:var(--white);
 }
 
 .form--separator{
@@ -29,13 +47,13 @@
 .form--separator-text{
     position:relative;
     top: -3px;
-    padding:0 6px;
-    background-color: white;
+    padding:0 20px;
+    background-color: var(--dark-grey);
 }
 
 .form--title{
     font-size:115%;
-    color: #454545;
+    color:var(--white);
     margin-bottom:1rem;
 }
 
@@ -59,7 +77,10 @@
 
 
 .btn__submit{
+    width:100%;
     margin-bottom: 2.5rem;
+    background-color: var(--white);
+    color:var(--black)
 }
 
 .social__icons--list{

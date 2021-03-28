@@ -1,25 +1,23 @@
 import React from 'react'
 import AuthenticationContext from '../contexts/Context'
 import Button from '../components/Button'
+import { useHistory } from "react-router-dom";
 
 const LandingPage = (props) => {
- const handleSubscribe = () => {
-     return;
- }
+    let history = useHistory();
+    const handleConnexion = (e,uri) => {
+        e.preventDefault();
+        history.push(uri)
+    }
+    const handleSubscribe = () => {
+        return;
+    }
+ 
     return (
-        <AuthenticationContext.Consumer>
-        {
-             obj => {
-                 return (
-                     <>
-                         <Button classes="btn" text="Connexion" onClick={e => obj.setLogin(e)}/>
-                         <Button classes="btn" text="Subscribe" onClick={handleSubscribe}/>
-                     </>
-                 )
-             }
-        }
-        </AuthenticationContext.Consumer> 
-
+            <>
+                <Button classes="btn" text="Connexion" onClick={e => handleConnexion(e,'/login')}/>
+                <Button classes="btn" text="Subscribe" onClick={handleSubscribe}/>
+            </>
     )
 }
 
