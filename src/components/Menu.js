@@ -11,7 +11,7 @@ function Menu (props) {
     const {classes, logged} = props;
     const initialState = {
         item__1: false,
-        item__2: false,
+        item__2: logged,
         item__3: false,
         item__4: false
     }
@@ -29,7 +29,7 @@ function Menu (props) {
 
     return (
         <nav className={classes}>
-            {console.log(props.logged)}
+            
             <ul className="menu" >
                 <div className="menu__bubble"></div>
                 <li id="item__1" onClick={handleClick} className={isClicked.item__1 ? "menu__item move-up" : "menu__item"}>
@@ -37,8 +37,8 @@ function Menu (props) {
                         <RiSettings3Fill className="menu__icon"/>
                     </Link>
                 </li>
-                <li id="item__2" className={isClicked.item__2 || logged === true ? "menu__item move-up" : "menu__item"} onClick={handleClick}>
-                    <Link   id="item__2" className="menu__link" to="/login">
+                <li id="item__2" className={isClicked.item__2 ? "menu__item move-up" : "menu__item"} onClick={handleClick}>
+                    <Link   id="item__2" className="menu__link" to="/decks">
                         <RiFileList2Fill className="menu__icon"/>
                     </Link>
                 </li>
