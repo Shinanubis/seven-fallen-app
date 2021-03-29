@@ -3,7 +3,7 @@
     align-items: flex-start;
     background-color: var(--dark-grey);
     position:relative;
-    height: 12vh;
+    height: calc(12vh + 50px);
     transition: height 800ms ease;
     -webkit-transition: height 800ms ease;
     -moz-transition: height 800ms ease;
