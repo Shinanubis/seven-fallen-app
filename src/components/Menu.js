@@ -11,7 +11,7 @@ function Menu (props) {
     const {classes, logged} = props;
     const initialState = {
         item__1: false,
-        item__2: logged,
+        item__2: true,
         item__3: false,
         item__4: false
     }
@@ -21,6 +21,7 @@ function Menu (props) {
     const handleClick = (e) => {
            e.persist()
            const field = e.currentTarget.id
+           console.log(isClicked)
            setIsClicked(initialState)
            setIsClicked(prevstate => ({...prevstate,
                [field]: true
@@ -32,7 +33,7 @@ function Menu (props) {
             
             <ul className="menu" >
                 <div className="menu__bubble"></div>
-                <li id="item__1" onClick={handleClick} className={isClicked.item__1 ? "menu__item move-up" : "menu__item"}>
+                <li id="item__1" className={isClicked.item__1 ? "menu__item move-up" : "menu__item"} onClick={handleClick}>
                     <Link className="menu__link" to="/profile">
                         <RiSettings3Fill className="menu__icon"/>
                     </Link>

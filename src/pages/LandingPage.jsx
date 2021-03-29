@@ -3,11 +3,14 @@ import Button from '../components/Button'
 import { useHistory } from "react-router-dom";
 
 const LandingPage = (props) => {
+    
     let history = useHistory();
+
     const handleConnexion = (e,uri) => {
         e.preventDefault();
         history.push(uri)
     }
+
     const handleSubscribe = () => {
         return;
     }
