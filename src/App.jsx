@@ -34,6 +34,8 @@ function App() {
     setIsAuthenticate(true);
   }
 
+  let root = document.documentElement;
+
   const pages = [
     {
       exact: true,
@@ -87,6 +89,11 @@ function App() {
         setLogin: handleLogin
       }
     }>
+      {
+        root.addEventListener("load", e => {
+          root.style.setProperty('--inner-height', window.innerHeight + "px");
+        })
+      }
       <Router basename="/">
         <Header>
         </Header>

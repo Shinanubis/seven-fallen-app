@@ -5,6 +5,7 @@
   --light-grey: #606060;
   --dark-white : #afafaf;
   --white : #dfdfdf;
+  --inner-height: 100vh
 }
 
 html{
