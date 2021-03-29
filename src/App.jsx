@@ -91,7 +91,7 @@ function App() {
     }>
       {
         root.addEventListener("load", e => {
-          root.style.setProperty('--inner-height', window.innerHeight + "px");
+          root.style.setProperty('--inner-height', (window.innerHeight - 4) + "px");
         })
       }
       <Router basename="/">
