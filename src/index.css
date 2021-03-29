@@ -9,6 +9,7 @@
 
 html{
   color:var(--white);
+  height: -webkit-fill-available;
 }
 
 html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input{
@@ -25,7 +26,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   background-color: var(--white);
   overflow: hidden;
 }
