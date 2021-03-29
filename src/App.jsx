@@ -26,6 +26,9 @@ import LoginPage from './pages/LoginPage'
 //Context import
 import AuthenticationContext from './contexts/Context'
 
+//Utilities import
+import VhInPixels from './utilities/VhInPixels'
+
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false)
   const handleLogin = (e,cb) => {
@@ -35,7 +38,6 @@ function App() {
   }
 
   let root = document.documentElement;
-  let vh = window.innerHeight * 0.01;
   const pages = [
     {
       exact: true,
@@ -89,11 +91,7 @@ function App() {
         setLogin: handleLogin
       }
     }>
-      {
-        window.addEventListener("load",(e) => {
-          document.documentElement.style.setProperty('--vh', `${vh}px`);
-        })
-      }
+      <VhInPixels/>
       <Router basename="/">
         <Header>
         </Header>
