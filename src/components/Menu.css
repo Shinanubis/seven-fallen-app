@@ -97,9 +97,8 @@
 }
 
 
-/* animations && transitions */
 .move-up{
-    top:-6vh;
+    top:-12px;
     transition:top .350s ease-in-out ;
     -webkit-transition:top .350s ease-in-out ;
     -moz-transition:top .350s ease-in-out ;
@@ -110,13 +109,13 @@
     -moz-transform:translateY(10%);
     -ms-transform:translateY(10%);
     -o-transform:translateY(10%);
-}
-
-.fade-in{
+  }
+  
+  .fade-in{
     opacity:1;
     transition:300ms opacity .1s ease-in-out ;
     -webkit-transition:300ms opacity .1s ease-in-out ;
     -moz-transition:300ms opacity .1s ease-in-out ;
     -ms-transition:300ms opacity .1s ease-in-out ;
     -o-transition:300ms opacity .1s ease-in-out ;
-}
+  }

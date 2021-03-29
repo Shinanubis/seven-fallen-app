@@ -1,8 +1,13 @@
 import React from 'react'
+import DecksList from '../components/DecksList'
+import DecksContext from '../contexts/DecksContext'
+
 
 const DecksPage = () => {
     return (
-        <h1 style={{"color":"black"}}>Hey i'm DecksPage</h1>
+        <DecksContext.Provider value={DecksContext._currentValue}>
+            <DecksList/>
+        </DecksContext.Provider>
     )
 }
 

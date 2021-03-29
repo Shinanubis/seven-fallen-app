@@ -25,6 +25,7 @@ import LoginPage from './pages/LoginPage'
 
 //Context import
 import AuthenticationContext from './contexts/Context'
+import DecksContext from './contexts/DecksContext'
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels'
@@ -37,7 +38,6 @@ function App() {
     setIsAuthenticate(true);
   }
 
-  let root = document.documentElement;
   const pages = [
     {
       exact: true,
@@ -84,6 +84,7 @@ function App() {
 
 
   return (
+
     <AuthenticationContext.Provider value={
       {
         pages: pages,
@@ -103,6 +104,7 @@ function App() {
         </Footer>
       </Router>
     </AuthenticationContext.Provider>
+
   );
 }
 

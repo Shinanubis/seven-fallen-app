@@ -1,0 +1,30 @@
+.deck__block{
+    width:90%;
+    height: calc(16 * var(--vh));
+    background-color:var(--dark-grey);
+    margin:.5rem auto;
+}
+
+.deck__block:focus{
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+}
+
+.deck__inner__left{
+
+}
+
+.deck__inner__right{
+
+}
+
+.deck__title{
+
+}
+
+.deck__infos{
+
+}
