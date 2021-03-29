@@ -5,7 +5,8 @@
   --light-grey: #606060;
   --dark-white : #afafaf;
   --white : #dfdfdf;
-  --inner-height: 100vh
+  --inner-height: 100vh;
+  --vh: 100;
 }
 
 html{
@@ -27,7 +28,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
-
   min-height: -webkit-fill-available;
   background-color: var(--white);
   overflow: hidden;
@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height:var(--inner-height);
+  height:calc(100 * var(--vh));
 }
 
 li{

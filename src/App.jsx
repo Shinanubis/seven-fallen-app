@@ -35,7 +35,7 @@ function App() {
   }
 
   let root = document.documentElement;
-
+  let vh = window.innerHeight * 0.01;
   const pages = [
     {
       exact: true,
@@ -90,9 +90,8 @@ function App() {
       }
     }>
       {
-        root.addEventListener("load", e => {
-          setTimeout(window.scrollTo(0,0),100)
-          root.style.setProperty('--inner-height', document.documentElement?.clientHeight || window.innerHeight + "px");
+        window.addEventListener("load",(e) => {
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
         })
       }
       <Router basename="/">
