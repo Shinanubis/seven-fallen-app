@@ -92,7 +92,7 @@ function App() {
       {
         root.addEventListener("load", e => {
           setTimeout(window.scrollTo(0,0),100)
-          root.style.setProperty('--inner-height', (window.innerHeight - 4) + "px");
+          root.style.setProperty('--inner-height', document.documentElement?.clientHeight || window.innerHeight + "px");
         })
       }
       <Router basename="/">
