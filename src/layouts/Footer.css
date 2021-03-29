@@ -1,8 +1,9 @@
 .footer{
     display:flex;
-    align-items: center;
+    align-items: flex-start;
+    background-color: var(--dark-grey);
     position:relative;
-    height: 8vh;
+    height: calc(8vh + 52px + 1rem);
     transition: height 800ms ease;
     -webkit-transition: height 800ms ease;
     -moz-transition: height 800ms ease;

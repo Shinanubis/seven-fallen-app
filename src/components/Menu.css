@@ -1,8 +1,5 @@
 .navbar{
     width: 100%;
-    height:100%;
-    width: 100%;
-    background-color: var(--dark-grey);
     transition: bottom 600ms ease,opacity 300ms ease;
     -webkit-transition: bottom 600ms ease,opacity 300ms ease;
     -moz-transition: bottom 600ms ease,opacity 300ms ease;
@@ -18,7 +15,7 @@
     width: 100%;
     height:100%;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 }
 
 .menu__bubble{
