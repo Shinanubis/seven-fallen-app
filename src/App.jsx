@@ -8,8 +8,7 @@ import Menu from './components/Menu'
 
 //Settings import
 import {useState} from 'react'
-import {BrowserRouter as Router, useHistory} from 'react-router-dom'
-
+import {BrowserRouter as Router} from 'react-router-dom'
 
 //Components imports
 import Navigation from './components/Navigation'
@@ -22,10 +21,10 @@ import ProfilePage from './pages/ProfilePage'
 import GamersPage from './pages/GamersPage'
 import ErrorPage from './pages/ErrorPage'
 import LoginPage from './pages/LoginPage'
+import SettingsDeckPage from './pages/SettingsDeckPage'
 
 //Context import
 import AuthenticationContext from './contexts/Context'
-import DecksContext from './contexts/DecksContext'
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels'
@@ -69,6 +68,12 @@ function App() {
         strict: true,
         path:'/subscribe',
         component: CardsPage
+    },
+    {
+
+        strict: true,
+        path:'/deck/:name',
+        component: SettingsDeckPage
     },
     {
 

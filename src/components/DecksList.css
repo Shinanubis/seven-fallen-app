@@ -1,14 +1,5 @@
 .deck__list{
     position: relative;
-    height: calc(75 * var(--vh));
+    height: calc(65 * var(--vh));
     overflow-y: scroll;
-}
-
-.deck__list-layer{
-    position:fixed;
-    top:calc(78 * var(--vh));
-    width:100%;
-    height: 10%;
-    background-image:linear-gradient(transparent, var(--white),var(--white));
-    z-index:10;
 }

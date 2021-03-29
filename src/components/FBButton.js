@@ -14,7 +14,7 @@ function FBButton(props){
     //     email:'',
     //     picture:''
     // });
-    const bgcolor = props.bgcolor
+
     const componentClicked = () => {
         console.log("Clicked")
     };

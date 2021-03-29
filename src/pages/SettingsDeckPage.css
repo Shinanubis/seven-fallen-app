@@ -1,0 +1,6 @@
+.deck__setting--title{
+    margin:0 auto;
+    color: var(--black);
+    text-align:center;
+    width:60%;
+}

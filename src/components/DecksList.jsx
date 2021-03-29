@@ -9,11 +9,9 @@ const DecksList = () => {
         <div className="deck__list">
             {
                 data.map((elmt,index) => 
-                    (<Deck key={index} title={elmt.title} infos={elmt.infos}/>)
-                )
-                
+                    (<Deck key={index} title={elmt.title} infos={elmt.infos} EC={elmt.EC}/>)
+                )             
             }
-        <div className="deck__list-layer"></div> 
         </div>
     )
 }

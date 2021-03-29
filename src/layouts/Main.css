@@ -3,4 +3,5 @@ main {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    margin-top: 4rem;
 }

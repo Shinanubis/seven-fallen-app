@@ -8,7 +8,7 @@ import './Menu.css'
 
 
 function Menu (props) {
-    const {classes,logged} = props;
+    const {classes} = props;
     const initialState = {
         item__1: false,
         item__2: false,
@@ -29,7 +29,7 @@ function Menu (props) {
     }
 
     useEffect(() => {
-        setIsClicked({...isClicked,['item__2']:true})
+        setIsClicked({item__2:true})
     },[])
 
     return (
