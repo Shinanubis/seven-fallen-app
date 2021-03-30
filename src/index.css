@@ -100,11 +100,11 @@ code {
   flex-direction: column;
   margin: 0 auto;
   width:100%;
-  height:calc(88 * var(--vh));
+  height:calc(90 * var(--vh));
   padding: 2rem 1rem;
   background-color:var(--dark-grey);
   box-shadow: 0 0 20px -5px #acacac;
-  overflow-y:scroll
+  overflow-y:auto
 }
 
 .form--input{
