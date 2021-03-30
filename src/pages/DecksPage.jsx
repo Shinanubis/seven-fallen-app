@@ -53,9 +53,6 @@ const DecksPage = () => {
     ]
 
     const [decksList, dispatchList] = useReducer(reducer,init);
-    const handleAdd = () => {
-
-    }
 
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>

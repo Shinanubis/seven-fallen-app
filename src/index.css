@@ -49,22 +49,9 @@ a {
   text-decoration:none;
 }
 
-fieldset{
-  display: flex;
-  flex-direction: column;
-  padding:.5rem auto 0 auto;
-  font-size:1.25rem;
-  border: 2px solid var(--light-grey);
-  margin:.75rem;
-}
-
-legend{
-  padding: 0 1rem;
-  text-align: 1.25;
-}
-
 input{
-  padding: .65rem .75rem;
+  padding:0 0 .65rem 0;
+  margin-bottom:1rem;
   border-radius:3px;
   border: 1px solid #e2e2e2;
   -webkit-border-radius:3px;
@@ -76,7 +63,7 @@ input{
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=email]:focus{
-  border:2px solid rgba(47, 168, 248, 0.445);
+
   outline: none;
   transition: 45ms;
   -webkit-transition: 45ms;
@@ -98,41 +85,40 @@ code {
 .form{
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   width:100%;
-  height:calc(90 * var(--vh));
+  height:calc(70 * var(--vh));
   padding: 2rem 1rem;
-  background-color:var(--dark-grey);
-  box-shadow: 0 0 20px -5px #acacac;
   overflow-y:auto
 }
 
 .form--input{
   outline:none;
   margin-bottom: 2vh;
-  background-color: var(--dark-grey);
+  background-color: var(--white);
   font-size: 1.125rem;
-  color:var(--white);
+  color:var(--dark-grey);
   border:none;
   border-left: 2px solid transparent;
   border-right: 2px solid transparent;
-  border-bottom: 2px solid var(--dark-white);
-  padding-left: 0;
+  border-bottom: 2px solid var(--dark-grey);
 }
 
 .form--input:last-child{
   margin-bottom:4vh;
 }
 
-.form__radio--group{
+.form__radio--button{
   margin-right: 1rem;
 }
 
 .form__radio--label{
   margin-right: .5rem;
+  color:var(--dark-grey);
 }
 
-input.form--input:focus{
+.form--input:focus{
   border:none;
   outline:none;
   border-left: 2px solid transparent;

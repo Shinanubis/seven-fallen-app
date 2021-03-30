@@ -1,0 +1,30 @@
+.profile__section{
+    display: flex;
+    flex-direction:column;
+    width: 80%;
+}
+
+.profile__section--title{
+    margin-bottom: .75rem;
+    font-size: 2.75vh;
+    color:var(--dark-grey);
+}
+
+.profile__heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--dark-grey)
+}
+
+.profile__avatar{
+    font-size:20vh;
+}
+
+.profile__username{
+    font-size:3.5vh;
+}
+
+.profile__userid{
+    font-size:3vh;
+}
