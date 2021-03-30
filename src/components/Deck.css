@@ -48,6 +48,9 @@
 }
 
 .action__delete,.action__modify{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     font-size:1.25rem;
     color:var(--white)
 }

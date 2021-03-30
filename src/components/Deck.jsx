@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {useState, useContext} from 'react'
+import DecksContext from '../contexts/DecksContext'
 import './Deck.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {title, infos,EC} = props
+    const {title, infos,EC,data} = props
+    const [decksList,dispatchList] = useContext(DecksContext)
+    const [deckInfos, setDeckInfos] = useState(data)
 
+    const handleRemove = (id) => {
+        dispatchList({type: 'remove', id});
+    }
+
+    
     return (
         <div className="deck__block">
             <div className="deck__inner--left">
@@ -19,7 +27,7 @@ const Deck = (props) => {
                     <span className="deck__ec--value">{EC}</span>
                 </div>
                 <div className="inner__right--actions">
-                    <div className="action__delete"><AiFillCloseCircle/></div>
+                    <div className="action__delete"  onClick={() => handleRemove(deckInfos.id)}><AiFillCloseCircle/></div>
                     <Link className="action__modify" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>
