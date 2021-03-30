@@ -135,6 +135,11 @@ code {
   box-shadow: 0 0 20px -5px #c7c7c7;
 }
 
+.page__test{
+  text-align:center;
+  color:rgb(46, 46, 46);
+}
+
 .info{
   background-color:rgba(255, 255, 0, 0.582);
   border: 2px solid yellow;

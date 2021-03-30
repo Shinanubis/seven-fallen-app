@@ -22,6 +22,7 @@ import GamersPage from './pages/GamersPage'
 import ErrorPage from './pages/ErrorPage'
 import LoginPage from './pages/LoginPage'
 import SettingsDeckPage from './pages/SettingsDeckPage'
+import AddingDeckPage from './pages/AddingDeckPage'
 
 //Context import
 import AuthenticationContext from './contexts/Context'
@@ -74,6 +75,12 @@ function App() {
         strict: true,
         path:'/deck/:name',
         component: SettingsDeckPage
+    },
+    {
+
+      strict: true,
+      path:'/add/deck',
+      component: AddingDeckPage
     },
     {
 
