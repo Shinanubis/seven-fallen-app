@@ -90,7 +90,8 @@ code {
   width:100%;
   height:calc(70 * var(--vh));
   padding: 2rem 1rem;
-  overflow-y:auto
+  overflow-y:auto;
+  -webkit-overflow-scrolling: auto;
 }
 
 .form--input{
