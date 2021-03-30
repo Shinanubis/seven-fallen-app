@@ -14,7 +14,7 @@ html{
   height: -webkit-fill-available;
 }
 
-html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input{
+html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input,form{
   margin:0;
   padding: 0;
   border:0;
@@ -49,6 +49,20 @@ a {
   text-decoration:none;
 }
 
+fieldset{
+  display: flex;
+  flex-direction: column;
+  padding:.5rem auto 0 auto;
+  font-size:1.25rem;
+  border: 2px solid var(--light-grey);
+  margin:.75rem;
+}
+
+legend{
+  padding: 0 1rem;
+  text-align: 1.25;
+}
+
 input{
   padding: .65rem .75rem;
   border-radius:3px;
@@ -78,6 +92,54 @@ code {
 
 
 /* Utilities */
+.row{
+  display: flex;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width:100%;
+  height:calc(88 * var(--vh));
+  padding: 2rem 1rem;
+  background-color:var(--dark-grey);
+  box-shadow: 0 0 20px -5px #acacac;
+  overflow-y:scroll
+}
+
+.form--input{
+  outline:none;
+  margin-bottom: 2vh;
+  background-color: var(--dark-grey);
+  font-size: 1.125rem;
+  color:var(--white);
+  border:none;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid var(--dark-white);
+  padding-left: 0;
+}
+
+.form--input:last-child{
+  margin-bottom:4vh;
+}
+
+.form__radio--group{
+  margin-right: 1rem;
+}
+
+.form__radio--label{
+  margin-right: .5rem;
+}
+
+input.form--input:focus{
+  border:none;
+  outline:none;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid var(--dark-white);
+  color:var(--white);
+}
 
 .title{
   text-align:center;
