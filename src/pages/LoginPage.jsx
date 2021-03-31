@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import FBButton from '../components/FBButton';
 import SocialButton from '../components/SocialButton';
+import Separator from '../components/Separator'
 import {AiOutlineGooglePlus,AiOutlineApple} from 'react-icons/ai'
 import {FiTwitter} from 'react-icons/fi'
 import AuthenticationContext from "../contexts/Context"
@@ -30,11 +31,19 @@ function Login(props) {
                 obj => {
                     return (
                         <form className="form" onSubmit={e => obj.setLogin(e,history.push)}>
+                            <div className="form--section">
                             <h2 className="form--title">Login</h2>
-                            <input className="form--input" id="email" name="email" type="text" placeholder="Enter your username ..." onChange={usernameInputChange} onBlur={usernameInputChange} value={usernameInput}></input>
-                            <input id="password" className="form--input" name="password" type="password" placeholder="Enter your password ..." onChange={passwordInputChange} onBlur={passwordInputChange} value={passwordInput}></input>       
-                            <button className="btn btn__submit" type="submit">Envoyer</button>
-                            <h2 className="form--separator"><span className="form--separator-text">ou</span></h2>
+                            <input className="form--input" id="email" name="email" 
+                                   type="text" placeholder="Enter your username ..." 
+                                   onChange={usernameInputChange} onBlur={usernameInputChange} 
+                                   value={usernameInput}/>
+                            <input id="password" className="form--input" name="password" 
+                                   type="password" placeholder="Enter your password ..." 
+                                   onChange={passwordInputChange} onBlur={passwordInputChange} 
+                                   value={passwordInput}/> 
+                            </div>      
+                            <button className="btn" type="submit">Envoyer</button>
+                            <Separator />
                             <ul className="social__icons--list">
                                 <li>
                                     <FBButton bgcolor={'#3b5998'}/>

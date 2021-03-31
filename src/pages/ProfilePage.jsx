@@ -35,8 +35,8 @@ const ProfileForm = () => {
                         <h4 className="profile__username">{userInfos.contact.username}</h4>
                         <p className="profile__userid">{userInfos.contact.id}</p>
                     </div>
-                    <div className="profile__section">
-                        <h4 className="profile__section--title">Contact</h4>
+                    <div className="form--section">
+                        <h4 className="form__section--title">Contact</h4>
                         <div className="form__radio--group">
                             <div className="row">
                                 <div className="form__radio--button">
@@ -47,19 +47,23 @@ const ProfileForm = () => {
                                         <label className="form__radio--label" htmlFor="gender">M</label> 
                                         <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
                                     </div>
+                                    <div className="form__radio--button">
+                                        <label className="form__radio--label" htmlFor="gender">Autre</label> 
+                                        <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
+                                    </div>
                                 </div>
                         </div>
                         <input type="text" className="form--input" placeholder="firstname" disabled value={userInfos.contact.firstname}/>
                         <input type="text" className="form--input" placeholder="lastname" disabled value={userInfos.contact.lastname}/>
                         <input type="email" className="form--input" placeholder="email" disabled value={userInfos.contact.email}/>
                     </div>
-                    <div className="profile__section">
-                        <h4 className="profile__section--title">Coordinates</h4>
+                    <div className="form--section">
+                        <h4 className="form__section--title">Coordinates</h4>
                         <input type="text" className="form--input" placeholder="city" disabled value={userInfos.coordinates.city}/>
                         <input type="text" className="form--input" placeholder="country" disabled value={userInfos.coordinates.country}/>
                     </div>
-                    <div className="profile__section">
-                        <h4 className="profile__section--title">Préferences</h4>
+                    <div className="form--section">
+                        <h4 className="form__section--title">Préferences</h4>
                         <input type="text" className="form--input" placeholder="username" disabled/>  
                         <input type="text" className="form--input" placeholder="username" disabled/>  
                         <input type="text" className="form--input" placeholder="username" disabled/>  
