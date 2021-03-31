@@ -1,12 +1,11 @@
 import React from 'react'
-import './CardList.css'
 import Card from './Card'
 
 const List = (props) => {
     const {data} = props;
     
     return (
-        <ul className="card__list">
+        <ul className="layout__3--col">
             {
                 data.map(elmt => {
                     return (

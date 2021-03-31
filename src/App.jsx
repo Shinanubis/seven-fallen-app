@@ -23,6 +23,7 @@ import ErrorPage from './pages/ErrorPage'
 import LoginPage from './pages/LoginPage'
 import SettingsDeckPage from './pages/SettingsDeckPage'
 import AddingDeckPage from './pages/AddingDeckPage'
+import AddingCardPage from './pages/AddingCardPage'
 
 //Context import
 import AuthenticationContext from './contexts/Context'
@@ -69,6 +70,12 @@ function App() {
         strict: true,
         path:'/cards',
         component: CardsPage
+    },
+    {
+
+      strict: true,
+      path:'/add/cards',
+      component: AddingCardPage
     },
     {
 

@@ -110,7 +110,7 @@ const CardsPage = () => {
     return (
         <div className="page">
             <CardList data={cards}/>
-            <Plus to="/add/card"/>
+            <Plus to="/add/cards"/>
         </div>
     )
 }
