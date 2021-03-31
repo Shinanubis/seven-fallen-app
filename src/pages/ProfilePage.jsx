@@ -27,7 +27,8 @@ const ProfileForm = () => {
 
 
     return (
-        <>
+        <div classname="page">
+            <div className="page--container">
             <form className="form">
                     <div className="profile__heading">
                         <HiUserCircle className="profile__avatar"/>
@@ -66,7 +67,8 @@ const ProfileForm = () => {
                     </div>
                     <Button classes="btn" text="update" onClick={handleClick}/>
             </form>
-        </>
+            </div>
+        </div>
     )
 }
 
