@@ -1,8 +1,8 @@
 import React,{useReducer} from 'react'
-import {Link} from 'react-router-dom'
 import DecksContext from '../contexts/DecksContext'
 import DecksList from '../components/DecksList'
-import {GrAddCircle} from 'react-icons/gr'
+import Plus from '../components/Plus'
+
 import './DecksPage.css'
 
 function reducer(state, action){
@@ -58,7 +58,7 @@ const DecksPage = () => {
         <DecksContext.Provider value={[decksList, dispatchList]}>
             <div className="deck__page">
                 <DecksList/>
-                <Link className="deck__list--add" to="/add/deck"><GrAddCircle /></Link>
+                <Plus to="/add/deck"/>
             </div>
         </DecksContext.Provider>
     )

@@ -205,6 +205,17 @@ code {
   text-transform:uppercase;
 }
 
+.add__button{
+  position: relative;
+  font-size: 7vh;
+  text-align: center;
+  bottom: 1vh;
+}
+
+.add__button svg path {
+  stroke-width: 1px;
+}
+
 .btn-success{
   background-color:#89ec2c;
 }

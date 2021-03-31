@@ -1,5 +1,6 @@
 import React from 'react'
 import CardList from '../components/CardList'
+import Plus from '../components/Plus'
 import Image from '../../src/img/cards/merrlyn.jpg';
 
 
@@ -107,7 +108,10 @@ const CardsPage = () => {
         },
     ]
     return (
-        <CardList data={cards}/>
+        <div className="page">
+            <CardList data={cards}/>
+            <Plus to="/add/card"/>
+        </div>
     )
 }
 

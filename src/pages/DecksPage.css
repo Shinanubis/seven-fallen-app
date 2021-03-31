@@ -4,14 +4,3 @@
     justify-content: space-around;
     height: 100%;
 }
-
-.deck__list--add{
-    position: relative;
-    font-size: 8vh;
-    text-align: center;
-    bottom: 1vh;
-}
-
-.deck__list--add svg path {
-    stroke-width: 1px;
-}

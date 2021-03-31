@@ -10,7 +10,7 @@ const List = (props) => {
             {
                 data.map(elmt => {
                     return (
-                        <Card url={elmt.url} alt={elmt.alt}/>
+                        <Card key={elmt.id} url={elmt.url} alt={elmt.alt}/>
                     )
                 }
             )}
