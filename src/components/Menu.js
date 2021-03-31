@@ -48,7 +48,7 @@ function Menu (props) {
                     </Link>
                 </li>
                 <li id="item__3"  className={isClicked.item__3 ? "menu__item move-up" : "menu__item"} onClick={handleClick}>
-                    <Link className="menu__link" to="/subscribe">
+                    <Link className="menu__link" to="/cards">
                         <GrStackOverflow className="menu__icon"/>
                     </Link>
                 </li>

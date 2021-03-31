@@ -67,7 +67,7 @@ function App() {
     {
 
         strict: true,
-        path:'/subscribe',
+        path:'/cards',
         component: CardsPage
     },
     {
