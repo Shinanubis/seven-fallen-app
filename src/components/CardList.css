@@ -1,0 +1,19 @@
+.card__list{
+    display:grid;
+    background-color: black;
+    width:90%;
+    height: 80vh;
+    grid-template-columns: repeat(4,1fr);
+    overflow-y:scroll;
+    gap:12px 16px;
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    padding:1rem 1rem;
+}
+
+.card__list::after{
+    content:"";
+    height:.1rem;
+}
+
