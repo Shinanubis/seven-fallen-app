@@ -27,7 +27,7 @@ const ProfileForm = () => {
 
 
     return (
-        <div classname="page">
+        <div className="page">
             <div className="page--container">
             <form className="form">
                     <div className="profile__heading">
