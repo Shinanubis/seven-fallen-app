@@ -108,6 +108,7 @@ code {
 }
 
 .form__radio--button{
+  line-height: 1.125;
   margin-right: 1rem;
 }
 
