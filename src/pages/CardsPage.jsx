@@ -1,6 +1,6 @@
 import React from 'react'
 import CardList from '../components/CardList'
-import Image from '../../src/img/cards/sm-merrlyn.png';
+import Image from '../../src/img/cards/merrlyn.jpg';
 
 
 const CardsPage = () => {
@@ -26,82 +26,82 @@ const CardsPage = () => {
             alt: "Ceci est une carte"
         },
         {
-            id: 0,
+            id: 4,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 1,
+            id: 5,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 2,
+            id: 6,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 3,
+            id: 7,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 0,
+            id: 8,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 1,
+            id: 9,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 2,
+            id: 10,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 3,
+            id: 11,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 0,
+            id: 12,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 1,
+            id: 13,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 2,
+            id: 14,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 3,
+            id: 15,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 0,
+            id: 16,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 1,
+            id: 17,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 2,
+            id: 18,
             url: Image,
             alt: "Ceci est une carte"
         },
         {
-            id: 3,
+            id: 19,
             url: Image,
             alt: "Ceci est une carte"
         },
