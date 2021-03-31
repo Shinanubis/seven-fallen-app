@@ -48,7 +48,7 @@ const DecksPage = () => {
             id: 4,
             title: "Le défonceur",
             infos : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            EC: 1000
+            EC: 900
         },
     ]
 
