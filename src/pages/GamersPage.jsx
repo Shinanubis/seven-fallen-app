@@ -8,97 +8,97 @@ const GamersPage = () => {
         {
             id: "0",
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 1,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 2,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 3,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 4,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 5,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 6,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 7,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 8,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 9,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 10,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 11,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 12,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 13,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 14,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         },
         {
             id: 15,
             title: "Pablo",
-            location: "Paris France",
+            location: "Paris FR",
             deck_num: 25
         }
     ]
