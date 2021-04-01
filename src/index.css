@@ -168,11 +168,10 @@ code {
 
 .search__bar{
   position: relative;
-  bottom:2vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:1rem;
+  padding:0 1rem;
   color:var(--grey);
 }
 
