@@ -125,6 +125,7 @@ const GamersPage = () => {
                 classes="search__bar" inputClasses="search__bar--input" 
                 iconClasses="search__bar--icon" 
                 onChange={handleSearch} text={searchValue}
+                placeholder={"Search"}
             />
         </div>
     )
