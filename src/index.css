@@ -168,7 +168,7 @@ code {
 
 .search__bar{
   position: relative;
-  bottom:1vh;
+  bottom:2vh;
   display: flex;
   align-items: center;
   justify-content: center;
