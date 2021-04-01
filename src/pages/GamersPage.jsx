@@ -2,6 +2,7 @@ import React,  {useState} from 'react'
 import List from '../components/List'
 import User from '../components/User'
 import SearchBar from '../components/SearchBar'
+import './GamersPage.css'
 
 const GamersPage = () => {
 
@@ -111,7 +112,7 @@ const GamersPage = () => {
 
 
     return (
-        <div className="page">
+        <div className="page page__gamers">
             <List classes="layout layout__3">
                 {
                     users.map(elmt => {
