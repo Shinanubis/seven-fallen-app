@@ -56,7 +56,7 @@ const DecksPage = () => {
 
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>
-            <div className="deck__page">
+            <div className="page">
                 <DecksList/>
                 <Plus to="/add/deck"/>
             </div>

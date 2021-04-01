@@ -16,7 +16,7 @@ const Deck = (props) => {
 
     
     return (
-        <div className="deck__block">
+        <li className="deck__block">
             <div className="deck__inner--left">
                 <h3 className="deck__title">{title}</h3>
                 <p className="deck__infos">{infos}</p>
@@ -31,7 +31,7 @@ const Deck = (props) => {
                     <Link className="action__modify" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>
-        </div>
+        </li>
     )
 }
 

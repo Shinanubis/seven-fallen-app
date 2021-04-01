@@ -1,5 +1,3 @@
-import './App.css'
-
 //Layout element import
 import Footer from'./layouts/Footer'
 import Header from './layouts/Header'

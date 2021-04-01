@@ -8,7 +8,7 @@ const DecksList = () => {
     
     return (
 
-            <div className="deck__list">
+            <ul className="layout">
                 {
                     decksList.map((elmt) => 
                         (
@@ -22,7 +22,7 @@ const DecksList = () => {
                         )
                     )             
                 } 
-            </div>
+            </ul>
 
     )
 }

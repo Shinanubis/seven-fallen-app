@@ -316,6 +316,10 @@ code {
   height:.1rem;
 }
 
+.layout__1{
+  grid-template-columns: 1fr;
+}
+
 .layout__2{
     grid-template-columns: repeat(2,1fr);
 }
