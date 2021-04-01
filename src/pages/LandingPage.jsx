@@ -11,16 +11,12 @@ const LandingPage = (props) => {
         e.preventDefault();
         history.push(uri)
     }
-
-    const handleSubscribe = () => {
-        return;
-    }
  
     return (
             <>
                 <Button classes="btn" text="Connexion" onClick={e => handleConnexion(e,'/login')}/>
                 <Separator/>
-                <Button classes="btn" text="Subscribe" onClick={handleSubscribe}/>
+                <Button classes="btn" text="Subscribe" onClick={(e) => handleConnexion(e,'/subscribe')}/>
             </>
     )
 }

@@ -21,7 +21,8 @@ import ErrorPage from './pages/ErrorPage'
 import LoginPage from './pages/LoginPage'
 import SettingsDeckPage from './pages/SettingsDeckPage'
 import AddingDeckPage from './pages/AddingDeckPage'
-import AddingCardPage from './pages/AddingCardPage'
+import ChoicePage from './pages/ChoicePage'
+import SubscribePage from './pages/SubscribePage'
 
 //Context import
 import AuthenticationContext from './contexts/Context'
@@ -52,6 +53,11 @@ function App() {
     },
     {
       strict: true,
+      path:'/subscribe',
+      component: SubscribePage,
+    },
+    {
+      strict: true,
       path:'/profile',
       component: ProfilePage
     
@@ -73,7 +79,7 @@ function App() {
 
       strict: true,
       path:'/add/cards',
-      component: AddingCardPage
+      component: ChoicePage
     },
     {
 

@@ -296,6 +296,11 @@ code {
   -o-transition: height 1s ease;
 }
 
+.block{
+  text-align:center;
+  margin: calc(16 * var(--vh)) 0;
+}
+
 /* Layouts */
 .layout{
   display:grid;

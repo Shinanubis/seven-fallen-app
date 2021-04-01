@@ -12,7 +12,7 @@ const Button = (props) => {
                 color:color ?? color,
                 width: size ?? size
             }}
-            onClick={e => onClick(e)}
+            onClick={onClick ?? onClick}
         >
         {text}
         </button>
