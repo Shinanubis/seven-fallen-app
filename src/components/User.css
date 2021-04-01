@@ -4,7 +4,6 @@
     text-align: center;
     padding:.25rem 0;
     color: var(--dark-grey);
-    border:1px solid var(--dark-grey)
 }
 
 .user__default--icon{

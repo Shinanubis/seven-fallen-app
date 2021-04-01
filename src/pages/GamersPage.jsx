@@ -1,6 +1,7 @@
-import React from 'react'
+import React,  {useState} from 'react'
 import List from '../components/List'
 import User from '../components/User'
+import SearchBar from '../components/SearchBar'
 
 const GamersPage = () => {
 
@@ -102,6 +103,11 @@ const GamersPage = () => {
             deck_num: 25
         }
     ]
+    
+    const [searchValue, setSearchValue] = useState(null)
+    const handleSearch = (e) => {
+        setSearchValue(e.target.value)
+    }
 
 
     return (
@@ -110,11 +116,16 @@ const GamersPage = () => {
                 {
                     users.map(elmt => {
                         return (
-                            <User content={elmt}/>
+                            <User key={elmt.id} content={elmt}/>
                         )
                     })
                 }
             </List>
+            <SearchBar 
+                classes="search__bar" inputClasses="search__bar--input" 
+                iconClasses="search__bar--icon" 
+                onChange={handleSearch} text={searchValue}
+            />
         </div>
     )
 }
