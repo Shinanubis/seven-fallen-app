@@ -80,7 +80,7 @@ code {
 .page{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   height: 100%;
 }
 
@@ -239,10 +239,11 @@ code {
 }
 
 .add__button{
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 7vh;
-  text-align: center;
-  bottom: 1vh;
+
 }
 
 .add__button svg path {
@@ -307,6 +308,7 @@ code {
   justify-content: center;
   align-items: center;
   padding:1rem 1rem;
+  margin-bottom:6vh;
 }
 
 .layout::after{
