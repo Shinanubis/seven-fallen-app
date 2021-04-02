@@ -4,7 +4,6 @@ import StarterDeck from '../components/StarterDeck'
 import Button from '../components/Button'
 
 const StarterPage = (props) => {
-    console.log(props)
     const datas = [
         {
             id: 0,
