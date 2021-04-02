@@ -1,5 +1,6 @@
 .deck__block{
     display: flex;
+    justify-content: space-between;
     width:100%;
     background-color:var(--dark-grey);
     margin:0 auto;
@@ -21,7 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width:30%;
+    min-width:25%;
 }
 .inner__right--text{
     display:flex;
@@ -31,7 +32,7 @@
 
 .deck__ec--title{
     font-size: 1.25rem;
-
+    margin-right: 1rem;
 }
 
 .deck__ec--value{

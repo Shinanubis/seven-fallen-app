@@ -1,24 +1,44 @@
-import React from 'react'
+import React,{useEffect, useReducer} from 'react'
 import Button from '../components/Button'
 import {useHistory} from 'react-router-dom'
 
-const ChoicePage = (props) => {
-    const {links, text, backlink, backtext} = props;
-    const history = useHistory();
 
-    const handleClick = (e,url) => {
+function reducer(state,action){
+    switch(action.type){
+        case 'STARTER_DECK':
+            return { choice:"/cards/from/starter"};
+        case 'INDIVIDUAL':
+            return { choice:"/cards/from/individual"};
+        case 'BACK':
+            return { choice:"/cards"};
+        default:
+            return state;
+    }
+}
+
+const ChoicePage = (props) => {
+    const init = {choice: "/cards/from"}
+    const [isClicked, dispatch] = useReducer(reducer,init);
+    const history = useHistory();
+    
+    const handleClick = (e,action) => {
         e.preventDefault();
-        history.goBack(url)
+        dispatch({type:action})
+
     }
 
-    return (
-        <div className="page">
-            <div className="block">
-                <Button classes="btn" text="Starter Deck"/>
-                <Button classes="btn" text="Individual Card"/>
-            </div>
-            <Button classes="btn" text={backtext} onClick={(e) => handleClick(e,backlink)}/>
-        </div>
+    useEffect(() => {
+        history.push(isClicked.choice);
+    }, [isClicked]) 
+
+    return (        
+            <>
+                <div className="block">
+                    <Button classes="btn" text="Starter Deck" onClick={(e) => handleClick(e,"STARTER_DECK")}/>
+                    <Button classes="btn" text="Individual Card" onClick={(e) => handleClick(e,"INDIVIDUAL")}/> 
+                </div>
+                <Button classes="btn" text="cancel" onClick={(e) => handleClick(e,"BACK")}/> 
+            </>
     )
 }
 

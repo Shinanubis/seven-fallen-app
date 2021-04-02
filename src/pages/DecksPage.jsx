@@ -2,13 +2,11 @@ import React,{useReducer} from 'react'
 import DecksContext from '../contexts/DecksContext'
 import DecksList from '../components/DecksList'
 import Plus from '../components/Plus'
-
 import './DecksPage.css'
 
 function reducer(state, action){
     switch(action.type){
         case 'add':
-            console.log(state)
             return state;
         case 'remove':
             return state.filter(item => item.id !== action.id);

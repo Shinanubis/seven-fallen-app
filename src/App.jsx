@@ -23,6 +23,11 @@ import SettingsDeckPage from './pages/SettingsDeckPage'
 import AddingDeckPage from './pages/AddingDeckPage'
 import ChoicePage from './pages/ChoicePage'
 import SubscribePage from './pages/SubscribePage'
+import StarterPage from './pages/StarterPage'
+import IndividualPage from './pages/IndividualPage'
+
+
+
 
 //Context import
 import AuthenticationContext from './contexts/Context'
@@ -70,16 +75,26 @@ function App() {
     
     },
     {
-
+        exact:true,
         strict: true,
         path:'/cards',
-        component: CardsPage
+        component: CardsPage,
     },
     {
-
-      strict: true,
-      path:'/add/cards',
-      component: ChoicePage
+        exact:true,
+        strict: true,
+        path:'/cards/from',
+        component: ChoicePage,
+    },
+    {
+        strict:true,
+        path:'/cards/from/starter',
+        component: StarterPage,
+    },
+    {
+        strict:true,
+        path:'/cards/from/individual',
+        component: IndividualPage,
     },
     {
 
@@ -104,8 +119,6 @@ function App() {
     },
   ]
 
-
-
   return (
 
     <AuthenticationContext.Provider value={
@@ -120,7 +133,7 @@ function App() {
         <Header>
         </Header>
         <Main>
-            <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
+          <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
         </Main>
         <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
           <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"} logged={isAuthenticate} />

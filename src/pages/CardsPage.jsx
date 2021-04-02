@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import CardList from '../components/CardList'
 import Plus from '../components/Plus'
 import Image from '../../src/img/cards/merrlyn.jpg';
+import {Switch,Route,Redirect} from 'react-router-dom'
+import ChoicePage from '../pages/ChoicePage'
 
-
-const CardsPage = () => {
+const CardsPage = (props) => {
     const cards = [
         {
             id: 0,
@@ -107,11 +108,16 @@ const CardsPage = () => {
             alt: "Ceci est une carte"
         },
     ]
+
+    const [isClicked, setIsClicked] = useState(false)
     return (
-        <div className="page">
-            <CardList data={cards}/>
-            <Plus to="/add/cards"/>
-        </div>
+        <>
+            <div className="page">
+                <CardList data={cards}/>
+                <Plus to="/cards/from"/>
+            </div>
+
+        </>
     )
 }
 
