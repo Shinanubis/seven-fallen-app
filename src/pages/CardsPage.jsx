@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import CardList from '../components/CardList'
 import Plus from '../components/Plus'
 import Image from '../../src/img/cards/merrlyn.jpg';
-import {Switch,Route,Redirect} from 'react-router-dom'
-import ChoicePage from '../pages/ChoicePage'
 
 const CardsPage = (props) => {
     const cards = [
