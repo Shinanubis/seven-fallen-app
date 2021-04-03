@@ -16,8 +16,8 @@ const StarterDeck = (props) => {
                     <span className="deck__ec--value">{EC}</span>
                 </div>
                 <div className="inner__right--actions">
-                    <div className="action__delete" ><AiOutlineEye/></div>
-                    <Link className="action__modify" ><AiOutlinePlusCircle/></Link>
+                    <div className="action" ><AiOutlineEye/></div>
+                    <Link className="action" to="/cards"><AiOutlinePlusCircle/></Link>
                 </div>
             </div>
         </li>

@@ -49,6 +49,10 @@ a {
   text-decoration:none;
 }
 
+button:hover{
+  cursor:pointer;
+}
+
 input{
   padding:0 0 .65rem 0;
   margin-bottom:1rem;
@@ -198,6 +202,15 @@ code {
   cursor: pointer;
 }
 
+
+.action {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size:1.25rem;
+  color:var(--white)
+}
+
 /* Utilities */
 
 .row{
@@ -237,6 +250,7 @@ code {
   box-shadow: 0 0 20px -5px #8f8f8f;
   text-transform:uppercase;
 }
+
 
 .add__button{
   display: flex;

@@ -2,7 +2,6 @@ import React,  {useState} from 'react'
 import List from '../components/List'
 import User from '../components/User'
 import SearchBar from '../components/SearchBar'
-import './GamersPage.css'
 
 const GamersPage = () => {
 

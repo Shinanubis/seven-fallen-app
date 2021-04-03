@@ -27,8 +27,8 @@ const Deck = (props) => {
                     <span className="deck__ec--value">{EC}</span>
                 </div>
                 <div className="inner__right--actions">
-                    <div className="action__delete"  onClick={() => handleRemove(deckInfos.id)}><AiFillCloseCircle/></div>
-                    <Link className="action__modify" to={`/deck/${title}`}><BsPencil/></Link>
+                    <div className="action"  onClick={() => handleRemove(deckInfos.id)}><AiFillCloseCircle/></div>
+                    <Link className="action" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>
         </li>

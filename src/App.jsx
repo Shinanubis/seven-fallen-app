@@ -27,8 +27,6 @@ import StarterPage from './pages/StarterPage'
 import IndividualPage from './pages/IndividualPage'
 
 
-
-
 //Context import
 import AuthenticationContext from './contexts/Context'
 

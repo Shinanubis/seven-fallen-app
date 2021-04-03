@@ -46,7 +46,7 @@ const StarterPage = (props) => {
         <div className="page">
             <List classes="layout layout__1">
                 {
-                    datas.map(elmt => (<StarterDeck title={elmt.title} infos={elmt.infos} EC={elmt.EC} />))
+                    datas.map((elmt, index )=> (<StarterDeck key={index} title={elmt.title} infos={elmt.infos} EC={elmt.EC} />))
                 }
             </List>
             <Button classes='btn' text="cancel" onClick={props.history.goBack}/>

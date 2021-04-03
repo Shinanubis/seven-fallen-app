@@ -1,5 +1,4 @@
-import './ErrorPage.css'
-
+import React from 'react'
 
 function ErrorPage() {
     return (
