@@ -2,6 +2,8 @@ import React from 'react'
 import List from '../components/List'
 import StarterDeck from '../components/StarterDeck'
 import Button from '../components/Button'
+import Header from '../layouts/Header'
+import Main from '../layouts/Main'
 
 const StarterPage = (props) => {
     const datas = [
@@ -43,14 +45,19 @@ const StarterPage = (props) => {
 
     ]
     return (
-        <div className="page">
-            <List classes="layout layout__1 mb-6">
-                {
-                    datas.map((elmt, index )=> (<StarterDeck key={index} title={elmt.title} infos={elmt.infos} EC={elmt.EC} />))
-                }
-            </List>
-            <Button classes='btn' text="cancel" onClick={props.history.goBack}/>
-        </div>
+        <>
+            <Header>
+                <h1>Starter Decks</h1>
+            </Header>
+            <Main classes="page">
+                <List classes="layout layout__1 mb-4">
+                    {
+                        datas.map((elmt, index )=> (<StarterDeck key={index} title={elmt.title} infos={elmt.infos} EC={elmt.EC} />))
+                    }
+                </List>
+                <Button classes='btn' text="cancel" onClick={props.history.goBack}/>
+            </Main>
+        </>
     )
 }
 

@@ -2,6 +2,8 @@ import React,  {useState} from 'react'
 import List from '../components/List'
 import User from '../components/User'
 import SearchBar from '../components/SearchBar'
+import Header from '../layouts/Header'
+import Main from '../layouts/Main'
 
 const GamersPage = () => {
 
@@ -111,23 +113,28 @@ const GamersPage = () => {
 
 
     return (
-        <div className="page page__gamers">
-            <List classes="layout layout__3 mb-6">
-                {
-                    users.map(elmt => {
-                        return (
-                            <User key={elmt.id} content={elmt}/>
-                        )
-                    })
-                }
-            </List>
-            <SearchBar 
-                classes="search__bar" inputClasses="search__bar--input" 
-                iconClasses="search__bar--icon" 
-                onChange={handleSearch} text={searchValue}
-                placeholder={"Search ..."}
-            />
-        </div>
+        <>
+            <Header classes="header">
+                <h1>Gamers</h1>
+            </Header>
+            <Main classes="page page__gamers">
+                <List classes="layout layout__3 mb-4">
+                    {
+                        users.map(elmt => {
+                            return (
+                                <User key={elmt.id} content={elmt}/>
+                            )
+                        })
+                    }
+                </List>
+                <SearchBar 
+                    classes="search__bar" inputClasses="search__bar--input" 
+                    iconClasses="search__bar--icon" 
+                    onChange={handleSearch} text={searchValue}
+                    placeholder={"Search ..."}
+                />
+            </Main>
+        </>
     )
 }
 

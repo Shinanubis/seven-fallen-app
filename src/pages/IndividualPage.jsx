@@ -4,6 +4,8 @@ import Card from '../components/Card'
 import Image from '../img/cards/framus.jpg'
 import Button from '../components/Button'
 import CardsContext from '../contexts/CardsContext'
+import Header from '../layouts/Header'
+import Main from '../layouts/Main'
 
 
 const IndividualPage = (props) => {
@@ -96,13 +98,16 @@ const IndividualPage = (props) => {
 
     return (
         <CardsContext.Provider value={[isSelected,setIsSelected]}>
-        <div className="page">
-            <List classes={`layout layout__3 ${!isSelected.some(elmt => elmt.selected) ? "mb-6" : "mb-2"}`}>
+        <Header classes="header">
+            <h1>{props.location.pathname.split('/').pop()}</h1>
+        </Header>
+        <Main classes="page">
+            <List classes={`layout layout__3 ${!isSelected.some(elmt => elmt.selected) ? "mb-4" : "mb-1"}`}>
                 {isSelected.map(elmt => <Card key={elmt.id} id={elmt.id} url={elmt.url} alt={elmt.alt} mode="edit" onChange={(e) => handleChange(e,elmt.id)}/>)}
             </List>
             {isSelected.some(elmt => elmt.selected) ? <Button classes="btn" text="add"/> : ''}
             <Button classes="btn" text="cancel" onClick={handleClick}/>
-        </div>
+        </Main>
         </CardsContext.Provider>
     )
 }

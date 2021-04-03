@@ -2,6 +2,9 @@ import React from 'react'
 import CardList from '../components/CardList'
 import Plus from '../components/Plus'
 import Image from '../../src/img/cards/merrlyn.jpg';
+import Header from "../layouts/Header"
+import Main from "../layouts/Main"
+import {useParams} from 'react-router-dom'
 
 const CardsPage = (props) => {
     const cards = [
@@ -107,13 +110,17 @@ const CardsPage = (props) => {
         },
     ]
 
+
+
     return (
         <>
-            <div className="page">
+            <Header classes="header">
+                <h1>{props.location.pathname.slice(1)}</h1>
+            </Header>
+            <Main classes="page">
                 <CardList data={cards}/>
                 <Plus to="/cards/from"/>
-            </div>
-
+            </Main>
         </>
     )
 }
