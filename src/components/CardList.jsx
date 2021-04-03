@@ -5,7 +5,7 @@ const List = (props) => {
     const {data} = props;
     
     return (
-        <ul className="layout layout__3">
+        <ul className="layout layout__3 mb-6">
             {
                 data.map(elmt => {
                     return (

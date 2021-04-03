@@ -44,7 +44,7 @@ const StarterPage = (props) => {
     ]
     return (
         <div className="page">
-            <List classes="layout layout__1">
+            <List classes="layout layout__1 mb-6">
                 {
                     datas.map((elmt, index )=> (<StarterDeck key={index} title={elmt.title} infos={elmt.infos} EC={elmt.EC} />))
                 }

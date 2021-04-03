@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import List from '../components/List'
 import Card from '../components/Card'
 import Image from '../img/cards/framus.jpg'
 import Button from '../components/Button'
+import CardsContext from '../contexts/CardsContext'
+
 
 const IndividualPage = (props) => {
     const cards = [
@@ -64,7 +66,7 @@ const IndividualPage = (props) => {
             id: 9,
             url: Image,
             alt: "Ceci est une carte",
-            selected: false 
+            selected: false
         },
         {
             id: 10,
@@ -73,19 +75,35 @@ const IndividualPage = (props) => {
             selected: false 
         }
     ]
+    const [isSelected, setIsSelected] = useState(cards)
 
     const handleClick = (e) => {
         e.preventDefault()
         props.history.goBack();
     }
 
+    const handleChange = (e, id) => {
+        setIsSelected(isSelected => {
+            const test = [...isSelected]
+            test[id].selected = e.target.checked
+            console.log(test)
+            return [...test];
+        })
+    }
+
+
+
+
     return (
+        <CardsContext.Provider value={[isSelected,setIsSelected]}>
         <div className="page">
-            <List classes="layout layout__3">
-                {cards.map((elmt, index) => <Card id={elmt.id} url={elmt.url} alt={elmt.alt} mode="edit"/>)}
+            <List classes={`layout layout__3 ${!isSelected.some(elmt => elmt.selected) ? "mb-6" : "mb-2"}`}>
+                {isSelected.map(elmt => <Card key={elmt.id} id={elmt.id} url={elmt.url} alt={elmt.alt} mode="edit" onChange={(e) => handleChange(e,elmt.id)}/>)}
             </List>
+            {isSelected.some(elmt => elmt.selected) ? <Button classes="btn" text="add"/> : ''}
             <Button classes="btn" text="cancel" onClick={handleClick}/>
         </div>
+        </CardsContext.Provider>
     )
 }
 

@@ -1,14 +1,17 @@
-import React from 'react'
+import React,{useContext,useEffect} from 'react'
 import './Card.css'
 import CheckBox from './CheckBox'
+import CardsContext from '../contexts/CardsContext'
+
 
 const Card = (props) => {
-    const {id,url,alt,mode} = props
-    console.log(mode)
+    const {id,url,alt,mode,onChange} = props
+
+
     return (
-        <li key={id} className="card__container">
+        <li className="card__container" onChange={onChange}>
             <img className="card__image" src={url} alt={alt}/>
-            {mode === 'edit' ? <CheckBox classes="card__checkbox"/> : ''} 
+            {mode === 'edit' ? <CheckBox id={id} classes="card__checkbox"/> : ''} 
         </li>
     )
 }

@@ -112,7 +112,7 @@ const GamersPage = () => {
 
     return (
         <div className="page page__gamers">
-            <List classes="layout layout__3">
+            <List classes="layout layout__3 mb-6">
                 {
                     users.map(elmt => {
                         return (

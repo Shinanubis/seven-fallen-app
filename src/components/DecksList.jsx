@@ -8,7 +8,7 @@ const DecksList = () => {
     
     return (
 
-            <ul className="layout">
+            <ul className="layout mb-6">
                 {
                     decksList.map((elmt) => 
                         (

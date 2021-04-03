@@ -1,10 +1,11 @@
 import React from 'react'
 
 const CheckBox = (props) => {
-    const {classes, name} = props
+    const {classes, name, id} = props
+
     return (
         <>
-          <input className={classes} type="checkbox" name={name} id={name} />  
+          <input id={id} className={classes} type="checkbox" name={name} />  
         </>
     )
 }
