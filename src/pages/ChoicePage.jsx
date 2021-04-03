@@ -1,6 +1,6 @@
 import React,{useEffect, useReducer} from 'react'
 import Button from '../components/Button'
-import {useHistory} from 'react-router-dom'
+
 
 
 function reducer(state,action){
@@ -19,16 +19,14 @@ function reducer(state,action){
 const ChoicePage = (props) => {
     const init = {choice: "/cards/from"}
     const [isClicked, dispatch] = useReducer(reducer,init);
-    const history = useHistory();
     
     const handleClick = (e,action) => {
         e.preventDefault();
         dispatch({type:action})
-
     }
 
     useEffect(() => {
-        history.push(isClicked.choice);
+        props.history.push(isClicked.choice);
     }, [isClicked]) 
 
     return (        

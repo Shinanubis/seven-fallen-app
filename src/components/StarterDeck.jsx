@@ -3,7 +3,7 @@ import {AiOutlineEye,AiOutlinePlusCircle} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 
 const StarterDeck = (props) => {
-    const {title, infos, EC} = props;
+    const {title, infos, EC, mode} = props;
     return (
         <li className="deck__block">
             <div className="deck__inner--left">

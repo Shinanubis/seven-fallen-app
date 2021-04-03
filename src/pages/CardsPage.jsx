@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import CardList from '../components/CardList'
 import Plus from '../components/Plus'
 import Image from '../../src/img/cards/merrlyn.jpg';
@@ -107,7 +107,6 @@ const CardsPage = (props) => {
         },
     ]
 
-    const [isClicked, setIsClicked] = useState(false)
     return (
         <>
             <div className="page">

@@ -7,7 +7,7 @@ const User = (props) => {
     return (
         <li key={content.id} className="user__block">
             <div className="user__heading">
-                {content.img ? <img src={content.img} /> : <UserDefault classes="user__default--icon"/>}
+                {content.img ? <img src={content.img} alt="user avatar"/> : <UserDefault classes="user__default--icon"/>}
                 {content.title ? <h4>{content.title}</h4> : ''}
             </div>
             <div className="user__body">
