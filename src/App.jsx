@@ -25,6 +25,9 @@ import ChoicePage from './pages/ChoicePage'
 import SubscribePage from './pages/SubscribePage'
 import StarterPage from './pages/StarterPage'
 import IndividualPage from './pages/IndividualPage'
+import DeckBuildOptions from './pages/DeckBuildOptions'
+import DeckCreate from './pages/DeckCreate'
+import DeckImport from './pages/DeckImport'
 
 
 //Context import
@@ -32,6 +35,7 @@ import AuthenticationContext from './contexts/Context'
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels'
+
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false)
@@ -67,10 +71,35 @@ function App() {
     },
     {
     
+        exact:true,
         strict: true,
         path:'/decks',
         component: DecksPage
     
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/new-deck',
+        component: AddingDeckPage
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/new-deck/build',
+        component: DeckBuildOptions
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/new-deck/create',
+        component: DeckCreate
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/new-deck/import',
+        component: DeckImport
     },
     {
         exact:true,
@@ -99,12 +128,6 @@ function App() {
         strict: true,
         path:'/deck/:name',
         component: SettingsDeckPage
-    },
-    {
-
-      strict: true,
-      path:'/add/deck',
-      component: AddingDeckPage
     },
     {
 

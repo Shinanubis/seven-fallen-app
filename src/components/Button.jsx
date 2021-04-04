@@ -6,7 +6,7 @@ const Button = (props) => {
 
         <button 
             type="button"
-            className = {classes}
+            className = {classes ? classes : "btn"}
             style={{
                 backgroundColor:bgcolor ?? bgcolor,
                 color:color ?? color,

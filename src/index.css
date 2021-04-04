@@ -78,7 +78,7 @@ input{
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=email]:focus{
-
+  color:var(--dark-grey);
   outline: none;
   transition: 45ms;
   -webkit-transition: 45ms;
@@ -124,6 +124,16 @@ code {
   border-left: 2px solid transparent;
   border-right: 2px solid transparent;
   border-bottom: 2px solid var(--dark-grey);
+}
+
+.form__label{
+  color: var(--dark-grey);
+  padding-bottom: .25rem;
+}
+
+.form__checkbox{
+  margin:0 1vh 0 0;
+  
 }
 
 .form--input:last-child{
@@ -342,6 +352,10 @@ code {
 .block{
   text-align:center;
   margin: calc(16 * var(--vh)) 0;
+}
+
+.v-center{
+  align-items: center;
 }
 
 /* Layouts */

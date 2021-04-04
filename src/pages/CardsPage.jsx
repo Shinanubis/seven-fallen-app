@@ -4,7 +4,8 @@ import Plus from '../components/Plus'
 import Image from '../../src/img/cards/merrlyn.jpg';
 import Header from "../layouts/Header"
 import Main from "../layouts/Main"
-import {useParams} from 'react-router-dom'
+import List from '../components/List'
+import Card from '../components/Card'
 
 const CardsPage = (props) => {
     const cards = [
@@ -118,7 +119,9 @@ const CardsPage = (props) => {
                 <h1>{props.location.pathname.slice(1)}</h1>
             </Header>
             <Main classes="page">
-                <CardList data={cards}/>
+                <List classes="layout layout__3 mb-5">
+                    {cards.map(elmt => <Card key={elmt.id} url={elmt.url} alt={elmt.alt}/>)}
+                </List>
                 <Plus to="/cards/from"/>
             </Main>
         </>

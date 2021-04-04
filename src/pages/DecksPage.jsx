@@ -1,7 +1,10 @@
 import React,{useReducer} from 'react'
 import DecksContext from '../contexts/DecksContext'
-import DecksList from '../components/DecksList'
 import Plus from '../components/Plus'
+import List from '../components/List'
+import Deck from '../components/Deck'
+import Header from '../layouts/Header'
+import Main from '../layouts/Main'
 import './DecksPage.css'
 
 function reducer(state, action){
@@ -15,7 +18,7 @@ function reducer(state, action){
     }
 }
 
-const DecksPage = () => {
+const DecksPage = (props) => {
 
     const init = [
         {
@@ -54,10 +57,15 @@ const DecksPage = () => {
 
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>
-            <div className="page">
-                <DecksList/>
-                <Plus to="/add/deck"/>
-            </div>
+            <Header classes="header">
+                <h1>{props.location.pathname.split('/').pop()}</h1>
+            </Header>
+            <Main classes="page">
+                <List classes="layout mb-5">
+                    {decksList.map(elmt => <Deck key={elmt.id} title={elmt.title} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)}
+                </List>
+                <Plus to="/decks/new-deck"/>
+            </Main>
         </DecksContext.Provider>
     )
 }

@@ -1,12 +1,13 @@
 import React from 'react'
 
 const CheckBox = (props) => {
-    const {classes, name, id} = props
+    const {classes, name, id,text} = props
 
     return (
-        <>
-          <input id={id} className={classes} type="checkbox" name={name} />  
-        </>
+        <div className="row">
+          <input id={name} className={classes} type="checkbox" name={name} />
+          <label className="form__label" htmlFor={id}>{text}</label>   
+        </div>
     )
 }
 

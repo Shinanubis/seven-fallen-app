@@ -34,7 +34,7 @@ const ChoicePage = (props) => {
     return (        
             <>
                 <Header>
-                    <h1>Choix</h1>
+                    <h1>Choice :</h1>
                 </Header>
                 <Main>
                     <div className="block">

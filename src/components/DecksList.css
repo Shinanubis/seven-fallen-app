@@ -1,5 +1,0 @@
-.deck__list{
-    position: relative;
-    height: calc(65 * var(--vh));
-    overflow-y: scroll;
-}
