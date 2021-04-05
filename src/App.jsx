@@ -1,7 +1,5 @@
 //Layout element import
 import Footer from'./layouts/Footer'
-import Header from './layouts/Header'
-import Main from './layouts/Main'
 import Menu from './components/Menu'
 
 //Settings import
@@ -50,8 +48,6 @@ function App() {
       exact: true,
       path:'/',
       component: LandingPage,
-
-  
     },
     {
       strict: true,
@@ -151,9 +147,7 @@ function App() {
     }>
       <VhInPixels/>
       <Router basename="/">
-
           <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
-
         <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
           <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"} logged={isAuthenticate} />
         </Footer>

@@ -57,7 +57,7 @@ async function getUsers(){
 //update user 
 async function updateUser(url,body) {
     let response = await fetch(url,{
-        method: 'PUT',
+        method: 'PATCH',
         headers,
         body: JSON.stringify(body)
     })
