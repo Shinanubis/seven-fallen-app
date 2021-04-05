@@ -248,10 +248,10 @@ code {
 .dropdown__link{
   display: block;
   padding-top:1rem;
-  margin-bottom:1rem;
+  margin-bottom:.75rem;
   height: 50px;
   color: var(--white);
-  font-size: 4vh;
+  font-size: 3.5vh;
   margin-left:1rem;
 }
 
