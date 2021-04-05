@@ -293,7 +293,7 @@ svg.dropdown__icon path{
 }
 
 .dropdown__draw:target .dropdown__body{
-  min-height: calc(13 * var(--vh));
+  min-height: calc(12 * var(--vh));
   transition:min-height 1s ease;
   -webkit-transition:min-height 1s ease;
   -moz-transition:min-height 1s ease;
