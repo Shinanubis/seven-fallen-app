@@ -274,7 +274,7 @@ code {
   width: 100%;
   padding:0 1rem;
   margin-bottom:.75rem;
-  font-size: calc(2 * var(--vh));
+  font-size: calc(1.75 * var(--vh));
 }
 
 .dropdown__cta--box{
