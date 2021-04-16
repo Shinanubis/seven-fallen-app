@@ -59,7 +59,7 @@ function Login(props) {
                             <Separator />
                             <ul className="social__icons--list">
                                 <li>
-                                    <a href="/auth/facebook"> Facebook </a>
+                                    <a href="https://test-seven.site/api/auth/facebook"> Facebook </a>
                                 </li>
                                 <li>
                                     <SocialButton bgcolor="#F7F7F7" onClick={(e) => handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
