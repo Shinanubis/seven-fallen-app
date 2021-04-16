@@ -17,7 +17,7 @@ function Login(props) {
     const history = useHistory();
 
     const handleFacebook = async () => {
-        const res = await fetch('https://test-seven.site/api/auth/facebook',{
+        const res = await fetch(process.env.REACT_APP_FACEBOOK_AUTH ,{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
@@ -27,8 +27,21 @@ function Login(props) {
         })
         
         const resJson = await res.json();
-        console.log(resJson)
+        console.log(resJson);    
+    }
+
+    const handleGoogle = async () => {
+        const res = await fetch(process.env.REACT_APP_FACEBOOK_AUTH ,{
+            headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            method : 'GET',
+            credentials: 'include',
+        })
         
+        const resJson = await res.json();
+        console.log(resJson);    
     }
 
     const usernameInputChange = (e) => {
@@ -65,7 +78,9 @@ function Login(props) {
                                     </SocialButton>
                                 </li>
                                 <li>
-
+                                    <SocialButton bgcolor="#3b5998" onClick={handleGoogle}>
+                                        <AiOutlineGooglePlus/>
+                                    </SocialButton>
                                 </li>
                             </ul>
                     </form>
