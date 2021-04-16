@@ -31,7 +31,7 @@ function Login(props) {
     }
 
     const handleGoogle = async () => {
-        const res = await fetch(process.env.REACT_APP_FACEBOOK_AUTH ,{
+        const res = await fetch(process.env.REACT_APP_GOOGLE_AUTH ,{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
