@@ -17,7 +17,7 @@ function Login(props) {
     const history = useHistory();
 
     const handleFacebook = async () => {
-        const res = await fetch('https://test-seven.site/auth/facebook',{
+        const res = await fetch('https://test-seven.site/api/auth/facebook',{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
