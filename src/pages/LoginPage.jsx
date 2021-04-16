@@ -16,8 +16,8 @@ function Login(props) {
 
     const history = useHistory();
 
-    const handleFacebook = () => {
-        fetch('https://test-seven.site/auth/facebook',{
+    const handleFacebook = async () => {
+        const text = await fetch('https://test-seven.site/auth/facebook',{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
@@ -26,7 +26,8 @@ function Login(props) {
             credentials: 'include',
         })
         .then(res => res.text())
-        .then(data => console.log(data))
+        .then(text => console.log(text))
+        
     }
 
     const usernameInputChange = (e) => {
