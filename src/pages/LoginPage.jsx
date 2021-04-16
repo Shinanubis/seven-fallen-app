@@ -16,22 +16,8 @@ function Login(props) {
 
     const history = useHistory();
 
-    const handleFacebook = async () => {
-        const res = await fetch(process.env.REACT_APP_FACEBOOK_AUTH ,{
-            headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-            },
-            method : 'GET',
-            credentials: 'include',
-        })
-        
-        const resJson = await res.json();
-        console.log(resJson);    
-    }
-
-    const handleGoogle = async () => {
-        const res = await fetch(process.env.REACT_APP_GOOGLE_AUTH ,{
+    const handleSocial = async (url) => {
+        const res = await fetch(url,{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
@@ -73,12 +59,12 @@ function Login(props) {
                             <Separator />
                             <ul className="social__icons--list">
                                 <li>
-                                    <SocialButton bgcolor="#3b5998" onClick={handleFacebook}>
+                                    <SocialButton bgcolor="#3b5998" onClick={handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
                                         <FaFacebookF/>
                                     </SocialButton>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor="#F70000" onClick={handleGoogle}>
+                                    <SocialButton bgcolor="#F70000" onClick={handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
                                         <AiOutlineGooglePlus/>
                                     </SocialButton>
                                 </li>
