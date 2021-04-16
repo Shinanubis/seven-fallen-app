@@ -30,12 +30,8 @@
 }
 
 .twitter__icon,.google__icon,.facebook__icon{
-    top:2px;
-    
-}
-
-.google__icon{
-    left:2px
+    top:1px;
+    left:1px;
 }
 
 .facebook__icon,.twitter__icon{

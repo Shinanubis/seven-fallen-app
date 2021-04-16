@@ -1,11 +1,10 @@
 import './LoginPage.css';
 import {useState} from 'react';
 import {useHistory} from 'react-router-dom'
-import FBButton from '../components/FBButton';
 import SocialButton from '../components/SocialButton';
 import Separator from '../components/Separator'
-import {AiOutlineGooglePlus,AiOutlineApple} from 'react-icons/ai'
-import {FiTwitter} from 'react-icons/fi'
+import {AiOutlineGooglePlus} from 'react-icons/ai'
+import {FaFacebookF} from 'react-icons/fa'
 import AuthenticationContext from "../contexts/Context"
 import dotenv from 'dotenv';
 dotenv.config();
@@ -16,6 +15,19 @@ function Login(props) {
     const [passwordInput, setPasswordInput] = useState('');
 
     const history = useHistory();
+
+    const handleFacebook = async () => {
+        const res = await fetch('https://test-seven.site/auth/facebook',{
+            headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            method : 'GET',
+            credentials: 'include',
+        })
+
+        console.log(res.json())
+    }
 
     const usernameInputChange = (e) => {
         setUsernameInput(e.target.value)
@@ -46,22 +58,12 @@ function Login(props) {
                             <Separator />
                             <ul className="social__icons--list">
                                 <li>
-                                    <FBButton bgcolor={'#3b5998'}/>
-                                </li>
-                                <li>
-                                    <SocialButton bgcolor={'#C94130'}>
-                                        <AiOutlineGooglePlus className="icons google__icon"/>
+                                    <SocialButton bgcolor="#3b5998" onClick={handleFacebook}>
+                                        <FaFacebookF/>
                                     </SocialButton>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor={'#050708'}>
-                                        <AiOutlineApple className="icons apple__icon"/>
-                                    </SocialButton>
-                                </li>
-                                <li>
-                                    <SocialButton bgcolor={'#60A5E5'}>
-                                        <FiTwitter className="icons twitter__icon"/>
-                                    </SocialButton>
+
                                 </li>
                             </ul>
                     </form>
