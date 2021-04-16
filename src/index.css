@@ -92,6 +92,22 @@ code {
     monospace;
 }
 
+.social__icons--list{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width:80%;
+  margin:0 auto;
+}
+
+.google__icon{
+  font-size: 1.5rem;
+}
+
+.facebook__icon{
+  font-size: 1.25rem;
+}
+
 .page{
   display: flex;
   flex-direction: column;

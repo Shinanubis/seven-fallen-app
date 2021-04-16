@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import SocialButton from '../components/SocialButton';
 import Separator from '../components/Separator'
-import {AiOutlineGooglePlus} from 'react-icons/ai'
+import {FcGoogle} from 'react-icons/fc'
 import {FaFacebookF} from 'react-icons/fa'
 import AuthenticationContext from "../contexts/Context"
 import dotenv from 'dotenv';
@@ -60,12 +60,14 @@ function Login(props) {
                             <ul className="social__icons--list">
                                 <li>
                                     <SocialButton bgcolor="#3b5998" onClick={(e) => handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
-                                        <FaFacebookF/>
+                                        <FaFacebookF className="icons facebook__icon" />
+                                        <span className="btn__social--text">Login facebook</span>
                                     </SocialButton>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor="#F70000" onClick={(e) => handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
-                                        <AiOutlineGooglePlus/>
+                                    <SocialButton bgcolor="#F7F7F7" onClick={(e) => handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
+                                        <FcGoogle className="icons google__icon" />
+                                        <span className="btn__social--text">Login Google</span>
                                     </SocialButton>
                                 </li>
                             </ul>
