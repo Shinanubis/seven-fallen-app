@@ -21,7 +21,7 @@ function Login(props) {
             method : 'GET',
             credentials: 'include',
         })
-        const datas = res.text();
+        const datas = await res.text();
         console.log(datas)
         return datas; 
     }
