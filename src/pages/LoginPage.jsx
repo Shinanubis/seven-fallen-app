@@ -18,6 +18,11 @@ function Login(props) {
 
     const handleSocial = async (url) => {
         const res = await fetch(url,{
+            headers:{
+                'Accept':'application/json',
+                'Content-Type' : 'application/json'
+            },
+            mode:'cors',
             method : 'GET',
             credentials: 'include',
         })
