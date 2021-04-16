@@ -59,12 +59,12 @@ function Login(props) {
                             <Separator />
                             <ul className="social__icons--list">
                                 <li>
-                                    <SocialButton bgcolor="#3b5998" onClick={handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
+                                    <SocialButton bgcolor="#3b5998" onClick={(e) => handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
                                         <FaFacebookF/>
                                     </SocialButton>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor="#F70000" onClick={handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
+                                    <SocialButton bgcolor="#F70000" onClick={(e) => handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
                                         <AiOutlineGooglePlus/>
                                     </SocialButton>
                                 </li>
