@@ -78,7 +78,7 @@ function Login(props) {
                                     </SocialButton>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor="#3b5998" onClick={handleGoogle}>
+                                    <SocialButton bgcolor="#F70000" onClick={handleGoogle}>
                                         <AiOutlineGooglePlus/>
                                     </SocialButton>
                                 </li>
