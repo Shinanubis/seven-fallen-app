@@ -26,7 +26,7 @@ function Login(props) {
             credentials: 'include',
         })
         
-        const resJson = res.json();
+        const resJson = await res.json();
         console.log(resJson)
         
     }
