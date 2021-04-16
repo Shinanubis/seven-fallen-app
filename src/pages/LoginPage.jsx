@@ -22,7 +22,6 @@ function Login(props) {
                 'Accept':'application/json',
                 'Content-Type' : 'application/json'
             },
-            mode:'cors',
             method : 'GET',
             credentials: 'include',
         })
@@ -60,10 +59,7 @@ function Login(props) {
                             <Separator />
                             <ul className="social__icons--list">
                                 <li>
-                                    <SocialButton bgcolor="#3b5998" onClick={(e) => handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
-                                        <FaFacebookF className="icons facebook__icon" />
-                                        <span className="btn__social--text">Login facebook</span>
-                                    </SocialButton>
+                                    <a href="/auth/facebook"> Facebook </a>
                                 </li>
                                 <li>
                                     <SocialButton bgcolor="#F7F7F7" onClick={(e) => handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
