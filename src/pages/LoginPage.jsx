@@ -25,8 +25,8 @@ function Login(props) {
             method : 'GET',
             credentials: 'include',
         })
-        .then(datas => datas.json())
-        .then(data => console.log(data))
+        .then(datas => datas);
+        console.log(res)
     }
 
     const usernameInputChange = (e) => {
