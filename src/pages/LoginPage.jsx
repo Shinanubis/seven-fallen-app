@@ -17,17 +17,17 @@ function Login(props) {
     const history = useHistory();
 
     const handleFacebook = async () => {
-        const res = await fetch('https://test-seven.site/auth/facebook',{
+        const response = await fetch('https://test-seven.site/auth/facebook',{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
             },
             method : 'GET',
             credentials: 'include',
-        })
-        
-        const datas = await res.json();
-        console.log(datas);
+        });    
+        const datas = await response.json();
+        console.log(response)
+        return datas;
     }
 
     const usernameInputChange = (e) => {
