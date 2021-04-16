@@ -17,7 +17,7 @@ function Login(props) {
     const history = useHistory();
 
     const handleFacebook = async () => {
-        const text = await fetch('https://test-seven.site/auth/facebook',{
+        const res = await fetch('https://test-seven.site/auth/facebook',{
             headers : {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
@@ -25,8 +25,9 @@ function Login(props) {
             method : 'GET',
             credentials: 'include',
         })
-        .then(res => res.text())
-        .then(text => console.log(text))
+        
+        const resJson = res.json();
+        console.log(resJson)
         
     }
 
