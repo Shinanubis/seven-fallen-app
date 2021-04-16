@@ -26,8 +26,7 @@ function Login(props) {
             credentials: 'include',
         })
         
-        const resJson = await res.json();
-        console.log(resJson);    
+        return res; 
     }
 
     const usernameInputChange = (e) => {
