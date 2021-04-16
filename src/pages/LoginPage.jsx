@@ -18,7 +18,6 @@ function Login(props) {
 
     const handleSocial = async (url) => {
         const res = await fetch(url,{
-            mode: 'cors',
             method : 'GET',
             credentials: 'include',
         })
