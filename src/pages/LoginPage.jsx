@@ -22,7 +22,7 @@ function Login(props) {
             credentials: 'include',
         })
         const datas = await res.text();
-        console.log(datas)
+        datas.then(data => console.log(data))
         return datas; 
     }
 
