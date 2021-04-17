@@ -62,7 +62,7 @@ function Login(props) {
                                     <a href="https://test-seven.site/api/auth/facebook"> Facebook </a>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor="#F7F7F7" onClick={(e) => handleSocial(process.env.REACT_APP_GOOGLE_AUTH )}>
+                                    <SocialButton bgcolor="#F7F7F7" onClick={(e) => handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
                                         <FcGoogle className="icons google__icon" />
                                         <span className="btn__social--text">Login Google</span>
                                     </SocialButton>
