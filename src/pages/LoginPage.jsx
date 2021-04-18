@@ -16,16 +16,6 @@ function Login(props) {
 
     const history = useHistory();
 
-    const handleSocial = async (url) => {
-        const res = await fetch(url,{
-            method : 'GET',
-            credentials: 'include',
-        })
-        const datas = await res.text();
-        datas.then(data => console.log(data))
-        return datas; 
-    }
-
     const usernameInputChange = (e) => {
         setUsernameInput(e.target.value)
     }
@@ -55,10 +45,13 @@ function Login(props) {
                             <Separator />
                             <ul className="social__icons--list">
                                 <li>
-                                    <a href="https://test-seven.site/api/auth/facebook"> Facebook </a>
+                                    <SocialButton bgcolor="#395693" url="https://test-seven.site/api/auth/facebook">
+                                        <FaFacebookF className="icons facebook__icon"/>
+                                        <span className="btn__social--text">Login facebook</span> 
+                                    </SocialButton>
                                 </li>
                                 <li>
-                                    <SocialButton bgcolor="#F7F7F7" onClick={(e) => handleSocial(process.env.REACT_APP_FACEBOOK_AUTH )}>
+                                    <SocialButton bgcolor="#F7F7F7" url="https://test-seven.site/api/auth/google">
                                         <FcGoogle className="icons google__icon" />
                                         <span className="btn__social--text">Login Google</span>
                                     </SocialButton>
