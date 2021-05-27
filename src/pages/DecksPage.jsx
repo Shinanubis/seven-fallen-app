@@ -28,7 +28,7 @@ const DecksPage = (props) => {
         .then(response => response.json())
         .then(data => setList(data))
     })
-    console.log(list)
+
     const init = [
         {
             id: 0,
@@ -71,7 +71,10 @@ const DecksPage = (props) => {
             </Header>
             <Main classes="page">
                 <List classes="layout mb-5">
-                    {decksList.map(elmt => <Deck key={elmt.id} title={elmt.title} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)}
+                    {
+                        console.log(decksList),
+                        decksList.map(elmt => <Deck key={elmt.id} title={elmt.title} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)
+                    }
                 </List>
                 <Plus to="/decks/new-deck"/>
             </Main>
