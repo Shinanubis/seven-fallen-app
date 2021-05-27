@@ -46,7 +46,7 @@ async function getUserByUsername(url,body){
  }
 //get all Users
 async function getUsers(){
-    let response = await fetch('https://test-seven.site/users',{
+    let response = await fetch('https://test-seven.site/api/users',{
         method: 'GET',
         headers,
     });

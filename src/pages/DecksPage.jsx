@@ -1,4 +1,4 @@
-import React,{useReducer} from 'react'
+import React,{useReducer, useEffect} from 'react'
 import DecksContext from '../contexts/DecksContext'
 import Plus from '../components/Plus'
 import List from '../components/List'
@@ -19,6 +19,12 @@ function reducer(state, action){
 }
 
 const DecksPage = (props) => {
+
+    useEffect(() => {
+        fetch('https://test-seven.site/api/decks',{
+            method: 'GET',
+        }).then(response => console.log(response));
+    })
 
     const init = [
         {
