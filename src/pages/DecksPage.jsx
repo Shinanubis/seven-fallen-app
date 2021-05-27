@@ -73,7 +73,6 @@ const DecksPage = (props) => {
             <Main classes="page">
                 <List classes="layout mb-5">
                     {
-                        console.log(list),
                         decksList.map(elmt => <Deck key={elmt.id} title={elmt.title} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)
                     }
                 </List>
