@@ -27,6 +27,7 @@ const DecksPage = (props) => {
         })
         .then(response => response.json())
         .then(data => setList(data))
+        console.log(list)
     })
 
     const init = [
