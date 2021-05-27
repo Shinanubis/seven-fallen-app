@@ -19,7 +19,7 @@ function reducer(state, action){
 }
 
 const DecksPage = (props) => {
-    const [list, setList] = useState({})
+    const [list, setList] = useState()
     useEffect(() => {
         fetch('https://test-seven.site/api/decks',{
             method: 'GET',
