@@ -24,7 +24,9 @@ const DecksPage = (props) => {
         fetch('https://test-seven.site/api/decks',{
             method: 'GET',
             credentials: 'true'
-        }).then(response => console.log(response));
+        })
+        .then(response => response.json())
+        .then(data => data)
     })
 
     const init = [
