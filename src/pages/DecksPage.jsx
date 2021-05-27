@@ -26,8 +26,7 @@ const DecksPage = (props) => {
             credentials: 'true'
         })
         .then(response => response.json())
-        .then(data => setList(data))
-        console.log(list)
+        .then(data => setList(data));
     })
 
     const init = [
@@ -67,6 +66,7 @@ const DecksPage = (props) => {
 
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>
+            {console.log(decksList)}
             <Header classes="header">
                 <h1>{props.location.pathname.split('/').pop()}</h1>
             </Header>
