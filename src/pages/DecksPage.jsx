@@ -23,7 +23,7 @@ const DecksPage = (props) => {
     useEffect(() => {
         fetch('https://test-seven.site/api/decks',{
             method: 'GET',
-            credentials: 'true'
+            credentials: 'include'
         })
         .then(response => response.json())
         .then(data => setList(data));
