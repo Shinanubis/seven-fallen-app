@@ -29,41 +29,8 @@ const DecksPage = (props) => {
         .then(data => setList(data));
     },[])
 
-    const init = [
-        {
-            id: 0,
-            title: "Gods Deck",
-            infos : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            EC: 50
-        },
-        {
-            id: 1,
-            title: "Super Power",
-            infos : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            EC: 120
-        },
-        {
-            id: 2,
-            title: "Berseker",
-            infos : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            EC: 80
-        },
-        {
-            id: 3,
-            title: "Deck de la mort",
-            infos : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            EC: 800
-        },
-        {
-            id: 4,
-            title: "Le défonceur",
-            infos : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            EC: 900
-        },
-    ]
-
-    const [decksList, dispatchList] = useReducer(reducer,init);
-
+    const [decksList, dispatchList] = useReducer(reducer,list);
+    console.log(decksList);
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>
             <Header classes="header">
@@ -72,7 +39,7 @@ const DecksPage = (props) => {
             <Main classes="page">
                 <List classes="layout mb-5">
                     {
-                        decksList.map(elmt => <Deck key={elmt.id} title={elmt.title} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)
+                        decksList.map(elmt => <Deck key={elmt.id} title={elmt.deck_name} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)
                     }
                 </List>
                 <Plus to="/decks/new-deck"/>
