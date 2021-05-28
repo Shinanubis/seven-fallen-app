@@ -19,7 +19,7 @@ function reducer(state, action){
 }
 
 const DecksPage = (props) => {
-    const [list, setList] = useState()
+    const [list, setList] = useState();
     useEffect(() => {
         fetch('https://test-seven.site/api/decks',{
             method: 'GET',
@@ -66,7 +66,6 @@ const DecksPage = (props) => {
 
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>
-            {list}
             <Header classes="header">
                 <h1>{props.location.pathname.split('/').pop()}</h1>
             </Header>
@@ -82,4 +81,4 @@ const DecksPage = (props) => {
     )
 }
 
-export default DecksPage
+export default DecksPage;
