@@ -39,7 +39,7 @@ const DecksPage = (props) => {
             <Main classes="page">
                 <List classes="layout mb-5">
                     {
-                        decksList.map(elmt => <Deck key={elmt.id} title={elmt.deck_name} infos={elmt.infos} EC={elmt.EC} data={elmt}/>)
+                        decksList.map(elmt => <Deck key={elmt.id} title={elmt.deck_name} />)
                     }
                 </List>
                 <Plus to="/decks/new-deck"/>
