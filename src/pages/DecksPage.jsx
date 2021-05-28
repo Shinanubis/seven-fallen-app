@@ -27,6 +27,7 @@ const DecksPage = (props) => {
         })
         .then(response => response.json())
         .then(data => setList(data));
+        console.log(list)
     },[])
 
     const [decksList, dispatchList] = useReducer(reducer,list);
@@ -39,7 +40,7 @@ const DecksPage = (props) => {
             <Main classes="page">
                 <List classes="layout mb-5">
                     {
-                        decksList.map(elmt => <Deck key={elmt.id} title={elmt.deck_name} />)
+                        list.map(elmt => <Deck key={elmt.id} title={elmt.deck_name} />)
                     }
                 </List>
                 <Plus to="/decks/new-deck"/>
