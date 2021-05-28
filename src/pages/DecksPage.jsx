@@ -66,6 +66,7 @@ const DecksPage = (props) => {
 
     return (
         <DecksContext.Provider value={[decksList, dispatchList]}>
+            {list}
             <Header classes="header">
                 <h1>{props.location.pathname.split('/').pop()}</h1>
             </Header>
