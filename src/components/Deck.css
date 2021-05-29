@@ -40,6 +40,13 @@
     font-size: 1.25rem;
 }
 
+.deck__infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
 .inner__right--actions{
     display: flex;
     justify-content: space-between;
