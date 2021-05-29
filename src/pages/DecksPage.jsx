@@ -21,23 +21,22 @@ function reducer(state, action){
 
 
 const DecksPage = (props) => {
-    const [list, setList] = useState([]);
+    const [decksList, setDecksList] = useState([]);
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
             credentials: 'include'
         });
         const datas = await response.json();
-        console.log(datas);
-        setList(datas);
+        setDecksList(datas);
     },[])
 
     return (
-        <>
-            {list.map(elmt => {
-                return <li>{elmt.deck_name}</li>
+        <List classes="decks__list">
+            {decksList.map(elmt => {
+                <Deck></Deck>
             })}
-        </>  
+        </List>
     )
 }
 
