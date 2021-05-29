@@ -5,6 +5,7 @@
     background-color:var(--dark-grey);
     margin:0 auto;
     padding:.5rem;
+    min-height: 100px;
     border-radius:8px;
     -webkit-border-radius:8px;
     -moz-border-radius:8px;
