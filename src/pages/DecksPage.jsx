@@ -19,8 +19,6 @@ function reducer(state, action){
     }
 }
 
-
-
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
     useEffect(async () => {
