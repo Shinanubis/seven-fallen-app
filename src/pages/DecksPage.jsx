@@ -18,34 +18,24 @@ function reducer(state, action){
     }
 }
 
+
+
 const DecksPage = (props) => {
-    const [list, setList] = useState();
+    const [list, setList] = useState([]);
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
             credentials: 'include'
         });
         const datas = await response.json();
-        setList(datas);
         console.log(datas);
+        setList(datas);
     },[])
 
-    const [decksList, dispatchList] = useReducer(reducer,list);
-    console.log(decksList);
     return (
-        <DecksContext.Provider value={[decksList, dispatchList]}>
-            <Header classes="header">
-                <h1>{props.location.pathname.split('/').pop()}</h1>
-            </Header>
-            <Main classes="page">
-                <List classes="layout mb-5">
-                    {
-                        list.map(elmt => <Deck key={elmt.id} title={elmt.deck_name} />)
-                    }
-                </List>
-                <Plus to="/decks/new-deck"/>
-            </Main>
-        </DecksContext.Provider>
+        <>
+            <div>{list}</div>
+        </>  
     )
 }
 
