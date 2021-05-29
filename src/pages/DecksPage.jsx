@@ -20,14 +20,14 @@ function reducer(state, action){
 
 const DecksPage = (props) => {
     const [list, setList] = useState();
-    useEffect(() => {
-        fetch('https://test-seven.site/api/decks',{
+    useEffect(async () => {
+        const response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
             credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(data => setList(data));
-        console.log(list)
+        });
+        const datas = await response.json();
+        setList(datas);
+        console.log(datas);
     },[])
 
     const [decksList, dispatchList] = useReducer(reducer,list);
