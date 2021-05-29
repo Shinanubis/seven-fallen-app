@@ -34,7 +34,9 @@ const DecksPage = (props) => {
 
     return (
         <>
-            <div>{list}</div>
+            {list.map(elmt => {
+                return <li>{elmt.deckname}</li>
+            })}
         </>  
     )
 }
