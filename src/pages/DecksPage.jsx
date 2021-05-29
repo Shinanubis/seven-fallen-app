@@ -6,6 +6,7 @@ import Deck from '../components/Deck'
 import Header from '../layouts/Header'
 import Main from '../layouts/Main'
 import './DecksPage.css'
+import { isElementOfType } from 'react-dom/cjs/react-dom-test-utils.development'
 
 function reducer(state, action){
     switch(action.type){
@@ -34,7 +35,7 @@ const DecksPage = (props) => {
     return (
         <List classes="decks__list">
             {decksList.map(elmt => {
-                <Deck></Deck>
+                <Deck title={elmt.deck_name} total_ec={elmt.total_ec}></Deck>
             })}
         </List>
     )

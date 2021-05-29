@@ -6,12 +6,12 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {deck_name, num_cards,total_ec} = props;
+    const {id, title, num_cards,total_ec} = props;
 
     return (
-        <li className="deck__block">
+        <li key={id} className="deck__block">
             <div className="deck__inner--left">
-                <h3 className="deck__title">{deck_name}</h3>
+                <h3 className="deck__title">{title}</h3>
                 <p className="deck__infos">{num_cards}</p>
             </div>
             <div className="deck__inner--right">
@@ -21,7 +21,7 @@ const Deck = (props) => {
                 </div>
                 <div className="inner__right--actions">
                     <div className="action" ><AiFillCloseCircle/></div>
-                    <Link className="action" to={`/deck/${deck_name}`}><BsPencil/></Link>
+                    <Link className="action" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>
         </li>
