@@ -35,7 +35,7 @@ const DecksPage = (props) => {
     return (
         <List classes="decks__list">
             {decksList.map(elmt => {
-                <Deck title={elmt.deck_name} total_ec={elmt.total_ec}></Deck>
+                return (<Deck title={elmt.deck_name} total_ec={elmt.total_ec}/>)
             })}
         </List>
     )

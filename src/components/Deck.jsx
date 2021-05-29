@@ -28,4 +28,4 @@ const Deck = (props) => {
     )
 }
 
-export default Deck
+export default Deck;
