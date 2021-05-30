@@ -6,7 +6,7 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {id, title, num_cards,total_ec, description} = props;
+    const {id, title,total_ec, description} = props;
 
     return (
         <li key={id} className="deck__block">
