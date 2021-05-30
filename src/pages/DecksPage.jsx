@@ -17,7 +17,7 @@ function reducer(state, action){
 }
 
 const DecksPage = (props) => {
-    const [decksList, setDecksList] = useState();
+    const [decksList, setDecksList] = useState([]);
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
