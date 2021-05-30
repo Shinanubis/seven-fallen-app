@@ -24,6 +24,7 @@ const DecksPage = (props) => {
             credentials: 'include'
         });
         const datas = await response.json();
+        console.log(datas)
         setDecksList(datas);
     },[])
 
