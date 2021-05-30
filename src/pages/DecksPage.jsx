@@ -16,10 +16,13 @@ function reducer(state, action){
     }
 }
 
+function initReducer(initialValue){
+    return [...initialValue]
+}
 
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
-    const [decks, dispatch] = useReducer(reducer, [...decksList]);
+    const [decks, dispatch] = useReducer(reducer, decksList, );
 
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
