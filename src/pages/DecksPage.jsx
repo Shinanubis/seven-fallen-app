@@ -7,17 +7,20 @@ import './DecksPage.css'
 
 function reducer(state, action){
     switch(action.type){
-        case 'add':
+        case 'ADD':
             return state;
-        case 'remove':
+        case 'DEL':
             return state.filter(item => item.id !== action.id);
         default:
             return;
     }
 }
 
+
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
+    const [decks, dispatch] = useReducer(reducer, decksList);
+
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
@@ -29,9 +32,14 @@ const DecksPage = (props) => {
 
     return (
         <List classes="layout layout__1">
-            {console.log(decksList)}
+            {console.log(decks)}
             {decksList.map(elmt => {
-                return (<Deck id={elmt.id} title={elmt.deck_name} num_cards= {elmt.num_cards}total_ec={elmt.total_ec} description={elmt.description}/>)
+                return (<Deck id={elmt.id} 
+                              title={elmt.deck_name} 
+                              num_cards= {elmt.num_cards}
+                              total_ec={elmt.total_ec} 
+                              description={elmt.description}/>
+                        )
             })}
         </List>
     )
