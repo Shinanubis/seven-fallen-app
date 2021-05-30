@@ -24,12 +24,12 @@ const DecksPage = (props) => {
             credentials: 'include'
         });
         const datas = await response.json();
-        console.log(datas)
         setDecksList(datas);
     },[])
 
     return (
         <List classes="layout layout__1">
+            {console.log(decksList)}
             {decksList.map(elmt => {
                 return (<Deck id={elmt.id} title={elmt.deck_name} num_cards= {elmt.num_cards}total_ec={elmt.total_ec} description={elmt.description}/>)
             })}
