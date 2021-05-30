@@ -18,7 +18,9 @@ const Deck = (props) => {
                 <div className="inner__right--text">
                     <h3 className="deck__ec--title">Ec :</h3>
                     <span className="deck__ec--value">{total_ec}</span>
-                    <h3>Total :</h3>
+                </div>
+                <div className="inner__right--text">
+                    <h3 className="deck__ec--title">Total :</h3>
                     <span className="deck__ec--value">{num_cards}</span>
                 </div>
                 <div className="inner__right--actions">
