@@ -16,13 +16,9 @@ function reducer(state, action){
     }
 }
 
-function initReducer(initialValue){
-    return [...initialValue]
-}
-
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
-    const [decks, dispatch] = useReducer(reducer, decksList, initReducer);
+    const [decks, dispatch] = useReducer(reducer, decksList);
 
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
@@ -32,7 +28,7 @@ const DecksPage = (props) => {
         const datas = await response.json();
         console.log(decks);
         setDecksList(datas);
-    },[])
+    },[decksList])
 
     return (
         <List classes="layout layout__1">
