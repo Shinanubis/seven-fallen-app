@@ -22,7 +22,7 @@ function initReducer(initialValue){
 
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
-    const [decks, dispatch] = useReducer(reducer, decksList, );
+    const [decks, dispatch] = useReducer(reducer, decksList, initReducer);
 
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
