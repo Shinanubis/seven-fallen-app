@@ -3,10 +3,7 @@ import DecksContext from '../contexts/DecksContext'
 import Plus from '../components/Plus'
 import List from '../components/List'
 import Deck from '../components/Deck'
-import Header from '../layouts/Header'
-import Main from '../layouts/Main'
 import './DecksPage.css'
-import { isElementOfType } from 'react-dom/cjs/react-dom-test-utils.development'
 
 function reducer(state, action){
     switch(action.type){
@@ -20,7 +17,7 @@ function reducer(state, action){
 }
 
 const DecksPage = (props) => {
-    const [decksList, setDecksList] = useState([]);
+    const [decksList, setDecksList] = useState();
     useEffect(async () => {
         const response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
