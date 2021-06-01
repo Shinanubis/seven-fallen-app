@@ -35,17 +35,19 @@ const DecksPage = (props) => {
     },[])
 
     return (
-
-        <List classes="layout layout__1">
-            {decksList.map(elmt => {
-                return (<Deck id={elmt.id} 
-                              title={elmt.deck_name} 
-                              num_cards= {elmt.num_cards}
-                              total_ec={elmt.total_ec} 
-                              description={elmt.description}/>
-                        )
-            })}
-        </List>
+        <DecksContext state={decks} dispatcher={dispatch}>
+            {console.log(decks)}
+            <List classes="layout layout__1">
+                {decksList.map(elmt => {
+                    return (<Deck id={elmt.id} 
+                                  title={elmt.deck_name} 
+                                  num_cards= {elmt.num_cards}
+                                  total_ec={elmt.total_ec} 
+                                  description={elmt.description}/>
+                            )
+                })}
+            </List>
+        </DecksContext>
     )
 }
 
