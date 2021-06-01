@@ -7,9 +7,10 @@ import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
     const {id, title,total_ec, description, num_cards} = props;
-
+    const [decks, dispatch] = useContext(DecksContext)
     return (
         <li key={id} className="deck__block">
+            {console.log(decks)}
             <div className="deck__inner--left">
                 <h3 className="deck__title">{title}</h3>
                 <p className="deck__infos">{description}</p>

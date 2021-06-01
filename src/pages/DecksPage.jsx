@@ -46,7 +46,6 @@ const DecksPage = (props) => {
                             )
                 })}
             </List>
-            <button onClick={() => dispatch({type: 'ADD'})}>Valider</button>
         </DecksContext>
     )
 }
