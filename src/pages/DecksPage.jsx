@@ -31,8 +31,7 @@ const DecksPage = (props) => {
 
     useEffect(async () => {
         const datas = await getDatas('https://test-seven.site/api/decks');
-        dispatch(datas, {type: "ADD"});
-        console.log(decks)
+        setDecksList(datas);
     },[])
 
     return (
