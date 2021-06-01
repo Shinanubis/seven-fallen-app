@@ -6,7 +6,7 @@ import Deck from '../components/Deck'
 import './DecksPage.css'
 
 function reducer(state, action){
-    switch(action.type){
+    switch(action.type){    
         case 'ADD':
             return state;
         case 'DEL':
@@ -16,23 +16,27 @@ function reducer(state, action){
     }
 }
 
+async function getDatas(url){
+    let response = await fetch(url,{
+        method: 'GET',
+        credentials: 'include'
+    });
+    let datas = await response.json()
+    return datas;
+}
+
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
     const [decks, dispatch] = useReducer(reducer, decksList);
 
     useEffect(async () => {
-        const response = await fetch('https://test-seven.site/api/decks',{
-            method: 'GET',
-            credentials: 'include'
-        });
-        const datas = await response.json();
-        console.log(decks);
+        const datas = await getDatas('https://test-seven.site/api/decks');
         setDecksList(datas);
-    },[decksList])
+    },[])
 
     return (
-        <List classes="layout layout__1">
 
+        <List classes="layout layout__1">
             {decksList.map(elmt => {
                 return (<Deck id={elmt.id} 
                               title={elmt.deck_name} 
