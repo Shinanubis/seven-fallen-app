@@ -8,7 +8,7 @@ import './DecksPage.css'
 function reducer(state, action){
     switch(action.type){    
         case 'ADD':
-            return console.log(state);
+            return state;
         case 'DEL':
             return state.filter(item => item.id !== action.id);
         default:
@@ -27,11 +27,12 @@ async function getDatas(url){
 
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
-    const [decks, dispatch] = useReducer(reducer, decksList);
+    const [decks, dispatch] = useReducer(reducer, []);
 
     useEffect(async () => {
         const datas = await getDatas('https://test-seven.site/api/decks');
-        setDecksList(datas);
+        dispatch(datas, {type: "ADD"});
+        console.log(decks)
     },[])
 
     return (
