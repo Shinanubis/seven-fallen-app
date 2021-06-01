@@ -8,7 +8,7 @@ import './DecksPage.css'
 function reducer(state, action){
     switch(action.type){    
         case 'ADD':
-            return state;
+            return console.log(state);
         case 'DEL':
             return state.filter(item => item.id !== action.id);
         default:
@@ -36,7 +36,6 @@ const DecksPage = (props) => {
 
     return (
         <DecksContext state={decks} dispatcher={dispatch}>
-            {console.log(decks)}
             <List classes="layout layout__1">
                 {decksList.map(elmt => {
                     return (<Deck id={elmt.id} 
@@ -47,6 +46,7 @@ const DecksPage = (props) => {
                             )
                 })}
             </List>
+            <button onClick={() => dispatch({type: 'ADD'})}>Valider</button>
         </DecksContext>
     )
 }
