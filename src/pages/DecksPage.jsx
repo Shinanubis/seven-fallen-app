@@ -32,7 +32,13 @@ const DecksPage = () => {
             <List classes="layout layout__1">
                 {
                     decksList.map((elmt, index) => {
-                            <Deck id={elmt.id} title={elmt.deck_name} description={elmt.description} num_cards={elmt.num_cards} total_ec={elmt.total_ec}/>
+                            return(
+                                <Deck id={elmt.id} 
+                                      title={elmt.deck_name} 
+                                      description={elmt.description} 
+                                      num_cards={elmt.num_cards} 
+                                      total_ec={elmt.total_ec}
+                                />)
                         }
                     )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
             </List>
