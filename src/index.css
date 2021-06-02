@@ -122,6 +122,7 @@ code {
 }
 
 .deck__list--empty{
+  text-align: center;
   color: #202020;
 }
 
