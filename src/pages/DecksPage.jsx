@@ -29,19 +29,8 @@ const DecksPage = () => {
     },[])
 
     return (
-        
             <List classes="layout layout__1">
-                {decksList.map((elmt, index) => {
-                    console.log(elmt)
-                    return (
-                            
-                            <Deck id={elmt[index].id} 
-                                  title={elmt[index].deck_name} 
-                                  num_cards= {elmt[index].num_cards}
-                                  total_ec={elmt[index].total_ec} 
-                                  description={elmt[index].description}/>
-                            )
-                })}
+
             </List>
     )
 }
