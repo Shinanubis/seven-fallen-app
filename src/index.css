@@ -123,6 +123,7 @@ code {
 
 .deck__list{
   height: 70%;
+  margin-bottom: 2rem;
 }
 
 .deck__list--empty{
