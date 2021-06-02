@@ -18,8 +18,8 @@ const DecksPage = () => {
         setDecksList(datas);
     },[])
 
-    function handleRemove(event){
-        console.log(event.target.id)
+    const handleRemove = (e) => {
+        console.log(e.target.id)
     }
 
     return (
