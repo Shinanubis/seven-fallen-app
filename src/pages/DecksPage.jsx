@@ -5,16 +5,6 @@ import List from '../components/List'
 import Deck from '../components/Deck'
 import './DecksPage.css'
 
-function reducer(state, action){
-    switch(action.type){    
-        case 'ADD':
-            return state;
-        case 'DEL':
-            return state.filter(item => item.id !== action.id);
-        default:
-            return;
-    }
-}
 
 const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
@@ -28,6 +18,10 @@ const DecksPage = () => {
         setDecksList(datas);
     },[])
 
+    function handleRemove(event){
+        console.log(event.target.id)
+    }
+
     return (
             <List classes="layout layout__1">
                 {
@@ -38,6 +32,7 @@ const DecksPage = () => {
                                       description={elmt.description} 
                                       num_cards={elmt.num_cards} 
                                       total_ec={elmt.total_ec}
+                                      onClick = {() => handleRemove}
                                 />)
                         }
                     )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
