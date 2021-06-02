@@ -9,7 +9,6 @@ const AddingDeckPage = (props) => {
     return (
         <>
         <Layout>
-            <h1>{props.location.pathname.split('/').pop().split('-').join(' ')}</h1>
             <form className="form">
                 <div className="form--section">
                     <h4 className="form__section--title">Informations</h4>
@@ -17,7 +16,8 @@ const AddingDeckPage = (props) => {
                     <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public"/>
                 </div>
             </form>
-            <NavButton text="Next" url="/decks/new-deck/build"/>
+            <NavButton text="Create" url="/decks/new-deck/create"/>
+            <NavButton text="Import" url="/decks/new-deck/import"/>
             <NavButton text="Back" url="/decks"/>
         </Layout>
 
