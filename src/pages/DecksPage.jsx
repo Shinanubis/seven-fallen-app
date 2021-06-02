@@ -25,17 +25,17 @@ async function getDatas(url){
     return datas;
 }
 
-const DecksPage = (props) => {
+const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
 
     useEffect(async () => {
         const datas = await getDatas('https://test-seven.site/api/decks');
         setDecksList(datas);
+        console.log(datas)
     },[])
 
     return (
             <List classes="layout layout__1">
-                {console.log(decksList)}
                 {decksList.map(elmt => {
                     return (
                             <Deck id={elmt.id} 
