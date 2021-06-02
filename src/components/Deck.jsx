@@ -21,7 +21,7 @@ const Deck = (props) => {
                     <span className="deck__ec--value">{total_ec}</span>
                 </div>
                 <div className="inner__right--actions">
-                    <div className="action" onClick={onClick}><AiFillCloseCircle/></div>
+                    <div className="action" onClick={() => onClick()}><AiFillCloseCircle/></div>
                     <Link className="action" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>
