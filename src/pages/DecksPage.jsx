@@ -48,7 +48,7 @@ const DecksPage = () => {
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
                 </div>
-                <Plus />
+                <Plus to={'/decks/new-deck'}/>
             </>
             )
 }
