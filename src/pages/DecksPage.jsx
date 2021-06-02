@@ -1,4 +1,4 @@
-import React,{useReducer, useEffect, useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import DecksContext from '../contexts/DecksContext'
 import Plus from '../components/Plus'
 import List from '../components/List'
@@ -20,7 +20,7 @@ const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
 
     useEffect(async () => {
-            let response = await fetch('https://test-seven.site/api/decks',{
+        let response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
             credentials: 'include'
         });
@@ -29,14 +29,17 @@ const DecksPage = () => {
     },[])
 
     return (
+        
             <List classes="layout layout__1">
-                {decksList.map(elmt => {
+                {decksList.map((elmt, index) => {
+                    console.log(elmt)
                     return (
-                            <Deck id={elmt.id} 
-                                  title={elmt.deck_name} 
-                                  num_cards= {elmt.num_cards}
-                                  total_ec={elmt.total_ec} 
-                                  description={elmt.description}/>
+                            
+                            <Deck id={elmt[index].id} 
+                                  title={elmt[index].deck_name} 
+                                  num_cards= {elmt[index].num_cards}
+                                  total_ec={elmt[index].total_ec} 
+                                  description={elmt[index].description}/>
                             )
                 })}
             </List>
