@@ -24,6 +24,7 @@ const DecksPage = () => {
 
     if(decksList.length > 0){
         return (
+            <>
             <List classes="layout layout__1">
                   {
                       decksList.map(elmt => {
@@ -38,7 +39,9 @@ const DecksPage = () => {
                                   />)
                           }
                       )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-              </List> 
+              </List>
+              <Plus />
+              </>
       )
     }
 
