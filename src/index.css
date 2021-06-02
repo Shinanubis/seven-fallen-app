@@ -134,6 +134,10 @@ code {
   color: #202020;
 }
 
+.buttons__block{
+  margin:0 auto;
+}
+
 .form{
   display: flex;
   flex-direction: column;
