@@ -89,7 +89,7 @@ function App() {
         exact:true,
         strict: true,
         path:'/decks/new-deck/create',
-        component: DeckCreate
+        component: DeckImport
     },
     {
         exact:true,
