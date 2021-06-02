@@ -14,7 +14,6 @@ const Deck = (props) => {
             credentials: 'include'
         });
         const datas  = await response.json();
-        console.log(datas)
     }
 
     const handleClick = (e, state, id) => {
