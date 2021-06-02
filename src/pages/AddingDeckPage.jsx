@@ -16,9 +16,11 @@ const AddingDeckPage = (props) => {
                     <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public"/>
                 </div>
             </form>
-            <NavButton text="Create" url="/decks/new-deck/create"/>
-            <NavButton text="Import" url="/decks/new-deck/import"/>
-            <NavButton text="Back" url="/decks"/>
+            <div className="button__block">
+                <NavButton text="Create" url="/decks/new-deck/create"/>
+                <NavButton text="Import" url="/decks/new-deck/import"/>
+                <NavButton text="Back" url="/decks"/>
+            </div>
         </Layout>
 
         </>
