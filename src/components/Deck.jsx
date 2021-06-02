@@ -6,7 +6,7 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {id, title,total_ec, description, num_cards} = props;
+    const {id, title,total_ec, description, num_cards, onClick} = props;
     
     return (
         <li key={id} className="deck__block">
@@ -21,7 +21,7 @@ const Deck = (props) => {
                     <span className="deck__ec--value">{total_ec}</span>
                 </div>
                 <div className="inner__right--actions">
-                    <div className="action" ><AiFillCloseCircle/></div>
+                    <div className="action" onClick={onClick}><AiFillCloseCircle/></div>
                     <Link className="action" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>
