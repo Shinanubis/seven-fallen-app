@@ -122,6 +122,9 @@ code {
 }
 
 .deck__list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 70%;
   margin-bottom: 2rem;
 }
