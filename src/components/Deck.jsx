@@ -7,14 +7,22 @@ import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
     const {id, title,total_ec, description, num_cards, listState, listStateSetter} = props;
-    
+
+    const removeData = async () => {
+        const response = await fetch(`https://test-seven.site/api/decks/delete/${id}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        });
+        const datas  = await response.json();
+        console.log(datas)
+    }
+
     const handleClick = (e, state, id) => {
         e.preventDefault();
-        listStateSetter(state.filter(elmt => elmt.id !== id))
+        removeData();
     }
 
     
-
     return (
         <li key={id} className="deck__block">
             <div className="deck__inner--left">
