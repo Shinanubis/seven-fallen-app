@@ -121,6 +121,10 @@ code {
   overflow-y: scroll;
 }
 
+.deck__list--empty{
+  color: #202020;
+}
+
 .form{
   display: flex;
   flex-direction: column;
