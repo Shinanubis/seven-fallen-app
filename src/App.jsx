@@ -25,7 +25,7 @@ import StarterPage from './pages/StarterPage'
 import IndividualPage from './pages/IndividualPage'
 import DeckBuildOptions from './pages/DeckBuildOptions'
 import DeckCreate from './pages/DeckCreate'
-import DeckImport from './pages/DeckImport'
+import DeckImport from './pages/DeckCreate'
 
 
 //Context import
@@ -89,13 +89,13 @@ function App() {
         exact:true,
         strict: true,
         path:'/decks/new-deck/create',
-        component: DeckImport
+        component: DeckCreate
     },
     {
         exact:true,
         strict: true,
         path:'/decks/new-deck/import',
-        component: DeckImport
+        component: DeckCreate
     },
     {
         exact:true,
