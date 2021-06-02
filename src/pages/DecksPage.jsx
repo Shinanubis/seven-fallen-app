@@ -16,22 +16,16 @@ function reducer(state, action){
     }
 }
 
-async function getDatas(url){
-    let response = await fetch(url,{
-        method: 'GET',
-        credentials: 'include'
-    });
-    let datas = await response.json();
-    return datas;
-}
-
 const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
 
     useEffect(async () => {
-        const datas = await getDatas('https://test-seven.site/api/decks');
+            let response = await fetch('https://test-seven.site/api/decks',{
+            method: 'GET',
+            credentials: 'include'
+        });
+        let datas = await response.json();
         setDecksList(datas);
-        console.log(datas)
     },[])
 
     return (
