@@ -14,8 +14,11 @@ const DecksPage = () => {
             method: 'GET',
             credentials: 'include'
         });
-        let datas = await response.json();
-        setDecksList(datas);
+
+        if(response.ok){
+            let datas = await response.json();
+            setDecksList(datas);
+        }
     },[])
 
     if(decksList.length > 0){
