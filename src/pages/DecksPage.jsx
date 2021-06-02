@@ -19,13 +19,14 @@ const DecksPage = () => {
             let datas = await response.json();
             setDecksList(datas);
         }
+
     },[])
 
     if(decksList.length > 0){
         return (
             <List classes="layout layout__1">
                   {
-                      decksList.map((elmt, index) => {
+                      decksList.map(elmt => {
                               return(
                                   <Deck id={elmt.id} 
                                         title={elmt.deck_name} 
@@ -41,7 +42,7 @@ const DecksPage = () => {
       )
     }
 
-    return <div>empty</div>
+    return <div>Your deck List is empty</div>
 }
 
 export default DecksPage;
