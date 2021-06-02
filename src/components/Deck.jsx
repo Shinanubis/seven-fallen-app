@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import DecksContext from '../contexts/DecksContext'
 import './Deck.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
@@ -6,12 +6,14 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {id, title,total_ec, description, num_cards} = props;
+    const {id, title,total_ec, description, num_cards, listState, listStateSetter} = props;
     
-    const handleClick = (e) => {
+    const handleClick = (e, state, id) => {
         e.preventDefault();
-        console.log("hello");
+        listStateSetter(state.filter(elmt => elmt.id !== id))
     }
+
+    
 
     return (
         <li key={id} className="deck__block">
@@ -26,7 +28,7 @@ const Deck = (props) => {
                     <span className="deck__ec--value">{total_ec}</span>
                 </div>
                 <div className="inner__right--actions">
-                    <div className="action" onClick={handleClick}><AiFillCloseCircle/></div>
+                    <div className="action" onClick={(e) => handleClick(e, listState, id)}><AiFillCloseCircle/></div>
                     <Link className="action" to={`/deck/${title}`}><BsPencil/></Link>
                 </div>
             </div>

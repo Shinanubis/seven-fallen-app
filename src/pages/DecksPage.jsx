@@ -18,10 +18,6 @@ const DecksPage = () => {
         setDecksList(datas);
     },[])
 
-    const remove = (e, state) => {
-        e.preventDefault();
-        setDecksList();
-    }
 
     return (
             <List classes="layout layout__1">
@@ -34,6 +30,7 @@ const DecksPage = () => {
                                       num_cards={elmt.num_cards} 
                                       total_ec={elmt.total_ec}
                                       listState = {decksList}
+                                      listStateSetter = {setDecksList}
                                 />)
                         }
                     )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
