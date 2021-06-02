@@ -27,7 +27,6 @@ async function getDatas(url){
 
 const DecksPage = (props) => {
     const [decksList, setDecksList] = useState([]);
-    const [decks, dispatch] = useReducer(reducer, []);
 
     useEffect(async () => {
         const datas = await getDatas('https://test-seven.site/api/decks');
@@ -35,7 +34,6 @@ const DecksPage = (props) => {
     },[])
 
     return (
-        <DecksContext state={decks} dispatcher={dispatch}>
             <List classes="layout layout__1">
                 {decksList.map(elmt => {
                     return (<Deck id={elmt.id} 
@@ -46,7 +44,6 @@ const DecksPage = (props) => {
                             )
                 })}
             </List>
-        </DecksContext>
     )
 }
 
