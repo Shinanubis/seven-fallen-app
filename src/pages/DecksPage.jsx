@@ -21,7 +21,7 @@ async function getDatas(url){
         method: 'GET',
         credentials: 'include'
     });
-    let datas = await response.json()
+    let datas = await response.json();
     return datas;
 }
 
@@ -35,8 +35,10 @@ const DecksPage = (props) => {
 
     return (
             <List classes="layout layout__1">
+                {console.log(decksList)}
                 {decksList.map(elmt => {
-                    return (<Deck id={elmt.id} 
+                    return (
+                            <Deck id={elmt.id} 
                                   title={elmt.deck_name} 
                                   num_cards= {elmt.num_cards}
                                   total_ec={elmt.total_ec} 
