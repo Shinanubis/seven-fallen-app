@@ -42,9 +42,14 @@ const DecksPage = () => {
       )
     }
 
-    return <div className="deck__list">
-                <p className="deck__list--empty">Your deck list is empty</p>
-            </div>
+    return (
+            <>
+                <div className="deck__list">
+                    <p className="deck__list--empty">Your deck list is empty</p>
+                </div>
+                <Plus />
+            </>
+            )
 }
 
 export default DecksPage;
