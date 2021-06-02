@@ -18,8 +18,9 @@ const DecksPage = () => {
         setDecksList(datas);
     },[])
 
-    const handleRemove = (e) => {
-        console.log(e.target.id)
+    const remove = (e, state) => {
+        e.preventDefault();
+        setDecksList();
     }
 
     return (
@@ -32,7 +33,7 @@ const DecksPage = () => {
                                       description={elmt.description} 
                                       num_cards={elmt.num_cards} 
                                       total_ec={elmt.total_ec}
-                                      onClick = {handleRemove}
+                                      listState = {decksList}
                                 />)
                         }
                     )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
