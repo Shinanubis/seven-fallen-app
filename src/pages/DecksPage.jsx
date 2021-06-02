@@ -1,9 +1,7 @@
 import React,{useEffect, useState} from 'react'
-import DecksContext from '../contexts/DecksContext'
 import Plus from '../components/Plus'
 import List from '../components/List'
 import Deck from '../components/Deck'
-import './DecksPage.css'
 
 
 const DecksPage = () => {
@@ -25,22 +23,22 @@ const DecksPage = () => {
     if(decksList.length > 0){
         return (
             <>
-            <List classes="layout layout__1">
-                  {
-                      decksList.map(elmt => {
-                              return(
-                                  <Deck id={elmt.id} 
-                                        title={elmt.deck_name} 
-                                        description={elmt.description} 
-                                        num_cards={elmt.num_cards} 
-                                        total_ec={elmt.total_ec}
-                                        listState = {decksList}
-                                        listStateSetter = {setDecksList}
-                                  />)
-                          }
-                      )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-              </List>
-              <Plus />
+                <List classes="layout layout__1">
+                      {
+                          decksList.map(elmt => {
+                                  return(
+                                      <Deck id={elmt.id} 
+                                            title={elmt.deck_name} 
+                                            description={elmt.description} 
+                                            num_cards={elmt.num_cards} 
+                                            total_ec={elmt.total_ec}
+                                            listState = {decksList}
+                                            listStateSetter = {setDecksList}
+                                      />)
+                              }
+                          )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                </List>
+                <Plus to={'/decks/new-deck'}/>
               </>
       )
     }
