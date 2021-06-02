@@ -121,6 +121,10 @@ code {
   overflow-y: scroll;
 }
 
+.deck__list{
+  height: 70%;
+}
+
 .deck__list--empty{
   text-align: center;
   color: #202020;
