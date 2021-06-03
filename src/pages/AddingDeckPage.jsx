@@ -38,12 +38,12 @@ const AddingDeckPage = (props) => {
             };
     }
 
-    const handleCreate = async (e) => {
+    const handleCreate = (e) => {
         e.preventDefault();
         const form = new FormData();
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
-        let response = await createUserDeck(form);
+        let response = createUserDeck(form);
         console.log(response);
     }
 
