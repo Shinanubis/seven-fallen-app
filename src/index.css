@@ -1,4 +1,5 @@
 :root{
+  --red : #FFBABA;
   --black : #101010;
   --dark-grey : #202020;
   --grey: #404040;
@@ -361,6 +362,10 @@ svg.dropdown__icon path{
 }
 .mb-6{
   margin-bottom: 6vh !important;
+}
+
+.bad__input{
+  color: #FFBABA;
 }
 
 .title{
