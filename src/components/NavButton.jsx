@@ -2,9 +2,10 @@ import React from 'react'
 import {useHistory} from 'react-router-dom'
 
 const NavButton = (props) => {
-    const {text, url,classes} = props;
+    const {text, url,classes, onClick} = props;
     const history = useHistory();
-    const handleClick = () => {
+    const handleClick = (e) => {
+        onClick(e);
         history.push(url);
     }
     return (
