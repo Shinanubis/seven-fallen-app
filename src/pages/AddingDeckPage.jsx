@@ -24,7 +24,7 @@ const AddingDeckPage = (props) => {
         e.preventDefault();
     }
 
-    const handleCreate = async (e) => {
+    const handleCreate = (e) => {
         e.preventDefault();
         console.log("hello")
     }
