@@ -10,11 +10,12 @@ const NavButton = (props) => {
     const handleClick = (e) => {
         e.preventDefault();
         let result = onClick(e);
+        console.log(result)
         if(result === true){
             history.push(url);
         }
     }
-    
+
     return (
         <button className={classes ? classes : 'btn'} onClick={handleClick}>
             {text}
