@@ -44,7 +44,7 @@ const AddingDeckPage = (props) => {
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
         for(let test in form.entries()){
-            console.log(test[0] + ' ' + test[1])
+            console.log(test)
         }
     }
 
