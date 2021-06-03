@@ -379,6 +379,15 @@ svg.dropdown__icon path{
   text-align: center;
   padding: 0.5rem 1rem;
   color: var(--black);
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.message__flash-success{
+  background-color:var(--done);
 }
 
 .title{
