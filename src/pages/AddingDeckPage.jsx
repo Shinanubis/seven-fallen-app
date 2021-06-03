@@ -44,7 +44,10 @@ const AddingDeckPage = (props) => {
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
         let response = await createUserDeck(form);
-        console.log(response);
+        if(response.code === 200){
+            return true;
+        }
+        return false;
     }
 
 
