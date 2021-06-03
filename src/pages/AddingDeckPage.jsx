@@ -13,7 +13,7 @@ const AddingDeckPage = (props) => {
 
     const [fieldValues, setFieldValues] = useState({
         deck_name: '',
-        visibility: false
+        visibility: true
     });
 
     const handleBlur = (e) => {
