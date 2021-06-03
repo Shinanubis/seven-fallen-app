@@ -377,7 +377,7 @@ svg.dropdown__icon path{
 
 .message__flash{
   text-align: center;
-  margin: 2vh;
+  margin: 2vh 0;
   padding: 0.5rem 1rem;
   color: var(--black);
   border-radius: 2px;
