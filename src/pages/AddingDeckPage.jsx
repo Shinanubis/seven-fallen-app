@@ -48,7 +48,7 @@ const AddingDeckPage = (props) => {
         if(response.code === 200){
             return true;
         }else{
-            setCreateState(response);
+            setCreateState({...response});
         }  
     }
 
