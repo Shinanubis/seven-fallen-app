@@ -25,7 +25,7 @@ const AddingDeckPage = (props) => {
     }
 
     const handleInputChange = (e) => {
-        setFieldValues({...fieldValues, visibility: e.target.checked});
+        setFieldValues({...fieldValues, visibility: e.target.value});
     }
 
     const handleCreate = (e) => {

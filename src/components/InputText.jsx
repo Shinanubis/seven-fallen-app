@@ -2,11 +2,12 @@ import React from 'react'
 
 const InputText = (props) => {
     const search = text;
-    
+
     if(!props.onChange) props.onChange = () => {return};
     if(!props.onBlur) props.onBlur = () => {return};
 
     const {classes,placeholder,onChange,text,onBlur} = props;
+    
     const handleChange = (e) => {
         e.preventDefault();
         onChange(e);
