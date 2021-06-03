@@ -376,6 +376,7 @@ svg.dropdown__icon path{
 }
 
 .message__flash{
+  opacity:0;
   text-align: center;
   margin: 4vh 0 2vh 0;
   padding: 0.5rem 1rem;
@@ -385,12 +386,32 @@ svg.dropdown__icon path{
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
-  background-color:var(--done);  
+  background-color:var(--done);
   box-shadow: 0 0 20px -5px #8f8f8f;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+}
+
+.message__flash-done{
+  opacity:1;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
 }
 
 .message__flash-error{
+  opacity:1;
+  transition:opacity 1s ease;
   background-color: var(--error);
+  -webkit-transition:opacity 1s ease;
+  -moz-transition:opacity 1s ease;
+  -ms-transition:opacity 1s ease;
+  -o-transition:opacity 1s ease;
 }
 
 .title{
