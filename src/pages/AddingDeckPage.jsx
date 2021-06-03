@@ -44,11 +44,10 @@ const AddingDeckPage = (props) => {
         e.preventDefault();
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
+        console.log(form)
     }
 
-    useEffect(() => {
-        console.log(form)
-    },[]);
+
 
     return (
         <>
