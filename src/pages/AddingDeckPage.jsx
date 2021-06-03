@@ -17,6 +17,7 @@ const AddingDeckPage = (props) => {
 
     const [inputState, setInputState] = useState(true);
     const [createState, setCreateState] = useState({});
+    const [flash, setFlash] = useState(null);
 
     const handleBlur = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
@@ -47,9 +48,11 @@ const AddingDeckPage = (props) => {
         form.append('visibility', fieldValues.visibility);
         let response = await createUserDeck(form);
         if(response.code === 200){
+            setFlash(true);
             setCreateState(response);
             return true;
         }else{
+            setFlash(false);
             setCreateState(response);
             return false;
         }  
@@ -67,7 +70,7 @@ const AddingDeckPage = (props) => {
                         <h4 className="form__section--title">Informations</h4>
                         <InputText classes={inputState === true ? "form--input bad__input" : 'form--input good__input'} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
-                        <Flash classes={"message__flash"} message={"Bad message"}/>
+                        {flash === true ? <Flash classes="message__flash message__flash-done" message={createState.message}/> : <Flash classes="message__flash message__flash-error" message={createState.message}/>}
                     </div>
                 </form>
                 <div className="buttons__block">
