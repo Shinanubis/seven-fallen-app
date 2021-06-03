@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import { createUser } from '../api/userApi';
 import './SubscribePage.css'
 
 
@@ -25,7 +24,6 @@ function SubscribePage() {
         Object.keys(formValues).map((key, index) => {
             return data.append(key,formValues[key]);
         });
-        createUser('https://test-seven.site/api/user/subscribe',data);
     }
 
     return (

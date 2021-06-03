@@ -1,7 +1,8 @@
-import React,{useEffect, useState} from 'react'
-import Plus from '../components/Plus'
-import List from '../components/List'
-import Deck from '../components/Deck'
+import React,{useEffect, useState} from 'react';
+
+import Plus from '../components/Plus';
+import List from '../components/List';
+import Deck from '../components/Deck';
 
 
 const DecksPage = () => {
