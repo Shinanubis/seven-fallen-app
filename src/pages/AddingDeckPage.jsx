@@ -49,7 +49,7 @@ const AddingDeckPage = (props) => {
     useEffect(() => {
         console.log(fieldValues);
         console.log(inputState);
-        console.log(form);
+        console.log(form.entries());
     },[fieldValues]);
 
     return (
