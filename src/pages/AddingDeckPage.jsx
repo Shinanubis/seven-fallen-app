@@ -18,7 +18,6 @@ const AddingDeckPage = (props) => {
 
     const handleBlur = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
-        console.log(fieldValues)
     }
 
     const handleCheck = (e) => {
@@ -29,6 +28,10 @@ const AddingDeckPage = (props) => {
         console.log("Create a deck")
     }
 
+    useEffect(() => {
+        console.log(fieldValues)
+    },[fieldValues]);
+
     return (
         <>
         <Layout>
@@ -36,7 +39,7 @@ const AddingDeckPage = (props) => {
                 <div className="form--section">
                     <h4 className="form__section--title">Informations</h4>
                     <InputText classes="form--input" placeholder="Nom du deck" onBlur={handleBlur} value={fieldValues.deck_name}/>
-                    <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public"/>
+                    <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" checked={fieldValues.visibility}/>
                 </div>
             </form>
             <div className="buttons__block">
