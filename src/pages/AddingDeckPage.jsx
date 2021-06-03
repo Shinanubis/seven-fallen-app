@@ -67,7 +67,7 @@ const AddingDeckPage = (props) => {
                         <h4 className="form__section--title">Informations</h4>
                         <InputText classes={inputState === true ? "form--input bad__input" : 'form--input good__input'} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
-                        <Flash classes="message__flash" message={"Bad message"}/>
+                        <Flash classes={"message__flash message__flash-success"} message={"Bad message"}/>
                     </div>
                 </form>
                 <div className="buttons__block">

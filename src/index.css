@@ -375,6 +375,11 @@ svg.dropdown__icon path{
   border-bottom: 2px solid var(--error);
 }
 
+.message__flash{
+  text-align: center;
+  padding: 0.5rem 1rem;
+  color: var(--black);
+}
 
 .title{
   text-align:center;
