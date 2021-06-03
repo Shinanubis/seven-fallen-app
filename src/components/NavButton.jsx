@@ -7,9 +7,9 @@ const NavButton = (props) => {
     const {text, url, classes, onClick} = props;
     const history = useHistory();
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
-        let result = onClick(e);
+        let result = await onClick(e);
         console.log(result)
         if(result === true){
             history.push(url);
