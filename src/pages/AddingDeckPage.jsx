@@ -47,10 +47,8 @@ const AddingDeckPage = (props) => {
     }
 
     useEffect(() => {
-        for (let pair of form.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
-    },[fieldValues]);
+        console.log(form)
+    },[]);
 
     return (
         <>
