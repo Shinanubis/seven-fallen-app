@@ -7,7 +7,7 @@ const InputText = (props) => {
     if(!props.onBlur) props.onBlur = () => {return};
 
     const {classes,placeholder,onChange,text,onBlur} = props;
-    
+
     const handleChange = (e) => {
         e.preventDefault();
         onChange(e);
@@ -18,7 +18,7 @@ const InputText = (props) => {
         onBlur(e);
     } 
     return (
-        <input className={classes} type="text" placeholder={placeholder} onBlur={handleBlur} onChange={handleChange} value={search}/>
+        <input className={classes} type="text" placeholder={placeholder} onBlur={handleBlur} onChange={handleChange} value={search} />
     )
 }
 
