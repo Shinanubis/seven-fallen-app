@@ -370,7 +370,8 @@ svg.dropdown__icon path{
   border-bottom: 2px solid var(--done);
 }
 
-.form--input.good__input::after{
+.good__input::after{
+  content:"";
   width:20px;
   height:100%;
   background-color: #202020;
