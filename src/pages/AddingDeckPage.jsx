@@ -17,7 +17,8 @@ const AddingDeckPage = (props) => {
     });
 
     const handleBlur = (e) => {
-        console.log(e.target.value);
+        setFieldValues({...fieldValues, deck_name: e.target.value});
+        console.log(fieldValues)
     }
 
     const handleCheck = (e) => {
