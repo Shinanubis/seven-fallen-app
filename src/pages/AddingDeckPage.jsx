@@ -28,7 +28,7 @@ const AddingDeckPage = (props) => {
 
     const handleInputChange = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
-        if(e.target.value > 0) setInputState(true);
+        if(e.target.value.length > 0) setInputState(false);
     }
 
     const handleCreate = (e) => {
