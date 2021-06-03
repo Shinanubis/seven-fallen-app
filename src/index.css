@@ -370,14 +370,6 @@ svg.dropdown__icon path{
   border-bottom: 2px solid var(--done);
 }
 
-.good__input::after{
-  content:"";
-  display:block;
-  width:20px;
-  height:20px;
-  background-color: #202020;
-}
-
 .bad__input,
 .bad__input:focus{
   border-bottom: 2px solid var(--error);
