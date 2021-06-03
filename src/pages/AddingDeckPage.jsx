@@ -44,7 +44,7 @@ const AddingDeckPage = (props) => {
                 <form className="form">
                     <div className="form--section">
                         <h4 className="form__section--title">Informations</h4>
-                        <InputText classes={fieldValues ? "form--input" : "form--input bad__input"} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
+                        <InputText classes={fieldValues.deck_name.length !== 0 ? "form--input" : "form--input bad__input"} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
                     </div>
                 </form>
