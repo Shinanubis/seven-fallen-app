@@ -5,7 +5,7 @@ const NavButton = (props) => {
     const {text, url,classes, onClick} = props;
     const history = useHistory();
     const handleClick = (e) => {
-        onClick(e);
+        onClick ?? onClick(e);
         history.push(url);
     }
     return (
