@@ -25,7 +25,7 @@ const AddingDeckPage = (props) => {
     }
 
     const handleInputChange = (e) => {
-        setFieldValues({...fieldValues, visibility: e.target.value});
+        setFieldValues({...fieldValues, deck_name: e.target.value});
     }
 
     const handleCreate = (e) => {
