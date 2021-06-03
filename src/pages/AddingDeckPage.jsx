@@ -46,6 +46,7 @@ const AddingDeckPage = (props) => {
         form.append('visibility', fieldValues.visibility);
         let response = await createUserDeck(form);
         if(response.code === 200){
+            setCreateState(response);
             return true;
         }else{
             setCreateState(response);
@@ -53,7 +54,8 @@ const AddingDeckPage = (props) => {
     }
 
     useEffect(() => {
-        console.log(createState)
+        console.log(createState);
+        console.log()
     },[createState])
 
     return (
