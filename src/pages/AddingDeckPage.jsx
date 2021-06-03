@@ -15,6 +15,7 @@ const AddingDeckPage = (props) => {
     });
 
     const [inputState, setInputState] = useState(true);
+    const [createState, setCreateState] = useState(null);
 
     const handleBlur = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
@@ -46,11 +47,14 @@ const AddingDeckPage = (props) => {
         let response = await createUserDeck(form);
         if(response.code === 200){
             return true;
-        }
-        return false;
+        }else{
+            setCreateState(response);
+        }  
     }
 
-
+    useEffect(() => {
+        console.log(createState)
+    },[])
 
     return (
         <>
