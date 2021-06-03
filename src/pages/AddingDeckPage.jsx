@@ -33,7 +33,7 @@ const AddingDeckPage = (props) => {
 
     const handleInputChange = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
-        if(fieldValues.deck_name.length > 0){
+        if(e.target.value.length > 0){
                 setInputState(false)
             }else{
                 setInputState(true);
