@@ -385,10 +385,11 @@ svg.dropdown__icon path{
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
+  background-color:var(--done)
 }
 
-.message__flash-success{
-  background-color:var(--done);
+.message__flash-error{
+  background-color: var(--error);
 }
 
 .title{
