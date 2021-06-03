@@ -21,7 +21,7 @@ const AddingDeckPage = (props) => {
     }
 
     const handleCheck = (e) => {
-        console.log(e.target.value)
+        console.log(e.target.checked)
     }
 
     const handleCreate = (e) => {
