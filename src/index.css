@@ -364,9 +364,11 @@ svg.dropdown__icon path{
   margin-bottom: 6vh !important;
 }
 
-.bad__input{
+.bad__input,
+.bad__input:focus{
   border-bottom: 2px solid var(--red);
 }
+
 
 .title{
   text-align:center;
