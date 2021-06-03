@@ -36,22 +36,21 @@ const AddingDeckPage = (props) => {
 
     return (
         <>
-        <Layout>
-            <form className="form">
-                <div className="form--section">
-                    <h4 className="form__section--title">Informations</h4>
-                    <InputText classes="form--input" placeholder="Nom du deck" onBlur={handleBlur} value={fieldValues.deck_name}/>
-                    {fieldValues.deck_name.length === 0 ?? (<span className="bad__input">Bad input</span>)}
-                    <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
+            <Layout>
+                <form className="form">
+                    <div className="form--section">
+                        <h4 className="form__section--title">Informations</h4>
+                        <InputText classes="form--input" placeholder="Nom du deck" onBlur={handleBlur} value={fieldValues.deck_name}/>
+                        {fieldValues.deck_name.length === 0 ?? (<span className="bad__input">Bad input</span>)}
+                        <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
+                    </div>
+                </form>
+                <div className="buttons__block">
+                    <NavButton text="Create" url="/decks/new-deck/create" onClick={handleCreate} />
+                    <NavButton text="Import" url="/decks/new-deck/import"/>
+                    <NavButton text="Back" url="/decks"/>
                 </div>
-            </form>
-            <div className="buttons__block">
-                <NavButton text="Create" url="/decks/new-deck/create" onClick={handleCreate} />
-                <NavButton text="Import" url="/decks/new-deck/import"/>
-                <NavButton text="Back" url="/decks"/>
-            </div>
-        </Layout>
-
+            </Layout>
         </>
     )
 }
