@@ -24,6 +24,10 @@ const AddingDeckPage = (props) => {
         setFieldValues({...fieldValues, visibility: e.target.checked});
     }
 
+    const handleInputChange = (e) => {
+        setFieldValues({...fieldValues, visibility: e.target.checked});
+    }
+
     const handleCreate = (e) => {
         e.preventDefault();
         form.append('deck_name', fieldValues.deck_name);
@@ -40,8 +44,7 @@ const AddingDeckPage = (props) => {
                 <form className="form">
                     <div className="form--section">
                         <h4 className="form__section--title">Informations</h4>
-                        <InputText classes="form--input" placeholder="Nom du deck" onBlur={handleBlur} value={fieldValues.deck_name}/>
-                        {fieldValues.deck_name.length == 0 ? <span className="bad__input">Bad input</span> : ''}
+                        <InputText classes={fieldValues ? "form--input" : "form--input bad__input"} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
                     </div>
                 </form>
