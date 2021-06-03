@@ -26,7 +26,7 @@ const AddingDeckPage = (props) => {
 
     const handleCreate = (e) => {
         e.preventDefault();
-        console.log("hello")
+        console.log("Create a deck")
     }
 
     return (
