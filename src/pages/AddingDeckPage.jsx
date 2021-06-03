@@ -9,8 +9,6 @@ import { RiContactsBookLine } from 'react-icons/ri';
 
 const AddingDeckPage = (props) => {
 
-    const form = new FormData();
-
     const [fieldValues, setFieldValues] = useState({
         deck_name: '',
         visibility: true
@@ -42,6 +40,7 @@ const AddingDeckPage = (props) => {
 
     const handleCreate = (e) => {
         e.preventDefault();
+        const form = new FormData();
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
         for(let test in form.entries()){
