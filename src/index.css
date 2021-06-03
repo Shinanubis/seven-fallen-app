@@ -365,7 +365,7 @@ svg.dropdown__icon path{
 }
 
 .bad__input{
-  color: #FFBABA;
+  border-bottom: 2px solid var(--red);
 }
 
 .title{
