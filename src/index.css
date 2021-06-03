@@ -1,6 +1,6 @@
 :root{
   --error : #ff5d5d;
-  --done: rgb(54, 209, 54);
+  --done: rgb(59, 231, 59);
   --black : #101010;
   --dark-grey : #202020;
   --grey: #404040;
@@ -365,7 +365,8 @@ svg.dropdown__icon path{
   margin-bottom: 6vh !important;
 }
 
-.good__input{
+.good__input,
+.good__input:focus{
   border-bottom: 2px solid var(--done);
 }
 
