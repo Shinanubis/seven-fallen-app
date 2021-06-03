@@ -62,10 +62,8 @@ async function createUserDeck(form){
     };
 
     let response = await fetch('https://test-seven.site/api/decks/add', settings);
-    if(response.ok){
-        let datas = await response.json();
-        return datas;
-    }
+    let datas = await response.json();
+    return datas;
 }
 
 async function updateOne(form, id){
