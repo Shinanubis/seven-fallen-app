@@ -19,6 +19,7 @@ const AddingDeckPage = (props) => {
     const handleBlur = (e) => {
         e.preventDefault();
         setFieldValues({...fieldValues, deck_name: e.target.value});
+        console.log(fieldValues)
     }
 
     const handleCheck = (e) => {
@@ -29,10 +30,6 @@ const AddingDeckPage = (props) => {
         e.preventDefault();
         let response = await createUserDeck();
     }
-
-    useEffect(() => {
-        console.log(fieldValues)
-    }, [fieldValues]);
 
     return (
         <>
