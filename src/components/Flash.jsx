@@ -1,8 +1,8 @@
 function Flash(props){
-    const {message} = props;
+    const {message, classes} = props;
 
     return(
-        <p>{message}</p>
+        <p className={classes}>{message}</p>
     );
 }
 
