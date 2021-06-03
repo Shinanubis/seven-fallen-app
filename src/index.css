@@ -153,7 +153,7 @@ code {
 
 .form--input{
   outline:none;
-
+  margin-bottom: 2vh;
   background-color: var(--white);
   font-size: 1.125rem;
   color:var(--dark-grey);
