@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {createUserDeck} from '../api/Decks';
 import Layout from '../layouts/Layout';
 import InputText from '../components/InputText';
 import CheckBox from '../components/CheckBox';
 import NavButton from '../components/NavButton';
+import { RiContactsBookLine } from 'react-icons/ri';
 
 
 const AddingDeckPage = (props) => {
@@ -28,6 +29,10 @@ const AddingDeckPage = (props) => {
         e.preventDefault();
         let response = await createUserDeck();
     }
+
+    useEffect(() => {
+        console.log(fieldValues)
+    });
 
     return (
         <>
