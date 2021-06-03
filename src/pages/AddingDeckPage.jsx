@@ -27,6 +27,11 @@ const AddingDeckPage = (props) => {
 
     const handleInputChange = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
+        if(fieldValues.deck_name.length > 0){
+                inputClasses = "form--input"
+            }else{
+                inputClasses = "form--input bad__input"
+            }
     }
 
     const handleCreate = (e) => {
