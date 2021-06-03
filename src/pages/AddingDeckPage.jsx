@@ -20,6 +20,11 @@ const AddingDeckPage = (props) => {
 
     const handleBlur = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
+        if(e.target.value.length > 0){
+            setInputState(false)
+        }else{
+            setInputState(true);
+        };
     }
 
     const handleCheck = (e) => {
