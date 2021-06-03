@@ -15,7 +15,7 @@ const AddingDeckPage = (props) => {
     });
 
     const [inputState, setInputState] = useState(true);
-    const [createState, setCreateState] = useState(null);
+    const [createState, setCreateState] = useState({});
 
     const handleBlur = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
