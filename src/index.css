@@ -365,6 +365,10 @@ svg.dropdown__icon path{
   margin-bottom: 6vh !important;
 }
 
+.good__input{
+  border-bottom: 2px solid var(--done);
+}
+
 .bad__input,
 .bad__input:focus{
   border-bottom: 2px solid var(--error);
