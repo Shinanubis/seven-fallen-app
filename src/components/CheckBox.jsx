@@ -6,7 +6,7 @@ const CheckBox = (props) => {
 
     return (
         <div className="row">
-          <input id={name} className={classes} type="checkbox" name={name} onChange={onChange}/>
+          <input id={name} className={classes} type="checkbox" name={name} onChange={onChange} checked={checked}/>
           <label className="form__label" htmlFor={id}>{text}</label>   
         </div>
     )
