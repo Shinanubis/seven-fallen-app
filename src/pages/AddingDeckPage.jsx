@@ -21,11 +21,10 @@ const AddingDeckPage = (props) => {
     }
 
     const handleCheck = (e) => {
-        e.preventDefault();
+
     }
 
     const handleCreate = (e) => {
-        e.preventDefault();
         console.log("Create a deck")
     }
 

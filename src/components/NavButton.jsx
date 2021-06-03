@@ -6,6 +6,7 @@ const NavButton = (props) => {
     const {text, url, classes, onClick} = props;
     const history = useHistory();
     const handleClick = (e) => {
+        e.preventDefault();
         onClick(e);
         history.push(url);
     }
