@@ -55,7 +55,6 @@ const AddingDeckPage = (props) => {
 
     useEffect(() => {
         console.log(createState);
-        console.log()
     },[createState])
 
     return (
