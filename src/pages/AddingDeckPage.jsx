@@ -26,8 +26,7 @@ const AddingDeckPage = (props) => {
 
     const handleCreate = async (e) => {
         e.preventDefault();
-        let response = await createUserDeck();
-        console.log(response)
+        console.log("hello")
     }
 
     return (
