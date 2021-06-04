@@ -25,7 +25,7 @@ const DecksPage = () => {
         setDecksList(response);
     },[])
 
-    if(decksList.message && decksList.message.length > 0){
+    if(decksList.message && decksList.message instanceof Array){
         return (
             <>
                 <List classes="layout layout__1">
