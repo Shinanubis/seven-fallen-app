@@ -9,7 +9,7 @@ import Deck from '../components/Deck';
 const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
-    const [deleteResponse, setDeleteResponse] = useState(null);
+    const [deleteResponse, setDeleteResponse] = useState({});
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);

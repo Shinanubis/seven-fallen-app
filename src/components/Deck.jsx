@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import DecksContext from '../contexts/DecksContext'
 import {deleteUserDeck, getUserDecks} from '../api/Decks'
 import './Deck.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
