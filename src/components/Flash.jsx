@@ -20,7 +20,7 @@ function Flash(props){
 
         if(flash === true){
             setClasses(classes + ' ' + successClass);
-            console.log(classes);
+            console.log(successClass);
             setTimeout(() => {
                 afterClasses = classes.replace(successClass, '');
                 setClasses(afterClasses);
