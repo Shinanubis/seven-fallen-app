@@ -33,7 +33,6 @@ function Flash(props){
 
     return(
         <>
-            {console.log(message)}
             <p className={classesState}>{message}</p>
         </>
     );

@@ -68,6 +68,7 @@ const AddingDeckPage = (props) => {
 
     return (
         <>
+            {console.log(createState)}
             <Layout>
                 <form className="form">
                     <div className="form--section">
