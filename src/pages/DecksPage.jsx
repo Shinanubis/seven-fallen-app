@@ -21,19 +21,15 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = await getUserDecks();
-        if(response.code === 200){
-            setDecksList(response);
-        }else{
-            setDecksList(response)
-        }
+        setDecksList(response)
     },[])
 
-    if(decksList.length > 0){
+    if(decksList.length > 0 && decksList.code === 200){
         return (
             <>
                 <List classes="layout layout__1">
                       {
-                          decksList.map(elmt => {
+                          decksList.message.map(elmt => {
                                   return(
                                       <Deck id={elmt.id} 
                                             title={elmt.deck_name} 
