@@ -18,7 +18,7 @@ function Flash(props){
     return(
         <>    
             {console.log(flash)}
-            {flash == null ? <p className={classesState}>{message}</p> : ''}
+            {flash == null ?? <p className={classesState}>{message}</p> }
         </>
     );
 }
