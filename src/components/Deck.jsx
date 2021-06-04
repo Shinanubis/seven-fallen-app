@@ -23,7 +23,6 @@ const Deck = (props) => {
         if(getResponse.code === 200){
             listStateSetter(getResponse);
         }else{
-            console.log(getResponse)
             listStateSetter([]);
         }
         deleteStateSetter(deleteResponse);
