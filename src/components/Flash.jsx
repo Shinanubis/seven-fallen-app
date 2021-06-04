@@ -13,12 +13,12 @@ function Flash(props){
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
         }
-    },[classesState])
+    },[])
 
     return(
         <>    
             {console.log(flash)}
-            <p className={classes}>{message}</p> : ''
+            <p className={classesState}>{message}</p> : ''
         </>
     );
 }
