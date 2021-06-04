@@ -22,15 +22,6 @@ const DecksPage = () => {
     useEffect(async () => {
         let response = await getUserDecks();
         setDecksList(response);
-
-        if(deleteResponse.code === 200){
-            setFlashState(true);
-        }else if(deleteResponse.code !== 200){
-            setFlashState(false);
-        }else{
-            setFlashState(null);
-        }
-
     },[])
 
     if(decksList.length > 0){
@@ -49,6 +40,7 @@ const DecksPage = () => {
                                             listStateSetter = {setDecksList}
                                             deleteState = {deleteResponse}
                                             deleteStateSetter = {handleDelete}
+                                            handleFlash = {handleFlash}
                                       />)
                               }
                           )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
