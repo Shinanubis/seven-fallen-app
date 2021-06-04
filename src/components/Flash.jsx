@@ -12,7 +12,7 @@ function Flash(props){
             setClasses(classes + ' ' + errorClass)
         }
         console.log(classesState)
-    },[])
+    },[flash])
 
     return(
         <>
