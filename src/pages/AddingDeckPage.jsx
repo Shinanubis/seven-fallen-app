@@ -50,7 +50,7 @@ const AddingDeckPage = (props) => {
 
         if(response.code === 200){
             setFlash(true);
-            setCreateState(response);
+            setCreateState({response});
             return true;
         }else if(response.code !== 200){
             setFlash(false);
@@ -78,7 +78,7 @@ const AddingDeckPage = (props) => {
                             classes="message__flash" 
                             errorClass="message__flash-error" 
                             successClass="message__flash-done" 
-                            message={createState.deck_name ? createState.deck_name : 'flash message'}
+                            message={createState.deck_name || createState.message ? createState.deck_name || createState.message : 'flash message'}
                             flash={flash}
                             timing={750}
                             handleFlash = {handleFlash}
