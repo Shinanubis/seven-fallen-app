@@ -47,15 +47,19 @@ const AddingDeckPage = (props) => {
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
         let response = await createUserDeck(form);
+        
         if(response.code === 200){
             setFlash(true);
             setCreateState(response);
             return true;
-        }else{
+        }else if(response.code !== 200){
             setFlash(false);
             setCreateState(response);
             return false;
-        }  
+        }else{
+            setFlash(null);
+            return null;
+        }
     }
 
     return (
@@ -66,11 +70,13 @@ const AddingDeckPage = (props) => {
                         <h4 className="form__section--title">Informations</h4>
                         <InputText classes={inputState === true ? "form--input bad__input" : 'form--input good__input'} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
-                        
-                        {flash === true ? <Flash classes="message__flash message__flash-done" modifier="message__flash-done" message={createState.deck_name} /> : ''}
-                        {flash === false ? <Flash classes="message__flash message__flash-error" modifier="message__flash-error" message={createState.deck_name}/> : ''}
-                        {flash === null ? <Flash classes="message__flash" message={createState.message}/> : ''}
-
+                        <Flash 
+                            classes="message__flash" 
+                            errorClass="message__flash-error" 
+                            successClass="message__flash-done" 
+                            message={createState.deck_name}
+                            flash={setFlash} 
+                        />
                     </div>
                 </form>
                 <div className="buttons__block">
