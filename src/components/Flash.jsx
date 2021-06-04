@@ -18,7 +18,7 @@ function Flash(props){
         }
 
         handleFlash(null);
-
+        console.log(flash)
     },[flash])
 
     return(
