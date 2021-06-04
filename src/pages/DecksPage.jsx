@@ -16,7 +16,7 @@ const DecksPage = () => {
         });
 
         let datas = await response.json();
-        return setDecksList(datas);
+        setDecksList(datas);
     },[])
 
     if(decksList.length > 0){
