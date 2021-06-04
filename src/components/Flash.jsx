@@ -13,6 +13,7 @@ function Flash(props){
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
         }
+        console.log(classesState)
     },[])
 
     return(
