@@ -25,7 +25,7 @@ const DecksPage = () => {
         setDecksList(response);
     },[])
 
-    if(decksList.message.length > 0 && decksList.code === 200){
+    if(decksList.message && decksList.message.length > 0){
         return (
             <>
                 <List classes="layout layout__1">
