@@ -14,14 +14,16 @@ const Deck = (props) => {
         
         if(deleteResponse.code === 200){
             handleFlash(true);
+            listStateSetter(getResponse.message);
         }else if(deleteResponse.code !== 200){
             handleFlash(false);
+            listStateSetter(getResponse.message);
         }else{
             handleFlash(null);
         }
 
         deleteStateSetter(deleteResponse);
-        listStateSetter(getResponse.message);
+
     }
 
     const handleClick = (e, state, id) => {
