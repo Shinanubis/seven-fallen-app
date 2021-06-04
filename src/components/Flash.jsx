@@ -19,12 +19,12 @@ function Flash(props){
         }
 
         if(flash === true){
-            setClasses(classes + ' ' + successClass)
+            setClasses(classes + ' ' + successClass);
+            console.log(flash);
             setTimeout(() => {
                 afterClasses = classes.replace(successClass, '');
                 setClasses(afterClasses);
             }, timing ? timing : 1000);
-            console.log(flash)
         }
 
         handleFlash(null);
@@ -33,7 +33,6 @@ function Flash(props){
 
     return(
         <>
-            {console.log(flash)}
             <p className={classesState}>{message}</p>
         </>
     );
