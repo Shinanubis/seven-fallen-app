@@ -16,7 +16,7 @@ function Flash(props){
 
     return(
         <>
-            <p className={classesState}>{message}</p> : ''
+            <p className={classesState}>{message}</p>
         </>
     );
 }
