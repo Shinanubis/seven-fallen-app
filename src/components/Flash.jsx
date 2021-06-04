@@ -8,7 +8,6 @@ function Flash(props){
 
 
     useEffect(() => {
-        console.log(flash)
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
             setTimeout(() => {
@@ -33,6 +32,7 @@ function Flash(props){
 
     return(
         <>
+            {console.log(flash)}
             <p className={classesState}>{message}</p>
         </>
     );
