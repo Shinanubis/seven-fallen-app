@@ -22,7 +22,7 @@ function Flash(props){
             handleFlash(null)
         }
 
-    },[flash])
+    },[])
 
     return(
         <>
