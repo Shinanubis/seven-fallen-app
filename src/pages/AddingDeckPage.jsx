@@ -60,7 +60,7 @@ const AddingDeckPage = (props) => {
 
     useEffect(() => {
         setFlash(null)
-    }, [])
+    }, [flash])
 
     return (
         <>
