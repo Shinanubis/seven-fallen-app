@@ -18,7 +18,7 @@ function Flash(props){
         }
 
         console.log(classesState)
-    },[])
+    },[flash])
 
     return(
         <>
