@@ -14,12 +14,21 @@ function Flash(props){
             setTimeout(() => {
                 afterClasses = classes.replace(errorClass, '');
                 setClasses(afterClasses);
-                handleFlash(null)
             }, timing ? timing : 1000);
 
         }
 
-        
+        if(flash === true){
+            setClasses(classes + ' ' + errorClass)
+            setTimeout(() => {
+                afterClasses = classes.replace(errorClass, '');
+                setClasses(afterClasses);
+            }, timing ? timing : 1000);
+
+        }
+
+        handleFlash(null);
+
     },[flash])
 
     return(
