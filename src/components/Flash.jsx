@@ -11,7 +11,7 @@ function Flash(props){
 
     useEffect(() => {
         setTimeout(() => {
-            setClasses(newClasses);        
+    
         }, timing ? timing : 1000);
     },[])
 
