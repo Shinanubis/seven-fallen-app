@@ -21,7 +21,7 @@ const Deck = (props) => {
         }
 
         if(getResponse.code === 200){
-            listStateSetter(getResponse.message);
+            listStateSetter(getResponse);
         }else{
             listStateSetter([]);
         }
