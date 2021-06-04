@@ -21,11 +21,11 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = await getUserDecks();
+        console.log(response.code);
         setDecksList(response);
-        console.log(response.code)
     },[])
 
-    if(decksList.length > 0 && decksList.code === 200){
+    if(decksList.message.length > 0 && decksList.code === 200){
         return (
             <>
                 <List classes="layout layout__1">
