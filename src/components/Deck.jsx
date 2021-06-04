@@ -14,7 +14,6 @@ const Deck = (props) => {
         console.log(deleteResponse);
         deleteStateSetter(deleteResponse);
         listStateSetter(getResponse);
-
     }
 
     const handleClick = (e, state, id) => {
