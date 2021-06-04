@@ -10,15 +10,15 @@ function Flash(props){
 
 
     useEffect(() => {
-        if(flash === true){
-            setClasses(classes + ' ' + successClass)
+        if(flash === false){
+            setClasses(classes + ' ' + errorClass)
         }
     },[classesState])
 
     return(
         <>    
             {console.log(flash)}
-            {flash === null  ? <p className={classes}>{message}</p> : ''}
+            <p className={classes}>{message}</p> : ''
         </>
     );
 }
