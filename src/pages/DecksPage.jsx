@@ -60,8 +60,8 @@ const DecksPage = () => {
                 <Plus to={'/decks/new-deck'}/>
               </>
       )
-    }else{
-        return (
+    }
+    return (
             <>
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
@@ -70,6 +70,6 @@ const DecksPage = () => {
             </>
             )
     }
-}
+
 
 export default DecksPage;
