@@ -7,11 +7,10 @@ function Flash(props){
 
     useEffect(() => {
     
-        const classIndexToRemove = classesState.split(' ').indexOf(modifier);
-        const newClassesList = classesState.splice(classIndexToRemove, 1);
+        const newClasses = classes.replace(modifier, '');
 
         setTimeout(() => {
-            setClasses(newClassesList);        
+            setClasses(newClasses);        
         }, timing ? timing : 1000);
     },[])
 
