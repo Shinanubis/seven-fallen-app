@@ -8,6 +8,7 @@ function Flash(props){
 
 
     useEffect(() => {
+
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
             setTimeout(() => {
@@ -23,7 +24,7 @@ function Flash(props){
                 afterClasses = classes.replace(successClass, '');
                 setClasses(afterClasses);
             }, timing ? timing : 1000);
-
+            console.log(flash)
         }
 
         handleFlash(null);
