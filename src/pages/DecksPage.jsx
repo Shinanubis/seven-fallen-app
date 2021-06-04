@@ -23,7 +23,7 @@ const DecksPage = () => {
         let response = await getUserDecks();
 
         if(response.code === 200){
-            setDecksList(response);
+            setDecksList(response.message);
         }
 
         if(response.code !== 200){
