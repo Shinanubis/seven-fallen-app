@@ -24,8 +24,7 @@ const DecksPage = () => {
         if(response.code === 200){
             setDecksList(response.message);
         }else{
-            console.log(response)
-            setDecksList([])
+            setDecksList(response)
         }
     },[])
 
