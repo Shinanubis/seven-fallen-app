@@ -22,6 +22,7 @@ const DecksPage = () => {
     useEffect(async () => {
         let response = await getUserDecks();
         setDecksList(response);
+        console.log(decksList)
     },[])
 
     if(decksList.length > 0){
@@ -59,9 +60,8 @@ const DecksPage = () => {
                 <Plus to={'/decks/new-deck'}/>
               </>
       )
-    }
-
-    return (
+    }else{
+        return (
             <>
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
@@ -69,6 +69,7 @@ const DecksPage = () => {
                 <Plus to={'/decks/new-deck'}/>
             </>
             )
+    }
 }
 
 export default DecksPage;
