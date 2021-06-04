@@ -14,12 +14,9 @@ const DecksPage = () => {
             credentials: 'include'
         });
 
-        if(response.ok){
-            let datas = await response.json();
-            setDecksList(datas);
-        }
-
-    },[decksList])
+        let datas = await response.json();
+        setDecksList(datas);
+    },[])
 
     if(decksList.length > 0){
         return (
