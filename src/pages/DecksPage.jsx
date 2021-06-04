@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-
+import {deleteUserDeck, getUserDecks} from '../api/Decks'
 import Plus from '../components/Plus';
 import List from '../components/List';
 import Deck from '../components/Deck';
@@ -16,6 +16,7 @@ const DecksPage = () => {
 
         if(response.ok){
             let datas = await response.json();
+            console.log(datas)
             setDecksList(datas);
         }
 
