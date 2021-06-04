@@ -15,8 +15,7 @@ function Flash(props){
     },[])
 
     return(
-        <>    
-            {console.log(flash)}
+        <>
             <p className={classesState}>{message}</p> : ''
         </>
     );
