@@ -8,7 +8,7 @@ function Flash(props){
 
 
     useEffect(() => {
-
+        console.log(flash)
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
             setTimeout(() => {
