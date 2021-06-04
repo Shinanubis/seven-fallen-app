@@ -22,13 +22,12 @@ const DecksPage = () => {
     useEffect(async () => {
         let response = await getUserDecks();
         setDecksList(response);
-
+        console.log(response.code)
     },[])
 
     if(decksList.length > 0 && decksList.code === 200){
         return (
             <>
-                {console.log(decksList)}
                 <List classes="layout layout__1">
                       {
                           decksList.message.map(elmt => {
