@@ -537,7 +537,8 @@ svg.dropdown__icon path{
 }
 
 .layout__1{
-  grid-template-columns: 1fr;
+  display:flex;
+  flex-direction: column;
 }
 
 .layout__2{
