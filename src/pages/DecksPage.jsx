@@ -21,9 +21,15 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = await getUserDecks();
+
         if(response.code === 200){
             setDecksList(response);
         }
+
+        if(response.code !== 200){
+            console.log(response)
+        }
+
     },[])
 
     if(decksList.length > 0){
