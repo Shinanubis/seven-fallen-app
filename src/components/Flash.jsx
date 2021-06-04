@@ -4,14 +4,16 @@ function Flash(props){
 
     const {message, classes, errorClass,flash ,successClass, timing} = props;
     const [classesState, setClasses] = useState(classes);
-    
+    let afterClasses = '';
 
 
     useEffect(() => {
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
         }
-        console.log(classesState)
+        setTimeout(() => {
+            afterClasses = classes.replace(errorClass, '')
+        }, timing ? timing : 1000);
     },[flash])
 
     return(
