@@ -10,10 +10,10 @@ function Flash(props){
 
 
     useEffect(() => {
-        setTimeout(() => {
-    
-        }, timing ? timing : 1000);
-    },[])
+        if(flash === true){
+            setClasses(classes + ' ' + successClass)
+        }
+    },[classesState])
 
     return(
         <>    
