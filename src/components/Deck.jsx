@@ -11,6 +11,7 @@ const Deck = (props) => {
     const removeData = async () => {
         let deleteResponse = await deleteUserDeck(id);
         let getResponse = await getUserDecks();
+        deleteStateSetter(deleteResponse);
         listStateSetter(getResponse);
 
     }
