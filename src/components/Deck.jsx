@@ -14,7 +14,6 @@ const Deck = (props) => {
             credentials: 'include'
         });
         const datas  = await response.json();
-        console.log(datas)
     }
 
     const handleClick = (e, state, id) => {
@@ -22,6 +21,9 @@ const Deck = (props) => {
         removeData();
     }
 
+    useEffect(() => {
+        
+    },[]);
     
     return (
         <li key={id} className="deck__block">

@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import {deleteUserDeck, getUserDecks} from '../api/Decks'
+import {getUserDecks} from '../api/Decks'
 import Plus from '../components/Plus';
 import List from '../components/List';
 import Deck from '../components/Deck';
@@ -10,13 +10,8 @@ const DecksPage = () => {
 
     useEffect(async () => {
 
-        let response = await fetch('https://test-seven.site/api/decks',{
-            method: 'GET',
-            credentials: 'include'
-        });
-
-        let datas = await response.json();
-        setDecksList(datas);
+        let response = await getUserDecks();
+        setDecksList(response);
     },[])
 
     if(decksList.length > 0){
