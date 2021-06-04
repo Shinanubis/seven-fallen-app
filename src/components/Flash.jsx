@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function Flash(props){
 
-    const {message, classes, errorClass, successClass, timing, flash} = props;
+    const {message, classes, errorClass, successClass, timing} = props;
     const [classesState, setClasses] = useState(classes);
     let newClasses = '';
 
