@@ -389,11 +389,11 @@ svg.dropdown__icon path{
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   box-shadow: 0 0 20px -5px #8f8f8f;
-  transition: opacity 1s ease,background-color 1s ease;
-  -webkit-transition: opacity 1s ease,background-color 1s ease;
-  -moz-transition: opacity 1s ease,background-color 1s ease;
-  -ms-transition: opacity 1s ease,background-color 1s ease;
-  -o-transition: opacity 1s ease,background-color 1s ease;
+  transition: opacity .75s ease,background-color .75s ease;
+  -webkit-transition: opacity .75s ease,background-color .75s ease;
+  -moz-transition: opacity .75s ease,background-color .75s ease;
+  -ms-transition: opacity .75s ease,background-color .75s ease;
+  -o-transition: opacity .75s ease,background-color .75s ease;
 }
 
 .message__flash-done{
