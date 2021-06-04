@@ -4,15 +4,17 @@ import {useHistory} from 'react-router-dom'
 const NavButton = (props) => {
 
     if(!props.onClick) props.onClick = () => {return};
-    const {text, url, classes, onClick} = props;
+    const {text, url, classes, onClick, timing} = props;
     const history = useHistory();
 
     const handleClick = async (e) => {
         e.preventDefault();
         let result = await onClick(e);
-        if(result === true){
-            history.push(url);
-        }
+        setTimeout(() => {
+            if(result === true){
+                history.push(url);
+            }
+        },timing ? timing : 1000);
     }
 
     return (
