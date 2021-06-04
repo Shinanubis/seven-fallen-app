@@ -16,7 +16,7 @@ function Flash(props){
                 setClasses(afterClasses);
                 handleFlash(null)
             }, timing ? timing : 1000);
-            console.log(flash)
+
         }
 
         
@@ -24,6 +24,7 @@ function Flash(props){
 
     return(
         <>
+            {console.log(flash)}
             <p className={classesState}>{message}</p>
         </>
     );
