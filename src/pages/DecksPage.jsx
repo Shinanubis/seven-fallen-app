@@ -49,7 +49,7 @@ const DecksPage = () => {
                 <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
-                    successClass="message__flash-success" 
+                    successClass="message__flash-done" 
                     message={deleteResponse.message ? deleteResponse.message : "flash message"}
                     timing={750}
                     flash={flashState}
