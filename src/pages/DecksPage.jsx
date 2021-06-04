@@ -38,6 +38,7 @@ const DecksPage = () => {
                                             total_ec={elmt.total_ec}
                                             listState = {decksList}
                                             listStateSetter = {setDecksList}
+                                            deleteResponse = {deleteResponse}
                                             deleteResponseSetter = {handleDelete}
                                       />)
                               }
