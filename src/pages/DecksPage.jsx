@@ -23,6 +23,8 @@ const DecksPage = () => {
         let response = await getUserDecks();
         if(response.code === 200){
             setDecksList(response.message);
+        }else{
+            setDecksList([])
         }
     },[])
 
