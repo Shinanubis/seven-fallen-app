@@ -75,7 +75,8 @@ const AddingDeckPage = (props) => {
                             errorClass="message__flash-error" 
                             successClass="message__flash-done" 
                             message={createState.deck_name ? createState.deck_name : 'flash message'}
-                            flash={flash} 
+                            flash={flash}
+                            timing={750}
                         />
                     </div>
                 </form>
