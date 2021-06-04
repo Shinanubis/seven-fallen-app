@@ -17,7 +17,8 @@ function Flash(props){
 
     return(
         <>    
-            {flash == null ?? <p className={classesState}>{message}</p>}
+            {console.log(flash)}
+            {flash == null ? <p className={classesState}>{message}</p> : ''}
         </>
     );
 }
