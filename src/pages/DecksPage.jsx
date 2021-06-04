@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
-import {getUserDecks} from '../api/Decks'
+import {getUserDecks} from '../api/Decks';
+import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 import List from '../components/List';
 import Deck from '../components/Deck';
@@ -7,6 +8,11 @@ import Deck from '../components/Deck';
 
 const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
+    const [flashState, setFlashState] = useState(null)
+
+    const handleFlash = (newFlashState) => {
+        setFlashState(newFlashState);
+    };
 
     useEffect(async () => {
 
@@ -32,6 +38,17 @@ const DecksPage = () => {
                               }
                           )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                 </List>
+
+                <Flash 
+                    classes="message__flash" 
+                    errorClass="message__flash-error" 
+                    successClass="message__flash-success" 
+                    message="flash"
+                    timing={750}
+                    flash={flashState}
+                    handleFlash= {handleFlash}
+                />
+                
                 <Plus to={'/decks/new-deck'}/>
               </>
       )
