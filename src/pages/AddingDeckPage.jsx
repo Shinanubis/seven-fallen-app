@@ -59,9 +59,8 @@ const AddingDeckPage = (props) => {
     }
 
     useEffect(() => {
-        console.log(createState);
-        console.log(flash);
-    },[createState])
+        setFlash(null)
+    }, [])
 
     return (
         <>
@@ -72,9 +71,10 @@ const AddingDeckPage = (props) => {
                         <InputText classes={inputState === true ? "form--input bad__input" : 'form--input good__input'} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
                         
-                        {flash === true ? <Flash classes="message__flash message__flash-done" message={createState.deck_name} /> : ''}
-                        {flash === false ? <Flash classes="message__flash message__flash-error" message={createState.deck_name}/> : ''}
+                        {flash === true ? <Flash classes="message__flash message__flash-done" modifier="message__flash-done" message={createState.deck_name} /> : ''}
+                        {flash === false ? <Flash classes="message__flash message__flash-error" modifier="message__flash-error" message={createState.deck_name}/> : ''}
                         {flash === null ? <Flash classes="message__flash" message={createState.message}/> : ''}
+
                     </div>
                 </form>
                 <div className="buttons__block">

@@ -376,7 +376,9 @@ svg.dropdown__icon path{
 }
 
 .message__flash{
+  font-size: .85rem;
   opacity:0;
+  font-size: 1rem;
   text-align: center;
   margin: 4vh 0 2vh 0;
   padding: 0.5rem 1rem;
@@ -386,7 +388,6 @@ svg.dropdown__icon path{
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
-  background-color:var(--done);
   box-shadow: 0 0 20px -5px #8f8f8f;
   transition: opacity 1s ease;
   -webkit-transition: opacity 1s ease;

@@ -1,5 +1,5 @@
 function Flash(props){
-    const {message, classes} = props;
+    const {message, classes, modifier} = props;
 
     return(
         <p className={classes}>{message}</p>
