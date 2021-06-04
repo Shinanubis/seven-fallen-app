@@ -8,14 +8,18 @@ import Deck from '../components/Deck';
 
 const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
-    const [flashState, setFlashState] = useState(null)
+    const [flashState, setFlashState] = useState(null);
+    const [deleteResponse, setDeleteResponse] = useState(null);
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
     };
 
-    useEffect(async () => {
+    const handleDelete = (newState) => {
+        setDeleteResponse(newState)
+    } 
 
+    useEffect(async () => {
         let response = await getUserDecks();
         setDecksList(response);
     },[])
@@ -34,6 +38,7 @@ const DecksPage = () => {
                                             total_ec={elmt.total_ec}
                                             listState = {decksList}
                                             listStateSetter = {setDecksList}
+                                            deleteResponseSetter = {handleDelete}
                                       />)
                               }
                           )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -43,12 +48,12 @@ const DecksPage = () => {
                     classes="message__flash" 
                     errorClass="message__flash-error" 
                     successClass="message__flash-success" 
-                    message="flash"
+                    message={deleteResponse.message ? deleteResponse.message : "flash message"}
                     timing={750}
                     flash={flashState}
                     handleFlash= {handleFlash}
                 />
-                
+
                 <Plus to={'/decks/new-deck'}/>
               </>
       )

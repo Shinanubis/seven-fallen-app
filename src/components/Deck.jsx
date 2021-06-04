@@ -7,12 +7,14 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {id, title,total_ec, description, num_cards, listState, listStateSetter} = props;
+    const {id, title,total_ec, description, num_cards, listState, listStateSetter, deleteResponseSetter} = props;
 
     const removeData = async () => {
-        await deleteUserDeck(id);
-        let response = await getUserDecks();
-        listStateSetter(response);
+        let deleteResponse = await deleteUserDeck(id);
+        let getResponse = await getUserDecks();
+        deleteResponseSetter(deleteResponse);
+        listStateSetter(getResponse);
+
     }
 
     const handleClick = (e, state, id) => {
