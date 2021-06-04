@@ -399,21 +399,21 @@ svg.dropdown__icon path{
 .message__flash-done{
   opacity:1;
   background-color: var(--done);
-  transition: opacity .20s ease,background-color .75s ease;
-  -webkit-transition: opacity .20s ease,background-color .75s ease;
-  -moz-transition: opacity .20s ease,background-color .75s ease;
-  -ms-transition: opacity .20s ease,background-color .75s ease;
-  -o-transition: opacity .20s ease,background-color .75s ease;
+  transition: opacity .20s ease,background-color .20s ease;
+  -webkit-transition: opacity .20s ease,background-color .20s ease;
+  -moz-transition: opacity .20s ease,background-color .20s ease;
+  -ms-transition: opacity .20s ease,background-color .20s ease;
+  -o-transition: opacity .20s ease,background-color .20s ease;
 }
 
 .message__flash-error{
   opacity:1;
   background-color: var(--error);
-  transition: opacity .20s ease,background-color .75s ease;
-  -webkit-transition: opacity .20s ease,background-color .75s ease;
-  -moz-transition: opacity .20s ease,background-color .75s ease;
-  -ms-transition: opacity .20s ease,background-color .75s ease;
-  -o-transition: opacity .20s ease,background-color .75s ease;
+  transition: opacity .20s ease,background-color .20s ease;
+  -webkit-transition: opacity .20s ease,background-color .20s ease;
+  -moz-transition: opacity .20s ease,background-color .20s ease;
+  -ms-transition: opacity .20s ease,background-color .20s ease;
+  -o-transition: opacity .20s ease,background-color .20s ease;
 }
 
 .title{
