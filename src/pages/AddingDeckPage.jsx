@@ -47,7 +47,7 @@ const AddingDeckPage = (props) => {
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
         let response = await createUserDeck(form);
-        
+
         if(response.code === 200){
             setFlash(true);
             setCreateState(response);
@@ -74,7 +74,7 @@ const AddingDeckPage = (props) => {
                             classes="message__flash" 
                             errorClass="message__flash-error" 
                             successClass="message__flash-done" 
-                            message={createState.deck_name}
+                            message={createState.deck_name ? createState.deck_name : 'flash message'}
                             flash={setFlash} 
                         />
                     </div>
