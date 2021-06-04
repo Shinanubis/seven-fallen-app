@@ -17,6 +17,7 @@ function Flash(props){
             }, timing ? timing : 1000);
         }
 
+        console.log(flash)
 
     },[flash])
 
