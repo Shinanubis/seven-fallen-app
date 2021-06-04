@@ -7,6 +7,7 @@ function Flash(props){
     let newClasses = '';
 
     useEffect(() => {
+
         if(errorClass){
             newClasses = classesState.replace(errorClass, '')
         }
@@ -21,7 +22,10 @@ function Flash(props){
     },[])
 
     return(
-        <p className={classesState}>{message}</p>
+        <>
+            {console.log(classesState)}
+            <p className={classesState}>{message}</p>
+        </>
     );
 }
 
