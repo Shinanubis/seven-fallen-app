@@ -397,7 +397,7 @@ svg.dropdown__icon path{
 }
 
 .message__flash-done{
-  opacity:.8;
+  opacity:.7;
   background-color: var(--done);
   transition: opacity .30s ease,background-color .30s ease;
   -webkit-transition: opacity .30s ease,background-color .30s ease;
@@ -407,7 +407,7 @@ svg.dropdown__icon path{
 }
 
 .message__flash-error{
-  opacity:.8;
+  opacity:.7;
   background-color: var(--error);
   transition: opacity .30s ease,background-color .20s ease;
   -webkit-transition: opacity .30s ease,background-color .20s ease;
