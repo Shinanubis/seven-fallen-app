@@ -17,8 +17,12 @@ function Flash(props){
                 setClasses(classes);
             }, timing ? timing : 1000);
         }
-        
-    },[flash, classes])
+
+        return function(){
+            handleFlash(null)
+        }
+
+    },[flash])
 
     return(
         <>
