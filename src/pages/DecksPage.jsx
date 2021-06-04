@@ -16,11 +16,10 @@ const DecksPage = () => {
 
         if(response.ok){
             let datas = await response.json();
-            console.log(datas)
             setDecksList(datas);
         }
 
-    },[])
+    },[decksList])
 
     if(decksList.length > 0){
         return (
