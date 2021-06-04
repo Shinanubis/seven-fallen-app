@@ -16,8 +16,8 @@ function Flash(props){
                 setClasses(afterClasses);
             }, timing ? timing : 1000);
         }
-        setClasses(classes);
-    },[flash])
+        
+    },[flash, classes])
 
     return(
         <>
