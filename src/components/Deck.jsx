@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import DecksContext from '../contexts/DecksContext'
+import {deleteUserDeck, getUserDecks} from '../api/Decks'
 import './Deck.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {BsPencil} from 'react-icons/bs'
@@ -9,11 +10,7 @@ const Deck = (props) => {
     const {id, title,total_ec, description, num_cards, listState, listStateSetter} = props;
 
     const removeData = async () => {
-        const response = await fetch(`https://test-seven.site/api/decks/delete/${id}`, {
-            method: 'DELETE',
-            credentials: 'include'
-        });
-        const datas  = await response.json();
+        await deleteUserDeck(id);
     }
 
     const handleClick = (e, state, id) => {
@@ -21,8 +18,9 @@ const Deck = (props) => {
         removeData();
     }
 
-    useEffect(() => {
-        
+    useEffect(async () => {
+        let response = await getUserDecks();
+        console.log(response);
     },[]);
     
     return (
