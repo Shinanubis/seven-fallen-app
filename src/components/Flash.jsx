@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function Flash(props){
 
-    const {message, classes, errorClass,flash ,successClass, timing} = props;
+    const {message, classes, errorClass,flash ,successClass, timing, handleFlash} = props;
     const [classesState, setClasses] = useState(classes);
     let afterClasses = '';
 
@@ -17,7 +17,7 @@ function Flash(props){
             }, timing ? timing : 1000);
         }
 
-        console.log(flash)
+        handleFlash(null);
 
     },[flash])
 
