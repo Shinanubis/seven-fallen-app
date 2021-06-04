@@ -15,10 +15,9 @@ const Deck = (props) => {
         if(deleteResponse.code === 200){
             handleFlash(true);
             listStateSetter(getResponse.message);
-            return;
         }else if(deleteResponse.code !== 200){
             handleFlash(false);
-            listStateSetter(getResponse.message);
+            listStateSetter([]);
         }else{
             handleFlash(null);
         }
