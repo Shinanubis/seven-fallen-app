@@ -21,7 +21,7 @@ const Deck = (props) => {
         }
 
         deleteStateSetter(deleteResponse);
-        listStateSetter(getResponse);
+        listStateSetter(getResponse.message);
     }
 
     const handleClick = (e, state, id) => {
