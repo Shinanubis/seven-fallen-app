@@ -4,8 +4,6 @@ function Flash(props){
 
     const {message, classes, errorClass,flash ,successClass, timing} = props;
     const [classesState, setClasses] = useState(classes);
-
-    let newClasses = '';
     
 
 
