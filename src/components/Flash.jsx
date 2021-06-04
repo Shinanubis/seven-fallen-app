@@ -19,7 +19,7 @@ function Flash(props){
         }
 
         if(flash === true){
-            setClasses(classes + ' ' + errorClass)
+            setClasses(classes + ' ' + successClass)
             setTimeout(() => {
                 afterClasses = classes.replace(successClass, '');
                 setClasses(afterClasses);
