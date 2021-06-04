@@ -25,11 +25,6 @@ const DecksPage = () => {
         if(response.code === 200){
             setDecksList(response.message);
         }
-
-        if(response.code !== 200){
-            console.log(response)
-        }
-
     },[])
 
     if(decksList.length > 0){
