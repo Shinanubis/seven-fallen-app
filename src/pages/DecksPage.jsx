@@ -9,13 +9,14 @@ const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
 
     useEffect(async () => {
+
         let response = await fetch('https://test-seven.site/api/decks',{
             method: 'GET',
             credentials: 'include'
         });
 
         let datas = await response.json();
-        setDecksList(datas);
+        return setDecksList(datas);
     },[])
 
     if(decksList.length > 0){
