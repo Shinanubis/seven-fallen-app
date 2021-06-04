@@ -14,14 +14,10 @@ function Flash(props){
             setTimeout(() => {
                 afterClasses = classes.replace(errorClass, '');
                 setClasses(afterClasses);
-                setClasses(classes);
             }, timing ? timing : 1000);
         }
 
-        return function(){
-            handleFlash(null)
-        }
-
+        console.log(classesState)
     },[])
 
     return(
