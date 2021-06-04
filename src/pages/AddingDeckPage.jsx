@@ -58,12 +58,6 @@ const AddingDeckPage = (props) => {
         }  
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            setFlash(null)
-        }, 1000);
-    }, [flash])
-
     return (
         <>
             <Layout>

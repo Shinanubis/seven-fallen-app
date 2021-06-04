@@ -10,7 +10,6 @@ const NavButton = (props) => {
     const handleClick = async (e) => {
         e.preventDefault();
         let result = await onClick(e);
-        console.log(result)
         if(result === true){
             history.push(url);
         }

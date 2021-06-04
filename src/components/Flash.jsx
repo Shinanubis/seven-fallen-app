@@ -1,8 +1,18 @@
+import React, {useState, useEffect} from 'react'
+
 function Flash(props){
-    const {message, classes, modifier} = props;
+
+    const {message, classes, modifier, timing} = props;
+    const [classesState, setClasses] = useState(classes);
+
+    useEffect(() => {    
+        setTimeout(() => {
+            
+        }, timing ? timing : 1000);
+    },[])
 
     return(
-        <p className={classes}>{message}</p>
+        <p className={classesState}>{message}</p>
     );
 }
 
