@@ -7,7 +7,7 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {id, title,total_ec, description, num_cards, listState, listStateSetter, deleteResponseSetter} = props;
+    const {id, title,total_ec, description, num_cards, listState, listStateSetter, deleteState, deleteResponseSetter} = props;
 
     const removeData = async () => {
         let deleteResponse = await deleteUserDeck(id);
