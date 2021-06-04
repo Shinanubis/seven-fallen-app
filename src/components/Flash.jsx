@@ -6,6 +6,7 @@ function Flash(props){
     const [classesState, setClasses] = useState(classes);
 
     useEffect(() => {
+        
         const newClasses = classes.replace(modifier, '');
         setTimeout(() => {
             setClasses(newClasses);        
