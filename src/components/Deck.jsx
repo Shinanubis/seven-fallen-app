@@ -11,17 +11,14 @@ const Deck = (props) => {
 
     const removeData = async () => {
         await deleteUserDeck(id);
+        let response = await getUserDecks();
+        console.log(response)
     }
 
     const handleClick = (e, state, id) => {
         e.preventDefault();
         removeData();
     }
-
-    useEffect(async () => {
-        let response = await getUserDecks();
-        console.log(response);
-    },[]);
     
     return (
         <li key={id} className="deck__block">
