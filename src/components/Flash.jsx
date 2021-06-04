@@ -17,7 +17,7 @@ function Flash(props){
             }, timing ? timing : 1000);
         }
 
-        console.log(classesState)
+        console.log(flash)
     },[flash])
 
     return(
