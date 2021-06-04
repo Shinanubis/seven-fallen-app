@@ -7,31 +7,18 @@ function Flash(props){
 
     let newClasses = '';
     
-    if(successClass && flash === true){
-        setClasses(classes + ' ' + successClass);
-    }
 
-    if(errorClass && flash === false){
-        setClasses(classes + ' ' + errorClass);
-    }
 
     useEffect(() => {
-
-        if(errorClass){
-            newClasses = classesState.replace(errorClass, '')
-        }
-        
-        if(successClass){
-            newClasses = classesState.replace(successClass, '')
-        }
-
         setTimeout(() => {
             setClasses(newClasses);        
         }, timing ? timing : 1000);
     },[])
 
     return(
-            <p className={classesState}>{message}</p>
+        <>    
+            {flash == null ?? <p className={classesState}>{message}</p>}
+        </>
     );
 }
 
