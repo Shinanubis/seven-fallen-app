@@ -8,13 +8,16 @@ function Flash(props){
 
 
     useEffect(() => {
+
         if(flash === false){
             setClasses(classes + ' ' + errorClass)
+            setTimeout(() => {
+                afterClasses = classes.replace(errorClass, '');
+                setClasses(afterClasses);
+            }, timing ? timing : 1000);
         }
-        setTimeout(() => {
-            afterClasses = classes.replace(errorClass, '');
-            setClasses(afterClasses);
-        }, timing ? timing : 1000);
+
+
     },[flash])
 
     return(
