@@ -13,10 +13,10 @@ const DecksPage = () => {
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
     const [reqOpt, setReqOpt] = useState({
-        page: '',
-        size: '',
-        order_by: '',
-        sens: ''
+        page: 1,
+        size: 10,
+        order_by: 'id',
+        sens: 'asc'
     });
 
     const handleFlash = (newFlashState) => {
@@ -63,7 +63,7 @@ const DecksPage = () => {
                     flash={flashState}
                     handleFlash= {handleFlash}
                 />
-                <Pagination listSize={[10,20,40]}/> 
+                <Pagination listSize={[10,20,40]} /> 
                 <Plus to={'/decks/new-deck'}/>
               </Layout>
       )
