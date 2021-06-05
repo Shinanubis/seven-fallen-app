@@ -100,6 +100,14 @@ const DecksPage = () => {
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
                 </div>
+                <Pagination 
+                    options = {reqOpt}
+                    containerClasses = "pagination__block my-3 mb-5 row justify-between"
+                    containerTextBlockClasses = {"pagination__text--block row justify-between"} 
+                    setPage={handlePage} 
+                    setSize={handleSize} 
+                    listSize={[10,20,40]} 
+                /> 
                 <Plus to={'/decks/new-deck'}/>
             </Layout>
             )
