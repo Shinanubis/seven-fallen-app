@@ -67,12 +67,12 @@ const DecksPage = () => {
       )
     }
     return (
-            <>
+            <Layout>
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
                 </div>
                 <Plus to={'/decks/new-deck'}/>
-            </>
+            </Layout>
             )
     }
 
