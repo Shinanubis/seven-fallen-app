@@ -47,7 +47,7 @@ const DecksPage = () => {
         if(response.code === 200){
             setDecksList(response);
         }else{
-            setDeleteResponse({code: response.code, message: "You don't have enough decks"});
+            setDeleteResponse({code: response.code, message: "This page doesn't exist"});
             setFlashState(false);
         }
 
