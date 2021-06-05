@@ -12,7 +12,7 @@ async function getAllDecks(){
     }
 }
 
-async function getUserDecks(page = 2, size = 10){
+async function getUserDecks(page = 1, size = 10){
 
     let settings = {
         method: 'GET',
@@ -26,7 +26,7 @@ async function getUserDecks(page = 2, size = 10){
     };
 
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-    console.log(url)
+
     let response = await fetch(url, settings);
     let datas = await response.json();
     console.log(datas)
