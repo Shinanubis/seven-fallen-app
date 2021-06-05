@@ -351,6 +351,7 @@ svg.dropdown__icon path{
 
 .pagination__text--block{
   width : 30%;
+  line-height: 1;
 }
 
 .pagination__text{
