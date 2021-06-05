@@ -63,7 +63,7 @@ const DecksPage = () => {
                     flash={flashState}
                     handleFlash= {handleFlash}
                 />
-                <Pagination containerClasses="pagination__block" textClasses="pagination__text" listSize={[10,20,40]}/> 
+                <Pagination listSize={[10,20,40]}/> 
                 <Plus to={'/decks/new-deck'}/>
               </Layout>
       )

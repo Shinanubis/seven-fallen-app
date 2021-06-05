@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 function Pagination(props){
     const {
-        page = '', 
+        page = 1, 
         setPage = () => {}, 
         setSize = () => {}, 
         containerClasses = '', 
