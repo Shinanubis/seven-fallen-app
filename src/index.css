@@ -359,7 +359,7 @@ svg.dropdown__icon path{
   justify-content: space-between;
 }
 
-.justify-between{
+.justify-around{
   justify-content: space-around;
 }
 
