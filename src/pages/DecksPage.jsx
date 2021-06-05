@@ -25,7 +25,15 @@ const DecksPage = () => {
 
     const handleDelete = (newState) => {
         setDeleteResponse(newState)
-    } 
+    }
+
+    const handlePage = (newPage) => {
+        setReqOpt({...reqOpt, page: newPage});
+    }
+
+    const handleSize = (newSize) => {
+        setReqOpt({...reqOpt, size: newSize});
+    }
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
@@ -63,7 +71,13 @@ const DecksPage = () => {
                     flash={flashState}
                     handleFlash= {handleFlash}
                 />
-                <Pagination listSize={[10,20,40]} /> 
+                <Pagination 
+                    page={reqOpt.page} 
+                    size={reqOpt.size} 
+                    setPage={(e) => handlePage} 
+                    setSize={(e) => handleSize} 
+                    listSize={[10,20,40]} 
+                /> 
                 <Plus to={'/decks/new-deck'}/>
               </Layout>
       )
