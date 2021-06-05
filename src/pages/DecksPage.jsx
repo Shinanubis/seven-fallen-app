@@ -50,9 +50,7 @@ const DecksPage = () => {
                                             reqOptState = {reqOpt}
                                       />)
                               }
-                          )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                </List>
-
+                          )}
                 <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
@@ -61,8 +59,8 @@ const DecksPage = () => {
                     timing={750}
                     flash={flashState}
                     handleFlash= {handleFlash}
-                />
-
+                />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                </List>
                 <Plus to={'/decks/new-deck'}/>
               </>
       )
