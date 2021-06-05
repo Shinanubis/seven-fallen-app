@@ -270,6 +270,8 @@ code {
   color:var(--white)
 }
 
+/* drop down component */
+
 .dropdown__menu{
   color:var(--white);
   width:80%;
