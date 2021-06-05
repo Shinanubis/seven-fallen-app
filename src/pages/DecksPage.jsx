@@ -46,9 +46,11 @@ const DecksPage = () => {
 
         if(response.code === 200){
             setDecksList(response);
-        }else{
+        }else if(response.code !== 200){
             setDeleteResponse({code: response.code, message: "This page doesn't exist"});
             setFlashState(false);
+        }else{
+            setFlashState(null);
         }
 
     },[reqOpt]);
