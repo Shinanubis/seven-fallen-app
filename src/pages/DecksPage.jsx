@@ -32,6 +32,7 @@ const DecksPage = () => {
     }
 
     const handleSize = (newSize) => {
+        console.log(newSize)
         setReqOpt({...reqOpt, size: newSize});
     }
 
