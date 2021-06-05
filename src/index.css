@@ -341,6 +341,10 @@ svg.dropdown__icon path{
 }
 
 /* pagination component */
+.pagination__text--block{
+  width : 30%;
+}
+
 .pagination__text{
   color: var(--black);
 }
