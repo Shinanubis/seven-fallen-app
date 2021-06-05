@@ -25,8 +25,8 @@ async function getUserDecks(page = 2, size = 10){
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
     
     let response = await fetch('https://test-seven.site/api/decks', settings);
-    console.log(response)
     let datas = await response.json();
+    console.log(datas)
     return datas;
     
 }
