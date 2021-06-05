@@ -20,7 +20,10 @@ async function getUserDecks(page = 2, size = 10){
     };
 
     let url = new URL('https://test-seven.site/api/decks');
-    let params = {page, size};
+    let params = {
+        page: page, 
+        size: size
+    };
 
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
     
