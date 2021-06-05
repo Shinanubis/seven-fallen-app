@@ -361,6 +361,7 @@ svg.dropdown__icon path{
 
 .pagination__arrow{
   color:var(--black);
+  cursor: pointer;
 }
 
 /* Utilities */
