@@ -12,7 +12,7 @@ async function getAllDecks(){
     }
 }
 
-async function getUserDecks(page = 1, size = 10){
+async function getUserDecks(page = 2, size = 10){
 
     let settings = {
         method: 'GET',
