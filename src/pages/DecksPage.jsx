@@ -10,7 +10,12 @@ const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
-    const [reqOpt, setReqOpt] = useState({});
+    const [reqOpt, setReqOpt] = useState({
+        page: '',
+        size: '',
+        order_by: '',
+        sens: ''
+    });
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
