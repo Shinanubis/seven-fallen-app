@@ -73,7 +73,8 @@ const DecksPage = () => {
                 />
                 <Pagination 
                     page={reqOpt.page} 
-                    size={reqOpt.size} 
+                    size={reqOpt.size}
+                    containerClasses = "my-2" 
                     setPage={(e) => handlePage} 
                     setSize={(e) => handleSize} 
                     listSize={[10,20,40]} 

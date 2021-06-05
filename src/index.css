@@ -346,6 +346,30 @@ svg.dropdown__icon path{
   display: flex;
 }
 
+.my-1{
+  margin: 1vh 0 !important;
+}
+
+.my-2{
+  margin: 2vh 0 !important;
+}
+
+.my-3{
+  margin: 3vh 0 !important;
+}
+
+.my-4{
+  margin: 4vh 0 !important;
+}
+
+.my-5{
+  margin: 5vh 0 !important;
+}
+
+.my-6{
+  margin: 6vh 0 !important;
+}
+
 .mb-1{
   margin-bottom: 1vh !important;
 }
