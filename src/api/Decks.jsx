@@ -12,14 +12,14 @@ async function getAllDecks(){
     }
 }
 
-async function getUserDecks(){
+async function getUserDecks(page = 1, size = 10){
 
     let settings = {
         method: 'GET',
         credentials: 'include'
     };
 
-    let response = await fetch('https://test-seven.site/api/decks', settings);
+    let response = await fetch(`https://test-seven.site/api/decks?page=${page}&size=${size}`, settings);
     let datas = await response.json();
     return datas;
     
