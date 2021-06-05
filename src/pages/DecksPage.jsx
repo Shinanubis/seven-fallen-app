@@ -47,7 +47,7 @@ const DecksPage = () => {
         if(response.code === 200){
             setDecksList(response);
         }else{
-            setDeleteResponse(response);
+            setDeleteResponse({code: response.code, message: "You don't have enough to have an other page"});
             setFlashState(false);
         }
 
