@@ -340,6 +340,11 @@ svg.dropdown__icon path{
   padding:.25rem;
 }
 
+/* pagination component */
+.pagination__text{
+  color: var(--black);
+}
+
 /* Utilities */
 
 .row{
