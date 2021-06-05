@@ -20,7 +20,7 @@ function Pagination(props){
                 <div className={containerTextBlockClasses ?? "pagination__text--block"}>
                 {
                     listSize.map((elmt, index) => {
-                        return <p key={index} className={textClasses ?? "pagination__text"} onClick={setSize(elmt)}>{elmt}</p>
+                        return <p key={index} className={textClasses ?? "pagination__text"} onClick={(e) => setSize(e,elmt)}>{elmt}</p>
                     })
                 }
                 </div>

@@ -31,7 +31,8 @@ const DecksPage = () => {
         setReqOpt({...reqOpt, page: newPage});
     }
 
-    const handleSize = (newSize) => {
+    const handleSize = (e, newSize) => {
+        e.preventDefault();
         console.log(newSize)
         setReqOpt({...reqOpt, size: newSize});
     }
@@ -78,7 +79,7 @@ const DecksPage = () => {
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={(e) => handlePage} 
-                    setSize={handleSize} 
+                    setSize={(e) => handleSize} 
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
