@@ -24,7 +24,7 @@ function Pagination(props){
                     })
                 }
                 </div>
-            <div className={rightClasses ?? "pagination__arrow"} onClick={setPage(Number(page) + 1)}><BsChevronRight/></div>
+            <div className={rightClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(page) + 1)}><BsChevronRight/></div>
         </div>
     );
 }
