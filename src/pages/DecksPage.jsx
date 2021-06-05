@@ -5,6 +5,7 @@ import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 import List from '../components/List';
 import Deck from '../components/Deck';
+import Pagination from '../components/Pagination';
 
 
 const DecksPage = () => {
@@ -61,7 +62,8 @@ const DecksPage = () => {
                     timing={750}
                     flash={flashState}
                     handleFlash= {handleFlash}
-                />  
+                />
+                <Pagination containerClasses="pagination__block" textClasses="pagination__text" listSize={[10,20,40]}/> 
                 <Plus to={'/decks/new-deck'}/>
               </Layout>
       )
