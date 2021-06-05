@@ -359,6 +359,10 @@ svg.dropdown__icon path{
   cursor: pointer;
 }
 
+.pagination__arrow{
+  color:var(--black);
+}
+
 /* Utilities */
 
 .row{
