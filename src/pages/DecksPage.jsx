@@ -41,11 +41,14 @@ const DecksPage = () => {
         setReqOpt({...reqOpt, size: newSize});
     }
 
+    useEffect(async () => {
+        let response = await getUserDecks(reqOpt);
+        setDecksList(response);    
+    },[reqOpt]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
-        setDecksList(response);
-        
+        setDecksList(response);    
     },[]);
 
     if(decksList.message && decksList.message instanceof Array){
