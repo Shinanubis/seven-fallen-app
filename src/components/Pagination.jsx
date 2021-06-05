@@ -1,7 +1,17 @@
 import React, {useState} from 'react';
 
 function Pagination(props){
-    const {page = '', setPage = () => {}, setSize = () => {}, containerClasses = '', leftClasses = '', rightClasses = '', textClasses = '', listSize = ''} = props;
+    const {
+        page = '', 
+        setPage = () => {}, 
+        setSize = () => {}, 
+        containerClasses = '', 
+        leftClasses = '', 
+        rightClasses = '', 
+        textClasses = '', 
+        listSize = ''
+    } = props;
+    
     return (
         <div className={containerClasses ?? "pagination__block"} >
             <span className={leftClasses ?? "pagination__left--arrow"} onClick={setPage(Number(page) + 1)}></span>
