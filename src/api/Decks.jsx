@@ -12,7 +12,7 @@ async function getAllDecks(){
     }
 }
 
-async function getUserDecks(page = 1, size = 10){
+async function getUserDecks(page = 1, size = 10, sens = 'asc', order_by='id'){
     let settings = {
         method: 'GET',
         credentials: 'include'
@@ -20,7 +20,9 @@ async function getUserDecks(page = 1, size = 10){
     let url = new URL('https://test-seven.site/api/decks');
     let params = {
         page: page, 
-        size: size
+        size: size,
+        sens: sens,
+        order_by: order_by
     };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
     let response = await fetch(url, settings);
