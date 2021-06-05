@@ -24,4 +24,4 @@ const NavButton = (props) => {
     )
 }
 
-export default NavButton
+export default NavButton;

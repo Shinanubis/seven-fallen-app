@@ -3,6 +3,7 @@ import {createUserDeck} from '../api/Decks';
 import Layout from '../layouts/Layout';
 import InputText from '../components/InputText';
 import CheckBox from '../components/CheckBox';
+import BackButton from '../components/BackButton'
 import NavButton from '../components/NavButton';
 import Flash from '../components/Flash';
 import { RiContactsBookLine } from 'react-icons/ri';
@@ -88,7 +89,7 @@ const AddingDeckPage = (props) => {
                 <div className="buttons__block">
                     <NavButton text="Create" url="/decks/new-deck/create" onClick={handleCreate} timing={1000}/>
                     <NavButton text="Import" url="/decks/new-deck/import"/>
-                    <NavButton text="Back" url="/decks"/>
+                    <BackButton text="Back" url="/decks"/>
                 </div>
             </Layout>
         </>
