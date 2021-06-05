@@ -3,12 +3,12 @@ import React, {useState} from 'react';
 function Pagination(props){
     const {page, setpage, setSize, containerClasses, leftClasses, rightClasses, textClasses, listSize} = props;
     return (
-        <div className={containerClasses} >
-            <span className={leftClasses} onClick={setpage(Number(page) + 1)}></span>
+        <div className={containerClasses ?? "pagination__block"} >
+            <span className={leftClasses ?? "pagination__left--arrow"} onClick={setpage(Number(page) + 1)}></span>
             {listSize.map((elmt, index) => {
-                <p key={index} className={textClasses} onClick={setSize(elmt)}>{elmt}</p>
+                <p key={index} className={textClasses ?? "pagination__text"} onClick={setSize(elmt)}>{elmt}</p>
             })}
-            <span className={rightClasses} onClick={setpage(Number(page) + 1)}></span>
+            <span className={rightClasses ?? "pagination__right--arrow"} onClick={setpage(Number(page) + 1)}></span>
         </div>
     );
 }
