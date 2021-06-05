@@ -79,7 +79,7 @@ const DecksPage = () => {
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={(e) => handlePage} 
-                    setSize={(e) => handleSize} 
+                    setSize={handleSize} 
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
