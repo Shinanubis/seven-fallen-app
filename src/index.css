@@ -346,6 +346,18 @@ svg.dropdown__icon path{
   display: flex;
 }
 
+.justify-between{
+  justify-content: space-between;
+}
+
+.justify-between{
+  justify-content: space-around;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
 .my-1{
   margin: 1vh 0 !important;
 }
