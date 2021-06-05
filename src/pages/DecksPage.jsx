@@ -74,7 +74,8 @@ const DecksPage = () => {
                 <Pagination 
                     page={reqOpt.page} 
                     size={reqOpt.size}
-                    containerClasses = "pagination__block my-2 row justify-between" 
+                    containerClasses = "pagination__block my-2 row justify-between"
+                    containerTextBlockClasses = {"pagination__text--block row justify-around"} 
                     setPage={(e) => handlePage} 
                     setSize={(e) => handleSize} 
                     listSize={[10,20,40]} 
