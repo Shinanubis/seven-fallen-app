@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useLayoutEffect, useState} from 'react';
 import {getUserDecks} from '../api/Decks';
 import Flash from '../components/Flash'
 import Plus from '../components/Plus';
@@ -19,7 +19,7 @@ const DecksPage = () => {
         setDeleteResponse(newState)
     } 
 
-    useEffect(async () => {
+    useLayoutEffect(async () => {
         let response = await getUserDecks();
         setDecksList(response);
     },[])
