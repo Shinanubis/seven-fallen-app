@@ -456,11 +456,8 @@ svg.dropdown__icon path{
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   box-shadow: 0 0 20px -5px #8f8f8f;
-  transition: opacity .75s ease,background-color .75s ease;
-  -webkit-transition: opacity .75s ease,background-color .75s ease;
-  -moz-transition: opacity .75s ease,background-color .75s ease;
-  -ms-transition: opacity .75s ease,background-color .75s ease;
-  -o-transition: opacity .75s ease,background-color .75s ease;
+  transition:all .75s ease;
+  transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -470,21 +467,21 @@ svg.dropdown__icon path{
 .message__flash-done{
   opacity:.7;
   background-color: var(--done);
-  transition: opacity .30s ease,background-color .30s ease;
-  -webkit-transition: opacity .30s ease,background-color .30s ease;
-  -moz-transition: opacity .30s ease,background-color .30s ease;
-  -ms-transition: opacity .30s ease,background-color .30s ease;
-  -o-transition: opacity .30s ease,background-color .30s ease;
+  transition:all .30s ease;
+  -webkit-transition:all .30s ease;
+  -moz-transition:all .30s ease;
+  -ms-transition:all .30s ease;
+  -o-transition:all .30s ease;
 }
 
 .message__flash-error{
   opacity:.7;
   background-color: var(--error);
-  transition: opacity .30s ease,background-color .20s ease;
-  -webkit-transition: opacity .30s ease,background-color .20s ease;
-  -moz-transition: opacity .30s ease,background-color .20s ease;
-  -ms-transition: opacity .30s ease,background-color .20s ease;
-  -o-transition: opacity .30s ease,background-color .20s ease;
+  transition:all .30s ease;
+  -moz-transition:all .30s ease;
+  -ms-transition:all .30s ease;
+  -o-transition:all .30s ease;
+  -webkit-transition:all .30s ease;
 }
 
 .title{
