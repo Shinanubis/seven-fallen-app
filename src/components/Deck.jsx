@@ -10,7 +10,6 @@ const Deck = (props) => {
 
     const removeData = async () => {
         let deleteResponse = await deleteUserDeck(id);
-        console.log(reqOptState);
         let getResponse = await getUserDecks(reqOptState);
         
         if(deleteResponse.code === 200){
