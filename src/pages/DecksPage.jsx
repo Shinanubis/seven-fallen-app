@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react';
+import Layout from '../layouts/Layout';
 import {getUserDecks} from '../api/Decks';
 import Flash from '../components/Flash'
 import Plus from '../components/Plus';
@@ -32,7 +33,7 @@ const DecksPage = () => {
 
     if(decksList.message && decksList.message instanceof Array){
         return (
-            <>
+            <Layout>
                 <List classes="layout layout__1">
                       {
                           decksList.message.map(elmt => {
@@ -62,7 +63,7 @@ const DecksPage = () => {
                     handleFlash= {handleFlash}
                 />  
                 <Plus to={'/decks/new-deck'}/>
-              </>
+              </Layout>
       )
     }
     return (
