@@ -47,6 +47,8 @@ const DecksPage = () => {
         if(response.code === 200){
             return setDecksList(response);
         }
+
+        setDeleteResponse(response);
            
     },[reqOpt]);
 
