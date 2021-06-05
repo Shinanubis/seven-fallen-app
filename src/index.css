@@ -114,6 +114,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 90%;
 }
 
@@ -343,6 +344,11 @@ svg.dropdown__icon path{
 }
 
 /* pagination component */
+
+.pagination__block{
+  width: 80%;
+}
+
 .pagination__text--block{
   width : 30%;
 }
