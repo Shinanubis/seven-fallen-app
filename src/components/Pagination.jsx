@@ -16,11 +16,11 @@ function Pagination(props){
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
-            <div className={leftClasses ?? "pagination__arrow"} onClick={setPage(Number(page) + 1)}><BsChevronLeft/></div>
+            <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(page) + 1)}><BsChevronLeft/></div>
                 <div className={containerTextBlockClasses ?? "pagination__text--block"}>
                 {
                     listSize.map((elmt, index) => {
-                        return <p key={index} className={textClasses ?? "pagination__text"} onClick={(e) => setSize(e,elmt)}>{elmt}</p>
+                        return <p key={index} className={textClasses ?? "pagination__text"} onClick={(e) => setSize(e, elmt)}>{elmt}</p>
                     })
                 }
                 </div>

@@ -27,19 +27,20 @@ const DecksPage = () => {
         setDeleteResponse(newState)
     }
 
-    const handlePage = (newPage) => {
+    const handlePage = (e, newPage) => {
+        e.preventDefault();
         setReqOpt({...reqOpt, page: newPage});
     }
 
     const handleSize = (e, newSize) => {
         e.preventDefault();
-        console.log(newSize)
         setReqOpt({...reqOpt, size: newSize});
     }
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
+        console.log(reqOpt)
     },[])
 
     if(decksList.message && decksList.message instanceof Array){
@@ -78,7 +79,7 @@ const DecksPage = () => {
                     size={reqOpt.size}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
-                    setPage={(e) => handlePage} 
+                    setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]} 
                 /> 
