@@ -13,23 +13,18 @@ async function getAllDecks(){
 }
 
 async function getUserDecks(page = 1, size = 10){
-
     let settings = {
         method: 'GET',
         credentials: 'include'
     };
-
     let url = new URL('https://test-seven.site/api/decks');
     let params = {
         page: page, 
         size: size
     };
-
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
     let response = await fetch(url, settings);
     let datas = await response.json();
-    console.log(datas)
     return datas;
     
 }
