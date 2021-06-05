@@ -12,7 +12,7 @@ async function getAllDecks(){
     }
 }
 
-async function getUserDecks(page = 1, size = 10, sens = 'asc', order_by='id'){
+async function getUserDecks(page = 1, size = 10, sens = 'desc', order_by='id'){
     let settings = {
         method: 'GET',
         credentials: 'include'
