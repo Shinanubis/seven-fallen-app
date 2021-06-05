@@ -16,7 +16,7 @@ function Pagination(props){
         <div className={containerClasses ?? "pagination__block"} >
             <span className={leftClasses ?? "pagination__left--arrow"} onClick={setPage(Number(page) + 1)}></span>
             {listSize.map((elmt, index) => {
-                <p key={index} className={textClasses ?? "pagination__text"} onClick={setSize(elmt)}>{elmt[index]}</p>
+                return <p key={index} className={textClasses ?? "pagination__text"} onClick={setSize(elmt)}>{elmt[index]}</p>
             })}
             <span className={rightClasses ?? "pagination__right--arrow"} onClick={setPage(Number(page) + 1)}></span>
         </div>
