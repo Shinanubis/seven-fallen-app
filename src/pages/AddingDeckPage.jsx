@@ -88,7 +88,7 @@ const AddingDeckPage = (props) => {
                 </form>
                 <div className="buttons__block">
                     <NavButton text="Create" url="/decks/new-deck/create" onClick={handleCreate} timing={1000}/>
-                    <NavButton text="Import" url="/decks/new-deck/import"/>
+                    <NavButton text="Import" url="/decks/new-deck/import" onClick={handleCreate} timing={1000}/>
                     <BackButton text="Back" url="/decks"/>
                 </div>
             </Layout>
