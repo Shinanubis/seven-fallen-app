@@ -36,9 +36,7 @@ const DecksPage = () => {
         e.preventDefault();
         setReqOpt({...reqOpt, size: newSize});
     }
-    useEffect(() => {
-        console.log(reqOpt);
-    },[reqOpt]);
+
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
@@ -78,8 +76,8 @@ const DecksPage = () => {
                     handleFlash= {handleFlash}
                 />
                 <Pagination 
-                    page={reqOpt.page} 
-                    size={reqOpt.size}
+                    page={reqOpt} 
+                    size={reqOpt}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={handlePage} 
