@@ -6,12 +6,12 @@ import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
-    const {id, title,total_ec, description, num_cards, listState, listStateSetter, handleFlash, deleteStateSetter, reqOpt} = props;
+    const {id, title,total_ec, description, num_cards, listState, listStateSetter, handleFlash, deleteStateSetter, reqOptState} = props;
 
     const removeData = async () => {
         let deleteResponse = await deleteUserDeck(id);
-        console.log(reqOpt);
-        let getResponse = await getUserDecks(reqOpt);
+        console.log(reqOptState);
+        let getResponse = await getUserDecks(reqOptState);
         
         if(deleteResponse.code === 200){
             handleFlash(true);
