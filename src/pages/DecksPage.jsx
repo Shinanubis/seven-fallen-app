@@ -29,7 +29,6 @@ const DecksPage = () => {
 
     const handlePage = (e, newPage) => {
         e.preventDefault();
-        console.log(newPage)
         setReqOpt({...reqOpt, page: newPage});
     }
 
@@ -48,6 +47,7 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
+                {console.log(reqOpt)}
                 <List classes="layout layout__1">
                       {
                           decksList.message.map(elmt => {
