@@ -45,11 +45,9 @@ const DecksPage = () => {
         let response = await getUserDecks(reqOpt);
 
         if(response.code === 200){
-            return setDecksList(response);
+            setDecksList(response);
         }
 
-        setDeleteResponse(response);
-           
     },[reqOpt]);
 
     useEffect(async () => {
