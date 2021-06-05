@@ -49,6 +49,7 @@ const DecksPage = () => {
         }else if(response.code !== 200){
             setDeleteResponse({code: response.code, message: "This page doesn't exist"});
             setFlashState(false);
+            setReqOpt({...reqOpt, page: 1})
         }else{
             setFlashState(null);
         }
