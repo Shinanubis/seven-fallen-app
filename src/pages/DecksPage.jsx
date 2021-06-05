@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import Layout from '../layouts/Layout';
-import {getUserDecks} from '../api/Decks';
+import { getUserDecks } from '../api/Decks';
 import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 import List from '../components/List';

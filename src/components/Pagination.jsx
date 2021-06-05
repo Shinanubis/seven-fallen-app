@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
 function Pagination(props){
     const {
@@ -15,7 +16,7 @@ function Pagination(props){
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
-            <span className={leftClasses ?? "pagination__left--arrow"} onClick={setPage(Number(page) + 1)}></span>
+            <div className={leftClasses ?? "pagination__arrow"} onClick={setPage(Number(page) + 1)}><BsChevronLeft/></div>
                 <div className={containerTextBlockClasses ?? "pagination__text--block"}>
                 {
                     listSize.map((elmt, index) => {
@@ -23,7 +24,7 @@ function Pagination(props){
                     })
                 }
                 </div>
-            <span className={rightClasses ?? "pagination__right--arrow"} onClick={setPage(Number(page) + 1)}></span>
+            <div className={rightClasses ?? "pagination__arrow"} onClick={setPage(Number(page) + 1)}><BsChevronRight/></div>
         </div>
     );
 }
