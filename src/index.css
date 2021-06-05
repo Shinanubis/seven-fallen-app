@@ -384,7 +384,7 @@ svg.dropdown__icon path{
   opacity:0;
   font-size: 1rem;
   text-align: center;
-  margin: 4vh 0 2vh 0;
+  margin:0 auto;
   padding: 0.5rem 1rem;
   color: var(--black);
   border-radius: 2px;
