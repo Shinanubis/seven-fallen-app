@@ -61,7 +61,6 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
-                {console.log(deleteResponse)}
                 <List classes="layout layout__1">
                       {
                           decksList.message.map(elmt => {
