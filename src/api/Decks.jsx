@@ -1,3 +1,5 @@
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+
 async function getAllDecks(){
 
     let settings = {
@@ -12,19 +14,22 @@ async function getAllDecks(){
     }
 }
 
-async function getUserDecks(page = 1, size = 10, sens = 'desc', order_by='id'){
+async function getUserDecks(options){
     let settings = {
         method: 'GET',
         credentials: 'include'
     };
     let url = new URL('https://test-seven.site/api/decks');
+
     let params = {
-        page: page, 
-        size: size,
-        sens: sens,
-        order_by: order_by
+        page: options.page ? options.page : 1, 
+        size: options.size ? options.size : 10,
+        sens: options.sens ? options.sens : 'asc',
+        order_by: options.order_by ? options.order_by : 'id'
     };
+
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
     let response = await fetch(url, settings);
     let datas = await response.json();
     return datas;

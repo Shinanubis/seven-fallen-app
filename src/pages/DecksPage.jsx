@@ -10,6 +10,7 @@ const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
+    const [reqOpt, setReqOpt] = useState({});
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
@@ -20,7 +21,7 @@ const DecksPage = () => {
     } 
 
     useEffect(async () => {
-        let response = await getUserDecks();
+        let response = await getUserDecks(reqOpt);
         setDecksList(response);
     },[])
 
