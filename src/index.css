@@ -378,6 +378,7 @@ svg.dropdown__icon path{
 .message__flash{
   position: fixed;
   top: 40px;
+  width:90%;
   z-index: 10;
   font-size: .85rem;
   opacity:0;
@@ -523,6 +524,7 @@ svg.dropdown__icon path{
 /* Layouts */
 .layout{
   display:grid;
+  position: relative;
   background-color: var(--white);
   width:100%;
   height: calc(60 * var(--vh));
