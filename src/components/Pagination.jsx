@@ -16,14 +16,13 @@ function Pagination(props){
     return (
         <div className={containerClasses ?? "pagination__block"} >
             <span className={leftClasses ?? "pagination__left--arrow"} onClick={setPage(Number(page) + 1)}></span>
-            <div className={containerTextBlockClasses ?? "pagination__text--block"}>
-
-            </div>
-            {
-                listSize.map((elmt, index) => {
-                    return <p key={index} className={textClasses ?? "pagination__text"} onClick={setSize(elmt)}>{elmt}</p>
-                })
-            }
+                <div className={containerTextBlockClasses ?? "pagination__text--block"}>
+                {
+                    listSize.map((elmt, index) => {
+                        return <p key={index} className={textClasses ?? "pagination__text"} onClick={setSize(elmt)}>{elmt}</p>
+                    })
+                }
+                </div>
             <span className={rightClasses ?? "pagination__right--arrow"} onClick={setPage(Number(page) + 1)}></span>
         </div>
     );
