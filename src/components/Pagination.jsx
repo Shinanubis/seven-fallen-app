@@ -7,7 +7,7 @@ function Pagination(props){
         setSize = () => {}, 
         containerClasses = '', 
         leftClasses , 
-        rightClasses = '', 
+        rightClasses, 
         textClasses = '', 
         listSize = []
     } = props;
