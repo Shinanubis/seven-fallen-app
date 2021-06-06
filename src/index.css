@@ -370,7 +370,7 @@ svg.dropdown__icon path{
 .filter__container{
   position: absolute;
   top: 0;
-  right:calc(0 - 5%);
+  right:5%;
   width: 80%;
   color:var(--black);
   cursor: pointer;
