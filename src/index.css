@@ -112,6 +112,7 @@ code {
 
 .page{
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -367,14 +368,19 @@ svg.dropdown__icon path{
 
 /* filters */
 .filter__container{
+  position: absolute;
+  top: 0;
+  right:0;
   width: 80%;
   color:var(--black);
   cursor: pointer;
+  height: 4vh;
+  width: 4vh;
 }
 
 .filter__container svg{
-  height: 4vh;
-  width: 4vh;
+  height: 100%;
+  width: 100%;
 }
 
 /* Utilities */
