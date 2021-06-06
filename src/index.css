@@ -365,6 +365,12 @@ svg.dropdown__icon path{
   cursor: pointer;
 }
 
+/* filters */
+.filter__container{
+  color:var(--black);
+  cursor: pointer;
+}
+
 /* Utilities */
 
 .row{
@@ -381,6 +387,14 @@ svg.dropdown__icon path{
 
 .justify-center{
   justify-content: center;
+}
+
+.justify-end{
+  justify-content: flex-end;
+}
+
+.justify-start{
+  justify-content: flex-start;
 }
 
 .my-1{
