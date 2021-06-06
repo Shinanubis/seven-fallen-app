@@ -148,8 +148,8 @@ function App() {
       <VhInPixels/>
       <Router basename="/">
           <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
-        <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
-          <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"} logged={isAuthenticate} />
+        <Footer classes="footer">
+          <Menu classes="navbar" logged={isAuthenticate} />
         </Footer>
       </Router>
     </AuthenticationContext.Provider>
