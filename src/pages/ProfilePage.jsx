@@ -33,7 +33,7 @@ const ProfileForm = () => {
             <Header classes="header">
                 <h1>Profile</h1>
             </Header>
-                <form className="form">
+                <form className="form page--container">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username">{userInfos.contact.username}</h4>
