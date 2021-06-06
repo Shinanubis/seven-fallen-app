@@ -54,10 +54,11 @@ a {
 /*Components*/
 
 .header{
-  padding: 0 9%;
+  padding: 2vh 9%;
   text-align: center;
   color: var(--grey);
   margin-top:2vh;
+  background-color: #afafaf;
 }
 
 .header h1 {
