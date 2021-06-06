@@ -167,10 +167,7 @@ code {
 .form--container{
   position: relative;
   width:100%;
-  overflow-y: scroll;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  overflow-y: auto;
 }
 
 .form--input{
