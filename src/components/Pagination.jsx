@@ -16,7 +16,7 @@ function Pagination(props){
     } = props;
 
     useEffect(() => {
-        console.log(options)
+        console.log(list)
     },[])
 
     return (
