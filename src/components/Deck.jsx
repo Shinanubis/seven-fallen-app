@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {deleteUserDeck, getUserDecks} from '../api/Decks'
-import './Deck.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {BsPencil} from 'react-icons/bs'
 import {Link} from 'react-router-dom'

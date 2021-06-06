@@ -384,6 +384,64 @@ svg.dropdown__icon path{
   width: 100%;
 }
 
+/* deck */
+
+.deck__block{
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+  background-color:var(--dark-grey);
+  margin:0 auto;
+  padding:.5rem 1.5rem;
+  min-height: 100px;
+  border-radius:2px;
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+  -ms-border-radius:2px;
+  -o-border-radius:2px;
+}
+
+
+.deck__inner--left{
+  width: 60%;
+  margin-right:1.5rem;
+}
+
+.deck__inner--right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width:25%;
+}
+.inner__right--text{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.deck__ec--title{
+  font-size: 1.125rem;
+  margin-right: 1rem;
+}
+
+.deck__ec--value{
+  font-size: 1.25rem;
+}
+
+.deck__infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 40%;
+}
+
+.inner__right--actions{
+  display: flex;
+  justify-content: space-between;
+  height:30%;
+  width: 100%;
+}
+
 /* Utilities */
 
 .row{
