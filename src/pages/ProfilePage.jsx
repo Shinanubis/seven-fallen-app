@@ -4,6 +4,8 @@ import Button from '../components/Button'
 import './ProfilePage.css'
 import Header from '../layouts/Header'
 import Main from '../layouts/Main'
+import Avatar from '../components/Avatar'
+import Logout from '../components/Logout'
 
 const ProfileForm = () => {
     const user = {
@@ -30,9 +32,12 @@ const ProfileForm = () => {
 
     return (
         <>
-            <Header classes="header">
-                <h1>Profile</h1>
-            </Header>
+        <Header classes="header row justify-end">
+          <div className='header__inner--right row justify-between'>
+              <Avatar />
+              <Logout />
+          </div>
+        </Header>
             <div className="page">
                 <div className="page--container">
                 <form className="form">
