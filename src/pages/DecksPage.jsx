@@ -42,7 +42,6 @@ const DecksPage = () => {
     }
 
     useEffect(async () => {
-
         let response = await getUserDecks(reqOpt);
         if(response.code === 200){
             setDecksList(response);
@@ -54,6 +53,13 @@ const DecksPage = () => {
             setFlashState(null);
         }
     },[reqOpt]);
+
+    useEffect(async () => {
+        let response = await getUserDecks(reqOpt);
+        if(response.code === 200){
+            setDecksList(response);
+        }
+    });
 
     if(decksList.message && decksList.message instanceof Array){
         return (
