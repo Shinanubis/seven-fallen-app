@@ -3,7 +3,7 @@ import {HiUserCircle} from 'react-icons/hi'
 import Button from '../components/Button'
 import './ProfilePage.css'
 import Header from '../layouts/Header'
-import Main from '../layouts/Main'
+import Layout from '../layouts/Layout'
 
 const ProfileForm = () => {
     const user = {
@@ -33,8 +33,7 @@ const ProfileForm = () => {
             <Header classes="header">
                 <h1>Profile</h1>
             </Header>
-            <Main classes="page">
-                <div className="page--container">
+            <Layout>
                 <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
@@ -77,9 +76,7 @@ const ProfileForm = () => {
                         </div>
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
-                                    
-                </div>
-            </Main>
+            </Layout>
         </>
     )
 }
