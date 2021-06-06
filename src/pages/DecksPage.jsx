@@ -53,7 +53,7 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
-    },[]);
+    },[reqOpt]);
 
     if(decksList.message && decksList.message instanceof Array){
         return (
