@@ -74,7 +74,6 @@ const DecksPage = () => {
             </Header>
             <Layout>
             <Filters containerClasses="filter__container row justify-end" />
-                <div className="page--container">
                 <List classes="decks__list layout layout__1">
                       {
                           decksList.message.map(elmt => {
@@ -113,12 +112,18 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
-                </div>
               </Layout>
               </>
       )
     }
     return (
+        <>
+            <Header classes="header row justify-end">
+            <div className='header__inner--right row justify-between'>
+                <Avatar />
+                <Logout />
+            </div>
+            </Header>
             <Layout>
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
@@ -134,6 +139,7 @@ const DecksPage = () => {
                 /> 
                 <Plus to={'/decks/new-deck'}/>
             </Layout>
+            </>
             )
     }
 
