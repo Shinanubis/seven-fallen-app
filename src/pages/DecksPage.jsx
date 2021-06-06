@@ -27,13 +27,12 @@ const DecksPage = () => {
         setDeleteResponse(newState)
     }
 
-    const handlePage = (e, newPage) => {
+    const handlePage = (e, newPage, options) => {
         e.preventDefault();
-        console.log(newPage <= 0)
         if(newPage <= 0){
-            setReqOpt({...reqOpt, page: 1});
+            setReqOpt({...options, page: 1});
         }else{
-            setReqOpt({...reqOpt, page: newPage});
+            setReqOpt({...options, page: newPage});
         }
     }
 
