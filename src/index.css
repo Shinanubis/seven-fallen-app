@@ -728,12 +728,14 @@ svg.dropdown__icon path{
   grid-template-columns: repeat(4,1fr);
 }
 
+/* main */
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
   margin-top:auto;
+  margin-bottom:auto;
 }
 
 /* Media queries */
