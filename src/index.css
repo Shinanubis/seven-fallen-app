@@ -369,7 +369,7 @@ svg.dropdown__icon path{
 /* filters */
 .filter__container{
   position: absolute;
-  top: 0;
+  top: -5%;
   right:5%;
   width: 80%;
   color:var(--black);
