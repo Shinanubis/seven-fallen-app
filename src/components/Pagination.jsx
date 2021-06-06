@@ -17,7 +17,7 @@ function Pagination(props){
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
-            {console.log(options.page * options.size <= list.length)}
+            {console.log(options)}
             <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) + 1,options ,list )}><BsChevronLeft/></div>
                 <div className={containerTextBlockClasses ?? "pagination__text--block"}>
                 {
