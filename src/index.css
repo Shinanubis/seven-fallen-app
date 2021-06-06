@@ -64,6 +64,10 @@ a {
   font-size:4vh;
 }
 
+.header .header__inner--right{
+  width: 30%;
+}
+
 button:hover{
   cursor:pointer;
 }
@@ -447,8 +451,8 @@ svg.dropdown__icon path{
 /* avatar */
 
 .avatar, .logout{
-  height:5vh;
-  width: 5vh;
+  height:4vh;
+  width: 4vh;
 }
 
 .avatar svg, .logout svg {
