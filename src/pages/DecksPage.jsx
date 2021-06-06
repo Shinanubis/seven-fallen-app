@@ -90,7 +90,7 @@ const DecksPage = () => {
                     handleFlash= {handleFlash}
                 />
                 <Pagination 
-                    list = {decksList} 
+                    list = {decksList.message} 
                     options = {reqOpt}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
