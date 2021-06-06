@@ -42,10 +42,8 @@ const DecksPage = () => {
     }
 
     useEffect(async () => {
-        let response = {};
-        if(decksList.message instanceof Array && decksList.message.length >= 1){
-            response = await getUserDecks(reqOpt);
-        }
+
+        let response = await getUserDecks(reqOpt);
         if(response.code === 200){
             setDecksList(response);
         }else if(response.code !== 200 && decksList.message instanceof Array){
