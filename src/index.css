@@ -445,8 +445,8 @@ svg.dropdown__icon path{
 /* avatar */
 
 .avatar{
-  height:50px;
-  width: 50px;
+  height:6vh;
+  width: 6vh;
 }
 
 .avatar svg {
