@@ -2,7 +2,10 @@
     display:flex;
     align-items: flex-start;
     background-color: var(--dark-grey);
-    position:relative;
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
     height: calc(11 * var(--vh));
     transition: height 800ms ease;
     -webkit-transition: height 800ms ease;
