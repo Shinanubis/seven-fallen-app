@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import Header from '../layouts/Header';
 import Avatar from '../components/Avatar';
+import Logout from '../components/logout';
 
 
 const DecksPage = () => {
@@ -67,6 +68,7 @@ const DecksPage = () => {
             <>
             <Header>
                 <Avatar />
+                <Logout />
             </Header>
             <Layout>
                 <Filters containerClasses="filter__container row justify-end" />
