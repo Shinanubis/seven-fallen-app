@@ -385,6 +385,10 @@ svg.dropdown__icon path{
   cursor: pointer;
 }
 
+.filter__container svg path{
+  cursor: pointer;
+}
+
 /* deck */
 
 .deck__block{
