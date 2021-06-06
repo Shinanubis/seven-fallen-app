@@ -57,8 +57,11 @@ const DecksPage = () => {
     // },[reqOpt]);
 
     useEffect(async () => {
-         let response = await getUserDecks(reqOpt);
-         if(response.code === 200){
+
+        let response = await getUserDecks(reqOpt);
+        
+
+        if(response.code === 200){
             setDecksList(response);
         }else if(response.code !== 200 && decksList.message instanceof Array){
             setDeleteResponse({code: response.code, message: "This page doesn't exist"});
