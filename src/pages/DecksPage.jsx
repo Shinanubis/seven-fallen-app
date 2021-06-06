@@ -6,6 +6,7 @@ import Plus from '../components/Plus';
 import List from '../components/List';
 import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
+import Filters from '../components/Filters';
 
 
 const DecksPage = () => {
@@ -62,7 +63,9 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
+                <Filters />
                 <List classes="layout layout__1">
+                       
                       {
                           decksList.message.map(elmt => {
                                   return(
