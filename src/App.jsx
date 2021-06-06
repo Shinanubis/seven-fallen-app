@@ -33,6 +33,7 @@ import AuthenticationContext from './contexts/Context'
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels'
+import Header from './layouts/Header'
 
 
 function App() {
@@ -147,6 +148,7 @@ function App() {
     }>
       <VhInPixels/>
       <Router basename="/">
+        <Header />
           <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
         <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
           <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"} logged={isAuthenticate} />
