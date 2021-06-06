@@ -449,6 +449,11 @@ svg.dropdown__icon path{
   width: 50px;
 }
 
+.avatar svg {
+  width: 100%;
+  height: 100%;
+}
+
 /* Utilities */
 
 .row{
