@@ -167,7 +167,7 @@ code {
 .form--container{
   width:100%;
   overflow-y: scroll;
-  height: 60vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
 }
