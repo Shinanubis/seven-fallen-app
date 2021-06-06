@@ -1,39 +1,39 @@
 //Layout element import
-import Footer from'./layouts/Footer'
-import Menu from './components/Menu'
+import Footer from'./layouts/Footer';
+import Menu from './components/Menu';
 
 //Settings import
 import {useState} from 'react'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom';
 
 //Components imports
-import Navigation from './components/Navigation'
+import Navigation from './components/Navigation';
+import Avatar from './components/Avatar';
 
 // Pages import
-import LandingPage from './pages/LandingPage'
-import DecksPage from './pages/DecksPage'
-import CardsPage from './pages/CardsPage'
-import ProfilePage from './pages/ProfilePage'
-import GamersPage from './pages/GamersPage'
-import ErrorPage from './pages/ErrorPage'
-import LoginPage from './pages/LoginPage'
-import SettingsDeckPage from './pages/SettingsDeckPage'
-import AddingDeckPage from './pages/AddingDeckPage'
-import ChoicePage from './pages/ChoicePage'
-import SubscribePage from './pages/SubscribePage'
-import StarterPage from './pages/StarterPage'
-import IndividualPage from './pages/IndividualPage'
-import DeckBuildOptions from './pages/DeckBuildOptions'
-import DeckCreate from './pages/DeckCreate'
-import DeckImport from './pages/DeckImport'
-
+import LandingPage from './pages/LandingPage';
+import DecksPage from './pages/DecksPage';
+import CardsPage from './pages/CardsPage';
+import ProfilePage from './pages/ProfilePage';
+import GamersPage from './pages/GamersPage';
+import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
+import SettingsDeckPage from './pages/SettingsDeckPage';
+import AddingDeckPage from './pages/AddingDeckPage';
+import ChoicePage from './pages/ChoicePage';
+import SubscribePage from './pages/SubscribePage';
+import StarterPage from './pages/StarterPage';
+import IndividualPage from './pages/IndividualPage';
+import DeckBuildOptions from './pages/DeckBuildOptions';
+import DeckCreate from './pages/DeckCreate';
+import DeckImport from './pages/DeckImport';
 
 //Context import
-import AuthenticationContext from './contexts/Context'
+import AuthenticationContext from './contexts/Context';
 
 //Utilities import
-import VhInPixels from './utilities/VhInPixels'
-import Header from './layouts/Header'
+import VhInPixels from './utilities/VhInPixels';
+import Header from './layouts/Header';
 
 
 function App() {
@@ -148,7 +148,9 @@ function App() {
     }>
       <VhInPixels/>
       <Router basename="/">
-        <Header />
+        <Header>
+
+        </Header>
           <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
         <Footer classes={isAuthenticate ? "footer" : "footer h-0"}>
           <Menu classes={isAuthenticate ? "navbar" : "navbar move-down fade-out"} logged={isAuthenticate} />
