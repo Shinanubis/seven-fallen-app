@@ -5,7 +5,13 @@ function Avatar(props){
     const {classes, url} = props;
 
     return (
-        <img className={classes ?? "avatar"} src={url ?? AiOutlineUser} />
+        <>
+            {url ? 
+                <img className={classes ?? "avatar"} src={url} /> 
+                    : 
+                <div className={classes ?? "avatar"}><AiOutlineUser/></div>
+            }
+        </>
     );
 }
 
