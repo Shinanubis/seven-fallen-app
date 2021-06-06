@@ -74,7 +74,7 @@ const DecksPage = () => {
             </Header>
             <Layout>
                 <Filters containerClasses="filter__container row justify-end" />
-                <List classes="layout layout__1">
+                <List classes="layout layout__1 mt-6">
                       {
                           decksList.message.map(elmt => {
                                   return(

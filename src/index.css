@@ -529,6 +529,25 @@ svg.dropdown__icon path{
   margin-bottom: 6vh !important;
 }
 
+.mt-1{
+  margin-top: 1vh !important;
+}
+.mt-2{
+  margin-top: 2vh !important;
+}
+.mt-3{
+  margin-top: 3vh !important;
+}
+.mt-4{
+  margin-top: 4vh !important;
+}
+.mt-5{
+  margin-top: 5vh !important;
+}
+.mt-6{
+  margin-top: 6vh !important;
+}
+
 .good__input,
 .good__input:focus{
   border-bottom: 2px solid var(--done);

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const Plus = (props) => {
     return (
-        <Link className="add__button" to={props.to}><GrAddCircle/></Link>
+        <Link className="add__button mb-3" to={props.to}><GrAddCircle/></Link>
     )
 }
 
