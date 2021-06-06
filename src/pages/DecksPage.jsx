@@ -67,7 +67,7 @@ const DecksPage = () => {
         return (
             <>
             <Header classes="header row justify-end">
-                <div className='header__inner--right'>
+                <div className='row'>
                     <Avatar />
                     <Logout />
                 </div>
