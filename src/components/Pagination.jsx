@@ -3,7 +3,6 @@ import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
 function Pagination(props){
     const {
-        list,
         options, 
         setPage, 
         setSize , 
