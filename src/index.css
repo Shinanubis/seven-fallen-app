@@ -367,6 +367,7 @@ svg.dropdown__icon path{
 
 /* filters */
 .filter__container{
+  width: 80%;
   color:var(--black);
   cursor: pointer;
 }
