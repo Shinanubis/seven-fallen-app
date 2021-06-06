@@ -27,11 +27,11 @@ const DecksPage = () => {
         setDeleteResponse(newState)
     }
 
-    const handlePage = (e, newPage) => {
+    const handlePage = (e, newPage, options, list) => {
         e.preventDefault();
         if(newPage <= 0){
             setReqOpt({...reqOpt, page: 1});
-        }else{
+        }else if(options.page * options.size <= list.length){
             setReqOpt({...reqOpt, page: newPage});
         }
     }
@@ -42,8 +42,8 @@ const DecksPage = () => {
     }
 
     useEffect(async () => {
+
         let response = await getUserDecks(reqOpt);
-        console.log(decksList.message.length);
         if(response.code === 200){
             setDecksList(response);
         }else if(response.code !== 200 && decksList.message instanceof Array){
@@ -104,6 +104,7 @@ const DecksPage = () => {
                     <p className="deck__list--empty">Your deck list is empty</p>
                 </div>
                 <Pagination 
+                    list = {decksList}
                     options = {reqOpt}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
