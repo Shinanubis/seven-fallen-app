@@ -7,6 +7,8 @@ import List from '../components/List';
 import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
+import Header from '../layouts/Header';
+import Avatar from '../components/Avatar';
 
 
 const DecksPage = () => {
@@ -62,6 +64,10 @@ const DecksPage = () => {
 
     if(decksList.message && decksList.message instanceof Array){
         return (
+            <>
+            <Header>
+                <Avatar />
+            </Header>
             <Layout>
                 <Filters containerClasses="filter__container row justify-end" />
                 <List classes="layout layout__1">
@@ -103,6 +109,7 @@ const DecksPage = () => {
                 /> 
                 <Plus to={'/decks/new-deck'}/>
               </Layout>
+              </>
       )
     }
     return (
