@@ -63,7 +63,7 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
-                <Filters containerClassses="filter__container justify-end" />
+                <Filters containerClasses="filter__container justify-end" />
                 <List classes="layout layout__1">
                        
                       {
