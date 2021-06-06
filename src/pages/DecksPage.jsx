@@ -73,7 +73,7 @@ const DecksPage = () => {
                 </div>
             </Header>
             <Layout>
-    
+                <div className="page--container">
                 <Filters containerClasses="filter__container row justify-end" />
                 <List classes="decks__list layout layout__1">
                       {
@@ -113,6 +113,7 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
+                </div>
               </Layout>
               </>
       )
