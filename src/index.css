@@ -372,6 +372,11 @@ svg.dropdown__icon path{
   cursor: pointer;
 }
 
+.filter__container svg{
+  height: 4vh;
+  width: 4vh;
+}
+
 /* Utilities */
 
 .row{
