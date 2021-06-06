@@ -66,9 +66,11 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <>
-            <Header>
-                <Avatar />
-                <Logout />
+            <Header classes="header row justify-end">
+                <div className='header__inner--right'>
+                    <Avatar />
+                    <Logout />
+                </div>
             </Header>
             <Layout>
                 <Filters containerClasses="filter__container row justify-end" />
