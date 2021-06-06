@@ -128,7 +128,7 @@ code {
 .page--container{
   position: relative;
   height: calc(65 * var(--vh));
-  width:90%;
+  width:100%;
   overflow-y: scroll;
   display: flex;
   align-items: center;
