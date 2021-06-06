@@ -767,7 +767,6 @@ svg.dropdown__icon path{
 main {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
   height: 100%;
   margin-top:auto;
   margin-bottom:auto;
