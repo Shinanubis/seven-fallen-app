@@ -118,12 +118,12 @@ const DecksPage = () => {
     }
     return (
         <>
-        <Header classes="header row justify-end">
-          <div className='header__inner--right row justify-between'>
-              <Avatar />
-              <Logout />
-          </div>
-        </Header>
+            <Header classes="header row justify-end">
+                <div className='header__inner--right row justify-between'>
+                    <Avatar />
+                    <Logout />
+                </div>
+            </Header>
             <Layout>
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
