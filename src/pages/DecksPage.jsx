@@ -59,7 +59,7 @@ const DecksPage = () => {
         if(response.code === 200){
             setDecksList(response);
         }
-    });
+    },[]);
 
     if(decksList.message && decksList.message instanceof Array){
         return (
