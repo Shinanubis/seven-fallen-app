@@ -166,7 +166,7 @@ code {
 
 .form--container{
   width:100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -767,7 +767,7 @@ svg.dropdown__icon path{
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  overflow-y: scroll;
   height: 100%;
   margin-top:auto;
   margin-bottom:auto;
