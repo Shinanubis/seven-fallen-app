@@ -718,7 +718,6 @@ svg.dropdown__icon path{
   position: relative;
   background-color: var(--white);
   width:90%;
-  height: calc(55 * var(--vh));
   overflow-y:scroll;
   gap:12px 16px;
   margin:0 auto;
