@@ -382,11 +382,6 @@ svg.dropdown__icon path{
 .filter__container svg{
   height: 100%;
   width: 100%;
-  cursor: pointer;
-}
-
-.filter__container svg path{
-  cursor: pointer;
 }
 
 /* deck */
