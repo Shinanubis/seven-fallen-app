@@ -33,8 +33,8 @@ const ProfileForm = () => {
             <Header classes="header">
                 <h1>Profile</h1>
             </Header>
-            <Layout>
                 <form className="form">
+                    <div className="page--container">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username">{userInfos.contact.username}</h4>
@@ -75,8 +75,8 @@ const ProfileForm = () => {
                             <input type="text" className="form--input" placeholder="username" disabled/>  
                         </div>
                         <Button classes="btn" text="update" onClick={handleClick}/>
+                        </div>
                 </form>
-            </Layout>
         </>
     )
 }
