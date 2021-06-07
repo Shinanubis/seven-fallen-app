@@ -117,6 +117,7 @@ code {
 }
 
 .page{
+  display: -webkit-flex;
   display: flex;
   position: relative;
   flex-direction: column;

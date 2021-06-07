@@ -39,7 +39,7 @@ const ProfileForm = () => {
           </div>
         </Header>
         <Main classes="page">
-        <div className="page--container">
+        <div className="profile__page--container">
                 <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
