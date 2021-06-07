@@ -38,8 +38,7 @@ const ProfileForm = () => {
               <Logout />
           </div>
         </Header>
-        <Main classes="page">
-        <div className="profile__page--container">
+        <Main classes="profile__page">
                 <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
@@ -82,7 +81,6 @@ const ProfileForm = () => {
                         </div>
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
-            </div>
             </Main>
         </>
     )

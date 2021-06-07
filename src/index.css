@@ -126,8 +126,13 @@ code {
   height: 90%;
 }
 
-.profile__page--container{
+.profile__page{
+  display: -webkit-flex;
+  display: flex;
   position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width:100%;
   overflow-y: scroll;
