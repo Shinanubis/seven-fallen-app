@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import {HiUserCircle} from 'react-icons/hi'
 import Button from '../components/Button'
-import './ProfilePage.css'
 import Header from '../layouts/Header'
 import Main from '../layouts/Main'
 import Avatar from '../components/Avatar'
