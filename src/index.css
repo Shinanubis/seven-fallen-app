@@ -54,6 +54,9 @@ a {
 /*Components*/
 
 .header{
+  position:fixed;
+  top:0;
+  width:100%;
   padding: 3vh 9% 2vh 9%;
   text-align: center;
   color: var(--grey);
