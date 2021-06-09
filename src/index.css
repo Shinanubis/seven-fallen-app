@@ -135,6 +135,8 @@ code {
 }
 
 .profile__page{
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 90vh;
   padding-bottom: 10vh;
