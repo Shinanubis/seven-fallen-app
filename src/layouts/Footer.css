@@ -1,6 +1,7 @@
 .footer{
     display:flex;
     align-items: flex-start;
+    background-color: #202020;
     background-color: var(--dark-grey);
     position:fixed;
     bottom:0;
