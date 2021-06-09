@@ -62,6 +62,7 @@ a {
   text-align: center;
   color: var(--grey);
   background-color: #afafaf;
+  z-index:10;
 }
 
 .header h1 {
