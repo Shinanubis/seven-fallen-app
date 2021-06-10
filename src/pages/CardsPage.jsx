@@ -2,7 +2,6 @@ import React from 'react';
 import CardList from '../components/CardList';
 import Plus from '../components/Plus';
 import Image from '../../src/img/cards/merrlyn.jpg';
-import Header from "../layouts/Header";
 import Main from "../layouts/Main";
 import List from '../components/List';
 import Card from '../components/Card';

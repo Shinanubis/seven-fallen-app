@@ -7,9 +7,6 @@ import List from '../components/List';
 import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
-import Header from '../layouts/Header';
-import Avatar from '../components/Avatar';
-import Logout from '../components/logout';
 
 
 const DecksPage = () => {
@@ -65,13 +62,6 @@ const DecksPage = () => {
 
     if(decksList.message && decksList.message instanceof Array){
         return (
-            <>
-            <Header classes="header row justify-end">
-                <div className='header__inner--right row justify-between'>
-                    <Avatar />
-                    <Logout />
-                </div>
-            </Header>
             <Layout>
             <Filters containerClasses="filter__container row justify-end" />
                 <List classes="list__content layout layout__1">
@@ -112,17 +102,9 @@ const DecksPage = () => {
                 /> 
                 <Plus to={'/decks/new-deck'}/>
               </Layout>
-              </>
       )
     }
     return (
-        <>
-            <Header classes="header row justify-end">
-                <div className='header__inner--right row justify-between'>
-                    <Avatar />
-                    <Logout />
-                </div>
-            </Header>
             <Layout>
                 <div className="deck__list">
                     <p className="deck__list--empty">Your deck list is empty</p>
@@ -138,7 +120,6 @@ const DecksPage = () => {
                 /> 
                 <Plus to={'/decks/new-deck'}/>
             </Layout>
-            </>
             )
     }
 

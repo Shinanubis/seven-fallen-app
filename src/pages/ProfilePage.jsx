@@ -1,10 +1,9 @@
-import React,{useState} from 'react'
-import {HiUserCircle} from 'react-icons/hi'
-import Button from '../components/Button'
-import Header from '../layouts/Header'
-import Main from '../layouts/Main'
-import Avatar from '../components/Avatar'
-import Logout from '../components/Logout'
+import React,{useState} from 'react';
+import {HiUserCircle} from 'react-icons/hi';
+import Button from '../components/Button';
+import Main from '../layouts/Main';
+
+
 
 const ProfileForm = () => {
     const user = {
@@ -30,13 +29,6 @@ const ProfileForm = () => {
 
 
     return (
-        <>
-        <Header classes="header row justify-end">
-          <div className='header__inner--right row justify-between'>
-              <Avatar />
-              <Logout />
-          </div>
-        </Header>
         <Main classes="profile__page">
                 <form className="form">
                         <div className="profile__heading">
@@ -81,7 +73,6 @@ const ProfileForm = () => {
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
             </Main>
-        </>
     )
 }
 

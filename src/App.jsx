@@ -8,7 +8,9 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 //Components imports
 import Navigation from './components/Navigation';
+import Header from './layouts/Header';
 import Avatar from './components/Avatar';
+import Logout from './components/Logout';
 
 // Pages import
 import LandingPage from './pages/LandingPage';
@@ -147,6 +149,12 @@ function App() {
     }>
       <VhInPixels/>
       <Router basename="/">
+        <Header classes="header row justify-end">
+            <div className='header__inner--right row justify-between'>
+                <Avatar />
+                <Logout />
+            </div>
+        </Header>
           <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
         <Footer classes="footer">
           <Menu classes="navbar" logged={isAuthenticate} />
