@@ -1,11 +1,12 @@
-import React from 'react'
-import CardList from '../components/CardList'
-import Plus from '../components/Plus'
+import React from 'react';
+import CardList from '../components/CardList';
+import Plus from '../components/Plus';
 import Image from '../../src/img/cards/merrlyn.jpg';
-import Header from "../layouts/Header"
-import Main from "../layouts/Main"
-import List from '../components/List'
-import Card from '../components/Card'
+import Header from "../layouts/Header";
+import Main from "../layouts/Main";
+import List from '../components/List';
+import Card from '../components/Card';
+import Pagination from "../components/Pagination";
 
 const CardsPage = (props) => {
     const cards = [
@@ -111,13 +112,27 @@ const CardsPage = (props) => {
         },
     ]
 
+    const handlePage = () => {
+        return null;
+    }
 
+    const handleSize = () => {
+        return null;
+    }
 
     return (
             <Main classes="page">
                 <List classes="list__content layout layout__3 mb-5">
                     {cards.map(elmt => <Card key={elmt.id} url={elmt.url} alt={elmt.alt}/>)}
                 </List>
+                <Pagination 
+                    list = {cards} 
+                    containerClasses = "pagination__block my-3 row justify-between"
+                    containerTextBlockClasses = {"pagination__text--block row justify-between"} 
+                    setPage={handlePage} 
+                    setSize={handleSize}
+                    listSize={[10,20,40]}
+                /> 
                 <Plus to="/cards/from"/>
             </Main>
     )
