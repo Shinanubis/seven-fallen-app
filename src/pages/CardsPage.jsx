@@ -114,17 +114,12 @@ const CardsPage = (props) => {
 
 
     return (
-        <>
-            <Header classes="header">
-                <h1>{props.location.pathname.slice(1)}</h1>
-            </Header>
             <Main classes="page">
-                <List classes="layout layout__3 mb-5">
+                <List classes="list__content layout layout__3 mb-5">
                     {cards.map(elmt => <Card key={elmt.id} url={elmt.url} alt={elmt.alt}/>)}
                 </List>
                 <Plus to="/cards/from"/>
             </Main>
-        </>
     )
 }
 
