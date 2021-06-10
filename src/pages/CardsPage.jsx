@@ -125,7 +125,6 @@ const CardsPage = (props) => {
                     {cards.map(elmt => <Card key={elmt.id} url={elmt.url} alt={elmt.alt}/>)}
                 </List>
                 <Pagination 
-                    list = {cards} 
                     containerClasses = "pagination__block my-3 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={handlePage} 

@@ -1,9 +1,9 @@
-import React,  {useState} from 'react'
-import List from '../components/List'
-import User from '../components/User'
-import SearchBar from '../components/SearchBar'
-import Header from '../layouts/Header'
-import Main from '../layouts/Main'
+import React,  {useState} from 'react';
+import List from '../components/List';
+import User from '../components/User';
+import SearchBar from '../components/SearchBar';
+import Main from '../layouts/Main';
+import Pagination from '../components/Pagination';
 
 const GamersPage = () => {
 
@@ -111,9 +111,22 @@ const GamersPage = () => {
         setSearchValue(e.target.value)
     }
 
+    const handlePage = () => {
+        return null;
+    }
+
+    const handleSize = () => {
+        return null;
+    }
 
     return (
             <Main classes="page">
+                <SearchBar 
+                    classes="search__bar" inputClasses="search__bar--input" 
+                    iconClasses="search__bar--icon" 
+                    onChange={handleSearch} text={searchValue}
+                    placeholder={"Search ..."}
+                />
                 <List classes="list__content layout layout__3 mb-4">
                     {
                         users.map(elmt => {
@@ -123,12 +136,13 @@ const GamersPage = () => {
                         })
                     }
                 </List>
-                <SearchBar 
-                    classes="search__bar" inputClasses="search__bar--input" 
-                    iconClasses="search__bar--icon" 
-                    onChange={handleSearch} text={searchValue}
-                    placeholder={"Search ..."}
-                />
+                <Pagination 
+                    containerClasses = "pagination__block my-3 row justify-between"
+                    containerTextBlockClasses = {"pagination__text--block row justify-between"} 
+                    setPage={handlePage} 
+                    setSize={handleSize} 
+                    listSize={[10,20,40]} 
+                /> 
             </Main>
     )
 }
