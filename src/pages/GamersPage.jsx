@@ -122,7 +122,7 @@ const GamersPage = () => {
     return (
             <Main classes="page">
                 <SearchBar 
-                    classes="search__bar" inputClasses="search__bar--input" 
+                    classes="search__bar" inputClasses="search__bar--input mb-2" 
                     iconClasses="search__bar--icon" 
                     onChange={handleSearch} text={searchValue}
                     placeholder={"Search ..."}
