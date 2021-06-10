@@ -1,5 +1,5 @@
 import React from 'react';
-import CardList from '../components/CardList';
+import Filters from '../components/Filters';
 import Plus from '../components/Plus';
 import Image from '../../src/img/cards/merrlyn.jpg';
 import Main from "../layouts/Main";
@@ -121,7 +121,8 @@ const CardsPage = (props) => {
 
     return (
             <Main classes="page">
-                <List classes="list__content layout layout__3 mb-5">
+                <Filters containerClasses="filter__container row justify-end" />
+                <List classes="list__content layout layout__3">
                     {cards.map(elmt => <Card key={elmt.id} url={elmt.url} alt={elmt.alt}/>)}
                 </List>
                 <Pagination 
