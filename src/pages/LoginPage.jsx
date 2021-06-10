@@ -26,7 +26,7 @@ function Login(props) {
 
     return (
                 <ul className="social__icons--list">
-                    <li>
+                    <li className="mb-3">
                         <SocialButton bgcolor="#395693" url="https://test-seven.site/api/auth/facebook">
                             <FaFacebookF className="icons facebook__icon"/>
                             <span className="btn__social--text">Login facebook</span> 
