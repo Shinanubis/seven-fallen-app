@@ -63,6 +63,7 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
+                <Filters containerClasses="filter__container row justify-end my-3" />
                 <List classes="list__content layout layout__1">
                       {
                           decksList.message.map(elmt => {
