@@ -438,7 +438,7 @@ svg.dropdown__icon path{
 
 /* decks list*/
 .decks__list{
-  height:calc(var(--vh) * 45); 
+  height:calc(var(--vh) * 50); 
 }
 
 /* deck */
