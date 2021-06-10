@@ -113,12 +113,8 @@ const GamersPage = () => {
 
 
     return (
-        <>
-            <Header classes="header">
-                <h1>Gamers</h1>
-            </Header>
             <Main classes="page">
-                <List classes="layout layout__3 mb-4">
+                <List classes="list__content layout layout__3 mb-4">
                     {
                         users.map(elmt => {
                             return (
@@ -134,7 +130,6 @@ const GamersPage = () => {
                     placeholder={"Search ..."}
                 />
             </Main>
-        </>
     )
 }
 
