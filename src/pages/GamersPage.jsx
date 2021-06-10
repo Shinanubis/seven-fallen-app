@@ -127,7 +127,7 @@ const GamersPage = () => {
                     onChange={handleSearch} text={searchValue}
                     placeholder={"Search ..."}
                 />
-                <List classes="list__content layout layout__3 mb-4">
+                <List classes="list__content layout layout__3">
                     {
                         users.map(elmt => {
                             return (
