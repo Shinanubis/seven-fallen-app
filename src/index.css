@@ -193,6 +193,7 @@ code {
 
 .popup__option--input{
   margin: 0 2vh 0 0;
+  cursor: pointer;
 }
 
 .popup__form--section{
