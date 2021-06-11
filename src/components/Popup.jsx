@@ -19,8 +19,8 @@ function Popup(props) {
                                         {datas[title].values.map(elmt => {
                                                 return (
                                                     <div className="popup__option--container">
-                                                        <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
                                                         <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
+                                                        <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
                                                     </div>
                                                 )
     
@@ -37,8 +37,8 @@ function Popup(props) {
                                         {datas[title].values.map(elmt => {
                                                 return (
                                                     <div className="popup__option--container">
+                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>                
                                                         <input className="popup__option--input" type="radio" id={elmt} name={title} />
-                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
                                                     </div>
                                                 )
     
