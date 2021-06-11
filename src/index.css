@@ -65,12 +65,25 @@ a {
   z-index:10;
 }
 
-.header h1 {
-  font-size:4vh;
-}
-
 .header .header__inner--right{
   width: 22%;
+}
+
+.footer{
+  display:flex;
+  align-items: flex-start;
+  background-color: #202020;
+  background-color: var(--dark-grey);
+  position:fixed;
+  bottom:0;
+  right:0;
+  left:0;
+  height: calc(11 * var(--vh));
+  transition: height 800ms ease;
+  -webkit-transition: height 800ms ease;
+  -moz-transition: height 800ms ease;
+  -ms-transition: height 800ms ease;
+  -o-transition: height 800ms ease;
 }
 
 button:hover{

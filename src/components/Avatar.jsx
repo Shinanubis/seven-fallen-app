@@ -9,7 +9,7 @@ function Avatar(props){
             {url ? 
                 <img className={classes ?? "avatar"} src={url} /> 
                     : 
-                <div className={classes ?? "avatar"}><AiOutlineUser/></div>
+                <div className={classes ?? "avatar"}><AiOutlineUser /></div>
             }
         </>
     );

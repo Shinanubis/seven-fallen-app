@@ -6,7 +6,7 @@ function Logout(props){
 
     return (
         <div className={containerClasses ?? 'logout'}>
-            <AiOutlineLogout/>
+            <AiOutlineLogout className="menu__icon"/>
         </div>
     );
 }
