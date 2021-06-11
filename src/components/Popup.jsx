@@ -13,16 +13,16 @@ function Popup(props) {
                         return (
                             <>
                                 <h4 className="popup__option--name">{title}</h4>
-                                <div>
+
                                     {datas[title].map(elmt => {
                                         return (
-                                            <>
+                                            <div className="popup__option--container">
                                                 <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
                                                 <label className="popup__option--label" for={elmt}>{elmt}</label>
-                                            </>
+                                            </div>
                                         )
                                     })}
-                                </div>
+
                             </>
                         )
                     })}
