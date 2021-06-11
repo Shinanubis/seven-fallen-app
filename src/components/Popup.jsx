@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
 
@@ -28,8 +29,7 @@ function Popup(props) {
                             )
                         }
 
-                        if(datas[title].type === "radio"){
-                            
+                        if(datas[title].type === "radio"){           
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
