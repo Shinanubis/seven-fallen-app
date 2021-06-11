@@ -188,7 +188,9 @@ code {
   padding: 0 0 0 2vh;
 }
 
-
+.popup__option--name{
+  text-align: left;
+}
 /* profile page */
 
 .profile__page{
