@@ -199,6 +199,7 @@ code {
 
 .btn.popup__button{
   margin: 2vh auto;
+  background-color:rgb(59, 231, 59);
 }
 
 /* profile page */
