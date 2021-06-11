@@ -188,6 +188,7 @@ code {
 
 .popup__option--container{
   display: flex;
+  justify-content: space-between;
   margin: 1vh auto;
   width: 85%;
   padding: 0 0 0 2vh;
