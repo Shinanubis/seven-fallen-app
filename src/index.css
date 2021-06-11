@@ -188,7 +188,7 @@ code {
 
 .popup__heading{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 80%;
   margin: 2vh auto;
 }
