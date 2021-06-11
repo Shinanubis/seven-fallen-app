@@ -14,7 +14,7 @@ function Popup(props) {
                                 {
                                     datas[title].map(content => {
                                         return (
-                                            <option value={content}>{content}</option>
+                                            <option value={content}>{content.replace('_', ' ')}</option>
                                         );
                                     })
                                 }
