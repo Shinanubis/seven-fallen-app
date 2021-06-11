@@ -7,18 +7,18 @@ function Popup(props) {
     return (
         <div className="popup__container">
             <div className="popup__box">
-                <form className="form">
-                    <h3>Filters :</h3>
+                <form className="popup__form">
+                    <h3 className="popup__title">Filters :</h3>
                     {Object.keys(datas).map(title => {
                         return (
                             <>
-                                <h4>{title}</h4>
+                                <h4 className="popup__option--name">{title}</h4>
                                 <div>
                                     {datas[title].map(elmt => {
                                         return (
                                             <>
-                                                <input type="checkbox" id={elmt} name={elmt} />
-                                                <label for={elmt}>{elmt}</label>
+                                                <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
+                                                <label className="popup__option--label" for={elmt}>{elmt}</label>
                                             </>
                                         )
                                     })}
