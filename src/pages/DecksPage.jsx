@@ -32,7 +32,12 @@ const DecksPage = () => {
 
     const handleClickFilter = (e, isVisible) => {
         e.preventDefault();
-        console.log(isVisible === true);
+        if(isVisible === true){
+            setFilter(false);
+        }else{
+            setFilter(true);
+        }
+        console.log(isVisible);
     } 
 
     const handlePage = (e, newPage, options) => {
