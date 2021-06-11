@@ -12,7 +12,7 @@ function Popup(props) {
                         return (
                             <optgroup label={title}>
                                 {
-                                    title.map(content => {
+                                    datas[title].map(content => {
                                         return (
                                             <option value={content}>{content}</option>
                                         );
