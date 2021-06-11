@@ -80,6 +80,7 @@ const DecksPage = () => {
 
     const handleClickPopupOptions = (e) => {
         e.preventDefault();
+        setReqOpt({...reqOpt, order_by: e.target.value});
     }
 
     const handleClosePopup = (e) => {
