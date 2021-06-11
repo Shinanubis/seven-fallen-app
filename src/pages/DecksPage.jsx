@@ -74,8 +74,12 @@ const DecksPage = () => {
         setReqOpt({...reqOpt, size: newSize});
     }
 
-    const handleClickButton = (e) => {
+    const handleClickPopupButton = (e) => {
+        e.preventDefault();
+    }
 
+    const handleClickPopupOptions = (e) => {
+        e.preventDefault();
     }
 
     const handleClosePopup = (e) => {
@@ -142,7 +146,14 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
-                {filterClicked || <Popup datas={popupDatas} onClickButton={handleClickButton} buttonText="Ok" actionClose={handleClosePopup}/>}
+                {filterClicked || 
+                    <Popup 
+                        datas={popupDatas} 
+                        onClickButton = {handleClickPopupButton}
+                        onClickOptions = {handleClickPopupOptions} 
+                        buttonText="Ok" 
+                        actionClose={handleClosePopup}
+                    />}
               </Layout>
       )
     }

@@ -50,7 +50,7 @@ function Popup(props) {
                     })}
                 </form>
             </div>
-            <button className="btn popup__button" onClick={onClickButton}>{buttonText}</button>
+            <button className="btn popup__button" onClick={(e) => onClickButton(e)}>{buttonText}</button>
         </div>
     )
 }
