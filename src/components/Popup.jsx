@@ -16,15 +16,23 @@ function Popup(props) {
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
-                                        {datas[title].values.map(elmt => {
-                                                return (
-                                                    <div className="popup__option--container">
-                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
-                                                        <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
-                                                    </div>
-                                                )
-    
-                                        })}
+                                        {datas[title].values.map((elmt, index) => {
+                                                if(index === 0){
+                                                    return (
+                                                        <div className="popup__option--container">
+                                                            <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} checked/>
+                                                        </div>
+                                                    )
+                                                }else{
+                                                    return (
+                                                        <div className="popup__option--container">
+                                                            <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
+                                                        </div>
+                                                    )
+                                                }
+                                            })}
                                 </div>
                             )
                         }
@@ -34,14 +42,22 @@ function Popup(props) {
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
-                                        {datas[title].values.map(elmt => {
+                                        {datas[title].values.map((elmt, index)=> {
+                                            if(index === 0){
+                                                return (
+                                                    <div className="popup__option--container">
+                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>                
+                                                        <input className="popup__option--input" type="radio" id={elmt} name={title} checked/>
+                                                    </div>
+                                                )
+                                            }else{
                                                 return (
                                                     <div className="popup__option--container">
                                                         <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>                
                                                         <input className="popup__option--input" type="radio" id={elmt} name={title} />
                                                     </div>
                                                 )
-    
+                                            }
                                         })}
                                 </div>
                             )

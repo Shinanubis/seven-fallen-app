@@ -24,12 +24,12 @@ const DecksPage = () => {
     });
 
     const popupDatas = {
-        "List by kingdom": {
-            values: ['Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
+        "List by kingdoms": {
+            values: ['All','Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
             type: "checkbox"
         },
         "Order by": {
-            values: ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
+            values: ['id','deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
             type: "radio"
         },
         "Sens": {
