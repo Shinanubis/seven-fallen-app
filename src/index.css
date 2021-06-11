@@ -165,7 +165,7 @@ code {
 }
 
 .popup__title{
-  margin: 3vh 0;
+  margin: 2vh 0;
 }
 
 .popup__option--name{
@@ -177,13 +177,15 @@ code {
 }
 
 .popup__form--section{
-  width: 33%;
+  width: 60%;
   margin: 0 auto;
 }
 
 .popup__option--container{
   display: flex;
-  margin: 1vh 0;
+  margin: 1vh auto;
+  width: 85%;
+  padding: 0 0 0 2vh;
 }
 
 
