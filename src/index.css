@@ -497,10 +497,10 @@ svg.dropdown__icon path{
 
 .deck__block{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width:100%;
   background-color:var(--dark-grey);
-  margin:.5vh auto;
+  margin:1vh auto;
   padding:.5rem 1.5rem;
   min-height: 100px;
   border-radius:2px;
