@@ -172,6 +172,10 @@ code {
   margin: 2vh 0;
 }
 
+.popup__option--input{
+  margin: 0 1rem 0 0;
+}
+
 .popup__option--container{
   display: flex;
 }
