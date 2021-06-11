@@ -11,9 +11,8 @@ function Popup(props) {
                     <h3 className="popup__title">Filters :</h3>
                     {Object.keys(datas).map(title => {
                         return (
-                            <>
+                            <div className="popup__form--section">
                                 <h4 className="popup__option--name">{title}</h4>
-
                                     {datas[title].map(elmt => {
                                         return (
                                             <div className="popup__option--container">
@@ -22,8 +21,7 @@ function Popup(props) {
                                             </div>
                                         )
                                     })}
-
-                            </>
+                            </div>
                         )
                     })}
                 </form>
