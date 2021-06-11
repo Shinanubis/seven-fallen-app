@@ -156,9 +156,6 @@ code {
 /* popup */
 
 .popup__container{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
   position: absolute;
   top:0;
   left:0;
@@ -182,6 +179,9 @@ code {
 }
 
 .popup__inner--container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   height: 120%;
   width: 100%;
 }
