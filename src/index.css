@@ -184,8 +184,11 @@ code {
   color:rgb(59, 231, 59);
 }
 
-.popup__title{
-  margin: 2vh 0;
+.popup__heading{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 2vh auto;
 }
 
 .popup__option--name{

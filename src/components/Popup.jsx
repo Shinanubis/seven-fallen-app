@@ -9,11 +9,12 @@ function Popup(props) {
         <div className="popup__container">
             <div className="popup__box">
                 <form className="popup__form">
-                    <h3 className="popup__title">Filters :
-                    <span  className="popup__close" onClick={e => actionClose(e)}>
-                        <AiFillCloseCircle />
-                    </span>
-                    </h3>
+                    <div className={"popup__heading"}>
+                        <h3 className="popup__title">Filters :</h3>
+                        <span  className="popup__close" onClick={e => actionClose(e)}>
+                            <AiFillCloseCircle />
+                        </span>
+                    </div>
                     {Object.keys(datas).map(title => {
                         if(datas[title].type === "checkbox"){                            
                             return (
