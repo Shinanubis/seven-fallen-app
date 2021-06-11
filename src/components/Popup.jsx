@@ -8,7 +8,13 @@ function Popup(props) {
         <div className="popup__background">
             <div className="popup__box">
                 <select>
-                    
+                    {Object.keys(datas).map(title => {
+                        return (
+                            <optgroup label={title}>
+
+                            </optgroup>
+                        )
+                    })}
                 </select>
             </div>
         </div>

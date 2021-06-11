@@ -11,6 +11,7 @@ import  Popup from '../components/Popup';
 
 
 const DecksPage = () => {
+
     const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
@@ -22,6 +23,11 @@ const DecksPage = () => {
         sens: 'asc'
     });
 
+    const popupDatas = {
+        "list by kingdom": ['Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
+        "order by": ['id' ,'deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
+        "sens": ["desc", "asc"]
+    }
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
@@ -113,7 +119,7 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
-                {filterClicked || <Popup />}
+                {filterClicked || <Popup datas={popupDatas}/>}
               </Layout>
       )
     }
