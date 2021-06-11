@@ -19,6 +19,7 @@ const DecksPage = () => {
         order_by: 'id',
         sens: 'asc'
     });
+    const [filterClicked, setFilter] = useState(false);
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
@@ -27,6 +28,11 @@ const DecksPage = () => {
     const handleDelete = (newState) => {
         setDeleteResponse(newState)
     }
+
+    const handleClickFilter = (e) => {
+        e.preventDefault();
+        setFilter();
+    } 
 
     const handlePage = (e, newPage, options) => {
         e.preventDefault();
@@ -63,7 +69,7 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
-                <Filters containerClasses="filter__container row justify-end my-3" />
+                <Filters containerClasses="filter__container row justify-end my-3" onClick={handleClickFilter}/>
                 <List classes="list__content layout layout__1">
                       {
                           decksList.message.map(elmt => {
