@@ -37,7 +37,6 @@ const DecksPage = () => {
         }else{
             setFilter(true);
         }
-        console.log(filterClicked)
     } 
 
     const handlePage = (e, newPage, options) => {
@@ -75,7 +74,7 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
-                <Filters containerClasses="filter__container row justify-end my-3" onClick={handleClickFilter}/>
+                <Filters containerClasses="filter__container row justify-end my-3" isVisible={filterClicked} onClick={handleClickFilter}/>
                 <List classes="list__content layout layout__1">
                       {
                           decksList.message.map(elmt => {

@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import {BsFilterRight} from 'react-icons/bs';
 
 function Filters(props){
-    const {containerClasses, onClick} = props;
+    const {containerClasses, onClick, isVisible} = props;
 
     useEffect(() => {
-        console.log(onClick)
+        console.log(isVisible)
     }, []);
 
     return (
