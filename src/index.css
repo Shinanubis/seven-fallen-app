@@ -198,7 +198,7 @@ code {
 }
 
 .btn.popup__button{
-  margin: 2vh 0;
+  margin: 2vh auto;
 }
 
 /* profile page */
