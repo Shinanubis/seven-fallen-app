@@ -161,7 +161,15 @@ code {
   left:0;
   right: 0;
   bottom:0;
-  background-color:rgba(46, 46, 46, .85);
+  background-color:rgba(46, 46, 46, .95);
+}
+
+.popup__title{
+  margin: 3vh 0;
+}
+
+.popup__option--name{
+  margin: 2vh 0;
 }
 
 
