@@ -41,7 +41,9 @@ const DecksPage = () => {
         e.preventDefault();
         if(isVisible === true){
             setFilter(false);
-        }else{
+        }
+        
+        if(isVisible === false){
             setFilter(true);
         }
     } 

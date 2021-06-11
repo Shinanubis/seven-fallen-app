@@ -5,23 +5,16 @@ function Popup(props) {
     const {datas} = props;
 
     return (
-        <div className="popup__background">
+        <div className="popup__container">
             <div className="popup__box">
-                <select>
+                <form className="form">
+                    <h3>Filters :</h3>
                     {Object.keys(datas).map(title => {
                         return (
-                            <optgroup label={title}>
-                                {
-                                    datas[title].map(content => {
-                                        return (
-                                            <option value={content}>{content.replace('_', ' ')}</option>
-                                        );
-                                    })
-                                }
-                            </optgroup>
+                            <h4>{title}</h4>
                         )
                     })}
-                </select>
+                </form>
             </div>
         </div>
     )
