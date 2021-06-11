@@ -47,13 +47,8 @@ function App() {
 
   const pages = [
     {
-      exact: true,
-      path:'/',
-      component: LandingPage,
-    },
-    {
       strict: true,
-      path:'/login',
+      path:'/',
       component: LoginPage,
     },
     {
