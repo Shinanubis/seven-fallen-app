@@ -165,10 +165,8 @@ code {
   right: 0;
   bottom:0;
   background-color:rgba(46, 46, 46, .95);
-  filter:blur(1.5rem);
   z-index: 30;
   overflow-y: scroll;
-  -webkit-filter:blur(1.5rem);
 }
 
 .popup__close{
