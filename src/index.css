@@ -172,6 +172,10 @@ code {
   margin: 2vh 0;
 }
 
+.popup__option--container{
+  display: flex;
+}
+
 
 /* profile page */
 
