@@ -30,9 +30,9 @@ const DecksPage = () => {
         setDeleteResponse(newState)
     }
 
-    const handleClickFilter = (e) => {
+    const handleClickFilter = (e, isVisible) => {
         e.preventDefault();
-        console.log("hello")
+        console.log(isVisible === true);
     } 
 
     const handlePage = (e, newPage, options) => {

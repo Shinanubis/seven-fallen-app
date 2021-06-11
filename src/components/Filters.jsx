@@ -9,7 +9,7 @@ function Filters(props){
     }, []);
 
     return (
-        <div className={containerClasses ?? "filter__container"} onClick={(e) => onClick(e)}>
+        <div className={containerClasses ?? "filter__container"} onClick={(e) => onClick(e, isVisible)}>
             <BsFilterRight />
         </div>
     )
