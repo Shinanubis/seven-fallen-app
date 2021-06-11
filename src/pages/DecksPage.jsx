@@ -7,6 +7,7 @@ import List from '../components/List';
 import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
+import { RiContrastDropLine } from 'react-icons/ri';
 
 
 const DecksPage = () => {
@@ -31,7 +32,12 @@ const DecksPage = () => {
 
     const handleClickFilter = (e) => {
         e.preventDefault();
-        setFilter();
+        if(filterClicked === true){
+            setFilter(false);
+        }else{
+            setFilter(true);
+        }
+        console.log(filterClicked)
     } 
 
     const handlePage = (e, newPage, options) => {
