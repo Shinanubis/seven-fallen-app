@@ -25,7 +25,7 @@ const DecksPage = () => {
 
     const popupDatas = {
         "List by kingdom": ['Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
-        "Order by": ['id' ,'deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
+        "Order by": ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
         "Sens": ["desc", "asc"]
     }
 
