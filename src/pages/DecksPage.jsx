@@ -76,7 +76,11 @@ const DecksPage = () => {
 
     const handleClickButton = (e) => {
 
-    } 
+    }
+
+    const handleClosePopup = (e) => {
+        setFilter(false);
+    }
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
@@ -137,7 +141,7 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
-                {filterClicked || <Popup datas={popupDatas} onClickButton={handleClickButton} buttonText="Ok" />}
+                {filterClicked || <Popup datas={popupDatas} onClickButton={handleClickButton} buttonText="Ok" actionClose={handleClosePopup}/>}
               </Layout>
       )
     }

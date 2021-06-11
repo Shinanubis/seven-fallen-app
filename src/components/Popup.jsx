@@ -3,11 +3,11 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
 
-    const {datas, buttonText, onClickButton} = props;
+    const {datas, buttonText, onClickButton, actionClose} = props;
 
     return (
         <div className="popup__container">
-            <div className="popup__close">
+            <div className="popup__close" onClick={e => actionClose}>
                 <AiFillCloseCircle />
             </div>
             <div className="popup__box">
