@@ -71,6 +71,10 @@ const DecksPage = () => {
         setReqOpt({...reqOpt, size: newSize});
     }
 
+    const handleClickButton = (e) => {
+
+    } 
+
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         if(response.code === 200){
@@ -130,7 +134,7 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
-                {filterClicked || <Popup datas={popupDatas}/>}
+                {filterClicked || <Popup datas={popupDatas} onClickButton={handleClickButton} buttonText="Ok" />}
               </Layout>
       )
     }

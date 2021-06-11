@@ -2,7 +2,7 @@ import React from 'react'
 
 function Popup(props) {
 
-    const {datas} = props;
+    const {datas, buttonText, onClickButton} = props;
 
     return (
         <div className="popup__container">
@@ -49,6 +49,7 @@ function Popup(props) {
                     })}
                 </form>
             </div>
+            <button className="popup__button" onClick={onClickButton}>{buttonText}</button>
         </div>
     )
 }
