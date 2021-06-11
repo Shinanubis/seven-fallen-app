@@ -20,7 +20,7 @@ function Popup(props) {
                                                 return (
                                                     <div className="popup__option--container">
                                                         <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
-                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt}</label>
+                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt.toUpperCase()}</label>
                                                     </div>
                                                 )
     
@@ -37,8 +37,8 @@ function Popup(props) {
                                         {datas[title].values.map(elmt => {
                                                 return (
                                                     <div className="popup__option--container">
-                                                        <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
-                                                        <label className="popup__option--label" htmlFor={elmt} name={title}>{elmt}</label>
+                                                        <input className="popup__option--input" type="radio" id={elmt} name={elmt} />
+                                                        <label className="popup__option--label" htmlFor={elmt} name={title}>{elmt.toUpperCase()}</label>
                                                     </div>
                                                 )
     
