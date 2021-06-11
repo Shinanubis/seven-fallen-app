@@ -21,7 +21,7 @@ function Popup(props) {
                                                     return (
                                                         <div className="popup__option--container">
                                                             <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
-                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} checked/>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} checked={true}/>
                                                         </div>
                                                     )
                                                 }else{
@@ -47,7 +47,7 @@ function Popup(props) {
                                                 return (
                                                     <div className="popup__option--container">
                                                         <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>                
-                                                        <input className="popup__option--input" type="radio" id={elmt} name={title} checked/>
+                                                        <input className="popup__option--input" type="radio" id={elmt} name={title} checked={true}/>
                                                     </div>
                                                 )
                                             }else{
