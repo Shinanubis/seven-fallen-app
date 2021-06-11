@@ -190,7 +190,7 @@ code {
   display: flex;
   justify-content: space-between;
   margin: 1vh auto;
-  width: 75%;
+  width: 85%;
 }
 
 .popup__option--name{
