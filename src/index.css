@@ -171,7 +171,7 @@ code {
 
 .popup__close{
   position:relative;
-  left:0;
+  left:83vw;
   width: 4vh;
   height: 4vh;
 }
