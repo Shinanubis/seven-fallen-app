@@ -12,6 +12,7 @@ function Popup(props) {
 
                     {Object.keys(datas).map(title => {
                         if(title.type === "checkbox"){
+                            console.log(title.type)
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
@@ -29,6 +30,7 @@ function Popup(props) {
                         }
 
                         if(title.type === "radio"){
+                            console.log(title.type)
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
