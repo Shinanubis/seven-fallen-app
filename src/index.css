@@ -170,9 +170,6 @@ code {
 }
 
 .popup__close{
-  position:relative;
-  display: inline-block;
-  left:83vw;
   width: 4vh;
   height: 4vh;
   cursor: pointer;
