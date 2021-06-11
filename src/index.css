@@ -173,11 +173,12 @@ code {
 }
 
 .popup__option--input{
-  margin: 0 1rem 0 0;
+  margin: 0 1vh 0 0;
 }
 
 .popup__option--container{
   display: flex;
+  margin: 1vh 0;
 }
 
 
