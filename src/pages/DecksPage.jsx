@@ -15,7 +15,7 @@ const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
-    const [filterClicked, setFilter] = useState(false);
+    const [filterClicked, setFilter] = useState(true);
     const [reqOpt, setReqOpt] = useState({
         page: 1,
         size: 10,
