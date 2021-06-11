@@ -7,20 +7,21 @@ import List from '../components/List';
 import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
-import { RiContrastDropLine } from 'react-icons/ri';
+import  Popup from '../components/Popup';
 
 
 const DecksPage = () => {
     const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
+    const [filterClicked, setFilter] = useState(false);
     const [reqOpt, setReqOpt] = useState({
         page: 1,
         size: 10,
         order_by: 'id',
         sens: 'asc'
     });
-    const [filterClicked, setFilter] = useState(false);
+
 
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
@@ -112,6 +113,7 @@ const DecksPage = () => {
                     listSize={[10,20,40]} 
                 /> 
                 <Plus to={'/decks/new-deck'}/>
+                {filterClicked || <Popup />}
               </Layout>
       )
     }

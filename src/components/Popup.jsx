@@ -1,10 +1,15 @@
 import React from 'react'
 
 function Popup(props) {
+
+    const {datas} = props;
+
     return (
         <div className="popup__background">
             <div className="popup__box">
-                {props.children}
+                <select>
+                    
+                </select>
             </div>
         </div>
     )
