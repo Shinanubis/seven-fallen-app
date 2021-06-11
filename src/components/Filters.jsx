@@ -6,7 +6,7 @@ function Filters(props){
 
     useEffect(() => {
         console.log(isVisible)
-    }, []);
+    }, [isVisible]);
 
     return (
         <div className={containerClasses ?? "filter__container"} onClick={(e) => onClick(e, isVisible)}>

@@ -37,7 +37,6 @@ const DecksPage = () => {
         }else{
             setFilter(true);
         }
-        console.log(isVisible);
     } 
 
     const handlePage = (e, newPage, options) => {
