@@ -71,6 +71,10 @@
 }
 
 
+.menu__icon-logout{
+    color: var(--black);
+}
+
 
 @media screen and (min-width: 480px){
     .menu__icon{
