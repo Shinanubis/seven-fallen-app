@@ -80,8 +80,7 @@ const DecksPage = () => {
 
     const handleClosePopup = (e) => {
         e.preventDefault();
-        console.log("i close")
-        setFilter(false);
+        setFilter(true);
     }
 
     useEffect(async () => {
