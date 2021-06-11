@@ -25,17 +25,17 @@ const DecksPage = () => {
 
     const popupDatas = {
         "List by kingdoms": {
-            displayed: ['All','Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
-            values: ['All','Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
+            displayed: ['Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
+            values: [1,2, 3, 4, 5, 6, 7],
             type: "checkbox"
         },
         "Order by": {
-            displayed: ['id','deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],           
+            displayed: ['id','deck name' ,'kingdom' ,'total ec' , 'num cards'],           
             values: ['id','deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
             type: "radio"
         },
         "Sens": {
-            displayed: ['id','deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
+            displayed: ["descendant", "ascendant"],
             values: ["desc", "asc"],
             type: "radio"
         }

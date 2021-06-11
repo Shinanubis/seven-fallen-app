@@ -11,16 +11,15 @@ function Popup(props) {
                     <h3 className="popup__title">Filters :</h3>
 
                     {Object.keys(datas).map(title => {
-                        if(datas[title].type === "checkbox"){
-                            
+                        if(datas[title].type === "checkbox"){                            
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
-                                        {datas[title].values.map((elmt) => {
+                                        {datas[title].values.map((elmt, index) => {
                                                     return (
                                                         <div className="popup__option--container">
-                                                            <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>
-                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} />
+                                                            <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={elmt} value={elmt}/>
                                                         </div>
                                                     )
                                                 
@@ -34,7 +33,7 @@ function Popup(props) {
                             return (
                                 <div className="popup__form--section">
                                     <h4 className="popup__option--name">{title}</h4>
-                                        {datas[title].values.map((elmt)=> {
+                                        {datas[title].values.map((elmt,index)=> {
                                                 return (
                                                     <div className="popup__option--container">
                                                         <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>                
