@@ -32,11 +32,7 @@ const DecksPage = () => {
 
     const handleClickFilter = (e) => {
         e.preventDefault();
-        if(filterClicked === true){
-            setFilter(false);
-        }else{
-            setFilter(true);
-        }
+        console.log("hello")
     } 
 
     const handlePage = (e, newPage, options) => {
