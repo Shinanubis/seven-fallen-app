@@ -174,6 +174,7 @@ code {
   left:83vw;
   width: 4vh;
   height: 4vh;
+  cursor: pointer;
 }
 
 .popup__close svg{
