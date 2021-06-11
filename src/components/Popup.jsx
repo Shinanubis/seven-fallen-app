@@ -11,7 +11,13 @@ function Popup(props) {
                     {Object.keys(datas).map(title => {
                         return (
                             <optgroup label={title}>
-
+                                {
+                                    title.map(content => {
+                                        return (
+                                            <option value={content}>{content}</option>
+                                        );
+                                    })
+                                }
                             </optgroup>
                         )
                     })}
