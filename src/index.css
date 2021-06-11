@@ -197,7 +197,7 @@ code {
   text-align: left;
 }
 
-.popup__button{
+.btn.popup__button{
   margin: 2vh 0;
 }
 
