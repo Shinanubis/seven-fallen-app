@@ -181,6 +181,11 @@ code {
   color:rgb(59, 231, 59);
 }
 
+.popup__inner--container{
+  height: 110%;
+  width: 100%;
+}
+
 .popup__heading{
   display: flex;
   justify-content: space-between;

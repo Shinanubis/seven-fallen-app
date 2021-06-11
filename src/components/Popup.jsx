@@ -7,6 +7,7 @@ function Popup(props) {
 
     return (
         <div className="popup__container">
+            <div className="popup__inner--container">
             <div className="popup__box">
                 <form className="popup__form">
                     <div className={"popup__heading"}>
@@ -52,6 +53,7 @@ function Popup(props) {
                 </form>
             </div>
             <button className="btn popup__button" onClick={(e) => onClickButton(e)}>{buttonText}</button>
+            </div>
         </div>
     )
 }
