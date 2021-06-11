@@ -7,7 +7,7 @@ function Popup(props) {
 
     return (
         <div className="popup__container">
-            <div className="popup__close" onClick={e => actionClose}>
+            <div className="popup__close" onClick={e => actionClose(e)}>
                 <AiFillCloseCircle />
             </div>
             <div className="popup__box">
