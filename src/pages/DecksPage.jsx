@@ -30,8 +30,8 @@ const DecksPage = () => {
             type: "checkbox"
         },
         "Order by": {
-            displayed: ['id','deck name' ,'kingdom' ,'total ec' , 'num cards'],           
-            values: ['id','deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
+            displayed: ['deck name' ,'kingdom' ,'total ec' , 'num cards'],           
+            values: ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
             type: "radio"
         },
         "Sens": {

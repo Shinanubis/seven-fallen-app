@@ -36,7 +36,7 @@ function Popup(props) {
                                         {datas[title].values.map((elmt,index)=> {
                                                 return (
                                                     <div className="popup__option--container">
-                                                        <label className="popup__option--label" htmlFor={elmt}>{elmt.replace('_', ' ')}</label>                
+                                                        <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>                
                                                         <input className="popup__option--input" type="radio" id={elmt} name={title} />
                                                     </div>
                                                 )
