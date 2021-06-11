@@ -5,7 +5,7 @@ function Filters(props){
     const {containerClasses, onClick} = props;
 
     useEffect(() => {
-        
+        console.log(onClick)
     }, []);
 
     return (
