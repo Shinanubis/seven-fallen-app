@@ -197,6 +197,10 @@ code {
   text-align: left;
 }
 
+.popup__button{
+  margin: 2vh 0;
+}
+
 /* profile page */
 
 .profile__page{
