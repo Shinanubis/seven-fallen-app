@@ -166,6 +166,7 @@ code {
   bottom:0;
   background-color:rgba(46, 46, 46, .95);
   z-index: 30;
+  overflow-y: scroll;
 }
 
 .popup__title{
