@@ -97,8 +97,14 @@ const DecksPage = () => {
         setFilter(true);
     }
 
-    const handleSubmitPopup = (e) => {
+    const handleResetPopup = (e) => {
         e.preventDefault();
+        setReqOpt({
+            page: 1,
+            size: 10,
+            order_by: 'id',
+            sens: 'asc'
+        });
     }
 
     useEffect(async () => {
@@ -168,7 +174,7 @@ const DecksPage = () => {
                         onClickOptions = {handleClickPopupOptions} 
                         buttonText="Reset" 
                         actionClose={handleClosePopup}
-                        actionSubmit={handleSubmitPopup}
+                        actionReset={handleResetPopup}
                     />}
               </Layout>
       )
