@@ -31,7 +31,7 @@ const DecksPage = () => {
             field_name: 'kingdoms[]',
             type: "checkbox",
             onChange: (e) => {
-                setReqOpt({...reqOpt, kingdoms: [...this.kingdoms, e.target.value]});
+                setReqOpt(prevState => console.log(prevState.kingdoms));
             }
         },
         "Order by": {
