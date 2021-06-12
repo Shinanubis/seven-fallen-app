@@ -32,12 +32,14 @@ const DecksPage = () => {
         "Order by": {
             displayed: ['Deck name' ,'Kingdom' ,'Total ec' , 'Num cards'],           
             values: ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
-            type: "radio"
+            type: "radio",
+            field_name: "order_by"
         },
         "Sens": {
             displayed: ["Descendant"],
             values: ["desc"],
-            type: "radio"
+            type: "radio",
+            field_name: "sens"
         }
     }
 
