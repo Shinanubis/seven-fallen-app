@@ -46,7 +46,7 @@ function Popup(props) {
                                                 return (
                                                     <div className="popup__option--container">
                                                         <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>                
-                                                        <input className="popup__option--input" type="radio" id={elmt} name={datas[title].field_name} value={datas[title].values[index]}/>
+                                                        <input className="popup__option--input" type="radio" id={elmt} name={datas[title].field_name} onClick={datas[title].onClick} value={datas[title].values[index]}/>
                                                     </div>
                                                 )
                                         })}
