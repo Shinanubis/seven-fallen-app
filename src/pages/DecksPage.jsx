@@ -31,7 +31,11 @@ const DecksPage = () => {
             field_name: 'kingdoms[]',
             type: "checkbox",
             onChange: (e) => {
-                setReqOpt(prevState => ({...prevState, kingdoms: [...prevState.kingdoms, e.target.value]}));
+                setReqOpt(prevState => {
+                    const newObject = {...prevState};
+                    console.log(newObject);
+                    return prevState;
+                });
             }
         },
         "Order by": {
