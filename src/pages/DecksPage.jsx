@@ -35,8 +35,8 @@ const DecksPage = () => {
             type: "radio"
         },
         "Sens": {
-            displayed: ["descendant", "ascendant"],
-            values: ["desc", "asc"],
+            displayed: ["descendant"],
+            values: ["desc"],
             type: "radio"
         }
     }
@@ -51,7 +51,6 @@ const DecksPage = () => {
 
     const handleClickFilter = (e, isVisible) => {
         e.preventDefault();
-        {console.log("hello")}
         if(isVisible === true){
             setFilter(false);
         }
