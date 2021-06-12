@@ -51,6 +51,7 @@ const DecksPage = () => {
 
     const handleClickFilter = (e, isVisible) => {
         e.preventDefault();
+        {console.log("hello")}
         if(isVisible === true){
             setFilter(false);
         }
