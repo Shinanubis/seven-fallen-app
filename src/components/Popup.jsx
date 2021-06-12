@@ -54,7 +54,7 @@ function Popup(props) {
                             )
                         }
                     })}
-                    <button type="submit" className="btn popup__button" onClick={onClickButton}>{buttonText}</button>
+                    <button type="submit" className="btn popup__button">{buttonText}</button>
                 </form>
             </div>
             </div>
