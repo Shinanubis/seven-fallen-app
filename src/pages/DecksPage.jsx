@@ -27,7 +27,10 @@ const DecksPage = () => {
         "List by kingdoms": {
             displayed: ['Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
             values: [1,2, 3, 4, 5, 6, 7],
-            type: "checkbox"
+            type: "checkbox",
+            onClick: (e) => {
+                console.log(e.target.value)
+            }
         },
         "Order by": {
             displayed: ['Deck name' ,'Kingdom' ,'Total ec' , 'Num cards'],           
@@ -42,7 +45,10 @@ const DecksPage = () => {
             displayed: ["Descendant"],
             values: ["desc"],
             type: "radio",
-            field_name: "sens"
+            field_name: "sens",
+            onClick: (e) => {
+                console.log(e.target.value)
+            }
         }
     }
 
