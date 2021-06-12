@@ -29,6 +29,9 @@ const DecksPage = () => {
             values: [1,2, 3, 4, 5, 6, 7],
             field_name: 'kingdoms[]',
             type: "checkbox",
+            onChange: (e) => {
+                e.preventDefault();
+            }
         },
         "Order by": {
             displayed: ['Deck name' ,'Kingdom' ,'Total ec' , 'Num cards'],           
