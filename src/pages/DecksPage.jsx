@@ -33,7 +33,10 @@ const DecksPage = () => {
             displayed: ['Deck name' ,'Kingdom' ,'Total ec' , 'Num cards'],           
             values: ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
             type: "radio",
-            field_name: "order_by"
+            field_name: "order_by",
+            onClick: (e) => {
+                console.log(e.target.value)
+            }
         },
         "Sens": {
             displayed: ["Descendant"],
