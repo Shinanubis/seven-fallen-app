@@ -24,7 +24,7 @@ function Popup(props) {
                                                     return (
                                                         <div className="popup__option--container">
                                                             <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>
-                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} value={elmt}/>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} onChange={datas[title].onChange} value={elmt}/>
                                                         </div>
                                                     )
                                                 
