@@ -1,32 +1,14 @@
 {
   "files": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "main.css": "/static/css/main.db797ecd.chunk.css",
-    "main.js": "/static/js/main.fcf72696.chunk.js",
-    "main.js.map": "/static/js/main.fcf72696.chunk.js.map",
-=======
-    "main.css": "/static/css/main.2782219d.chunk.css",
-=======
     "main.css": "/static/css/main.c40ff61e.chunk.css",
->>>>>>> a6991bdba6123efadada00980128220fc7dcabb7
-    "main.js": "/static/js/main.5795cbb5.chunk.js",
-    "main.js.map": "/static/js/main.5795cbb5.chunk.js.map",
->>>>>>> ac2bcb9f1b69b081f175960905f74cfe4fb45076
+    "main.js": "/static/js/main.0bdeaf00.chunk.js",
+    "main.js.map": "/static/js/main.0bdeaf00.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3feb6fba.js",
     "runtime-main.js.map": "/static/js/runtime-main.3feb6fba.js.map",
     "static/js/2.60d5ac48.chunk.js": "/static/js/2.60d5ac48.chunk.js",
     "static/js/2.60d5ac48.chunk.js.map": "/static/js/2.60d5ac48.chunk.js.map",
     "index.html": "/index.html",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "static/css/main.db797ecd.chunk.css.map": "/static/css/main.db797ecd.chunk.css.map",
-=======
-    "static/css/main.2782219d.chunk.css.map": "/static/css/main.2782219d.chunk.css.map",
->>>>>>> ac2bcb9f1b69b081f175960905f74cfe4fb45076
-=======
     "static/css/main.c40ff61e.chunk.css.map": "/static/css/main.c40ff61e.chunk.css.map",
->>>>>>> a6991bdba6123efadada00980128220fc7dcabb7
     "static/js/2.60d5ac48.chunk.js.LICENSE.txt": "/static/js/2.60d5ac48.chunk.js.LICENSE.txt",
     "static/media/framus.28ad3f9b.jpg": "/static/media/framus.28ad3f9b.jpg",
     "static/media/merrlyn.a1bb939c.jpg": "/static/media/merrlyn.a1bb939c.jpg"
@@ -34,16 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.3feb6fba.js",
     "static/js/2.60d5ac48.chunk.js",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "static/css/main.db797ecd.chunk.css",
-    "static/js/main.fcf72696.chunk.js"
-=======
-    "static/css/main.2782219d.chunk.css",
-=======
     "static/css/main.c40ff61e.chunk.css",
->>>>>>> a6991bdba6123efadada00980128220fc7dcabb7
-    "static/js/main.5795cbb5.chunk.js"
->>>>>>> ac2bcb9f1b69b081f175960905f74cfe4fb45076
+    "static/js/main.0bdeaf00.chunk.js"
   ]
 }
