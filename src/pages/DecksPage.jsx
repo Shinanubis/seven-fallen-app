@@ -17,6 +17,7 @@ const DecksPage = () => {
     const [deleteResponse, setDeleteResponse] = useState({});
     const [filterClicked, setFilter] = useState(true);
     const [reqOpt, setReqOpt] = useState({
+        kingdoms: [],
         page: 1,
         size: 10,
         order_by: 'id',
@@ -30,7 +31,7 @@ const DecksPage = () => {
             field_name: 'kingdoms[]',
             type: "checkbox",
             onChange: (e) => {
-                e.preventDefault();
+                setReqOpt({...reqOpt, kingdoms: [...this.kingdoms, e.target.value]});
             }
         },
         "Order by": {
@@ -103,6 +104,7 @@ const DecksPage = () => {
     const handleResetPopup = (e) => {
         e.preventDefault();
         setReqOpt({
+            kingdom: [],
             page: 1,
             size: 10,
             order_by: 'id',
