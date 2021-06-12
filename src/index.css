@@ -51,8 +51,39 @@ a {
   text-decoration:none;
 }
 
-/*Components*/
+button:hover{
+  cursor:pointer;
+}
 
+input{
+  padding:0 0 .65rem 0;
+  margin-bottom:1rem;
+  border-radius:3px;
+  border: 1px solid #e2e2e2;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -ms-border-radius:3px;
+  -o-border-radius:3px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus{
+  color:var(--dark-grey);
+  outline: none;
+  transition: 45ms;
+  -webkit-transition: 45ms;
+  -moz-transition: 45ms;
+  -ms-transition: 45ms;
+  -o-transition: 45ms;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*Components*/
 .header{
   position:fixed;
   top:0;
@@ -84,38 +115,6 @@ a {
   -moz-transition: height 800ms ease;
   -ms-transition: height 800ms ease;
   -o-transition: height 800ms ease;
-}
-
-button:hover{
-  cursor:pointer;
-}
-
-input{
-  padding:0 0 .65rem 0;
-  margin-bottom:1rem;
-  border-radius:3px;
-  border: 1px solid #e2e2e2;
-  -webkit-border-radius:3px;
-  -moz-border-radius:3px;
-  -ms-border-radius:3px;
-  -o-border-radius:3px;
-}
-
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=email]:focus{
-  color:var(--dark-grey);
-  outline: none;
-  transition: 45ms;
-  -webkit-transition: 45ms;
-  -moz-transition: 45ms;
-  -ms-transition: 45ms;
-  -o-transition: 45ms;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .social__icons--list{
