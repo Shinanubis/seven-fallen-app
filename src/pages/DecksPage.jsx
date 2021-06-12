@@ -106,7 +106,6 @@ const DecksPage = () => {
     }
 
     const handleResetPopup = (e) => {
-        e.preventDefault();
         setReqOpt({
             kingdom: [],
             page: 1,
