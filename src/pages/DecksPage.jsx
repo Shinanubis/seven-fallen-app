@@ -44,6 +44,9 @@ const DecksPage = () => {
             values: ["desc"],
             type: "radio",
             field_name: "sens",
+            onChange: (e) => {
+                setReqOpt({...reqOpt, field_name: e.target.value});
+            }
         }
     }
 
