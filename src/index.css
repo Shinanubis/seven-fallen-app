@@ -920,16 +920,6 @@ main {
 }
 
 /* Transitions Effects */
-.fade-out{
-  opacity: 0;
-  transition: opacity 1s ease;
-  -webkit-transition: opacity 1s ease;
-  -moz-transition: opacity 1s ease;
-  -ms-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
-}
-
-
 .move-down{
   position:absolute;
   transition: all 1s ease;
@@ -937,4 +927,13 @@ main {
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
+}
+
+.fade-out{
+  opacity: 0;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
 }
