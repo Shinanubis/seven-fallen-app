@@ -35,6 +35,9 @@ const DecksPage = () => {
             values: ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
             type: "radio",
             field_name: "order_by",
+            onChange: (e) => {
+                setReqOpt({...reqOpt, order_by: e.target.value});
+            }
         },
         "Sens": {
             displayed: ["Descendant"],
@@ -91,6 +94,10 @@ const DecksPage = () => {
         setFilter(true);
     }
 
+    const handleSubmitPopup = (e) => {
+        e.preventDefault();
+    }
+
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         if(response.code === 200){
@@ -102,6 +109,7 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
+        console.log(reqOpt);
     },[reqOpt]);
 
     useEffect(async () => {
@@ -157,6 +165,7 @@ const DecksPage = () => {
                         onClickOptions = {handleClickPopupOptions} 
                         buttonText="Ok" 
                         actionClose={handleClosePopup}
+                        actionSubmit={handleSubmitPopup}
                     />}
               </Layout>
       )

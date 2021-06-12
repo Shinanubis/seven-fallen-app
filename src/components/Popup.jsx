@@ -3,18 +3,13 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
 
-    const {datas, buttonText, onClickButton, actionClose} = props;
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(e);
-    }
+    const {datas, buttonText, actionClose, actionSubmit} = props;
 
     return (
         <div className="popup__container">
             <div className="popup__inner--container">
             <div className="popup__box">
-                <form className="popup__form" onSubmit={handleSubmit} enctype="multipart/form-data">
+                <form className="popup__form" onSubmit={actionSubmit} enctype="multipart/form-data">
                     <div className="popup__heading">
                         <div  className="popup__close" onClick={e => actionClose(e)}>
                             <AiFillCloseCircle />
