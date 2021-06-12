@@ -49,7 +49,7 @@ function Popup(props) {
                             )
                         }
                     })}
-                    <button type="submit" className="btn popup__button">{buttonText}</button>
+                    <button type="reset" className="btn popup__button">{buttonText}</button>
                 </form>
             </div>
             </div>
