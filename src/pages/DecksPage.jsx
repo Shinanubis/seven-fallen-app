@@ -29,27 +29,18 @@ const DecksPage = () => {
             values: [1,2, 3, 4, 5, 6, 7],
             field_name: 'kingdoms[]',
             type: "checkbox",
-            onClick: (e) => {
-                console.log(e.target.value)
-            }
         },
         "Order by": {
             displayed: ['Deck name' ,'Kingdom' ,'Total ec' , 'Num cards'],           
             values: ['deck_name' ,'kingdom' ,'total_ec' , 'num_cards'],
             type: "radio",
             field_name: "order_by",
-            onClick: (e) => {
-                console.log(e.target.value)
-            }
         },
         "Sens": {
             displayed: ["Descendant"],
             values: ["desc"],
             type: "radio",
             field_name: "sens",
-            onClick: (e) => {
-                console.log(e.target.value)
-            }
         }
     }
 
