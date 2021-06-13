@@ -37,7 +37,9 @@ const DecksPage = () => {
                     let newObject = {...prevState};
                     let newKingdomsArray = null;
 
-                    if(prevState.kingdoms instanceof String){
+                    if(prevState.kingdoms instanceof String && prevState.kingdoms.length === 0){
+                        newKingdomsArray = [...prevState.kingdoms.split('')];
+                    }else if(prevState.kingdoms instanceof String && prevState.kingdoms.length > 0){
                         newKingdomsArray = [...prevState.kingdoms.split(',')];
                     }else{
                         newKingdomsArray = [...prevState.kingdoms];
@@ -50,7 +52,7 @@ const DecksPage = () => {
                             newKingdomsArray.splice(index, 1);
                         }
                     }
-                    console.log(newKingdomsArray)
+                    console.log(newObject)
                     newObject.kingdoms = newKingdomsArray.join(',');
                     return newObject;
                 });
