@@ -35,8 +35,8 @@ const DecksPage = () => {
                     let newObject = {...prevState};
                     let newKingdomsArray = newObject.kingdoms;
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
-                    console.log(newKingdomsArray);
-                    return prevState;
+                    newObject.kingdoms = newKingdomsArray
+                    return newObject;
                 });
             }
         },
