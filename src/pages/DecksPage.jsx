@@ -38,7 +38,14 @@ const DecksPage = () => {
                     let newKingdomsArray = null;
 
                     if(prevState.kingdoms instanceof String){
-                        newKingdomsArray = prevState.kingdoms.split(',')
+
+                        if(prevState.kingdoms >= 3){
+                            newKingdomsArray = prevState.kingdoms.split(',');
+                        }else{
+                            newKingdomsArray = prevState.kingdoms.split('');
+                        }
+                        
+
                     }else{
                         newKingdomsArray = [...prevState.kingdoms];
                     }
@@ -53,7 +60,8 @@ const DecksPage = () => {
                         }
                     }
 
-                    newObject.kingdoms = newKingdomsArray.toString();
+                    newObject.kingdoms = newKingdomsArray.join();
+
                     return newObject;
                 });
             }
