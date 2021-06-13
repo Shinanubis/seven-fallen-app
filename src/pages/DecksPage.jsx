@@ -219,16 +219,6 @@ const DecksPage = () => {
                 <div className="deck__list">
                     <p className="deck__list--empty">{deleteResponse.message}</p>
                 </div>
-                
-                {decksList.message.length > reqOpt.size ? <Pagination 
-                    list = {decksList}
-                    options = {reqOpt}
-                    containerClasses = "pagination__block my-3 mb-5 row justify-between"
-                    containerTextBlockClasses = {"pagination__text--block row justify-between"} 
-                    setPage={handlePage} 
-                    setSize={handleSize} 
-                    listSize={[10,20,40]} 
-                /> : null}
                 <Plus to={'/decks/new-deck'}/>
             </Layout>
             )
