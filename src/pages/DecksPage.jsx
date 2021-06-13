@@ -35,6 +35,12 @@ const DecksPage = () => {
                     let newObject = {...prevState};
                     let newKingdomsArray = newObject.kingdoms;
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
+                    if(e.target.checked === false) {
+                        let index = newKingdomsArray.indexOf(e.target.value);
+                        if(index > -1){
+                            newKingdomsArray.splice(index, 1);
+                        }
+                    }
                     newObject.kingdoms = newKingdomsArray;
                     console.log(newObject);
                     return newObject;
