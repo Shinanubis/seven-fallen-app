@@ -50,7 +50,7 @@ const DecksPage = () => {
                     }
 
                     newObject.kingdoms = newKingdomsArray;
-                    console.log(newObject)
+                    newObject.order_by = 'kingdom'
                     return newObject;
                 });
             }
