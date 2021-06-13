@@ -39,7 +39,6 @@ const DecksPage = () => {
                         newKingdomsArray = [...prevState.kingdoms];
                     }
                     
-
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
 
                     if(e.target.checked === false) {
@@ -90,6 +89,11 @@ const DecksPage = () => {
 
     const handlePage = (e, newPage, options) => {
         e.preventDefault();
+
+        if(decksList instanceof Array && decksList.length === 0){
+            setReqOpt({...options, page: 1});
+        }
+
         if(newPage <= 0){
             setReqOpt({...options, page: 1});
         }else{
@@ -176,6 +180,7 @@ const DecksPage = () => {
                               }
                           )}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
                 </List>
+
                 <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
@@ -185,6 +190,7 @@ const DecksPage = () => {
                     flash={flashState}
                     handleFlash= {handleFlash}
                 />
+
                 <Pagination 
                     options = {reqOpt}
                     containerClasses = "pagination__block my-3 row justify-between"
@@ -192,7 +198,8 @@ const DecksPage = () => {
                     setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]} 
-                /> 
+                />
+
                 <Plus to={'/decks/new-deck'}/>
                 {filterClicked || 
                     <Popup 
