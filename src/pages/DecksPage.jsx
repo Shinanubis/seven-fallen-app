@@ -32,7 +32,7 @@ const DecksPage = () => {
             type: "checkbox",
             onChange: (e) => {
                 setReqOpt(prevState => {
-                    let newKingdomsArray = prevState.kingdoms;
+                    let newKingdomsArray = Array.from(new Set(prevState.kingdoms));
                     if(e.target.checked === true) newKingdomsArray.push(e.target.value);
                     console.log(newKingdomsArray);
                     return prevState;
