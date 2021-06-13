@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import Layout from '../layouts/Layout';
-import { getUserDecks } from '../api/Decks';
+import { getUserDecks, getDecksByKingdoms} from '../api/Decks';
 import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 import List from '../components/List';
@@ -120,7 +120,13 @@ const DecksPage = () => {
     }
 
     useEffect(async () => {
-        let response = await getUserDecks(reqOpt);
+        let response = null;
+        if(reqOpt.kingdoms.length > 0){
+            response = await getDecksByKingdoms(reqOpt);
+        }else{
+            response = await getUserDecks(reqOpt);
+        }
+
         if(response.code === 200){
             setDecksList(response);
         }else if(response.code !== 200 && decksList.message instanceof Array){
