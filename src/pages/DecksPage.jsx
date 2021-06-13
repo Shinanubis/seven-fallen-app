@@ -150,6 +150,14 @@ const DecksPage = () => {
         }
     },[reqOpt]);
 
+    useEffect(() => {
+        if(decksList.message instanceof Array){
+            if(decksList.message.length < reqOpt.size){
+                setReqOpt({...reqOpt, page: 1});
+            }
+        }
+    },[decksList]);
+
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
