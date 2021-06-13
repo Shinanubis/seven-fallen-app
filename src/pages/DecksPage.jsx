@@ -8,8 +8,6 @@ import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import  Popup from '../components/Popup';
-import { GrSplit } from 'react-icons/gr';
-import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 
 const DecksPage = () => {
