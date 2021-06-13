@@ -41,12 +41,16 @@ const DecksPage = () => {
 
                         if(prevState.kingdoms >= 3){
                             newKingdomsArray = prevState.kingdoms.split(',');
-                        }else{
-                            newKingdomsArray = prevState.kingdoms.split('');
+                        }
+
+                        if(prevState.kingdoms === 1){
+                            newKingdomsArray = prevState.kingdoms.split();
                         }
                         
 
-                    }else{
+                    }
+
+                    if(prevState.kingdoms instanceof Array){
                         newKingdomsArray = [...prevState.kingdoms];
                     }
                     
