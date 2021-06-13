@@ -1,4 +1,4 @@
-import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import {serialize} from '../utilities/serialize.js';
 
 async function getAllDecks(){
 
@@ -37,10 +37,13 @@ async function getUserDecks(options){
 }
 
 async function getDecksByKingdoms(options){
+    let form = new FormData();
+    let kingdoms = await serialize(options.kingdoms);
+    form.append('kingdoms', kingdoms);
     let settings = {
         method: 'POST',
         credentials: 'include',
-        body: options.kingdoms
+        body: form
     };
 
     let url = new URL('https://test-seven.site/api/decks/kingdoms');

@@ -37,25 +37,13 @@ const DecksPage = () => {
                     let newObject = {...prevState};
                     let newKingdomsArray = null;
 
-                    if(prevState.kingdoms instanceof String){
-
-                        if(prevState.kingdoms >= 3){
-                            newKingdomsArray = prevState.kingdoms.split(',');
-                        }
-
-                        if(prevState.kingdoms === 1){
-                            newKingdomsArray = prevState.kingdoms.split();
-                        }
-                        
-
-                    }
-
                     if(prevState.kingdoms instanceof Array){
                         newKingdomsArray = [...prevState.kingdoms];
                     }
                     
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
+
                     if(e.target.checked === false) {
                         let index = newKingdomsArray.indexOf(e.target.value);
                         if(index > -1){
@@ -63,9 +51,8 @@ const DecksPage = () => {
                         }
                     }
 
-                    console.log(newKingdomsArray)
-                    newObject.kingdoms = newKingdomsArray.toString();
-
+                    newObject.kingdoms = newKingdomsArray;
+                    console.log(newObject)
                     return newObject;
                 });
             }
