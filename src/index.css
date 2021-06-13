@@ -595,6 +595,11 @@ svg.dropdown__icon path{
   display: flex;
 }
 
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
 .justify-between{
   justify-content: space-between;
 }
