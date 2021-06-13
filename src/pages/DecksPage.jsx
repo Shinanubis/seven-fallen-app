@@ -41,7 +41,7 @@ const DecksPage = () => {
                         newKingdomsArray = newObject.kingdoms;
                     }
 
-                    if(newObject.kingdoms instanceof String && newObject.kingdoms.length > 0){
+                    if(newObject.kingdoms instanceof String && newObject.kingdoms.length === 0){
                         newKingdomsArray = newObject.kingdoms.split('');
                     }
 
