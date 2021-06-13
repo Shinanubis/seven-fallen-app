@@ -35,8 +35,18 @@ const DecksPage = () => {
             onChange: (e) => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
-                    console.log(newObject)
-                    let newKingdomsArray = newObject.kingdoms instanceof String ? newObject.kingdoms.split('') : newObject.kingdoms;
+                    let newKingdomsArray = null;
+
+                    if(newObject.kingdoms instanceof Array){
+                        newKingdomsArray = newObject.kingdoms;
+                    }
+
+                    if(newObject.kingdoms instanceof String && newObject.kingdoms.length > 0){
+                        newKingdomsArray = newObject.kingdoms.split('');
+                    }
+
+                    console.log(newKingdomsArray);
+
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
                         let index = newKingdomsArray.indexOf(e.target.value);
