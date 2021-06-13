@@ -50,7 +50,6 @@ const DecksPage = () => {
                         newKingdomsArray = [...prevState.kingdoms];
                     }
                     
-                    console.log(newKingdomsArray)
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
