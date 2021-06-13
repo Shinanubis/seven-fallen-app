@@ -8,6 +8,7 @@ import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import  Popup from '../components/Popup';
+import { GrSplit } from 'react-icons/gr';
 
 
 const DecksPage = () => {
@@ -33,7 +34,7 @@ const DecksPage = () => {
             onChange: (e) => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
-                    let newKingdomsArray = newObject.kingdoms.split('');
+                    let newKingdomsArray = newObject.kingdoms instanceof Array ? newObject.kingdoms.split('') : newObject.kingdoms;
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
                         let index = newKingdomsArray.indexOf(e.target.value);
