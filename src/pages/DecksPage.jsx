@@ -189,7 +189,7 @@ const DecksPage = () => {
                     handleFlash= {handleFlash}
                 />
 
-                {decksList.message.length > reqOpt.size ? <Pagination 
+                <Pagination 
                     list = {decksList}
                     options = {reqOpt}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
@@ -197,7 +197,7 @@ const DecksPage = () => {
                     setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]} 
-                /> : null}
+                />
 
                 <Plus to={'/decks/new-deck'}/>
                 {filterClicked || 
