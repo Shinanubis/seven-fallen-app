@@ -133,6 +133,7 @@ const DecksPage = () => {
 
         if(reqOpt.kingdoms.length > 0){
             response = await getDecksByKingdoms(reqOpt);
+            console.log(response);
         }else{
             response = await getUserDecks(reqOpt);
         }
@@ -142,7 +143,6 @@ const DecksPage = () => {
         }else if(response.code !== 200){
             setDeleteResponse({code: response.code, message: response.message});
             setFlashState(false);
-            setFilter(true);
             setReqOpt({...reqOpt, page: 1})
         }else{
             setFlashState(null);
