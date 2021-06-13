@@ -45,6 +45,10 @@ const DecksPage = () => {
                         newKingdomsArray = newObject.kingdoms.split('');
                     }
 
+                    if(newObject.kingdoms instanceof String && newObject.kingdoms.length > 1){
+                        newKingdomsArray = newObject.kingdoms.split(',');
+                    }
+
                     console.log(newKingdomsArray);
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
