@@ -35,19 +35,8 @@ const DecksPage = () => {
             onChange: (e) => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
+                    newObject.kingdoms = '';
                     let newKingdomsArray = null;
-                    
-                    if(newObject.kingdoms instanceof Array){
-                        newKingdomsArray = newObject.kingdoms;
-                    }
-
-                    if(newObject.kingdoms instanceof String && newObject.kingdoms.length === 0){
-                        newKingdomsArray = newObject.kingdoms.split('');
-                    }
-
-                    if(newObject.kingdoms instanceof String && newObject.kingdoms.length > 1){
-                        newKingdomsArray = newObject.kingdoms.split(',');
-                    }
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
@@ -125,7 +114,6 @@ const DecksPage = () => {
 
     const handleResetPopup = (e) => {
         setReqOpt({
-            kingdom: [],
             page: 1,
             size: 10,
             order_by: 'id',
@@ -136,8 +124,8 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = null;
-        console.log(reqOpt)
-        if(reqOpt.kingdoms.length > 0){
+
+        if(reqOpt.kingdoms){
             response = await getDecksByKingdoms(reqOpt);
         }else{
             response = await getUserDecks(reqOpt);

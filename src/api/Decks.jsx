@@ -36,14 +36,26 @@ async function getUserDecks(options){
     
 }
 
-async function getDecksByKingdoms(form){
+async function getDecksByKingdoms(options){
+
     let settings = {
-        method: 'GET',
+        method: 'POST',
         credentials: 'include',
-        body: form
+        body: options.kingdoms
     };
 
-    let response = await fetch('https://test-seven.site/api/decks/kingdoms', settings);
+    let url = new URL('https://test-seven.site/api/decks');
+
+    let params = {
+        page: options.page ? options.page : 1, 
+        size: options.size ? options.size : 10,
+        sens: options.sens ? options.sens : 'asc',
+        order_by: options.order_by ? options.order_by : 'id'
+    };
+
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+    let response = await fetch(url, settings);
     if(response.ok){
         let datas = await response.json();
         return datas;
