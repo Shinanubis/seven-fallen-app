@@ -37,7 +37,7 @@ const DecksPage = () => {
                     let newObject = {...prevState};
                     let newKingdomsArray = null;
 
-                    console.log(newObject.kingdoms)
+                    console.log(newObject.kingdoms);
 
                     if(newObject.kingdoms instanceof Array){
                         newKingdomsArray = newObject.kingdoms;
