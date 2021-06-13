@@ -113,6 +113,7 @@ const DecksPage = () => {
             order_by: 'id',
             sens: 'asc'
         });
+        setFilter(false);
     }
 
     useEffect(async () => {
