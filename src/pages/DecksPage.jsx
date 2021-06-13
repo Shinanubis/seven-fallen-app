@@ -28,7 +28,7 @@ const DecksPage = () => {
         "List by kingdoms": {
             displayed: ['Poseidia', 'Eondra', 'Nuit sans fin', 'MetaScience', 'Temple de la lumière', 'Pureté Céleste', 'La voie'],
             values: [1,2, 3, 4, 5, 6, 7],
-            field_name: 'kingdoms[]',
+            field_name: 'kingdoms',
             type: "checkbox",
             onChange: (e) => {
                 setReqOpt(prevState => {
