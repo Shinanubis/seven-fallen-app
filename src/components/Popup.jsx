@@ -50,6 +50,11 @@ function Popup(props) {
                         }
                     })}
                     <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonText}</button>
+                    <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonText}</button>
+                    <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonText}</button>
+                    <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonText}</button>
+                    <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonText}</button>
+                    <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonText}</button>
                 </form>
             </div>
             </div>
