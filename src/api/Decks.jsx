@@ -37,14 +37,13 @@ async function getUserDecks(options){
 }
 
 async function getDecksByKingdoms(options){
-
     let settings = {
         method: 'POST',
         credentials: 'include',
         body: options.kingdoms
     };
 
-    let url = new URL('https://test-seven.site/api/decks');
+    let url = new URL('https://test-seven.site/api/decks/kingdoms');
 
     let params = {
         page: options.page ? options.page : 1, 
