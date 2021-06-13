@@ -119,7 +119,7 @@ const DecksPage = () => {
 
     const handleResetPopup = (e) => {
         setReqOpt({
-            kingdom:[],
+            kingdoms:[],
             page: 1,
             size: 10,
             order_by: 'id',
