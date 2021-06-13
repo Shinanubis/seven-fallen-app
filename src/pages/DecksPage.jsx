@@ -139,10 +139,10 @@ const DecksPage = () => {
 
         if(response.code === 200){
             setDecksList(response);
-        }else if(response.code !== 200 && decksList.message instanceof Array){
-            setDecksList([]);
-            setDeleteResponse({code: response.code, message: "This page doesn't exist"});
+        }else if(response.code !== 200){
+            setDeleteResponse({code: response.code, message: response.message});
             setFlashState(false);
+            setFilter(true);
             setReqOpt({...reqOpt, page: 1})
         }else{
             setFlashState(null);
