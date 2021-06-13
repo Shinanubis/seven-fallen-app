@@ -133,7 +133,6 @@ const DecksPage = () => {
 
         if(reqOpt.kingdoms.length > 0){
             response = await getDecksByKingdoms(reqOpt);
-            console.log(response);
         }else{
             response = await getUserDecks(reqOpt);
         }

@@ -58,10 +58,8 @@ async function getDecksByKingdoms(options){
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
     let response = await fetch(url, settings);
-    if(response.ok){
-        let datas = await response.json();
-        return datas;
-    }
+    let datas = await response.json();
+    return datas;
 }
 
 async function getOne(id){
