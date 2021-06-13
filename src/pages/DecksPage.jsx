@@ -49,8 +49,6 @@ const DecksPage = () => {
                         newKingdomsArray = newObject.kingdoms.split(',');
                     }
 
-                    console.log(newKingdomsArray);
-
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
                         let index = newKingdomsArray.indexOf(e.target.value);
@@ -138,6 +136,7 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = null;
+        console.log(reqOpt)
         if(reqOpt.kingdoms.length > 0){
             response = await getDecksByKingdoms(reqOpt);
         }else{
