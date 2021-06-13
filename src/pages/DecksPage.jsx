@@ -211,7 +211,7 @@ const DecksPage = () => {
     return (
             <Layout>
                 <div className="deck__list">
-                    <p className="deck__list--empty">Your deck list is empty</p>
+                    <p className="deck__list--empty">{deleteResponse.message}</p>
                 </div>
                 <Pagination 
                     list = {decksList}
