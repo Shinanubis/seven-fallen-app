@@ -177,7 +177,7 @@ const DecksPage = () => {
                         onClickButton = {handleClickPopupButton}
                         onClickOptions = {handleClickPopupOptions} 
                         buttonResetText="Reset"
-                        buttonClicktext="ok" 
+                        buttonClickText="ok" 
                         actionClose={handleClosePopup}
                         actionReset={handleResetPopup}
                     />}
