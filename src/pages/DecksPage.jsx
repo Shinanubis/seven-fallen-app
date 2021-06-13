@@ -34,7 +34,7 @@ const DecksPage = () => {
                 setReqOpt(prevState => {
                     let newKingdomsArray = prevState.kingdoms;
                     newKingdomsArray.push(e.target.value);
-                    
+                    console.log(e.target.checked);
                     console.log(newKingdomsArray);
                     return prevState;
                 });
