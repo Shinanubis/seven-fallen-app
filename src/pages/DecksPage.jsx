@@ -39,6 +39,8 @@ const DecksPage = () => {
 
                     if(prevState.kingdoms instanceof String){
                         newKingdomsArray = [...prevState.kingdoms.split(',')];
+                    }else{
+                        newKingdomsArray = [...prevState.kingdoms];
                     }
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
