@@ -60,7 +60,8 @@ const DecksPage = () => {
                         }
                     }
 
-                    newObject.kingdoms = newKingdomsArray.join();
+                    console.log(newKingdomsArray)
+                    newObject.kingdoms = newKingdomsArray.join(',');
 
                     return newObject;
                 });
