@@ -40,7 +40,7 @@ const DecksPage = () => {
                     if(prevState.kingdoms instanceof String){
 
                         newKingdomsArray = prevState.kingdoms.split(',')
-
+                        console.log(newKingdomsArray)
                     }else{
                         newKingdomsArray = [...prevState.kingdoms];
                     }
