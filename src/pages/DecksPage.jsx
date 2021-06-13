@@ -36,11 +36,9 @@ const DecksPage = () => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
                     let newKingdomsArray = null;
-
+                    console.log(prevState)
                     if(prevState.kingdoms instanceof String){
-
                         newKingdomsArray = prevState.kingdoms.split(',')
-                        console.log(newKingdomsArray)
                     }else{
                         newKingdomsArray = [...prevState.kingdoms];
                     }
