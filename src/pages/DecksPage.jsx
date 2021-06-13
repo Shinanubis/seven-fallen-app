@@ -34,6 +34,7 @@ const DecksPage = () => {
                 setReqOpt(prevState => {
                     let newKingdomsArray = prevState.kingdoms;
                     newKingdomsArray.push(e.target.value);
+                    
                     console.log(newKingdomsArray);
                     return prevState;
                 });
@@ -175,7 +176,8 @@ const DecksPage = () => {
                         datas={popupDatas} 
                         onClickButton = {handleClickPopupButton}
                         onClickOptions = {handleClickPopupOptions} 
-                        buttonText="Reset" 
+                        buttonResetText="Reset"
+                        buttonClicktext="ok" 
                         actionClose={handleClosePopup}
                         actionReset={handleResetPopup}
                     />}
