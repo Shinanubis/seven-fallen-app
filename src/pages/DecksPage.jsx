@@ -33,7 +33,7 @@ const DecksPage = () => {
             onChange: (e) => {
                 setReqOpt(prevState => {
                     let newKingdomsArray = [...prevState.kingdoms];
-                    console.log(e.target.value)
+                    console.log({...prevState})
                     return prevState;
                 });
             }
