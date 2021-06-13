@@ -39,6 +39,7 @@ async function getUserDecks(options){
 async function getDecksByKingdoms(options){
     let form = new FormData();
     let kingdoms = await serialize(options.kingdoms);
+    console.log(kingdoms)
     form.append('kingdoms', kingdoms);
     let settings = {
         method: 'POST',
