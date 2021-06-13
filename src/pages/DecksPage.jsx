@@ -96,6 +96,7 @@ const DecksPage = () => {
 
     const handleClickPopupButton = (e) => {
         e.preventDefault();
+        setFilter(true);
     }
 
     const handleClickPopupOptions = (e) => {
@@ -193,6 +194,7 @@ const DecksPage = () => {
                         buttonClickText="ok" 
                         actionClose={handleClosePopup}
                         actionReset={handleResetPopup}
+                        actionValid={handleClickPopupButton}
                     />}
               </Layout>
       )
