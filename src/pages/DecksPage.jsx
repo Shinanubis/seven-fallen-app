@@ -137,7 +137,7 @@ const DecksPage = () => {
             response = await getUserDecks(reqOpt);
         }
 
-        if(response.code === 200){
+        if(response.code === 200 && decksList.message instanceof Array){
             setDecksList(response);
         }else if(response.code !== 200){
             setDeleteResponse({code: response.code, message: response.message});
