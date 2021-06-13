@@ -35,8 +35,11 @@ const DecksPage = () => {
             onChange: (e) => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
-                    newObject.kingdoms = '';
                     let newKingdomsArray = null;
+
+                    if(prevState.kingdoms instanceof String){
+                        newKingdomsArray = [...prevState.kingdoms.split(',')];
+                    }
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
