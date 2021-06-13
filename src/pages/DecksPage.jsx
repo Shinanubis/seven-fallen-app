@@ -41,7 +41,7 @@ const DecksPage = () => {
                             newKingdomsArray.splice(index, 1);
                         }
                     }
-                    newObject.kingdoms = newKingdomsArray;
+                    newObject.kingdoms = newKingdomsArray.join(',');
                     console.log(newObject);
                     return newObject;
                 });
