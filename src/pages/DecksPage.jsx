@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import  Popup from '../components/Popup';
 import { GrSplit } from 'react-icons/gr';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 
 const DecksPage = () => {
@@ -34,6 +35,7 @@ const DecksPage = () => {
             onChange: (e) => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
+                    console.log(newObject)
                     let newKingdomsArray = newObject.kingdoms instanceof String ? newObject.kingdoms.split('') : newObject.kingdoms;
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
