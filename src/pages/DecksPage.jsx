@@ -36,12 +36,14 @@ const DecksPage = () => {
                 setReqOpt(prevState => {
                     let newObject = {...prevState};
                     let newKingdomsArray = null;
-                    console.log(prevState)
+
                     if(prevState.kingdoms instanceof String){
                         newKingdomsArray = prevState.kingdoms.split(',')
                     }else{
                         newKingdomsArray = [...prevState.kingdoms];
                     }
+                    
+                    console.log(newKingdomsArray)
 
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
                     if(e.target.checked === false) {
@@ -50,7 +52,7 @@ const DecksPage = () => {
                             newKingdomsArray.splice(index, 1);
                         }
                     }
-                    console.log(newObject)
+
                     newObject.kingdoms = newKingdomsArray.toString();
                     return newObject;
                 });
