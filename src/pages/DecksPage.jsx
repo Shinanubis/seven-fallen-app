@@ -126,7 +126,6 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
-        console.log(reqOpt);
     },[reqOpt]);
 
     useEffect(async () => {
