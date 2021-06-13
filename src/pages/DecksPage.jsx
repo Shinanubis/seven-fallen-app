@@ -89,7 +89,10 @@ const DecksPage = () => {
 
     const handlePage = (e, newPage, options) => {
         e.preventDefault();
-        console.log(decksList.length)
+        
+        if(!decksList){
+            setReqOpt({...options, page: 1});
+        }
 
         if(newPage <= 0){
             setReqOpt({...options, page: 1});
