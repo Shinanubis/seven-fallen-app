@@ -32,7 +32,7 @@ function Pagination(props){
     return (
         <div className={containerClasses ?? "pagination__block"} >
             <div className={leftClasses ?? "pagination__arrow"} 
-                 onClick={canNext === true ? (e) => setPage(e, Number(options.page) - 1, options) : null}
+                 onClick={(e) => setPage(e, Number(options.page) - 1, options)}
             >
                 <BsChevronLeft/>
             </div>
@@ -43,7 +43,7 @@ function Pagination(props){
                     })
                 }
                 </div>
-            <div className={rightClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) + 1, options)}><BsChevronRight/></div>
+            <div className={rightClasses ?? "pagination__arrow"} onClick={canNext === true ? (e) => setPage(e, Number(options.page) + 1, options) : null}><BsChevronRight/></div>
         </div>
     );
 }
