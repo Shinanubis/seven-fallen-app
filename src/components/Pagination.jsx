@@ -24,12 +24,11 @@ function Pagination(props){
             newObj.page = prevState.page + 1;
             return newObj;
         });
-    },[options]);
 
-    useEffect(async () => {
         let response = await nextPage(nextValue);
         console.log(response);
-    },[nextValue])
+        
+    },[options]);
     
     return (
         <div className={containerClasses ?? "pagination__block"} >
