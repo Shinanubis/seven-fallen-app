@@ -293,7 +293,7 @@ code {
 }
 
 /* deck */
-.deck__title{
+.deck__name{
   color: var(--dark-grey);
   text-align: center;
 }

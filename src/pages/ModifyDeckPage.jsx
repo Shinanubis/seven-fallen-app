@@ -12,7 +12,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page__deck column justify-center align-center">
-            <h2 className="deck__title">{deckInfos.deck_name}</h2>
+            <h2 className="deck__name">{deckInfos.deck_name}</h2>
 
         </Main>
     )
