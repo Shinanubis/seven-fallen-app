@@ -6,7 +6,7 @@ function Return(props){
     let history = useHistory();
     const handleClick = function(e){
         e.preventDefault();
-        history.goBack();
+        history.push('/decks');
     }
 
     return (
