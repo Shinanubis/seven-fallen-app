@@ -26,9 +26,10 @@ function Pagination(props){
         });
     },[options]);
 
-    useEffect(() => {
-        console.log(nextValue);
-    },[])
+    useEffect(async () => {
+        let response = await nextPage(nextValue);
+        console.log(response);
+    },[nextValue])
     
     return (
         <div className={containerClasses ?? "pagination__block"} >
