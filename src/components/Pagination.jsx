@@ -25,6 +25,8 @@ function Pagination(props){
 
         if(res.code !== 200){
             setCanNext(false);
+        }else{
+            setCanNext(true);
         }
 
     },[options]);
@@ -43,7 +45,11 @@ function Pagination(props){
                     })
                 }
                 </div>
-            <div className={rightClasses ?? "pagination__arrow"} onClick={canNext === true ? (e) => setPage(e, Number(options.page) + 1, options) : null}><BsChevronRight/></div>
+            <div className={rightClasses ?? "pagination__arrow"} 
+                 onClick={canNext === true ? (e) => setPage(e, Number(options.page) + 1, options) : (e) => setPage(e, 1, options)}
+            >
+                <BsChevronRight/>
+            </div>
         </div>
     );
 }
