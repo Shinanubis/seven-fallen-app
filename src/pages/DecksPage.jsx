@@ -148,17 +148,20 @@ const DecksPage = () => {
 
     },[reqOpt]);
 
+    useEffect(() => {
+        console.log(decksList)
+    }, [decksList])
+
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
-        console.log(response)
     },[]);
 
         return (
             <Layout>
                 <Filters containerClasses="filter__container row justify-end my-3" isVisible={filterClicked} onClick={handleClickFilter}/>
                 <List classes="list__content layout layout__1">
-                      {
+                      {decksList.message ??
                           decksList.message.map(elmt => {
                                   return(
                                       <Deck id={elmt.id} 
