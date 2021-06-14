@@ -213,7 +213,7 @@ const DecksPage = () => {
               </Layout>
       )
     }else{
-        <Redirect to="/decks/empty"/>
+        return (<Redirect to="/decks/empty"/>);
     }
 }
 
