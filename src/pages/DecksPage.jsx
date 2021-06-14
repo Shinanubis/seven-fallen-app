@@ -26,6 +26,8 @@ const DecksPage = () => {
         order_by: 'id',
         sens: 'asc'
     });
+     
+    const [openModifyDeck, setOpenModifyDeck] = useState(false);
 
     const popupDatas = {
         "List by kingdoms": {

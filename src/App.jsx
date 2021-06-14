@@ -48,24 +48,24 @@ function App() {
 
   const pages = [
     {
-      exact: true,
-      path:'/',
-      component: LandingPage,
+        exact: true,
+        path:'/',
+        component: LandingPage,
     },
     {
-      strict: true,
-      path:'/login',
-      component: LoginPage,
+        strict: true,
+        path:'/login',
+        component: LoginPage,
     },
     {
-      strict: true,
-      path:'/subscribe',
-      component: SubscribePage,
+        strict: true,
+        path:'/subscribe',
+        component: SubscribePage,
     },
     {
-      strict: true,
-      path:'/profile',
-      component: ProfilePage
+        strict: true,
+        path:'/profile',
+        component: ProfilePage
     },
     {
         exact:true,

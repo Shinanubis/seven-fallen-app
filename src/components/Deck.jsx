@@ -2,6 +2,7 @@ import React, {useState, useEffect}from 'react';
 import {deleteUserDeck, getUserDecks} from '../api/Decks';
 import {AiFillCloseCircle} from 'react-icons/ai';
 import {BsPencil} from 'react-icons/bs';
+import {Link} from 'react-router-dom'
 
 const Deck = (props) => {
     const {
@@ -45,10 +46,6 @@ const Deck = (props) => {
         setOpenModify(true);
     }
     
-    useEffect(()=> {
-        console.log("deck id : ", id)
-    },[]);
-    
     return (
         <li key={id} className="deck__block">
             <div className="deck__inner--left">
@@ -63,7 +60,7 @@ const Deck = (props) => {
                 </div>
                 <div className="inner__right--actions">
                     <div className="action" onClick={(e) => handleClick(e, listState, id)}><AiFillCloseCircle/></div>
-                    <div className="action" onCLick={(e) => handleModify}><BsPencil/></div>
+                    <Link className="action" to={`/decks/${id}`}><BsPencil/></Link>
                 </div>
             </div>
         </li>
