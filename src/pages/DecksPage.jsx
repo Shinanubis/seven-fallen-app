@@ -92,15 +92,10 @@ const DecksPage = () => {
 
         if(newPage <= 0){
             setReqOpt({...options, page: 1});
-            return;
+        }else{
+            setReqOpt({...options, page: newPage});  
         }
-        if(list.length < (newPage * options.size)){
-            setReqOpt({...options, page: 1});
-            return;
-        }
-            
-        setReqOpt({...options, page: newPage});          
-        
+                    
     }
 
     const handleSize = (e, newSize) => {
