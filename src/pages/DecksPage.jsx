@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import Popup from '../components/Popup';
 import Return from '../components/Return'
+import { Redirect } from 'react-router-dom';
 
 const DecksPage = () => {
 
@@ -210,15 +211,7 @@ const DecksPage = () => {
               </Layout>
       )
     }
-    return (
-            <Layout>
-                <Return />
-                <div className="deck__list">
-                    <p className="deck__list--empty">{deleteResponse.message}</p>
-                </div>
-                <Plus to={'/decks/new-deck'}/>
-            </Layout>
-            )
+    return (<Redirect to="/decks/empty"/>)
     }
 
 

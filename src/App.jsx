@@ -29,6 +29,7 @@ import IndividualPage from './pages/IndividualPage';
 import DeckBuildOptions from './pages/DeckBuildOptions';
 import DeckCreate from './pages/DeckCreate';
 import DeckImport from './pages/DeckImport';
+import EmptyDecksList from './pages/EmptyDecksList';
 
 //Context import
 import AuthenticationContext from './contexts/Context';
@@ -74,6 +75,12 @@ function App() {
         path:'/decks',
         component: DecksPage
     
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/empty',
+        component: EmptyDecksList 
     },
     {
         exact:true,
