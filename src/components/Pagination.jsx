@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
+
+let count = 0;
+
 function Pagination(props){
     const {
         list,
@@ -16,7 +19,7 @@ function Pagination(props){
     } = props;
 
     const [counter, setCounter] = useState(0);
-    let count = 0;
+
     useEffect(() => {
         count += list.length;
         setCounter(count);
