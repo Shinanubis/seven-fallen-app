@@ -298,10 +298,6 @@ code {
   text-align: center;
 }
 
-.page__deck .form--input{
-  width: 80%;
-}
-
 .buttons__block{
   display: flex;
   flex-direction:column;
