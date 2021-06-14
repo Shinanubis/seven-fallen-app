@@ -20,8 +20,7 @@ function Pagination(props){
     
     useEffect(async () => {
         setNextValue(nextValue.page + 1);
-        let response = await nextPage(nextValue);
-        console.log(response)
+        console.log(nextValue)
     });
     
     return (
