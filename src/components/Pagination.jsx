@@ -21,12 +21,8 @@ function Pagination(props){
         if(list instanceof Array){
             setCounter(prevState => prevState + list.length);
         }
-    },[list]);
-
-    useEffect(() => {
         console.log(counter)
-    },[])
-
+    },[list]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
