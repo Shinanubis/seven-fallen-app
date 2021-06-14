@@ -18,10 +18,7 @@ function Pagination(props){
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
-        if(list instanceof Array){
-            setCounter(prevState => prevState + list.length);
-        }
-        console.log(counter)
+        console.log(list)
     },[list]);
 
     return (
