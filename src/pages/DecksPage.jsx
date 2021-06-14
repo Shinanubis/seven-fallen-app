@@ -95,8 +95,10 @@ const DecksPage = () => {
         const newParams = {...options};
         newParams.page = newPage + 1;
         let res = await getUserDecks(newParams);
-        console.log(res)
+        
         if(newPage <= 0){
+            return;
+        }else if(res.code !== 200){
             return;
         }else{
             setReqOpt({...options, page: newPage});  
