@@ -174,7 +174,7 @@ code {
 .page__deck{
   min-height: 100%;
   width: 100%;
-  background-color: #101010;
+  background-color: var(--white);
 }
 
 /* popup */
