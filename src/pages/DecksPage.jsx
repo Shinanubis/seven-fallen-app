@@ -98,8 +98,6 @@ const DecksPage = () => {
         
         if(newPage <= 0){
             return;
-        }else if(res.code !== 200){
-            return;
         }else{
             setReqOpt({...options, page: newPage});  
         }
