@@ -194,6 +194,7 @@ const DecksPage = () => {
                     setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]}
+                    nextPage={getDecksByKingdoms}
                 />
 
                 <Plus to={'/decks/new-deck'}/>
