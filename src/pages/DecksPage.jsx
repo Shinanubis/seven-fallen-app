@@ -90,8 +90,12 @@ const DecksPage = () => {
         setFilter(!isVisible);
     } 
 
-    const handlePage = (e, newPage, options, list) => {
+    const handlePage = async (e, newPage, options, list) => {
         e.preventDefault();
+        const newParams = {...options};
+        newParams.page = newPage + 1;
+        let res = await getUserDecks(options);
+        console.log(res)
         if(newPage <= 0){
             return;
         }else{
