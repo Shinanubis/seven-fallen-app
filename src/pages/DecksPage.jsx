@@ -12,7 +12,10 @@ import { Redirect } from 'react-router-dom';
 
 const DecksPage = () => {
 
-    const [decksList, setDecksList] = useState([]);
+    const [decksList, setDecksList] = useState({
+        code: 200,
+        message: []
+    });
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
     const [filterClicked, setFilter] = useState(true);
@@ -157,6 +160,7 @@ const DecksPage = () => {
         setDecksList(response);
     },[]);
 
+    if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
                 <Filters containerClasses="filter__container row justify-end my-3" isVisible={filterClicked} onClick={handleClickFilter}/>
@@ -212,6 +216,9 @@ const DecksPage = () => {
                     />}
               </Layout>
       )
+    }else{
+        <Redirect to="/decks/empty"/>
+    }
 }
 
 
