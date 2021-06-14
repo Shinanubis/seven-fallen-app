@@ -171,6 +171,11 @@ code {
   -webkit-overflow-scrolling: touch;
 }
 
+.page__modify{
+  min-height: 100%;
+  width: 100%;
+}
+
 /* popup */
 .popup__container{
   position: absolute;
