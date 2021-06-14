@@ -94,7 +94,7 @@ const DecksPage = () => {
         e.preventDefault();
         const newParams = {...options};
         newParams.page = newPage + 1;
-        let res = await getUserDecks(options);
+        let res = await getUserDecks(newParams);
         console.log(res)
         if(newPage <= 0){
             return;
