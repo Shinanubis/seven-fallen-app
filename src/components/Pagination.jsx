@@ -27,8 +27,9 @@ function Pagination(props){
 
     },[options]);
 
-    useEffect(() => {
-        console.log(nextValue);
+    useEffect(async () => {
+        let res = await nextPage(nextValue);
+        console.log(res);
     },[nextValue]);
 
     return (
