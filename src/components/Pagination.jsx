@@ -21,13 +21,11 @@ function Pagination(props){
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
-        count += list.length;
-        setCounter(count);
-        console.log(counter)
+        setCounter(counter + list.length);
     },[list]);
 
     useEffect(() => {
-        count += list.length;
+        console.log(counter)
     },[]);
 
     return (
