@@ -22,7 +22,7 @@ function Pagination(props){
         setNextValue(nextValue.page + 1);
         let response = await nextPage(nextValue);
         console.log(response)
-    },[]);
+    });
     
     return (
         <div className={containerClasses ?? "pagination__block"} >
