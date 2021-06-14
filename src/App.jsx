@@ -79,14 +79,14 @@ function App() {
     {
         exact:true,
         strict: true,
-        path:'/decks/empty',
-        component: EmptyDecksList 
-    },
-    {
-        exact:true,
-        strict: true,
         path:'/decks/new-deck',
         component: AddingDeckPage
+    },
+    {
+      exact:true,
+      strict: true,
+      path:'/decks/empty',
+      component: EmptyDecksList 
     },
     {
         exact:true,
