@@ -135,13 +135,13 @@ code {
   cursor: pointer;
 }
 
-.return__icon{
-  color: var(--dark-grey);
-}
-
-.return__icon svg{
+.return__block svg{
   height:4vh;
   width: 4vh;
+}
+
+.return__icon{
+  color: var(--dark-grey);
 }
 
 .google__icon{
