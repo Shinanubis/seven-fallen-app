@@ -128,26 +128,26 @@ const DecksPage = () => {
         setFilter(true);
     }
 
-    // useEffect(async () => {
-    //     let response = null;
+    useEffect(async () => {
+        let response = null;
 
-    //     if(reqOpt.kingdoms.length > 0){
-    //         response = await getDecksByKingdoms(reqOpt);
-    //     }else{
-    //         response = await getUserDecks(reqOpt);
+        if(reqOpt.kingdoms.length > 0){
+            response = await getDecksByKingdoms(reqOpt);
+        }else{
+            response = await getUserDecks(reqOpt);
 
-    //     }
+        }
 
-    //     if(response.code === 200){
-    //         setDecksList(response);
-    //     }else if(response.code !== 200 && decksList.message instanceof Array){
-    //         setDeleteResponse({code: response.code, message: response.message});
-    //         setFlashState(false);
-    //     }else{
-    //         setFlashState(null);
-    //     }
+        if(response.code === 200){
+            setDecksList(response);
+        }else if(response.code !== 200 && decksList.message instanceof Array){
+            setDeleteResponse({code: response.code, message: response.message});
+            setFlashState(false);
+        }else{
+            setFlashState(null);
+        }
 
-    // },[reqOpt]);
+    },[reqOpt]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
@@ -155,7 +155,6 @@ const DecksPage = () => {
         console.log(response)
     },[]);
 
-    if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
                 <Filters containerClasses="filter__container row justify-end my-3" isVisible={filterClicked} onClick={handleClickFilter}/>
@@ -211,12 +210,6 @@ const DecksPage = () => {
                     />}
               </Layout>
       )
-
-    }else{
-        return (
-                <Redirect to="/decks/empty"/>
-        )
-    }
 }
 
 
