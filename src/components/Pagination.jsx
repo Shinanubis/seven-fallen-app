@@ -21,9 +21,8 @@ function Pagination(props){
     useEffect(async () => {
         setNextValue(nextValue.page + 1);
         let response = await nextPage(nextValue);
-        let json = await response.json();
-        console.log(json);
-    },[options]);
+        console.log(response)
+    },[]);
     
     return (
         <div className={containerClasses ?? "pagination__block"} >
