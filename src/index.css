@@ -128,15 +128,15 @@ code {
 
 /* return */ 
 .return__block {
-
+  width: 100%;
 }
 
 .return__icon{
-
+    color: var(--dark-grey);
 }
 
 .return__icon svg{
-  
+    height:100%;
 }
 
 .google__icon{
