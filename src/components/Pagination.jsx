@@ -26,6 +26,10 @@ function Pagination(props){
         console.log(counter)
     },[list]);
 
+    useEffect(() => {
+        count += list.length;
+    },[]);
+
     return (
         <div className={containerClasses ?? "pagination__block"} >
             <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) - 1, options, list)}><BsChevronLeft/></div>
