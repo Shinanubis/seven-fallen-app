@@ -151,10 +151,6 @@ const DecksPage = () => {
         }
     },[reqOpt]);
 
-    useEffect(() => {
-        console.log(decksList)
-    }, [decksList])
-
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
