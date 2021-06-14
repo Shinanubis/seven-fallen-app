@@ -25,7 +25,7 @@ function Pagination(props){
             newObj.page = prevState.page + 1;
             return newObj;
         });
-        return async () => {
+        return async function(){
             let response = await nextPage(nextValue);
             console.log(response);
         }
