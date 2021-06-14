@@ -17,7 +17,7 @@ function Pagination(props){
 
     useEffect(() => {
         console.log(options)
-    },[]);
+    },[options]);
     
     return (
         <div className={containerClasses ?? "pagination__block"} >
