@@ -131,12 +131,7 @@ const DecksPage = () => {
     useEffect(async () => {
         let response = null;
 
-        if(reqOpt.kingdoms.length = 0){
-            response = await getDecksByKingdoms(reqOpt);
-        }else{
-            response = await getUserDecks(reqOpt);
-
-        }
+        response = await getUserDecks(reqOpt);
 
         if(response.code === 200){
             setDecksList(response);
