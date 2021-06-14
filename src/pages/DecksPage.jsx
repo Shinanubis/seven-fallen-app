@@ -146,7 +146,7 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
-        
+
     },[reqOpt]);
 
     useEffect(async () => {
@@ -213,7 +213,10 @@ const DecksPage = () => {
 
     }else{
         return (
-            <Redirect to="/decks/empty"/>
+            <>
+                {console.log(decksList)}
+                <Redirect to="/decks/empty"/>
+            </>
         )
     }
 }
