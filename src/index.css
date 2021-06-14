@@ -338,6 +338,7 @@ code {
 }
 
 .form__label--textarea{
+  color:var(--dark-grey);
   width:100%;
 }
 
