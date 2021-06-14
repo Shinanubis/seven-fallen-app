@@ -47,8 +47,9 @@ const AddingDeckPage = (props) => {
     const handleInputChange = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
         if(e.target.value.length > 0){
-                setInputState(checkRegex(regexModule.regex_deck_name))
+                setInputState(checkRegex(regexModule.regex_deck_name, e.target.value))
         }
+        console.log(checkRegex(regexModule.regex_deck_name, e.target.value))
     }
 
     const handleCreate = async (e) => {
@@ -82,7 +83,7 @@ const AddingDeckPage = (props) => {
                 <form className="form">
                     <div className="form--section">
                         <h4 className="form__section--title">Informations</h4>
-                        <InputText classes={inputState === false ? "form--input bad__input" : 'form--input good__input'} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
+                        <InputText classes={inputState === true ? "form--input bad__input" : 'form--input good__input'} placeholder="Nom du deck" onChange={handleInputChange} onBlur={handleBlur} value={fieldValues.deck_name}/>
                         <CheckBox id="visible" name="visibility" classes="form__checkbox" text="public" onChange={handleCheck} checked={fieldValues.visibility}/>
                         <Flash 
                             classes="message__flash" 
