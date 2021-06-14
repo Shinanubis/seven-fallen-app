@@ -9,7 +9,7 @@ function Navigation({pages}) {
                     <Route 
                         key={index} exact={page.exact ?? page.exact} 
                         strict={page.strict ?? page.strict} path={page.path ?? page.path}
-                        component={page.component}
+                        component={page.props ? () => <page.component {...page.props} /> : page.component}
                     />
                 ))}
         </Switch>       

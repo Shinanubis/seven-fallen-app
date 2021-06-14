@@ -86,7 +86,8 @@ function App() {
       exact:true,
       strict: true,
       path:'/decks/empty',
-      component: EmptyDecksList 
+      component: EmptyDecksList,
+      props: {text: "No Decks "} 
     },
     {
         exact:true,
