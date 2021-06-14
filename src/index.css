@@ -126,6 +126,19 @@ code {
   margin:0 auto;
 }
 
+/* return */ 
+.return__block {
+
+}
+
+.return__icon{
+
+}
+
+.return__icon svg{
+  
+}
+
 .google__icon{
   font-size: 1.5rem;
 }

@@ -7,7 +7,8 @@ import List from '../components/List';
 import Deck from '../components/Deck';
 import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
-import  Popup from '../components/Popup';
+import Popup from '../components/Popup';
+import Return from '../components/Return'
 
 const DecksPage = () => {
 
@@ -211,6 +212,7 @@ const DecksPage = () => {
     }
     return (
             <Layout>
+                <Return />
                 <div className="deck__list">
                     <p className="deck__list--empty">{deleteResponse.message}</p>
                 </div>
