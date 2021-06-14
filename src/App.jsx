@@ -30,12 +30,14 @@ import DeckBuildOptions from './pages/DeckBuildOptions';
 import DeckCreate from './pages/DeckCreate';
 import DeckImport from './pages/DeckImport';
 import EmptyDecksList from './pages/EmptyDecksList';
+import ModifyDeckPage from './pages/ModifyDeckPage';
 
 //Context import
 import AuthenticationContext from './contexts/Context';
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
+import Modify from './pages/ModifyDeckPage';
 
 
 function App() {
@@ -86,6 +88,12 @@ function App() {
         path:'/decks/empty',
         component: EmptyDecksList,
         props: {text: "No Decks "} 
+    },
+    {
+        exact: true,
+        strict: true,
+        path: '/decks/modify',
+        component: ModifyDeckPage
     },
     {
         exact:true,
