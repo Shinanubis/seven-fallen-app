@@ -25,11 +25,13 @@ function Pagination(props){
             return newObj;
         });
 
-        let response = await nextPage(nextValue);
-        console.log(response);
-        
     },[options]);
     
+    useEffect(async () => {
+        let response = await nextPage(nextValue);
+        console.log(response);
+    });
+
     return (
         <div className={containerClasses ?? "pagination__block"} >
             <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) - 1, options)}><BsChevronLeft/></div>
