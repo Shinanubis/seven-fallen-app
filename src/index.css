@@ -345,6 +345,9 @@ code {
 
 .form__textarea{
   width:100%;
+  outline: none;
+  resize:none;
+  overflow: auto;
 }
 
 .form__checkbox{
