@@ -21,16 +21,15 @@ function Pagination(props){
     useEffect(async () => {
         setNextValue(prevState => {
             let newObj = {...prevState};
+            newObj.order_by = 'kingdoms';
             newObj.page = prevState.page + 1;
             return newObj;
         });
-
+        return async () => {
+            let response = await nextPage(nextValue);
+            console.log(response);
+        }
     },[options]);
-    
-    useEffect(async () => {
-        let response = await nextPage(nextValue);
-        console.log(response);
-    });
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
