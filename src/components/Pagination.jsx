@@ -20,7 +20,7 @@ function Pagination(props){
         let newObj = {...options};
         newObj.page = options.page + 1;
         console.log(newObj)
-    });
+    },[options]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
