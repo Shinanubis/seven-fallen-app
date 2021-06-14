@@ -3,6 +3,7 @@ import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
 function Pagination(props){
     const {
+        list,
         options, 
         setPage, 
         setSize , 
@@ -16,7 +17,7 @@ function Pagination(props){
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
-            <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) - 1, options)}><BsChevronLeft/></div>
+            <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) - 1, options, list)}><BsChevronLeft/></div>
                 <div className={containerTextBlockClasses ?? "pagination__text--block"}>
                 {
                     listSize.map((elmt, index) => {
@@ -24,7 +25,7 @@ function Pagination(props){
                     })
                 }
                 </div>
-            <div className={rightClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) + 1, options)}><BsChevronRight/></div>
+            <div className={rightClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) + 1, options, list)}><BsChevronRight/></div>
         </div>
     );
 }

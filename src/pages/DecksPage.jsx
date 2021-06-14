@@ -87,7 +87,7 @@ const DecksPage = () => {
         setFilter(!isVisible);
     } 
 
-    const handlePage = (e, newPage, options) => {
+    const handlePage = (e, newPage, options, list) => {
         e.preventDefault();
         console.log(newPage * options.size)
         if(newPage <= 0){
@@ -191,7 +191,7 @@ const DecksPage = () => {
                 />
 
                 <Pagination 
-                    list = {decksList}
+                    list = {decksList.message instanceof Array ? decksList.message : ''}
                     options = {reqOpt}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
