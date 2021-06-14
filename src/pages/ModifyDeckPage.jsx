@@ -4,8 +4,7 @@ function ModifyDeckPage(props){
     
     return (
         <Main classes="page__deck">
-            {console.log("test : " , props.location)}
-            <p>deck page</p>
+            <p>{props.location.deckProps.id}</p>
         </Main>
     )
 }
