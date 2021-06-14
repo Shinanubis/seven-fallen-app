@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect, useState, useLayoutEffect} from 'react';
 import Layout from '../layouts/Layout';
 import { getUserDecks, getDecksByKingdoms} from '../api/Decks';
 import Flash from '../components/Flash'
@@ -12,7 +12,10 @@ import { Redirect } from 'react-router-dom';
 
 const DecksPage = () => {
 
-    const [decksList, setDecksList] = useState([]);
+    const [decksList, setDecksList] = useState({
+        code: '',
+        message: ''
+    });
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
     const [filterClicked, setFilter] = useState(true);
@@ -144,7 +147,7 @@ const DecksPage = () => {
 
     // },[reqOpt]);
 
-    useEffect(async () => {
+    useLayoutEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
         console.log(response)
