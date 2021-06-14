@@ -12,11 +12,17 @@ function Pagination(props){
         leftClasses, 
         rightClasses, 
         textClasses, 
-        listSize = []
+        listSize = [],
+        nextPage
     } = props;
 
-    useEffect(() => {
-        console.log(options)
+    const [nextValue, setNextValue] = useState(options);
+    
+    useEffect(async () => {
+        setNextValue(nextValue.page + 1);
+        let response = await nextPage(nextValue);
+        let json = await response.json();
+        console.log(json);
     },[options]);
     
     return (
