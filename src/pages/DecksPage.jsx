@@ -12,10 +12,7 @@ import { Redirect } from 'react-router-dom';
 
 const DecksPage = () => {
 
-    const [decksList, setDecksList] = useState({
-        code: '',
-        message: ''
-    });
+    const [decksList, setDecksList] = useState([]);
     const [flashState, setFlashState] = useState(null);
     const [deleteResponse, setDeleteResponse] = useState({});
     const [filterClicked, setFilter] = useState(true);
@@ -142,8 +139,8 @@ const DecksPage = () => {
 
         if(response.code === 200){
             setDecksList(response);
-        }else if(response.code !== 200 && decksList.message instanceof String){
-            setDecksList(response);
+        }else if(response.code !== 200 && decksList.message instanceof Array){
+            setDecksList([]);
             setDeleteResponse({code: response.code, message: response.message});
             setFlashState(false);
         }else{
