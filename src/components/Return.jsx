@@ -7,7 +7,7 @@ function Return(props){
 
     const handleClick = function(e){
         e.preventDefault();
-        history.push('/decks#_=_');
+        history.push('/decks');
     }
 
     return (
