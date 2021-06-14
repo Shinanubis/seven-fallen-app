@@ -144,8 +144,8 @@ const DecksPage = () => {
             setDecksList(response);
         }else if(response.code !== 200 && decksList.message instanceof Array){
             setDecksList([]);
-            setDeleteResponse({code: response.code, message: response.message});
-            setFlashState(false);
+            setDeleteResponse(response);
+            setFlashState(true);
         }else{
             setFlashState(null);
         }
