@@ -12,8 +12,9 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page__deck column justify-center align-center">
-            <h2 className="deck__name">{deckInfos.deck_name}</h2>
-
+            <form className="form">
+                <input className="form--input" type="text" value={deckInfos.deck_name}/>
+            </form>
         </Main>
     )
 }
