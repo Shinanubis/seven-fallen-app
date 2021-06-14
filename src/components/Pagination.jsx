@@ -13,24 +13,7 @@ function Pagination(props){
         rightClasses, 
         textClasses, 
         listSize = [],
-        nextPage
     } = props;
-
-    const [nextValue, setNextValue] = useState(options);
-    
-    useEffect(async () => {
-        setNextValue(prevState => {
-            let newObj = {...prevState};
-            newObj.page = prevState.page + 1;
-            return newObj;
-        });
-
-    },[options]);
-
-    useEffect(async () => {
-        let res = await nextPage(nextValue);
-        console.log(res);
-    },[nextValue]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
