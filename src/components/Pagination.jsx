@@ -18,7 +18,8 @@ function Pagination(props){
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
-        console.log(list)
+        setCounter(prev => prev + list.length);
+        console.log(counter)
     },[list]);
 
     return (
