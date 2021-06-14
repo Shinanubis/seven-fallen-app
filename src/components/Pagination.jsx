@@ -1,4 +1,4 @@
-import React, {useState, useEffect,useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
 
@@ -17,16 +17,12 @@ function Pagination(props){
     } = props;
 
     const [canNext, setCanNext] = useState(true);
-    const fetchData = useCallback(() => {
-        let newObj = {...options};
-        newObj.page = options.page + 1;
-        let datas = nextPage(newObj);
-        return datas;
-    });
 
     useEffect(async () => {
 
-        let res = fetchData();
+        let newObj = {...options};
+        newObj.page = options.page + 1;
+        let res = await nextPage(newObj);
 
         if(res.code !== 200){
             setCanNext(false);
@@ -34,7 +30,7 @@ function Pagination(props){
             setCanNext(true);
         }
 
-    },[fetchData]);
+    },[options]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
