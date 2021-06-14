@@ -7,12 +7,13 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
-        console.log(res);
+        setDeckInfos(res.message);
     },[]);
 
     return (
         <Main classes="page__deck column justify-center align-center">
-            <p>{props.location.deckProps.id}</p>
+            <h2 className="deck__title">{deckInfos.deck_name}</h2>
+
         </Main>
     )
 }

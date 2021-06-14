@@ -277,6 +277,8 @@ code {
   font-size:3vh;
 }
 
+
+/* deck list */
 .deck__list{
   display: flex;
   flex-direction: column;
@@ -288,6 +290,12 @@ code {
 .deck__list--empty{
   text-align: center;
   color: #202020;
+}
+
+/* deck */
+.deck__title{
+  color: var(--dark-grey);
+  text-align: center;
 }
 
 .buttons__block{
