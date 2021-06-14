@@ -12,9 +12,11 @@ function ModifyDeckPage(props){
     },[]);
 
     return (
-        <Main classes="page__deck column justify-center align-center">
+        <Main classes="page">
             <form className="form">
-                <input className="form--input" type="text" value={deckInfos.deck_name}/>
+                <input className="form--input" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                <label className="form__label" htmlFor="description">Description :</label>
+                <textarea className="form___textarea" id="description"/>
             </form>
         </Main>
     )
