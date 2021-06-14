@@ -128,21 +128,21 @@ const DecksPage = () => {
         setFilter(true);
     }
 
-    useEffect(async () => {
-        let response = null;
+    // useEffect(async () => {
+    //     let response = null;
 
-        response = await getUserDecks(reqOpt);
+    //     response = await getUserDecks(reqOpt);
 
-        if(response.code === 200){
-            setDecksList(response);
-        }else if(response.code !== 200 && decksList.message instanceof Array){
-            setDeleteResponse({code: response.code, message: response.message});
-            setFlashState(false);
-        }else{
-            setFlashState(null);
-        }
+    //     if(response.code === 200){
+    //         setDecksList(response);
+    //     }else if(response.code !== 200 && decksList.message instanceof Array){
+    //         setDeleteResponse({code: response.code, message: response.message});
+    //         setFlashState(false);
+    //     }else{
+    //         setFlashState(null);
+    //     }
 
-    },[reqOpt]);
+    // },[reqOpt]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
