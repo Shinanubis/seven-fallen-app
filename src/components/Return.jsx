@@ -4,9 +4,10 @@ import {GiReturnArrow} from 'react-icons/gi';
 function Return(props){
 
     let history = useHistory();
+
     const handleClick = function(e){
         e.preventDefault();
-        history.push('/decks');
+        history.goBack();
     }
 
     return (
