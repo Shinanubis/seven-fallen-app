@@ -186,16 +186,29 @@ const DecksPage = () => {
                     handleFlash= {handleFlash}
                 />
 
-                <Pagination 
-                    list = {decksList.message instanceof Array ? decksList.message : ''}
-                    options = {reqOpt}
-                    containerClasses = "pagination__block my-3 mb-5 row justify-between"
-                    containerTextBlockClasses = {"pagination__text--block row justify-between"} 
-                    setPage={handlePage} 
-                    setSize={handleSize} 
-                    listSize={[10,20,40]}
-                    nextPage={getDecksByKingdoms}
-                />
+                {reqOpt.kingdoms.length > 0 ?
+                    <Pagination 
+                        list = {decksList.message instanceof Array ? decksList.message : ''}
+                        options = {reqOpt}
+                        containerClasses = "pagination__block my-3 mb-5 row justify-between"
+                        containerTextBlockClasses = {"pagination__text--block row justify-between"} 
+                        setPage={handlePage} 
+                        setSize={handleSize} 
+                        listSize={[10,20,40]}
+                        nextPage={getUserDecks}
+                    />
+                    :
+                    <Pagination 
+                        list = {decksList.message instanceof Array ? decksList.message : ''}
+                        options = {reqOpt}
+                        containerClasses = "pagination__block my-3 mb-5 row justify-between"
+                        containerTextBlockClasses = {"pagination__text--block row justify-between"} 
+                        setPage={handlePage} 
+                        setSize={handleSize} 
+                        listSize={[10,20,40]}
+                        nextPage={getDecksByKingdoms}
+                    />
+                }
 
                 <Plus to={'/decks/new-deck'}/>
                 {filterClicked || 
