@@ -30,7 +30,7 @@ function Pagination(props){
 
     useEffect(() => {
         console.log(nextValue);
-    });
+    },[nextValue]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
