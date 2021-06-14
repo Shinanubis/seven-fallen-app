@@ -90,18 +90,13 @@ const DecksPage = () => {
         setFilter(!isVisible);
     } 
 
-    const handlePage = async (e, newPage, options, list) => {
+    const handlePage = async (e, newPage, options) => {
         e.preventDefault();
-        const newParams = {...options};
-        newParams.page = newPage + 1;
-        let res = await getUserDecks(newParams);
-        
         if(newPage <= 0){
             return;
         }else{
             setReqOpt({...options, page: newPage});  
-        }
-                    
+        }             
     }
 
     const handleSize = (e, newSize) => {
@@ -194,13 +189,13 @@ const DecksPage = () => {
                     handleFlash= {handleFlash}
                 />
                 <Pagination 
-                    list = {decksList.message instanceof Array ? decksList.message : ''}
                     options = {reqOpt}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]}
+                    nextPage={getUserDecks}
                 />
                 <Plus to={'/decks/new-deck'}/>
                 {filterClicked || 
