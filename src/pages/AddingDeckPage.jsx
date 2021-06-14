@@ -1,12 +1,23 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+
+/*api call*/
 import {createUserDeck} from '../api/Decks';
+
+/*layout*/
 import Layout from '../layouts/Layout';
+
+/*components*/
 import InputText from '../components/InputText';
 import CheckBox from '../components/CheckBox';
 import BackButton from '../components/BackButton'
 import NavButton from '../components/NavButton';
 import Flash from '../components/Flash';
-import { RiContactsBookLine } from 'react-icons/ri';
+
+/* Utilities */
+import checkRegex from '../utilities/checkRegex';
+
+/*modules*/
+import regexModule from '../modules/regex';
 
 
 const AddingDeckPage = (props) => {
@@ -36,10 +47,8 @@ const AddingDeckPage = (props) => {
     const handleInputChange = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
         if(e.target.value.length > 0){
-                setInputState(false)
-            }else{
-                setInputState(true);
-            };
+                setInputState(checkRegex(regexModule.regex_deck_name))
+        }
     }
 
     const handleCreate = async (e) => {
