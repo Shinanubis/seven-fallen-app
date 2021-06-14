@@ -131,7 +131,7 @@ const DecksPage = () => {
     useEffect(async () => {
         let response = null;
 
-        if(reqOpt.kingdoms.length > 0){
+        if(reqOpt.kingdoms.length = 0){
             response = await getDecksByKingdoms(reqOpt);
         }else{
             response = await getUserDecks(reqOpt);
