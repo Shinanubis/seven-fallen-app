@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
 function Pagination(props){
@@ -14,6 +14,19 @@ function Pagination(props){
         textClasses, 
         listSize = []
     } = props;
+
+    const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+        if(list instanceof Array){
+            setCounter(prevState => prevState + list.length);
+        }
+    },[list]);
+
+    useEffect(() => {
+        console.log(counter)
+    },[])
+
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
