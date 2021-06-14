@@ -1,10 +1,9 @@
 import Main from '../layouts/Main';
 
 function ModifyDeckPage(props){
-    const id = props.location.deckProps.id;
     return (
         <Main classes="page__deck column justify-center align-center">
-            <p>{id}</p>
+            <p>{props.location.deckProps.id}</p>
         </Main>
     )
 }
