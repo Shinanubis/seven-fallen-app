@@ -6,7 +6,7 @@ const EmptyDecksList = () => {
 
     return (
             <Layout>
-                <div className="decks__list">
+                <div className="deck__list">
                     <p className="deck__list--empty">No Decks</p>
                 </div>
                 <Return />
