@@ -1,11 +1,10 @@
 import Main from '../layouts/Main';
 
 function ModifyDeckPage(props){
-    const id = props.location.deckProps;
+    const id = props.location.deckProps.id;
     return (
         <Main classes="page__deck">
-            {console.log(id)}
-            <p></p>
+            <p>{id}</p>
         </Main>
     )
 }
