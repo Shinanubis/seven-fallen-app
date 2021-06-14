@@ -46,9 +46,7 @@ const AddingDeckPage = (props) => {
 
     const handleInputChange = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
-        if(e.target.value.length > 0){
-                setInputState(!checkRegex(regexModule.regex_deck_name, e.target.value))
-        }
+        setInputState(!checkRegex(regexModule.regex_deck_name, e.target.value))
     }
 
     const handleCreate = async (e) => {
