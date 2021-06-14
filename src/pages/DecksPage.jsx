@@ -139,7 +139,7 @@ const DecksPage = () => {
         if(response.code === 200){
             setDecksList(response);
         }else if(response.code !== 200 && decksList.message instanceof String){
-            setDecksList({code: response.code, message: response.message});
+            setDecksList(response);
             setDeleteResponse({code: response.code, message: response.message});
             setFlashState(false);
         }else{
