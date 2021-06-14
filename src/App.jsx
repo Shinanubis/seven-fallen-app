@@ -66,10 +66,8 @@ function App() {
       strict: true,
       path:'/profile',
       component: ProfilePage
-    
     },
     {
-    
         exact:true,
         strict: true,
         path:'/decks',
@@ -83,11 +81,11 @@ function App() {
         component: AddingDeckPage
     },
     {
-      exact:true,
-      strict: true,
-      path:'/decks/empty',
-      component: EmptyDecksList,
-      props: {text: "No Decks "} 
+        exact:true,
+        strict: true,
+        path:'/decks/empty',
+        component: EmptyDecksList,
+        props: {text: "No Decks "} 
     },
     {
         exact:true,
