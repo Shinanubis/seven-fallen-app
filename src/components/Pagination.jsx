@@ -24,8 +24,11 @@ function Pagination(props){
             newObj.page = prevState.page + 1;
             return newObj;
         });
-        console.log(nextValue)
     },[options]);
+
+    useEffect(() => {
+        console.log(nextValue);
+    },[nextValue])
     
     return (
         <div className={containerClasses ?? "pagination__block"} >
