@@ -46,7 +46,7 @@ const Deck = (props) => {
     }
     
     useEffect(()=> {
-        console.log(reqOptState)
+        console.log("deck id : ", id)
     },[]);
     
     return (
