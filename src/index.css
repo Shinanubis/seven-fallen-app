@@ -337,8 +337,12 @@ code {
   padding-bottom: .25rem;
 }
 
+.form__label--textarea{
+  width:100%;
+}
+
 .form__textarea{
-  
+  width:100%;
 }
 
 .form__checkbox{
