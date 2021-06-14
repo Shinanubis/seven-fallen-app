@@ -21,7 +21,7 @@ function Pagination(props){
     useEffect(async () => {
         setNextValue(prevState => {
             let newObj = {...prevState};
-            newObj.page += 2;
+            newObj.page += 1;
             return newObj;
         });
         console.log(nextValue)
