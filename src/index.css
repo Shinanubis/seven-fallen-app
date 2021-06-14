@@ -645,6 +645,14 @@ svg.dropdown__icon path{
   justify-content: flex-start;
 }
 
+.align-between{
+  align-items: space-between;
+}
+
+.align-center{
+  align-items: center;
+}
+
 .my-1{
   margin: 1vh 0 !important;
 }
