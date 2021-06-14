@@ -16,16 +16,26 @@ function Pagination(props){
         nextPage
     } = props;
 
+    const [canNext, setCanNext] = useState(true);
+
     useEffect(async () => {
         let newObj = {...options};
         newObj.page = options.page + 1;
         let res = await nextPage(newObj);
-        console.log(res)
+
+        if(res.code !== 200){
+            setCanNext(false);
+        }
+
     },[options]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
-            <div className={leftClasses ?? "pagination__arrow"} onClick={(e) => setPage(e, Number(options.page) - 1, options)}><BsChevronLeft/></div>
+            <div className={leftClasses ?? "pagination__arrow"} 
+                 onClick={canNext === true ? (e) => setPage(e, Number(options.page) - 1, options) : null}
+            >
+                <BsChevronLeft/>
+            </div>
                 <div className={containerTextBlockClasses ?? "pagination__text--block"}>
                 {
                     listSize.map((elmt, index) => {
