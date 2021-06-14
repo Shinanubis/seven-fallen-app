@@ -19,7 +19,8 @@ function Pagination(props){
     useEffect(async () => {
         let newObj = {...options};
         newObj.page = options.page + 1;
-        console.log(newObj)
+        let res = await nextPage(newObj);
+        console.log(res)
     },[options]);
 
     return (
