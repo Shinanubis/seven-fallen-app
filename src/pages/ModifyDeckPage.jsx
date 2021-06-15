@@ -7,6 +7,7 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
+        console.log(res);
         setDeckInfos(res.message);
     },[]);
 
