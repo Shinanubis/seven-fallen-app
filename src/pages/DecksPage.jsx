@@ -162,7 +162,8 @@ const DecksPage = () => {
             <Layout>
                 <Filters containerClasses="filter__container row justify-end my-3" isVisible={filterClicked} onClick={handleClickFilter}/>
                 <List classes="list__content layout layout__1">
-                      {decksList.message ?
+                      { 
+                        decksList.message.length > 0 ?
                           decksList.message.map(elmt => {
                                   return(
                                       <Deck id={elmt.id} 
@@ -178,7 +179,12 @@ const DecksPage = () => {
                                             reqOptState = {reqOpt}
                                       />)
                               }
-                          ) : null}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                          ) : 
+                        <p style ={{color: "black"}}>
+                            Empty 
+                        </p>
+
+                        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
                 </List>
 
                 <Flash 
@@ -214,7 +220,7 @@ const DecksPage = () => {
               </Layout>
       )
     }else{
-        return (<Redirect to="/decks/empty"/>);
+        return (<Redirect to="/decks/not-found"/>);
     }
 }
 
