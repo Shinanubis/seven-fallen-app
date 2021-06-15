@@ -20,10 +20,10 @@ function ModifyDeckPage(props){
                     {options && options instanceof Array ?
                         <fieldset>
                             <legend>{optionsName}</legend>
-                            <ul className="row">
+                            <ul className="column">
                                 {
                                     options.map(elmt => ( 
-                                            <li className="mr-3">
+                                            <li className="justify-between mr-3">
                                                 <label htmlFor={elmt[0]}>{elmt[1]}</label>
                                                 <input id={elmt[0]} type="checkbox" value={elmt[0]}/>
                                             </li> 
