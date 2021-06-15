@@ -41,6 +41,8 @@ function ModifyDeckPage(props){
                         <input className="form__checkbox" type="checkbox" />
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
+                    <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
+                    <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
             </form>
         </Main>
