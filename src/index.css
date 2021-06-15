@@ -312,6 +312,7 @@ code {
   margin: 0 auto;
   width:100%;
   padding:10vh 0 4vh 0rem;
+  color:var(--dark-grey);
 }
 
 .form--fieldset{
@@ -761,6 +762,10 @@ svg.dropdown__icon path{
 
 .mr-6{
   margin-right: 6vh !important;
+}
+
+.pb-1{
+  padding-bottom:1vh;
 }
 
 .good__input,
