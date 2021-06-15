@@ -62,7 +62,17 @@ const Deck = (props) => {
                     <div className="action" onClick={(e) => handleClick(e, listState, id)}><AiFillCloseCircle/></div>
                     <Link className="action" to={{
                         pathname: '/decks/modify',
-                        deckProps: {id: id}
+                        deckProps: {id: id},
+                        options:[
+                            [1, 'Poseidia'],
+                            [2, 'Eondra'],
+                            [3, 'Endless night'],
+                            [4, 'MetaScience'],
+                            [5, 'The light\'s temple'],
+                            [6, 'Celestial purity'],
+                            [7, 'The saber\'s way'],
+                        ],
+                        optionName:'Kingdoms'
                     }}><BsPencil/></Link>
                 </div>
             </div>

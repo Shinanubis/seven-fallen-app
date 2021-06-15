@@ -3,7 +3,7 @@ import {useEffect,useState} from 'react';
 import {getOne} from '../api/Decks';
 
 function ModifyDeckPage(props){
-    const {options, optionsName} = props;
+    const {options, optionsName} = props.location;
     const [deckInfos, setDeckInfos] = useState({});
 
     useEffect(async () => {
