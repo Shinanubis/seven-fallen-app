@@ -16,6 +16,8 @@ function ModifyDeckPage(props){
             <form className="form">
                 <div className="form--section column">
                     <input className="form--input mb-3" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    <label className="form__label">Public</label>
+                    <input className="form__checkbox" type="checkbox" />
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
             </form>
