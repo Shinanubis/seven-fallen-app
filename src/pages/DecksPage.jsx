@@ -180,7 +180,7 @@ const DecksPage = () => {
                                       />)
                               }
                           ) : 
-                        <p style ={{color: "black"}}>
+                        <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
                             Empty 
                         </p>
 
