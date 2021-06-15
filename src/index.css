@@ -315,10 +315,6 @@ code {
   color:var(--dark-grey);
 }
 
-.form--fieldset{
-  color: var(--dark-grey);
-}
-
 .form--container{
   width:100%;
   overflow-y: scroll; /* has to be scroll, not auto */
@@ -765,7 +761,15 @@ svg.dropdown__icon path{
 }
 
 .pb-1{
-  padding-bottom:1vh;
+  padding-bottom:1vh !important;
+}
+
+.px-1{
+  padding: 0 1vh !important;
+}
+
+.px-2{
+  padding: 0 2vh !important;
 }
 
 .good__input,
