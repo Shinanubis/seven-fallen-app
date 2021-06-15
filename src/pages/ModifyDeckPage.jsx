@@ -14,7 +14,7 @@ function ModifyDeckPage(props){
         <Main classes="page page__deck">
             <form className="form">
                 <div className="form--section column">
-                    <input className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    <input className="form--input mb3" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
             </form>

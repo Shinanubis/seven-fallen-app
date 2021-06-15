@@ -344,7 +344,7 @@ code {
 }
 
 .form__textarea{
-  width:100%;
+  width:97%;
   resize:none;
   overflow: auto;
 }
