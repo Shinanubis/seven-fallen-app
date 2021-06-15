@@ -8,7 +8,6 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
-        console.log(res);
         setDeckInfos(res.message);
     },[]);
 
@@ -17,6 +16,8 @@ function ModifyDeckPage(props){
             <form className="form">
                 <div className="form--section column">
                     <input className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    <p>Cards number : {deckInfos.num_cards}</p>
+                    <p>Total Celestian energy : {deckInfos.total_ec}</p>
                     {options && options instanceof Array ?
                         <fieldset className="pb-2 mb-2">
                             <legend className="pb-1">{optionsName}</legend>
