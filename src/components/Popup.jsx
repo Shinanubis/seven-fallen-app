@@ -16,10 +16,6 @@ function Popup(props) {
                         </div>
                     </div>
                     {Object.keys(datas).map(title => {
-                        if(title === "form"){
-                            return;
-                        }
-
                         if(datas[title].type === "checkbox"){                            
                             return (
                                 <div className="popup__form--section">

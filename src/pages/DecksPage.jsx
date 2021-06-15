@@ -30,9 +30,6 @@ const DecksPage = () => {
     const [openModifyDeck, setOpenModifyDeck] = useState(false);
 
     const popupDatas = {
-        "form":{
-
-        },
         "List by kingdoms": {
             displayed: ['Poseidia', 'Eondra', 'Endless night', 'MetaScience', 'The light\'s temple', 'Celestial purity', 'The saber\'s way'],
             values: [1,2, 3, 4, 5, 6, 7],
