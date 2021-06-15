@@ -18,7 +18,7 @@ function ModifyDeckPage(props){
                 <div className="form--section column">
                     <input className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     {options && options instanceof Array ?
-                        <fieldset className="px-1 mb-2">
+                        <fieldset className="px-2 mb-2">
                             <legend className="pb-1">{optionsName}</legend>
                             <ul className="column">
                                 {
