@@ -3,6 +3,7 @@ import {useEffect,useState} from 'react';
 import {getOne} from '../api/Decks';
 
 function ModifyDeckPage(props){
+    const {options, optionsName} = props;
     const [deckInfos, setDeckInfos] = useState({});
 
     useEffect(async () => {
@@ -15,9 +16,27 @@ function ModifyDeckPage(props){
         <Main classes="page page__deck">
             <form className="form">
                 <div className="form--section column">
-                    <input className="form--input mb-3" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    <input className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    {options && options instanceof Array ?
+                        <fieldset>
+                            <legend>{optionsName}</legend>
+                            <ul className="row">
+                                {
+                                    options.map(elmt => ( 
+                                            <li className="mr-3">
+                                                <label htmlFor={elmt[0]}>{elmt[1]}</label>
+                                                <input id={elmt[0]} type="checkbox" value={elmt[0]}/>
+                                            </li> 
+                                        )
+                                    )
+                                }
+                            </ul>
+                        </fieldset>
+                        :
+                        null
+                    }
                     <div className="form__option--block row mb-3">
-                        <label className="form__label mr-1">Public</label>
+                        <label className="form__label mr-2">Public</label>
                         <input className="form__checkbox" type="checkbox" />
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
