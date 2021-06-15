@@ -24,8 +24,8 @@ function ModifyDeckPage(props){
                                 {
                                     options.map(elmt => ( 
                                             <li className="justify-between">
-                                                <label htmlFor={elmt[0]}>{elmt[1]}</label>
-                                                <input id={elmt[0]} type="checkbox" value={elmt[0]}/>
+                                                <label className="form__label" htmlFor={elmt[0]}>{elmt[1]}</label>
+                                                <input id={elmt[0]} className="form__checkbox" type="checkbox" value={elmt[0]}/>
                                             </li> 
                                         )
                                     )
