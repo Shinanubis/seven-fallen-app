@@ -212,10 +212,8 @@ const DecksPage = () => {
                         onClickButton = {handleClickPopupButton}
                         onClickOptions = {handleClickPopupOptions} 
                         buttonResetText="Reset"
-                        buttonClickText="ok" 
                         actionClose={handleClosePopup}
                         actionReset={handleResetPopup}
-                        actionClick={handleClickPopupButton}
                     />}
               </Layout>
       )
