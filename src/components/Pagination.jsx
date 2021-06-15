@@ -24,7 +24,7 @@ function Pagination(props){
         newObj.page = options.page + 1;
         let res = await nextPage(newObj);
 
-        if(res.code !== 200){
+        if(res.code === 200 && res.message.length === 0){
             setCanNext(false);
         }else{
             setCanNext(true);

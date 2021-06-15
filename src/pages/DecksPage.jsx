@@ -43,9 +43,7 @@ const DecksPage = () => {
                     if(prevState.kingdoms instanceof Array){
                         newKingdomsArray = [...prevState.kingdoms];
                     }
-                    
                     if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
-
                     if(e.target.checked === false) {
                         let index = newKingdomsArray.indexOf(e.target.value);
                         if(index > -1){
