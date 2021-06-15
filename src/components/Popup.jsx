@@ -16,6 +16,10 @@ function Popup(props) {
                         </div>
                     </div>
                     {Object.keys(datas).map(title => {
+                        if(title === "form"){
+                            return;
+                        }
+
                         if(datas[title].type === "checkbox"){                            
                             return (
                                 <div className="popup__form--section">
@@ -48,6 +52,7 @@ function Popup(props) {
                                 </div>
                             )
                         }
+
                     })}
                     <button type="reset" className="btn popup__button" onClick={actionReset}>{buttonResetText}</button>
                 </form>
