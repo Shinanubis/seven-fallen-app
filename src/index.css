@@ -760,8 +760,20 @@ svg.dropdown__icon path{
   margin-right: 6vh !important;
 }
 
+.p-1{
+  padding: 1vh !important;
+}
+
+.p-2{
+  padding: 2vh !important;
+}
+
 .pb-1{
   padding-bottom:1vh !important;
+}
+
+.pb-2{
+  padding-bottom:2vh !important;
 }
 
 .px-1{
