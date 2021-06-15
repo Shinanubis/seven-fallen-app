@@ -72,7 +72,7 @@ const Deck = (props) => {
                             [6, 'Celestial purity'],
                             [7, 'The saber\'s way'],
                         ],
-                        optionName:'Kingdoms'
+                        optionsName:'Kingdoms'
                     }}><BsPencil/></Link>
                 </div>
             </div>
