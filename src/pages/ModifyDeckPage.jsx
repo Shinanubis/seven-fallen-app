@@ -11,18 +11,12 @@ function ModifyDeckPage(props){
 
     const handleChange = (e) => {
         e.preventDefault();
-
         switch(e.target.id){
 
             case 'description':
                   setDeckInfos({...deckInfos, description: e.target.value});
                   break;
-            case 'kingdoms':
-                  setDeckInfos(prevState => {
-                      const newVal = [...prevState.kingdom, e.target.value];
-                      return newVal
-                  });
-                  break;
+                  
                   default:
                       return;
         }
@@ -75,7 +69,6 @@ function ModifyDeckPage(props){
                         null
                     }
                     <div className="form__option--block row mb-2">
-                        {console.log(deckInfos)}
                         <label className="form__label mr-2" htmlFor="isVisible">Public</label>
                         <input id="isVisible" className="form__checkbox" type="checkbox" checked={deckInfos.is_visible}/>
                     </div>
