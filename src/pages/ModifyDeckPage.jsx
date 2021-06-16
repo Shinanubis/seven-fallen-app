@@ -68,7 +68,11 @@ function ModifyDeckPage(props){
     }
 
     useEffect(() => {
-        console.log(deckName)
+        
+        if(checkRegex(regexModule.regex_deck_name, deckName.current.value) === true){
+            deckName.classList.add('good__input');
+        }
+
         return () => {
             if(deckName.current.classList.contains('good__input')){
                 deckName.current.classList.remove('good__input');
