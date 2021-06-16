@@ -12,7 +12,7 @@ function ModifyDeckPage(props){
     const handleChange = (e) => {
         e.preventDefault();
 
-        switch(e.target.id || e.target.name){
+        switch(e.target.id){
 
             case 'description':
                   setDeckInfos({...deckInfos, description: e.target.value});
@@ -20,14 +20,16 @@ function ModifyDeckPage(props){
             case 'kingdoms':
                   setDeckInfos(prevState => {
                       const newVal = [...prevState.kingdom, e.target.value];
-                      console.log(newVal)
                       return newVal
                   });
                   break;
                   default:
                       return;
         }
-        console.log(deckInfos)
+        
+        if(e.target.name === 'kingdoms'){
+            console.log(e.target.value)
+        }
     }
 
     const handleClick = async (e) => {
