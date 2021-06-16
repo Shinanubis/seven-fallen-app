@@ -175,6 +175,8 @@ code {
   min-height: 100%;
   width: 100%;
   background-color: var(--white);
+  padding-top: 15vh;
+  padding-bottom: 5vh;
 }
 
 /* popup */
