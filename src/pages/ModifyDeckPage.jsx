@@ -17,7 +17,7 @@ function ModifyDeckPage(props){
             case 'description':
                   setDeckInfos({...deckInfos, description: e.target.value});
                   break;
-            case 'kingdoms':
+            case 'kingdom':
                   setDeckInfos(prevState => {
                       const newVal = [...prevState.kingdom, e.target.value];
                       return newVal
