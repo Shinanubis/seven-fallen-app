@@ -65,7 +65,7 @@ function ModifyDeckPage(props){
                                                        className="form__checkbox" 
                                                        type="checkbox" 
                                                        name="kingdoms" 
-                                                       checked="false"
+                                                       checked={false}
                                                 />
                                             </li> 
                                         )
