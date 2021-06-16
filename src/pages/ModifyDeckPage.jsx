@@ -11,11 +11,8 @@ function ModifyDeckPage(props){
     const deckName = useRef(null);
 
     /* handling functions */
-
     const handleChange = (e) => {
-
         if(e.target.name === 'kingdoms'){
-
             if(e.target.checked === true){
                 setDeckInfos(prevState => {
                     let newArr = prevState.kingdom === null ? [Number(e.target.id)] : [...prevState.kingdom, Number(e.target.id)];
