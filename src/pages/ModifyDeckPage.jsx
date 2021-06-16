@@ -14,7 +14,10 @@ function ModifyDeckPage(props){
         
         if(e.target.name === 'kingdoms'){
             setDeckInfos(prevState => {
-                const newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
+                let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
+                const newSet = new Set(newArr);
+                newArr = Array.from(newSet);
+                e.target.checked = !e.target.checked;
                 return {
                     ...prevState,
                     kingdom: newArr
@@ -41,7 +44,7 @@ function ModifyDeckPage(props){
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
         setDeckInfos(res.message);
-        console.log(res)
+        console.log(deckInfos)
     },[]);
 
     return (
