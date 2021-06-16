@@ -98,6 +98,7 @@ function ModifyDeckPage(props){
         if(updateRes.code === 200){
             setFlashState(true);
         }else if(updateRes.code !== 200){
+            console.log(updateRes)
             setResponse(updateRes);
             setFlashState(true);
         }else{
@@ -171,7 +172,6 @@ function ModifyDeckPage(props){
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
-            {console.log(response)}
             <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
