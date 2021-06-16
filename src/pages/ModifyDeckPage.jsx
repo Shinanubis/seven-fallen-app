@@ -10,12 +10,8 @@ function ModifyDeckPage(props){
     /* handling functions */
 
     const handleChange = (e) => {
-        e.preventDefault();
-        
         if(e.target.name === 'kingdoms'){
             
-            console.log(e.target)
-
             setDeckInfos(prevState => {
                 let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
                 const newSet = new Set(newArr);
