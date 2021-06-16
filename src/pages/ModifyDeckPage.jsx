@@ -94,10 +94,15 @@ function ModifyDeckPage(props){
         });
 
         let updateRes = await updateOne(form, deckInfos.id);
+        setResponse(updateRes);
+        
         if(updateRes.code === 200){
             setFlashState(true);
+        }else if(updateRes.code !== 200){
+            setFlashState(false);
+        }else{
+            setFlashState(null)
         }
-        setResponse(updateRes);
     }
 
     useEffect(() => {
