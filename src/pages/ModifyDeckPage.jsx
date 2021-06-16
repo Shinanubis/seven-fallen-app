@@ -22,7 +22,7 @@ function ModifyDeckPage(props){
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
         setDeckInfos(res.message);
-        console.log(deckInfos)
+        console.log(res)
     },[]);
 
     return (
@@ -52,7 +52,7 @@ function ModifyDeckPage(props){
                     }
                     <div className="form__option--block row mb-2">
                         <label className="form__label mr-2" htmlFor="isVisible">Public</label>
-                        <input id="isVisible" className="form__checkbox" type="checkbox" checked={deckInfos.isVisible.toString()} />
+                        <input id="isVisible" className="form__checkbox" type="checkbox" />
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
