@@ -59,12 +59,15 @@ function ModifyDeckPage(props){
         if(e.target.id === 'deck_name'){
             setDeckInfos({...deckInfos, deck_name: e.target.value});
         }
-        console.log(deckInfos)
     }   
 
     const handleClick = async (e) => {
         e.preventDefault();
-
+        let form = new FormData();
+        Object.keys(deckInfos).map(elmt => {
+            form.append(elmt, deckInfos[elmt]);
+        });
+        console.log(form);
     }
 
     useEffect(() => {
