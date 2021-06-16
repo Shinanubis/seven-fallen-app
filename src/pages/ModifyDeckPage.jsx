@@ -11,9 +11,12 @@ function ModifyDeckPage(props){
 
     const handleChange = (e) => {
         e.preventDefault();
-        console.log(e.target.name)
-        switch(e.target.id){
+        
+        if(e.target.name === 'kingdoms'){
+            console.log(e.target.id);
+        }
 
+        switch(e.target.id){
             case 'description':
                   setDeckInfos({...deckInfos, description: e.target.value});
                   break;
