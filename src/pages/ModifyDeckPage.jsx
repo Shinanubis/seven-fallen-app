@@ -80,7 +80,7 @@ function ModifyDeckPage(props){
                                                        className="form__checkbox" 
                                                        type="checkbox" 
                                                        name="kingdoms"
-                                                       defaultChecked={deckInfos.kingdom && deckInfos.kingdom.includes(elmt[0]) === true ? true : false}
+                                                       checked={deckInfos.kingdom && deckInfos.kingdom.includes(elmt[0]) === true ? true : false}
                                                        value={elmt[0]}
                                                 />
                                             </li> 
