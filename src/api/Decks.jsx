@@ -95,10 +95,8 @@ async function updateOne(form, id){
     };
 
     let response = await fetch(`https://test-seven.site/api/decks/update/${id}`, settings);
-    if(response.ok){
-        let datas = await response.json();
-        return datas;
-    }
+    let datas = await response.json();
+    return datas;
 
 }
 
