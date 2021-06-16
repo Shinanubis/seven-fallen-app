@@ -69,7 +69,7 @@ function ModifyDeckPage(props){
         });
         
         for(let pair of form.entries()){
-            console.log(pair[0] + ',' + pair[1])
+            console.log(pair[0] + ' : ' + pair[1])
         }
     }
 
