@@ -5,7 +5,15 @@ import Button from '../components/Button';
 
 function ModifyDeckPage(props){
     const {options, optionsName} = props.location;
-    const [deckInfos, setDeckInfos] = useState({});
+    const [deckInfos, setDeckInfos] = useState({
+        id: '',
+        deck_name: '',
+        description: 0,
+        is_visible: false,
+        kingdom: [],
+        num_cards: 0,
+        total_ec: 0
+    });
 
     /* handling functions */
 
