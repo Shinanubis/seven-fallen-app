@@ -93,9 +93,8 @@ function ModifyDeckPage(props){
             }
         });
 
-        let updateRes = await updateOne(form, deckInfos.id);
-        setResponse(updateRes);
-        
+        let updateRes = await updateOne(form, 102);
+        setResponse(updateRes);      
         if(updateRes.code === 200){
             setFlashState(true);
         }else if(updateRes.code !== 200){
