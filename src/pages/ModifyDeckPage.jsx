@@ -1,18 +1,37 @@
-import Main from '../layouts/Main';
+
 import {useEffect,useState, useRef} from 'react';
-import {getOne} from '../api/Decks';
+
+/* layout parts */
+import Main from '../layouts/Main';
+
+/* components */
 import Button from '../components/Button';
+import Flash from '../components/Flash';
+
+/* modules */
 import regexModule from '../modules/regex';
+
+/* api*/
+import { updateOne,getOne } from'../api/Decks.jsx';
+
+/* utilities */
 import checkRegex from '../utilities/checkRegex';
-import { updateOne } from'../api/Decks.jsx';
 import { serialize } from '../utilities/serialize';
 
 function ModifyDeckPage(props){
+
     const {options, optionsName} = props.location;
     const [deckInfos, setDeckInfos] = useState({});
+    const [flashState, setFlashState] = useState(false);
+    const [response, setResponse] = useState('');
     const deckName = useRef(null);
 
     /* handling functions */
+
+    const handleFlash = (newFlashState) => {
+        setFlashState(newFlashState);
+    };
+    
     const handleChange = (e) => {
         if(e.target.name === 'kingdoms'){
             if(e.target.checked === true){
@@ -73,7 +92,12 @@ function ModifyDeckPage(props){
                 form.append(elmt, deckInfos[elmt]);
             }
         });
-        updateOne(form, deckInfos.id);
+
+        let updateRes = await updateOne(form, deckInfos.id);
+        if(updateRes.code === 200){
+            setFlashState(true);
+        }
+        setResponse(updateRes);
     }
 
     useEffect(() => {
@@ -142,6 +166,15 @@ function ModifyDeckPage(props){
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
+            <Flash 
+                    classes="message__flash" 
+                    errorClass="message__flash-error" 
+                    successClass="message__flash-done" 
+                    message={response.message ? response.message : "flash message"}
+                    timing={750}
+                    flash={flashState}
+                    handleFlash={handleFlash}
+                />
         </Main>
     )
 }
