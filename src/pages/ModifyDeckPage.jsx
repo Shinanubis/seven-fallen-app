@@ -65,7 +65,7 @@ function ModifyDeckPage(props){
                                                        className="form__checkbox" 
                                                        type="checkbox" 
                                                        name="kingdoms" 
-                                                       checked={deckInfos.kingdom instanceof Array && deckInfos.kingdom.includes(elmt[0])} value={elmt[0]}
+                                                       checked="false"
                                                 />
                                             </li> 
                                         )
