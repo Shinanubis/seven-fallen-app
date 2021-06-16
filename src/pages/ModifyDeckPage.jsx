@@ -1,12 +1,19 @@
 import Main from '../layouts/Main';
 import {useEffect,useState} from 'react';
 import {getOne} from '../api/Decks';
+import Button from '../components/Button';
 
 function ModifyDeckPage(props){
     const {options, optionsName} = props.location;
     const [deckInfos, setDeckInfos] = useState({});
 
-    const handleCheckbox = (e) => {
+    const handleChange = (e) => {
+        e.preventDefault();
+        console.log(e.target.id);
+    }
+
+    const handleClick = async (e) => {
+        e.preventDefault();
 
     }
 
@@ -17,7 +24,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            <form className="form">
+            <form className="form" onChange={handleChange}>
                 <div className="form--section column">
                     <input className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <p className="row justify-start mb-1" >Cards number : {deckInfos.num_cards}</p>
@@ -46,6 +53,7 @@ function ModifyDeckPage(props){
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
+                <Button onClick={handleClick} text="update" />
             </form>
         </Main>
     )
