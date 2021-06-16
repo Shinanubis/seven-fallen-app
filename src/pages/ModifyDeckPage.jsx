@@ -11,7 +11,13 @@ function ModifyDeckPage(props){
 
     const handleChange = (e) => {
         if(e.target.name === 'kingdoms'){
-            
+
+            if(e.target.checked === true){
+                console.log("i\'m true");
+            }else{
+                console.log("i'm false");
+            }
+
             setDeckInfos(prevState => {
                 let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
                 const newSet = new Set(newArr);
@@ -62,7 +68,8 @@ function ModifyDeckPage(props){
                                                        id={elmt[0]} 
                                                        className="form__checkbox" 
                                                        type="checkbox" 
-                                                       name="kingdoms" 
+                                                       name="kingdoms"
+                                                       checked={deckInfos.kingdom instanceof Array && deckInfos.kingdom.includes(elmt[0])} 
                                                 />
                                             </li> 
                                         )
