@@ -13,6 +13,7 @@ function ModifyDeckPage(props){
         e.preventDefault();
         
         if(e.target.name === 'kingdoms'){
+            e.target.checked = true;
             setDeckInfos(prevState => {
                 let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
                 const newSet = new Set(newArr);
@@ -45,6 +46,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
+            {console.log(deckInfos)}
             <form className="form" onChange={handleChange}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
@@ -52,7 +54,7 @@ function ModifyDeckPage(props){
                     <p className="row jsutify-start mb-2">Total Celestian energy : {deckInfos.total_ec}</p>
                     {options && options instanceof Array ?
                         <fieldset className="pb-2 mb-2">
-                            <legend className="pb-1">{optionsName}</legend>
+                            <legend className="px-2">{optionsName}</legend>
                             <ul id="kingdoms__list" className="column">
                                 {
                                     options.map(elmt => ( 
