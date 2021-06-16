@@ -27,7 +27,7 @@ function ModifyDeckPage(props){
                 setDeckInfos(prevState => {
                     let newArr = [...prevState.kingdom];
                     const index = newArr.indexOf(e.target.value);
-                    {console.log()}
+                    {console.log(index)}
                     if(index > -1){
                         newArr.splice(index, 1);
                     }
