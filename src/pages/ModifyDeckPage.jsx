@@ -20,7 +20,7 @@ function ModifyDeckPage(props){
                     newArr = Array.from(newSet);
                     return {
                         ...prevState,
-                        kingdom: newArr
+                        kingdom: newArr.sort()
                     };
                 });
             }else{
@@ -33,7 +33,7 @@ function ModifyDeckPage(props){
 
                     return {
                         ...prevState,
-                        kingdom: newArr
+                        kingdom: newArr.sort()
                     }
 
                 })
