@@ -46,7 +46,6 @@ function ModifyDeckPage(props){
         }
         
         if(e.target.id === 'deck_name'){
-            console.log(deckName.current)
             setDeckInfos({...deckInfos, deck_name: e.target.value})
         }
 
@@ -69,6 +68,7 @@ function ModifyDeckPage(props){
     }
 
     useEffect(() => {
+        console.log(deckName)
         return () => {
             if(deckName.current.classList.contains('good__input')){
                 deckName.current.classList.remove('good__input');
@@ -78,7 +78,7 @@ function ModifyDeckPage(props){
                 deckName.current.classList.remove('bad__input');
             };
         }
-    });
+    }, [deckInfos]);
 
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
