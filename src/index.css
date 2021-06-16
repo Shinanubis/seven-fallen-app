@@ -350,6 +350,7 @@ code {
   width:97%;
   resize:none;
   overflow: auto;
+  height: 20vh;
 }
 
 .form__checkbox{
