@@ -29,7 +29,7 @@ function ModifyDeckPage(props){
         <Main classes="page page__deck">
             <form className="form" onChange={handleChange}>
                 <div className="form--section column">
-                    <input className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    <input id="deck_name" className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <p className="row justify-start mb-1" >Cards number : {deckInfos.num_cards}</p>
                     <p className="row jsutify-start mb-2">Total Celestian energy : {deckInfos.total_ec}</p>
                     {options && options instanceof Array ?
