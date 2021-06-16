@@ -65,7 +65,7 @@ function ModifyDeckPage(props){
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
         setDeckInfos(res.message);
-    });
+    },[]);
 
     return (
         <Main classes="page page__deck">
