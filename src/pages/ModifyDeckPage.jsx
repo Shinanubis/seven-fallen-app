@@ -22,7 +22,7 @@ function ModifyDeckPage(props){
 
     const {options, optionsName} = props.location;
     const [deckInfos, setDeckInfos] = useState({});
-    const [flashState, setFlashState] = useState(false);
+    const [flashState, setFlashState] = useState(null);
     const [response, setResponse] = useState('');
     const deckName = useRef(null);
 
@@ -31,7 +31,7 @@ function ModifyDeckPage(props){
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
     };
-    
+
     const handleChange = (e) => {
         if(e.target.name === 'kingdoms'){
             if(e.target.checked === true){
