@@ -14,7 +14,7 @@ function ModifyDeckPage(props){
         
         if(e.target.name === 'kingdoms'){
             setDeckInfos(prevState => {
-                const newArr = [...prevState.kingdom, e.target.id];
+                const newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
                 return {
                     ...prevState,
                     kingdom: newArr
