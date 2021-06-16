@@ -1,11 +1,14 @@
 import Main from '../layouts/Main';
-import {useEffect,useState} from 'react';
+import {useEffect,useState, useRef} from 'react';
 import {getOne} from '../api/Decks';
 import Button from '../components/Button';
+import regexModule from '../modules/regex';
+import checkRegex from '../utilities/checkRegex';
 
 function ModifyDeckPage(props){
     const {options, optionsName} = props.location;
     const [deckInfos, setDeckInfos] = useState({});
+    const deckName = useRef(null);
 
     /* handling functions */
 
@@ -41,6 +44,21 @@ function ModifyDeckPage(props){
                 })
             }
         }
+        
+        if(e.target.id === 'deck_name'){
+
+            if(checkRegex(regexModule.regex_deck_name, e.target.value)){
+
+                setDeckInfos({...deckInfos, deck_name: e.target.value});
+                deckName.current.classList.add('good__input');
+            }
+
+            if(checkRegex(regexModule.regex_deck_name, e.target.value)){
+                
+                setDeckInfos({...deckInfos, deck_name: e.target.value});
+                deckName.current.classList.add('bad__input');
+            }
+        }
 
         if(e.target.id === 'description'){
             setDeckInfos({...deckInfos, description: e.target.value});
@@ -51,10 +69,26 @@ function ModifyDeckPage(props){
         }
     }
 
+    const handleBlur = (e) => {
+
+    }
+
     const handleClick = async (e) => {
         e.preventDefault();
 
     }
+
+    useEffect(() => {
+        return () => {
+            if(deckName.current.classList.contains('good__input')){
+                deckName.current.classList.remove('good__input');
+            };
+
+            if(deckName.current.classList.contains('bad__input')){
+                deckName.current.classList.remove('bad__input');
+            };
+        }
+    });
 
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
@@ -63,10 +97,9 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            {console.log(deckInfos)}
             <form className="form" onChange={handleChange}>
                 <div className="form--section column">
-                    <input id="deck_name" className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
+                    <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <p className="row justify-start mb-1" >Cards number : {deckInfos.num_cards}</p>
                     <p className="row jsutify-start mb-2">Total Celestian energy : {deckInfos.total_ec}</p>
                     {options && options instanceof Array ?
