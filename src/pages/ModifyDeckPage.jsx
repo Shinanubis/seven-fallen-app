@@ -9,7 +9,7 @@ function ModifyDeckPage(props){
         id: '',
         deck_name: '',
         description: 0,
-        is_visible: false,
+        is_visible: true,
         kingdom: [],
         num_cards: 0,
         total_ec: 0
