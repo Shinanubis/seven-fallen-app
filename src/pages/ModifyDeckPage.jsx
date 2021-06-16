@@ -47,17 +47,11 @@ function ModifyDeckPage(props){
         
         if(e.target.id === 'deck_name'){
 
-            if(checkRegex(regexModule.regex_deck_name, e.target.value)){
-
-                setDeckInfos({...deckInfos, deck_name: e.target.value});
+            if(checkRegex(regexModule.deck_name, e.target.value)){
                 deckName.current.classList.add('good__input');
             }
-
-            if(checkRegex(regexModule.regex_deck_name, e.target.value)){
-                
-                setDeckInfos({...deckInfos, deck_name: e.target.value});
-                deckName.current.classList.add('bad__input');
-            }
+            
+            setDeckInfos({...deckInfos, deck_name: e.target.value})
         }
 
         if(e.target.id === 'description'){
