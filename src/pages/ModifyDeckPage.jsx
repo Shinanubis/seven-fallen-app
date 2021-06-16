@@ -8,7 +8,7 @@ function ModifyDeckPage(props){
     const [deckInfos, setDeckInfos] = useState({});
 
     /* handling functions */
-    
+
     const handleChange = (e) => {
         e.preventDefault();
         console.log(e.target.id);
