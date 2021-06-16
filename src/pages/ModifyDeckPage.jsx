@@ -16,6 +16,8 @@ function ModifyDeckPage(props){
             
             if(!e.target.checked){
                 e.target.checked = true;
+            }else{
+                e.target.checked = false;
             }
 
             setDeckInfos(prevState => {
