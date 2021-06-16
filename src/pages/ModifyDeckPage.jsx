@@ -56,8 +56,11 @@ function ModifyDeckPage(props){
     }
 
     const handleBlur = (e) => {
-
-    }
+        if(e.target.id === 'deck_name'){
+            setDeckInfos({...deckInfos, deck_name: e.target.value});
+        }
+        console.log(deckInfos)
+    }   
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -92,7 +95,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            <form className="form" onChange={handleChange}>
+            <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <p className="row justify-start mb-1" >Cards number : {deckInfos.num_cards}</p>
