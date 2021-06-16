@@ -14,7 +14,7 @@ function ModifyDeckPage(props){
         
         if(e.target.name === 'kingdoms'){
             if(e.target.checked === true){
-                e.target.checked = "true";
+                e.target.checked = true;
             }
             setDeckInfos(prevState => {
                 let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
