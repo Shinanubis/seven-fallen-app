@@ -45,7 +45,7 @@ function ModifyDeckPage(props){
         }
 
         if(e.target.id === 'isVisible'){
-            setDeckInfos({...deckInfos, is_visible: e.target.value});
+            setDeckInfos({...deckInfos, is_visible: e.target.checked});
         }
     }
 
