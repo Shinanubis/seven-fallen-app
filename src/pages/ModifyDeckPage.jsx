@@ -171,6 +171,7 @@ function ModifyDeckPage(props){
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
+            {console.log(response)}
             <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
