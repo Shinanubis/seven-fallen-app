@@ -67,7 +67,10 @@ function ModifyDeckPage(props){
         Object.keys(deckInfos).map(elmt => {
             form.append(elmt, deckInfos[elmt]);
         });
-        console.log(form);
+        
+        for(let pair of form.entries()){
+            console.log(pair[0] + ',' + pair[1])
+        }
     }
 
     useEffect(() => {
