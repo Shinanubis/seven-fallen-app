@@ -73,6 +73,10 @@ function ModifyDeckPage(props){
             deckName.current.classList.add('good__input');
         }
 
+        if(checkRegex(regexModule.regex_deck_name, deckName.current.value) === false){
+            deckName.current.classList.add('bad__input');
+        }
+
         return () => {
             if(deckName.current.classList.contains('good__input')){
                 deckName.current.classList.remove('good__input');
