@@ -4,6 +4,7 @@ import {getOne} from '../api/Decks';
 import Button from '../components/Button';
 import regexModule from '../modules/regex';
 import checkRegex from '../utilities/checkRegex';
+import { updateOne } from'../api/Decks.jsx'
 
 function ModifyDeckPage(props){
     const {options, optionsName} = props.location;
@@ -67,10 +68,7 @@ function ModifyDeckPage(props){
         Object.keys(deckInfos).map(elmt => {
             form.append(elmt, deckInfos[elmt]);
         });
-        
-        for(let pair of form.entries()){
-            console.log(pair[0] + ' : ' + pair[1])
-        }
+        updateOne(form, deckInfos.id);
     }
 
     useEffect(() => {
