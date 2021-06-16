@@ -40,7 +40,13 @@ function ModifyDeckPage(props){
                                     options.map(elmt => ( 
                                             <li key={elmt[0]} className="row justify-between">
                                                 <label className="form__label" htmlFor={elmt[0]}>{elmt[1]}</label>
-                                                <input id={elmt[0]} className="form__checkbox" type="checkbox" name="kingdoms" value={elmt[0]}/>
+                                                <input 
+                                                       id={elmt[0]} 
+                                                       className="form__checkbox" 
+                                                       type="checkbox" 
+                                                       name="kingdoms" 
+                                                       checked={deckInfos.kingdom instanceof Array && deckInfos.kingdom.includes(elmt[0])} value={elmt[0]}
+                                                />
                                             </li> 
                                         )
                                     )
@@ -53,7 +59,7 @@ function ModifyDeckPage(props){
                     <div className="form__option--block row mb-2">
                         {console.log(deckInfos)}
                         <label className="form__label mr-2" htmlFor="isVisible">Public</label>
-                        <input id="isVisible" className="form__checkbox" type="checkbox" checked={!deckInfos.is_visible}/>
+                        <input id="isVisible" className="form__checkbox" type="checkbox" checked={deckInfos.is_visible}/>
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
