@@ -13,17 +13,24 @@ function ModifyDeckPage(props){
         e.preventDefault();
         
         if(e.target.name === 'kingdoms'){
-            console.log(e.target.id);
+            setDeckInfos(prevState => {
+                const newArr = [...prevState.kingdom, e.target.id];
+                return {
+                    ...prevState,
+                    kingdom: newArr
+                };
+            });
         }
 
-        switch(e.target.id){
-            case 'description':
-                  setDeckInfos({...deckInfos, description: e.target.value});
-                  break;
-
-                  default:
-                      return;
+        if(e.target.id === 'description'){
+            setDeckInfos({...deckInfos, description: e.target.value});
         }
+
+        if(e.target.id === 'isVisible'){
+            setDeckInfos({...deckInfos, is_visible: e.target.value});
+        }
+
+        console.log(deckInfos)
     }
 
     const handleClick = async (e) => {
