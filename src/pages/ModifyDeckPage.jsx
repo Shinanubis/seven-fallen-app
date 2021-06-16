@@ -57,11 +57,11 @@ function ModifyDeckPage(props){
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
         setDeckInfos(res.message);
-        console.log(deckInfos);
     },[]);
 
     return (
         <Main classes="page page__deck">
+            {console.log(deckInfos)}
             <form className="form" onChange={handleChange}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" type="text" placeholder="deck name" value={deckInfos.deck_name}/>
