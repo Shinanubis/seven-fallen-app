@@ -20,6 +20,7 @@ function ModifyDeckPage(props){
             case 'kingdoms':
                   setDeckInfos(prevState => {
                       const newVal = [...prevState.kingdom, e.target.value];
+                      console.log(newVal)
                       return newVal
                   });
                   break;
