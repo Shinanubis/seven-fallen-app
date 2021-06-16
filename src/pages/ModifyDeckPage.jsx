@@ -23,7 +23,9 @@ function ModifyDeckPage(props){
                         kingdom: newArr.sort()
                     };
                 });
-            }else{
+            }
+            
+            if(e.target.checked === false){
                 setDeckInfos(prevState => {
                     let newArr = [...prevState.kingdom];
                     const index = newArr.indexOf(Number(e.target.value));
