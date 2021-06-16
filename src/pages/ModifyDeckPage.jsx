@@ -98,7 +98,8 @@ function ModifyDeckPage(props){
         if(updateRes.code === 200){
             setFlashState(true);
         }else if(updateRes.code !== 200){
-            setFlashState(false);
+            setResponse(updateRes);
+            setFlashState(true);
         }else{
             setFlashState(null)
         }
