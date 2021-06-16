@@ -78,7 +78,7 @@ function ModifyDeckPage(props){
                 deckName.current.classList.remove('bad__input');
             };
         }
-    }, [deckInfos]);
+    }, [deckInfos.deck_name]);
 
     useEffect(async () => {
         let res = await getOne(props.location.deckProps.id);
