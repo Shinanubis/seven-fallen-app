@@ -94,11 +94,10 @@ function ModifyDeckPage(props){
         });
 
         let updateRes = await updateOne(form, 102);
-        
-        if(updateRes.code == 200){
             setResponse(updateRes);
+        if(updateRes.code === 200){
             setFlashState(false);
-        }else if(updateRes.code != 200){
+        }else if(updateRes.code !== 200){
             console.log(updateRes);
             setFlashState(true);
         }else{
