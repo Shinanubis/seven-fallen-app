@@ -10,23 +10,34 @@ function ModifyDeckPage(props){
     /* handling functions */
 
     const handleChange = (e) => {
+
         if(e.target.name === 'kingdoms'){
 
             if(e.target.checked === true){
-                console.log("i\'m true");
+                setDeckInfos(prevState => {
+                    let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
+                    const newSet = new Set(newArr);
+                    newArr = Array.from(newSet);
+                    return {
+                        ...prevState,
+                        kingdom: newArr
+                    };
+                });
             }else{
-                console.log("i'm false");
-            }
+                setDeckInfos(prevState => {
+                    let newArr = [...prevState.kingdom];
+                    const index = newArr.indexOf(e.target.value);
+                    if(index > -1){
+                        newArr.splice(index, 1);
+                    }
 
-            setDeckInfos(prevState => {
-                let newArr = prevState.kingdom === null ? [e.target.id] : [...prevState.kingdom, e.target.id];
-                const newSet = new Set(newArr);
-                newArr = Array.from(newSet);
-                return {
-                    ...prevState,
-                    kingdom: newArr
-                };
-            });
+                    return {
+                        ...prevState,
+                        kingdom: newArr
+                    }
+
+                })
+            }
         }
 
         if(e.target.id === 'description'){
