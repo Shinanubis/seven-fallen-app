@@ -47,7 +47,7 @@ function ModifyDeckPage(props){
         
         if(e.target.id === 'deck_name'){
 
-            if(checkRegex(regexModule.deck_name, deckName.current.value)){
+            if(checkRegex(regexModule.deck_name, e.target.value)){
                 deckName.current.classList.add('good__input');
             }
 
