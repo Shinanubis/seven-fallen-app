@@ -26,7 +26,7 @@ function ModifyDeckPage(props){
             }else{
                 setDeckInfos(prevState => {
                     let newArr = [...prevState.kingdom];
-                    const index = newArr.indexOf(e.target.value.toString());
+                    const index = newArr.indexOf(e.target.value);
                     console.log(index)
                     if(index > -1){
                         newArr.splice(index, 1);
@@ -80,6 +80,7 @@ function ModifyDeckPage(props){
                                                        className="form__checkbox" 
                                                        type="checkbox" 
                                                        name="kingdoms"
+                                                       value={elmt[0]}
                                                 />
                                             </li> 
                                         )
