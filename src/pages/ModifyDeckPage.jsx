@@ -52,7 +52,7 @@ function ModifyDeckPage(props){
                     }
                     <div className="form__option--block row mb-2">
                         <label className="form__label mr-2" htmlFor="isVisible">Public</label>
-                        <input id="isVisible" className="form__checkbox" type="checkbox" />
+                        <input id="isVisible" className="form__checkbox" type="checkbox" checked={deckInfos.is_visible.toString()}/>
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
