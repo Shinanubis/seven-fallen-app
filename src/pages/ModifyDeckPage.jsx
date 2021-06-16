@@ -70,7 +70,7 @@ function ModifyDeckPage(props){
     useEffect(() => {
         
         if(checkRegex(regexModule.regex_deck_name, deckName.current.value) === true){
-            deckName.classList.add('good__input');
+            deckName.current.classList.add('good__input');
         }
 
         return () => {
