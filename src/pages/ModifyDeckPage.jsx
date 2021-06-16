@@ -4,7 +4,8 @@ import {getOne} from '../api/Decks';
 import Button from '../components/Button';
 import regexModule from '../modules/regex';
 import checkRegex from '../utilities/checkRegex';
-import { updateOne } from'../api/Decks.jsx'
+import { updateOne } from'../api/Decks.jsx';
+import { serialize } from '../utilities/serialize';
 
 function ModifyDeckPage(props){
     const {options, optionsName} = props.location;
@@ -66,7 +67,11 @@ function ModifyDeckPage(props){
         e.preventDefault();
         let form = new FormData();
         Object.keys(deckInfos).map(elmt => {
-            form.append(elmt, deckInfos[elmt]);
+            if(elmt === 'kingdom'){
+                form.append(elmt, serialize(deckInfos.kingdom));
+            }else{
+                form.append(elmt, deckInfos[elmt]);
+            }
         });
         updateOne(form, deckInfos.id);
     }
