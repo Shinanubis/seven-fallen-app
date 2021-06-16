@@ -12,12 +12,12 @@ function ModifyDeckPage(props){
     const handleChange = (e) => {
         e.preventDefault();
 
-        switch(e.target.id){
+        switch(e.target.id || e.target.name){
 
             case 'description':
                   setDeckInfos({...deckInfos, description: e.target.value});
                   break;
-            case 'kingdom':
+            case 'kingdoms':
                   setDeckInfos(prevState => {
                       const newVal = [...prevState.kingdom, e.target.value];
                       return newVal
