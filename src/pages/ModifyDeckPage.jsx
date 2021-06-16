@@ -11,7 +11,7 @@ function ModifyDeckPage(props){
 
     const handleChange = (e) => {
         e.preventDefault();
-
+        console.log(e.target.name)
         switch(e.target.id){
 
             case 'description':
