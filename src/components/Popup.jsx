@@ -3,7 +3,7 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
 
-    const {datas, buttonResetText, actionClose, actionReset} = props;
+    const {datas, buttonResetText, actionClose, actionReset, actionSelect} = props;
 
     return (
         <div className="popup__container">
@@ -14,6 +14,14 @@ function Popup(props) {
                         <div  className="popup__close" onClick={e => actionClose(e)}>
                             <AiFillCloseCircle />
                         </div>
+                    </div>
+                    <div className="popup__form--section" >
+                        <label className="popup__option--name" htmlFor="options-select">Set options</label>
+                        <select id="options-select" name="kingdom-options-set" onChange={actionSelect}>
+                            <option value="">Default</option>
+                            <option value="unique">Unique</option>
+                            <option value="combination">Combination</option>
+                        </select>
                     </div>
                     {Object.keys(datas).map(title => {
                         if(datas[title].type === "checkbox"){                            

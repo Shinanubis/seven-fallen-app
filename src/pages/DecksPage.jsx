@@ -102,14 +102,8 @@ const DecksPage = () => {
         setReqOpt({...reqOpt, size: newSize});
     }
 
-    const handleClickPopupButton = (e) => {
-        e.preventDefault();
-        setFilter(true);
-    }
-
-    const handleClickPopupOptions = (e) => {
-        e.preventDefault();
-        setReqOpt({...reqOpt, order_by: e.target.value});
+    const handleSelectPopup = (e) => {
+        
     }
 
     const handleClosePopup = (e) => {
@@ -183,7 +177,6 @@ const DecksPage = () => {
 
                         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
                 </List>
-
                 <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
@@ -203,15 +196,16 @@ const DecksPage = () => {
                     nextPage={reqOpt.kingdoms.length > 0 ? getDecksByKingdoms : getUserDecks}
                 />
                 <Plus to={'/decks/new-deck'}/>
-                {filterClicked || 
-                    <Popup 
-                        datas={popupDatas} 
-                        onClickButton = {handleClickPopupButton}
-                        onClickOptions = {handleClickPopupOptions} 
-                        buttonResetText="Reset"
-                        actionClose={handleClosePopup}
-                        actionReset={handleResetPopup}
-                    />}
+                {
+                    filterClicked || 
+                        <Popup 
+                            datas={popupDatas}  
+                            buttonResetText="Reset"
+                            actionSelect = {handleSelectPopup}
+                            actionClose={handleClosePopup}
+                            actionReset={handleResetPopup}
+                        />
+                }
               </Layout>
       )
     }else{
