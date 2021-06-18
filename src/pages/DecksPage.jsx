@@ -166,7 +166,7 @@ const DecksPage = () => {
             setFlashState(null);
         }
 
-    },[reqOpt]);
+    },[filterClicked]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
