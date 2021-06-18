@@ -16,7 +16,7 @@ function Popup(props) {
                         </div>
                     </div>
                     <div className="popup__form--section" >
-                        <h4 className="popup__option--name">Set options for kingdoms</h4>
+                        <h4 className="popup__option--name">Options for kingdoms</h4>
                         <div className="popup__option--container">
                             <label className="popup__option--label" htmlFor="options-select">Set options :</label>
                             <select id="popup__options--select" name="kingdom-options-set" onChange={actionSelect}>
