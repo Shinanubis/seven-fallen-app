@@ -26,8 +26,6 @@ const DecksPage = () => {
         order_by: 'id',
         sens: 'asc'
     });
-     
-    const [openModifyDeck, setOpenModifyDeck] = useState(false);
 
     const popupDatas = {
         "List by kingdoms": {
@@ -148,6 +146,7 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
+
     },[reqOpt]);
 
     useEffect(async () => {
@@ -201,7 +200,7 @@ const DecksPage = () => {
                     setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]}
-                    nextPage={getUserDecks}
+                    nextPage={options.kingdoms.length > 0 ? getDecksByKingdoms : getUserDecks}
                 />
                 <Plus to={'/decks/new-deck'}/>
                 {filterClicked || 
