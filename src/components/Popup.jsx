@@ -12,7 +12,7 @@ function Popup(props) {
         } = props;
 
     const handleClickCheckBoxes = (e) => {
-        console.log(e.target)
+        console.log(document.getElementsByTagName('input'))
     }
 
     return (
