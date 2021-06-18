@@ -31,7 +31,7 @@ function Popup(props) {
         }
 
         if(checkboxesState.every(elmt => elmt === false)){
-            checkboxesState.current.classList.add("d-none")
+            selectOptionsMenu.current.classList.add("d-none")
         }
 
     }, [checkboxesState]);
