@@ -12,7 +12,7 @@ function Popup(props) {
         } = props;
 
     const handleClickCheckBoxes = (e) => {
-        console.log(document.querySelector('input[type="checkbox"]'))
+        console.log(document.querySelectorAll('input[type="checkbox"]'))
     }
 
     return (
