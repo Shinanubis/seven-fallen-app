@@ -53,7 +53,7 @@ function Popup(props) {
                                 {mode === 'combination' ? 
                                     <option value="combination" selected>Combination</option>
                                     :
-                                    <option value="combination" selected>Combination</option>
+                                    <option value="combination">Combination</option>
                                 }
                             </select>
                         </div>
