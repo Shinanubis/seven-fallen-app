@@ -11,15 +11,17 @@ function Popup(props) {
             actionSelect,
             setCheckBoxes,
             checkboxesState,
-            mode
+            mode,
+            setMode
         } = props;
 
     const handleClickCheckBoxes = (e) => {
-        let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+        let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')) ?? Array.from(document.getElementsByClassName('option__kingdom'));
         let checkBoxesState = [];
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
         })
+        console.log(checkBoxesState)
         setCheckBoxes(checkBoxesState);
     }
 
@@ -54,7 +56,7 @@ function Popup(props) {
                                                         <div className="popup__option--container">
                                                             <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>
                                                             <input id={elmt} 
-                                                                   className="popup__option--input" 
+                                                                   className={mode === 'unique' ? 'popup__option--input option__kingdom': "popup__option--input"} 
                                                                    type={mode === "unique" ? "radio" : "checkbox"} 
                                                                    name={datas[title].field_name} 
                                                                    onChange={datas[title].onChange} 
