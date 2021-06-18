@@ -640,6 +640,9 @@ svg.dropdown__icon path{
 }
 
 /* Utilities */
+.d-none{
+  display: none;
+}
 
 .row{
   display: flex;
