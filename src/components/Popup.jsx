@@ -1,18 +1,19 @@
-import React,{useRef, useEffect} from 'react';
+import React,{useRef} from 'react';
 import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
 
-    const {datas, buttonResetText, actionClose, actionReset, actionSelect} = props;
-    const selectPopup = useRef();
-    
-    useEffect(() => {
-        return function(){
-            if(selectPopup.current.classList.contains === "d-none"){
-                selectPopup.current.classList.remove('d-none');  
-            }
-        }
-    }, [selectPopup]);
+    const {
+            datas, 
+            buttonResetText, 
+            actionClose, 
+            actionReset, 
+            actionSelect
+        } = props;
+
+    const handleClickCheckBoxes = (e) => {
+        console.log(e.target)
+    }
 
     return (
         <div className="popup__container">
@@ -24,7 +25,7 @@ function Popup(props) {
                             <AiFillCloseCircle />
                         </div>
                     </div>
-                    <div ref={selectPopup} className="popup__form--section d-none" >
+                    <div className="popup__form--section d-none" >
                         <h4 className="popup__option--name">Options for kingdoms</h4>
                         <div className="popup__option--container">
                             <label className="popup__option--label" htmlFor="options-select">Set options :</label>
@@ -38,8 +39,8 @@ function Popup(props) {
                     {Object.keys(datas).map(title => {
                         if(datas[title].type === "checkbox"){                            
                             return (
-                                <div className="popup__form--section">
-                                    <h4 className="popup__option--name">{title}</h4>
+                                <div className="popup__form--section " onClick={handleClickCheckBoxes}>
+                                    <h4 className="popup__option--name" >{title}</h4>
                                         {datas[title].values.map((elmt, index) => {
                                                     return (
                                                         <div className="popup__option--container">
