@@ -1,4 +1,4 @@
-import React,{ useEffect} from 'react';
+import React,{ useEffect, useRef} from 'react';
 import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
@@ -13,6 +13,8 @@ function Popup(props) {
             checkboxesState
         } = props;
 
+    const selectOptionsMenu = useRef();
+
     const handleClickCheckBoxes = (e) => {
         let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
         let checkBoxesState = [];
@@ -23,7 +25,15 @@ function Popup(props) {
     }
 
     useEffect(() => {
-        console.log(checkboxesState)
+        
+        if(checkboxesState.some(elmt => elmt === true)){
+            selectOptionsMenu.current.classList.remove("d-none");
+        }
+
+        if(checkboxesState.every(elmt => elmt === false)){
+            checkboxesState.current.classList.add("d-none")
+        }
+
     }, [checkboxesState]);
 
     return (
@@ -36,7 +46,7 @@ function Popup(props) {
                             <AiFillCloseCircle />
                         </div>
                     </div>
-                    <div className="popup__form--section d-none" >
+                    <div ref={selectOptionsMenu} className="popup__form--section d-none" >
                         <h4 className="popup__option--name">Options for kingdoms</h4>
                         <div className="popup__option--container">
                             <label className="popup__option--label" htmlFor="options-select">Set options :</label>
