@@ -12,7 +12,6 @@ function Popup(props) {
             setCheckBoxes,
             checkboxesState,
             mode,
-            setMode
         } = props;
 
     const handleClickCheckBoxes = (e) => {
@@ -27,7 +26,6 @@ function Popup(props) {
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
         })
-        console.log(checkboxes)
         setCheckBoxes(checkBoxesState);
     }
 
@@ -47,7 +45,7 @@ function Popup(props) {
                             <label className="popup__option--label" htmlFor="options-select">Set options :</label>
                             <select id="popup__options--select" name="kingdom-options-set" onChange={actionSelect}>
                                 <option value="">Default</option>
-                                <option value="unique">Unique</option>
+                                {mode === 'unique' ? <option value="unique" selected>Unique</option> : <option value="unique" >Unique</option>}
                                 <option value="combination">Combination</option>
                             </select>
                         </div>
