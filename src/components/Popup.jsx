@@ -12,7 +12,7 @@ function Popup(props) {
         } = props;
 
     const handleClickCheckBoxes = (e) => {
-        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
         let checkBoxesState = [];
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
