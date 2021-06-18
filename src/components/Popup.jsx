@@ -1,4 +1,4 @@
-import React,{useRef} from 'react';
+import React,{useState, useEffect} from 'react';
 import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
@@ -10,6 +10,8 @@ function Popup(props) {
             actionReset, 
             actionSelect
         } = props;
+    
+    const [checkBoxes, setCheckBoxesState] = useState([]);
 
     const handleClickCheckBoxes = (e) => {
         let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
@@ -17,8 +19,12 @@ function Popup(props) {
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
         })
-        console.log(checkBoxesState);
+        setCheckBoxesState(checkBoxesState);
     }
+
+    useEffect(() => {
+        console.log(checkBoxes)
+    }, [checkBoxes]);
 
     return (
         <div className="popup__container">
