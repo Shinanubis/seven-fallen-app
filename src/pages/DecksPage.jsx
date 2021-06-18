@@ -213,6 +213,7 @@ const DecksPage = () => {
                 />
                 <Pagination 
                     options = {reqOpt}
+                    eventsToListen = {[filterClicked]}
                     containerClasses = "pagination__block my-3 mb-5 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={handlePage} 
