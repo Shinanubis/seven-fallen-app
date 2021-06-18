@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{ useEffect} from 'react';
 import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Popup(props) {
@@ -8,10 +8,10 @@ function Popup(props) {
             buttonResetText, 
             actionClose, 
             actionReset, 
-            actionSelect
+            actionSelect,
+            setCheckBoxes,
+            checkboxesState
         } = props;
-    
-    const [checkBoxes, setCheckBoxesState] = useState([false, false, false, false, false, false, false]);
 
     const handleClickCheckBoxes = (e) => {
         let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
@@ -19,12 +19,12 @@ function Popup(props) {
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
         })
-        setCheckBoxesState(checkBoxesState);
+        setCheckBoxes(checkBoxesState);
     }
 
     useEffect(() => {
-        console.log(checkBoxes)
-    }, [checkBoxes]);
+        console.log(checkboxesState)
+    }, [checkboxesState]);
 
     return (
         <div className="popup__container">
@@ -56,7 +56,7 @@ function Popup(props) {
                                                     return (
                                                         <div className="popup__option--container">
                                                             <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>
-                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} onChange={datas[title].onChange} checked={checkBoxes[index]} value={elmt}/>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} onChange={datas[title].onChange} checked={checkboxesState[index]} value={elmt}/>
                                                         </div>
                                                     )
                                                 

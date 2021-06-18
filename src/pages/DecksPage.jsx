@@ -28,6 +28,8 @@ const DecksPage = () => {
         sens: 'asc'
     });
 
+    const [checkboxes, setCheckBoxes] = useState([false, false, false, false,false,false,false]);
+
     const popupDatas = {
         "List by kingdoms": {
             displayed: ['Poseidia', 'Eondra', 'Endless night', 'MetaScience', 'The light\'s temple', 'Celestial purity', 'The saber\'s way'],
@@ -153,7 +155,7 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
-        
+
     },[reqOpt]);
 
     useEffect(async () => {
@@ -214,6 +216,8 @@ const DecksPage = () => {
                         <Popup 
                             datas={popupDatas}  
                             buttonResetText="Reset"
+                            checkboxesState = {checkboxes}
+                            setCheckBoxes = {setCheckBoxes}
                             actionSelect = {handleSelectPopup}
                             actionClose={handleClosePopup}
                             actionReset={handleResetPopup}
