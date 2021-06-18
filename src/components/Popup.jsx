@@ -11,7 +11,7 @@ function Popup(props) {
             actionSelect
         } = props;
     
-    const [checkBoxes, setCheckBoxesState] = useState([]);
+    const [checkBoxes, setCheckBoxesState] = useState([false, false, false, false, false, false, false]);
 
     const handleClickCheckBoxes = (e) => {
         let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
@@ -56,7 +56,7 @@ function Popup(props) {
                                                     return (
                                                         <div className="popup__option--container">
                                                             <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>
-                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} onChange={datas[title].onChange} value={elmt}/>
+                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} onChange={datas[title].onChange} checked={checkBoxes[index]} value={elmt}/>
                                                         </div>
                                                     )
                                                 
