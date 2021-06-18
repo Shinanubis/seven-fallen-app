@@ -4,8 +4,7 @@ import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
 
 function Pagination(props){
     const {
-        options,
-        eventsToListen, 
+        options, 
         setPage, 
         setSize , 
         containerClasses,
@@ -25,7 +24,7 @@ function Pagination(props){
         newObj.page = options.page + 1;
         let res = await nextPage(newObj);
 
-        if(res.code === 200 && res.message.length === 0 && eventsToListen === false){
+        if(res.code === 200 && res.message.length === 0){
             setCanNext(false);
         }else{
             setCanNext(true);
