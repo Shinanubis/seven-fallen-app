@@ -31,11 +31,10 @@ const DecksPage = () => {
     const [checkboxes, setCheckBoxes] = useState([false, false, false, false,false,false,false]);
 
     /* datas for popup form */
-
     const popupDatas = {
         "List by kingdoms": {
             displayed: ['Poseidia', 'Eondra', 'Endless night', 'MetaScience', 'The light\'s temple', 'Celestial purity', 'The saber\'s way'],
-            values: [1,2, 3, 4, 5, 6, 7],
+            values: [1, 2, 3, 4, 5, 6, 7],
             field_name: 'kingdoms',
             type: "checkbox",
             onChange: (e) => {
@@ -46,7 +45,11 @@ const DecksPage = () => {
                     if(prevState.kingdoms instanceof Array){
                         newKingdomsArray = [...prevState.kingdoms];
                     }
-                    if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)) newKingdomsArray.push(e.target.value);
+
+                    if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)){ 
+                        newKingdomsArray.push(e.target.value)
+                    };
+
                     if(e.target.checked === false) {
                         let index = newKingdomsArray.indexOf(e.target.value);
                         if(index > -1){
@@ -163,7 +166,7 @@ const DecksPage = () => {
             setFlashState(null);
         }
 
-    },[reqOpt]);
+    },[filterClicked]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
