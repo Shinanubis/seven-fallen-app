@@ -45,8 +45,16 @@ function Popup(props) {
                             <label className="popup__option--label" htmlFor="options-select">Set options :</label>
                             <select id="popup__options--select" name="kingdom-options-set" onChange={actionSelect}>
                                 <option value="">Default</option>
-                                {mode === 'unique' ? <option value="unique" selected>Unique</option> : <option value="unique" >Unique</option>}
-                                <option value="combination">Combination</option>
+                                {mode === 'unique' ? 
+                                    <option value="unique" selected>Unique</option> 
+                                    : 
+                                    <option value="unique" >Unique</option>
+                                }
+                                {mode === 'combination' ? 
+                                    <option value="combination" selected>Combination</option>
+                                    :
+                                    <option value="combination" selected>Combination</option>
+                                }
                             </select>
                         </div>
                     </div>
