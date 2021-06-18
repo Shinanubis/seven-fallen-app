@@ -21,6 +21,7 @@ const DecksPage = () => {
     const [filterClicked, setFilter] = useState(true);
     const [reqOpt, setReqOpt] = useState({
         kingdoms: [],
+        mode: '',
         page: 1,
         size: 10,
         order_by: 'id',
@@ -103,7 +104,19 @@ const DecksPage = () => {
     }
 
     const handleSelectPopup = (e) => {
-        
+        e.preventDefault();
+
+        if(e.target.value === 'unique'){
+            setReqOpt({...reqOpt, mode: 'unique'});
+        }
+
+        if(e.target.value === 'combination'){
+            setReqOpt({...reqOpt, mode:'combination'});
+        }
+
+        if(e.target.value === ''){
+            setReqOpt({...reqOpt, mode:''});
+        }
     }
 
     const handleClosePopup = (e) => {
