@@ -21,7 +21,7 @@ function Popup(props) {
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
         })
-        console.log(checkBoxesState)
+        console.log(checkboxes)
         setCheckBoxes(checkBoxesState);
     }
 
