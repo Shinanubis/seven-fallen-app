@@ -200,7 +200,7 @@ const DecksPage = () => {
                     setPage={handlePage} 
                     setSize={handleSize} 
                     listSize={[10,20,40]}
-                    nextPage={options.kingdoms.length > 0 ? getDecksByKingdoms : getUserDecks}
+                    nextPage={reqOpt.kingdoms.length > 0 ? getDecksByKingdoms : getUserDecks}
                 />
                 <Plus to={'/decks/new-deck'}/>
                 {filterClicked || 
