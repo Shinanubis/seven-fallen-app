@@ -25,13 +25,13 @@ function Pagination(props){
         newObj.page = options.page + 1;
         let res = await nextPage(newObj);
 
-        if(res.code === 200 && res.message.length === 0){
+        if(res.code === 200 && res.message.length === 0 && eventsToListen === true){
             setCanNext(false);
         }else{
             setCanNext(true);
         }
 
-    },[options, ...eventsToListen]);
+    },[options]);
 
     return (
         <div className={containerClasses ?? "pagination__block"} >
