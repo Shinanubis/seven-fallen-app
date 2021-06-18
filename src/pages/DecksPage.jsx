@@ -30,6 +30,8 @@ const DecksPage = () => {
 
     const [checkboxes, setCheckBoxes] = useState([false, false, false, false,false,false,false]);
 
+    /* datas for popup form */
+
     const popupDatas = {
         "List by kingdoms": {
             displayed: ['Poseidia', 'Eondra', 'Endless night', 'MetaScience', 'The light\'s temple', 'Celestial purity', 'The saber\'s way'],
@@ -78,6 +80,7 @@ const DecksPage = () => {
         }
     }
 
+    /* handle flash messages */
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
     };
@@ -86,11 +89,13 @@ const DecksPage = () => {
         setDeleteResponse(newState)
     }
 
+    /* handling fucntion for filter */
     const handleClickFilter = (e, isVisible) => {
         e.preventDefault();
         setFilter(!isVisible);
     } 
 
+    /* handling functions for pagination */
     const handlePage = async (e, newPage, options) => {
         e.preventDefault();
         if(newPage <= 0){
@@ -105,6 +110,7 @@ const DecksPage = () => {
         setReqOpt({...reqOpt, size: newSize});
     }
 
+    /* handling functions for popup */
     const handleSelectPopup = (e) => {
         e.preventDefault();
 
@@ -213,7 +219,8 @@ const DecksPage = () => {
                 <Plus to={'/decks/new-deck'}/>
                 {
                     filterClicked || 
-                        <Popup 
+                        <Popup
+                            mode = {reqOpt.mode} 
                             datas={popupDatas}  
                             buttonResetText="Reset"
                             checkboxesState = {checkboxes}

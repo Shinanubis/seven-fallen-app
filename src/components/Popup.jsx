@@ -10,10 +10,9 @@ function Popup(props) {
             actionReset, 
             actionSelect,
             setCheckBoxes,
-            checkboxesState
+            checkboxesState,
+            mode
         } = props;
-
-    const selectOptionsMenu = useRef();
 
     const handleClickCheckBoxes = (e) => {
         let checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
@@ -23,18 +22,6 @@ function Popup(props) {
         })
         setCheckBoxes(checkBoxesState);
     }
-
-    useEffect(() => {
-        
-        if(checkboxesState.some(elmt => elmt === true)){
-            selectOptionsMenu.current.classList.remove("d-none");
-        }
-
-        if(checkboxesState.every(elmt => elmt === false)){
-            selectOptionsMenu.current.classList.add("d-none")
-        }
-
-    }, [checkboxesState]);
 
     return (
         <div className="popup__container">
@@ -46,7 +33,7 @@ function Popup(props) {
                             <AiFillCloseCircle />
                         </div>
                     </div>
-                    <div ref={selectOptionsMenu} className="popup__form--section d-none" >
+                    <div className="popup__form--section" >
                         <h4 className="popup__option--name">Options for kingdoms</h4>
                         <div className="popup__option--container">
                             <label className="popup__option--label" htmlFor="options-select">Set options :</label>
@@ -66,7 +53,14 @@ function Popup(props) {
                                                     return (
                                                         <div className="popup__option--container">
                                                             <label className="popup__option--label" htmlFor={elmt}>{datas[title].displayed[index]}</label>
-                                                            <input className="popup__option--input" type="checkbox" id={elmt} name={datas[title].field_name} onChange={datas[title].onChange} checked={checkboxesState[index]} value={elmt}/>
+                                                            <input id={elmt} 
+                                                                   className="popup__option--input" 
+                                                                   type={mode === "unique" ? "radio" : "checkbox"} 
+                                                                   name={datas[title].field_name} 
+                                                                   onChange={datas[title].onChange} 
+                                                                   checked={checkboxesState[index]} 
+                                                                   value={elmt}
+                                                            />
                                                         </div>
                                                     )
                                                 
