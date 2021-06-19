@@ -136,10 +136,9 @@ function ModifyDeckPage(props){
             setResponse(res);
         }
     },[]);
-    
+
     return (
         <Main classes="page page__deck">
-            {console.log(response)}
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
