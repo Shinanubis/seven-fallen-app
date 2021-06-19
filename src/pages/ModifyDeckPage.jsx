@@ -176,8 +176,7 @@ function ModifyDeckPage(props){
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
-                {response.code === 404 ? <Return /> : null}
-                <Button onClick={handleClick} text="update" />
+                {response.code === 404 ? <Return /> : <Button onClick={handleClick} text="update" />}
             </form>
             <Flash 
                 classes="message__flash" 
