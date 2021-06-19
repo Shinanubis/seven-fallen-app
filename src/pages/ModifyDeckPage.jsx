@@ -132,7 +132,7 @@ function ModifyDeckPage(props){
         if(res.code === 200 && res.message){
             setDeckInfos(res.message);
         }else{
-            setFlashState(true);
+            setFlashState(false);
             setResponse(res);
         }
     },[]);
