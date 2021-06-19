@@ -1,6 +1,6 @@
 
 import {useEffect,useState, useRef} from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
@@ -139,7 +139,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            {console.log(deckInfos)}
+            {deckInfos ?
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
@@ -178,6 +178,9 @@ function ModifyDeckPage(props){
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
+            :
+            <Redirect to="/not-found" />
+            }
             <Flash 
                     classes="message__flash" 
                     errorClass="message__flash-error" 
