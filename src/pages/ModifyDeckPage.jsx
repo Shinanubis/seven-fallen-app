@@ -1,5 +1,6 @@
 
 import {useEffect,useState, useRef} from 'react';
+import { useParams } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
@@ -25,6 +26,7 @@ function ModifyDeckPage(props){
     const [flashState, setFlashState] = useState(null);
     const [response, setResponse] = useState('');
     const deckName = useRef(null);
+    let { id } = useParams();
 
     /* handling functions */
 
@@ -126,7 +128,7 @@ function ModifyDeckPage(props){
     }, [deckInfos.deck_name]);
 
     useEffect(async () => {
-        let res = await getOne(props.location.deckProps.id);
+        let res = await getOne(id);
         setDeckInfos(res.message);
     },[]);
 

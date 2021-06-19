@@ -92,7 +92,7 @@ function App() {
     {
         exact: true,
         strict: true,
-        path: '/decks/modify',
+        path: '/decks/:id/modify',
         component: ModifyDeckPage
     },
     {

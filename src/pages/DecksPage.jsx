@@ -1,6 +1,12 @@
 import React,{useEffect, useState, useLayoutEffect} from 'react';
+
+/* layout */
 import Layout from '../layouts/Layout';
+
+/* api */
 import { getUserDecks, getDecksByKingdoms} from '../api/Decks';
+
+/* components */
 import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 import List from '../components/List';
