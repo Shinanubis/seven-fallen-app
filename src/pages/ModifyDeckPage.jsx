@@ -132,8 +132,11 @@ function ModifyDeckPage(props){
         if(res.code === 200){
             setDeckInfos(res.message);
         }else{
+            setDeckInfos(res);
             setFlashState(true);
             setResponse(res);
+            console.log("deck : ", deckInfos);
+            console.log("response : ", response);
         }
     },[]);
 
