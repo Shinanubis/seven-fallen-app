@@ -131,7 +131,7 @@ function ModifyDeckPage(props){
         let res = await getOne(id);
         if(res.code === 200){
             setDeckInfos(res.message);
-            console.log("deck : ", deckInfos);
+            console.log("deck : ", res);
         }else{
             setDeckInfos(res);
             setFlashState(true);
