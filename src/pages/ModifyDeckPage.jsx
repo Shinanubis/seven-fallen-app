@@ -136,7 +136,8 @@ function ModifyDeckPage(props){
             setResponse(res);
         }
     },[]);
-    if(deckInfos){
+
+    if(deckInfos !== {}){
     return (
         <Main classes="page page__deck">
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
