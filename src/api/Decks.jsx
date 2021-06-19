@@ -70,6 +70,7 @@ async function getOne(id){
 
     let response = await fetch(`https://test-seven.site/api/decks/${id}`, settings);
     let datas = await response.json();
+    console.log(datas)
     return datas;
 }
 
@@ -107,10 +108,9 @@ async function deleteUserDeck(id){
     };
 
     let response = await fetch(`https://test-seven.site/api/decks/delete/${id}`, settings);
-    if(response.ok){
-        let datas = await response.json();
-        return datas;
-    }
+    let datas = await response.json();
+    return datas;
+
 }
 
 export { getAllDecks, getDecksByKingdoms, getUserDecks, getOne, updateOne, deleteUserDeck, createUserDeck};
