@@ -136,10 +136,9 @@ function ModifyDeckPage(props){
             setResponse(res);
         }
     },[]);
-
+    if(deckInfos){
     return (
         <Main classes="page page__deck">
-            {deckInfos ?
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
@@ -178,20 +177,22 @@ function ModifyDeckPage(props){
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
-            :
-            <Redirect to="/not-found" />
-            }
             <Flash 
-                    classes="message__flash" 
-                    errorClass="message__flash-error" 
-                    successClass="message__flash-done" 
-                    message={response.message ? response.message : "flash message"}
-                    timing={750}
-                    flash={flashState}
-                    handleFlash={handleFlash}
-                />
+                classes="message__flash" 
+                errorClass="message__flash-error" 
+                successClass="message__flash-done" 
+                message={response.message ? response.message : "flash message"}
+                timing={750}
+                flash={flashState}
+                handleFlash={handleFlash}
+            />
         </Main>
     )
+    }else{
+        return (
+            <Redirect to="/decks/empty" />
+        );
+    }
 }
 
 export default ModifyDeckPage;
