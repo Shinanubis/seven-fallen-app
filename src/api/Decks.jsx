@@ -70,7 +70,6 @@ async function getOne(id){
 
     let response = await fetch(`https://test-seven.site/api/decks/${id}`, settings);
     let datas = await response.json();
-    console.log(datas)
     return datas;
 }
 
