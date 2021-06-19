@@ -125,19 +125,15 @@ function ModifyDeckPage(props){
                 deckName.current.classList.remove('bad__input');
             };
         }
-    }, [deckInfos.deck_name]);
+    }, [deckInfos.deck_name ? deckInfos.deck_name : null]);
 
     useEffect(async () => {
         let res = await getOne(id);
         if(res.code === 200){
             setDeckInfos(res.message);
-            console.log("deck : ", res);
         }else{
             setDeckInfos(res);
             setFlashState(true);
-            setResponse(res);
-            console.log("deck : ", deckInfos);
-            console.log("response : ", response);
         }
     },[]);
 
