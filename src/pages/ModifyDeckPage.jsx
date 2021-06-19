@@ -95,7 +95,7 @@ function ModifyDeckPage(props){
             }
         });
 
-        let updateRes = await updateOne(form, deckInfos.id);
+        let updateRes = await updateOne(form, id);
             setResponse(updateRes);
         if(updateRes.code === 200){
             setFlashState(true);
@@ -129,7 +129,12 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(id);
-        setDeckInfos(res.message);
+        if(res.code === 200){
+            setDeckInfos(res.message);
+        }else{
+            setFlashState(true);
+            setResponse(res);
+        }
     },[]);
 
     return (
