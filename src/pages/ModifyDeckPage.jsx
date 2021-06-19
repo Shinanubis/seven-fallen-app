@@ -137,7 +137,6 @@ function ModifyDeckPage(props){
         }
     },[]);
 
-    if(deckInfos !== {}){
     return (
         <Main classes="page page__deck">
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
@@ -189,11 +188,6 @@ function ModifyDeckPage(props){
             />
         </Main>
     )
-    }else{
-        return (
-            <Redirect to="/decks/empty" />
-        );
-    }
 }
 
 export default ModifyDeckPage;
