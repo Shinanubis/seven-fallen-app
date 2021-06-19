@@ -8,6 +8,7 @@ import Main from '../layouts/Main';
 /* components */
 import Button from '../components/Button';
 import Flash from '../components/Flash';
+import Return from '../components/Return';
 
 /* modules */
 import regexModule from '../modules/regex';
@@ -175,6 +176,7 @@ function ModifyDeckPage(props){
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
+                {response.code === 404 ? <Return /> : null}
                 <Button onClick={handleClick} text="update" />
             </form>
             <Flash 
