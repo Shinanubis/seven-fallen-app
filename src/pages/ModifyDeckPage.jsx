@@ -132,6 +132,7 @@ function ModifyDeckPage(props){
         let res = await getOne(id);
         if(res.code === 200 && res.message){
             setDeckInfos(res.message);
+            setResponse(res);
         }else{
             setFlashState(false);
             setResponse(res);
@@ -176,7 +177,7 @@ function ModifyDeckPage(props){
                     </div>
                     <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
                 </div>
-                {response.code === 404 ? <Return /> : <Button onClick={handleClick} text="update" />}
+                <Button onClick={handleClick} text="update" />
             </form>
             <Flash 
                 classes="message__flash" 
