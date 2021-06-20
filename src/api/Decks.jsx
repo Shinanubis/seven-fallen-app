@@ -49,6 +49,7 @@ async function getDecksByKingdoms(options){
     let url = new URL('https://test-seven.site/api/decks/kingdoms');
 
     let params = {
+        mode: options.mode ? options.mode : "",
         page: options.page ? options.page : 1, 
         size: options.size ? options.size : 10,
         sens: options.sens ? options.sens : 'asc',

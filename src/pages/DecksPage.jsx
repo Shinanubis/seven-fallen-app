@@ -232,6 +232,7 @@ const DecksPage = () => {
                     filterClicked || 
                         <Popup
                             mode = {reqOpt.mode}
+                            setOptions = {setReqOpt}
                             datas={popupDatas}  
                             buttonResetText="Reset"
                             checkboxesState = {checkboxes}
