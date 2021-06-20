@@ -130,7 +130,7 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(id);
-        if(res.code === 200 && res.message){
+        if(res.code === 200){
             setDeckInfos(res.message);
             setResponse(res);
         }else{
