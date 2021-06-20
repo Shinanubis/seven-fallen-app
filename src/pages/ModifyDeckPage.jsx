@@ -136,7 +136,6 @@ function ModifyDeckPage(props){
             setFlashState(false);
             setResponse(res);
         }
-        console.log(deckInfos)
     },[]);
 
     return (
