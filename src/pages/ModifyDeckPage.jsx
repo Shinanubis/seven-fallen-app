@@ -130,7 +130,6 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(id);
-        console.log(res)
         if(res.code === 200 && res.message){
             setDeckInfos(res.message);
             setResponse(res);
@@ -138,6 +137,7 @@ function ModifyDeckPage(props){
             setFlashState(false);
             setResponse(res);
         }
+        console.log(deckInfos)
     },[]);
 
     return (
