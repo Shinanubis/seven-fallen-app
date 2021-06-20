@@ -132,7 +132,6 @@ function ModifyDeckPage(props){
         let res = await getOne(id);
         if(res.code === 200){
             setDeckInfos(res.message);
-            setResponse(res);
         }else{
             setFlashState(false);
             setResponse(res);
