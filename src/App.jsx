@@ -79,7 +79,7 @@ function App() {
     {
         exact:true,
         strict: true,
-        path:'/decks/new-deck',
+        path:'/decks/create',
         component: AddingDeckPage
     },
     {
@@ -96,16 +96,16 @@ function App() {
         component: ModifyDeckPage
     },
     {
-        exact:true,
-        strict: true,
-        path:'/decks/new-deck/build',
-        component: DeckBuildOptions
+      exact:true,
+      strict: true,
+      path:'/decks/:id/subdecks',
+      component: DeckCreate
     },
     {
         exact:true,
         strict: true,
-        path:'/decks/new-deck/create',
-        component: DeckCreate
+        path:'/decks/new-deck/build',
+        component: DeckBuildOptions
     },
     {
         exact:true,

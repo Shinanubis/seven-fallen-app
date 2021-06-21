@@ -187,10 +187,6 @@ const DecksPage = () => {
         setDecksList(response);
     },[]);
 
-    useEffect(() => {
-        return () => console.clear();
-    })
-
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
@@ -239,7 +235,7 @@ const DecksPage = () => {
                     listSize={[10,20,40]}
                     nextPage={reqOpt.kingdoms.length > 0 ? getDecksByKingdoms : getUserDecks}
                 />
-                <Plus to={'/decks/new-deck'}/>
+                <Plus to={'/decks/create'}/>
                 {
                     filterClicked || 
                         <Popup
