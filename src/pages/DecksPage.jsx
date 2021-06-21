@@ -155,6 +155,10 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = null;
+
+        if(reqOpt.mode === 'unique'){
+
+        }
         
         if(reqOpt.kingdoms.length > 0){
             response = await getDecksByKingdoms(reqOpt);
@@ -171,7 +175,7 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
-        console.log(reqOpt)
+        
     },[reqOpt]);
 
     useEffect(async () => {

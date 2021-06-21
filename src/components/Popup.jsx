@@ -16,6 +16,7 @@ function Popup(props) {
 
     const handleClickCheckBoxes = (e) => {
         let checkboxes = null;
+
         if(mode === 'unique'){
             checkboxes = Array.from(document.getElementsByClassName('option__kingdom'));
         }else{
@@ -65,7 +66,7 @@ function Popup(props) {
                     {Object.keys(datas).map(title => {
                         if(datas[title].type === "checkbox"){                            
                             return (
-                                <div className="popup__form--section " onClick={handleClickCheckBoxes}>
+                                <div className="popup__form--section " onClick={handleClickCheckBoxes} onChange={datas[title].onChange} >
                                         <h4 className="popup__option--name" >{title}</h4>
                                         {datas[title].values.map((elmt, index) => {
                                                     return (
@@ -75,7 +76,6 @@ function Popup(props) {
                                                                    className={mode === 'unique' ? 'popup__option--input option__kingdom': "popup__option--input"} 
                                                                    type={mode === "unique" ? "radio" : "checkbox"} 
                                                                    name={datas[title].field_name} 
-                                                                   onChange={datas[title].onChange} 
                                                                    checked={checkboxesState[index]} 
                                                                    value={elmt}
                                                             />
