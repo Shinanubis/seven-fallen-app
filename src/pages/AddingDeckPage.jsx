@@ -112,7 +112,7 @@ const AddingDeckPage = (props) => {
                     </div>
                 </form>
                 <div className="buttons__block">
-                    {createState.message[0].id ? 
+                    {createState.message ? 
                         <NavButton text="Create" 
                                    url={`/decks/${createState.message[0].id}/subdecks`} 
                                    onClick={handleCreate} 
