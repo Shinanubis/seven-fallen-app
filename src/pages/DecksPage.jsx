@@ -180,17 +180,16 @@ const DecksPage = () => {
         }else{
             setFlashState(null);
         }
-        
-        return function(){
-            console.clear();
-        }
-
     },[reqOpt]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
     },[]);
+
+    useEffect(() => {
+        return () => console.clear();
+    })
 
     if(decksList.message && decksList.message instanceof Array){
         return (
