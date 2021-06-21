@@ -56,16 +56,15 @@ const AddingDeckPage = (props) => {
         form.append('deck_name', fieldValues.deck_name);
         form.append('visibility', fieldValues.visibility);
         let response = await createUserDeck(form);
-        console.log(response)
+
         if(response.code === 200){
             setFlash(true);
             setCreateState(response);
-            setFlashMessage(response.deck_name + " created succesfully.");
+            setFlashMessage(createState.deck_name + " created succesfully.");
             return true;
         }else if(response.code !== 200){
             setFlash(false);
-            setCreateState(response);
-            setFlashMessage("Something wrong happened");
+            setFlashMessage(response);
             return false;
         }else{
             setFlash(null);
