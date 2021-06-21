@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 
 /* api */
@@ -15,6 +15,8 @@ import Button from '../components/Button'
 
 const DeckCreate = (props) => {
     const { id } = useParams();
+
+    const [subdecks, setSubDecks] = useState(null);
     const datas = [
         {
             id: 0,
