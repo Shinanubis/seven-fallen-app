@@ -60,7 +60,7 @@ const AddingDeckPage = (props) => {
         if(response.code === 200){
             setFlash(true);
             setCreateState(response);
-            setFlashMessage(createState.deck_name + " created succesfully.");
+            setFlashMessage(createState.message[0].deck_name + " created succesfully.");
             return true;
         }else if(response.code !== 200){
             setFlash(false);
