@@ -52,8 +52,16 @@ const DecksPage = () => {
                         newKingdomsArray = [...prevState.kingdoms];
                     }
 
-                    if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)){ 
-                        newKingdomsArray.push(e.target.value)
+                    if(e.target.checked === true && !newKingdomsArray.includes(e.target.value)){
+
+                        if(prevState.mode === 'combination' || prevState.mode === ''){
+                            newKingdomsArray.push(e.target.value)
+                        }
+                        
+                        if(prevState.mode === 'unique'){
+                            newKingdomsArray = [e.target.value]
+                        }
+
                     };
 
                     if(e.target.checked === false) {
