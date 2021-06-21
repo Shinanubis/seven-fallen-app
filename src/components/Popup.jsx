@@ -25,9 +25,13 @@ function Popup(props) {
         let checkBoxesState = [];
         checkboxes.map(elmt => {
             return checkBoxesState.push(elmt.checked);
-        })
+        });
         setCheckBoxes(checkBoxesState);
     }
+
+    useEffect(() => {
+        console.log(checkboxesState);
+    }, [checkboxesState]);
 
     return (
         <div className="popup__container">
@@ -66,7 +70,7 @@ function Popup(props) {
                         if(datas[title].type === "checkbox"){                            
                             return (
                                 <div className="popup__form--section " onClick={handleClickCheckBoxes}>
-                                    <h4 className="popup__option--name" >{title}</h4>
+                                        <h4 className="popup__option--name" >{title}</h4>
                                         {datas[title].values.map((elmt, index) => {
                                                     return (
                                                         <div className="popup__option--container">
