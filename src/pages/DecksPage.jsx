@@ -15,6 +15,7 @@ import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import Popup from '../components/Popup';
 import { Redirect } from 'react-router-dom';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 const DecksPage = () => {
 
@@ -190,6 +191,12 @@ const DecksPage = () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
     },[]);
+
+    useEffect(() => {
+        return function(){
+            console.clear();
+        }
+    })
 
     if(decksList.message && decksList.message instanceof Array){
         return (
