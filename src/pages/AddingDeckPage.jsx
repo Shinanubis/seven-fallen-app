@@ -119,7 +119,7 @@ const AddingDeckPage = (props) => {
                                    timing={1000}
                         />
                         :
-                        <NavButton text="Create" 
+                        <NavButton text="Next" 
                         url={`/decks/create`} 
                         onClick={handleCreate} 
                         timing={1000}
