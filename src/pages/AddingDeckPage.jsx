@@ -30,6 +30,7 @@ const AddingDeckPage = (props) => {
     const [inputState, setInputState] = useState(true);
     const [createState, setCreateState] = useState({});
     const [flash, setFlash] = useState(null);
+    const [flashMessage, setFlashMessage] = useState(null);
 
     const handleBlur = (e) => {
         setFieldValues({...fieldValues, deck_name: e.target.value});
@@ -59,10 +60,12 @@ const AddingDeckPage = (props) => {
         if(response.code === 200){
             setFlash(true);
             setCreateState(response);
+            setFlashMessage(response.deck_name + " created succesfully.");
             return true;
         }else if(response.code !== 200){
             setFlash(false);
             setCreateState(response);
+            setFlashMessage("Something wrong happened");
             return false;
         }else{
             setFlash(null);
@@ -102,7 +105,7 @@ const AddingDeckPage = (props) => {
                             classes="message__flash" 
                             errorClass="message__flash-error" 
                             successClass="message__flash-done" 
-                            message={createState.message ? createState.message : 'flash message'}
+                            message={ flashMessage ? flashMessage : 'flash message'}
                             flash={flash}
                             timing={750}
                             handleFlash = {handleFlash}
