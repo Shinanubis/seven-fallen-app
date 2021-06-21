@@ -39,8 +39,8 @@ const DeckCreate = (props) => {
         }
     ]
 
-    useEffect(() => {
-        let eden = getEden(id);
+    useEffect(async () => {
+        let eden = await getEden(id);
         console.log(eden)
     },[])
 
