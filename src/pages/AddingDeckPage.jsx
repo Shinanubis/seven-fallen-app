@@ -65,7 +65,7 @@ const AddingDeckPage = (props) => {
             return true;
         }else if(response.code !== 200){
             setFlash(false);
-            setFlashMessage(response);
+            setFlashMessage(response.message);
             return false;
         }else{
             setFlash(null);
