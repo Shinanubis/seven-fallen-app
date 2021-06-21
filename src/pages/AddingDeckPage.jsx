@@ -77,10 +77,6 @@ const AddingDeckPage = (props) => {
         setFlash(newState)
     }
 
-    useEffect(() => {
-        console.log(createState)
-    },[createState])
-
     return (
         <>
             <Layout>

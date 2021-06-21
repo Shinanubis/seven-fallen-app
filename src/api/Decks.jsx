@@ -8,10 +8,8 @@ async function getAllDecks(){
     };
 
     let response = await fetch('https://test-seven.site/api/decks/shared', settings);
-    if(response.ok){
-        let datas = await response.json();
-        return datas;
-    }
+    let datas = await response.json();
+    return datas;
 }
 
 async function getUserDecks(options){
@@ -113,4 +111,4 @@ async function deleteUserDeck(id){
 
 }
 
-export { getAllDecks, getDecksByKingdoms, getUserDecks, getOne, updateOne, deleteUserDeck, createUserDeck};
+export { getAllDecks, getDecksByKingdoms, getUserDecks, getOne, updateOne, deleteUserDeck, createUserDeck };

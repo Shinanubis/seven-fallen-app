@@ -1,10 +1,20 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import {useParams} from 'react-router-dom';
+
+/* api */
+import {getEden} from '../api/Eden.jsx'
+import {getHolyBook} from '../api/HolyBook.jsx'
+import {getRegister} from '../api/Register.jsx'
+
+/* layouts */
 import Layout from '../layouts/Layout'
+
+/* components */
 import Dropdown from '../components/Dropdown'
 import Button from '../components/Button'
 
-const DeckImport = () => {
-
+const DeckCreate = (props) => {
+    const { id } = useParams();
     const datas = [
         {
             id: 0,
@@ -28,6 +38,12 @@ const DeckImport = () => {
             content:"Anges 0 Golems 0 Miracles 0 Equipments 0"
         }
     ]
+
+    useEffect(() => {
+        let eden = getEden(id);
+        console.log(eden)
+    },[])
+
     return (
         <Layout>
             <Dropdown classes="dropdown__menu mb-6" datas={datas} />
@@ -36,4 +52,4 @@ const DeckImport = () => {
     )
 }
 
-export default DeckImport
+export default DeckCreate;
