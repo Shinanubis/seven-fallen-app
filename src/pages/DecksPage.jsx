@@ -164,10 +164,6 @@ const DecksPage = () => {
 
     useEffect(async () => {
         let response = null;
-
-        if(reqOpt.mode === 'unique'){
-
-        }
         
         if(reqOpt.kingdoms.length > 0){
             response = await getDecksByKingdoms(reqOpt);
@@ -185,18 +181,16 @@ const DecksPage = () => {
             setFlashState(null);
         }
         
+        return function(){
+            console.clear();
+        }
+
     },[reqOpt]);
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
     },[]);
-
-    useEffect(() => {
-        return function(){
-            console.clear();
-        }
-    })
 
     if(decksList.message && decksList.message instanceof Array){
         return (
