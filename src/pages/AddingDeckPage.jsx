@@ -112,7 +112,7 @@ const AddingDeckPage = (props) => {
                     </div>
                 </form>
                 <div className="buttons__block">
-                    {createState.message ? <NavButton text="Create" url={`/decks/${createState.message[0].id}/subdecks`} onClick={handleCreate} timing={1000}/>  : null}
+                    {fieldValues.deck_name ? <NavButton text="Create" url={`/decks/${createState.message[0].id}/subdecks`} onClick={handleCreate} timing={1000}/>  : null}
                     <NavButton text="Import" url={`/decks/new-deck/import`} onClick={handleCreate} timing={1000}/>
                     <BackButton text="Back" url="/decks"/>
                 </div>
