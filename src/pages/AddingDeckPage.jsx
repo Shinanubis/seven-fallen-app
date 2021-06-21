@@ -61,7 +61,6 @@ const AddingDeckPage = (props) => {
             setFlash(true);
             setCreateState(response);
             setFlashMessage(response.message[0].deck_name + " created succesfully.");
-            console.log(response.message[0])
             return true;
         }else if(response.code !== 200){
             setFlash(false);
@@ -113,7 +112,7 @@ const AddingDeckPage = (props) => {
                     </div>
                 </form>
                 <div className="buttons__block">
-                    <NavButton text="Create" url={`/decks/new-deck/subdecks`} onClick={handleCreate} timing={1000}/>
+                    <NavButton text="Create" url={`/decks/${createState.message[0].id}/subdecks`} onClick={handleCreate} timing={1000}/>
                     <NavButton text="Import" url={`/decks/new-deck/import`} onClick={handleCreate} timing={1000}/>
                     <BackButton text="Back" url="/decks"/>
                 </div>
