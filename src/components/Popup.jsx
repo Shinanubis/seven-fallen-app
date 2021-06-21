@@ -29,10 +29,6 @@ function Popup(props) {
         setCheckBoxes(checkBoxesState);
     }
 
-    useEffect(() => {
-        console.log(checkboxesState);
-    }, [checkboxesState]);
-
     return (
         <div className="popup__container">
             <div className="popup__inner--container">
