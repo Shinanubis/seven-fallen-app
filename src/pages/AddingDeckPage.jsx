@@ -12,6 +12,7 @@ import CheckBox from '../components/CheckBox';
 import BackButton from '../components/BackButton'
 import NavButton from '../components/NavButton';
 import Flash from '../components/Flash';
+import {Link} from 'react-router-dom';
 
 /* Utilities */
 import checkRegex from '../utilities/checkRegex';
@@ -113,11 +114,7 @@ const AddingDeckPage = (props) => {
                 </form>
                 <div className="buttons__block">
                     {createState.message ? 
-                        <NavButton text="Next" 
-                                   url={`/decks/${createState.message[0].id}/subdecks`} 
-                                   onClick={handleCreate} 
-                                   timing={1000}
-                        />
+                        <Link className="btn" to={`/decks/${createState.message[0].id}/subdecks`}>Next</Link>
                         :
                         <NavButton text="Create" 
                         url={`/decks/create`} 
