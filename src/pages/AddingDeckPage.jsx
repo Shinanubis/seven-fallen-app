@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 /*api call*/
 import {createUserDeck} from '../api/Decks';
@@ -74,6 +74,10 @@ const AddingDeckPage = (props) => {
         setFlash(newState)
     }
 
+    useEffect(() => {
+        console.log(createState)
+    },[createState])
+
     return (
         <>
             <Layout>
@@ -106,8 +110,8 @@ const AddingDeckPage = (props) => {
                     </div>
                 </form>
                 <div className="buttons__block">
-                    <NavButton text="Create" url="/decks/new-deck/create" onClick={handleCreate} timing={1000}/>
-                    <NavButton text="Import" url="/decks/new-deck/import" onClick={handleCreate} timing={1000}/>
+                    <NavButton text="Create" url={`/decks/new-deck/subdecks`} onClick={handleCreate} timing={1000}/>
+                    <NavButton text="Import" url={`/decks/new-deck/import`} onClick={handleCreate} timing={1000}/>
                     <BackButton text="Back" url="/decks"/>
                 </div>
             </Layout>
