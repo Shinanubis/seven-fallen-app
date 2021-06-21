@@ -4,8 +4,8 @@ async function getEden(id){
         method: 'GET',
         credentials: 'include'
     }
-    console.log(id)
     let response = await fetch(`https://test-seven.site/decks/${id}/eden`, settings);
+    console.log(response)
     let datas = await response.json();
     return datas;
 }
