@@ -41,17 +41,17 @@ const DeckCreate = (props) => {
 
     return (
         <Layout>
-            {subdecks.eden.message.length === 0 && subdecks.eden.message instanceof Array ?
+            {subdecks.eden.message && subdecks.eden.message instanceof Array ?
                 <h1>Hello i'm Eden</h1>
                 :
                 <p>Heloo you i'm not here</p>
             }
-            {subdecks.register.message.length === 0 && subdecks.register.message instanceof Array ?
+            {subdecks.register.message && subdecks.register.message instanceof Array ?
                 <h1>Hello i'm Register</h1>
                 :
                 <p>Heloo you i'm not here</p>
             }
-            {subdecks.holybook.message.length === 0 && subdecks.holybook.message instanceof Array ?
+            {subdecks.holybook.message && subdecks.holybook.message instanceof Array ?
                 <h1>Hello i'm Holybook</h1>
                 :
                 <p>Heloo you i'm not here</p>
