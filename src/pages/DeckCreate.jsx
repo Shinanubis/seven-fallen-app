@@ -50,7 +50,7 @@ const DeckCreate = (props) => {
              subdecks.eden.message && 
              subdecks.eden.message instanceof Array && 
              subdecks.eden.message > 0 ?
-                <h1>Hello i'm Eden</h1>
+                <h1 className="title">Hello i'm Eden</h1>
                 :
                 <NavButton text="create eden" timing={750} url={`/decks/${id}/eden`} onClick={handleClickNav} />
             }
@@ -58,7 +58,7 @@ const DeckCreate = (props) => {
              subdecks.register.message && 
              subdecks.register.message instanceof Array && 
              subdecks.register.message > 0 ?
-                <h1>Hello i'm Register</h1>
+                <h1 className="title">Hello i'm Register</h1>
                 :
                 <NavButton text="create register" timing={750} url={`/decks/${id}/register`} onClick={handleClickNav}/>
             }
@@ -66,7 +66,7 @@ const DeckCreate = (props) => {
              subdecks.holybook.message && 
              subdecks.holybook.message instanceof Array &&
              subdecks.holybook.message > 0 ?
-                <h1>Hello i'm Holybook</h1>
+                <h1 className="title">Hello i'm Holybook</h1>
                 :
                 <NavButton text="create holybook" timing={750} url={`/decks/${id}/holybook`} onClick={handleClickNav}/>
             }
