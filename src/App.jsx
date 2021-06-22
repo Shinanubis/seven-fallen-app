@@ -31,13 +31,13 @@ import DeckCreate from './pages/DeckCreate';
 import DeckImport from './pages/DeckImport';
 import EmptyDecksList from './pages/EmptyDecksList';
 import ModifyDeckPage from './pages/ModifyDeckPage';
+import SubDeckPage from './pages/SubDeckPage';
 
 //Context import
 import AuthenticationContext from './contexts/Context';
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
-import Modify from './pages/ModifyDeckPage';
 
 
 function App() {
@@ -96,10 +96,28 @@ function App() {
         component: ModifyDeckPage
     },
     {
-      exact:true,
-      strict: true,
-      path:'/decks/:id/subdecks',
-      component: DeckCreate
+        exact:true,
+        strict: true,
+        path:'/decks/:id/subdecks',
+        component: DeckCreate
+    },
+    {
+        exact:true,
+       strict: true,
+        path:'/decks/:id/eden',
+        component: SubDeckPage
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/:id/register',
+        component: SubDeckPage
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/:id/holybook',
+        component: SubDeckPage
     },
     {
         exact:true,
