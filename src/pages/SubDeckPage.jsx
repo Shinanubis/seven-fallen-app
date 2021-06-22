@@ -6,7 +6,7 @@ function SubDeckPage(){
     let { id } = useParams();
 
     return (
-        <h1>Welcome in {id} page</h1>
+        <h1 className="title">Welcome in {id} page</h1>
     )
 }
 
