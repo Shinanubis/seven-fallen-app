@@ -3,15 +3,12 @@ import {useParams} from 'react-router-dom';
 
 function SubDeckPage(props){
 
-    let params = useParams();
-
-    useEffect(() => {
-        console.log(params)
-        console.log(props)
-    }, []);
+    let {id} = useParams();
+    let endUrl = props.location.pathname.split('/');
+    endUrl = endUrl[endUrl.length - 1];
 
     return (
-        <h1 className="title">Welcome in subdeck page</h1>
+        <h1 className="title">Welcome in deck {id} in {endUrl}</h1>
     )
 }
 
