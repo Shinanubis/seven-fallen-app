@@ -11,7 +11,7 @@ import Layout from '../layouts/Layout'
 
 /* components */
 import Dropdown from '../components/Dropdown'
-import Button from '../components/Button'
+import NavButton from '../components/NavButton'
 
 const DeckCreate = (props) => {
     const { id } = useParams();
@@ -41,26 +41,29 @@ const DeckCreate = (props) => {
 
     return (
         <Layout>
-            {subdecks.eden.message && 
+            {
+             subdecks.eden.message && 
              subdecks.eden.message instanceof Array && 
              subdecks.eden.message > 0 ?
                 <h1>Hello i'm Eden</h1>
                 :
-                <p>Heloo you i'm not here</p>
+                <NavButton text="create eden" timing={1000}/>
             }
-            {subdecks.register.message && 
+            {
+             subdecks.register.message && 
              subdecks.register.message instanceof Array && 
              subdecks.register.message > 0 ?
                 <h1>Hello i'm Register</h1>
                 :
-                <p>Heloo you i'm not here</p>
+                <NavButton text="create register" timing={1000}/>
             }
-            {subdecks.holybook.message && 
+            {
+             subdecks.holybook.message && 
              subdecks.holybook.message instanceof Array &&
              subdecks.holybook.message > 0 ?
                 <h1>Hello i'm Holybook</h1>
                 :
-                <p>Heloo you i'm not here</p>
+                <NavButton text="create holybook" timing={1000}/>
             }
         </Layout>
     )
