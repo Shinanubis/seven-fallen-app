@@ -15,41 +15,47 @@ import Button from '../components/Button'
 
 const DeckCreate = (props) => {
     const { id } = useParams();
-
-    const [subdecks, setSubDecks] = useState(null);
-    const datas = [
-        {
-            id: 0,
-            title: "EDEN 0/3",
-            target: "#item__1",
-            target_id:"item__1",
-            content:"Divinité 0/1 Archange 0/1 Temple 0/1"
-        },
-        {
-            id:1,
-            title: "REGISTRE 0/10",
-            target: "#item__2",
-            target_id:"item__2",
-            content:"Adorateurs 0/10"
-        },
-        {
-            id:2,
-            title: "LIVRE SACRE 0/50 +",
-            target: "#item__3",
-            target_id:"item__3",
-            content:"Anges 0 Golems 0 Miracles 0 Equipments 0"
-        }
-    ]
+    const [subdecks, setSubDecks] = useState({
+        eden: {},
+        register: {},
+        holybook: {}
+    });
 
     useEffect(async () => {
         let eden = await getEden(id);
-        console.log(eden)
+        let register = await getRegister(id);
+        let holybook = await getHolyBook(id);
+
+        if(eden.code === 200){
+            setSubDecks({...subdecks, eden: eden});
+        }
+
+        if(register.code === 200){
+            setSubDecks({...subdecks, register: register});
+        }
+
+        if(holybook.code === 200){
+            setSubDecks({...subdecks, holybook: holybook});
+        }
     },[])
 
     return (
         <Layout>
-            <Dropdown classes="dropdown__menu mb-6" datas={datas} />
-            <Button text="Valider"/>
+            {subdecks.eden.message.length === 0 && subdecks.eden.message instanceof Array ?
+                <h1>Hello i'm Eden</h1>
+                :
+                <p>Heloo you i'm not here</p>
+            }
+            {subdecks.register.message.length === 0 && subdecks.register.message instanceof Array ?
+                <h1>Hello i'm Register</h1>
+                :
+                <p>Heloo you i'm not here</p>
+            }
+            {subdecks.holybook.message.length === 0 && subdecks.holybook.message instanceof Array ?
+                <h1>Hello i'm Holybook</h1>
+                :
+                <p>Heloo you i'm not here</p>
+            }
         </Layout>
     )
 }
