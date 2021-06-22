@@ -1,12 +1,13 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
-function SubDeckPage(){
+function SubDeckPage(props){
 
     let params = useParams();
 
     useEffect(() => {
         console.log(params)
+        console.log(props)
     }, []);
 
     return (
