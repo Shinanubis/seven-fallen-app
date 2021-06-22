@@ -9,7 +9,7 @@ const NavButton = (props) => {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        let result = await onClick(e);
+        let result = onClick ? await onClick(e) : true;
         setTimeout(() => {
             if(result === true){
                 history.push(url);

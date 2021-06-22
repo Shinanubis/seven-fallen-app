@@ -55,7 +55,7 @@ const DeckCreate = (props) => {
              subdecks.register.message > 0 ?
                 <h1>Hello i'm Register</h1>
                 :
-                <NavButton text="create register" timing={1000} url={`https://test-seven.site/decks/${id}/register`}/>
+                <NavButton text="create register" timing={1000} url={`https://test-seven.site/decks/${id}/register`} />
             }
             {
              subdecks.holybook.message && 
