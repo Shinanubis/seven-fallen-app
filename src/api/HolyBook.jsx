@@ -4,7 +4,7 @@ async function getHolyBook(id){
         credentials: 'include'
     }
     
-    let response = await fetch(`https://test-seven.site/decks/${id}/holybook`,settings);
+    let response = await fetch(`https://test-seven.site/api/decks/${id}/holybook`,settings);
     let datas = await response.json();
     return datas;
 }
