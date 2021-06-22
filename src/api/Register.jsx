@@ -1,7 +1,7 @@
 async function getRegister(id){
     let settings = {
         method: 'GET',
-        credentials: 'includes'
+        credentials: 'include'
     }
     
     let response = await fetch(`https://test-seven.site/decks/${id}/register`,settings);
