@@ -52,7 +52,7 @@ const DeckCreate = (props) => {
              subdecks.eden.message > 0 ?
                 <h1>Hello i'm Eden</h1>
                 :
-                <NavButton text="create eden" timing={1000} url={`/eden`} onClick={handleClickNav} />
+                <NavButton text="create eden" timing={1000} url={`/decks/${id}/eden`} onClick={handleClickNav} />
             }
             {
              subdecks.register.message && 
@@ -60,7 +60,7 @@ const DeckCreate = (props) => {
              subdecks.register.message > 0 ?
                 <h1>Hello i'm Register</h1>
                 :
-                <NavButton text="create register" timing={1000} url={`/register`} onClick={handleClickNav}/>
+                <NavButton text="create register" timing={1000} url={`/decks/${id}/register`} onClick={handleClickNav}/>
             }
             {
              subdecks.holybook.message && 
@@ -68,7 +68,7 @@ const DeckCreate = (props) => {
              subdecks.holybook.message > 0 ?
                 <h1>Hello i'm Holybook</h1>
                 :
-                <NavButton text="create holybook" timing={1000} url={`/holybook`} onClick={handleClickNav}/>
+                <NavButton text="create holybook" timing={1000} url={`/decks/${id}/holybook`} onClick={handleClickNav}/>
             }
         </Layout>
     )
