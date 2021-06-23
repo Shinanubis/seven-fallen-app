@@ -51,6 +51,7 @@ const DeckCreate = (props) => {
     return (
         <Layout>
             {
+             console.log(subdecks),
              subdecks.eden.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
