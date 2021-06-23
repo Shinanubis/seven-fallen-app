@@ -62,7 +62,7 @@ const DeckCreate = (props) => {
 
     useEffect(() => {
         console.log(subdecks)
-        setLoaded(true);
+        
     },[subdecks]);
 
     useEffect(async () => {
@@ -84,7 +84,6 @@ const DeckCreate = (props) => {
         }
 
         setSubDecks(response);
-        setLoaded(true);
     },[]);
 
     return loaded === true ? (
@@ -154,6 +153,17 @@ const DeckCreate = (props) => {
     :
     (
         <Layout className="loader__block row justify-center align-center">
+            {
+                (
+                    subdecks.eden.code !== null || 
+                    subdecks.register.code !== null ||
+                    subdecks.holybook.code !== null
+                ) 
+                ? 
+                setLoaded(true) 
+                : 
+                null
+            }
             <BiLoaderAlt className="loader" />
         </Layout>
     )
