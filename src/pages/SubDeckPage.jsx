@@ -24,7 +24,7 @@ function SubDeckPage(props){
         code: null,
         message: null
     });
-    const [isEmpty, setIsEmpty] = useState(null);
+    const [isEmpty, setIsEmpty] = useState(true);
     const [test, setTest] = useState(false);
 
     useEffect(() => {
