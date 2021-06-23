@@ -1,7 +1,6 @@
-import React,{useContext,useEffect} from 'react'
+import React from 'react'
 import './Card.css'
 import CheckBox from './CheckBox'
-import CardsContext from '../contexts/CardsContext'
 
 
 const Card = (props) => {
