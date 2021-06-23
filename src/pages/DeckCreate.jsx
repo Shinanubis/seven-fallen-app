@@ -152,7 +152,7 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <div className="loader__block" onLoad={() => setLoaded(true)}>
+        <div className="loader__block">
             <BiLoaderAlt className="loader" />
         </div>
     )
