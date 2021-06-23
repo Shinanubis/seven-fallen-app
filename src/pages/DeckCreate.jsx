@@ -31,11 +31,25 @@ const DeckCreate = (props) => {
         }
     });
 
-    const handleClickNav = (e) => {
+    const handleClickNav = async (e) => {
         e.preventDefault();
-        if(e.target.id === 'eden' || e.target.id === 'register' || e.target.id === 'holybook' ){
-            console.log(e.target.id)
+        let response = null;
+
+        if(e.target.id === 'eden'){
+            response = await createEden(id);
+            setSubDecks({...subdecks, eden: response});
         }
+
+        if(e.target.id === 'register'){
+            response = await createRegister(id);
+            setSubDecks({...subdecks, register: response});
+        }
+
+        if(e.target.id === 'holybook'){
+            response = await createHolyBook(id);
+            setSubDecks({...subdecks, holybook: response});
+        }
+
         return true;
     }
 
