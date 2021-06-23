@@ -1,4 +1,4 @@
-import React,{useEffect, useState, useLayoutEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 
 /* layout */
 import Layout from '../layouts/Layout';
@@ -15,7 +15,6 @@ import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import Popup from '../components/Popup';
 import { Redirect } from 'react-router-dom';
-import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 const DecksPage = () => {
 
