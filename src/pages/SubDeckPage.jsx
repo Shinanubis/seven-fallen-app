@@ -17,8 +17,8 @@ function SubDeckPage(props){
     useEffect(async () => {
         setTimeout(() => {
            setTest(true) 
-        }, 2);
-    },[])
+        }, 2000);
+    })
 
 
     return loaded === true ? (
