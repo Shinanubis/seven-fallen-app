@@ -105,7 +105,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subdeck__infos  row align-center">
-                            Num cards : {subdecks.register.message.qty ? 0 : subdecks.register.message.qty}
+                            Num cards : {subdecks.register.message.qty === undefined ? 0 : subdecks.register.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
