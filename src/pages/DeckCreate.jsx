@@ -62,21 +62,43 @@ const DeckCreate = (props) => {
     const handleDeleteEden = async (e) => {
         e.preventDefault();
         let response = await deleteEden(id);
-        setSubDecks({...subdecks, eden: response});
+        if(response.code === 200){
+            setSubDecks({...subdecks, eden: {
+                code:null,
+                message: null
+            }});
+        }else{
+            setSubDecks({...subdecks, eden: response});           
+        }
+
         return true;
     }
 
     const handleDeleteRegister = async (e) => {
         e.preventDefault();
         let response = await deleteRegister(id);
-        setSubDecks({...subdecks, response});
+        if(response.code === 200){
+            setSubDecks({...subdecks, register: {
+                code:null,
+                message: null
+            }});
+        }else{
+            setSubDecks({...subdecks, register: response});           
+        }
         return true;
     }
 
     const handleDeleteHolyBook = async (e) => {
         e.preventDefault();
         let response = await deleteHolyBook(id);
-        setSubDecks({...subdecks, response});
+        if(response.code === 200){
+            setSubDecks({...subdecks, holybook: {
+                code:null,
+                message: null
+            }});
+        }else{
+            setSubDecks({...subdecks, holybook: response});           
+        }
         return true;
     }
 
