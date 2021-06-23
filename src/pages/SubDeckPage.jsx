@@ -20,6 +20,7 @@ function SubDeckPage(props){
         code: null,
         message: null
     });
+    const [isEmpty, setIsEmpty] = useState(null);
     const [test, setTest] = useState(false);
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function SubDeckPage(props){
     useEffect(async () => {
         let response = await getEdenCards(id);
         if(response === 200){
-            setCardsList(response);
+            setCardsList(response)
         }
     },[]);
 
