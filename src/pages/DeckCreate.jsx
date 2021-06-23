@@ -152,9 +152,9 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <div className="loader__block">
+        <Layout className="loader__block row justify-center align-center">
             <BiLoaderAlt className="loader" />
-        </div>
+        </Layout>
     )
 }
 
