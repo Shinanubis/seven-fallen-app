@@ -76,19 +76,29 @@ const DeckCreate = (props) => {
                 :
                 <Button text="create eden" onClick={handleClickNav} />
             }
-            {
-             subdecks.register.message && 
-             subdecks.register.message instanceof Array && 
-             subdecks.register.message > 0 ?
-                <Redirect to={`/decks/${id}/register`} />
+            {!subdecks.register.message instanceof Array ?
+                <div className="subdeck__box">
+                    <div className="subdeck__heading">
+                        <h4 className="subedeck__type title">eden</h4>
+                    </div>
+                    <div classsName="subdeck__body row justify-between px-2">
+                        <GiStack className="subdeck__icon" />
+                        <AiFillDelete className="subdeck__icon" />
+                    </div>
+                </div>
                 :
                 <Button text="create register" onClick={handleClickNav}/>
             }
-            {
-             subdecks.holybook.message && 
-             subdecks.holybook.message instanceof Array &&
-             subdecks.holybook.message > 0 ?
-                <Redirect to={`/decks/${id}/holybook`} />
+            {!subdecks.holybook.message instanceof Array ?
+                <div className="subdeck__box">
+                    <div className="subdeck__heading">
+                        <h4 className="subedeck__type title">eden</h4>
+                    </div>
+                    <div classsName="subdeck__body row justify-between px-2">
+                        <GiStack className="subdeck__icon" />
+                        <AiFillDelete className="subdeck__icon" />
+                    </div>
+                </div>
                 :
                 <Button text="create holybook" onClick={handleClickNav}/>
             }
