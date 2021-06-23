@@ -1,10 +1,11 @@
 import React from 'react'
 const Button = (props) => {
-    const {classes,bgcolor,color, size,onClick, text} = props
+    const {id, classes,bgcolor,color, size,onClick, text} = props
     
     return (
 
         <button 
+            id={id ? id : null}
             type="button"
             className = {classes ? classes : "btn"}
             style={{
