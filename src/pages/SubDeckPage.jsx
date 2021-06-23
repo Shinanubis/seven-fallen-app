@@ -17,6 +17,9 @@ function SubDeckPage(props){
     let {id} = useParams();
     const [loaded, setLoaded] = useState(false);
 
+    let endUrl = props.location.pathname.split('/');
+    endUrl = endUrl[endUrl.length -1];
+
     const [cardsList, setCardsList] = useState({
         code: null,
         message: null
@@ -31,9 +34,10 @@ function SubDeckPage(props){
     })
 
     useEffect(async () => {
-        let response = await getEdenCards(id);
-        console.log(response.message[0].cards.length === 0)
+        let response = null; 
+        response = await getEdenCards(id);
         if(response === 200){
+            console.log(response.message[0].cards.length === 0)
             if(response.message[0].cards.length === 0){
                 setIsEmpty(true);
             }else{
