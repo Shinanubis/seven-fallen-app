@@ -675,7 +675,7 @@ svg.dropdown__icon path{
 }
 
 .loader__block{
-  width:100%;
+  width:100vw;
   height: 100vh;
   z-index: 40;
 }
