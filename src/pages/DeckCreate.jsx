@@ -152,7 +152,7 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <Layout className="loader__block row justify-center align-center">
+        <div className="loader__block row justify-center align-center">
             {
                 (
                     subdecks.eden.code !== null || 
@@ -165,7 +165,7 @@ const DeckCreate = (props) => {
                 null
             }
             <BiLoaderAlt className="loader" />
-        </Layout>
+        </div>
     )
 }
 
