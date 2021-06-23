@@ -9,5 +9,17 @@ async function getEden(id){
     return datas;
 }
 
+async function createEden(id){
 
-export { getEden };
+    let settings = {
+        method: 'POST',
+        credentials: 'include'
+    }
+
+    let response = await fetch(`https://test-seven.site/api//decks/${id}/eden/create`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
+
+export { getEden, createEden };

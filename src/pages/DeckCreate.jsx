@@ -4,9 +4,9 @@ import { GiStack } from 'react-icons/gi';
 import { AiFillDelete } from 'react-icons/ai';
 
 /* api */
-import {getEden} from '../api/Eden.jsx';
-import {getHolyBook} from '../api/HolyBook.jsx';
-import {getRegister} from '../api/Register.jsx';
+import {getEden, createEden} from '../api/Eden.jsx';
+import {getHolyBook, createHolyBook} from '../api/HolyBook.jsx';
+import {getRegister, createRegister} from '../api/Register.jsx';
 
 /* layouts */
 import Layout from '../layouts/Layout';
@@ -33,6 +33,9 @@ const DeckCreate = (props) => {
 
     const handleClickNav = (e) => {
         e.preventDefault();
+        if(e.target.id === 'eden' || e.target.id === 'register' || e.target.id === 'holybook' ){
+            console.log(e.target.id)
+        }
         return true;
     }
 

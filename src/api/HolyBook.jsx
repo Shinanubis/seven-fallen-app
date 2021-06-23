@@ -9,4 +9,16 @@ async function getHolyBook(id){
     return datas;
 }
 
-export { getHolyBook };
+async function createHolyBook(id){
+
+    let settings = {
+        method: 'POST',
+        credentials: 'include'
+    }
+
+    let response = await fetch(`https://test-seven.site/api//decks/${id}/holybook/create`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
+export { getHolyBook, createHolyBook };
