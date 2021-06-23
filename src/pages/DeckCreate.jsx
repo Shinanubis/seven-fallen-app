@@ -122,7 +122,7 @@ const DeckCreate = (props) => {
         }
 
         setSubDecks(response);
-    });
+    },[]);
 
     return loaded === true ? (
         <Layout>
