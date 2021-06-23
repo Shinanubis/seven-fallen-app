@@ -85,8 +85,10 @@ const DeckCreate = (props) => {
         setSubDecks(response);
     },[])
 
-    return loading === false ? (
-        <Layout onLoad={() => setLoading(true)}>
+    return subdecks.eden.code === null ||
+           subdecks.register.code === null || 
+           subdecks.holybook.code === null ? (
+        <Layout>
             {subdecks.eden.code === 200 ?
                 <div className="subdeck__box mb-5">
                     <div className="subdeck__heading py-2">
@@ -128,7 +130,7 @@ const DeckCreate = (props) => {
                 <Button id="register" classes="btn mb-3" text="create register" onClick={handleClickNav}/>
             }
             {subdecks.holybook.code === 200 ?
-                <div className="subdeck__box mb-5">
+                <div className="subdeck__box">
                     <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">holybook</h4>
                     </div>
@@ -145,17 +147,15 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button id="holybook" classes="btn mb-3" text="create holybook" onClick={handleClickNav}/>
+                <Button id="holybook" classes="btn" text="create holybook" onClick={handleClickNav}/>
             }
         </Layout>
     )
     :
     (
-      <Layout>
         <div className="loader__block">
             <BiLoaderAlt className="loader"/>
         </div>
-      </Layout>
     )
 }
 
