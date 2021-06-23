@@ -85,6 +85,8 @@ const DeckCreate = (props) => {
         setSubDecks(response);
     },[]);
 
+    useEffect(() => setLoaded(true),[subdecks])
+
     return loaded === true ? (
         <Layout>
             {subdecks.eden.code === 200 ?
