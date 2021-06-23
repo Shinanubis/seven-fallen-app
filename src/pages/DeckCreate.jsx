@@ -36,17 +36,10 @@ const DeckCreate = (props) => {
         let register = await getRegister(id);
         let holybook = await getHolyBook(id);
 
-        if(eden.code === 200){
+        if(eden.code === 200 && register.code === 200 && holybook.code === 200){
             setSubDecks({...subdecks, eden: eden});
         }
 
-        if(register.code === 200){
-            setSubDecks({...subdecks, register: register});
-        }
-
-        if(holybook.code === 200){
-            setSubDecks({...subdecks, holybook: holybook});
-        }
         console.log("eden : ", eden)
         console.log("register : ", register)
         console.log("holybook : ", holybook)
