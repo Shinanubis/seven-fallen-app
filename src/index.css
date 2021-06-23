@@ -661,8 +661,9 @@ svg.dropdown__icon path{
 
 
 .subdeck__icon{
-  font-size: 3vh;
+  font-size: 4vh;
   color: var(--dark-grey);
+  cursor: pointer;
 }
 
 /* Utilities */
