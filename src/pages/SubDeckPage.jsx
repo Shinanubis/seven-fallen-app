@@ -23,7 +23,7 @@ function SubDeckPage(props){
 
     return loaded === true ? (
         <Layout>
-            <h1 className="title">Welcome </h1>
+            {<h1 className="title">Welcome </h1>}
         </Layout>
     )
     :
