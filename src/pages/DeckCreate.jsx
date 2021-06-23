@@ -2,6 +2,7 @@ import React,{useEffect, useLayoutEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import { GiStack } from 'react-icons/gi';
 import { AiFillDelete } from 'react-icons/ai';
+import { RiLoader3Line } from 'react-icons/ri';
 
 /* api */
 import {getEden, createEden, deleteEden} from '../api/Eden.jsx';
@@ -199,6 +200,7 @@ const DeckCreate = (props) => {
                     subdecks.holybook.code !== null 
                 }
                 setLoaded = {setLoaded}
+                loaderIcon = {RiLoader3Line}
         />
     )
 }

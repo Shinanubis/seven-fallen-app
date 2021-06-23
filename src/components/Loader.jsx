@@ -1,8 +1,8 @@
 import React from 'react';
-import { RiLoader3Line } from 'react-icons/ri';
 
 function Loader(props) {
     let { condition, setLoaded } = props;
+    let LoaderIcon = props.loaderIcon;
     return (
         <div className="loader__block row justify-center align-center">
             {             
@@ -12,7 +12,7 @@ function Loader(props) {
                 : 
                 null
             }
-            <RiLoader3Line className="loader"/>
+            <LoaderIcon className="loader"/>
         </div>
     )
 }
