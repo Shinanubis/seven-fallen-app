@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 /* api */
 import { getEdenCards } from '../api/Eden';
@@ -20,7 +20,7 @@ function SubDeckPage(props){
     const [loaded, setLoaded] = useState(false);
 
     let endUrl = props.location.pathname.split('/');
-    endUrl = endUrl[endUrl.length -1];
+    endUrl = endUrl[endUrl.length - 1];
 
     const [cardsList, setCardsList] = useState({
         code: null,
@@ -68,10 +68,12 @@ function SubDeckPage(props){
             <List classes="list__content layout layout__3">
                 {
                     isEmpty === true ?
-                    (
+                    (<>
                         <p style ={{color: "black",margin:"0 auto",textAlign:"center"}}>
                             Empty 
                         </p>
+                        <Link to={`/decks/${id}/subdecks`}></Link>
+                        </>
                     )
                     :
                     (
