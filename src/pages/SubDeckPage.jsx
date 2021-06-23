@@ -52,10 +52,16 @@ function SubDeckPage(props){
         <Main>
             <List classes="list__content layout layout__3">
                 {
-                    isEmpty === true ??
+                    isEmpty === true ?
                     (
                         <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
                             Empty 
+                        </p>
+                    )
+                    :
+                    (
+                        <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
+                            I'm full
                         </p>
                     )
                 }
