@@ -34,6 +34,7 @@ const DeckCreate = (props) => {
     const handleClickNav = async (e) => {
         e.preventDefault();
         let response = null;
+
         if(e.target.id === 'eden'){
             response = await createEden(id);
             setSubDecks({...subdecks, eden: response});
@@ -82,7 +83,7 @@ const DeckCreate = (props) => {
             {subdecks.eden.code === 200 ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
-                        <h4 className="subedeck__type title">eden</h4>
+                        <h4 className="subdeck__type title">eden</h4>
                     </div>
                     <div className="subdeck__body row justify-between px-2">
                         <GiStack className="subdeck__icon" />
@@ -95,7 +96,7 @@ const DeckCreate = (props) => {
             {subdecks.register.code === 200 ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
-                        <h4 className="subedeck__type title">register</h4>
+                        <h4 className="subdeck__type title">register</h4>
                     </div>
                     <div className="subdeck__body row justify-between px-2">
                         <GiStack className="subdeck__icon" />
@@ -108,7 +109,7 @@ const DeckCreate = (props) => {
             {subdecks.holybook.code === 200 ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
-                        <h4 className="subedeck__type title">holybook</h4>
+                        <h4 className="subdeck__type title">holybook</h4>
                     </div>
                     <div className="subdeck__body row justify-between px-2">
                         <GiStack className="subdeck__icon" />

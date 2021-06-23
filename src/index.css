@@ -639,6 +639,19 @@ svg.dropdown__icon path{
   height: 100%;
 }
 
+/* subdeck */
+.subdeck__heading{
+  background-color: var(--dark-grey);
+}
+
+.subdeck__title{
+  font-size: 2vw;
+}
+
+.subedeck__icon{
+
+}
+
 /* Utilities */
 
 .d-none{
