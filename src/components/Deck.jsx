@@ -1,4 +1,4 @@
-import React, {useState, useEffect}from 'react';
+import React, {useState}from 'react';
 import {deleteUserDeck, getUserDecks} from '../api/Decks';
 import {AiFillCloseCircle} from 'react-icons/ai';
 import {BsPencil} from 'react-icons/bs';
@@ -17,8 +17,6 @@ const Deck = (props) => {
             deleteStateSetter, 
             reqOptState
         } = props;
-
-    const [openModify, setOpenModify] = useState(false);
     
     const removeData = async () => {
         let deleteResponse = await deleteUserDeck(id);
@@ -39,11 +37,6 @@ const Deck = (props) => {
     const handleClick = (e, state, id) => {
         e.preventDefault();
         removeData();
-    }
-
-    const handleModify = (e) => {
-        e.preventDefault();
-        setOpenModify(true);
     }
     
     return (
