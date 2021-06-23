@@ -2,6 +2,7 @@ import React,{useEffect, useLayoutEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import { GiStack } from 'react-icons/gi';
 import { AiFillDelete } from 'react-icons/ai';
+import { BiLoaderAlt } from 'react-icons/bi';
 
 /* api */
 import {getEden, createEden} from '../api/Eden.jsx';
@@ -151,7 +152,8 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <div>
+        <div className="loading__block">
+            <BiLoaderAlt className="loader"/>
         </div>
     )
 }
