@@ -682,15 +682,11 @@ svg.dropdown__icon path{
 }
 
 .loader{
-  height: 40vw;
-  width: 40vw;
+  height: 30vw;
+  width: 30vw;
   color:rgb(59, 231, 59);
   animation: loading 1s  linear infinite;
   -webkit-animation: loading 1s  linear infinite;
-}
-
-.loader path{
-  stroke-width: -2px;
 }
 
 /* Utilities */
