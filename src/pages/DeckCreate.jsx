@@ -123,7 +123,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subedeck__infos">
-                            Num cards : {subdecks.holybooks.qty}
+                            Num cards : {subdecks.holybook.qty}
                         </p>
                         <div className="subdeck__icon--list">
                             <GiStack className="subdeck__icon" />
