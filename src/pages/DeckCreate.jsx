@@ -62,6 +62,7 @@ const DeckCreate = (props) => {
 
     useEffect(() => {
         console.log(subdecks)
+        setLoaded(true);
     },[subdecks]);
 
     useEffect(async () => {
