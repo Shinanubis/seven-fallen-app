@@ -27,6 +27,10 @@ const DeckCreate = (props) => {
         return true;
     }
 
+    useEffect(() => {
+        console.log(subdecks)
+    },[subdecks]);
+
     useEffect(async () => {
         let eden = await getEden(id);
         let register = await getRegister(id);
@@ -51,7 +55,6 @@ const DeckCreate = (props) => {
     return (
         <Layout>
             {
-             console.log(subdecks),
              subdecks.eden.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
