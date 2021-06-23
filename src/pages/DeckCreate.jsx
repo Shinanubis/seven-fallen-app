@@ -81,8 +81,8 @@ const DeckCreate = (props) => {
     return (
         <Layout>
             {subdecks.eden.code === 200 ?
-                <div className="subdeck__box">
-                    <div className="subdeck__heading py-2 mb-2">
+                <div className="subdeck__box mb-2">
+                    <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">eden</h4>
                     </div>
                     <div className="subdeck__body row justify-between px-2">
@@ -94,7 +94,7 @@ const DeckCreate = (props) => {
                 <Button id="eden" text="create eden" onClick={handleClickNav} />
             }
             {subdecks.register.code === 200 ?
-                <div className="subdeck__box">
+                <div className="subdeck__box mb-2">
                     <div className="subdeck__heading py-2 mb-2">
                         <h4 className="subdeck__type">register</h4>
                     </div>
@@ -107,7 +107,7 @@ const DeckCreate = (props) => {
                 <Button id="register" text="create register" onClick={handleClickNav}/>
             }
             {subdecks.holybook.code === 200 ?
-                <div className="subdeck__box">
+                <div className="subdeck__box mb-2">
                     <div className="subdeck__heading py-2 mb-2">
                         <h4 className="subdeck__type">holybook</h4>
                     </div>

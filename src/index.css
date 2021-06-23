@@ -655,8 +655,10 @@ svg.dropdown__icon path{
   text-transform: uppercase;
 }
 
+
 .subdeck__icon{
   color: var(--white);
+  font-size: 2vh;
 }
 
 /* Utilities */
