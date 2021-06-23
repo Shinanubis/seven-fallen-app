@@ -35,14 +35,22 @@ const DeckCreate = (props) => {
         let eden = await getEden(id);
         let register = await getRegister(id);
         let holybook = await getHolyBook(id);
+        let response = {};
 
-        if(eden.message && register.message && holybook.message){
-            setSubDecks({...subdecks, eden: eden});
+        if(eden.message){
+            response = {...response, eden: eden}
         }
 
-        console.log("eden : ", eden)
-        console.log("register : ", register)
-        console.log("holybook : ", holybook)
+        if(register.message){
+            response = {...response, register: register}
+        }
+
+        if(holybook.message){
+            response = {...response, holybook: holybook}
+        }
+
+        console.log("eden : ", response)
+    
     },[])
 
     return (
