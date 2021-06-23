@@ -50,20 +50,16 @@ function SubDeckPage(props){
 
     return loaded === true ? (
         <Main>
-            {
-                isEmpty === true ?
-                (
-                    <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
-                        Empty 
-                    </p>
-                )
-                :
-                (
-                    <List>
-
-                    </List>
-                ) 
-            }
+            <List classes="list__content layout layout__3">
+                {
+                    isEmpty === true ??
+                    (
+                        <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
+                            Empty 
+                        </p>
+                    )
+                }
+            </List>
         </Main>
     )
     :
