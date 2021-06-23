@@ -63,7 +63,7 @@ const DeckCreate = (props) => {
 
     return (
         <Layout>
-            {subdecks.eden.message instanceof Array && subdecks.eden.message.length >= 0 ?
+            {subdecks.eden.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
                         <h4 className="subedeck__type title">eden</h4>
@@ -76,7 +76,7 @@ const DeckCreate = (props) => {
                 :
                 <Button text="create eden" onClick={handleClickNav} />
             }
-            {subdecks.register.message instanceof Array && subdecks.register.message.length >= 0 ?
+            {subdecks.register.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
                         <h4 className="subedeck__type title">eden</h4>
@@ -89,7 +89,7 @@ const DeckCreate = (props) => {
                 :
                 <Button text="create register" onClick={handleClickNav}/>
             }
-            {subdecks.holybook.message instanceof Array && subdecks.holybooks.message.length >= 0 ?
+            {subdecks.holybook.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
                         <h4 className="subedeck__type title">eden</h4>
