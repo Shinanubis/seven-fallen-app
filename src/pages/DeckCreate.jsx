@@ -35,7 +35,7 @@ const DeckCreate = (props) => {
         let eden = await getEden(id);
         let register = await getRegister(id);
         let holybook = await getHolyBook(id);
-        let response = {};
+        const response = {};
 
         if(eden.message){
             response = {...response, eden: eden}
@@ -49,8 +49,7 @@ const DeckCreate = (props) => {
             response = {...response, holybook: holybook}
         }
 
-        console.log("eden : ", response)
-    
+        setSubDecks(response);
     },[])
 
     return (
