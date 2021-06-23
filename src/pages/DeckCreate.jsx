@@ -83,16 +83,12 @@ const DeckCreate = (props) => {
         }
 
         setSubDecks(response);
-    },[])
-
-    useEffect(() => {
-        setLoaded(true);
-    });
+    },[]);
 
     return loaded === true ? (
         <Layout>
             {subdecks.eden.code === 200 ?
-                <div className="subdeck__box mb-5">
+                <div className="subdeck__box mb-5" onLoad={() => setLoaded(true)}>
                     <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">eden</h4>
                     </div>
