@@ -43,6 +43,7 @@ function SubDeckPage(props){
             }else{
                 setIsEmpty(false);
             }
+            setCardsList(response);
         }
     },[]);
 
