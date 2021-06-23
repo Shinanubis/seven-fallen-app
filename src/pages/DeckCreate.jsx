@@ -35,7 +35,7 @@ const DeckCreate = (props) => {
         let eden = await getEden(id);
         let register = await getRegister(id);
         let holybook = await getHolyBook(id);
-        const response = {};
+        let response = {};
 
         if(eden.message){
             response = {...response, eden: eden}
