@@ -59,9 +59,17 @@ const DeckCreate = (props) => {
         return true;
     }
 
-    const handleDeleteSubdeck = async (e) => {
+    const handleDeleteEden = async (e) => {
         e.preventDefault();
-        let response = await deleteEden(id);;
+        let response = await deleteEden(id);
+
+        if(response.code === 200){
+            setSubDecks({...subdecks, eden: {
+                    code: null,
+                    message: null
+                }
+            });
+        }
         return true;
     }
 
@@ -105,7 +113,7 @@ const DeckCreate = (props) => {
                             <Link to={`/decks/${id}/eden`}>
                                 <GiStack className="subdeck__icon" />
                             </Link>
-                            <AiFillDelete className="subdeck__icon" onClick={handleDeleteSubdeck}/>
+                            <AiFillDelete className="subdeck__icon" onClick={handleDeleteEden}/>
                         </div>
                     </div>
                 </div>
