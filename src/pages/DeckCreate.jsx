@@ -96,7 +96,7 @@ const DeckCreate = (props) => {
             {subdecks.register.code === 200 ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
-                        <h4 className="subedeck__type title">eden</h4>
+                        <h4 className="subedeck__type title">register</h4>
                     </div>
                     <div classsName="subdeck__body row justify-between px-2">
                         <GiStack className="subdeck__icon" />
@@ -109,7 +109,7 @@ const DeckCreate = (props) => {
             {subdecks.holybook.code === 200 ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
-                        <h4 className="subedeck__type title">eden</h4>
+                        <h4 className="subedeck__type title">holybook</h4>
                     </div>
                     <div classsName="subdeck__body row justify-between px-2">
                         <GiStack className="subdeck__icon" />
