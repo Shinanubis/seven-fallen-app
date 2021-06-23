@@ -122,7 +122,7 @@ const DeckCreate = (props) => {
         }
 
         setSubDecks(response);
-    },[]);
+    });
 
     return loaded === true ? (
         <Layout>
@@ -133,7 +133,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subdeck__infos row align-center">
-                            Num cards : {subdecks.eden.message.qty == undefined ? 0 : subdecks.eden.message.qty}
+                            Num cards : {subdecks.eden.message.qty === undefined ? 0 : subdecks.eden.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
                             <Link to={`/decks/${id}/eden`}>
