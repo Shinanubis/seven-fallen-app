@@ -74,7 +74,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button text="create eden" onClick={handleClickNav} />
+                <Button id="eden" text="create eden" onClick={handleClickNav} />
             }
             {subdecks.register.message instanceof Array ?
                 <div className="subdeck__box">
@@ -87,7 +87,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button text="create register" onClick={handleClickNav}/>
+                <Button id="register" text="create register" onClick={handleClickNav}/>
             }
             {subdecks.holybook.message instanceof Array ?
                 <div className="subdeck__box">
@@ -100,7 +100,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button text="create holybook" onClick={handleClickNav}/>
+                <Button id="holybook" text="create holybook" onClick={handleClickNav}/>
             }
         </Layout>
     )
