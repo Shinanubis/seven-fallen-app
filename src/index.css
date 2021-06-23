@@ -643,6 +643,7 @@ svg.dropdown__icon path{
 
 .subdeck__box{
   min-width: 70vw;
+  border: 1px solid var(--dark-grey);
 }
 
 .subdeck__heading{
