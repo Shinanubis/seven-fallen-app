@@ -29,22 +29,19 @@ function SubDeckPage(props){
 
     useEffect(() => {
         setTimeout(() => {
-           setTest(true);
-           setIsEmpty(false); 
+           setTest(true); 
         }, 750);
     })
 
     useEffect(async () => {
         let response = null; 
         response = await getEdenCards(id);
-        if(response === 200){
-            if(response.message[0].cards.length === 0){
-                setIsEmpty(true);
-            }else{
-                setIsEmpty(false);
-            }
-            setCardsList(response);
+        if(response.message[0].cards.length === 0){
+            setIsEmpty(true);
+        }else{
+            setIsEmpty(false);
         }
+        setCardsList(response);
     },[]);
 
 
