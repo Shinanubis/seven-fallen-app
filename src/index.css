@@ -661,8 +661,11 @@ svg.dropdown__icon path{
 
 
 .subdeck__icon{
-  color: var(--white);
-  font-size: 2vh;
+  font-size: 3vh;
+}
+
+.subdeck__icon svg {
+  color: var(--dark-grey);
 }
 
 /* Utilities */
