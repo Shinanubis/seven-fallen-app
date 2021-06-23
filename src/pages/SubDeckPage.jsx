@@ -44,7 +44,7 @@ function SubDeckPage(props){
                 setIsEmpty(false);
             }
         }
-    },[]);
+    });
 
 
     return loaded === true ? (
