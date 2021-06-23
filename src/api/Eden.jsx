@@ -12,7 +12,7 @@ async function getEden(id){
 async function getEdenCards(id){
     let settings = {
         method : 'GET',
-        credentials: true
+        credentials: 'include'
     }
 
     let response = await fetch(`https://test-seven.site/api/decks/${id}/eden/cards`, settings);
