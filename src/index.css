@@ -684,6 +684,7 @@ svg.dropdown__icon path{
 .loader{
   height: 40vw;
   width: 40vw;
+  font-weight: 2px;
   color:rgb(59, 231, 59);
   animation: loading 1s  linear infinite;
   -webkit-animation: loading 1s  linear infinite;
