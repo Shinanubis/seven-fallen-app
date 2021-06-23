@@ -21,4 +21,15 @@ async function createHolyBook(id){
     return datas;
 }
 
-export { getHolyBook, createHolyBook };
+async function deleteHolyBook(id){
+    let settings = {
+        method: 'DELETE',
+        credentials: 'include'
+    }
+
+    let response = await fetch(`https://test-seven.site/api//decks/${id}/holybook/delete`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
+export { getHolyBook, createHolyBook, deleteHolyBook };

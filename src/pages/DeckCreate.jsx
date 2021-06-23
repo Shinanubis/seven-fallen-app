@@ -6,8 +6,8 @@ import { RiLoader3Line } from 'react-icons/ri';
 
 /* api */
 import {getEden, createEden, deleteEden} from '../api/Eden.jsx';
-import {getHolyBook, createHolyBook} from '../api/HolyBook.jsx';
-import {getRegister, createRegister} from '../api/Register.jsx';
+import {getHolyBook, createHolyBook, deleteHolyBook} from '../api/HolyBook.jsx';
+import {getRegister, createRegister, deleteRegister} from '../api/Register.jsx';
 
 /* layouts */
 import Layout from '../layouts/Layout';
@@ -62,14 +62,21 @@ const DeckCreate = (props) => {
     const handleDeleteEden = async (e) => {
         e.preventDefault();
         let response = await deleteEden(id);
+        setSubDecks({...subdecks, eden: response});
+        return true;
+    }
 
-        if(response.code === 200){
-            setSubDecks({...subdecks, eden: {
-                    code: null,
-                    message: null
-                }
-            });
-        }
+    const handleDeleteRegister = async (e) => {
+        e.preventDefault();
+        let response = await deleteRegister(id);
+        setSubDecks({...subdecks, response});
+        return true;
+    }
+
+    const handleDeleteHolyBook = async (e) => {
+        e.preventDefault();
+        let response = await deleteHolyBook(id);
+        setSubDecks({...subdecks, response});
         return true;
     }
 
@@ -133,7 +140,7 @@ const DeckCreate = (props) => {
                             <Link to={`/decks/${id}/register`}>
                                 <GiStack className="subdeck__icon" />
                             </Link>
-                            <AiFillDelete className="subdeck__icon" />
+                            <AiFillDelete className="subdeck__icon" onClick={handleDeleteRegister}/>
                         </div>
                     </div>
                 </div>
@@ -153,7 +160,7 @@ const DeckCreate = (props) => {
                             <Link to={`/decks/${id}/holybook`}>
                                 <GiStack className="subdeck__icon" />
                             </Link>
-                            <AiFillDelete className="subdeck__icon" />
+                            <AiFillDelete className="subdeck__icon" onClick={handleDeleteHolyBook}/>
                         </div>
                     </div>
                 </div>

@@ -21,4 +21,15 @@ async function createRegister(id){
     return datas;
 }
 
-export { getRegister, createRegister };
+async function deleteRegister(id){
+    let settings = {
+        method: 'DELETE',
+        credentials: 'include'
+    }
+
+    let response = await fetch(`https://test-seven.site/api//decks/${id}/register/delete`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
+export { getRegister, createRegister, deleteRegister };
