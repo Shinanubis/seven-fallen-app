@@ -83,9 +83,9 @@ const DeckCreate = (props) => {
         setSubDecks(response);
     },[])
 
-    return subdecks.eden.message.code === 200 || 
-           subdecks.register.message.code === 200 || 
-           subdecks.holybook.message.code === 200 ? (
+    return subdecks.eden.message !== null || 
+           subdecks.register.message !== null || 
+           subdecks.holybook.message !== null ? (
         <Layout>
             {subdecks.eden.code === 200 ?
                 <div className="subdeck__box mb-5">
