@@ -1,5 +1,5 @@
 import React,{useEffect, useLayoutEffect, useState} from 'react';
-import {useParams, Redirect} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import { GiStack } from 'react-icons/gi';
 import { AiFillDelete } from 'react-icons/ai';
 
@@ -90,7 +90,9 @@ const DeckCreate = (props) => {
                             Num cards : {subdecks.eden.message.qty == undefined ? 0 : subdecks.eden.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
-                            <GiStack className="subdeck__icon" />
+                            <Link to={`/decks/${id}/eden`}>
+                                <GiStack className="subdeck__icon" />
+                            </Link>
                             <AiFillDelete className="subdeck__icon" />
                         </div>
                     </div>
