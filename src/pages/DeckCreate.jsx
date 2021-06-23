@@ -87,7 +87,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subdeck__infos row align-center">
-                            Num cards : {subdecks.eden.message.qty}
+                            Num cards : {subdecks.eden.message.qty.toString()}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
@@ -105,7 +105,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subdeck__infos  row align-center">
-                            Num cards : {subdecks.register.message.qty}
+                            Num cards : {subdecks.register.message.qty.toString()}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
@@ -123,7 +123,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subdeck__infos  row align-center">
-                            Num cards : {subdecks.holybook.message.qty}
+                            Num cards : {subdecks.holybook.message.qty.toString()}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
