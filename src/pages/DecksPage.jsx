@@ -190,7 +190,7 @@ const DecksPage = () => {
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
-                <Filters containerClasses="filter__container row justify-end my-3" isVisible={filterClicked} onClick={handleClickFilter}/>
+                <Filters containerClasses="filter__container row justify-end my-3 px-2" isVisible={filterClicked} onClick={handleClickFilter}/>
                 <List classes="list__content layout layout__1">
                       { 
                         decksList.message.length > 0 ?
@@ -228,7 +228,7 @@ const DecksPage = () => {
                 <Pagination 
                     options = {reqOpt}
                     eventsToListen = {filterClicked}
-                    containerClasses = "pagination__block my-3 mb-5 row justify-between"
+                    containerClasses = "pagination__block my-3 row justify-between"
                     containerTextBlockClasses = {"pagination__text--block row justify-between"} 
                     setPage={handlePage} 
                     setSize={handleSize} 
