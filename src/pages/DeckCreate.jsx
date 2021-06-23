@@ -86,8 +86,13 @@ const DeckCreate = (props) => {
                         <h4 className="subdeck__type">eden</h4>
                     </div>
                     <div className="subdeck__body row justify-between p-2">
-                        <GiStack className="subdeck__icon" />
-                        <AiFillDelete className="subdeck__icon" />
+                        <p className="subedeck__infos">
+                            Num cards : {subdecks.eden.qty}
+                        </p>
+                        <div className="subdeck__icon--list">
+                            <GiStack className="subdeck__icon" />
+                            <AiFillDelete className="subdeck__icon" />
+                        </div>
                     </div>
                 </div>
                 :
@@ -99,8 +104,13 @@ const DeckCreate = (props) => {
                         <h4 className="subdeck__type">register</h4>
                     </div>
                     <div className="subdeck__body row justify-between p-2">
-                        <GiStack className="subdeck__icon" />
-                        <AiFillDelete className="subdeck__icon" />
+                        <p className="subedeck__infos">
+                            Num cards : {subdecks.register.qty}
+                        </p>
+                        <div className="subdeck__icon--list">
+                            <GiStack className="subdeck__icon" />
+                            <AiFillDelete className="subdeck__icon" />
+                        </div>
                     </div>
                 </div>
                 :
@@ -112,8 +122,13 @@ const DeckCreate = (props) => {
                         <h4 className="subdeck__type">holybook</h4>
                     </div>
                     <div className="subdeck__body row justify-between p-2">
-                        <GiStack className="subdeck__icon" />
-                        <AiFillDelete className="subdeck__icon" />
+                        <p className="subedeck__infos">
+                            Num cards : {subdecks.holybooks.qty}
+                        </p>
+                        <div className="subdeck__icon--list">
+                            <GiStack className="subdeck__icon" />
+                            <AiFillDelete className="subdeck__icon" />
+                        </div>
                     </div>
                 </div>
                 :
