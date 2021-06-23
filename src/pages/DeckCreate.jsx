@@ -74,7 +74,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button text="create eden" onClick={handleClickNav} />
+                <Button id="eden" text="create eden" onClick={handleClickNav} />
             }
             {subdecks.register.message instanceof Array ?
                 <div className="subdeck__box">
