@@ -690,7 +690,7 @@ svg.dropdown__icon path{
 }
 
 .loader path{
-  stroke-width: 5px;
+  stroke-width: 1px;
 }
 
 /* Utilities */
