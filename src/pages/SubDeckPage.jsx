@@ -51,7 +51,7 @@ function SubDeckPage(props){
                 {
                     isEmpty === true ?
                     (
-                        <p style ={{color: "black",margin:"auto",textAlign:"center"}}>
+                        <p style ={{color: "black",margin:"0 auto",textAlign:"center"}}>
                             Empty 
                         </p>
                     )
