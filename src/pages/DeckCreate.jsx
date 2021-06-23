@@ -152,7 +152,7 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <div className="loading__block">
+        <div className="loader__block">
             <BiLoaderAlt className="loader"/>
         </div>
     )
