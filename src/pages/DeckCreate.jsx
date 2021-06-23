@@ -85,7 +85,7 @@ const DeckCreate = (props) => {
         setSubDecks(response);
     },[])
 
-    return loading === true ? (
+    return loading === false ? (
         <Layout onLoad={() => setLoading(true)}>
             {subdecks.eden.code === 200 ?
                 <div className="subdeck__box mb-5">
