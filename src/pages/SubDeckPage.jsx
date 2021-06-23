@@ -72,7 +72,7 @@ function SubDeckPage(props){
                         <p style ={{color: "black",margin:"0 auto",textAlign:"center"}}>
                             Empty 
                         </p>
-                        <Link to={`/decks/${id}/subdecks`}></Link>
+                        <Link to={`/decks/${id}/subdecks`}>Retour</Link>
                         </>
                     )
                     :
