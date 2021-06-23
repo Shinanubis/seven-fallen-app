@@ -640,16 +640,22 @@ svg.dropdown__icon path{
 }
 
 /* subdeck */
+
+.subdeck__box{
+  min-width: 70vw;
+}
+
 .subdeck__heading{
   background-color: var(--dark-grey);
 }
 
 .subdeck__title{
-  font-size: 2vw;
+  color: var(--white);
+  font-size: 2vw
 }
 
-.subedeck__icon{
-
+.subdeck__icon{
+  color: var(--white);
 }
 
 /* Utilities */
