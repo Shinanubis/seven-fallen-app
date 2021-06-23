@@ -1,15 +1,34 @@
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader } from '../components/Loader';
+
+/* components */
+import Loader  from '../components/Loader';
+import { RiLoader3Line } from 'react-icons/ri';
+
+/* layouts */
+import Layout from '../layouts/Layout';
 
 function SubDeckPage(props){
 
     let {id} = useParams();
-    let endUrl = props.location.pathname.split('/');
-    endUrl = endUrl[endUrl.length - 1];
+    const [loaded, setLoaded] = useState(false);
+    const [test, setTest] = useState(false);
 
-    return (
-        <h1 className="title">Welcome in deck {id} in {endUrl}</h1>
+    useEffect(() => {
+        setTimeout(() => {
+           setTest(true) 
+        }, 2);
+    })
+
+
+    return loaded === true ? (
+        <Layout>
+            <h1 className="title">Welcome </h1>
+        </Layout>
+    )
+    :
+    (
+        <Loader condition={test === true} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />
     )
 }
 

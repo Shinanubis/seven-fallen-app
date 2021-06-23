@@ -33,10 +33,6 @@ const DeckCreate = (props) => {
         }
     });
     const [loaded, setLoaded] = useState(false);
-    const [flashMessage, setFlashMessage] = useState({
-        code: null,
-        message: null
-    });
 
     const handleClickNav = async (e) => {
         e.preventDefault();

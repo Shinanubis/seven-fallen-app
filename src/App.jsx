@@ -103,7 +103,7 @@ function App() {
     },
     {
         exact:true,
-       strict: true,
+        strict: true,
         path:'/decks/:id/eden',
         component: SubDeckPage
     },
