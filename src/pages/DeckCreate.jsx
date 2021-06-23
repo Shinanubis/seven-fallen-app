@@ -1,17 +1,18 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState} from 'react';
 import {useParams, Redirect} from 'react-router-dom';
+import { GiStack } from 'react-icons/gi';
+import { AiFillDelete } from 'react-icons/ai';
 
 /* api */
-import {getEden} from '../api/Eden.jsx'
-import {getHolyBook} from '../api/HolyBook.jsx'
-import {getRegister} from '../api/Register.jsx'
+import {getEden} from '../api/Eden.jsx';
+import {getHolyBook} from '../api/HolyBook.jsx';
+import {getRegister} from '../api/Register.jsx';
 
 /* layouts */
-import Layout from '../layouts/Layout'
+import Layout from '../layouts/Layout';
 
 /* components */
-import Dropdown from '../components/Dropdown'
-import Button from '../components/Button'
+import Button from '../components/Button';
 
 const DeckCreate = (props) => {
     const { id } = useParams();
@@ -50,10 +51,16 @@ const DeckCreate = (props) => {
     return (
         <Layout>
             {
-             subdecks.eden.message && 
-             subdecks.eden.message instanceof Array && 
-             subdecks.eden.message > 0 ?
-                <Redirect to={`/decks/${id}/eden`} />
+             subdecks.eden.message instanceof Array ?
+                <div className="subdeck__box">
+                    <div className="subdeck__heading">
+                        <h4 className="subedeck__type title">eden</h4>
+                    </div>
+                    <div classsName="subdeck__body row justify-between px-2">
+                        <GiStack className="subdeck__icon" />
+                        <AiFillDelete className="subdeck__icon" />
+                    </div>
+                </div>
                 :
                 <Button text="create eden" onClick={handleClickNav} />
             }
