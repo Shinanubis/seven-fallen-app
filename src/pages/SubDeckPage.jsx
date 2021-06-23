@@ -30,7 +30,7 @@ function SubDeckPage(props){
     useEffect(() => {
         setTimeout(() => {
            setTest(true); 
-        }, 750);
+        }, 500);
     })
 
     useEffect(async () => {
