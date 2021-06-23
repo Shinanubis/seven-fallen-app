@@ -1,6 +1,6 @@
 
 import {useEffect,useState, useRef} from 'react';
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
@@ -8,7 +8,6 @@ import Main from '../layouts/Main';
 /* components */
 import Button from '../components/Button';
 import Flash from '../components/Flash';
-import Return from '../components/Return';
 
 /* modules */
 import regexModule from '../modules/regex';
@@ -94,6 +93,7 @@ function ModifyDeckPage(props){
             }else{
                 form.append(elmt, deckInfos[elmt]);
             }
+            return true;
         });
 
         let updateRes = await updateOne(form, id);
