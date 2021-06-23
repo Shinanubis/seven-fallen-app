@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect, useLayoutEffect, useState} from 'react';
 import {useParams, Redirect} from 'react-router-dom';
 import { GiStack } from 'react-icons/gi';
 import { AiFillDelete } from 'react-icons/ai';
@@ -31,7 +31,7 @@ const DeckCreate = (props) => {
         console.log(subdecks)
     },[subdecks]);
 
-    useEffect(async () => {
+    useLayoutEffect(async () => {
         let eden = await getEden(id);
         let register = await getRegister(id);
         let holybook = await getHolyBook(id);
