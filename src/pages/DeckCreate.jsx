@@ -17,9 +17,18 @@ import Button from '../components/Button';
 const DeckCreate = (props) => {
     const { id } = useParams();
     const [subdecks, setSubDecks] = useState({
-        eden: {},
-        register: {},
-        holybook: {}
+        eden: {
+            code: null,
+            message: null
+        },
+        register: {
+            code: null,
+            message: null
+        },
+        holybook: {
+            code: null,
+            message: null
+        }
     });
 
     const handleClickNav = (e) => {
@@ -54,7 +63,7 @@ const DeckCreate = (props) => {
 
     return (
         <Layout>
-            {
+            {subdecks.message &&
              subdecks.eden.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
