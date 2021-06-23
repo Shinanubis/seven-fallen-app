@@ -18,7 +18,7 @@ function SubDeckPage(props){
         setTimeout(() => {
            setTest(true) 
         }, 2);
-    })
+    },[])
 
 
     return loaded === true ? (
