@@ -85,7 +85,7 @@ const DeckCreate = (props) => {
                     <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">eden</h4>
                     </div>
-                    <div className="subdeck__body row justify-between px-2">
+                    <div className="subdeck__body row justify-between p-2">
                         <GiStack className="subdeck__icon" />
                         <AiFillDelete className="subdeck__icon" />
                     </div>
@@ -98,7 +98,7 @@ const DeckCreate = (props) => {
                     <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">register</h4>
                     </div>
-                    <div className="subdeck__body row justify-between px-2">
+                    <div className="subdeck__body row justify-between p-2">
                         <GiStack className="subdeck__icon" />
                         <AiFillDelete className="subdeck__icon" />
                     </div>
@@ -111,7 +111,7 @@ const DeckCreate = (props) => {
                     <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">holybook</h4>
                     </div>
-                    <div className="subdeck__body row justify-between px-2">
+                    <div className="subdeck__body row justify-between p-2">
                         <GiStack className="subdeck__icon" />
                         <AiFillDelete className="subdeck__icon" />
                     </div>
