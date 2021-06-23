@@ -2,7 +2,6 @@ import React,{useEffect, useLayoutEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import { GiStack } from 'react-icons/gi';
 import { AiFillDelete } from 'react-icons/ai';
-import { RiLoader3Line } from 'react-icons/ri';
 
 /* api */
 import {getEden, createEden, deleteEden} from '../api/Eden.jsx';
@@ -14,6 +13,7 @@ import Layout from '../layouts/Layout';
 
 /* components */
 import Button from '../components/Button';
+import Loader from '../components/Loader';
 
 const DeckCreate = (props) => {
     const { id } = useParams();
@@ -193,18 +193,13 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <div className="loader__block row justify-center align-center">
-            {             
-                subdecks.eden.code !== null || 
-                subdecks.register.code !== null ||
-                subdecks.holybook.code !== null
-                ? 
-                setLoaded(true) 
-                : 
-                null
-            }
-            <RiLoader3Line className="loader"/>
-        </div>
+        <Loader condition = { 
+                    subdecks.eden.code !== null || 
+                    subdecks.register.code !== null ||
+                    subdecks.holybook.code !== null 
+                }
+                setLoaded = {setLoaded}
+        />
     )
 }
 
