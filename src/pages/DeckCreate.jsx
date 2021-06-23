@@ -89,7 +89,7 @@ const DeckCreate = (props) => {
                         <p className="subdeck__infos">
                             Num cards : {subdecks.eden.message.qty}
                         </p>
-                        <div className="subdeck__icon--list row jsutify-between">
+                        <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
                             <AiFillDelete className="subdeck__icon" />
                         </div>
@@ -107,7 +107,7 @@ const DeckCreate = (props) => {
                         <p className="subdeck__infos">
                             Num cards : {subdecks.register.message.qty}
                         </p>
-                        <div className="subdeck__icon--list row jsutify-between">
+                        <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
                             <AiFillDelete className="subdeck__icon" />
                         </div>
@@ -125,7 +125,7 @@ const DeckCreate = (props) => {
                         <p className="subdeck__infos">
                             Num cards : {subdecks.holybook.message.qty}
                         </p>
-                        <div className="subdeck__icon--list row jsutify-between">
+                        <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
                             <AiFillDelete className="subdeck__icon" />
                         </div>
