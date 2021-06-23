@@ -151,8 +151,8 @@ const DeckCreate = (props) => {
     )
     :
     (
-        <>
-        </>
+        <div>
+        </div>
     )
 }
 
