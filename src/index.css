@@ -664,8 +664,8 @@ svg.dropdown__icon path{
   font-size: 2vh;
 }
 
-.subedeck__icon--list{
-  
+.subdeck__icon--list{
+    width: 30%;
 }
 
 .subdeck__icon{
