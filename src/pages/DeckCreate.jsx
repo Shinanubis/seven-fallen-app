@@ -31,6 +31,7 @@ const DeckCreate = (props) => {
             message: null
         }
     });
+    const [loading, setLoading] = useState(false);
 
     const handleClickNav = async (e) => {
         e.preventDefault();
@@ -84,10 +85,8 @@ const DeckCreate = (props) => {
         setSubDecks(response);
     },[])
 
-    return subdecks.eden.message !== null || 
-           subdecks.register.message !== null || 
-           subdecks.holybook.message !== null ? (
-        <Layout>
+    return loading === true ? (
+        <Layout onLoad={() => setLoading(true)}>
             {subdecks.eden.code === 200 ?
                 <div className="subdeck__box mb-5">
                     <div className="subdeck__heading py-2">
@@ -152,9 +151,11 @@ const DeckCreate = (props) => {
     )
     :
     (
+      <Layout>
         <div className="loader__block">
             <BiLoaderAlt className="loader"/>
         </div>
+      </Layout>
     )
 }
 
