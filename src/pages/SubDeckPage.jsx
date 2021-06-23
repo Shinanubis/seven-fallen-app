@@ -38,14 +38,13 @@ function SubDeckPage(props){
         let response = null; 
         response = await getEdenCards(id);
         if(response === 200){
-            console.log(response.message[0].cards.length === 0)
             if(response.message[0].cards.length === 0){
                 setIsEmpty(true);
             }else{
                 setIsEmpty(false);
             }
         }
-    });
+    },[]);
 
 
     return loaded === true ? (
