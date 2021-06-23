@@ -40,7 +40,7 @@ const DeckCreate = (props) => {
         console.log(subdecks)
     },[subdecks]);
 
-    useLayoutEffect(async () => {
+    useEffect(async () => {
         let eden = await getEden(id);
         let register = await getRegister(id);
         let holybook = await getHolyBook(id);
