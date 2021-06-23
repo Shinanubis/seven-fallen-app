@@ -153,12 +153,10 @@ const DeckCreate = (props) => {
     :
     (
         <div className="loader__block row justify-center align-center">
-            {
-                (
-                    subdecks.eden.code !== null || 
-                    subdecks.register.code !== null ||
-                    subdecks.holybook.code !== null
-                ) 
+            {             
+                subdecks.eden.code !== null || 
+                subdecks.register.code !== null ||
+                subdecks.holybook.code !== null
                 ? 
                 setLoaded(true) 
                 : 
