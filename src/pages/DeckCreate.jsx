@@ -42,7 +42,9 @@ const DeckCreate = (props) => {
         if(holybook.code === 200){
             setSubDecks({...subdecks, holybook: holybook});
         }
-        console.log(subdecks)
+        console.log("eden : ", eden)
+        console.log("register : ", register)
+        console.log("holybook : ", holybook)
     },[])
 
     return (
