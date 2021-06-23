@@ -63,7 +63,7 @@ const DeckCreate = (props) => {
 
     return (
         <Layout>
-            {subdecks.eden.message instanceof Array ?
+            {!subdecks.eden.message instanceof Array ?
                 <div className="subdeck__box">
                     <div className="subdeck__heading">
                         <h4 className="subedeck__type title">eden</h4>
