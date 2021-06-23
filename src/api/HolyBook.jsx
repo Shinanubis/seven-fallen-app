@@ -9,6 +9,17 @@ async function getHolyBook(id){
     return datas;
 }
 
+async function getHolyBookCards(id){
+    let settings = {
+        method : 'GET',
+        credentials: 'include'
+    }
+
+    let response = await fetch(`https://test-seven.site/api/decks/${id}/holybook/cards`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
 async function createHolyBook(id){
 
     let settings = {
@@ -32,4 +43,4 @@ async function deleteHolyBook(id){
     return datas;
 }
 
-export { getHolyBook, createHolyBook, deleteHolyBook };
+export { getHolyBook, getHolyBookCards, createHolyBook, deleteHolyBook };

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 /* api */
 import { getEdenCards } from '../api/Eden';
+import { getRegisterCards } from '../api/Register';
+import { getHolyBookCards } from '../api/HolyBook';
 
 /* components */
 import Loader  from '../components/Loader';
@@ -38,14 +40,25 @@ function SubDeckPage(props){
     }, [setCardsList]);
 
     useEffect(async () => {
-        let response = null; 
-        response = await getEdenCards(id);
+        let response = null;
+
+        if(endUrl === 'eden'){
+            response = await getEdenCards(id);
+        }
+        
+        if(endUrl === 'register'){
+            response = await getRegisterCards(id);
+        }
+
+        if(endUrl === 'holybook'){
+            response = await getHolyBookCards(id);
+        }
+
         if(response.message[0].cards.length === 0){
             setIsEmpty(true);
         }else{
             setIsEmpty(false);
         }
-        console.log(endUrl)
         setCardsList(response);
     },[]);
 

@@ -9,6 +9,17 @@ async function getRegister(id){
     return datas;
 }
 
+async function getRegisterCards(id){
+    let settings = {
+        method : 'GET',
+        credentials: 'include'
+    }
+
+    let response = await fetch(`https://test-seven.site/api/decks/${id}/register/cards`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
 async function createRegister(id){
 
     let settings = {
@@ -32,4 +43,4 @@ async function deleteRegister(id){
     return datas;
 }
 
-export { getRegister, createRegister, deleteRegister };
+export { getRegister, getRegisterCards, createRegister, deleteRegister };
