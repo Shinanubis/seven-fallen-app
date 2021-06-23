@@ -675,7 +675,7 @@ svg.dropdown__icon path{
 }
 
 .loader__block{
-  position: absolute;
+  position: fixed;
   top:0;
   width:100%;
   bottom:0;
