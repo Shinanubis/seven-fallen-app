@@ -5,7 +5,7 @@ import { AiFillDelete } from 'react-icons/ai';
 import { RiLoader3Line } from 'react-icons/ri';
 
 /* api */
-import {getEden, createEden} from '../api/Eden.jsx';
+import {getEden, createEden, deleteEden} from '../api/Eden.jsx';
 import {getHolyBook, createHolyBook} from '../api/HolyBook.jsx';
 import {getRegister, createRegister} from '../api/Register.jsx';
 
@@ -32,6 +32,10 @@ const DeckCreate = (props) => {
         }
     });
     const [loaded, setLoaded] = useState(false);
+    const [flashMessage, setFlashMessage] = useState({
+        code: null,
+        message: null
+    });
 
     const handleClickNav = async (e) => {
         e.preventDefault();
@@ -57,12 +61,12 @@ const DeckCreate = (props) => {
 
     const handleDeleteSubdeck = async (e) => {
         e.preventDefault();
+        let response = await deleteEden(id);;
         return true;
     }
 
     useEffect(() => {
-        console.log(subdecks)
-        
+        console.log(subdecks);
     },[subdecks]);
 
     useEffect(async () => {

@@ -21,5 +21,16 @@ async function createEden(id){
     return datas;
 }
 
+async function deleteEden(id){
+    let settings = {
+        method: 'DELETE',
+        credentials: 'include'
+    }
 
-export { getEden, createEden };
+    let response = await fetch(`https://test-seven.site/api//decks/${id}/eden/delete`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
+
+export { getEden, createEden, deleteEden };
