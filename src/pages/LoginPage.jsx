@@ -1,28 +1,13 @@
 import './LoginPage.css';
-import {useState} from 'react';
-import {useHistory} from 'react-router-dom'
+import React from 'react';
 import SocialButton from '../components/SocialButton';
-import Separator from '../components/Separator'
 import {FcGoogle} from 'react-icons/fc'
 import {FaFacebookF} from 'react-icons/fa'
-import AuthenticationContext from "../contexts/Context"
 import dotenv from 'dotenv';
 dotenv.config();
 
 
 function Login(props) {
-    const [usernameInput, setUsernameInput] = useState('');
-    const [passwordInput, setPasswordInput] = useState('');
-
-    const history = useHistory();
-
-    const usernameInputChange = (e) => {
-        setUsernameInput(e.target.value)
-    }
-
-    const passwordInputChange = (e) => {
-        setPasswordInput(e.target.value)
-    }
 
     return (
                 <ul className="social__icons--list">
