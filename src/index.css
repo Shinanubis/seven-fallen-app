@@ -642,7 +642,7 @@ svg.dropdown__icon path{
 /* subdeck */
 
 .subdeck__box{
-  min-width: 70vw;
+  width: 80%;
 }
 
 .subdeck__heading{
