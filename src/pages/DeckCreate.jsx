@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom';
+import {useParams, Redirect} from 'react-router-dom';
 
 /* api */
 import {getEden} from '../api/Eden.jsx'
@@ -42,6 +42,7 @@ const DeckCreate = (props) => {
         if(holybook.code === 200){
             setSubDecks({...subdecks, holybook: holybook});
         }
+        console.log(subdecks)
     },[])
 
     return (
@@ -50,7 +51,7 @@ const DeckCreate = (props) => {
              subdecks.eden.message && 
              subdecks.eden.message instanceof Array && 
              subdecks.eden.message > 0 ?
-                <h1 className="title">Hello i'm Eden</h1>
+                <Redirect to={`/decks/${id}/eden`} />
                 :
                 <NavButton text="create eden" timing={750} url={`/decks/${id}/eden`} onClick={handleClickNav} />
             }
@@ -58,7 +59,7 @@ const DeckCreate = (props) => {
              subdecks.register.message && 
              subdecks.register.message instanceof Array && 
              subdecks.register.message > 0 ?
-                <h1 className="title">Hello i'm Register</h1>
+                <Redirect to={`/decks/${id}/register`} />
                 :
                 <NavButton text="create register" timing={750} url={`/decks/${id}/register`} onClick={handleClickNav}/>
             }
@@ -66,7 +67,7 @@ const DeckCreate = (props) => {
              subdecks.holybook.message && 
              subdecks.holybook.message instanceof Array &&
              subdecks.holybook.message > 0 ?
-                <h1 className="title">Hello i'm Holybook</h1>
+                <Redirect to={`/decks/${id}/holybook`} />
                 :
                 <NavButton text="create holybook" timing={750} url={`/decks/${id}/holybook`} onClick={handleClickNav}/>
             }
