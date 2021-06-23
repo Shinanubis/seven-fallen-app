@@ -164,7 +164,7 @@ const DeckCreate = (props) => {
                 : 
                 null
             }
-            <BiLoaderAlt className="loader" style={{strokeWidth: '2px'}}/>
+            <BiLoaderAlt className="loader" style={{strokeWidth: '-2px'}}/>
         </div>
     )
 }
