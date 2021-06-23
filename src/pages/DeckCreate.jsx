@@ -87,7 +87,7 @@ const DeckCreate = (props) => {
                     </div>
                     <div className="subdeck__body row justify-between p-2">
                         <p className="subdeck__infos row align-center">
-                            Num cards : {subdecks.eden.message.qty - 0}
+                            Num cards : {subdecks.eden.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
                             <GiStack className="subdeck__icon" />
