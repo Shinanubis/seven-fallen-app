@@ -68,12 +68,10 @@ function SubDeckPage(props){
             <List classes="list__content layout layout__3">
                 {
                     isEmpty === true ?
-                    (<>
+                    (
                         <p style ={{color: "black",margin:"0 auto",textAlign:"center"}}>
                             Empty 
                         </p>
-                        <Link to={`/decks/${id}/subdecks`}>Retour</Link>
-                        </>
                     )
                     :
                     (
@@ -83,6 +81,7 @@ function SubDeckPage(props){
                     )
                 }
             </List>
+            <Link to={`/decks/${id}/subdecks`}>Back</Link>
         </Main>
     )
     :
