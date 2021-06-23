@@ -49,7 +49,7 @@ function SubDeckPage(props){
 
 
     return loaded === true ? (
-        <Main>
+        <Main classes="page">
             <List classes="list__content layout layout__3">
                 {
                     isEmpty === true ?
