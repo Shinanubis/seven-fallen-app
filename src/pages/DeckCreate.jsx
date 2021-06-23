@@ -96,7 +96,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button id="eden" text="create eden" onClick={handleClickNav} />
+                <Button id="eden" classes="btn mb-3" text="create eden" onClick={handleClickNav} />
             }
             {subdecks.register.code === 200 ?
                 <div className="subdeck__box mb-5">
@@ -114,7 +114,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button id="register" text="create register" onClick={handleClickNav}/>
+                <Button id="register" classes="btn mb-3" text="create register" onClick={handleClickNav}/>
             }
             {subdecks.holybook.code === 200 ?
                 <div className="subdeck__box mb-5">
@@ -132,7 +132,7 @@ const DeckCreate = (props) => {
                     </div>
                 </div>
                 :
-                <Button id="holybook" text="create holybook" onClick={handleClickNav}/>
+                <Button id="holybook" classes="btn mb-3" text="create holybook" onClick={handleClickNav}/>
             }
         </Layout>
     )
