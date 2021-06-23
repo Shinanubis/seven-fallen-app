@@ -86,7 +86,7 @@ const DeckCreate = (props) => {
                         <h4 className="subdeck__type">eden</h4>
                     </div>
                     <div className="subdeck__body row justify-between p-2">
-                        <p className="subdeck__infos">
+                        <p className="subdeck__infos row align-center">
                             Num cards : {subdecks.eden.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
@@ -104,7 +104,7 @@ const DeckCreate = (props) => {
                         <h4 className="subdeck__type">register</h4>
                     </div>
                     <div className="subdeck__body row justify-between p-2">
-                        <p className="subdeck__infos">
+                        <p className="subdeck__infos  row align-center">
                             Num cards : {subdecks.register.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
@@ -122,7 +122,7 @@ const DeckCreate = (props) => {
                         <h4 className="subdeck__type">holybook</h4>
                     </div>
                     <div className="subdeck__body row justify-between p-2">
-                        <p className="subdeck__infos">
+                        <p className="subdeck__infos  row align-center">
                             Num cards : {subdecks.holybook.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
