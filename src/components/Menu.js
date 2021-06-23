@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
-import {useState, useEffect} from 'react'
-import {RiSettings3Fill,RiFileList2Fill} from 'react-icons/ri'
-import {GrStackOverflow} from 'react-icons/gr'
-import {HiOutlineUsers} from 'react-icons/hi'
-import './Menu.css'
-import {useHistory} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {RiSettings3Fill,RiFileList2Fill} from 'react-icons/ri';
+import {GrStackOverflow} from 'react-icons/gr';
+import {HiOutlineUsers} from 'react-icons/hi';
+import './Menu.css';
 
 
 
@@ -18,7 +17,6 @@ function Menu (props) {
     }
 
     const [isClicked, setIsClicked] = useState(initialState);
-    const history = useHistory();
 
     const handleClick = (e) => {
            e.persist()

@@ -1,4 +1,4 @@
-import React, {useState}from 'react';
+import React from 'react';
 import {deleteUserDeck, getUserDecks} from '../api/Decks';
 import {AiFillCloseCircle} from 'react-icons/ai';
 import {BsPencil} from 'react-icons/bs';

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {BsFilterRight} from 'react-icons/bs';
 
 function Filters(props){
