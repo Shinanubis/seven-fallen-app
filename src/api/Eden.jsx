@@ -9,6 +9,17 @@ async function getEden(id){
     return datas;
 }
 
+async function getEdenCards(id){
+    let settings = {
+        method : 'GET',
+        credentials: true
+    }
+
+    let response = await fetch(`https://test-seven.site/api/decks/${id}/eden/cards`, settings);
+    let datas = await response.json();
+    return datas;
+}
+
 async function createEden(id){
 
     let settings = {
@@ -33,4 +44,4 @@ async function deleteEden(id){
 }
 
 
-export { getEden, createEden, deleteEden };
+export { getEden, getEdenCards, createEden, deleteEden };

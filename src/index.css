@@ -1047,11 +1047,9 @@ svg.dropdown__icon path{
     grid-template-columns: repeat(2,1fr);
 }
 
-
 .layout__3{
     grid-template-columns: repeat(3,1fr);
 }
-
 
 .layout__4{
   grid-template-columns: repeat(4,1fr);
