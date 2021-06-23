@@ -110,7 +110,9 @@ const DeckCreate = (props) => {
                             Num cards : {subdecks.register.message.qty === undefined ? 0 : subdecks.register.message.qty}
                         </p>
                         <div className="subdeck__icon--list row justify-between">
-                            <GiStack className="subdeck__icon" />
+                            <Link to={`/decks/${id}/register`}>
+                                <GiStack className="subdeck__icon" />
+                            </Link>
                             <AiFillDelete className="subdeck__icon" />
                         </div>
                     </div>
@@ -128,7 +130,9 @@ const DeckCreate = (props) => {
                             Num cards : {subdecks.holybook.message.qty === undefined ? 0 : subdecks.holybook.message.qty }
                         </p>
                         <div className="subdeck__icon--list row justify-between">
-                            <GiStack className="subdeck__icon" />
+                            <Link to={`/decks/${id}/holybook`}>
+                                <GiStack className="subdeck__icon" />
+                            </Link>
                             <AiFillDelete className="subdeck__icon" />
                         </div>
                     </div>
