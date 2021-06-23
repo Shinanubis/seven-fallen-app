@@ -53,6 +53,11 @@ const DeckCreate = (props) => {
         return true;
     }
 
+    const handleDeleteSubdeck = async (e) => {
+        e.preventDefault();
+        return true;
+    }
+
     useEffect(() => {
         console.log(subdecks)
     },[subdecks]);
@@ -78,7 +83,9 @@ const DeckCreate = (props) => {
         setSubDecks(response);
     },[])
 
-    return (
+    return subdecks.eden.message.code === 200 && 
+           subdecks.register.message.code === 200 && 
+           subdecks.holybook.message.code === 200 ? (
         <Layout>
             {subdecks.eden.code === 200 ?
                 <div className="subdeck__box mb-5">
@@ -93,7 +100,7 @@ const DeckCreate = (props) => {
                             <Link to={`/decks/${id}/eden`}>
                                 <GiStack className="subdeck__icon" />
                             </Link>
-                            <AiFillDelete className="subdeck__icon" />
+                            <AiFillDelete className="subdeck__icon" onClick={handleDeleteSubdeck}/>
                         </div>
                     </div>
                 </div>
@@ -141,6 +148,11 @@ const DeckCreate = (props) => {
                 <Button id="holybook" classes="btn mb-3" text="create holybook" onClick={handleClickNav}/>
             }
         </Layout>
+    )
+    :
+    (
+        <>
+        </>
     )
 }
 
