@@ -95,7 +95,7 @@ const DeckCreate = (props) => {
             }
             {subdecks.register.code === 200 ?
                 <div className="subdeck__box mb-2">
-                    <div className="subdeck__heading py-2 mb-2">
+                    <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">register</h4>
                     </div>
                     <div className="subdeck__body row justify-between px-2">
@@ -108,7 +108,7 @@ const DeckCreate = (props) => {
             }
             {subdecks.holybook.code === 200 ?
                 <div className="subdeck__box mb-2">
-                    <div className="subdeck__heading py-2 mb-2">
+                    <div className="subdeck__heading py-2">
                         <h4 className="subdeck__type">holybook</h4>
                     </div>
                     <div className="subdeck__body row justify-between px-2">
