@@ -110,7 +110,6 @@ code {
   bottom:0;
   right:0;
   left:0;
-  height: calc(11 * var(--vh));
   transition: height 800ms ease;
   -webkit-transition: height 800ms ease;
   -moz-transition: height 800ms ease;
