@@ -6,7 +6,7 @@ import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
 
 /* layouts */
-import Layout from '../layouts/Layout';
+import Main from '../layouts/Main';
 
 function SubDeckPage(props){
 
@@ -22,9 +22,9 @@ function SubDeckPage(props){
 
 
     return loaded === true ? (
-        <Layout>
-            {<h1 className="title">Welcome </h1>}
-        </Layout>
+        <Main>
+            <h1 className="title">Welcome </h1>
+        </Main>
     )
     :
     (
