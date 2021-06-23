@@ -32,6 +32,7 @@ function SubDeckPage(props){
 
     useEffect(async () => {
         let response = await getEdenCards(id);
+        console.log(response)
         if(response === 200){
             if(response.message[0].cards.length === 0){
                 setIsEmpty(true);
