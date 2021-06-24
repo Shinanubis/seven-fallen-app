@@ -767,6 +767,30 @@ svg.dropdown__icon path{
   align-items: flex-end;
 }
 
+.m-1{
+  margin: 1vh !important;
+}
+
+.m-2{
+  margin: 2vh !important;
+}
+
+.m-3{
+  margin: 3vh !important;
+}
+
+.m-4{
+  margin: 4vh !important;
+}
+
+.m-5{
+  margin: 5vh !important;
+}
+
+.m-6{
+  margin: 6vh !important;
+}
+
 .my-1{
   margin: 1vh 0 !important;
 }
