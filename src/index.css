@@ -120,6 +120,7 @@ code {
 }
 
 .arrow {
+  margin-top: 3px;
   color: var(--dark-grey);
 }
 
