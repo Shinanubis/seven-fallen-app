@@ -86,7 +86,7 @@ function SubDeckPage(props){
                             <div className="empty__container column justify-center">
                                 <Button text={`add cards to ${endUrl}`} onClick={handleClick}/>
                             </div>
-                            <PopupContainer classes="popup__container d-none" ref={popupRef}>
+                            <PopupContainer classes="row justify-center align-center popup__container d-none" ref={popupRef}>
                             </PopupContainer>
                         </>
                     )
