@@ -42,7 +42,7 @@ const ProfileForm = () => {
 
     const handleChange = (e) => {
         if(e.target.id === "firstname"){
-            setUserInfos({...userInfos.message[0], firstname: e.target.value });
+            setUserInfos({...userInfos.message, firstname: e.target.value });
         }
     }
 
