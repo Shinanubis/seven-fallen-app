@@ -13,6 +13,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import {AiOutlineArrowLeft} from 'react-icons/ai';
 import Button from '../components/Button';
 import PopupContainer from '../components/PopupContainer';
+import List from '../components/List';
 
 /* layouts */
 import Main from '../layouts/Main';
@@ -104,7 +105,9 @@ function SubDeckPage(props){
                                     </div>
                                 </div>
                                 <div className="popup__body my-5">
+                                    <List classes="layout layout__3">
 
+                                    </List>
                                 </div>
                                 <div className="popup__footer">
                                     <Button text="Valid" bgcolor="#3be73b" color="#101010" padding="3vw 0" onClick={handleValid}/>
