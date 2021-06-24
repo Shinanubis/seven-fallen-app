@@ -9,6 +9,7 @@ import { getHolyBookCards } from '../api/HolyBook';
 /* components */
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
+import { AiFillCloseCircle } from 'react-icons/ai';
 import Button from '../components/Button';
 import PopupContainer from '../components/PopupContainer';
 
@@ -87,6 +88,9 @@ function SubDeckPage(props){
                                 <Button text={`add cards to ${endUrl}`} onClick={handleClick}/>
                             </div>
                             <PopupContainer classes="row justify-center align-center popup__container d-none" ref={popupRef}>
+                                <div  className="popup__close" onClick={handleClick}>
+                                    <AiFillCloseCircle />
+                                </div>
                             </PopupContainer>
                         </>
                     )

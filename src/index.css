@@ -204,6 +204,7 @@ code {
   width: 80%;
   height: 90%;
   background-color: var(--dark-grey);
+  overflow-y: scroll;
 }
 
 .popup__close{
