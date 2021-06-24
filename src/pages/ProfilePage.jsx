@@ -41,7 +41,6 @@ const ProfileForm = () => {
     },[]);
 
     const handleChange = (e) => {
-        e.preventDefault();
         switch(e.target.id){
 
             case 'firstname':
@@ -89,7 +88,6 @@ const ProfileForm = () => {
                 });
                 break;
             case 'other' :
-                e.target.checked = true;
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.gender = e.target.value;
