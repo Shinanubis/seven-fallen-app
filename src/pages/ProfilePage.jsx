@@ -18,7 +18,16 @@ const ProfileForm = () => {
     const { id } = useParams();
     const [userInfos,setUserInfos] = useState({
         code: null,
-        message: []
+        message: {
+            id: '',
+            avatar:'',
+            firstname:'',
+            lastname:'',
+            gender: '',
+            username: '',
+            is_visible: true,
+            allow_collections: true
+        }
     });
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -72,7 +81,7 @@ const ProfileForm = () => {
                                    className="form--input" 
                                    type="text"
                                    placeholder="firstname" 
-                                   value={userInfos.message[0].firstname !== null ? userInfos.message[0].firstname : ''}
+                                   value={userInfos.message.firstname}
                                    onChange={handleChange}
                             />
                             <input id="lastname"
@@ -80,21 +89,21 @@ const ProfileForm = () => {
                                    className="form--input" 
                                    placeholder="lastname" 
                                    disabled 
-                                   value={userInfos.message[0].lastname !== null ? userInfos.message[0].lastname : ''}
+                                   value={userInfos.message.lastname}
                             />
                             <input id="username"
                                    type="text" 
                                    className="form--input" 
                                    placeholder="username" 
                                    disabled 
-                                   value={userInfos.message[0].username !== null ? userInfos.message[0].username : ''}
+                                   value={userInfos.message.username}
                             />
                             <input id="email"
                                    type="email" 
                                    className="form--input" 
                                    placeholder="email" 
                                    disabled 
-                                   value={userInfos.message[0].email && userInfos.message[0].email}
+                                   value={userInfos.message.email}
                             />
                         </div>
                         <div className="form--section">
