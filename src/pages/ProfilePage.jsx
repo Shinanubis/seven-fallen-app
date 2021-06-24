@@ -18,7 +18,7 @@ const ProfileForm = () => {
     const { id } = useParams();
     const [userInfos,setUserInfos] = useState({
         code: null,
-        message: null
+        message: []
     });
     const [isLoaded, setIsLoaded] = useState(false);
 
