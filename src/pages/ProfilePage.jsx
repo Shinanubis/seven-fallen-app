@@ -21,6 +21,7 @@ const ProfileForm = () => {
 
     useEffect(async () => {
         let response = await getProfile(id);
+        console.log(response)
         setUserInfos(response);
     },[]);
 
@@ -31,12 +32,11 @@ const ProfileForm = () => {
 
     return (
         <Main classes="profile__page">
-            {console.log(userInfos)}
                 <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
-                            <h4 className="profile__username">{userInfos.contact.username}</h4>
-                            <p className="profile__userid">{userInfos.contact.id}</p>
+                            <h4 className="profile__username">{userInfos.message[0].username}</h4>
+                            <p className="profile__userid">{userInfos.message[0].id}</p>
                         </div>
                         <div className="form--section">
                             <h4 className="form__section--title">Contact</h4>
@@ -56,14 +56,9 @@ const ProfileForm = () => {
                                         </div>
                                     </div>
                             </div>
-                            <input type="text" className="form--input" placeholder="firstname" disabled value={userInfos.contact.firstname}/>
-                            <input type="text" className="form--input" placeholder="lastname" disabled value={userInfos.contact.lastname}/>
-                            <input type="email" className="form--input" placeholder="email" disabled value={userInfos.contact.email}/>
-                        </div>
-                        <div className="form--section">
-                            <h4 className="form__section--title">Coordinates</h4>
-                            <input type="text" className="form--input" placeholder="city" disabled value={userInfos.coordinates.city}/>
-                            <input type="text" className="form--input" placeholder="country" disabled value={userInfos.coordinates.country}/>
+                            <input type="text" className="form--input" placeholder="firstname" disabled value={userInfos.message[0].firstname}/>
+                            <input type="text" className="form--input" placeholder="lastname" disabled value={userInfos.message[0].lastname}/>
+                            <input type="email" className="form--input" placeholder="email" disabled value={userInfos.message[0].email}/>
                         </div>
                         <div className="form--section">
                             <h4 className="form__section--title">Préferences</h4>
