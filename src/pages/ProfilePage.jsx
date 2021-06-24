@@ -73,6 +73,13 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+            case ('female' || 'male' || 'other') :
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.gender = e.target.value;
+                    return newObj; 
+                });
+                break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
         }
