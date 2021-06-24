@@ -24,10 +24,8 @@ const ProfileForm = () => {
     const [test, setTest] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            setTest(true);
-        }, 1000)
-    });
+        console.log(userInfos)
+    },[userInfos]);
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -103,7 +101,10 @@ const ProfileForm = () => {
     )
     :
     (
-        <Loader condition={test === true} loaderIcon={RiLoader3Line} setLoaded={setIsLoaded} />
+        <Loader condition={userInfos.code === 200} 
+                loaderIcon={RiLoader3Line} 
+                setLoaded={setIsLoaded} 
+        />
     )
 }
 
