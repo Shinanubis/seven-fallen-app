@@ -858,6 +858,30 @@ svg.dropdown__icon path{
   padding: 2vh !important;
 }
 
+.pt-1{
+  padding-top: 1vh !important;
+}
+
+.pt-2{
+  padding-top: 2vh !important;
+}
+
+.pt-3{
+  padding-top: 3vh !important;
+}
+
+.pt-4{
+  padding-top: 4vh !important;
+}
+
+.pt-5{
+  padding-top: 5vh !important;
+}
+
+.pt-6{
+  padding-top: 6vh !important;
+}
+
 .pb-1{
   padding-bottom:1vh !important;
 }
@@ -865,6 +889,23 @@ svg.dropdown__icon path{
 .pb-2{
   padding-bottom:2vh !important;
 }
+
+.pb-3{
+  padding-bottom: 3vh !important;
+}
+
+.pb-4{
+  padding-bottom: 4vh !important;
+}
+
+.pb-5{
+  padding-bottom: 5vh !important;
+}
+
+.pb-6{
+  padding-bottom: 6vh !important;
+}
+
 
 .px-1{
   padding: 0 1vh !important;
@@ -880,6 +921,14 @@ svg.dropdown__icon path{
 
 .py-2{
   padding: 2vh 0 !important;
+}
+
+.py-3{
+  padding: 3vh 0 !important;
+}
+
+.py-4{
+  padding: 4vh 0 !important;
 }
 
 .w-25{
