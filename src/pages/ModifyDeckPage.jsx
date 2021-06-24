@@ -143,14 +143,14 @@ function ModifyDeckPage(props){
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
-                    <div className="form__option--block row mb-2">
+                    <div className="form__option--block row">
                         <label className="form__label mr-2" htmlFor="isVisible">Public</label>
                         <input id="isVisible" className="form__checkbox" type="checkbox" checked={deckInfos.is_visible}/>
                     </div>
                     <p className="row justify-start mb-1" >Cards number : {deckInfos.num_cards}</p>
                     <p className="row jsutify-start mb-2">Total Celestian energy : {deckInfos.total_ec}</p>
                     {options && options instanceof Array ?
-                        <fieldset className="pb-2 mb-2">
+                        <fieldset className="pb-2 mb-3">
                             <legend className="px-2">{optionsName}</legend>
                             <ul id="kingdoms__list" className="column">
                                 {
