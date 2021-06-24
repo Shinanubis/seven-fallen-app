@@ -32,6 +32,7 @@ const ProfileForm = () => {
     },[]);
 
     const handleChange = (e) => {
+        e.preventDefault();
         console.log(e.target.value)
         return true;
     }
