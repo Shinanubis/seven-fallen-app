@@ -35,8 +35,8 @@ const ProfileForm = () => {
                 <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
-                            <h4 className="profile__username">{userInfos.message[0].username}</h4>
-                            <p className="profile__userid">{userInfos.message[0].id}</p>
+                            <h4 className="profile__username"></h4>
+                            <p className="profile__userid"></p>
                         </div>
                         <div className="form--section">
                             <h4 className="form__section--title">Contact</h4>
@@ -56,9 +56,9 @@ const ProfileForm = () => {
                                         </div>
                                     </div>
                             </div>
-                            <input type="text" className="form--input" placeholder="firstname" disabled value={userInfos.message[0].firstname}/>
-                            <input type="text" className="form--input" placeholder="lastname" disabled value={userInfos.message[0].lastname}/>
-                            <input type="email" className="form--input" placeholder="email" disabled value={userInfos.message[0].email}/>
+                            <input type="text" className="form--input" placeholder="firstname" disabled value=""/>
+                            <input type="text" className="form--input" placeholder="lastname" disabled value=""/>
+                            <input type="email" className="form--input" placeholder="email" disabled value=""/>
                         </div>
                         <div className="form--section">
                             <h4 className="form__section--title">Préferences</h4>
