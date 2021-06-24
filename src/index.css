@@ -683,7 +683,7 @@ svg.dropdown__icon path{
 
 .subdeck .layout{
   width: 80%;
-  background-color: #101010;
+  background-color: transparent;
 }
 
 .subdeck__icon--list{
