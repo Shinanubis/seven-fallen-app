@@ -43,7 +43,7 @@ const ProfileForm = () => {
 
     return isLoaded === true ? (
         <Main classes="profile__page">
-                <form className="form" onChange={handleChange}>
+                <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username"></h4>
@@ -52,20 +52,20 @@ const ProfileForm = () => {
                         <div className="form--section">
                             <h4 className="form__section--title">Contact</h4>
                             <div className="form__radio--group">
-                                <div className="row">
+                                <div className="row" onChange={handleChange}>
                                     <div className="form__radio--button">
-                                            <label className="form__radio--label" htmlFor="gender">F</label>
-                                            <input className="form--radio" type="radio" name="gender" id="gender" value="F"/>
-                                        </div>
-                                        <div className="form__radio--button">
-                                            <label className="form__radio--label" htmlFor="gender">M</label> 
-                                            <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
-                                        </div>
-                                        <div className="form__radio--button">
-                                            <label className="form__radio--label" htmlFor="gender">Autre</label> 
-                                            <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
-                                        </div>
+                                        <label className="form__radio--label" htmlFor="gender">F</label>
+                                        <input className="form--radio" type="radio" name="gender" id="gender" value="F"/>
                                     </div>
+                                    <div className="form__radio--button">
+                                        <label className="form__radio--label" htmlFor="gender">M</label> 
+                                        <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
+                                    </div>
+                                    <div className="form__radio--button">
+                                        <label className="form__radio--label" htmlFor="gender">Autre</label> 
+                                        <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
+                                    </div>
+                                </div>
                             </div>
                             <input type="text" 
                                    className="form--input" 
