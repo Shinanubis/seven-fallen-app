@@ -93,12 +93,23 @@ function SubDeckPage(props){
                     (
                         <>  
                             <div className="row justify-start w-80">
-                                <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}><AiOutlineArrowLeft className="arrow mr-2"/>Subdeck</Link>
+                                <Link 
+                                    className="row justify-between align-center" 
+                                    to={`/decks/${id}/subdecks`}
+                                >
+                                    <AiOutlineArrowLeft className="arrow mr-2"/>
+                                </Link>
                             </div>
                             <div className="empty__container column justify-center">
-                                <Button text={`add cards to ${endUrl}`} onClick={handleClick}/>
+                                <Button 
+                                    text={`add cards to ${endUrl}`} 
+                                    onClick={handleClick}
+                                />
                             </div>
-                            <PopupContainer classes="subdeck column align-center popup__container py-5 d-none" ref={popupRef}>
+                            <PopupContainer 
+                                classes="subdeck column align-center popup__container py-5 d-none" 
+                                ref={popupRef}
+                            >
                                 <div className="popup__heading">
                                     <div className="popup__close" onClick={handleClick}>
                                         <AiFillCloseCircle />
@@ -110,7 +121,13 @@ function SubDeckPage(props){
                                     </List>
                                 </div>
                                 <div className="popup__footer">
-                                    <Button text="Valid" bgcolor="#3be73b" color="#101010" padding="3vw 0" onClick={handleValid}/>
+                                    <Button 
+                                        text="Valid" 
+                                        bgcolor="#3be73b" 
+                                        color="#101010" 
+                                        padding="3vw 0" 
+                                        onClick={handleValid}
+                                    />
                                 </div>
                             </PopupContainer>
                         </>
