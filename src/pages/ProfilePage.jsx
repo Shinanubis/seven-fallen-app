@@ -72,7 +72,7 @@ const ProfileForm = () => {
                                    placeholder="firstname" 
                                    disabled 
                                    value={userInfos.message[0].firstname !== null ? userInfos.message[0].firstname : ''}
-                                   onChange={handleChange}
+                                   onClick={handleChange}
                             />
                             <input type="text" 
                                    className="form--input" 
