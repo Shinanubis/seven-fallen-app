@@ -10,6 +10,7 @@ import { getHolyBookCards } from '../api/HolyBook';
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import {AiOutlineArrowLeft} from 'react-icons/ai';
 import Button from '../components/Button';
 import PopupContainer from '../components/PopupContainer';
 
@@ -89,7 +90,10 @@ function SubDeckPage(props){
                 {
                     isEmpty === true ?
                     (
-                        <>   
+                        <>  
+                            <div className="row justify-start w-80">
+                                <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}><AiOutlineArrowLeft className="arrow mr-2"/>Subdeck</Link>
+                            </div>
                             <div className="empty__container column justify-center">
                                 <Button text={`add cards to ${endUrl}`} onClick={handleClick}/>
                             </div>
@@ -115,7 +119,6 @@ function SubDeckPage(props){
                         </p>
                     )
                 }
-            <Link to={`/decks/${id}/subdecks`}>Back</Link>
         </Main>
     )
     :
