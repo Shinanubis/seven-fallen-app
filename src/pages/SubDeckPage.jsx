@@ -97,7 +97,7 @@ function SubDeckPage(props){
 
                                 </div>
                                 <div className="popup__footer">
-                                    <Button text="Valid" />
+                                    <Button text="Valid" bgcolor="#3be73b" color="#101010"/>
                                 </div>
                             </PopupContainer>
                         </>
