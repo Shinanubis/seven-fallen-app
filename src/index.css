@@ -835,6 +835,14 @@ svg.dropdown__icon path{
   margin-right: 6vh !important;
 }
 
+.ml-1{
+  margin-left: 1vh !important;
+}
+
+.ml-2{
+  margin-left: 2vh !important;
+}
+
 .p-1{
   padding: 1vh !important;
 }
