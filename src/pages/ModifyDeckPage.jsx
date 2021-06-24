@@ -20,8 +20,16 @@ import checkRegex from '../utilities/checkRegex';
 import { serialize } from '../utilities/serialize';
 
 function ModifyDeckPage(props){
-
-    const {options, optionsName} = props.location;
+    const options = [
+        [1, 'Poseidia'],
+        [2, 'Eondra'],
+        [3, 'Endless night'],
+        [4, 'MetaScience'],
+        [5, 'The light\'s temple'],
+        [6, 'Celestial purity'],
+        [7, 'The saber\'s way'],
+    ]
+    const optionsTitle = 'Kingdoms';
     const [deckInfos, setDeckInfos] = useState({});
     const [flashState, setFlashState] = useState(null);
     const [response, setResponse] = useState('');
@@ -151,7 +159,7 @@ function ModifyDeckPage(props){
                     <p className="row jsutify-start mb-2">Total Celestian energy : {deckInfos.total_ec}</p>
                     {options && options instanceof Array ?
                         <fieldset className="pb-2 mb-3">
-                            <legend className="px-2">{optionsName}</legend>
+                            <legend className="px-2">{optionsTitle}</legend>
                             <ul id="kingdoms__list" className="column">
                                 {
                                     options.map(elmt => ( 
