@@ -46,7 +46,7 @@ function SubDeckPage(props){
 
     const handleValid = (e) => {
         e.preventDefault();
-        popupRef.current.classList.remove('d-none');
+        popupRef.current.classList.add('d-none');
         return true;
     }
 
