@@ -115,7 +115,7 @@ const ProfileForm = () => {
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
                         </div>
-                        <div className="form__section row justify-start w-80">
+                        <div className="form__section">
                             <h4 className="form__section--title">Profile options</h4>
                         <div className="row">
                             <label className="form__label" htmlFor="visible">Public</label>
