@@ -93,6 +93,10 @@ function SubDeckPage(props){
                                         <AiFillCloseCircle />
                                     </div>
                                 </div>
+                                <div className="popup__body">
+
+                                </div>
+                                <Button text="Valid" />
                             </PopupContainer>
                         </>
                     )
