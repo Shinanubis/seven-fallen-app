@@ -42,12 +42,39 @@ const ProfileForm = () => {
 
     const handleChange = (e) => {
         e.preventDefault();
-        if(e.target.id === "firstname"){
-            setUserInfos(prevState => {
-                let newObj = {...prevState};
-                newObj.message.firstname = e.target.value;
-                return newObj; 
-            });
+        switch(e.target.id){
+
+            case 'firstname':
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.firstname = e.target.value;
+                    return newObj; 
+                });
+                break;
+
+            case 'lastname':
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.lastname = e.target.value;
+                    return newObj; 
+                });
+                break;
+            case 'username':
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.lastname = e.target.value;
+                    return newObj; 
+                });
+                break;
+            case 'email':
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.lastname = e.target.value;
+                    return newObj; 
+                });
+                break;
+            default:
+                console.error(`Something wrong with ${e.target.id}`);
         }
     }
 
@@ -69,16 +96,16 @@ const ProfileForm = () => {
                             <div className="form__radio--group">
                                 <div className="row">
                                     <div className="form__radio--button">
-                                        <label className="form__radio--label" htmlFor="gender">F</label>
-                                        <input className="form--radio" type="radio" name="gender" id="gender" value="F"/>
+                                        <label className="form__radio--label" htmlFor="female">F</label>
+                                        <input className="form--radio" type="radio" name="gender" id="female" value="F"/>
                                     </div>
                                     <div className="form__radio--button">
-                                        <label className="form__radio--label" htmlFor="gender">M</label> 
-                                        <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
+                                        <label className="form__radio--label" htmlFor="male">M</label> 
+                                        <input className="form--radio"type="radio" name="gender" id="male" value="M"/>
                                     </div>
                                     <div className="form__radio--button">
-                                        <label className="form__radio--label" htmlFor="gender">Autre</label> 
-                                        <input className="form--radio"type="radio" name="gender" id="gender" value="M"/>
+                                        <label className="form__radio--label" htmlFor="other">Autre</label> 
+                                        <input className="form--radio"type="radio" name="gender" id="other" value="Other"/>
                                     </div>
                                 </div>
                             </div>
@@ -92,21 +119,18 @@ const ProfileForm = () => {
                                    type="text" 
                                    className="form--input" 
                                    placeholder="lastname" 
-                                   disabled 
                                    value={userInfos.message.lastname}
                             />
                             <input id="username"
                                    type="text" 
                                    className="form--input" 
                                    placeholder="username" 
-                                   disabled 
                                    value={userInfos.message.username}
                             />
                             <input id="email"
                                    type="email" 
                                    className="form--input" 
                                    placeholder="email" 
-                                   disabled 
                                    value={userInfos.message.email}
                             />
                         </div>
