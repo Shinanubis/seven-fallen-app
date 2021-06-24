@@ -681,6 +681,11 @@ svg.dropdown__icon path{
   font-size: 2vh;
 }
 
+.subdeck .layout{
+  width: 80%;
+  background-color: #101010;
+}
+
 .subdeck__icon--list{
     width: 30%;
 }
