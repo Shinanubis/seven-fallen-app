@@ -1,6 +1,6 @@
 
 import {useEffect,useState, useRef} from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
@@ -37,7 +37,6 @@ function ModifyDeckPage(props){
     let { id } = useParams();
 
     /* handling functions */
-
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
     };
@@ -148,6 +147,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
+            <Link to={`/decks/${id}/subdecks`}>Subdeck</Link>
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
