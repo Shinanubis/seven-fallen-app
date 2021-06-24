@@ -65,9 +65,10 @@ const ProfileForm = () => {
                                         </div>
                                     </div>
                             </div>
-                            <input type="text" className="form--input" placeholder="firstname" disabled value=""/>
-                            <input type="text" className="form--input" placeholder="lastname" disabled value=""/>
-                            <input type="email" className="form--input" placeholder="email" disabled value=""/>
+                            <input type="text" className="form--input" placeholder="firstname" disabled value={userInfos.message[0].firstname && userInfos.message[0].firstname}/>
+                            <input type="text" className="form--input" placeholder="lastname" disabled value={userInfos.message[0].lastname && userInfos.message[0].lastname}/>
+                            <input type="text" className="form--input" placeholder="username" disabled value={userInfos.message[0].username && userInfos.message[0].username}/>
+                            <input type="email" className="form--input" placeholder="email" disabled value={userInfos.message[0].email && userInfos.message[0].email}/>
                         </div>
                         <div className="form--section">
                             <h4 className="form__section--title">Préferences</h4>
