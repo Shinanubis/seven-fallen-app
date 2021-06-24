@@ -6,8 +6,10 @@ import {getProfile} from '../api/Profile';
 
 /* components */
 import {HiUserCircle} from 'react-icons/hi';
+import { RiLoader3Line } from 'react-icons/ri'
 import Button from '../components/Button';
 import Main from '../layouts/Main';
+import Loader from '../components/Loader';
 
 
 
@@ -18,10 +20,17 @@ const ProfileForm = () => {
         code: null,
         message: null
     });
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [test, setTest] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setTest(true);
+        }, 1000)
+    });
 
     useEffect(async () => {
         let response = await getProfile(id);
-        console.log(response)
         setUserInfos({...userInfos, response});
     },[]);
 
@@ -30,7 +39,7 @@ const ProfileForm = () => {
     }
 
 
-    return (
+    return isLoaded === true ? (
         <Main classes="profile__page">
                 <form className="form">
                         <div className="profile__heading">
@@ -70,6 +79,10 @@ const ProfileForm = () => {
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
             </Main>
+    )
+    :
+    (
+        <Loader condition={test === true} loaderIcon={RiLoader3Line} setLoaded={setIsLoaded} />
     )
 }
 
