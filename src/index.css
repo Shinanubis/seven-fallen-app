@@ -862,6 +862,10 @@ svg.dropdown__icon path{
   padding: 2vh 0 !important;
 }
 
+.w-80{
+  width: 80%;
+}
+
 .good__input,
 .good__input:focus{
   border-bottom: 2px solid var(--done);

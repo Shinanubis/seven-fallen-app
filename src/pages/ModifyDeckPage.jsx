@@ -6,6 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import Main from '../layouts/Main';
 
 /* components */
+import {AiOutlineArrowRight} from 'react-icons/ai';
 import Button from '../components/Button';
 import Flash from '../components/Flash';
 
@@ -147,7 +148,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            <div className="row justify-end">
+            <div className="row justify-end w-80">
                 <Link to={`/decks/${id}/subdecks`}>Subdeck</Link>
             </div>
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
