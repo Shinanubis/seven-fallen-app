@@ -10,7 +10,7 @@ import { getHolyBookCards } from '../api/HolyBook';
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
 import Button from '../components/Button';
-import PopupContainer from '../components/Popup';
+import PopupContainer from '../components/PopupContainer';
 
 /* layouts */
 import Main from '../layouts/Main';
