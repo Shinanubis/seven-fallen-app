@@ -49,10 +49,10 @@ const ProfileForm = () => {
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
                         </div>
-                        <div className="form--section">
+                        <div className="form--section" >
                             <h4 className="form__section--title">Contact</h4>
                             <div className="form__radio--group">
-                                <div className="row" onChange={handleChange}>
+                                <div className="row">
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="gender">F</label>
                                         <input className="form--radio" type="radio" name="gender" id="gender" value="F"/>
@@ -72,6 +72,7 @@ const ProfileForm = () => {
                                    placeholder="firstname" 
                                    disabled 
                                    value={userInfos.message[0].firstname !== null ? userInfos.message[0].firstname : ''}
+                                   onChange={handleChange}
                             />
                             <input type="text" 
                                    className="form--input" 
