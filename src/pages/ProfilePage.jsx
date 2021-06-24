@@ -1,4 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+
+/* api */
+import {getProfile} from '../api/Profile';
+
+/* components */
 import {HiUserCircle} from 'react-icons/hi';
 import Button from '../components/Button';
 import Main from '../layouts/Main';
@@ -6,22 +12,17 @@ import Main from '../layouts/Main';
 
 
 const ProfileForm = () => {
-    const user = {
-        contact: {
-            id: 228,
-            gender: "M",
-            username: "Pablo1803",
-            firstname: "Pablo",
-            lastname: "Escobar",
-            email: "plata.o.plomo@stayalive.fr"
-        },
-        coordinates:{
-            city: "Medelin",
-            country: "Colombie"
-        }
-    }
 
-    const [userInfos,setUser] = useState(user);
+    const { id } = useParams();
+    const [userInfos,setUserInfos] = useState({
+        code: null,
+        message: null
+    });
+
+    useEffect(async () => {
+        let response = await getProfile(id);
+        setUserInfos(response);
+    },[]);
 
     const handleClick = () => {
         return;
@@ -30,6 +31,7 @@ const ProfileForm = () => {
 
     return (
         <Main classes="profile__page">
+            {console.log(userInfos)}
                 <form className="form">
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>

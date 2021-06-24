@@ -59,10 +59,6 @@ function SubDeckPage(props){
     })
 
     useEffect(async () => {
-
-    }, [setCardsList]);
-
-    useEffect(async () => {
         let response = null;
 
         if(endUrl === 'eden'){

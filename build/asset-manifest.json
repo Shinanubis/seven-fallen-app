@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.6fe11042.chunk.css",
-    "main.js": "/static/js/main.457ba2cf.chunk.js",
-    "main.js.map": "/static/js/main.457ba2cf.chunk.js.map",
+    "main.css": "/static/css/main.ba988a33.chunk.css",
+    "main.js": "/static/js/main.dc5c641e.chunk.js",
+    "main.js.map": "/static/js/main.dc5c641e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3feb6fba.js",
     "runtime-main.js.map": "/static/js/runtime-main.3feb6fba.js.map",
     "static/js/2.59c75288.chunk.js": "/static/js/2.59c75288.chunk.js",
     "static/js/2.59c75288.chunk.js.map": "/static/js/2.59c75288.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.6fe11042.chunk.css.map": "/static/css/main.6fe11042.chunk.css.map",
+    "static/css/main.ba988a33.chunk.css.map": "/static/css/main.ba988a33.chunk.css.map",
     "static/js/2.59c75288.chunk.js.LICENSE.txt": "/static/js/2.59c75288.chunk.js.LICENSE.txt",
     "static/media/framus.28ad3f9b.jpg": "/static/media/framus.28ad3f9b.jpg",
     "static/media/merrlyn.a1bb939c.jpg": "/static/media/merrlyn.a1bb939c.jpg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.3feb6fba.js",
     "static/js/2.59c75288.chunk.js",
-    "static/css/main.6fe11042.chunk.css",
-    "static/js/main.457ba2cf.chunk.js"
+    "static/css/main.ba988a33.chunk.css",
+    "static/js/main.dc5c641e.chunk.js"
   ]
 }

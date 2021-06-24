@@ -774,6 +774,10 @@ svg.dropdown__icon path{
   align-items: flex-end;
 }
 
+.m-0{
+  margin: 0 !important;
+}
+
 .m-1{
   margin: 1vh !important;
 }
@@ -798,52 +802,78 @@ svg.dropdown__icon path{
   margin: 6vh !important;
 }
 
+.mx-0{
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
 .mx-1{
-  margin: 0 1vh !important;
+  margin-right: 1vh !important;
+  margin-left: 1vh !important;
 }
 
 .mx-2{
-  margin: 0 2vh !important;
+  margin-right: 2vh !important;
+  margin-left: 2vh !important;
 }
 
 .mx-3{
-  margin: 0 3vh !important;
+  margin-right: 3vh !important;
+  margin-left: 3vh !important;
 }
 
 .mx-4{
-  margin: 0 4vh !important;
+  margin-right: 4vh !important;
+  margin-left: 4vh !important;
 }
 
 .mx-5{
-  margin: 0 5vh !important;
+  margin-right: 5vh !important;
+  margin-left: 5vh !important;
 }
 
 .mx-6{
-  margin: 0 6vh !important;
+  margin-right: 6vh !important;
+  margin-left: 6vh !important;
+}
+
+.my-0{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .my-1{
-  margin: 1vh 0 !important;
+  margin-top: 1vh !important;
+  margin-bottom: 1vh !important;
 }
 
 .my-2{
-  margin: 2vh 0 !important;
+  margin-top: 2vh !important;
+  margin-bottom: 2vh !important;
 }
 
 .my-3{
-  margin: 3vh 0 !important;
+  margin-top: 3vh !important;
+  margin-bottom: 3vh !important;
 }
 
 .my-4{
-  margin: 4vh 0 !important;
+  margin-top: 4vh !important;
+  margin-bottom: 4vh !important;
 }
 
 .my-5{
-  margin: 5vh 0 !important;
+  margin-top: 5vh !important;
+  margin-bottom: 5vh !important;
 }
 
 .my-6{
-  margin: 6vh 0 !important;
+  margin-top: 6vh !important;
+  margin-bottom: 6vh !important;
+}
+
+.mb-0{
+  margin-bottom: 0 !important;
 }
 
 .mb-1{
@@ -865,6 +895,10 @@ svg.dropdown__icon path{
   margin-bottom: 6vh !important;
 }
 
+.mt-0{
+  margin-top: 0 !important;
+}
+
 .mt-1{
   margin-top: 1vh !important;
 }
@@ -882,6 +916,10 @@ svg.dropdown__icon path{
 }
 .mt-6{
   margin-top: 6vh !important;
+}
+
+.mr-0{
+  margin-right: 0 !important;
 }
 
 .mr-1{
@@ -908,12 +946,32 @@ svg.dropdown__icon path{
   margin-right: 6vh !important;
 }
 
+.ml-0{
+  margin-left: 0 !important;
+}
+
 .ml-1{
   margin-left: 1vh !important;
 }
 
 .ml-2{
   margin-left: 2vh !important;
+}
+
+.ml-3{
+  margin-left: 3vh !important;
+}
+
+.ml-4{
+  margin-left: 4vh !important;
+}
+
+.ml-5{
+  margin-left: 5vh !important;
+}
+
+.ml-6{
+  margin-left: 6vh !important;
 }
 
 .p-0{
@@ -926,6 +984,26 @@ svg.dropdown__icon path{
 
 .p-2{
   padding: 2vh !important;
+}
+
+.p-3{
+  padding: 3vh !important;
+}
+
+.p-4{
+  padding: 4vh !important;
+}
+
+.p-5{
+  padding: 5vh !important;
+}
+
+.p-6{
+  padding: 6vh !important;
+}
+
+.pt-0{
+  padding-top: 0 !important;
 }
 
 .pt-1{
@@ -952,6 +1030,10 @@ svg.dropdown__icon path{
   padding-top: 6vh !important;
 }
 
+.pb-0{
+  padding-bottom:0 !important;
+}
+
 .pb-1{
   padding-bottom:1vh !important;
 }
@@ -976,53 +1058,74 @@ svg.dropdown__icon path{
   padding-bottom: 6vh !important;
 }
 
+.px-0{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 
 .px-1{
-  padding: 0 1vh !important;
+  padding-right: 1vh !important;
+  padding-left: 1vh !important;
 }
 
 .px-2{
-  padding: 0 2vh !important;
+  padding-right: 2vh !important;
+  padding-left: 2vh !important;
 }
 
 .px-3{
-  padding: 0 3vh !important;
+  padding-right: 3vh !important;
+  padding-left: 3vh !important;
 }
 
 .px-4{
-  padding: 0 4vh !important;
+  padding-right: 4vh !important;
+  padding-left: 4vh !important;
 }
 
 .px-5{
-  padding: 0 5vh !important;
+  padding-right: 5vh !important;
+  padding-left: 5vh !important;
 }
 
 .px-6{
-  padding: 0 6vh !important;
+  padding-right: 6vh !important;
+  padding-left: 6vh !important;
+}
+
+.py-0{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;  
 }
 
 .py-1{
-  padding: 1vh 0 !important;
+  padding-top: 1vh !important;
+  padding-bottom: 1vh !important;
 }
 
 .py-2{
-  padding: 2vh 0 !important;
+  padding-top: 2vh !important;
+  padding-bottom: 2vh !important;
 }
 
 .py-3{
-  padding: 3vh 0 !important;
+  padding-top: 3vh !important;
+  padding-bottom: 3vh !important;
 }
 
 .py-4{
-  padding: 4vh 0 !important;
+  padding-top: 4vh !important;
+  padding-bottom: 4vh !important;
 }
 
 .py-5{
-  padding: 5vh 0 !important;
+  padding-top: 5vh !important;
+  padding-bottom: 5vh !important;
 }
 
 .py-6{
-  padding: 6vh 0 !important;
+  padding-top: 6vh !important;
+  padding-bottom: 6vh !important;
 }
 
 .w-25{
@@ -1031,6 +1134,10 @@ svg.dropdown__icon path{
 
 .w-80{
   width: 80%;
+}
+
+.w-100{
+  width: 100%;
 }
 
 .good__input,
