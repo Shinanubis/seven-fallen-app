@@ -178,6 +178,11 @@ code {
   padding-bottom: 12vh;
 }
 
+.empty__container{
+  width: 100%;
+  height: calc(100% - 12vh);
+}
+
 /* popup */
 .popup__container{
   position: absolute;
