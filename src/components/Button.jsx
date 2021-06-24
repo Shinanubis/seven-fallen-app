@@ -1,6 +1,6 @@
 import React from 'react'
 const Button = (props) => {
-    const {id, classes,bgcolor,color, size,onClick, text} = props
+    const {id, classes,bgcolor,color, size,onClick, text, padding} = props
     
     return (
 
@@ -9,6 +9,7 @@ const Button = (props) => {
             type="button"
             className = {classes ? classes : "btn"}
             style={{
+                padding: padding ?? padding,
                 backgroundColor:bgcolor ?? bgcolor,
                 color:color ?? color,
                 width: size ?? size
