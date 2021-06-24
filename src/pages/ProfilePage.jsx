@@ -76,19 +76,22 @@ const ProfileForm = () => {
                                    value={userInfos.message[0].firstname !== null ? userInfos.message[0].firstname : ''}
                                    onChange={(e) => handleChange}
                             />
-                            <input type="text" 
+                            <input id="lastname"
+                                   type="text" 
                                    className="form--input" 
                                    placeholder="lastname" 
                                    disabled 
                                    value={userInfos.message[0].lastname !== null ? userInfos.message[0].lastname : ''}
                             />
-                            <input type="text" 
+                            <input id="username"
+                                   type="text" 
                                    className="form--input" 
                                    placeholder="username" 
                                    disabled 
                                    value={userInfos.message[0].username !== null ? userInfos.message[0].username : ''}
                             />
-                            <input type="email" 
+                            <input id="email"
+                                   type="email" 
                                    className="form--input" 
                                    placeholder="email" 
                                    disabled 
