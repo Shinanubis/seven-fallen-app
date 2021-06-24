@@ -119,8 +119,10 @@ const ProfileForm = () => {
                             <h4 className="form__section--title">Profile options</h4>
                             <label className="form__label mr-2" htmlFor="visible">Public</label>
                             <input id="visible" className="form__checkbox mb-1" type="checkbox" name="visible"/>
+                        <div>
                             <label className="form__label mr-2" htmlFor="collection">Collections</label>
                             <input id="collection" className="form__checkbox" type="checkbox" name="collection"/>
+                        </div>
                         </div>
                         <div className="form--section" >
                             <h4 className="form__section--title">Contact</h4>
