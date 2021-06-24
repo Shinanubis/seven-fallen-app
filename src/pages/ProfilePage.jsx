@@ -33,7 +33,9 @@ const ProfileForm = () => {
 
     const handleChange = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
+        if(e.target.id === "firstname"){
+            setUserInfos({...userInfos.message[0], firstname: e.target.value });
+        }
         return true;
     }
 
@@ -68,12 +70,13 @@ const ProfileForm = () => {
                                     </div>
                                 </div>
                             </div>
-                            <input type="text" 
+                            <input id="firstname" 
                                    className="form--input" 
+                                   type="text"
                                    placeholder="firstname" 
                                    disabled 
                                    value={userInfos.message[0].firstname !== null ? userInfos.message[0].firstname : ''}
-                                   onClick={handleChange}
+                                   onChange={handleChange}
                             />
                             <input type="text" 
                                    className="form--input" 
