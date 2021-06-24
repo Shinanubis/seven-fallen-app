@@ -11,6 +11,9 @@ import Button from '../components/Button';
 import Main from '../layouts/Main';
 import Loader from '../components/Loader';
 
+/* module */
+import regexModule  from '../modules/regex';
+
 
 
 const ProfileForm = () => {
@@ -112,6 +115,10 @@ const ProfileForm = () => {
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
                         </div>
+                        <div className="form__section">
+                            <label className="form__label" htmlFor="visible">F</label>
+                            <input id="visible" className="form__checkbox" type="checkbox" name="gender" value=""/>
+                        </div>
                         <div className="form--section" >
                             <h4 className="form__section--title">Contact</h4>
                             <div className="form__radio--group">
@@ -155,13 +162,7 @@ const ProfileForm = () => {
                                    value={userInfos.message.email}
                             />
                         </div>
-                        <div className="form--section">
-                            <h4 className="form__section--title">Préferences</h4>
-                            <input type="text" className="form--input" placeholder="username" disabled/>  
-                            <input type="text" className="form--input" placeholder="username" disabled/>  
-                            <input type="text" className="form--input" placeholder="username" disabled/>  
-                            <input type="text" className="form--input" placeholder="username" disabled/>  
-                        </div>
+                        
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
             </Main>
