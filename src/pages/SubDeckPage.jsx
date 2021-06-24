@@ -103,7 +103,7 @@ function SubDeckPage(props){
                                         <AiFillCloseCircle />
                                     </div>
                                 </div>
-                                <div className="popup__body">
+                                <div className="popup__body my-5">
 
                                 </div>
                                 <div className="popup__footer">
