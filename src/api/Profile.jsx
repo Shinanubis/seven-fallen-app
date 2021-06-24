@@ -4,7 +4,7 @@ async function getProfile(){
         credentials: 'include'
     }
 
-    let response = await fetch(`https://test-seven.site/profile`, settings);
+    let response = await fetch(`https://test-seven.site/api/profile`, settings);
     let datas = response.json();
     return datas;
 }
