@@ -44,6 +44,12 @@ function SubDeckPage(props){
         return true;
     }
 
+    const handleValid = (e) => {
+        e.preventDefault();
+        popupRef.current.classList.remove('d-none');
+        return true;
+    }
+
     useEffect(() => {
         setTimeout(() => {
            setTest(true); 
@@ -97,7 +103,7 @@ function SubDeckPage(props){
 
                                 </div>
                                 <div className="popup__footer">
-                                    <Button text="Valid" bgcolor="#3be73b" color="#101010" padding="3vw 0" onClick={handleClick}/>
+                                    <Button text="Valid" bgcolor="#3be73b" color="#101010" padding="3vw 0" onClick={handleValid}/>
                                 </div>
                             </PopupContainer>
                         </>
