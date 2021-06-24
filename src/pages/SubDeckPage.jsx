@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 /* api */
@@ -9,26 +9,39 @@ import { getHolyBookCards } from '../api/HolyBook';
 /* components */
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
-import List from '../components/List';
 import Button from '../components/Button';
+import PopupContainer from '../components/Popup';
 
 /* layouts */
 import Main from '../layouts/Main';
 
 function SubDeckPage(props){
 
-    let {id} = useParams();
-    const [loaded, setLoaded] = useState(false);
-
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
 
+    let {id} = useParams();
+    const [loaded, setLoaded] = useState(false);
     const [cardsList, setCardsList] = useState({
         code: null,
         message: null
     });
     const [isEmpty, setIsEmpty] = useState(true);
     const [test, setTest] = useState(false);
+
+    const popupRef = useRef(null);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        if(popupRef.current.classList.contains('d-none')){
+            popupRef.current.classList.remove('d-none');
+        }else{
+            popupRef.current.classList.add('d-none');      
+        }
+
+        return true;
+    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -68,10 +81,14 @@ function SubDeckPage(props){
         <Main classes="page">
                 {
                     isEmpty === true ?
-                    (   
-                        <div className="empty__container column justify-center">
-                            <Button text={`add cards to ${endUrl}`}/>
-                        </div>
+                    (
+                        <>   
+                            <div className="empty__container column justify-center">
+                                <Button text={`add cards to ${endUrl}`} onClick={handleClick}/>
+                            </div>
+                            <PopupContainer classes="popup__container d-none" ref={popupRef}>
+                            </PopupContainer>
+                        </>
                     )
                     :
                     (
