@@ -97,6 +97,20 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+            case 'visible' :
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.is_visible = e.target.value;
+                    return newObj; 
+                });
+                break;
+            case 'collection' :
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.is_visible = e.target.value;
+                    return newObj; 
+                });
+                break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
         }
