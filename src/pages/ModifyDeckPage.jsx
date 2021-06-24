@@ -147,7 +147,9 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            <Link to={`/decks/${id}/subdecks`}>Subdeck</Link>
+            <div className="row justify-end">
+                <Link to={`/decks/${id}/subdecks`}>Subdeck</Link>
+            </div>
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
