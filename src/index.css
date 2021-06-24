@@ -200,6 +200,12 @@ code {
   overflow-y: scroll;
 }
 
+.popup__inner{
+  width: 80%;
+  height: 80%;
+  background-color: var(--dark-grey);
+}
+
 .popup__close{
   width: 4vh;
   height: 4vh;
