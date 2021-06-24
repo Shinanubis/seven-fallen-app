@@ -58,7 +58,7 @@ const ProfileForm = () => {
 
     return isLoaded === true ? (
         <Main classes="profile__page">
-                <form className="form">
+                <form className="form" onChange={handleChange}>
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username"></h4>
@@ -87,7 +87,6 @@ const ProfileForm = () => {
                                    type="text"
                                    placeholder="firstname" 
                                    value={userInfos.message.firstname}
-                                   onChange={handleChange}
                             />
                             <input id="lastname"
                                    type="text" 
