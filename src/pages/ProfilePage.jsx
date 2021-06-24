@@ -116,7 +116,7 @@ const ProfileForm = () => {
                             <p className="profile__userid"></p>
                         </div>
                         <div className="form__section">
-                            <label className="form__label" htmlFor="visible">F</label>
+                            <label className="form__label" htmlFor="visible">Public</label>
                             <input id="visible" className="form__checkbox" type="checkbox" name="gender" value=""/>
                         </div>
                         <div className="form--section" >
