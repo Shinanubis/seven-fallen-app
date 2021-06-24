@@ -105,7 +105,7 @@ function SubDeckPage(props){
                                     </div>
                                 </div>
                                 <div className="popup__body my-5">
-                                    <List classes="layout layout__3">
+                                    <List classes="layout layout__3 p-0">
 
                                     </List>
                                 </div>
