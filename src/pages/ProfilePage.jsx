@@ -80,6 +80,22 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+            case 'male' :
+                e.target.checked = true;
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.gender = e.target.value;
+                    return newObj; 
+                });
+                break;
+            case 'other' :
+                e.target.checked = true;
+                setUserInfos(prevState => {
+                    let newObj = {...prevState};
+                    newObj.message.gender = e.target.value;
+                    return newObj; 
+                });
+                break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
         }
