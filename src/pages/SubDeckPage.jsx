@@ -70,7 +70,7 @@ function SubDeckPage(props){
                     isEmpty === true ?
                     (   
                         <div className="column justify-center">
-                            <Button text="add cards to register"/>
+                            <Button text={`add cards to ${endUrl}`}/>
                         </div>
                     )
                     :
