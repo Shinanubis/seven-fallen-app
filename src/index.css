@@ -867,6 +867,10 @@ svg.dropdown__icon path{
   padding: 2vh 0 !important;
 }
 
+.w-25{
+  width: 25%;
+}
+
 .w-80{
   width: 80%;
 }
