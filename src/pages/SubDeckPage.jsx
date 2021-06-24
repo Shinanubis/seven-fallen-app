@@ -10,6 +10,7 @@ import { getHolyBookCards } from '../api/HolyBook';
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
 import List from '../components/List';
+import Button from '../components/Button';
 
 /* layouts */
 import Main from '../layouts/Main';
@@ -65,13 +66,12 @@ function SubDeckPage(props){
 
     return loaded === true ? (
         <Main classes="page">
-            <List classes="list__content layout layout__3">
                 {
                     isEmpty === true ?
-                    (
-                        <p style ={{color: "black",margin:"0 auto",textAlign:"center"}}>
-                            Empty 
-                        </p>
+                    (   
+                        <div className="column justify-center">
+                            <Button text="add cards to register"/>
+                        </div>
                     )
                     :
                     (
@@ -80,7 +80,6 @@ function SubDeckPage(props){
                         </p>
                     )
                 }
-            </List>
             <Link to={`/decks/${id}/subdecks`}>Back</Link>
         </Main>
     )
