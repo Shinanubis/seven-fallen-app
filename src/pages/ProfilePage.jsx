@@ -21,7 +21,6 @@ const ProfileForm = () => {
         message: null
     });
     const [isLoaded, setIsLoaded] = useState(false);
-    const [test, setTest] = useState(false);
 
     useEffect(() => {
         console.log(userInfos)
@@ -32,6 +31,12 @@ const ProfileForm = () => {
         setUserInfos(response);
     },[]);
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+        return true;
+    }
+
     const handleClick = () => {
         return;
     }
@@ -39,7 +44,7 @@ const ProfileForm = () => {
 
     return isLoaded === true ? (
         <Main classes="profile__page">
-                <form className="form">
+                <form className="form" onChange={handleChange}>
                         <div className="profile__heading">
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username"></h4>
