@@ -87,7 +87,7 @@ function SubDeckPage(props){
                             <div className="empty__container column justify-center">
                                 <Button text={`add cards to ${endUrl}`} onClick={handleClick}/>
                             </div>
-                            <PopupContainer classes="row justify-center popup__container py-5 d-none" ref={popupRef}>
+                            <PopupContainer classes="column align-center popup__container py-5 d-none" ref={popupRef}>
                                 <div className="popup__heading">
                                     <div className="popup__close" onClick={handleClick}>
                                         <AiFillCloseCircle />
@@ -96,7 +96,9 @@ function SubDeckPage(props){
                                 <div className="popup__body">
 
                                 </div>
-                                <Button text="Valid" />
+                                <div className="popup__footer">
+                                    <Button text="Valid" />
+                                </div>
                             </PopupContainer>
                         </>
                     )
