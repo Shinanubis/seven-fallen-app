@@ -29,7 +29,7 @@ const ProfileForm = () => {
 
     useEffect(async () => {
         let response = await getProfile(id);
-        setUserInfos({...userInfos, response});
+        setUserInfos(response);
     },[]);
 
     const handleClick = () => {
