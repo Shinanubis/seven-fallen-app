@@ -73,7 +73,7 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
-            case 'female' || 'male' || 'other' :
+            case 'female' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.gender = e.target.value;
