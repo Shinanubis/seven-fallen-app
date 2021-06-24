@@ -974,6 +974,22 @@ svg.dropdown__icon path{
   padding: 0 2vh !important;
 }
 
+.px-3{
+  padding: 0 3vh !important;
+}
+
+.px-4{
+  padding: 0 4vh !important;
+}
+
+.px-5{
+  padding: 0 5vh !important;
+}
+
+.px-6{
+  padding: 0 6vh !important;
+}
+
 .py-1{
   padding: 1vh 0 !important;
 }
