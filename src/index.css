@@ -122,6 +122,7 @@ code {
 .arrow {
   margin-top: 3px;
   color: var(--dark-grey);
+  font-size: 4vh;
 }
 
 .social__icons--list{
