@@ -61,14 +61,14 @@ const ProfileForm = () => {
             case 'username':
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
-                    newObj.message.lastname = e.target.value;
+                    newObj.message.username = e.target.value;
                     return newObj; 
                 });
                 break;
             case 'email':
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
-                    newObj.message.lastname = e.target.value;
+                    newObj.message.email = e.target.value;
                     return newObj; 
                 });
                 break;
