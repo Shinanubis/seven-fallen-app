@@ -32,6 +32,7 @@ const ProfileForm = () => {
     },[]);
 
     const handleChange = (e) => {
+        e.preventDefault();
         if(e.target.id === "firstname"){
             setUserInfos({...userInfos.message[0], firstname: e.target.value });
         }
@@ -73,7 +74,7 @@ const ProfileForm = () => {
                                    type="text"
                                    placeholder="firstname" 
                                    value={userInfos.message[0].firstname !== null ? userInfos.message[0].firstname : ''}
-                                   onChange={(e) => handleChange}
+                                   onChange={handleChange}
                             />
                             <input id="lastname"
                                    type="text" 
