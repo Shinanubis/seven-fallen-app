@@ -150,7 +150,7 @@ function ModifyDeckPage(props){
         <Main classes="page page__deck">
             <div className="row justify-end w-80">
                 <Link to={`/decks/${id}/subdecks`}>Subdeck</Link>
-                <AiOutlineArrowRight />
+                <AiOutlineArrowRight className="arrow"/>
             </div>
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">

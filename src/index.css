@@ -118,6 +118,10 @@ code {
   -o-transition: height 800ms ease;
 }
 
+.arrow {
+  color: var(--dark-grey);
+}
+
 .social__icons--list{
   display: flex;
   justify-content: space-around;
