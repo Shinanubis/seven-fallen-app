@@ -32,7 +32,6 @@ const ProfileForm = () => {
     },[]);
 
     const handleChange = (e) => {
-        e.preventDefault();
         if(e.target.id === "firstname"){
             setUserInfos({...userInfos.message[0], firstname: e.target.value });
         }
