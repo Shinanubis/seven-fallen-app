@@ -231,7 +231,7 @@ code {
   display: flex;
   justify-content: flex-end;
   width: 80%;
-  margin: 2vh auto;
+  margin: 0 auto;
 }
 
 .popup__option--name{
