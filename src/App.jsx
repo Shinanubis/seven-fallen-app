@@ -190,9 +190,9 @@ function App() {
   ]
 
   useEffect(async () => {
-    let response = await getTypesList('FR');
     localStorage.setItem('kingdoms', types);
-    console.log(localStorage.getItem('kingdoms'));
+    let test = localStorage.getItem('kingdoms');
+    console.log(test);
   }, []);
 
   return (
