@@ -15,9 +15,7 @@ function DatasProvider(props){
     }
 
     return (
-        <Datas.Provider value={{
-            kingdoms: kingdoms
-        }}>
+        <Datas.Provider value={kingdoms}>
             {props.children}
         </Datas.Provider>
     )
