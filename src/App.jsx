@@ -179,10 +179,10 @@ function App() {
     },
   ]
 
-  useEffect(async () => {
-    let response = await getTypesList('FR');
-    console.log(response);
-  }, []);
+//   useEffect(async () => {
+//     let response = await getTypesList('FR');
+//     console.log(response);
+//   }, []);
 
   return (
 
