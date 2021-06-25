@@ -107,7 +107,7 @@ const ProfileForm = () => {
             case 'collection' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
-                    newObj.message.is_visible = e.target.checked;
+                    newObj.message.allow_collections = e.target.checked;
                     return newObj; 
                 });
                 break;
@@ -180,7 +180,7 @@ const ProfileForm = () => {
                                                className="form--radio"
                                                type="radio" 
                                                name="gender" 
-                                               value="Other" 
+                                               value="other" 
                                                checked={userInfos.message.gender === 'other' ? true : false}
                                         />
                                     </div>
