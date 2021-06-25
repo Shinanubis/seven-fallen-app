@@ -48,7 +48,6 @@ const ProfileForm = () => {
         switch(e.target.id){
 
             case 'firstname':
-
                 if(regexModule.regex_name.test(e.target.value) === true){
                     if(firstnameInput.current.classList.contains('bad__input')){
                         firstnameInput.current.classList.remove('bad__input');
@@ -73,6 +72,21 @@ const ProfileForm = () => {
                 break;
 
             case 'lastname':
+                if(regexModule.regex_name.test(e.target.value) === true){
+                    if(lastnameInput.current.classList.contains('bad__input')){
+                        lastnameInput.current.classList.remove('bad__input');
+                    }
+                    firstnameInput.current.classList.add('good__input');
+                }else{
+                    if(lastnameInput.current.classList.contains('good__input')){
+                        lastnameInput.current.classList.remove('good__input');
+                    }
+                    lastnameInput.current.classList.add('bad__input');
+                }
+
+                if(lastnameInput.current.value.length === 0){
+                    lastnameInput.current.classList.remove('good__input');
+                }
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.lastname = e.target.value;
@@ -80,6 +94,21 @@ const ProfileForm = () => {
                 });
                 break;
             case 'username':
+                if(regexModule.regex_username.test(e.target.value) === true){
+                    if(usernameInput.current.classList.contains('bad__input')){
+                        usernameInput.current.classList.remove('bad__input');
+                    }
+                    usernameInput.current.classList.add('good__input');
+                }else{
+                    if(usernameInput.current.classList.contains('good__input')){
+                        usernameInput.current.classList.remove('good__input');
+                    }
+                    usernameInput.current.classList.add('bad__input');
+                }
+
+                if(usernameInput.current.value.length === 0){
+                    usernameInput.current.classList.remove('good__input');
+                }
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.username = e.target.value;
@@ -87,6 +116,21 @@ const ProfileForm = () => {
                 });
                 break;
             case 'email':
+                if(regexModule.regex_name.test(e.target.value) === true){
+                    if(firstnameInput.current.classList.contains('bad__input')){
+                        firstnameInput.current.classList.remove('bad__input');
+                    }
+                    firstnameInput.current.classList.add('good__input');
+                }else{
+                    if(firstnameInput.current.classList.contains('good__input')){
+                        firstnameInput.current.classList.remove('good__input');
+                    }
+                    firstnameInput.current.classList.add('bad__input');
+                }
+
+                if(firstnameInput.current.value.length === 0){
+                    firstnameInput.current.classList.remove('good__input');
+                }
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.email = e.target.value;
