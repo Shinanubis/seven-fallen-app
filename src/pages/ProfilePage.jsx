@@ -53,7 +53,7 @@ const ProfileForm = () => {
 
             case 'firstname':
 
-                if(e.target.value.test(regexModule.regex_name) === true){
+                if(regexModule.regex_name.test(e.target.value) === true){
                     firstnameInput.current.classList.add('good__input');
                 }else{
                     firstnameInput.current.classList.add('bad__input');
