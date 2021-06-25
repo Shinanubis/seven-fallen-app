@@ -193,7 +193,7 @@ const DecksPage = (props) => {
         return (
             <Layout>
                 <Filters containerClasses="filter__container row justify-end mt-3 mb-2 px-2" isVisible={filterClicked} onClick={handleClickFilter}/>
-                {console.log(datas)}
+                {console.log(DatasProvider)}
                 <List classes="list__content layout layout__1">
                       { 
                         decksList.message.length > 0 ?
