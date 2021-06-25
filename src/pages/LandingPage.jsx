@@ -1,6 +1,5 @@
-import React from 'react'
-import Button from '../components/Button'
-import Separator from '../components/Separator'
+import React from 'react';
+import Button from '../components/Button';
 import { useHistory } from "react-router-dom";
 
 const LandingPage = (props) => {
@@ -15,8 +14,6 @@ const LandingPage = (props) => {
     return (
             <>
                 <Button classes="btn" text="Connexion" onClick={e => handleConnexion(e,'/login')}/>
-                <Separator/>
-                <Button classes="btn" text="Subscribe" onClick={(e) => handleConnexion(e,'/subscribe')}/>
             </>
     )
 }

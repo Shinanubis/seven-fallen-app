@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 /*api call*/
 import {createUserDeck} from '../api/Decks';

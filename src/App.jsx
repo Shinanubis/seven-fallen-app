@@ -57,16 +57,6 @@ function App() {
     setIsAuthenticate(true);
   }
 
-  const types = {
-     1:'Poseidia',
-     2:'Eondra',
-     3:'Endless night',
-     4:'MetaScience',
-     5: 'The light\'s temple',
-     6:'Celestial purity',
-     7:'The saber\'s way'
-  }
-
   const pages = [
     {
         exact: true,
@@ -190,9 +180,7 @@ function App() {
   ]
 
   useEffect(async () => {
-    localStorage.setItem('kingdoms', JSON.stringify(types));
-    let test = localStorage.getItem('kingdoms');
-    console.log(JSON.parse(test));
+
   }, []);
 
   return (
@@ -214,7 +202,7 @@ function App() {
         </Header>
           <Navigation pages={pages} state={isAuthenticate} login ={() => setIsAuthenticate(false)}/>
         <Footer classes="footer">
-          <Menu classes="navbar" logged={isAuthenticate} types={types}/>
+          <Menu classes="navbar" logged={isAuthenticate} />
         </Footer>
       </Router>
     </AuthenticationContext.Provider>
