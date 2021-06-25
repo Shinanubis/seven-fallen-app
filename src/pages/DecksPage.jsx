@@ -187,13 +187,13 @@ const DecksPage = (props) => {
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
-        console.log(datas)
     },[]);
 
     if(decksList.message && decksList.message instanceof Array){
         return (
             <Layout>
                 <Filters containerClasses="filter__container row justify-end mt-3 mb-2 px-2" isVisible={filterClicked} onClick={handleClickFilter}/>
+                {console.log(datas)}
                 <List classes="list__content layout layout__1">
                       { 
                         decksList.message.length > 0 ?
