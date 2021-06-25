@@ -16,7 +16,7 @@ import Filters from '../components/Filters';
 import Popup from '../components/Popup';
 import { Redirect } from 'react-router-dom';
 
-const DecksPage = () => {
+const DecksPage = (props) => {
 
     const [decksList, setDecksList] = useState({
         code: 200,
@@ -184,6 +184,7 @@ const DecksPage = () => {
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
+        console.log(props)
     },[]);
 
     if(decksList.message && decksList.message instanceof Array){
