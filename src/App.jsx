@@ -5,7 +5,6 @@ import Footer from'./layouts/Footer';
 import Menu from './components/Menu';
 
 //Settings import
-import {useState} from 'react'
 import {BrowserRouter as Router} from 'react-router-dom';
 
 //Components imports
@@ -163,7 +162,17 @@ function App() {
   ]
 
   useEffect(async () => {
-
+    localStorage.setItem('kingdoms', JSON.stringify({
+        1:'Poseidia',
+        2:'Eondra',
+        3:'Endless night',
+        4:'MetaScience',
+        5:'The light\'s temple',
+        6:'Celestial purity',
+        7:'The saber\'s way'
+    }));
+    let test = JSON.parse(localStorage.getItem('kingdoms'));
+    console.log(test)
   }, []);
 
   return (
