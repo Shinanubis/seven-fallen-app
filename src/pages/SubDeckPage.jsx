@@ -73,7 +73,7 @@ function SubDeckPage(props){
             response = await getHolyBookCards(id);
         }
 
-        if(response.message[0].cards.length === 0){
+        if(response.message.cards.length === 0){
             setIsEmpty(true);
         }else{
             setIsEmpty(false);
