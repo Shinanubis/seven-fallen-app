@@ -40,8 +40,10 @@ const ProfileForm = () => {
     const emailInput = useRef(null);
 
     useEffect(() =>{
-        if(firstnameInput.current.classList.contains('good__input')){
-            firstnameInput.current.classList.remove('good__input');
+        return () => {
+            if(firstnameInput.current.classList.contains('good__input') && firstnameInput.current.value.length === 0){
+                firstnameInput.current.classList.remove('good__input');
+            }
         }
     });
 
