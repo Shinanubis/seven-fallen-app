@@ -123,7 +123,9 @@ const ProfileForm = () => {
         });
 
         let response = await updateProfile(form);
-        console.log(response)
+        if(response.code === 200){
+            setUserInfos(response)
+        }
         return true;
     }
 
