@@ -78,6 +78,8 @@ function SubDeckPage(props){
         }else{
             setIsEmpty(false);
         }
+
+        console.log(response)
         setCardsList(response);
     },[]);
 
