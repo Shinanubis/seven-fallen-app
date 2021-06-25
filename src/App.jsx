@@ -35,9 +35,6 @@ import EmptyDecksList from './pages/EmptyDecksList';
 import ModifyDeckPage from './pages/ModifyDeckPage';
 import SubDeckPage from './pages/SubDeckPage';
 
-//Context import
-import {DatasProvider} from './contexts/DatasContext';
-
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
 
@@ -170,7 +167,7 @@ function App() {
   }, []);
 
   return (
-    <DatasProvider>
+        <>
           <VhInPixels/>
           <Router basename="/">
             <Header classes="header row justify-end">
@@ -184,7 +181,7 @@ function App() {
               <Menu classes="navbar" />
             </Footer>
           </Router>
-    </DatasProvider>
+        </>
   );
 }
 
