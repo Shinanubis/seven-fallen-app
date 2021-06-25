@@ -1,4 +1,7 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect, useState, useContext} from 'react';
+
+/* context */
+import DatasProvider from '../contexts/DatasContext';
 
 /* layout */
 import Layout from '../layouts/Layout';
@@ -35,7 +38,7 @@ const DecksPage = (props) => {
     });
 
     const [checkboxes, setCheckBoxes] = useState([false, false, false, false,false,false,false]);
-
+    const datas = useContext(DatasProvider);
     /* datas for popup form */
     const popupDatas = {
         "List by kingdoms": {
@@ -184,6 +187,7 @@ const DecksPage = (props) => {
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
+        console.log(datas)
     },[]);
 
     if(decksList.message && decksList.message instanceof Array){

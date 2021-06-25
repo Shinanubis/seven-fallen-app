@@ -36,27 +36,12 @@ import ModifyDeckPage from './pages/ModifyDeckPage';
 import SubDeckPage from './pages/SubDeckPage';
 
 //Context import
-import AuthenticationContext from './contexts/Context';
 import DatasProvider from './contexts/DatasContext';
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
 
-//api
-import { getTypesList } from './api/CardsWareHouse';
-
-
 function App() {
-  const [isAuthenticate, setIsAuthenticate] = useState(false);
-  const [setting, setSettings] = useState({
-      kingdoms: [],
-      types: []
-  });
-  const handleLogin = (e,cb) => {
-    e.preventDefault();
-    cb('/decks')
-    setIsAuthenticate(true);
-  }
 
   const pages = [
     {
@@ -196,7 +181,7 @@ function App() {
             </Header>
               <Navigation pages={pages} />
             <Footer classes="footer">
-              <Menu classes="navbar" logged={isAuthenticate} />
+              <Menu classes="navbar" />
             </Footer>
           </Router>
     </DatasProvider>
