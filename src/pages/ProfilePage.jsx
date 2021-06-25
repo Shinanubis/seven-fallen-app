@@ -34,15 +34,15 @@ const ProfileForm = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     /* ref */
-    const firstnameInput = useRef();
-    const lastnameInput = useRef();
-    const usernameInput = useRef();
-    const emailInput = useRef();
+    const firstnameInput = useRef(null);
+    const lastnameInput = useRef(null);
+    const usernameInput = useRef(null);
+    const emailInput = useRef(null);
 
     useEffect(() => {
         return () => {
 
-            if(userInfos.code !== null){
+            if(firstnameInput.current !== null){
                 if(firstnameInput.current.classList.contains('good__input')){
                     firstnameInput.current.classList.remove('good__input')
                 };
