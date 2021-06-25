@@ -23,7 +23,6 @@ const ProfileForm = () => {
         code: null,
         message: {
             id: '',
-            avatar:'',
             firstname:'',
             lastname:'',
             gender: 'other',
