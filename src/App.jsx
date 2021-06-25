@@ -192,7 +192,7 @@ function App() {
   useEffect(async () => {
     localStorage.setItem('kingdoms', types);
     let test = localStorage.getItem('kingdoms');
-    console.log(test[1]);
+    console.log(test);
   }, []);
 
   return (
