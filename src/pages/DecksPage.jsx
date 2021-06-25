@@ -35,7 +35,7 @@ const DecksPage = (props) => {
     });
 
     const [checkboxes, setCheckBoxes] = useState([false, false, false, false,false,false,false]);
-
+    const kingdomsList = JSON.parse(localStorage.getItem('kingdoms'));
     /* datas for popup form */
     const popupDatas = {
         "List by kingdoms": {
@@ -184,7 +184,7 @@ const DecksPage = (props) => {
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
         setDecksList(response);
-        console.log(JSON.parse(localStorage.getItem('kingdoms')))
+        console.log(kingdomsList)
     },[]);
 
     if(decksList.message && decksList.message instanceof Array){
