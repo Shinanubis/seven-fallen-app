@@ -17,7 +17,6 @@ async function updateProfile(form){
     }
 
     let response = await fetch('https://test-seven.site/api/user/update', settings);
-    console.log(response)
     let datas = await response.json();
     return datas;
 }
