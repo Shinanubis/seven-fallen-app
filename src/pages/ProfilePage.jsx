@@ -100,14 +100,14 @@ const ProfileForm = () => {
             case 'visible' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
-                    newObj.message.is_visible = e.target.value;
+                    newObj.message.is_visible = e.target.checked;
                     return newObj; 
                 });
                 break;
             case 'collection' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
-                    newObj.message.is_visible = e.target.value;
+                    newObj.message.is_visible = e.target.checked;
                     return newObj; 
                 });
                 break;
@@ -132,10 +132,10 @@ const ProfileForm = () => {
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
                             <label className="form__label mr-2" htmlFor="visible">Public</label>
-                            <input id="visible" className="form__checkbox mb-1" type="checkbox" name="visible"/>
+                            <input id="visible" className="form__checkbox mb-1" type="checkbox" name="visible" checked={userInfos.message.is_visible}/>
                         <div>
                             <label className="form__label mr-2" htmlFor="collection">Collections</label>
-                            <input id="collection" className="form__checkbox" type="checkbox" name="collection"/>
+                            <input id="collection" className="form__checkbox" type="checkbox" name="collection" checked={userInfos.message.allow_colections} />
                         </div>
                         </div>
                         <div className="form--section" >
