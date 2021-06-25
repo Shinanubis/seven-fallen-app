@@ -52,7 +52,7 @@ const ProfileForm = () => {
                 };
             }
         }
-    },[userInfos]);
+    });
 
     useEffect(async () => {
         let response = await getProfile(id);
