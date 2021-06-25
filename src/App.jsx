@@ -172,7 +172,6 @@ function App() {
         7:'The saber\'s way'
     }));
     let test = JSON.parse(localStorage.getItem('kingdoms'));
-    console.log(test)
   }, []);
 
   return (
