@@ -39,14 +39,6 @@ const ProfileForm = () => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
 
-    useEffect(() =>{
-        return () => {
-            if(firstnameInput.current.classList.contains('good__input') && firstnameInput.current.value.length === 0){
-                firstnameInput.current.classList.remove('good__input');
-            }
-        }
-    },[userInfos]);
-
     useEffect(async () => {
         let response = await getProfile(id);
         setUserInfos(response);
@@ -67,6 +59,10 @@ const ProfileForm = () => {
                         firstnameInput.current.classList.remove('good__input');
                     }
                     firstnameInput.current.classList.add('bad__input');
+                }
+
+                if(firstnameInput.current.value.length === 0){
+                    firstnameInput.current.classList.remove('good__input');
                 }
 
                 setUserInfos(prevState => {
