@@ -135,7 +135,7 @@ const ProfileForm = () => {
                             <input id="visible" className="form__checkbox mb-1" type="checkbox" name="visible" checked={userInfos.message.is_visible}/>
                         <div>
                             <label className="form__label mr-2" htmlFor="collection">Collections</label>
-                            <input id="collection" className="form__checkbox" type="checkbox" name="collection" checked={userInfos.message.allow_colections} />
+                            <input id="collection" className="form__checkbox" type="checkbox" name="collection" checked={userInfos.message.allow_collections} />
                         </div>
                         </div>
                         <div className="form--section" >
