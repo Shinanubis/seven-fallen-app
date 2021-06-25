@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getEdenCards } from '../api/Eden';
 import { getRegisterCards } from '../api/Register';
 import { getHolyBookCards } from '../api/HolyBook';
+import { getSubdeckCards } from '../api/CardsWareHouse';
 
 /* components */
 import Loader  from '../components/Loader';
@@ -34,8 +35,17 @@ function SubDeckPage(props){
 
     const popupRef = useRef(null);
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
+        let response = '';
+
+        if(cardsList.message.cards.length === 0 && endUrl === 'eden'){
+            response = await getSubdeckCards({
+                lang: 'FR', 
+                type: [1,2]
+            });
+            console.log(response)
+        }
 
         if(popupRef.current.classList.contains('d-none')){
             popupRef.current.classList.remove('d-none');
@@ -79,7 +89,6 @@ function SubDeckPage(props){
             setIsEmpty(false);
         }
 
-        console.log(response)
         setCardsList(response);
     },[]);
 
