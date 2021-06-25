@@ -26,7 +26,7 @@ const ProfileForm = () => {
             avatar:'',
             firstname:'',
             lastname:'',
-            gender: '',
+            gender: 'other',
             username: '',
             is_visible: true,
             allow_collections: true
@@ -144,15 +144,15 @@ const ProfileForm = () => {
                                 <div className="row">
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="female">F</label>
-                                        <input className="form--radio" type="radio" name="gender" id="female" value="F"/>
+                                        <input id="female" className="form--radio" type="radio" name="gender" value="F" checked={userInfos.message.gender === 'F'}/>
                                     </div>
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="male">M</label> 
-                                        <input className="form--radio"type="radio" name="gender" id="male" value="M"/>
+                                        <input id="male" className="form--radio"type="radio" name="gender" value="M" checked={userInfos.message.gender === 'M'}/>
                                     </div>
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="other">Autre</label> 
-                                        <input className="form--radio"type="radio" name="gender" id="other" value="Other"/>
+                                        <input id="other" className="form--radio"type="radio" name="gender" value="Other" checked={userInfos.message.gender === 'other'}/>
                                     </div>
                                 </div>
                             </div>
