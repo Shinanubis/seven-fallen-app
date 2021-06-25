@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 
 /* api */
@@ -33,6 +33,12 @@ const ProfileForm = () => {
     });
     const [isLoaded, setIsLoaded] = useState(false);
 
+    /* ref */
+    const firstnameInput = useRef(null);
+    const lastnameInput = useRef(null);
+    const usernameInput = useRef(null);
+    const emailInput = useRef(null);
+
     useEffect(() => {
         console.log(userInfos)
     },[userInfos]);
@@ -46,6 +52,13 @@ const ProfileForm = () => {
         switch(e.target.id){
 
             case 'firstname':
+
+                if(e.target.value.test(regexModule.regex_name) === true){
+                    firstnameInput.current.classList.add('good__input');
+                }else{
+                    firstnameInput.current.classList.add('bad__input');
+                }
+
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.firstname = e.target.value;
@@ -186,25 +199,29 @@ const ProfileForm = () => {
                                     </div>
                                 </div>
                             </div>
-                            <input id="firstname" 
+                            <input id="firstname"
+                                   ref={firstnameInput} 
                                    className="form--input" 
                                    type="text"
                                    placeholder="firstname" 
                                    value={userInfos.message.firstname}
                             />
                             <input id="lastname"
+                                   ref={lastnameInput} 
                                    type="text" 
                                    className="form--input" 
                                    placeholder="lastname" 
                                    value={userInfos.message.lastname}
                             />
                             <input id="username"
+                                   ref={usernameInput} 
                                    type="text" 
                                    className="form--input" 
                                    placeholder="username" 
                                    value={userInfos.message.username}
                             />
                             <input id="email"
+                                   ref={emailInput} 
                                    type="email" 
                                    className="form--input" 
                                    placeholder="email" 
