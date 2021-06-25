@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
 /* api */
-import {getProfile} from '../api/Profile';
+import {getProfile, updateProfile} from '../api/Profile';
 
 /* components */
 import {HiUserCircle} from 'react-icons/hi';
@@ -116,8 +116,17 @@ const ProfileForm = () => {
         }
     }
 
-    const handleClick = () => {
-        return;
+    const handleClick = async (e) => {
+        e.preventDefault();
+        let form = new FormData();
+        Object.keys(userInfos.message).map(elmt => {
+            form.append(elmt, userInfos.message[elmt]);
+        });
+
+        for(let pair of form.entries()){
+            console.log(pair[0] + " : " + pair[1]);
+        }
+        return true;
     }
 
 
@@ -201,8 +210,7 @@ const ProfileForm = () => {
                                    placeholder="email" 
                                    value={userInfos.message.email}
                             />
-                        </div>
-                        
+                        </div>                        
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
             </Main>

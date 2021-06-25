@@ -9,4 +9,17 @@ async function getProfile(){
     return datas;
 }
 
-export {getProfile}
+async function updateProfile(form){
+    let settings = {
+        method: 'PATCH',
+        credentials: 'include',
+        body: form
+    }
+
+
+    let response = await fetch('https://test-seven.site/api/user/update', settings);
+    let datas = await response.json();
+    return datas;
+}
+
+export {getProfile, updateProfile}
