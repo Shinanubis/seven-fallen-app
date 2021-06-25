@@ -190,9 +190,9 @@ function App() {
   ]
 
   useEffect(async () => {
-    localStorage.setItem('kingdoms', types);
+    localStorage.setItem('kingdoms', JSON.stringify(types));
     let test = localStorage.getItem('kingdoms');
-    console.log(test);
+    console.log(JSON.parse(test));
   }, []);
 
   return (
