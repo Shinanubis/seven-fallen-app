@@ -1,10 +1,9 @@
-import { createContext } from 'react';
+import { useState, createContext } from 'react';
 
-const Datas = createContext();
+const DatasContext = createContext();
 
 function DatasProvider(props){
-
-    const kingdoms = {
+    const [kingdoms, setKingdoms] = useState({
         1:'Poseidia',
         2:'Eondra',
         3:'Endless night',
@@ -12,13 +11,13 @@ function DatasProvider(props){
         5:'The light\'s temple',
         6:'Celestial purity',
         7:'The saber\'s way'
-    }
+    });
 
     return (
-        <Datas.Provider value={kingdoms}>
+        <DatasContext.Provider value={{kingdoms, setKingdoms}}>
             {props.children}
-        </Datas.Provider>
+        </DatasContext.Provider>
     )
 }
 
-export default DatasProvider;
+export { DatasProvider };

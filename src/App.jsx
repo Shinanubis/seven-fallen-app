@@ -36,7 +36,7 @@ import ModifyDeckPage from './pages/ModifyDeckPage';
 import SubDeckPage from './pages/SubDeckPage';
 
 //Context import
-import DatasProvider from './contexts/DatasContext';
+import {DatasProvider} from './contexts/DatasContext';
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';

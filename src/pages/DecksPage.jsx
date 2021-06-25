@@ -1,7 +1,7 @@
 import React,{useEffect, useState, useContext} from 'react';
 
 /* context */
-import DatasProvider from '../contexts/DatasContext';
+import { DatasProvider } from '../contexts/DatasContext';
 
 /* layout */
 import Layout from '../layouts/Layout';
@@ -193,7 +193,7 @@ const DecksPage = (props) => {
         return (
             <Layout>
                 <Filters containerClasses="filter__container row justify-end mt-3 mb-2 px-2" isVisible={filterClicked} onClick={handleClickFilter}/>
-                {console.log(DatasProvider)}
+                {console.log(datas)}
                 <List classes="list__content layout layout__1">
                       { 
                         decksList.message.length > 0 ?
