@@ -134,6 +134,7 @@ const ProfileForm = () => {
         <Main classes="profile__page">
                 <form className="form" onChange={handleChange}>
                         <div className="profile__heading">
+                            <img src={userInfos.message.avatar} alt="avatar"/>
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
