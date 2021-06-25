@@ -76,7 +76,7 @@ const ProfileForm = () => {
                     if(lastnameInput.current.classList.contains('bad__input')){
                         lastnameInput.current.classList.remove('bad__input');
                     }
-                    firstnameInput.current.classList.add('good__input');
+                    lastnameInput.current.classList.add('good__input');
                 }else{
                     if(lastnameInput.current.classList.contains('good__input')){
                         lastnameInput.current.classList.remove('good__input');
@@ -116,20 +116,20 @@ const ProfileForm = () => {
                 });
                 break;
             case 'email':
-                if(regexModule.regex_name.test(e.target.value) === true){
-                    if(firstnameInput.current.classList.contains('bad__input')){
-                        firstnameInput.current.classList.remove('bad__input');
+                if(regexModule.regex_email.test(e.target.value) === true){
+                    if(emailInput.current.classList.contains('bad__input')){
+                        emailInput.current.classList.remove('bad__input');
                     }
-                    firstnameInput.current.classList.add('good__input');
+                    emailInput.current.classList.add('good__input');
                 }else{
-                    if(firstnameInput.current.classList.contains('good__input')){
-                        firstnameInput.current.classList.remove('good__input');
+                    if(emailInput.current.classList.contains('good__input')){
+                        emailInput.current.classList.remove('good__input');
                     }
-                    firstnameInput.current.classList.add('bad__input');
+                    emailInput.current.classList.add('bad__input');
                 }
 
-                if(firstnameInput.current.value.length === 0){
-                    firstnameInput.current.classList.remove('good__input');
+                if(emailInput.current.value.length === 0){
+                    emailInput.current.classList.remove('good__input');
                 }
                 setUserInfos(prevState => {
                     let newObj = {...prevState};

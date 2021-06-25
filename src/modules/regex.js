@@ -1,7 +1,7 @@
 const regexModule = {
     regex_order: /^[A-Za-z_]+$/,
     regex_id: /^[1-9]{1}[0-9]{0,9}$/,
-    regex_username: /^[a-zA-Z_\-#]{1}[a-zA-Z0-9_\-]{4,31}$/,
+    regex_username: /^[a-zA-Z_\-#]{1}[a-zA-Z0-9_\-\s]{4,31}$/,
     regex_name:/^[a-zA-Z]{0,32}$/,
     regex_start_with: /^[a-zA-Z_\-#]{1}[a-zA-Z0-9_\-#]{0,31}$/,
     regex_name: /^[A-Za-z]{0,32}$/,
