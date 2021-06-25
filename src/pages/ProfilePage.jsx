@@ -65,11 +65,7 @@ const ProfileForm = () => {
             case 'firstname':
 
                 if(regexModule.regex_name.test(e.target.value) === true){
-
-                    if(!firstnameInput.current.classList.contains('good__input')){
-                        firstnameInput.current.classList.add('good__input');
-                    }
-
+                    firstnameInput.current.classList.add('good__input');
                 }else{
                     firstnameInput.current.classList.add('bad__input');
                 }
