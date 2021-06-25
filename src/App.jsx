@@ -58,13 +58,13 @@ function App() {
   }
 
   const types = {
-    1:'Poseidia',
-    2:'Eondra',
-    3:'Endless night',
-    4:'MetaScience',
-    5:'The light\'s temple',
-    6:'Celestial purity',
-    7:'The saber\'s way'
+    'Poseidia': 1,
+    'Eondra': 2,
+    'Endless night':3,
+    'MetaScience':4,
+    'The light\'s temple':5,
+    'Celestial purity':6,
+    'The saber\'s way':7
   }
 
   const pages = [
@@ -192,7 +192,7 @@ function App() {
   useEffect(async () => {
     localStorage.setItem('kingdoms', types);
     let test = localStorage.getItem('kingdoms');
-    console.log(test);
+    console.log(test[1]);
   }, []);
 
   return (
