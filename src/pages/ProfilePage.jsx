@@ -131,11 +131,11 @@ const ProfileForm = () => {
                         </div>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
-                        <div className="row justify-between w-80">
+                        <div className="row justify-between w-100">
                             <label className="form__label mr-2" htmlFor="visible">Public</label>
                             <input id="visible" className="form__checkbox mb-1" type="checkbox" name="visible" checked={userInfos.message.is_visible}/>
                         </div>
-                        <div className="row justify-between w-80">
+                        <div className="row justify-between w-100">
                             <label className="form__label mr-2" htmlFor="collection">Collections</label>
                             <input id="collection" className="form__checkbox" type="checkbox" name="collection" checked={userInfos.message.allow_collections} />
                         </div>
