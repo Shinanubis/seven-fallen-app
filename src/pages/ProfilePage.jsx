@@ -39,20 +39,20 @@ const ProfileForm = () => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
 
-    // useEffect(() => {
-    //     return () => {
+    useEffect(() => {
+        return () => {
 
-    //         if(firstnameInput.current !== null){
-    //             if(firstnameInput.current.classList.contains('good__input')){
-    //                 firstnameInput.current.classList.remove('good__input')
-    //             };
+            if(firstnameInput.current !== null){
+                if(firstnameInput.current.classList.contains('good__input')){
+                    firstnameInput.current.classList.remove('good__input')
+                };
     
-    //             if(firstnameInput.current.classList.contains('bad__input')){
-    //                 firstnameInput.current.classList.remove('bad__input')
-    //             };
-    //         }
-    //     }
-    // });
+                if(firstnameInput.current.classList.contains('bad__input')){
+                    firstnameInput.current.classList.remove('bad__input')
+                };
+            }
+        }
+    });
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -70,6 +70,9 @@ const ProfileForm = () => {
                     }
                     firstnameInput.current.classList.add('good__input');
                 }else{
+                    if(firstnameInput.current.classList.contains('good__input')){
+                        firstnameInput.current.classList.remove('good__input');
+                    }
                     firstnameInput.current.classList.add('bad__input');
                 }
 
