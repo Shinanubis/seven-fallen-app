@@ -40,7 +40,16 @@ const ProfileForm = () => {
     const emailInput = useRef(null);
 
     useEffect(() => {
-        console.log(userInfos)
+        return () => {
+            
+            if(firstnameInput.current.classList.contains('good__input')){
+                firstnameInput.current.classList.remove('good__input')
+            };
+
+            if(firstnameInput.current.classList.contains('bad__input')){
+                firstnameInput.current.classList.remove('bad__input')
+            };
+        }
     },[userInfos]);
 
     useEffect(async () => {
@@ -54,7 +63,11 @@ const ProfileForm = () => {
             case 'firstname':
 
                 if(regexModule.regex_name.test(e.target.value) === true){
-                    firstnameInput.current.classList.add('good__input');
+
+                    if(!firstnameInput.current.classList.contains('good__input')){
+                        firstnameInput.current.classList.add('good__input');
+                    }
+
                 }else{
                     firstnameInput.current.classList.add('bad__input');
                 }
