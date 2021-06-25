@@ -39,18 +39,9 @@ const ProfileForm = () => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
 
-    useEffect(() => {
-        return () => {
-
-            if(firstnameInput.current !== null){
-                if(firstnameInput.current.classList.contains('good__input')){
-                    firstnameInput.current.classList.remove('good__input')
-                };
-    
-                if(firstnameInput.current.classList.contains('bad__input')){
-                    firstnameInput.current.classList.remove('bad__input')
-                };
-            }
+    useEffect(() =>{
+        if(firstnameInput.current.classList.contains('good__input')){
+            firstnameInput.current.classList.remove('good__input');
         }
     });
 
