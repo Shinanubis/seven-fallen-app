@@ -1,6 +1,7 @@
 async function getTypesList(lang){
     let settings = {
-        method: 'GET'
+        method: 'GET',
+        Authorization: 'Token' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
     }
 
     let response = await fetch(`https://7fallen.ovh/api/types/all/${lang}`,settings);
