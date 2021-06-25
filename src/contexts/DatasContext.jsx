@@ -4,18 +4,19 @@ const Datas = createContext();
 
 function DatasProvider(props){
 
-    const types = {
+    const kingdoms = {
         1:'Poseidia',
         2:'Eondra',
         3:'Endless night',
         4:'MetaScience',
-        5: 'The light\'s temple',
+        5:'The light\'s temple',
         6:'Celestial purity',
         7:'The saber\'s way'
     }
+
     return (
         <Datas.Provider value={{
-            type: types
+            kingdoms: kingdoms
         }}>
             {props.children}
         </Datas.Provider>
