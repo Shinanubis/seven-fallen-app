@@ -144,15 +144,34 @@ const ProfileForm = () => {
                                 <div className="row">
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="female">F</label>
-                                        <input id="female" className="form--radio" type="radio" name="gender" value="F" checked={userInfos.message.gender === 'F'}/>
+                                        <input 
+                                            id="female" 
+                                            className="form--radio" 
+                                            type="radio" 
+                                            name="gender" 
+                                            value="F" 
+                                            checked={userInfos.message.gender === 'F' ? true : false}
+                                        />
                                     </div>
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="male">M</label> 
-                                        <input id="male" className="form--radio"type="radio" name="gender" value="M" checked={userInfos.message.gender === 'M'}/>
+                                        <input id="male" 
+                                               className="form--radio"
+                                               type="radio" 
+                                               name="gender" 
+                                               value="M" 
+                                               checked={userInfos.message.gender === 'M' ? true : false}
+                                        />
                                     </div>
                                     <div className="form__radio--button">
                                         <label className="form__radio--label" htmlFor="other">Autre</label> 
-                                        <input id="other" className="form--radio"type="radio" name="gender" value="Other" checked={userInfos.message.gender === 'other'}/>
+                                        <input id="other" 
+                                               className="form--radio"
+                                               type="radio" 
+                                               name="gender" 
+                                               value="Other" 
+                                               checked={userInfos.message.gender === 'other' ? true : false}
+                                        />
                                     </div>
                                 </div>
                             </div>
