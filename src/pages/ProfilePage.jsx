@@ -45,7 +45,7 @@ const ProfileForm = () => {
                 firstnameInput.current.classList.remove('good__input');
             }
         }
-    });
+    },[userInfos]);
 
     useEffect(async () => {
         let response = await getProfile(id);
