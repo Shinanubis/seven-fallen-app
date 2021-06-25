@@ -123,9 +123,8 @@ const ProfileForm = () => {
             form.append(elmt, userInfos.message[elmt]);
         });
 
-        for(let pair of form.entries()){
-            console.log(pair[0] + " : " + pair[1]);
-        }
+        let response = await updateProfile(form);
+        console.log(response)
         return true;
     }
 
