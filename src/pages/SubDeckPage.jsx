@@ -37,15 +37,6 @@ function SubDeckPage(props){
 
     const handleClick = async (e) => {
         e.preventDefault();
-        let response = '';
-
-        if(cardsList.message.cards.length === 0 && endUrl === 'eden'){
-            response = await getSubdeckCards({
-                lang: 'FR', 
-                type: [1,2]
-            });
-            console.log(response)
-        }
 
         if(popupRef.current.classList.contains('d-none')){
             popupRef.current.classList.remove('d-none');

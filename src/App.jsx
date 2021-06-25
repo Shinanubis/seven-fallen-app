@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 //Layout element import
 import Footer from'./layouts/Footer';
 import Menu from './components/Menu';
@@ -39,9 +41,16 @@ import AuthenticationContext from './contexts/Context';
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
 
+//api
+import { getTypesList } from './api/CardsWareHouse';
+
 
 function App() {
-  const [isAuthenticate, setIsAuthenticate] = useState(false)
+  const [isAuthenticate, setIsAuthenticate] = useState(false);
+  const [setting, setSettings] = useState({
+      kingdoms: [],
+      types: []
+  });
   const handleLogin = (e,cb) => {
     e.preventDefault();
     cb('/decks')
@@ -169,6 +178,11 @@ function App() {
         component: ErrorPage
     },
   ]
+
+  useEffect(async () => {
+    let response = await getTypesList('FR');
+    console.log(response);
+  }, []);
 
   return (
 
