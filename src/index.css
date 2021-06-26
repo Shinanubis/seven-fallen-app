@@ -1151,7 +1151,7 @@ svg.dropdown__icon path{
 
 .message__flash{
   position: fixed;
-  top: 8vh;
+  top: 10vh;
   left: 50%;
   transform: translateX(-50%);
   width:80%;
