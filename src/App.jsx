@@ -36,7 +36,7 @@ import SubDeckPage from './pages/SubDeckPage';
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
-import { getTypesList } from './api/CardsWareHouse';
+import { getRaritiesList, getTypesList, getKingdomsList, getCapacitiesList, getExtensionsList, getSubdeckCards, getClassesList } from './api/CardsWareHouse';
 
 function App() {
 
@@ -163,8 +163,19 @@ function App() {
   ]
 
   useEffect(async () => {
-    let response = await getTypesList('FR');
-    console.log(response);
+    let types = await getTypesList('FR');
+    let kingdoms = await getKingdomsList('FR');
+    let rarities = await getRaritiesList('FR');
+    let classes = await getClassesList('FR');
+    let capacities = await getCapacitiesList('FR');
+    let extensions = await getExtensionsList('FR');
+
+    console.log(types);
+    console.log(kingdoms);
+    console.log(rarities);
+    console.log(classes);
+    console.log(capacities);
+    console.log(extensions);
     localStorage.setItem('kingdoms', JSON.stringify({
         1:'Poseidia',
         2:'Eondra',

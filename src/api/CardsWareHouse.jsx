@@ -7,7 +7,77 @@ async function getTypesList(lang){
 
     }
 
+    let response = await fetch(`https://api.7fallen.ovh/api/types/all/${lang}`,settings);
+    let datas = await response.json();
+    return datas;
+}
+
+async function getRaritiesList(lang){
+    let settings = {
+        method: 'GET',
+        headers: {
+            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+        }
+
+    }
+
     let response = await fetch(`https://api.7fallen.ovh/api/rarities/all/${lang}`,settings);
+    let datas = await response.json();
+    return datas;
+}
+
+async function getKingdomsList(lang){
+    let settings = {
+        method: 'GET',
+        headers: {
+            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+        }
+
+    }
+
+    let response = await fetch(`https://api.7fallen.ovh/api/kingdoms/all/${lang}`,settings);
+    let datas = await response.json();
+    return datas;
+}
+
+async function getExtensionsList(lang){
+    let settings = {
+        method: 'GET',
+        headers: {
+            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+        }
+
+    }
+
+    let response = await fetch(`https://api.7fallen.ovh/api/extensions/all/${lang}`,settings);
+    let datas = await response.json();
+    return datas;
+}
+
+async function getClassesList(lang){
+    let settings = {
+        method: 'GET',
+        headers: {
+            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+        }
+
+    }
+
+    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang}`,settings);
+    let datas = await response.json();
+    return datas;
+}
+
+async function getCapacitiesList(lang){
+    let settings = {
+        method: 'GET',
+        headers: {
+            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+        }
+
+    }
+
+    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang}`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -15,7 +85,10 @@ async function getTypesList(lang){
 async function getSubdeckCards(options){
 
     let settings = {
-        method:'GET'
+        method:'GET',
+        headers: {
+            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+        }
     }
     let url = new URL(`https://7fallen.ovh/api/cards/all/${options.lang.toUpperCase()}`);
     url.searchParams.append('type', options.type);
@@ -24,4 +97,4 @@ async function getSubdeckCards(options){
     return datas;
 }
 
-export { getSubdeckCards, getTypesList };
+export { getSubdeckCards, getTypesList, getRaritiesList, getKingdomsList, getExtensionsList, getClassesList, getCapacitiesList };
