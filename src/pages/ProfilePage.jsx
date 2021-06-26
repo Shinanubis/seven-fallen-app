@@ -1,5 +1,6 @@
 import React,{useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
+import { BsPencil } from 'react-icons/bs';
 
 /* api */
 import {getProfile, updateProfile, deleteProfile} from '../api/Profile';
@@ -213,6 +214,7 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <div className="profile__heading mb-4">
                             <HiUserCircle className="profile__avatar"/>
+                            <BsPencil />
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
                         </div>
