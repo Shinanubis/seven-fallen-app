@@ -293,8 +293,8 @@ const ProfileForm = () => {
                                    value={userInfos.message.email}
                             />
                         </div>
-                        <Button classes="btn" text="update" bgcolor='#3be73b' onClick={handleClick}/>
-                        <Button classes="btn" text="delete" bgcolor='#ff5d5d' onClick={handleDeleteClick}/>  
+                        <Button classes="btn" text="update" bgcolor='#3be73b' color='#202020' onClick={handleClick}/>
+                        <Button classes="btn" text="delete" bgcolor='#ff5d5d' color='#202020' onClick={handleDeleteClick}/>  
                 </form>
             </Main>
     )
