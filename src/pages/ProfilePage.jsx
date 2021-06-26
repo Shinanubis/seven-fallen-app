@@ -211,7 +211,7 @@ const ProfileForm = () => {
     return isLoaded === true ? (
         <Main classes="profile__page">
                 <form className="form" onChange={handleChange}>
-                        <div className="profile__heading">
+                        <div className="profile__heading mb-4">
                             <HiUserCircle className="profile__avatar"/>
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
