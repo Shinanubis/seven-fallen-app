@@ -90,7 +90,7 @@ async function getSubdeckCards(options){
             'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
         }
     }
-    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${options.lang.toUpperCase()}?page=1&card_count=5`);
+    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${options.lang.toUpperCase()}?name=x1&page=1&card_count=5`);
     let response = await fetch(url,settings);
     let datas = await response.json();
     return datas;
