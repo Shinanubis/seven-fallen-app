@@ -214,7 +214,7 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <div className="profile__heading mb-4">
                             <HiUserCircle className="profile__avatar"/>
-                            <BsPencil />
+                            <BsPencil className="profile__avatar--button"/>
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
                         </div>
