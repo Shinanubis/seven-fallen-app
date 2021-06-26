@@ -296,8 +296,8 @@ code {
 
 .profile__avatar--button{
   position: absolute;
-  right:0 ;
-  bottom: 0;
+  right: 12px;
+  bottom: 12px;
   cursor: pointer;
 }
 
