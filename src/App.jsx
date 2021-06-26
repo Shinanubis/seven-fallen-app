@@ -164,7 +164,7 @@ function App() {
 
   useEffect(async () => {
     let response = await getTypesList('FR');
-    console.log(response)
+    console.log(response);
     localStorage.setItem('kingdoms', JSON.stringify({
         1:'Poseidia',
         2:'Eondra',
