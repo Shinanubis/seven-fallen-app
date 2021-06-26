@@ -293,8 +293,8 @@ const ProfileForm = () => {
                                    value={userInfos.message.email}
                             />
                         </div>
-                        <Button classes="btn" text="delete" onClick={handleDeleteClick}/>                        
                         <Button classes="btn" text="update" onClick={handleClick}/>
+                        <Button classes="btn" text="delete" onClick={handleDeleteClick}/>  
                 </form>
             </Main>
     )
