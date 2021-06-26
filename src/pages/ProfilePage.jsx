@@ -196,7 +196,7 @@ const ProfileForm = () => {
         return true;
     }
 
-    const handlePensilclick = (e) => {
+    const handlePensilClick = (e) => {
         e.preventDefault();
         alert("hello you");
         return true;
@@ -223,7 +223,7 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <div className="profile__heading mb-4">
                             <HiUserCircle className="profile__avatar"/>
-                            <ClickablePensil classes="profile__avatar--button" onClick={handlePensilclick}/>
+                            <ClickablePensil classes="profile__avatar--button" onClick={handlePensilClick}/>
                             {/* <BsPencil className="profile__avatar--button"/> */}
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
