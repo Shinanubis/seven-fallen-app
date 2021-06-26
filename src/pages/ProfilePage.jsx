@@ -2,6 +2,9 @@ import React,{useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 import { BsPencil } from 'react-icons/bs';
 
+/* HOC */
+import withClick from "../HOC/withClick"
+
 /* api */
 import {getProfile, updateProfile, deleteProfile} from '../api/Profile';
 
@@ -18,7 +21,7 @@ import regexModule  from '../modules/regex';
 
 
 const ProfileForm = () => {
-
+    const ClickablePensil = withClick(BsPencil);
     const { id } = useParams();
     const [userInfos,setUserInfos] = useState({
         code: null,
@@ -33,7 +36,7 @@ const ProfileForm = () => {
         }
     });
     const [isLoaded, setIsLoaded] = useState(false);
-
+     
     /* ref */
     const firstnameInput = useRef(null);
     const lastnameInput = useRef(null);
@@ -193,6 +196,12 @@ const ProfileForm = () => {
         return true;
     }
 
+    const handlePensilclick = (e) => {
+        e.preventDefault();
+        alert("hello you");
+        return true;
+    }
+
     const handleDeleteClick = async (e) => {
         e.preventDefault();
         let response = "";
@@ -214,7 +223,8 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <div className="profile__heading mb-4">
                             <HiUserCircle className="profile__avatar"/>
-                            <BsPencil className="profile__avatar--button"/>
+                            <ClickablePensil classes="profile__avatar--button" onClick={handlePensilclick}/>
+                            {/* <BsPencil className="profile__avatar--button"/> */}
                             <h4 className="profile__username"></h4>
                             <p className="profile__userid"></p>
                         </div>
