@@ -91,7 +91,6 @@ async function getSubdeckCards(options){
         }
     }
     let url = new URL(`https://api.7fallen.ovh/api/cards/all/${options.lang.toUpperCase()}?name=b&page=1&card_count=10`);
-    url.searchParams.append('type', options.type);
     let response = await fetch(url,settings);
     let datas = await response.json();
     return datas;
