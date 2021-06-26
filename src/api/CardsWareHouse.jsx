@@ -7,7 +7,7 @@ async function getTypesList(lang){
 
     }
 
-    let response = await fetch(`https://7fallen.ovh/api/rarity/all/${lang}`,settings);
+    let response = await fetch(`https://7fallen.ovh/api/rarities/all/${lang}`,settings);
     let datas = await response.json();
     return datas;
 }
