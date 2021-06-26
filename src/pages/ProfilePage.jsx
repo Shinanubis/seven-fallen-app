@@ -192,6 +192,21 @@ const ProfileForm = () => {
         return true;
     }
 
+    const handleDeleteClick = async (e) => {
+        e.preventDefault();
+        let response = "";
+        let test = window.confirm("Are you sure ?");
+        if(test === true){
+            response = await deleteProfile();
+            if(response.code === 200){
+                setUserInfos(response)
+            }
+        }else{
+            alert("Ouff ...");
+        }
+
+        return true;
+    }
 
     return isLoaded === true ? (
         <Main classes="profile__page">
@@ -277,7 +292,8 @@ const ProfileForm = () => {
                                    placeholder="email" 
                                    value={userInfos.message.email}
                             />
-                        </div>                        
+                        </div>
+                        <Button classes="btn" text="delete" onClick={handleDeleteClick}/>                        
                         <Button classes="btn" text="update" onClick={handleClick}/>
                 </form>
             </Main>
