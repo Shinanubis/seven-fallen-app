@@ -224,7 +224,7 @@ const ProfileForm = () => {
                                             type="radio" 
                                             name="gender" 
                                             value="F" 
-                                            checked={userInfos.message.gender.trim() === 'F' ? true : false}
+                                            checked={userInfos.message.gender && userInfos.message.gender.trim() === 'F' ? true : false}
                                         />
                                     </div>
                                     <div className="form__radio--button">
@@ -234,7 +234,7 @@ const ProfileForm = () => {
                                                type="radio" 
                                                name="gender" 
                                                value="M" 
-                                               checked={userInfos.message.gender.trim() === 'M' ? true : false}
+                                               checked={userInfos.message.gender && userInfos.message.gender.trim() === 'M' ? true : false}
                                         />
                                     </div>
                                     <div className="form__radio--button">
@@ -244,7 +244,7 @@ const ProfileForm = () => {
                                                type="radio" 
                                                name="gender" 
                                                value="other" 
-                                               checked={userInfos.message.gender === 'other' ? true : false}
+                                               checked={userInfos.message.gender && userInfos.message.gender === 'other' ? true : false}
                                         />
                                     </div>
                                 </div>
