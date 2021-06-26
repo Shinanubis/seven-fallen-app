@@ -2,7 +2,7 @@ import React,{useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 
 /* api */
-import {getProfile, updateProfile} from '../api/Profile';
+import {getProfile, updateProfile, deleteProfile} from '../api/Profile';
 
 /* components */
 import {HiUserCircle} from 'react-icons/hi';

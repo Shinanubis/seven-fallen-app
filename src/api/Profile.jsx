@@ -16,9 +16,20 @@ async function updateProfile(form){
         body: form
     }
 
-    let response = await fetch('https://test-seven.site/api/user/update', settings);
+    let response = await fetch('https://test-seven.site/api/profile', settings);
     let datas = await response.json();
     return datas;
 }
 
-export {getProfile, updateProfile}
+async function deleteProfile(){
+    let settings = {
+        method: 'DELETE',
+        credentials: 'include',
+    }
+
+    let response = await fetch();
+    let datas = await response.json();
+    return datas;
+}
+
+export {getProfile, updateProfile, deleteProfile}
