@@ -32,4 +32,35 @@ async function deleteProfile(){
     return datas;
 }
 
-export {getProfile, updateProfile, deleteProfile}
+async function getAvatar(){
+    let settings = {
+        method: 'GET',
+        credentials: 'include'
+    }
+
+    let response = await fetch('https://test-seven.site/api/profile/avatar', settings);
+ 
+}
+
+async function addAvatar(){
+    let settings = {
+        method : 'PATCH',
+        credentials: 'include'
+    }    
+}
+
+async function deleteAvatar(){
+    let settings = {
+        method : 'PATCH',
+        credentials: 'include'
+    } 
+}
+
+async function updateAvatar(){
+    let settings = {
+        method : 'PATCH',
+        credentials: 'include'
+    }
+}
+
+export {getProfile, updateProfile, deleteProfile, getAvatar, addAvatar, updateAvatar , deleteAvatar}

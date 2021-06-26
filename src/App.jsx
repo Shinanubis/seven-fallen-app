@@ -36,6 +36,7 @@ import SubDeckPage from './pages/SubDeckPage';
 
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
+import { getTypesList } from './api/CardsWareHouse';
 
 function App() {
 
@@ -162,6 +163,8 @@ function App() {
   ]
 
   useEffect(async () => {
+    let response = await getTypesList('FR');
+    console.log(response)
     localStorage.setItem('kingdoms', JSON.stringify({
         1:'Poseidia',
         2:'Eondra',
