@@ -279,6 +279,7 @@ code {
 } 
 
 .profile__heading{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -287,6 +288,12 @@ code {
 
 .profile__avatar{
   font-size:20vh;
+}
+
+.profile__avatar--button{
+  position: absolute;
+  right:0 ;
+  bottom: 0;
 }
 
 .profile__username{
