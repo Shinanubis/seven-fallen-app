@@ -77,7 +77,7 @@ async function getCapacitiesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang}`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang}?name=a`,settings);
     let datas = await response.json();
     return datas;
 }
