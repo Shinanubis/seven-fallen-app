@@ -176,6 +176,7 @@ function App() {
     console.log(classes);
     console.log(capacities);
     console.log(extensions);
+    
     localStorage.setItem('kingdoms', JSON.stringify({
         1:'Poseidia',
         2:'Eondra',
