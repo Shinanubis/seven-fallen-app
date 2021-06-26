@@ -27,7 +27,7 @@ async function deleteProfile(){
         credentials: 'include',
     }
 
-    let response = await fetch();
+    let response = await fetch('https://test-seven.site/api/profile', settings);
     let datas = await response.json();
     return datas;
 }
