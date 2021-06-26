@@ -63,7 +63,7 @@ async function getClassesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang}`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang}name=m`,settings);
     let datas = await response.json();
     return datas;
 }
