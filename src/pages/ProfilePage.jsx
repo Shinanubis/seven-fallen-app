@@ -196,6 +196,7 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
+        avatarPopup.current.click();
         return true;
     }
 
@@ -221,8 +222,7 @@ const ProfileForm = () => {
                             <div className="profile__heading mb-4" onClick={handleAvatarClick}>
                                 <HiUserCircle className="profile__avatar"/>
                                 <BsPencil className="profile__avatar--button"/>
-                                <label htmlFor="avatar" className="form__label--avatar"></label>
-                                <input  id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
+                                <input ref={avatarPopup} id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                             </div>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
