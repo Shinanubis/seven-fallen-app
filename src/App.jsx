@@ -169,16 +169,8 @@ function App() {
     let classes = await getClassesList('FR');
     let capacities = await getCapacitiesList('FR');
     let extensions = await getExtensionsList('FR');
-    let cards = await getSubdeckCards({lang: 'FR'});
 
-    console.log(types);
-    console.log(kingdoms);
-    console.log(rarities);
-    console.log(classes);
-    console.log(capacities);
-    console.log(extensions);
-    console.log(cards)
-
+    console.log(types)
   }, []);
 
   return (
