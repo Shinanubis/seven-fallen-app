@@ -220,7 +220,7 @@ const ProfileForm = () => {
     return isLoaded === true ? (
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
-                        <label className="form__label--avatar" htmlFor="avatar">
+                        <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                     <HiUserCircle className="profile__avatar"/>
                                     <BsPencil className="profile__avatar--button"/>
