@@ -82,7 +82,7 @@ async function getCapacitiesList(lang){
     return datas;
 }
 
-async function getSubdeckCards(options){
+async function getSubdeckCards(options, lang){
 
     let settings = {
         method:'GET',
@@ -90,8 +90,21 @@ async function getSubdeckCards(options){
             'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
         }
     }
-    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${options.lang.toUpperCase()}?name=x1&page=1&card_count=10`);
-    let response = await fetch(`https://api.7fallen.ovh/api/cards/all/${options.lang.toUpperCase()}?types=[1,2,4,9]&page=1&card_count=20`,settings);
+    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
+    Object.keys(options).map(elmt => {
+        if(elmt === 'name'){
+            url.searchParams.append('name', options[elmt]);
+        }
+
+        if(elmt === 'page'){
+            url.searchParams.append('page', options[elmt]);
+        }
+
+        if(elmt === 'card_count'){
+            url.searchParams.append('card_count', options[elmt]);
+        }
+    })
+    let response = await fetch(url,settings);
     let datas = await response.json();
     return datas;
 }
