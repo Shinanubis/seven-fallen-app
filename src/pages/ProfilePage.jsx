@@ -195,7 +195,7 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        fileinput.current.hidden = !e.target.hidden;
+        fileinput.current.hidden = !fileinput.current.hidden;
         return true;
     }
 
