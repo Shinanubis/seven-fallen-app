@@ -219,11 +219,11 @@ const ProfileForm = () => {
     return isLoaded === true ? (
         <Main classes="profile__page">
                 <PopupContainer ref={avatarPopup} classes="popup__container d-none">
-                    <label htmlFor="avatar">Choose your avatar :</label>
+                    <label htmlFor="avatar" className="form__label">Choose your avatar :</label>
                     <input  id="avatar" name="avatar" type="file" accept="image/png, image/jpeg"/>
                     <div className="row justify-between w-80">
-                        <Button text="Ok" color="#3be73b"/>
-                        <Button text="Cancel" color="#ff5d5d"/>
+                        <Button text="Ok" bgcolor="#3be73b" color="#101010"/>
+                        <Button text="Cancel" bgcolor="#ff5d5d" color="#101010"/>
                     </div>
                 </PopupContainer>
                 <form className="form" onChange={handleChange}>
