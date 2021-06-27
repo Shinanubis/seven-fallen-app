@@ -169,6 +169,7 @@ function App() {
     let classes = await getClassesList('FR');
     let capacities = await getCapacitiesList('FR');
     let extensions = await getExtensionsList('FR');
+    let cards = await getSubdeckCards({},'FR');
 
     sessionStorage.setItem('types',JSON.stringify(types));
     sessionStorage.setItem('kingdoms',JSON.stringify(kingdoms));
@@ -176,7 +177,7 @@ function App() {
     sessionStorage.setItem('classes',JSON.stringify(classes));
     sessionStorage.setItem('capacities',JSON.stringify(capacities));
     sessionStorage.setItem('extensions',JSON.stringify(extensions));    
-
+    console.log(cards)
   }, []);
 
   return (
