@@ -196,7 +196,6 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        avatarPopup.current.classList.remove("d-none");
         return true;
     }
 
@@ -217,24 +216,18 @@ const ProfileForm = () => {
     }
 
     return isLoaded === true ? (
-        <Main classes="profile__page">
-                <PopupContainer ref={avatarPopup} classes="popup__container column align-center justify-center d-none">
-                    <div className="form__avatar">
-                        <label htmlFor="avatar" className="form__label--avatar">Choose your avatar :</label>
-                        <input  id="avatar" className="form__file--avatar" name="avatar" type="file" accept="image/png, image/jpeg"/>
-                        <div className="row justify-between w-80">
-                            <Button text="Ok" bgcolor="#3be73b" color="#101010"/>
-                            <Button text="Cancel" bgcolor="#ff5d5d" color="#101010"/>
-                        </div>
-                    </div>    
-                </PopupContainer>
+        <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
-                        <div className="profile__heading mb-4" onClick={handleAvatarClick}>
-                            <HiUserCircle className="profile__avatar"/>
-                            <BsPencil className="profile__avatar--button"/>
-                            <h4 className="profile__username"></h4>
-                            <p className="profile__userid"></p>
-                        </div>
+                        <label htmlFor="avatar" className="form__label--avatar">
+                            <div className="profile__heading mb-4" onClick={handleAvatarClick}>
+                                <HiUserCircle className="profile__avatar"/>
+                                <BsPencil className="profile__avatar--button"/>
+                                <h4 className="profile__username"></h4>
+                                <p className="profile__userid"></p>
+                            </div>
+                            Choose your avatar :
+                        </label>
+                        <input  id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
                         <div className="row justify-between w-100">
