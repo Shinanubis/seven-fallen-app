@@ -176,7 +176,7 @@ const ProfileForm = () => {
                 });
                 break;
             case 'avatar' :
-                console.log(e.target.id)
+                console.log(e.target.value)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
