@@ -221,8 +221,6 @@ const ProfileForm = () => {
                             <div className="profile__heading mb-4" onClick={handleAvatarClick}>
                                 <HiUserCircle className="profile__avatar"/>
                                 <BsPencil className="profile__avatar--button"/>
-                                <h4 className="profile__username"></h4>
-                                <p className="profile__userid"></p>
                                 <label htmlFor="avatar" className="form__label--avatar"></label>
                                 <input  id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                             </div>
