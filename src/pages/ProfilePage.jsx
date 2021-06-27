@@ -14,6 +14,7 @@ import Loader from '../components/Loader';
 
 /* module */
 import regexModule  from '../modules/regex';
+import PopupContainer from '../components/PopupContainer';
 
 
 
@@ -38,7 +39,7 @@ const ProfileForm = () => {
     const lastnameInput = useRef(null);
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
-    const fileinput = useRef(null);
+    const avatarPopup = useRef(null);
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -195,7 +196,7 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        fileinput.current.hidden = !fileinput.current.hidden;
+        avatarPopup.current.classList.remove("d-none");
         return true;
     }
 
@@ -217,9 +218,11 @@ const ProfileForm = () => {
 
     return isLoaded === true ? (
         <Main classes="profile__page">
+                <PopupContainer ref={avatarPopup} classes="popup__container d-none">
+                    <label htmlFor="avatar">Choose your avatar :</label>
+                    <input  id="avatar" name="avatar" type="file" accept="image/png, image/jpeg" hidden/>
+                </PopupContainer>
                 <form className="form" onChange={handleChange}>
-                        <label htmlFor="avatar">Choose your avatar :</label>
-                        <input ref={fileinput} id="avatar" name="avatar" type="file" accept="image/png, image/jpeg" hidden/>
                         <div className="profile__heading mb-4" onClick={handleAvatarClick}>
                             <HiUserCircle className="profile__avatar"/>
                             <BsPencil className="profile__avatar--button"/>
