@@ -225,7 +225,6 @@ const ProfileForm = () => {
                                 <h4 className="profile__username"></h4>
                                 <p className="profile__userid"></p>
                             </div>
-                            Choose your avatar :
                         </label>
                         <input  id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                         <div className="form__section w-80 mb-2">
