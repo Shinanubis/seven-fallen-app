@@ -371,6 +371,7 @@ code {
 }
 
 .form__label--avatar{
+  cursor: pointer;
   padding: 2vh;
 }
 
