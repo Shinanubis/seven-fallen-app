@@ -286,7 +286,6 @@ code {
   color:var(--dark-grey);
   border: 1px #202020 dashed;
   border-radius: 12px;
-  padding: 2vh;
   font-size: 20px;
   cursor: pointer;
 }
