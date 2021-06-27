@@ -170,7 +170,7 @@ function App() {
     let capacities = await getCapacitiesList('FR');
     let extensions = await getExtensionsList('FR');
 
-    sessionStorage.setItem('type',JSON.stringify(types));
+    sessionStorage.setItem('type',types);
     let typeFrom = JSON.parse(sessionStorage.getItem('type')) 
     console.log(typeFrom)
   }, []);
