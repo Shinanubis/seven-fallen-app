@@ -33,6 +33,7 @@ const ProfileForm = () => {
         }
     });
     const [isLoaded, setIsLoaded] = useState(false);
+    const [avatar, setAvatar] = useState();
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -40,6 +41,7 @@ const ProfileForm = () => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
     const avatarInput = useRef(null);
+    const uploadAvatarButton = useRef(null); 
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -200,6 +202,7 @@ const ProfileForm = () => {
     const handleAvatarClick = (e) => {
         e.preventDefault();
         avatarInput.current.click();
+        
         return true;
     }
 
@@ -219,6 +222,11 @@ const ProfileForm = () => {
         return true;
     }
 
+    const handleAvatarUpload = (e) => {
+        e.preventdefault();
+        return true;
+    }
+
     return isLoaded === true ? (
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
@@ -229,6 +237,7 @@ const ProfileForm = () => {
                             </div>
                         </label>
                         <input ref={avatarInput} id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
+                        <Button ref={uploadAvatarButton} classes="btn d-none" bgcolor="#0080fe" text="upload avatar" onClick={handleAvatarUpload}/>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
                         <div className="row justify-between w-100">

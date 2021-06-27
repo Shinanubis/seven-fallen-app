@@ -1,5 +1,5 @@
-import React from 'react'
-const Button = (props) => {
+import React,{forwardRef} from 'react'
+const Button = forwardRef((props) => {
     const {id, classes,bgcolor,color, size,onClick, text, padding} = props
     
     return (
@@ -19,6 +19,6 @@ const Button = (props) => {
         {text}
         </button>
     )
-}
+})
 
 export default Button
