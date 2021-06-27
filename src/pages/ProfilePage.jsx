@@ -195,7 +195,7 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        fileinput.current.hidden = false;
+        fileinput.current.hidden = !e.target.hidden;
         return true;
     }
 
@@ -218,7 +218,8 @@ const ProfileForm = () => {
     return isLoaded === true ? (
         <Main classes="profile__page">
                 <form className="form" onChange={handleChange}>
-                        <input ref={fileinput} type="file" hidden/>
+                        <label htmlFor="avatar">Choose your avatar :</label>
+                        <input ref={fileinput} id="avatar" name="avatar" type="file" accept="image/png, image/jpeg" hidden/>
                         <div className="profile__heading mb-4" onClick={handleAvatarClick}>
                             <HiUserCircle className="profile__avatar"/>
                             <BsPencil className="profile__avatar--button"/>
