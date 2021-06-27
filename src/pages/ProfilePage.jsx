@@ -220,7 +220,7 @@ const ProfileForm = () => {
         <Main classes="profile__page">
                 <PopupContainer ref={avatarPopup} classes="popup__container d-none">
                     <label htmlFor="avatar">Choose your avatar :</label>
-                    <input  id="avatar" name="avatar" type="file" accept="image/png, image/jpeg" hidden/>
+                    <input  id="avatar" name="avatar" type="file" accept="image/png, image/jpeg"/>
                 </PopupContainer>
                 <form className="form" onChange={handleChange}>
                         <div className="profile__heading mb-4" onClick={handleAvatarClick}>
