@@ -370,6 +370,10 @@ code {
   padding-bottom: .25rem;
 }
 
+.form__label--avatar{
+  padding: 2vh;
+}
+
 .form__label--textarea{
   color:var(--dark-grey);
   width:100%;
