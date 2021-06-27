@@ -196,7 +196,6 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        console.log("clicked")
         avatarInput.current.click();
         return true;
     }
