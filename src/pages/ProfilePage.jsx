@@ -38,6 +38,7 @@ const ProfileForm = () => {
     const lastnameInput = useRef(null);
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
+    const fileinput = useRef(null);
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -194,7 +195,7 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        alert("hello you");
+        fileinput.current.focus();
         return true;
     }
 
@@ -217,6 +218,7 @@ const ProfileForm = () => {
     return isLoaded === true ? (
         <Main classes="profile__page">
                 <form className="form" onChange={handleChange}>
+                        <input ref={fileinput} type="file" hidden/>
                         <div className="profile__heading mb-4" onClick={handleAvatarClick}>
                             <HiUserCircle className="profile__avatar"/>
                             <BsPencil className="profile__avatar--button"/>
