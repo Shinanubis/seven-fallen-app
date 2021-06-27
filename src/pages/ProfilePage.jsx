@@ -175,6 +175,9 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+            case 'avatar' :
+                console.log(e.target.id)
+                break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
         }
