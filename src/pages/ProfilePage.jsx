@@ -218,15 +218,14 @@ const ProfileForm = () => {
     return isLoaded === true ? (
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
-                        <label htmlFor="avatar" className="form__label--avatar">
                             <div className="profile__heading mb-4" onClick={handleAvatarClick}>
                                 <HiUserCircle className="profile__avatar"/>
                                 <BsPencil className="profile__avatar--button"/>
                                 <h4 className="profile__username"></h4>
                                 <p className="profile__userid"></p>
+                                <label htmlFor="avatar" className="form__label--avatar"></label>
+                                <input  id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                             </div>
-                        </label>
-                        <input  id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
                         <div className="row justify-between w-100">
