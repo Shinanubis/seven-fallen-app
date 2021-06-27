@@ -39,7 +39,7 @@ const ProfileForm = () => {
     const lastnameInput = useRef(null);
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
-    const avatarLabel = useRef(null);
+    const avatarInput = useRef(null);
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -197,7 +197,7 @@ const ProfileForm = () => {
     const handleAvatarClick = (e) => {
         e.preventDefault();
         console.log("clicked")
-        avatarLabel.current.click();
+        avatarInput.current.click();
         return true;
     }
 
@@ -221,11 +221,11 @@ const ProfileForm = () => {
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
                             <div className="profile__heading mb-4" onClick={handleAvatarClick}>
-                                <label ref={avatarLabel} className="form__label--avatar" htmlFor="avatar">
+                                <label className="form__label--avatar" htmlFor="avatar">
                                     <HiUserCircle className="profile__avatar"/>
                                     <BsPencil className="profile__avatar--button"/>
                                 </label>
-                                <input id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
+                                <input ref={avatarInput} id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
                             </div>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
