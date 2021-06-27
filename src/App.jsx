@@ -171,7 +171,7 @@ function App() {
     let extensions = await getExtensionsList('FR');
 
     sessionStorage.setItem('type',types); 
-    console.log(sessionStorage.getItem(types))
+    console.log(sessionStorage.getItem('types'))
   }, []);
 
   return (
