@@ -181,7 +181,7 @@ const ProfileForm = () => {
                     alert("file too big");
                 }
 
-                if(e.target.files[0].type !== "image/png" || e.target.files[0].type !== "image/jpeg"){
+                if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }else{
                     setAvatar(e.target.files[0]);
