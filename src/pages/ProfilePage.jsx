@@ -162,7 +162,7 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
-                
+
             case 'visible' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
@@ -181,12 +181,12 @@ const ProfileForm = () => {
 
             case 'avatar' :
 
-                if(e.target.files[0].size > 200000){
-                    alert("file too big");
-                }
-
                 if(e.target.files.length > 1){
                     alert("Can send only one file");
+                }
+                
+                if(e.target.files[0].size > 200000){
+                    alert("file too big");
                 }
 
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
