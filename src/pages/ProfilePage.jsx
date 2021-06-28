@@ -259,7 +259,6 @@ const ProfileForm = () => {
                                          src={avatarResponse !== null ? avatarResponse.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
-                                    <HiUserCircle />
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
