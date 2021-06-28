@@ -183,7 +183,7 @@ const ProfileForm = () => {
                 
                 console.log(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg")
 
-                if(e.target.files[0].type != "image/png" || e.target.files[0].type != "image/jpeg"){
+                if(e.target.files[0].type != "image/png" && e.target.files[0].type != "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }
                 
