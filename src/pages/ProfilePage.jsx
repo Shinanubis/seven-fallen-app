@@ -14,7 +14,6 @@ import Loader from '../components/Loader';
 
 /* module */
 import regexModule  from '../modules/regex';
-import PopupContainer from '../components/PopupContainer';
 
 
 
@@ -33,7 +32,7 @@ const ProfileForm = () => {
         }
     });
     const [isLoaded, setIsLoaded] = useState(false);
-    const [avatar, setAvatar] = useState();
+    const [avatar, setAvatar] = useState(null);
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -185,6 +184,12 @@ const ProfileForm = () => {
                 if(e.target.type !== "image/png" || e.target.type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }
+
+                if(e.target.files[0].size < 200000 & 
+                  (e.target.type !== "image/png" || e.target.type !== "image/jpeg")){
+                  setAvatar(e.target.file[0]);
+                }
+                console.log(avatar)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
