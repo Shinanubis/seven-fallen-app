@@ -241,9 +241,8 @@ const ProfileForm = () => {
         let response = null;
         if(avatar !== null){
             form.append('avatar', avatar);
-            response = await addAvatar(form);
         }
-        console.log(response);
+        console.log(avatar);
     }, [avatar]);
 
     return isLoaded === true ? (
