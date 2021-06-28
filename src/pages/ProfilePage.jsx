@@ -189,6 +189,7 @@ const ProfileForm = () => {
                   (e.target.files[0].type !== "image/png" || e.target.files[0].type !== "image/jpeg")){
                   setAvatar(e.target.files[0]);
                 }
+                console.log(e.target.files[0].type)
                 console.log(avatar)
                 break;
             default:
