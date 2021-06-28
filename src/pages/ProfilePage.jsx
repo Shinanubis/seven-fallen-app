@@ -180,7 +180,7 @@ const ProfileForm = () => {
                 if(e.target.files[0].size > 200000){
                     alert("file too big");
                 }
-                console.log(e.target.files[0] === "image/jpeg")
+                console.log(e.target.files[0].type === "image/jpeg")
                 if(e.target.files[0].type !== "image/png"){
                     alert("bad file type should be png or jpg");
                 }
