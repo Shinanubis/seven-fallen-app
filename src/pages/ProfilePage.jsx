@@ -183,12 +183,10 @@ const ProfileForm = () => {
 
                 if(e.target.files[0].type !== "image/png" || e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
+                }else{
+                    setAvatar(e.target.files[0]);
                 }
 
-                if(e.target.files[0].size < 200000 & 
-                  (e.target.files[0].type !== "image/png" || e.target.files[0].type !== "image/jpeg")){
-                  setAvatar(e.target.files[0]);
-                }
                 console.log(e.target.files[0].type !== "image/jpeg")
                 console.log(avatar)
                 break;
