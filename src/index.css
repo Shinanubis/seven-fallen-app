@@ -491,7 +491,6 @@ code {
 }
 
 /* drop down component */
-
 .dropdown__menu{
   color:var(--white);
   width:80%;
@@ -563,7 +562,6 @@ svg.dropdown__icon path{
 }
 
 /* pagination component */
-
 .pagination__block{
   width: 80%;
   font-size: 1.25rem;
@@ -662,7 +660,6 @@ svg.dropdown__icon path{
 }
 
 /* avatar */
-
 .avatar, .logout{
   height:4vh;
   width: 4vh;
@@ -674,7 +671,6 @@ svg.dropdown__icon path{
 }
 
 /* subdeck */
-
 .subdeck__box{
   width: 80%;
 }

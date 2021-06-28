@@ -227,6 +227,11 @@ const ProfileForm = () => {
         return true;
     }
 
+    const handleAvatarClose = () => {
+        console.log("close");
+        return true;
+    }
+
     return isLoaded === true ? (
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
