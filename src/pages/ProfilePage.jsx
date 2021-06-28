@@ -251,7 +251,7 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                    {avatar !== null ? <img src={avatar.message.avatar} alt="avatar"/> : <HiUserCircle className="profile__avatar"/>}
+                                    {avatar !== null && avatar.message ? <img src={avatar.message.avatar} alt="avatar"/> : <HiUserCircle className="profile__avatar"/>}
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
