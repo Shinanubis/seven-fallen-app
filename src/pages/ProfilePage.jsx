@@ -255,7 +255,7 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                    <img className="d-none" 
+                                    <img  
                                          src={avatarResponse !== null ? avatarResponse.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
