@@ -39,6 +39,8 @@ async function getAvatar(){
     }
 
     let response = await fetch('https://test-seven.site/api/profile/avatar', settings);
+    let datas = await response.json();
+    return datas;
  
 }
 
