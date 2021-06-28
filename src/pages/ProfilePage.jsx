@@ -238,9 +238,12 @@ const ProfileForm = () => {
 
     useEffect(async () => {
         let form = new FormData();
-        form.append('avatar', avatar);
-        let response = await addAvatar(form);
-        console.log(response)
+        let response = null;
+        if(avatar !== null){
+            form.append('avatar', avatar);
+            response = await addAvatar(form);
+        }
+        console.log(response);
     }, [avatar]);
 
     return isLoaded === true ? (
