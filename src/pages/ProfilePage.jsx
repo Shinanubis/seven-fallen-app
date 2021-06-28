@@ -178,7 +178,13 @@ const ProfileForm = () => {
                 });
                 break;
             case 'avatar' :
-                console.log(e.target.files[0])
+                if(e.target.files[0].size > 200000){
+                    alert("file too big");
+                }
+
+                if(e.target.type !== "image/png" || e.target.type !== "image/jpeg"){
+                    alert("bad file type should be png or jpg");
+                }
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -221,16 +227,6 @@ const ProfileForm = () => {
         return true;
     }
 
-    const handleAvatarUpload = (e) => {
-        e.preventdefault();
-        return true;
-    }
-
-    const handleAvatarClose = (e) => {
-        console.log("close");
-        return true;
-    }
-
     return isLoaded === true ? (
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
@@ -246,9 +242,8 @@ const ProfileForm = () => {
                                name="avatar" 
                                type="file" 
                                accept="image/png, image/jpeg"
-                               onClose={handleAvatarClose}
                         />
-                        <Button ref={uploadAvatarButton} classes="btn d-none" bgcolor="#0080fe" text="upload avatar" onClick={handleAvatarUpload}/>
+                        <Button ref={uploadAvatarButton} classes="btn d-none" bgcolor="#0080fe" text="upload avatar" />
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
                         <div className="row justify-between w-100">
