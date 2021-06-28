@@ -162,6 +162,7 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+                
             case 'visible' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
@@ -169,6 +170,7 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+
             case 'collection' :
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
@@ -176,12 +178,16 @@ const ProfileForm = () => {
                     return newObj; 
                 });
                 break;
+
             case 'avatar' :
+
                 if(e.target.files[0].size > 200000){
                     alert("file too big");
                 }
-                console.log(e.target.files[0].type)
-                console.log(e.target.files[0].type !== "image/png" || e.target.files[0].type !== "image/jpeg")
+
+                if(e.target.files.length > 1){
+                    alert("Can send only one file");
+                }
 
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
