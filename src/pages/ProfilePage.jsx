@@ -255,11 +255,11 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                    <img  
+                                    <img className="profile__avatar"
                                          src={avatarResponse !== null ? avatarResponse.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
-                                    <HiUserCircle className="profile__avatar"/>
+                                    <HiUserCircle />
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
