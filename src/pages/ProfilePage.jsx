@@ -189,7 +189,6 @@ const ProfileForm = () => {
                     setAvatar(e.target.files[0]);
                 }
 
-                console.log(avatar)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -231,6 +230,10 @@ const ProfileForm = () => {
 
         return true;
     }
+
+    useEffect(() => {
+        console.log(avatar);
+    }, [avatar]);
 
     return isLoaded === true ? (
         <Main classes="profile__page"> 
