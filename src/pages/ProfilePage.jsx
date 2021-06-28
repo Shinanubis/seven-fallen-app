@@ -256,7 +256,7 @@ const ProfileForm = () => {
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                     <img className="d-none" 
-                                         src={avatarResponse.code === 200 ? avatarResponse.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
+                                         src={avatarResponse !== null ? avatarResponse.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
                                     <HiUserCircle className="profile__avatar"/>
