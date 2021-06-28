@@ -180,14 +180,12 @@ const ProfileForm = () => {
                 if(e.target.files[0].size > 200000){
                     alert("file too big");
                 }
-                console.log(e.target.files[0].type === "image/jpeg")
-                if(e.target.files[0].type !== "image/png"){
+    
+                if(e.target.files[0].type !== "image/png" || e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }
-
-                if(e.target.files[0].type !== "image/jpeg"){
-                    alert("bad file type should be png or jpg");
-                }
+                
+                setAvatar(e.target.files[0]);
 
                 console.log(avatar)
                 break;
