@@ -33,6 +33,7 @@ const ProfileForm = () => {
     });
     const [isLoaded, setIsLoaded] = useState(false);
     const [avatar, setAvatar] = useState(null);
+    const [avatarResponse, setAvatarResponse] = useState(null);
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -242,8 +243,11 @@ const ProfileForm = () => {
         if(avatar !== null){
             form.append('avatar', avatar);
             response = await addAvatar(form);
+            if(response.code === 200){
+                setAvatarResponse(response);
+            }
         }
-        console.log(response);
+
     }, [avatar]);
 
     return isLoaded === true ? (
@@ -251,7 +255,11 @@ const ProfileForm = () => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                    {avatar !== null && avatar.message.avatar ? <img src={avatar.message.avatar} alt="avatar"/> : <HiUserCircle className="profile__avatar"/>}
+                                    <img className="d-none" 
+                                         src={avatarResponse.code === 200 ? avatarResponse.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
+                                         alt="avatar"
+                                    />
+                                    <HiUserCircle className="profile__avatar"/>
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
