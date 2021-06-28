@@ -201,8 +201,7 @@ const ProfileForm = () => {
 
     const handleAvatarClick = (e) => {
         e.preventDefault();
-        avatarInput.current.click();
-        
+        avatarInput.current.click();    
         return true;
     }
 
@@ -227,7 +226,7 @@ const ProfileForm = () => {
         return true;
     }
 
-    const handleAvatarClose = () => {
+    const handleAvatarClose = (e) => {
         console.log("close");
         return true;
     }
@@ -241,7 +240,14 @@ const ProfileForm = () => {
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
-                        <input ref={avatarInput} id="avatar" className="d-none" name="avatar" type="file" accept="image/png, image/jpeg"/>
+                        <input ref={avatarInput} 
+                               id="avatar" 
+                               className="d-none" 
+                               name="avatar" 
+                               type="file" 
+                               accept="image/png, image/jpeg"
+                               onClose={handleAvatarClose}
+                        />
                         <Button ref={uploadAvatarButton} classes="btn d-none" bgcolor="#0080fe" text="upload avatar" onClick={handleAvatarUpload}/>
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
