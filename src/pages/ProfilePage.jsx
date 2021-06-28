@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { BsPencil } from 'react-icons/bs';
 
 /* api */
-import {getProfile, updateProfile, deleteProfile} from '../api/Profile';
+import {getProfile, updateProfile, deleteProfile, addAvatar} from '../api/Profile';
 
 /* components */
 import {HiUserCircle} from 'react-icons/hi';
@@ -191,9 +191,9 @@ const ProfileForm = () => {
 
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
-                }
-                    
+                }      
                 setAvatar(e.target.files[0]);
+
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -236,8 +236,11 @@ const ProfileForm = () => {
         return true;
     }
 
-    useEffect(() => {
-        console.log(avatar);
+    useEffect(async () => {
+        let form = new FormData();
+        form.append('avatar', avatar);
+        let response = await addAvatar(form);
+        console.log(response)
     }, [avatar]);
 
     return isLoaded === true ? (

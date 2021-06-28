@@ -42,11 +42,16 @@ async function getAvatar(){
  
 }
 
-async function addAvatar(){
+async function addAvatar(form){
     let settings = {
-        method : 'PATCH',
-        credentials: 'include'
-    }    
+        method : 'POST',
+        credentials: 'include',
+        body: form
+    } 
+    
+    let response = await fetch('https://test-seven.site/api/profile/avatar', settings);
+    let datas = await response.json();
+    return datas;
 }
 
 async function deleteAvatar(){
