@@ -245,7 +245,7 @@ const ProfileForm = () => {
 
     useEffect(() => {
         console.log(avatar)
-        if(avatar.message.avatar){
+        if(avatar.code === 200){
             avatarImage.current.src = avatar.message.avatar;
         }
 
