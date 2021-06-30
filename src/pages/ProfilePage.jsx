@@ -237,11 +237,14 @@ const ProfileForm = (props) => {
     useEffect(async () => {
         let responseUser = await getProfile();
         let response = await getAvatar();
+
         if(response.code === 200){
             setAvatar(response);
         }
 
-        setUserInfos(responseUser);
+        if(responseUser.code === 200){
+            setUserInfos(responseUser);
+        }
 
     },[]);
 

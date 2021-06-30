@@ -168,10 +168,22 @@ function App() {
     let rarities = await getRaritiesList('FR');
     let extensions = await getExtensionsList('FR');
 
-    sessionStorage.setItem('types',JSON.stringify(types));
-    sessionStorage.setItem('kingdoms',JSON.stringify(kingdoms));
-    sessionStorage.setItem('rarities',JSON.stringify(rarities));
-    sessionStorage.setItem('extensions',JSON.stringify(extensions));    
+    if(!sessionStorage.getItem('types')){
+        sessionStorage.setItem('types',JSON.stringify(types));
+    }
+
+    if(!sessionStorage.getItem('kingdoms')){
+        sessionStorage.setItem('kingdoms',JSON.stringify(kingdoms));
+    }
+
+    if(!sessionStorage.getItem('rarities')){
+        sessionStorage.setItem('rarities',JSON.stringify(rarities));
+    }
+
+    if(!sessionStorage.getItem('extensions')){
+        sessionStorage.setItem('extensions',JSON.stringify(extensions));
+    }
+   
   }, []);
 
   return (
