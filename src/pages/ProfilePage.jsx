@@ -201,7 +201,7 @@ const ProfileForm = () => {
                 if(response.code === 200){
                         setAvatar(response);
                     }
-                    console.log(avatarImage.current)
+                    console.log(avatarImage.current.src)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
