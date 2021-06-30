@@ -239,18 +239,7 @@ const ProfileForm = () => {
         return true;
     }
 
-    useEffect(async () => {
-        let form = new FormData();
-        let response = null;
-        if(avatar !== null){
-            form.append('avatar', avatar);
-            response = await addAvatar(form);
-            if(response.code === 200){
-                setAvatar(response);
-            }
-        }
 
-    }, [avatar]);
 
     useEffect(async () => {
         let response = await getAvatar();
