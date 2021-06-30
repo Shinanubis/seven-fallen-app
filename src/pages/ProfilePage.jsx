@@ -35,8 +35,7 @@ const ProfileForm = (props) => {
             avatar : "https://test-seven.site/images/user-default.svg"
         }
     });
-
-    let form = new FormData();
+    const [avatarForm, setAvatarForm] = useState();
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -45,11 +44,6 @@ const ProfileForm = (props) => {
     const emailInput = useRef(null);
     const avatarInput = useRef(null);
     const avatarImage = useRef(null);
-
-    useEffect(async () => {
-        let response = await getProfile(id);
-        setUserInfos(response);
-    },[]);
 
     const handleChange = (e) => {
         switch(e.target.id){
@@ -194,8 +188,10 @@ const ProfileForm = (props) => {
 
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
-                }      
+                }
+                let form = new FormData();      
                 form.append('avatar', e.target.files[0]);
+                setAvatarForm(form);
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -239,11 +235,11 @@ const ProfileForm = (props) => {
     }
 
     useEffect(() => {
-        let response = addAvatar(form);
+        let response = addAvatar(avatarForm);
         if(response.code === 200){
                 setAvatar(response);
             }  
-    },[form]);
+    },[avatarForm]);
 
     useEffect(async () => {
         let response = await getAvatar();
