@@ -261,7 +261,7 @@ const ProfileForm = () => {
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                     <img className="profile__avatar"
                                          ref={avatarImage}
-                                         src={avatar.message.code === 200 ? avatar.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
+                                         src={avatar.message.code === 200 && avatar.message.avatar ? avatar.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
                                     <BsPencil className="profile__avatar--button"/>
