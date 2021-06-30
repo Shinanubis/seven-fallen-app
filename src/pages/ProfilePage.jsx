@@ -235,7 +235,8 @@ const ProfileForm = (props) => {
     }
 
     useEffect(async () => {
-        console.log(avatarForm)
+        let response = await addAvatar(avatarForm);
+        console.log(response)
     }, [avatarForm]);
 
     useEffect(async () => {
