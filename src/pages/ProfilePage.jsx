@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { BsPencil } from 'react-icons/bs';
 
 /* api */
-import {getProfile, updateProfile, deleteProfile, addAvatar} from '../api/Profile';
+import {getProfile, updateProfile, deleteProfile, addAvatar, getAvatar} from '../api/Profile';
 
 /* components */
 import {HiUserCircle} from 'react-icons/hi';
@@ -251,7 +251,8 @@ const ProfileForm = () => {
     }, [avatar]);
 
     useEffect(async () => {
-        
+        let response = getAvatar();
+        console.log(response);
     },[]);
 
     return isLoaded === true ? (
