@@ -17,7 +17,7 @@ import regexModule  from '../modules/regex';
 
 
 
-const ProfileForm = () => {
+const ProfileForm = (props) => {
     const { id } = useParams();
     const [userInfos,setUserInfos] = useState({
         code: null,
@@ -33,8 +33,10 @@ const ProfileForm = () => {
     });
     const [isLoaded, setIsLoaded] = useState(false);
     const [avatar, setAvatar] = useState({
-        code : "",
-        message : ""
+        code : 200,
+        message : {
+            avatar : "https://test-seven.site/images/user-default.svg"
+        }
     });
      
     /* ref */
@@ -183,7 +185,6 @@ const ProfileForm = () => {
                 break;
 
             case 'avatar' :
-
                 if(e.target.files.length > 1){
                     alert("Can send only one file");
                 }
@@ -243,14 +244,6 @@ const ProfileForm = () => {
         return true;
     }
 
-    useEffect(() => {
-        console.log(avatar)
-        if(avatar.code === 200){
-            avatarImage.current.src = avatar.message.avatar;
-        }
-
-    }, [avatar]);
-
     useEffect(async () => {
         let response = await getAvatar();
         if(response.code === 200){
@@ -266,7 +259,7 @@ const ProfileForm = () => {
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                     <img className="profile__avatar"
                                          ref={avatarImage}
-                                         src={avatar.message !== null ? avatar.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
+                                         src={avatar.message.avatar} 
                                          alt="avatar"
                                     />
                                     <BsPencil className="profile__avatar--button"/>
