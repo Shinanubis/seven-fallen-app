@@ -243,9 +243,12 @@ const ProfileForm = () => {
         return true;
     }
 
-    useEffect(async () => {
+    useEffect(() => {
         console.log(avatar)
-        avatarImage.current.src = avatar.message.avatar;
+        if(avatar.message.avatar){
+            avatarImage.current.src = avatar.message.avatar;
+        }
+
     }, [avatar]);
 
     useEffect(async () => {
