@@ -31,9 +31,9 @@ const ProfileForm = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [avatar, setAvatar] = useState({
         code : 200,
-        message : {
+        message : [{
             avatar : "https://test-seven.site/images/user-default.svg"
-        }
+        }]
     });
      
     /* ref */
@@ -255,7 +255,7 @@ const ProfileForm = (props) => {
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                 <img className="profile__avatar"
                                      ref={avatarImage}
-                                     src={avatar.message.avatar} 
+                                     src={avatar.message[0].avatar} 
                                      alt="avatar"
                                 />
                                 <BsPencil className="profile__avatar--button"/>
