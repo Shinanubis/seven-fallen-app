@@ -234,10 +234,6 @@ const ProfileForm = (props) => {
         return true;
     }
 
-    useEffect(() => {
-        window.location.reload();
-    },[avatar]);
-
     useEffect(async () => {
         let response = await getAvatar();
         if(response.code === 200){
