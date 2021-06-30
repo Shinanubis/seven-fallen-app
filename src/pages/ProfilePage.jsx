@@ -202,7 +202,7 @@ const ProfileForm = (props) => {
                 if(response.code === 200){
                         setAvatar(response);
                     }
-                    console.log(props)
+                    console.log(window.location)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
