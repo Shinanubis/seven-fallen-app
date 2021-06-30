@@ -19,7 +19,7 @@ async function getRaritiesList(lang){
     let settings = {
         method: 'GET',
         headers: {
-            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+            'Authorization': process.env.REACT_APP_TOKEN
         }
 
     }
@@ -33,7 +33,7 @@ async function getKingdomsList(lang){
     let settings = {
         method: 'GET',
         headers: {
-            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+            'Authorization': process.env.REACT_APP_TOKEN
         }
 
     }
@@ -47,7 +47,7 @@ async function getExtensionsList(lang){
     let settings = {
         method: 'GET',
         headers: {
-            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+            'Authorization': process.env.REACT_APP_TOKEN
         }
 
     }
@@ -61,7 +61,7 @@ async function getClassesList(lang){
     let settings = {
         method: 'GET',
         headers: {
-            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+            'Authorization': process.env.REACT_APP_TOKEN
         }
 
     }
@@ -75,7 +75,7 @@ async function getCapacitiesList(lang){
     let settings = {
         method: 'GET',
         headers: {
-            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+            'Authorization': process.env.REACT_APP_TOKEN
         }
 
     }
@@ -90,7 +90,7 @@ async function getSubdeckCards(options, lang){
     let settings = {
         method:'GET',
         headers: {
-            'Authorization': 'API_KEY eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJzaXRlX25hbWUiOiJEZXZTb2xkaWVyIHRlc3RlcyIsImRvbWFpbiI6Imh0dHBzOi8vdGVzdC1zZXZlbi5zaXRlIn0.gF2HGtXAC5z6s-aP_AKrQ3IVFCu5MYFSeZK-wahZikA'
+            'Authorization': process.env.REACT_APP_TOKEN
         }
     }
     let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
