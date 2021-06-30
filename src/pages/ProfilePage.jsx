@@ -6,7 +6,6 @@ import { BsPencil } from 'react-icons/bs';
 import {getProfile, updateProfile, deleteProfile, addAvatar, getAvatar} from '../api/Profile';
 
 /* components */
-import {HiUserCircle} from 'react-icons/hi';
 import { RiLoader3Line } from 'react-icons/ri'
 import Button from '../components/Button';
 import Main from '../layouts/Main';
@@ -14,8 +13,6 @@ import Loader from '../components/Loader';
 
 /* module */
 import regexModule  from '../modules/regex';
-
-
 
 const ProfileForm = (props) => {
     const { id } = useParams();
@@ -39,7 +36,7 @@ const ProfileForm = (props) => {
         }
     });
 
-    const [avatarChanged, setAvatarChanged] = useState(false);
+    const [avatarResponse, setAvatarResponse] = useState();
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -202,7 +199,7 @@ const ProfileForm = (props) => {
                 form.append('avatar', e.target.files[0]);
                 let response = addAvatar(form);
                 if(response.code === 200){
-                        setAvatar(response);
+                        setAvatarResponse(response);
                     }
                 break;
             default:
@@ -247,8 +244,8 @@ const ProfileForm = (props) => {
     }
 
     useEffect(() => {
-        setAvatarChanged(true);
-    },[avatar]);
+        setAvatar(avatarResponse);
+    },[avatarResponse]);
 
     useEffect(async () => {
         let response = await getAvatar();
