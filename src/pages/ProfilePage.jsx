@@ -250,6 +250,10 @@ const ProfileForm = () => {
 
     }, [avatar]);
 
+    useEffect(async () => {
+        
+    },[]);
+
     return isLoaded === true ? (
         <Main classes="profile__page"> 
                 <form className="form" onChange={handleChange}>
