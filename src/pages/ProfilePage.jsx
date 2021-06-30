@@ -251,7 +251,7 @@ const ProfileForm = () => {
     }, [avatar]);
 
     useEffect(async () => {
-        let response = getAvatar();
+        let response = await getAvatar();
         console.log(response);
     },[]);
 
