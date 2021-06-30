@@ -43,10 +43,7 @@ const ProfileForm = (props) => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
     const avatarInput = useRef(null);
-    const avatarImage = useRef(null);
-
-
-    let form = new FormData(); 
+    const avatarImage = useRef(null); 
 
     const handleChange = (e) => {
         switch(e.target.id){
@@ -191,7 +188,8 @@ const ProfileForm = (props) => {
 
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
-                }     
+                }
+                let form = new FormData();     
                 form.append('avatar', e.target.files[0]);
                 setAvatarForm(form);
                 break;
@@ -237,7 +235,7 @@ const ProfileForm = (props) => {
     }
 
     useEffect(() => {
-        console.log(form)
+        console.log(avatarForm)
     },[avatarForm]);
 
     useEffect(async () => {
