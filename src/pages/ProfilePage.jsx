@@ -245,6 +245,7 @@ const ProfileForm = () => {
 
     useEffect(async () => {
         console.log(avatar)
+        avatarImage.current.src = avatar.message.avatar;
     }, [avatar]);
 
     useEffect(async () => {
