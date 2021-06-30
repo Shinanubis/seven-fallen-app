@@ -200,8 +200,8 @@ const ProfileForm = () => {
                 let response = addAvatar(form);
                 if(response.code === 200){
                         setAvatar(response);
-                        avatarImage.current.src = avatar.message.avatar;
                     }
+                    console.log(avatarImage.current)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
