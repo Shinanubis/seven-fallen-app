@@ -199,7 +199,7 @@ const ProfileForm = (props) => {
                 form.append('avatar', e.target.files[0]);
                 let response = addAvatar(form);
                 if(response.code === 200){
-                        setAvatarResponse(response);
+                        setAvatar(response);
                     }
                 break;
             default:
@@ -243,17 +243,13 @@ const ProfileForm = (props) => {
         return true;
     }
 
-    useEffect(() => {
-        setAvatar(avatarResponse);
-    },[avatarResponse]);
-
     useEffect(async () => {
         let response = await getAvatar();
         if(response.code === 200){
             setAvatar(response);
         }
 
-    },[]);
+    });
 
     return isLoaded === true ? (
         <Main classes="profile__page"> 
