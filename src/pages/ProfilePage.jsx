@@ -260,11 +260,18 @@ const ProfileForm = (props) => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
+                                    {reloadAvatar === true ?
+                                        <img className="profile__avatar"
+                                             ref={avatarImage}
+                                             src={avatar.message.avatar} 
+                                             alt="avatar"
+                                        />
+                                    :
                                     <img className="profile__avatar"
-                                         ref={avatarImage}
-                                         src={reloadAvatar === true ? avatar.message.avatar : avatar.message.avatar} 
-                                         alt="avatar"
-                                    />
+                                    ref={avatarImage}
+                                    src={avatar.message.avatar} 
+                                    alt="avatar"
+                                    />}
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
