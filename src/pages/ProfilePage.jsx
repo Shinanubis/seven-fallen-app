@@ -35,7 +35,7 @@ const ProfileForm = (props) => {
             avatar : "https://test-seven.site/images/user-default.svg"
         }
     });
-    const [avatarResponse, setAvatarResponse] = useState();
+    const [avatarForm, setAvatarForm] = useState();
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -191,9 +191,7 @@ const ProfileForm = (props) => {
                 }
                 let form = new FormData();     
                 form.append('avatar', e.target.files[0]);
-                let response = addAvatar(form).then(response => response.json());
-                console.log(response)
-                setAvatarResponse(response);
+                setAvatarForm(form);
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -237,8 +235,8 @@ const ProfileForm = (props) => {
     }
 
     useEffect(async () => {
-        setAvatar(avatarResponse);
-    }, [avatarResponse]);
+        console.log(avatarForm)
+    }, [avatarForm]);
 
     useEffect(async () => {
         let responseUser = await getProfile();
