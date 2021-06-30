@@ -204,7 +204,6 @@ const ProfileForm = (props) => {
                 if(response.code === 200){
                         setAvatar(response);
                     }
-                setAvatarChanged(true);
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -246,6 +245,10 @@ const ProfileForm = (props) => {
 
         return true;
     }
+
+    useEffect(() => {
+        setAvatarChanged(true);
+    },[avatar]);
 
     useEffect(async () => {
         let response = await getAvatar();
