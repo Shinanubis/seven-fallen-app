@@ -36,7 +36,7 @@ const ProfileForm = (props) => {
         }
     });
 
-    const [avatarResponse, setAvatarResponse] = useState();
+    const [avatarChanged, setAvatarChanged] = useState(false);
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -244,7 +244,7 @@ const ProfileForm = (props) => {
     }
 
     useEffect(() => {
-        return avatarImage.current.src = avatar.message.avatar;
+        setAvatarChanged(true);   
     },[avatar]);
 
     useEffect(async () => {
@@ -260,11 +260,11 @@ const ProfileForm = (props) => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                    <img className="profile__avatar"
+                                    {avatarChanged ?? <img className="profile__avatar"
                                          ref={avatarImage}
                                          src={avatar.message.avatar} 
                                          alt="avatar"
-                                    />
+                                    />}
                                     <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
