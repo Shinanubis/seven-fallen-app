@@ -43,7 +43,7 @@ const ProfileForm = () => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
     const avatarInput = useRef(null);
-    const uploadAvatarButton = useRef(null); 
+    const avatarImage = useRef(null);
 
     useEffect(async () => {
         let response = await getProfile(id);
@@ -200,6 +200,7 @@ const ProfileForm = () => {
                 let response = addAvatar(form);
                 if(response.code === 200){
                         setAvatar(response);
+                        avatarImage.current.src = avatar.message.avatar;
                     }
                 break;
             default:
@@ -260,6 +261,7 @@ const ProfileForm = () => {
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                     <img className="profile__avatar"
+                                         ref={avatarImage}
                                          src={avatar.message !== '' ? avatar.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
@@ -273,7 +275,6 @@ const ProfileForm = () => {
                                type="file" 
                                accept="image/png, image/jpeg"
                         />
-                        <Button ref={uploadAvatarButton} classes="btn d-none" bgcolor="#0080fe" text="upload avatar" />
                         <div className="form__section w-80 mb-2">
                             <h4 className="form__section--title">Profile options</h4>
                         <div className="row justify-between w-100">
