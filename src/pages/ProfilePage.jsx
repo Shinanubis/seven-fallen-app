@@ -191,7 +191,7 @@ const ProfileForm = (props) => {
                 }
                 let form = new FormData();     
                 form.append('avatar', e.target.files[0]);
-                let response = addAvatar(form);
+                let response = addAvatar(form).then(response => response.json());
                 console.log(response)
                 setAvatarResponse(response);
                 break;
