@@ -243,11 +243,12 @@ const ProfileForm = () => {
         return true;
     }
 
-
+    useEffect(async () => {
+        console.log(avatar)
+    }, [avatar]);
 
     useEffect(async () => {
         let response = await getAvatar();
-        console.log(response)
         if(response.code === 200){
             setAvatar(response);
         }
