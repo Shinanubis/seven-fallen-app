@@ -236,11 +236,8 @@ const ProfileForm = (props) => {
         return true;
     }
 
-    useEffect(async () => {
-        let response = await addAvatar(form);
-        if(response.code === 200){
-                setAvatar(response);
-            }  
+    useEffect(() => {
+        console.log(form)
     },[avatarForm]);
 
     useEffect(async () => {
