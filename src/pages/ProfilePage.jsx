@@ -36,7 +36,7 @@ const ProfileForm = (props) => {
         }
     });
 
-    const [reloadAvatar, setReloadAvatar] = useState(false);
+    let form = new FormData();
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -195,12 +195,7 @@ const ProfileForm = (props) => {
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }      
-                let form = new FormData();
                 form.append('avatar', e.target.files[0]);
-                let response = addAvatar(form);
-                if(response.code === 200){
-                        setAvatar(response);
-                    }
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -244,9 +239,11 @@ const ProfileForm = (props) => {
     }
 
     useEffect(() => {
-        setReloadAvatar(true);
-        return () => setReloadAvatar(false);   
-    },[avatar]);
+        let response = addAvatar(form);
+        if(response.code === 200){
+                setAvatar(response);
+            }  
+    },[form]);
 
     useEffect(async () => {
         let response = await getAvatar();
