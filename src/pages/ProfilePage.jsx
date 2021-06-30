@@ -200,6 +200,7 @@ const ProfileForm = (props) => {
                 let response = addAvatar(form);
                 if(response.code === 200){
                         setAvatar(response);
+                        window.location.reload();
                     }
                 break;
             default:
