@@ -201,7 +201,6 @@ const ProfileForm = () => {
                 if(response.code === 200){
                         setAvatar(response);
                     }
-                    console.log(avatarImage.current.src)
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
@@ -262,7 +261,7 @@ const ProfileForm = () => {
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                     <img className="profile__avatar"
                                          ref={avatarImage}
-                                         src={avatar.message !== '' ? avatar.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
+                                         src={avatar.message.avatar ? avatar.message.avatar : 'https://test-seven.site/images/user-default.svg'} 
                                          alt="avatar"
                                     />
                                     <BsPencil className="profile__avatar--button"/>
