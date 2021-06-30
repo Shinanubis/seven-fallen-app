@@ -249,7 +249,7 @@ const ProfileForm = (props) => {
             setAvatar(response);
         }
 
-    });
+    },[]);
 
     return isLoaded === true ? (
         <Main classes="profile__page"> 
