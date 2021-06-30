@@ -195,8 +195,12 @@ const ProfileForm = () => {
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }      
-                setAvatar(e.target.files[0]);
-
+                let form = new FormData();
+                form.append('avatar', e.target.files[0]);
+                let response = addAvatar(form);
+                if(response.code === 200){
+                        setAvatar(response);
+                    }
                 break;
             default:
                 console.error(`Something wrong with ${e.target.id}`);
