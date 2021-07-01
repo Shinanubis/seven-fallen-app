@@ -243,16 +243,16 @@ const ProfileForm = (props) => {
 
     useEffect(async () => {
         let responseUser = await getProfile();
-        let response = await getAvatar();
+        let responseAvatar = await getAvatar();
 
-        if(response.code === 200){
-            setAvatar(response);
+        if(responseAvatar.code === 200){
+            setAvatar(responseAvatar);
         }
 
         if(responseUser.code === 200){
             setUserInfos(responseUser);
         }
-
+        console.log(responseAvatar)
     },[]);
 
     return isLoaded === true ? (
