@@ -1174,7 +1174,6 @@ svg.dropdown__icon path{
   left: 50%;
   transform: translateX(-50%);
   width:80%;
-  z-index: 10;
   font-size: .85rem;
   opacity:0;
   font-size: 1rem;
@@ -1194,6 +1193,7 @@ svg.dropdown__icon path{
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
+  z-index: -10;
 }
 
 .message__flash-done{
@@ -1204,6 +1204,7 @@ svg.dropdown__icon path{
   -moz-transition:all .30s ease;
   -ms-transition:all .30s ease;
   -o-transition:all .30s ease;
+  z-index: 10;
 }
 
 .message__flash-error{
@@ -1214,6 +1215,7 @@ svg.dropdown__icon path{
   -ms-transition:all .30s ease;
   -o-transition:all .30s ease;
   -webkit-transition:all .30s ease;
+  z-index: 10;
 }
 
 .title{
