@@ -248,7 +248,6 @@ const ProfileForm = (props) => {
         let responseAvatar = await getAvatar();
 
         if(responseAvatar.code === 200){
-            setAvatar(responseAvatar);
 
             if(responseAvatar.message.avatar === null){
                 setAvatar({
@@ -257,6 +256,8 @@ const ProfileForm = (props) => {
                         avatar: "https://test-seven.site/images/user-default.svg"
                     }
                 })
+            }else{
+                setAvatar(responseAvatar);
             }
         }
 
