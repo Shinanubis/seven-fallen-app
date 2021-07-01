@@ -268,7 +268,6 @@ const ProfileForm = (props) => {
 
     return isLoaded === true ? (
         <Main classes="profile__page">
-                {console.log(avatar)} 
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
