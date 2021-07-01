@@ -1,12 +1,12 @@
 import React,{useState, useEffect, useRef} from 'react';
-import { useParams } from 'react-router-dom';
 import { BsPencil } from 'react-icons/bs';
 
 /* api */
 import {getProfile, updateProfile, deleteProfile, addAvatar, getAvatar} from '../api/Profile';
 
 /* components */
-import { RiLoader3Line } from 'react-icons/ri'
+import Flash from '../components/Flash';
+import { RiLoader3Line } from 'react-icons/ri';
 import Button from '../components/Button';
 import Main from '../layouts/Main';
 import Loader from '../components/Loader';
@@ -15,7 +15,8 @@ import Loader from '../components/Loader';
 import regexModule  from '../modules/regex';
 
 const ProfileForm = (props) => {
-    const { id } = useParams();
+
+    /*States */
     const [userInfos,setUserInfos] = useState({
         code: null,
         message: {
@@ -36,6 +37,8 @@ const ProfileForm = (props) => {
         }
     });
     const [avatarForm, setAvatarForm] = useState();
+    const [flashState, setFlashState] = useState(null);
+    const [flashMessage, setFlashMessage] = useState();
      
     /* ref */
     const firstnameInput = useRef(null);
@@ -197,7 +200,7 @@ const ProfileForm = (props) => {
         }
     }
 
-    const handleClick = async (e) => {
+    const handleUpdateClick = async (e) => {
         e.preventDefault();
         let form = new FormData();
         Object.keys(userInfos.message).map(elmt => {
@@ -205,9 +208,16 @@ const ProfileForm = (props) => {
         });
 
         let response = await updateProfile(form);
+
         if(response.code === 200){
-            setUserInfos(response)
+            setUserInfos(response);
+            setFlashMessage(response.message.username + " updated successfully");
+            setFlashState(true);
+        }else{
+            setFlashMessage(response.message);
+            setFlashState(false);
         }
+
         return true;
     }
 
@@ -216,6 +226,10 @@ const ProfileForm = (props) => {
         avatarInput.current.click();    
         return true;
     }
+
+    const handleFlash = (newFlashState) => {
+        setFlashState(newFlashState);
+    };
 
     const handleDeleteClick = async (e) => {
         e.preventDefault();
@@ -363,7 +377,16 @@ const ProfileForm = (props) => {
                                    value={userInfos.message.email}
                             />
                         </div>
-                        <Button classes="btn" text="update" bgcolor='#3be73b' color='#202020' onClick={handleClick}/>
+                        <Flash 
+                            classes="message__flash" 
+                            errorClass="message__flash-error" 
+                            successClass="message__flash-done" 
+                            message={flashMessage ? flashMessage : "flash message"}
+                            timing={750}
+                            flash={flashState}
+                            handleFlash= {handleFlash}
+                        />
+                        <Button classes="btn" text="update" bgcolor='#3be73b' color='#202020' onClick={handleUpdateClick}/>
                         <Button classes="btn" text="delete" bgcolor='#ff5d5d' color='#202020' onClick={handleDeleteClick}/>  
                 </form>
             </Main>

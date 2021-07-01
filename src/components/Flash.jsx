@@ -5,8 +5,7 @@ function Flash(props){
     const {message, classes, errorClass,flash ,successClass, timing, handleFlash} = props;
     const [classesState, setClasses] = useState(classes);
     let afterClasses = '';
-
-
+    
     useEffect(() => {
 
         if(flash === false){
