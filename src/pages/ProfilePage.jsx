@@ -203,11 +203,10 @@ const ProfileForm = (props) => {
     const handleUpdateClick = async (e) => {
         e.preventDefault();
         let form = new FormData();
-        console.log(firstnameInput.current)
         Object.keys(userInfos.message).map(elmt => {
             form.append(elmt, userInfos.message[elmt]);
         });
-
+        console.log(userInfos);
         let response = await updateProfile(form);
 
         if(response.code === 200){
