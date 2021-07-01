@@ -262,7 +262,7 @@ const ProfileForm = (props) => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                {avatar.message && <img className="profile__avatar"
+                                {avatar.message.avatar && <img className="profile__avatar"
                                      ref={avatarImage}
                                      src={avatar.message.avatar ? avatar.message.avatar : avatar.message.avatar} 
                                      alt="avatar"
