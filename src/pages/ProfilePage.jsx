@@ -51,7 +51,6 @@ const ProfileForm = (props) => {
     const avatarInput = useRef(null);
 
     const handleChange = (e) => {
-        e.preventDefault();
         switch(e.target.id){
             case 'firstname':
                 if(regexModule.regex_name.test(e.target.value) === true){
