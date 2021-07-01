@@ -235,6 +235,7 @@ const ProfileForm = (props) => {
     }
 
     useEffect(async () => {
+        console.log("post avatar trigerred")
         let response = await addAvatar(avatarForm);
         if(response.code === 200){
             setAvatar(response);
@@ -252,7 +253,6 @@ const ProfileForm = (props) => {
         if(responseUser.code === 200){
             setUserInfos(responseUser);
         }
-        console.log(responseAvatar)
     },[]);
 
     return isLoaded === true ? (
