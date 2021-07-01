@@ -235,7 +235,7 @@ const ProfileForm = (props) => {
     }
 
     useEffect(async () => {
-        console.log("post avatar trigerred")
+        console.log(avatarForm)
         let response = await addAvatar(avatarForm);
         if(response.code === 200){
             setAvatar(response);
