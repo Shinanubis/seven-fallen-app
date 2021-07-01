@@ -30,9 +30,9 @@ const ProfileForm = (props) => {
     });
     const [isLoaded, setIsLoaded] = useState(false);
     const [avatar, setAvatar] = useState({
-        code : 200,
+        code : '',
         message : {
-            avatar : "https://test-seven.site/images/user-default.svg"
+            avatar : ""
         }
     });
     const [avatarForm, setAvatarForm] = useState();
@@ -249,6 +249,15 @@ const ProfileForm = (props) => {
 
         if(responseAvatar.code === 200){
             setAvatar(responseAvatar);
+
+            if(responseAvatar.message.avatar === null){
+                setAvatar({
+                    code: 200,
+                    message: {
+                        avatar: "https://test-seven.site/images/user-default.svg"
+                    }
+                })
+            }
         }
 
         if(responseUser.code === 200){
@@ -262,11 +271,13 @@ const ProfileForm = (props) => {
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
-                                {avatar.message.avatar && <img className="profile__avatar"
+                                {avatar.message.avatar ? <img className="profile__avatar"
                                      ref={avatarImage}
-                                     src={avatar.message.avatar ? avatar.message.avatar : avatar.message.avatar} 
+                                     src={avatar.message.avatar} 
                                      alt="avatar"
-                                />}
+                                />
+                                :
+                                null}
                                 <BsPencil className="profile__avatar--button"/>
                             </div>
                         </label>
