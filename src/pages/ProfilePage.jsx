@@ -166,6 +166,7 @@ const ProfileForm = (props) => {
                 break;
 
             case 'visible' :
+                console.log("hello")
                 setUserInfos(prevState => {
                     let newObj = {...prevState};
                     newObj.message.is_visible = e.target.checked;
