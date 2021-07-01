@@ -43,7 +43,6 @@ const ProfileForm = (props) => {
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
     const avatarInput = useRef(null);
-    const avatarImage = useRef(null); 
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -272,7 +271,6 @@ const ProfileForm = (props) => {
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                 {avatar.message.avatar ? <img className="profile__avatar"
-                                     ref={avatarImage}
                                      src={avatar.message.avatar} 
                                      alt="avatar"
                                 />
