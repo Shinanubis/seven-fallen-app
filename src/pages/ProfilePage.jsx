@@ -46,6 +46,7 @@ const ProfileForm = (props) => {
     const avatarImage = useRef(null); 
 
     const handleChange = (e) => {
+        e.preventDefault();
         switch(e.target.id){
             case 'firstname':
                 if(regexModule.regex_name.test(e.target.value) === true){
@@ -177,7 +178,6 @@ const ProfileForm = (props) => {
                 break;
 
             case 'avatar' :
-                console.log("avatar changed")
                 if(e.target.files.length > 1){
                     alert("Can send only one file");
                 }
