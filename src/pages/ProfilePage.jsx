@@ -387,7 +387,10 @@ const ProfileForm = (props) => {
                                    value={userInfos.message.email}
                             />
                         </div>
-                        <Flash 
+                        <Button classes="btn" text="update" bgcolor='#3be73b' color='#202020' onClick={handleUpdateClick}/>
+                        <Button classes="btn" text="delete" bgcolor='#ff5d5d' color='#202020' onClick={handleDeleteClick}/>  
+                </form>
+                <Flash 
                             classes="message__flash" 
                             errorClass="message__flash-error" 
                             successClass="message__flash-done" 
@@ -396,9 +399,6 @@ const ProfileForm = (props) => {
                             flash={flashState}
                             handleFlash= {handleFlash}
                         />
-                        <Button classes="btn" text="update" bgcolor='#3be73b' color='#202020' onClick={handleUpdateClick}/>
-                        <Button classes="btn" text="delete" bgcolor='#ff5d5d' color='#202020' onClick={handleDeleteClick}/>  
-                </form>
             </Main>
     )
     :
