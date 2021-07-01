@@ -264,7 +264,7 @@ const ProfileForm = (props) => {
                             <div className="profile__heading" onClick={handleAvatarClick}>
                                 {avatar.message ? <img className="profile__avatar"
                                      ref={avatarImage}
-                                     src={avatar.message.avatar} 
+                                     src={avatar.message.avatar ? avatar.message.avatar : avatar.message.avatar} 
                                      alt="avatar"
                                 />
                                 :
