@@ -1193,7 +1193,7 @@ svg.dropdown__icon path{
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
-  z-index: -10;
+  pointer-events: none;
 }
 
 .message__flash-done{
@@ -1204,7 +1204,6 @@ svg.dropdown__icon path{
   -moz-transition:all .30s ease;
   -ms-transition:all .30s ease;
   -o-transition:all .30s ease;
-  z-index: 10;
 }
 
 .message__flash-error{
@@ -1215,7 +1214,6 @@ svg.dropdown__icon path{
   -ms-transition:all .30s ease;
   -o-transition:all .30s ease;
   -webkit-transition:all .30s ease;
-  z-index: 10;
 }
 
 .title{
