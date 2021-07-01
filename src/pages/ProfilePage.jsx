@@ -235,10 +235,11 @@ const ProfileForm = (props) => {
     }
 
     useEffect(async () => {
-        console.log(avatarForm)
-        let response = await addAvatar(avatarForm);
-        if(response.code === 200){
-            setAvatar(response);
+        if(avatarForm){
+            let response = await addAvatar(avatarForm);
+            if(response.code === 200){
+                setAvatar(response);
+            }
         }
     }, [avatarForm]);
 
