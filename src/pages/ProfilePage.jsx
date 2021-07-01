@@ -254,6 +254,7 @@ const ProfileForm = (props) => {
         if(responseUser.code === 200){
             setUserInfos(responseUser);
         }
+        console.log(avatar)
     },[]);
 
     return isLoaded === true ? (
