@@ -254,11 +254,11 @@ const ProfileForm = (props) => {
         if(responseUser.code === 200){
             setUserInfos(responseUser);
         }
-        console.log(avatar.message.avatar)
     },[]);
 
     return isLoaded === true ? (
-        <Main classes="profile__page"> 
+        <Main classes="profile__page">
+                {console.log(avatar)} 
                 <form className="form" onChange={handleChange}>
                         <label className="form__label--avatar mb-4" htmlFor="avatar">
                             <div className="profile__heading" onClick={handleAvatarClick}>
