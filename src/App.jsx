@@ -163,24 +163,24 @@ function App() {
   ]
 
   useEffect(async () => {
-    let types = await getTypesList('FR');
-    let kingdoms = await getKingdomsList('FR');
-    let rarities = await getRaritiesList('FR');
-    let extensions = await getExtensionsList('FR');
 
     if(!sessionStorage.getItem('types')){
+        let types = await getTypesList('FR');
         sessionStorage.setItem('types',JSON.stringify(types));
     }
 
     if(!sessionStorage.getItem('kingdoms')){
+        let kingdoms = await getKingdomsList('FR');
         sessionStorage.setItem('kingdoms',JSON.stringify(kingdoms));
     }
 
     if(!sessionStorage.getItem('rarities')){
+        let rarities = await getRaritiesList('FR');
         sessionStorage.setItem('rarities',JSON.stringify(rarities));
     }
 
     if(!sessionStorage.getItem('extensions')){
+        let extensions = await getExtensionsList('FR');
         sessionStorage.setItem('extensions',JSON.stringify(extensions));
     }
    
