@@ -1,4 +1,5 @@
 import React,{useState, useEffect, useRef} from 'react';
+import {useHistory} from 'react-router-dom';
 import { BsPencil } from 'react-icons/bs';
 
 /* api */
@@ -15,6 +16,8 @@ import Loader from '../components/Loader';
 import regexModule  from '../modules/regex';
 
 const ProfileForm = (props) => {
+
+    let history = useHistory();
 
     /*States */
     const [userInfos,setUserInfos] = useState({
@@ -206,7 +209,7 @@ const ProfileForm = (props) => {
         Object.keys(userInfos.message).map(elmt => {
             form.append(elmt, userInfos.message[elmt]);
         });
-        console.log(userInfos);
+
         let response = await updateProfile(form);
 
         if(response.code === 200){
@@ -238,7 +241,14 @@ const ProfileForm = (props) => {
         if(test === true){
             response = await deleteProfile();
             if(response.code === 200){
-                setUserInfos(response)
+                setFlashState(true);
+                setFlashMessage(response.message);
+                setTimeout(() => {
+                    history.push('/login');
+                },750);
+            }else{
+                setFlashState(false);
+                setFlashMessage(response.message); 
             }
         }else{
             alert("Ouff ...");
