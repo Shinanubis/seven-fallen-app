@@ -177,7 +177,7 @@ const ProfileForm = (props) => {
                 break;
 
             case 'avatar' :
-                e.preventDefault();
+                console.log("avatar changed")
                 if(e.target.files.length > 1){
                     alert("Can send only one file");
                 }
