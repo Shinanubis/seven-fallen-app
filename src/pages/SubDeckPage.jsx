@@ -8,6 +8,7 @@ import { getHolyBookCards } from '../api/HolyBook';
 import { getSubdeckCards } from '../api/CardsWareHouse';
 
 /* components */
+import CardsList from '../components/CardList';
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
 import { AiFillCloseCircle } from 'react-icons/ai';
@@ -99,6 +100,9 @@ function SubDeckPage(props){
                                 </Link>
                             </div>
                             <div className="empty__container column justify-center">
+                                <CardsList>
+
+                                </CardsList>
                                 <Button 
                                     text={`add cards to ${endUrl}`} 
                                     onClick={handleClick}

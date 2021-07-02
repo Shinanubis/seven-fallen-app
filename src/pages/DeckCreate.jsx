@@ -98,11 +98,7 @@ const DeckCreate = (props) => {
         }
         return true;
     }
-
-    useEffect(() => {
-        console.log(subdecks);
-    },[subdecks]);
-
+    
     useEffect(async () => {
         let eden = await getEden(id);
         let register = await getRegister(id);
