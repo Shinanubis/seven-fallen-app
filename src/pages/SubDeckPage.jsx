@@ -99,10 +99,13 @@ function SubDeckPage(props){
                                     <AiOutlineArrowLeft className="arrow mr-2"/>
                                 </Link>
                             </div>
-                            <div className="empty__container column justify-center">
-                                <CardsList>
 
-                                </CardsList>
+                            <div className="empty__container column justify-center">
+                                <List classes="list__content layout layout__1">
+                                    <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
+                                            Empty 
+                                    </p>
+                                </List>
                                 <Button 
                                     text={`add cards to ${endUrl}`} 
                                     onClick={handleClick}
