@@ -182,6 +182,7 @@ const ProfileForm = (props) => {
                 break;
 
             case 'avatar' :
+
                 if(e.target.files.length > 1){
                     alert("Can send only one file");
                 }
@@ -193,6 +194,7 @@ const ProfileForm = (props) => {
                 if(e.target.files[0].type !== "image/png" && e.target.files[0].type !== "image/jpeg"){
                     alert("bad file type should be png or jpg");
                 }
+                 
                 let form = new FormData();     
                 form.append('avatar', e.target.files[0]);
                 setAvatarForm(form);
@@ -250,7 +252,7 @@ const ProfileForm = (props) => {
                 setFlashMessage(response.message); 
             }
         }else{
-            alert("Ouff ...");
+            alert("Welcome back");
         }
 
         return true;
