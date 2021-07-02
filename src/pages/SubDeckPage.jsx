@@ -16,6 +16,7 @@ import {AiOutlineArrowLeft} from 'react-icons/ai';
 import Button from '../components/Button';
 import PopupContainer from '../components/PopupContainer';
 import List from '../components/List';
+import Plus from '../components/Plus';
 
 /* layouts */
 import Main from '../layouts/Main';
