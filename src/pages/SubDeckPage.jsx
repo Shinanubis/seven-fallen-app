@@ -99,18 +99,15 @@ function SubDeckPage(props){
                                     <AiOutlineArrowLeft className="arrow mr-2"/>
                                 </Link>
                             </div>
-
-                            <div className="empty__container column justify-center">
-                                <List classes="list__content layout layout__1">
-                                    <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
-                                            Empty 
-                                    </p>
-                                </List>
-                                <Button 
-                                    text={`add cards to ${endUrl}`} 
-                                    onClick={handleClick}
-                                />
-                            </div>
+                            <List classes="list__content layout layout__1">
+                                <p style ={{color: "black",marginTop:"auto",marginBottom:"auto"}}>
+                                        Empty 
+                                </p>
+                            </List>
+                            <Button 
+                                text={`add cards to ${endUrl}`} 
+                                onClick={handleClick}
+                            />
                             <PopupContainer 
                                 classes="subdeck column align-center popup__container py-5 d-none" 
                                 ref={popupRef}
