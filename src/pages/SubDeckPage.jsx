@@ -105,10 +105,7 @@ function SubDeckPage(props){
                                         Empty 
                                 </p>
                             </List>
-                            <Button 
-                                text={`add cards to ${endUrl}`} 
-                                onClick={handleClick}
-                            />
+                            <Plus to={`/decks/${id}/${endUrl}/modify`}/>
                             <PopupContainer 
                                 classes="subdeck column align-center popup__container py-5 d-none" 
                                 ref={popupRef}

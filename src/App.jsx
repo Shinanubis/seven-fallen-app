@@ -37,6 +37,7 @@ import SubDeckPage from './pages/SubDeckPage';
 //Utilities import
 import VhInPixels from './utilities/VhInPixels';
 import { getRaritiesList, getTypesList, getKingdomsList, getCapacitiesList, getExtensionsList, getSubdeckCards, getClassesList } from './api/CardsWareHouse';
+import AddingSubDecksCardsPage from './pages/AddingSubDecksPage';
 
 function App() {
 
@@ -102,14 +103,32 @@ function App() {
     {
         exact:true,
         strict: true,
+        path:'/decks/:id/eden/modify',
+        component: AddingSubDecksCardsPage
+    },
+    {
+        exact:true,
+        strict: true,
         path:'/decks/:id/register',
         component: SubDeckPage
     },
     {
         exact:true,
         strict: true,
+        path:'/decks/:id/register/modify',
+        component: AddingSubDecksCardsPage
+    },
+    {
+        exact:true,
+        strict: true,
         path:'/decks/:id/holybook',
         component: SubDeckPage
+    },
+    {
+        exact:true,
+        strict: true,
+        path:'/decks/:id/holybook/modify',
+        component: AddingSubDecksCardsPage
     },
     {
         exact:true,
