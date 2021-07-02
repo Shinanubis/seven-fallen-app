@@ -4,7 +4,7 @@ import Card from './Card'
 const List = (props) => {
     const {data} = props;
     
-    return (
+    return data instanceof Array && data.length > 0 ? (
         <ul className="layout layout__3 mb-5">
             {
                 data.map(elmt => {
@@ -13,6 +13,12 @@ const List = (props) => {
                     )
                 }
             )}
+        </ul>
+    )
+    :
+    (
+        <ul>
+
         </ul>
     )
 }
