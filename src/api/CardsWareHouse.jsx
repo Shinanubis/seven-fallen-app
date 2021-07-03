@@ -97,6 +97,7 @@ async function getEdenCards(page,count,lang){
     url.searchParams.append('card_count', count);
     url.searchParams.append('page', page);
     let response = await fetch(url,settings);
+    console.log(response)
     let datas = await response.json();
     return datas;
 }
