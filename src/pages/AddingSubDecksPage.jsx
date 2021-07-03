@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, lazy} from 'react';
 
 import {getEdenCards} from '../api/CardsWareHouse';
 
@@ -8,6 +8,8 @@ import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
 import List from '../components/List';
 import Filters from '../components/Filters';
+import Toolbar from '../components/Toolbar';
+import {FiPlus, FiMinus} from 'react-icons/fi';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -21,8 +23,24 @@ function AddingSubDecksCardsPage(props) {
         message: ''
     });
 
+    const toolBarList = {
+        Plus: {
+            id : "add",
+            component : <FiPlus className="toolbar__plus"/> 
+        },
+        Minus: {
+            id: "remove",
+            component : <FiMinus className="toolbar__minus"/>
+        }
+    }
+
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
+    }
+
+    const handleToolbarList = (e) => {
+        e.preventDefault();
+        console.log(e.target.id)
     }
 
     useEffect(() => {
@@ -47,6 +65,11 @@ function AddingSubDecksCardsPage(props) {
                                     src={process.env.REACT_APP_CARDS_STATIC + '/' + elmt.image_path } 
                                     alt="card"
                                     loading="lazy"
+                                />
+                                <Toolbar 
+                                    classes="toolbar column" 
+                                    toolsList={toolBarList} 
+                                    onClick={handleToolbarList} 
                                 />
                             </li>
                         )
