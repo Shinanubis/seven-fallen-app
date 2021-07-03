@@ -46,7 +46,7 @@ function AddingSubDecksCardsPage(props) {
                                     alt="card"
                                     loading="lazy"
                                 />
-                                <iframe loading="lazy" />
+                                <iframe src="content.html" loading="lazy" />
                             </li>
                         )
                     })
