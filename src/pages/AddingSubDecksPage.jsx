@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout';
 import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
-import List from '../components/CardList';
+import List from '../components/List';
 
 function AddingSubDecksCardsPage(props) {
     const [loaded, setLoaded] = useState(false);
@@ -33,9 +33,9 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Layout>
-            <List>
-
-            </ List>
+            <List classes="layout layout__3">
+                
+            </List>
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
