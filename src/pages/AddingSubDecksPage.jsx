@@ -40,9 +40,12 @@ function AddingSubDecksCardsPage(props) {
                     cardsResponse.message[1].map(elmt => {
                         return (
                             <li className="card__container">
-                                <a href={process.env.REACT_APP_CARDS_STATIC + '/' + elmt.image_path }>
-                                    <img className="card__image" src={process.env.REACT_APP_CARDS_STATIC + '/' + elmt.image_path }/>
-                                </a>
+                                <img 
+                                    className="card__image" 
+                                    src={process.env.REACT_APP_CARDS_STATIC + '/' + elmt.image_path } 
+                                    alt="card"
+                                    loading="lazy"
+                                />
                             </li>
                         )
                     })
