@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri'
 
 function AddingSubDecksCardsPage(props) {
-    const [loaded, setLoaded] = useState(true);
+    const [loaded, setLoaded] = useState(false);
     const [cardsResponse, setCardsResponse] = useState({
         code: '',
         message: ''
