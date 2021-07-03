@@ -26,7 +26,7 @@ function AddingSubDecksCardsPage(props) {
     },[cardsResponse]);
 
     useEffect(async () => {
-        let response = await getEdenCards(1,250,'FR');
+        let response = await getEdenCards(1,20,'FR');
         setCardsResponse(response);
 
     },[]);
@@ -34,7 +34,7 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Layout>
             <List classes="layout layout__3">
-                
+
             </List>
             <Flash 
                 classes="message__flash" 
