@@ -8,6 +8,7 @@ function Toolbar(props) {
               toolsList ? 
                 Object.keys((elmt, index) => {
                     let NewComponent = elmt[index].component;
+                    console.log(elmt)
                     return (
                        <NewComponent key ={index} id={elmt[index].id}/>  
                     )
