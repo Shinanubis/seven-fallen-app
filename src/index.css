@@ -167,6 +167,7 @@ code {
   height: 5rem;
   background-color: #151515;
   opacity: .90;
+  border-top-right-radius: 4px;
 }
 
 .toolbar__icon{
