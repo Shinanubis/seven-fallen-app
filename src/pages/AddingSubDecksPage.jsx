@@ -8,10 +8,16 @@ import {RiLoader3Line} from 'react-icons/ri'
 
 function AddingSubDecksCardsPage(props) {
     const [loaded, setLoaded] = useState(true);
+    const [cardsResponse, setCardsResponse] = useState({
+        code: '',
+        message: ''
+    });
 
     useEffect(async () => {
-        let response = await getEdenCards(1,20,'FR');
-        console.log(response);
+        let response = await getEdenCards(1,250,'FR');
+        if(response.status === 200){
+            console.log(response.status)
+        }
     },[]);
 
     return loaded === true ? (
