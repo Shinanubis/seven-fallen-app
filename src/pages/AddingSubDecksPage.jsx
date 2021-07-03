@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
 import List from '../components/List';
+import Filters from '../components/Filters';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -35,6 +36,7 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Layout>
+            <Filters />
             <List classes="subdeck list__content layout layout__1">
                 {
                     cardsResponse.message[1].map(elmt => {
