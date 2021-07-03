@@ -85,7 +85,7 @@ async function getCapacitiesList(lang){
     return datas;
 }
 
-async function getEdenCards(lang){
+async function getEdenCards(count,lang){
     let settings = {
         method:'GET',
         headers: {
@@ -94,6 +94,7 @@ async function getEdenCards(lang){
     }
     let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
     url.searchParams.append('types', [4,2,1,9]);
+    url.searchParams.append('card_count', count);
     let response = await fetch(url,settings);
     let datas = await response.json();
     return datas;
