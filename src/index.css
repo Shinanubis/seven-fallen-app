@@ -172,6 +172,7 @@ code {
 .toolbar__icon{
   font-size: 1.5rem;
   color: rgb(59, 231, 59);
+  cursor: pointer;
 }
 
 .page{

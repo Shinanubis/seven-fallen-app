@@ -67,7 +67,7 @@ function AddingSubDecksCardsPage(props) {
                                     loading="lazy"
                                 />
                                 <Toolbar 
-                                    classes="toolbar column justify-around" 
+                                    classes="toolbar column justify-around m-2" 
                                     toolsList={toolBarList} 
                                     onClick={handleToolbarList} 
                                 />
