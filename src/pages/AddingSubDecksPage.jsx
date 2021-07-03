@@ -25,7 +25,7 @@ function AddingSubDecksCardsPage(props) {
         </Layout>
     )
     :
-    <Loader condition={true} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />
+    <Loader condition={cardsResponse.code === 200} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />
 }
 
 export default AddingSubDecksCardsPage;
