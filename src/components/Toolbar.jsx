@@ -5,7 +5,7 @@ function Toolbar(props) {
     return (
         <div className={classes ? classes : "toolbar"} onClick = {onClick}>
            {
-              console.log(Object.values(toolsList))
+              console.log(toolsList)
            } 
         </div>
     )
