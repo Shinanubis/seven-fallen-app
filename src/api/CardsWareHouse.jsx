@@ -85,8 +85,7 @@ async function getCapacitiesList(lang){
     return datas;
 }
 
-async function getSubdeckCards(options, lang){
-
+async function getEdenCards(lang){
     let settings = {
         method:'GET',
         headers: {
@@ -94,22 +93,10 @@ async function getSubdeckCards(options, lang){
         }
     }
     let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
-    Object.keys(options).map(elmt => {
-        if(elmt === 'name'){
-            url.searchParams.append('name', options[elmt]);
-        }
-
-        if(elmt === 'page'){
-            url.searchParams.append('page', options[elmt]);
-        }
-
-        if(elmt === 'card_count'){
-            url.searchParams.append('card_count', options[elmt]);
-        }
-    })
+    url.searchParams.append('types', [4,2,1,9]);
     let response = await fetch(url,settings);
     let datas = await response.json();
     return datas;
 }
 
-export { getSubdeckCards, getTypesList, getRaritiesList, getKingdomsList, getExtensionsList, getClassesList, getCapacitiesList };
+export { getEdenCards, getTypesList, getRaritiesList, getKingdomsList, getExtensionsList, getClassesList, getCapacitiesList };

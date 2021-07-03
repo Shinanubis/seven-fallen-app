@@ -5,10 +5,8 @@ import { useParams, Link } from 'react-router-dom';
 import { getEdenCards } from '../api/Eden';
 import { getRegisterCards } from '../api/Register';
 import { getHolyBookCards } from '../api/HolyBook';
-import { getSubdeckCards } from '../api/CardsWareHouse';
 
 /* components */
-import CardsList from '../components/CardList';
 import Loader  from '../components/Loader';
 import { RiLoader3Line } from 'react-icons/ri';
 import { AiFillCloseCircle } from 'react-icons/ai';
