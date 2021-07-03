@@ -5,16 +5,7 @@ function Toolbar(props) {
     return (
         <div className={classes ? classes : "toolbar"} onClick = {onClick}>
            {
-              toolsList ? 
-                Object.keys((elmt, index) => {
-                    let NewComponent = elmt[index].component;
-                    console.log(elmt)
-                    return (
-                       <NewComponent key ={index} id={elmt[index].id}/>  
-                    )
-                })
-              :
-                null
+             console.log(toolsList)
            } 
         </div>
     )

@@ -43,10 +43,6 @@ function AddingSubDecksCardsPage(props) {
         console.log(e.target.id)
     }
 
-    useEffect(() => {
-        console.log(cardsResponse)
-    },[cardsResponse]);
-
     useEffect(async () => {
         let response = await getEdenCards(1,20,'FR');
         setCardsResponse(response);
