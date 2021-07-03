@@ -164,14 +164,14 @@ code {
   top: 0;
   right: 0;
   padding: .5rem;
-  height: 3rem;
+  height: 5rem;
   background-color: #151515;
-  opacity: .95;
+  opacity: .90;
 }
 
 .toolbar__icon{
   font-size: 1.5rem;
-  color:rgb(85, 90, 85);
+  color: rgb(59, 231, 59);
 }
 
 .page{
