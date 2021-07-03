@@ -15,8 +15,8 @@ function AddingSubDecksCardsPage(props) {
 
     useEffect(async () => {
         let response = await getEdenCards(1,250,'FR');
-        console.log(response)
-
+        setCardsResponse(response)
+        console.log(cardsResponse)
     },[]);
 
     return loaded === true ? (
