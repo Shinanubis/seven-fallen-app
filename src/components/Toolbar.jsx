@@ -7,9 +7,9 @@ function Toolbar(props) {
            {
               toolsList ? 
                 Object.keys((elmt, index) => {
-                    let NewComponent = elmt.component;
+                    let NewComponent = elmt[index].component;
                     return (
-                       <NewComponent key ={index} id={elmt.id}/>  
+                       <NewComponent key ={index} id={elmt[index].id}/>  
                     )
                 })
               :
