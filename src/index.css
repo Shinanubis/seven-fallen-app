@@ -159,6 +159,12 @@ code {
   font-size: 1.25rem;
 }
 
+.toolbar{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .page{
   display:block;
   display: -webkit-flex;
