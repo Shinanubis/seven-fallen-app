@@ -17,8 +17,8 @@ function AddingSubDecksCardsPage(props) {
         message: ''
     });
 
-    const handleFlash = () => {
-        return true;
+    const handleFlash = (newFlashState) => {
+        setFlashState(newFlashState);
     }
 
     useEffect(() => {
