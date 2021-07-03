@@ -166,11 +166,12 @@ code {
   padding: .5rem;
   height: 3rem;
   background-color: #151515;
+  opacity: .95;
 }
 
 .toolbar__icon{
   font-size: 1.5rem;
-  color:rgb(59, 231, 59);
+  color:rgb(85, 90, 85);
 }
 
 .page{
