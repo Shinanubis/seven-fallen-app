@@ -176,6 +176,10 @@ code {
   cursor: pointer;
 }
 
+.toolbar__icon path{
+  pointer-events: none;
+}
+
 .page{
   display:block;
   display: -webkit-flex;
