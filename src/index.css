@@ -163,7 +163,12 @@ code {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 2rem;
+  padding: .5rem;
+  height: 3rem;
+}
+
+.toolbar__icon{
+  font-size: 1.5rem;
 }
 
 .page{
