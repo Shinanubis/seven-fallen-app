@@ -4,14 +4,22 @@ import {getEdenCards} from '../api/CardsWareHouse';
 
 import Layout from '../layouts/Layout';
 import Loader from '../components/Loader';
-import {RiLoader3Line} from 'react-icons/ri'
+import {RiLoader3Line} from 'react-icons/ri';
+import Flash from '../components/Flash';
+import List from '../components/CardList';
 
 function AddingSubDecksCardsPage(props) {
     const [loaded, setLoaded] = useState(false);
+    const [flashMessage, setFlashMessage] = useState(null);
+    const [flashState, setFlashState] = useState(null);
     const [cardsResponse, setCardsResponse] = useState({
         code: '',
         message: ''
     });
+
+    const handleFlash = () => {
+        return true;
+    }
 
     useEffect(() => {
         console.log(cardsResponse)
@@ -19,12 +27,24 @@ function AddingSubDecksCardsPage(props) {
 
     useEffect(async () => {
         let response = await getEdenCards(1,250,'FR');
-        setCardsResponse(response)
+        setCardsResponse(response);
+
     },[]);
 
     return loaded === true ? (
         <Layout>
-            
+            <List>
+
+            </ List>
+            <Flash 
+                classes="message__flash" 
+                errorClass="message__flash-error" 
+                successClass="message__flash-done" 
+                message={flashMessage ? flashMessage : "flash message"}
+                timing={750}
+                flash={flashState}
+                handleFlash= {handleFlash}
+            />
         </Layout>
     )
     :

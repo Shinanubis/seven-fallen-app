@@ -392,14 +392,14 @@ const ProfileForm = (props) => {
                         <Button classes="btn" text="delete" bgcolor='#ff5d5d' color='#202020' onClick={handleDeleteClick}/>  
                 </form>
                 <Flash 
-                            classes="message__flash" 
-                            errorClass="message__flash-error" 
-                            successClass="message__flash-done" 
-                            message={flashMessage ? flashMessage : "flash message"}
-                            timing={750}
-                            flash={flashState}
-                            handleFlash= {handleFlash}
-                        />
+                    classes="message__flash" 
+                    errorClass="message__flash-error" 
+                    successClass="message__flash-done" 
+                    message={flashMessage ? flashMessage : "flash message"}
+                    timing={750}
+                    flash={flashState}
+                    handleFlash= {handleFlash}
+                />
             </Main>
     )
     :
