@@ -13,8 +13,8 @@ function AddingSubDecksCardsPage(props) {
         message: ''
     });
 
-    useEffect(async () => {
-        let response = await getEdenCards(1,250,'FR').then(response => console.log(response.status));
+    useEffect(() => {
+        let response = getEdenCards(1,250,'FR').then(response => console.log(response.status));
         
 
     },[]);
