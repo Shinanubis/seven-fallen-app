@@ -176,7 +176,7 @@ code {
   cursor: pointer;
 }
 
-.toolbar__icon svg{
+svg path{
   pointer-events: none;
 }
 
