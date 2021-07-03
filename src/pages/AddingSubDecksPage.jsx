@@ -26,11 +26,11 @@ function AddingSubDecksCardsPage(props) {
     const toolBarList = {
         Plus: {
             id : "add",
-            component : <FiPlus className="toolbar__plus"/> 
+            component : () => <FiPlus className="toolbar__plus"/> 
         },
         Minus: {
             id: "remove",
-            component : <FiMinus className="toolbar__minus"/>
+            component : () => <FiMinus className="toolbar__minus"/>
         }
     }
 
