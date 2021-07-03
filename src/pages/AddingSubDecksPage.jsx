@@ -9,7 +9,7 @@ import Flash from '../components/Flash';
 import List from '../components/List';
 
 import dotenv from 'dotenv';
-dotenv();
+dotenv.config();
 
 function AddingSubDecksCardsPage(props) {
     const [loaded, setLoaded] = useState(false);
