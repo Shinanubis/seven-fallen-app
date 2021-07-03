@@ -8,6 +8,9 @@ import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
 import List from '../components/List';
 
+import dotenv from 'dotenv';
+dotenv();
+
 function AddingSubDecksCardsPage(props) {
     const [loaded, setLoaded] = useState(false);
     const [flashMessage, setFlashMessage] = useState(null);
@@ -28,13 +31,20 @@ function AddingSubDecksCardsPage(props) {
     useEffect(async () => {
         let response = await getEdenCards(1,20,'FR');
         setCardsResponse(response);
-
     },[]);
 
     return loaded === true ? (
         <Layout>
-            <List classes="layout layout__3">
-
+            <List classes="list__content layout layout__3">
+                {
+                    cardsResponse.message[1].map(elmt => {
+                        return (
+                            <li className="card__container">
+                                <img className="card__image" src={process.env.REACT_APP_CARDS_STATIC + '/' + elmt.image_path }/>
+                            </li>
+                        )
+                    })
+                }
             </List>
             <Flash 
                 classes="message__flash" 
