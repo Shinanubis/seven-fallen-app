@@ -35,7 +35,7 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Layout>
-            <List classes="list__content layout layout__3">
+            <List classes="list__content layout layout__1">
                 {
                     cardsResponse.message[1].map(elmt => {
                         return (
