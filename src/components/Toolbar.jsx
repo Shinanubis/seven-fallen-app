@@ -8,9 +8,7 @@ function Toolbar(props) {
              toolsList ? 
                 Object.keys(toolsList).map(elmt => {
                     let NewComponent = toolsList[elmt].component;
-                    return (
-                        <NewComponent />
-                    )
+                    console.log(NewComponent)
                 })
             :
             null
