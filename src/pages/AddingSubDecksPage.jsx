@@ -9,7 +9,7 @@ import Flash from '../components/Flash';
 import List from '../components/List';
 import Filters from '../components/Filters';
 import Toolbar from '../components/Toolbar';
-import {FiPlus, FiMinus} from 'react-icons/fi';
+import {FiPlus, FiMinus, FiTrash} from 'react-icons/fi';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -34,7 +34,7 @@ function AddingSubDecksCardsPage(props) {
         },
         Trash: {
             id: "remove-all",
-            component : () => <FiMinus className="toolbar__icon"/>
+            component : () => <FiTrash className="toolbar__icon"/>
         }
     }
 
