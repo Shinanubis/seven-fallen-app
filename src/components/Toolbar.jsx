@@ -9,8 +9,8 @@ function Toolbar(props) {
                 Object.keys(toolsList).map((elmt, index) => {
                     let NewComponent = toolsList[elmt].component;
                     return (
-                        <div className="toolbar__icon">
-                            <NewComponent key={index} id={toolsList[elmt].id} />
+                        <div className="toolbar__icon" key={index} id={toolsList[elmt].id} >
+                            <NewComponent />
                         </div>
                         )
                 })
