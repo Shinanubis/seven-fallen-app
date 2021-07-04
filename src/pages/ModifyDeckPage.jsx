@@ -197,15 +197,15 @@ function ModifyDeckPage(props){
                             <ul id="kingdoms__list" className="column">
                                 {
                                     options.map(elmt => ( 
-                                            <li key={elmt[0]} className="row justify-between">
-                                                <label className="form__label" htmlFor={elmt[0]}>{elmt[1]}</label>
+                                            <li key={elmt.id} className="row justify-between">
+                                                <label className="form__label" htmlFor={elmt.id}>{elmt.name}</label>
                                                 <input 
-                                                       id={elmt[0]} 
+                                                       id={elmt.id} 
                                                        className="form__checkbox" 
                                                        type="checkbox" 
                                                        name="kingdoms"
-                                                       checked ={ deckInfos.kingdom && deckInfos.kingdom.includes(elmt[0])}
-                                                       value={elmt[0]}
+                                                       checked ={ deckInfos.kingdom && deckInfos.kingdom.includes(elmt.id)}
+                                                       value={elmt.id}
                                                 />
                                             </li> 
                                         )
