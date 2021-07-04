@@ -149,6 +149,10 @@ function ModifyDeckPage(props){
         }
     }, [deckInfos.deck_name]);
 
+    useEffect(() => {
+        console.log(edenCards)
+    }, [edenCards])
+
     useEffect(async () => {
         let res = await getOne(id);
         let eden = await getEdenCards(id);
