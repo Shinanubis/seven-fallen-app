@@ -127,7 +127,7 @@ function ModifyDeckPage(props){
         setFormOpen(!formOpen);
         window.document.body.scrollIntoView({
             behavior: 'smooth',
-            block: "end"
+            block: "start"
         });
     }
 
