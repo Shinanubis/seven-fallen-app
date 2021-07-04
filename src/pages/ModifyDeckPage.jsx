@@ -43,6 +43,7 @@ function ModifyDeckPage(props){
     });
     /* refs */
     let formRef = useRef();
+    let pageRef = useRef();
 
     /* handling functions */
     const handleFlash = (newFlashState) => {
@@ -126,7 +127,10 @@ function ModifyDeckPage(props){
         e.preventDefault();
         setFormOpen(!formOpen);
         setTimeout(() => {
-            document.body.scroll(0,600);
+            pageRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            })
         }, 250)
     }
 
@@ -190,7 +194,7 @@ function ModifyDeckPage(props){
     },[]);
 
     return (
-        <Main classes="page page__deck pt-6">
+        <Main ref={pageRef} classes="page page__deck pt-6">
             <div className="subdeck__box mb-2">
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">eden</h4>
