@@ -166,7 +166,7 @@ function ModifyDeckPage(props){
                 <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}>Subdeck <AiOutlineArrowRight className="arrow ml-2"/></Link>
             </div>
             <Button text="Infos" onClick={handleAppearForm}/>
-            <form ref={formRef} className="deck form" onChange={handleChange} onBlur={handleBlur}>
+            <form ref={formRef} className="deck form mt-2 mb-4" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <div className="form__option--block row">
