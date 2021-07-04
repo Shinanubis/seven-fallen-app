@@ -125,9 +125,9 @@ function ModifyDeckPage(props){
 
     useEffect(() => {
         if(formOpen === true){
-            formRef.current.classList.add("isOpen mt-2 mb-4");
+            formRef.current.classList.add("isOpen", "mt-2" ,"mb-4");
         }else{
-            formRef.current.classList.remove("isOpen mt-2 mb-4");
+            formRef.current.classList.remove("isOpen", "mt-2", "mb-4");
         }
     }, [formOpen]);
 
