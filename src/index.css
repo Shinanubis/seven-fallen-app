@@ -740,6 +740,7 @@ svg.dropdown__icon path{
   grid-template-columns: repeat(3,1fr);
   border: 1px solid black;
   grid-auto-rows: minmax(100px, auto);
+  gap:12px;
 }
 
 .one{
