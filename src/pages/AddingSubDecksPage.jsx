@@ -28,6 +28,10 @@ function AddingSubDecksCardsPage(props) {
             id: "remove",
             component : () => <FiMinus id="remove-one" className="toolbar__icon"/>
         },
+        Counter: {
+            id: "counter",
+            component: () => <p>X25</p>
+        },
         Plus: {
             id: "add",
             component : () => <FiPlus id="add-one" className="toolbar__icon"/> 
