@@ -209,12 +209,6 @@ function App() {
         <>
           <VhInPixels/>
           <Router basename="/">
-            <Header classes="header row justify-end">
-                <div className='header__inner--right row justify-between'>
-                    <Avatar />
-                    <Logout />
-                </div>
-            </Header>
               <Navigation pages={pages} />
             <Footer classes="footer">
               <Menu classes="navbar" />
