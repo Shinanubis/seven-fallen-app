@@ -166,19 +166,7 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">eden</h4>
                 </div>
                 <div className="subdeck__body p-2">
-                    <div className="one">
-
-                    </div>
-                    <div className="one">
-
-                    </div>
-                    <div className="one">
-
-                    </div>
-                    <div className="one">
-
-                    </div>
-                    <div className="one">
+                    <div className="card__thumnail--container">
 
                     </div>
                 </div>

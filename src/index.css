@@ -743,7 +743,7 @@ svg.dropdown__icon path{
   gap:12px;
 }
 
-.one{
+.card__thumbnail--container{
     background-color:var(--black)
 }
 
