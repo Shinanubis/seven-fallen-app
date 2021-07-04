@@ -737,13 +737,13 @@ svg.dropdown__icon path{
 
 .subdeck__body{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
   border: 1px solid var(--dark-grey);
 }
 
 .one{
-  grid-column: 1; 
+  grid-row: 1; 
 }
 
 .subdeck__type{
