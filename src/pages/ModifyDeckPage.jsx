@@ -32,9 +32,15 @@ function ModifyDeckPage(props){
     const [formOpen, setFormOpen] = useState(false);
     const deckName = useRef(null);
     let { id } = useParams();
-    const [edenCards, setEdenCards] = useState([]);
-    const [registerCards, setRegisterCards] = useState([]);
-    const [holybookCards, setHolyBookCards] = useState([]);
+    const [edenCards, setEdenCards] = useState({
+        cards: []
+    });
+    const [registerCards, setRegisterCards] = useState({
+        cards: []
+    });
+    const [holybookCards, setHolyBookCards] = useState({
+        cards: []
+    });
     /* refs */
     let formRef = useRef();
 
