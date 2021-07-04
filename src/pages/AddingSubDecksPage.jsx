@@ -31,7 +31,7 @@ function AddingSubDecksCardsPage(props) {
 
         Counter: {
             id: "counter",
-            component: () => <p id="counter" className="toolbar__icon">25</p>
+            component: () => <input id="counter" type="text" className="toolbar__icon" value="25" />
         },
 
         Minus: {
@@ -47,7 +47,7 @@ function AddingSubDecksCardsPage(props) {
 
     const handleToolbarList = (e) => {
         e.preventDefault();
-        console.log(e.target.id)
+        
     }
 
     useEffect(() => {
