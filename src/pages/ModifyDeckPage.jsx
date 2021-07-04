@@ -188,7 +188,7 @@ function ModifyDeckPage(props){
                 </div>
                 <div className="subdeck__body p-2">
                     {
-                        edenCards.cards.length === 0 ?
+                        edenCards.length === 0 ?
                             <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
                             :
                             null
