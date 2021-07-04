@@ -125,7 +125,7 @@ function ModifyDeckPage(props){
     const handleAppearForm = (e) => {
         e.preventDefault();
         setFormOpen(!formOpen);
-        window.document.body.scrollIntoView({
+        formRef.current.scrollIntoView({
             behavior: 'smooth',
             block: "start"
         });
