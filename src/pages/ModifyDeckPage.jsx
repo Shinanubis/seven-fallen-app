@@ -126,12 +126,11 @@ function ModifyDeckPage(props){
     const handleAppearForm = (e) => {
         e.preventDefault();
         setFormOpen(!formOpen);
-        setTimeout(() => {
-            pageRef.current.scrollIntoView({
-                behavior: "smooth",
-                block: "end"
-            })
-        }, 250)
+        formRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        })
+
     }
 
     useEffect(() => {
@@ -194,7 +193,7 @@ function ModifyDeckPage(props){
     },[]);
 
     return (
-        <Main ref={pageRef} classes="page page__deck pt-6">
+        <Main classes="page page__deck pt-6">
             <div className="subdeck__box mb-2">
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">eden</h4>
