@@ -14,7 +14,8 @@ import {FiPlus} from 'react-icons/fi'
 import regexModule from '../modules/regex';
 
 /* api*/
-import { updateOne,getOne } from'../api/Decks.jsx';
+import { updateOne, getOne } from'../api/Decks.jsx';
+import {getEdenCards } from '../api/Eden.jsx';
 
 /* utilities */
 import checkRegex from '../utilities/checkRegex';
@@ -144,13 +145,14 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(id);
+        let edenCards = await getEdenCards(id);
         if(res.code === 200){
             setDeckInfos(res.message);
         }else{
             setFlashState(false);
             setResponse(res);
         }
-        console.log(res)
+        console.log(edenCards)
     },[]);
 
     return (
