@@ -47,17 +47,7 @@ function AddingSubDecksCardsPage(props) {
 
     const handleToolbarList = (e) => {
         e.preventDefault();
-        if(e.target.id === 'add'){
-            console.log('add')
-        }
-
-        if(e.target.id === 'remove'){
-            console.log("remove one");
-        }
-
-        if(e.target.id === 'remove-all'){
-            console.log('remove all');
-        }
+        console.log(e.target.id)
     }
 
     useEffect(() => {
