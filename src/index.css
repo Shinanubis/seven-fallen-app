@@ -203,11 +203,7 @@ code {
 }
 
 .page__deck{
-  min-height: 100%;
-  width: 100%;
   background-color: var(--white);
-  margin-top: 2vh;
-  margin-bottom: 6vh;
 }
 
 .empty__container{
@@ -390,6 +386,12 @@ code {
   -moz-transition: all .500s ease;
   -ms-transition: all .500s ease;
   -o-transition: all .500s ease;
+}
+
+.deck__after--link{
+  position:absolute;
+  top:2vh;
+  right:10vw;
 }
 
 .deck.form.isOpen{
