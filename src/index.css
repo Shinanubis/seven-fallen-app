@@ -393,7 +393,7 @@ code {
 }
 
 .deck.form.isOpen{
-  height: 640px;
+  height: 624px;
   opacity: 1;
   transition: all .500s ease;
   -webkit-transition: all .500s ease;
