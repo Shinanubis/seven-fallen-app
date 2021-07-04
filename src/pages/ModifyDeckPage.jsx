@@ -8,7 +8,6 @@ import Main from '../layouts/Main';
 /* components */
 import Button from '../components/Button';
 import Flash from '../components/Flash';
-import {FiPlus} from 'react-icons/fi'
 
 /* modules */
 import regexModule from '../modules/regex';
@@ -22,6 +21,7 @@ import {getHolyBookCards } from '../api/holyBook.jsx';
 /* utilities */
 import checkRegex from '../utilities/checkRegex';
 import { serialize } from '../utilities/serialize';
+import AddCard from '../components/AddCard';
 
 function ModifyDeckPage(props){
     const [options, setOptions] = useState(JSON.parse(sessionStorage.getItem('kingdoms')));
@@ -174,9 +174,6 @@ function ModifyDeckPage(props){
             setHolyBookCards(holybook);
         }
 
-        console.log(edenCards)
-        console.log(registerCards)
-        console.log(holybookCards)
     },[]);
 
     return (
@@ -186,9 +183,7 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">eden</h4>
                 </div>
                 <div className="subdeck__body p-2">
-                    <div className="card__thumbnail--container dashed-border row justify-center align-center">
-                        <FiPlus />
-                    </div>
+
                 </div>
             </div>
             <div className="subdeck__box mb-5">
@@ -204,7 +199,12 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">holybook</h4>
                 </div>
                 <div className="subdeck__body">
-
+                    {
+                        edenCards.length === 0 ?
+                            <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
+                            :
+                            null
+                    }
                 </div>
             </div>
             <Button text="Infos" onClick={handleAppearForm}/>
