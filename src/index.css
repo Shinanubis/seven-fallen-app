@@ -743,7 +743,8 @@ svg.dropdown__icon path{
 }
 
 .one{
-  grid-row: 1; 
+  grid-row: 1;
+  height:112px; 
 }
 
 .subdeck__type{
