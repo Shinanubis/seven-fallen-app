@@ -126,7 +126,7 @@ function ModifyDeckPage(props){
         e.preventDefault();
         setFormOpen(!formOpen);
         setTimeout(() => {
-            formRef.current.scrollTo({
+            document.body.scrollTo({
                 bottom: 0
             });
         }, 250)
