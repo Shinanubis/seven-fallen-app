@@ -163,7 +163,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck">
-            <div className="row justify-end w-80">
+            <div className="row justify-end mb-6 w-80">
                 <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}>Subdeck <AiOutlineArrowRight className="arrow ml-2"/></Link>
             </div>
             <div className="subdeck__box mb-5">
