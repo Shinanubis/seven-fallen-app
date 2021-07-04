@@ -21,15 +21,7 @@ import checkRegex from '../utilities/checkRegex';
 import { serialize } from '../utilities/serialize';
 
 function ModifyDeckPage(props){
-    const options = [
-        [1, 'Poseidia'],
-        [2, 'Eondra'],
-        [3, 'Endless night'],
-        [4, 'MetaScience'],
-        [5, 'The light\'s temple'],
-        [6, 'Celestial purity'],
-        [7, 'The saber\'s way'],
-    ]
+    const [options, setOptions] = useState(JSON.parse(sessionStorage.getItem('kingdoms')));
     const optionsTitle = 'Kingdoms';
     const [deckInfos, setDeckInfos] = useState({});
     const [flashState, setFlashState] = useState(null);
@@ -158,6 +150,7 @@ function ModifyDeckPage(props){
             setFlashState(false);
             setResponse(res);
         }
+        console.log(options)
     },[]);
 
     return (
