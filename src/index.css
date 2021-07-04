@@ -739,10 +739,11 @@ svg.dropdown__icon path{
   display:grid;
   grid-template-columns: repeat(3,1fr);
   border: 1px solid black;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .one{
-  
+    background-color:var(--black)
 }
 
 .subdeck__type{
