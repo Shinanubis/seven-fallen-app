@@ -750,6 +750,11 @@ svg.dropdown__icon path{
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     color: var(--dark-grey);
+    font-size: 3vh;
+}
+
+.card__thumbnail--container svg {
+  pointer-events:none;
 }
 
 .subdeck__type{
