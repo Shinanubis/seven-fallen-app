@@ -1,13 +1,11 @@
 
 import {useEffect,useState, useRef} from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
 
 /* components */
-import {AiOutlineArrowRight,AiFillDelete} from 'react-icons/ai';
-import {GiStack} from 'react-icons/gi';
 import Button from '../components/Button';
 import Flash from '../components/Flash';
 
