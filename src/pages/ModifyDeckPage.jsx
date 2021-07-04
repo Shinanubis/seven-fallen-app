@@ -178,6 +178,9 @@ function ModifyDeckPage(props){
                     <div className="one">
 
                     </div>
+                    <div className="one">
+
+                    </div>
                 </div>
             </div>
             <div className="subdeck__box mb-5">
