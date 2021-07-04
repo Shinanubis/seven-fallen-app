@@ -8,7 +8,7 @@ import Main from '../layouts/Main';
 /* components */
 import Button from '../components/Button';
 import Flash from '../components/Flash';
-import Plus from '../components/Plus';
+import {FiPlus} from 'react-icons/fi'
 
 /* modules */
 import regexModule from '../modules/regex';
@@ -168,7 +168,7 @@ function ModifyDeckPage(props){
                 </div>
                 <div className="subdeck__body p-2">
                     <div className="card__thumbnail--container">
-                        <Plus />
+                        <FiPlus />
                     </div>
                 </div>
             </div>
