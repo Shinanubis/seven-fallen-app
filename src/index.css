@@ -25,6 +25,9 @@ html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input,form{
 
 html,
 body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 100vh;
 }
 
@@ -42,10 +45,7 @@ body {
 }
 
 #root{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
+  height: 100;
 }
 
 li{
