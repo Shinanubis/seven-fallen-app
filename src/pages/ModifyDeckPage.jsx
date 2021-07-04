@@ -6,7 +6,8 @@ import { useParams, Link } from "react-router-dom";
 import Main from '../layouts/Main';
 
 /* components */
-import {AiOutlineArrowRight} from 'react-icons/ai';
+import {AiOutlineArrowRight,AiFillDelete} from 'react-icons/ai';
+import {GiStack} from 'react-icons/gi';
 import Button from '../components/Button';
 import Flash from '../components/Flash';
 
@@ -164,6 +165,16 @@ function ModifyDeckPage(props){
         <Main classes="page page__deck">
             <div className="row justify-end w-80">
                 <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}>Subdeck <AiOutlineArrowRight className="arrow ml-2"/></Link>
+            </div>
+            <div className="subdeck__box mb-5">
+                <div className="subdeck__heading py-2">
+                    <h4 className="subdeck__type">eden</h4>
+                </div>
+                <div className="subdeck__body row justify-between p-2">
+                    <p className="subdeck__infos row align-center">
+                        Num cards : 52
+                    </p>s
+                </div>
             </div>
             <Button text="Infos" onClick={handleAppearForm}/>
             <form ref={formRef} className="deck form mt-2 mb-4" onChange={handleChange} onBlur={handleBlur}>
