@@ -124,7 +124,7 @@ function ModifyDeckPage(props){
 
         setTimeout(() => {
             setFormOpen(false);
-        }, 200)
+        }, 750)
     }
 
     const handleAppearForm = (e) => {
