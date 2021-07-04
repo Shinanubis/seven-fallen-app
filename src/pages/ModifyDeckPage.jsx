@@ -121,6 +121,10 @@ function ModifyDeckPage(props){
         }else{
             setFlashState(null)
         }
+
+        setTimeout(() => {
+            setFormOpen(false);
+        }, 200)
     }
 
     const handleAppearForm = (e) => {
