@@ -363,6 +363,8 @@ code {
   width: 100%;
 }
 
+
+
 .form{
   display: flex;
   flex-direction: column;
@@ -371,6 +373,12 @@ code {
   width:100%;
   padding:4vh 0 4vh 0rem;
   color:var(--dark-grey);
+}
+
+.deck.form{
+  height:0;
+  padding:0;
+  overflow-y: hidden;
 }
 
 .form--container{

@@ -34,8 +34,10 @@ function ModifyDeckPage(props){
     const [deckInfos, setDeckInfos] = useState({});
     const [flashState, setFlashState] = useState(null);
     const [response, setResponse] = useState('');
+    const [formOpen, setFormOpen] = useState(false);
     const deckName = useRef(null);
     let { id } = useParams();
+    let formRef = useRef();
 
     /* handling functions */
     const handleFlash = (newFlashState) => {
@@ -115,8 +117,20 @@ function ModifyDeckPage(props){
         }
     }
 
+    const handleAppearForm = (e) => {
+        e.preventDefault();
+        setFormOpen(!formOpen);
+    }
+
     useEffect(() => {
-        
+        if(formOpen === true){
+            formRef.current.classList.add("isOpen");
+        }else{
+            formRef.current.classsList.remove("isOpen");
+        }
+    }, [formOpen]);
+
+    useEffect(() => {   
         if(checkRegex(regexModule.regex_deck_name, deckName.current.value) === true){
             deckName.current.classList.add('good__input');
         }
@@ -151,8 +165,8 @@ function ModifyDeckPage(props){
             <div className="row justify-end w-80">
                 <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}>Subdeck <AiOutlineArrowRight className="arrow ml-2"/></Link>
             </div>
-            <Button text="Infos"/>
-            <form className="form" onChange={handleChange} onBlur={handleBlur}>
+            <Button text="Infos" onClick={handleAppearForm}/>
+            <form ref={formRef} className="deck form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
                     <div className="form__option--block row">
