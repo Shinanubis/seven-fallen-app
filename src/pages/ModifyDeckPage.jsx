@@ -126,7 +126,7 @@ function ModifyDeckPage(props){
         if(formOpen === true){
             formRef.current.classList.add("isOpen");
         }else{
-            formRef.current.classsList.remove("isOpen");
+            formRef.current.classList.remove("isOpen");
         }
     }, [formOpen]);
 
