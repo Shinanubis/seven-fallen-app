@@ -60,15 +60,15 @@ function AddingSubDecksCardsPage(props) {
         let response = ''; 
 
         if(endUrl === 'eden'){
-            response = await getEdenCards(1,50,'FR');
+            response = await getEdenCards(1,10,'FR');
         }
 
         if(endUrl === 'register'){
-            response = await getRegisterCards(1,50,'FR');
+            response = await getRegisterCards(1,10,'FR');
         }
 
         if(endUrl === 'holybook'){
-            response = await getHolyBookCards(1,50,'FR');
+            response = await getHolyBookCards(1,10,'FR');
         }
 
         setCardsResponse(response);
