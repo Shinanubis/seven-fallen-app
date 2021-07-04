@@ -380,21 +380,21 @@ code {
   padding:0;
   opacity: 0;
   overflow-y: hidden;
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
+  transition: all .500s ease;
+  -webkit-transition: all .500s ease;
+  -moz-transition: all .500s ease;
+  -ms-transition: all .500s ease;
+  -o-transition: all .500s ease;
 }
 
 .deck.form.isOpen{
   height: 600px;
   opacity: 1;
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
+  transition: all .500s ease;
+  -webkit-transition: all .500s ease;
+  -moz-transition: all .500s ease;
+  -ms-transition: all .500s ease;
+  -o-transition: all .500s ease;
 }
 
 .form--container{
