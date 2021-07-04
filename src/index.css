@@ -169,9 +169,15 @@ code {
   right: 0;
   padding: .5rem;
   height: 7rem;
+  width:40px;
   background-color: #151515;
   opacity: .90;
   border-top-right-radius: 4px;
+}
+
+input.toolbar__icon{
+  border:none;
+  background-color: transparent;
 }
 
 .toolbar__icon{
