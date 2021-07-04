@@ -19,7 +19,6 @@ import { updateOne,getOne } from'../api/Decks.jsx';
 /* utilities */
 import checkRegex from '../utilities/checkRegex';
 import { serialize } from '../utilities/serialize';
-import PopupContainer from '../components/PopupContainer';
 
 function ModifyDeckPage(props){
     const options = [
@@ -152,6 +151,7 @@ function ModifyDeckPage(props){
             <div className="row justify-end w-80">
                 <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}>Subdeck <AiOutlineArrowRight className="arrow ml-2"/></Link>
             </div>
+            <Button text="Infos"/>
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
