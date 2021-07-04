@@ -125,6 +125,7 @@ function ModifyDeckPage(props){
     const handleAppearForm = (e) => {
         e.preventDefault();
         setFormOpen(!formOpen);
+        window.scrollY(0)
     }
 
     useEffect(() => {
