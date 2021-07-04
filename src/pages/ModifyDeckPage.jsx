@@ -165,14 +165,14 @@ function ModifyDeckPage(props){
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">eden</h4>
                 </div>
-                <div className="subdeck__body">
-                    <div className=".one">
+                <div className="subdeck__body p-2">
+                    <div className="one">
 
                     </div>
-                    <div className=".one">
+                    <div className="one">
 
                     </div>
-                    <div className=".one">
+                    <div className="one">
 
                     </div>
                 </div>
