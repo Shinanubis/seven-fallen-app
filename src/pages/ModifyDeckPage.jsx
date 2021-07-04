@@ -126,8 +126,8 @@ function ModifyDeckPage(props){
         e.preventDefault();
         setFormOpen(!formOpen);
         setTimeout(() => {
-            document.body.scrollTo({
-                bottom: 0
+            document.body.scrollIntoView({
+                block:"end"
             });
         }, 250)
     }
