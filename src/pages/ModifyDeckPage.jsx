@@ -175,7 +175,7 @@ function ModifyDeckPage(props){
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">register</h4>
                 </div>
-                <div className="subdeck__body row justify-between p-2">
+                <div className="subdeck__body">
 
                 </div>
             </div>
@@ -183,7 +183,7 @@ function ModifyDeckPage(props){
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">holybook</h4>
                 </div>
-                <div className="subdeck__body row justify-between p-2">
+                <div className="subdeck__body">
 
                 </div>
             </div>
