@@ -742,6 +742,10 @@ svg.dropdown__icon path{
   border: 1px solid var(--dark-grey);
 }
 
+.one{
+   background-color: black;
+}
+
 .subdeck__type{
   color: var(--white);
   font-size: 4vw;
