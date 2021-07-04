@@ -1,6 +1,6 @@
 
 import {useEffect,useState, useRef} from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
@@ -206,9 +206,10 @@ function ModifyDeckPage(props){
                 <ul className="subdeck__body p-2">
                     {
                         edenCards.cards.length === 0 ?
-                            <Link className="card__thumbnail--container dashed-border row justify-center align-center" to={`/decks/${id}/eden`}>
-                                <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>                            
-                            </Link>
+                            <AddCard 
+                                classes="card__thumbnail--container dashed-border row justify-center align-center" 
+                                url={`/decks/${id}/eden`}
+                            />                            
                             :
                             null
                     }
@@ -221,7 +222,10 @@ function ModifyDeckPage(props){
                 <ul className="subdeck__body p-2">
                     {
                         registerCards.cards.length === 0 ?
-                            <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
+                            <AddCard 
+                                classes="card__thumbnail--container dashed-border row justify-center align-center" 
+                                url={`/decks/${id}/register`}
+                            />  
                             :
                             null
                     }
@@ -234,7 +238,10 @@ function ModifyDeckPage(props){
                 <ul className="subdeck__body p-2">
                     {
                         holybookCards.cards.length === 0 ?
-                            <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
+                            <AddCard 
+                                classes="card__thumbnail--container dashed-border row justify-center align-center"
+                                url={`/decks/${id}/holybook`}
+                            />
                             :
                             null
                     }

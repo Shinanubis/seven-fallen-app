@@ -93,24 +93,12 @@ function App() {
         exact:true,
         strict: true,
         path:'/decks/:id/register',
-        component: SubDeckPage
-    },
-    {
-        exact:true,
-        strict: true,
-        path:'/decks/:id/register/modify',
         component: AddingSubDecksCardsPage
     },
     {
         exact:true,
         strict: true,
         path:'/decks/:id/holybook',
-        component: SubDeckPage
-    },
-    {
-        exact:true,
-        strict: true,
-        path:'/decks/:id/holybook/modify',
         component: AddingSubDecksCardsPage
     },
     {

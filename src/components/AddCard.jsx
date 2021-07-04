@@ -1,11 +1,12 @@
 import {FiPlus} from 'react-icons/fi';
+import {Link} from 'react-router-dom';
 
 function AddCard(props) {
-    const {classes, onClick} = props;
+    const {classes, url} = props;
     return (
-            <div onClick={onClick}>
+            <Link className={classes ? classes : "card__thumbnail--container"} to={url}>
                 <FiPlus />
-            </div>
+            </Link>
     )
 }
 
