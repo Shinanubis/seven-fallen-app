@@ -293,8 +293,7 @@ code {
 .profile__page{
   display: block;
   width: 100%;
-  height: 90vh;
-  padding-bottom: 4vh;
+  margin-bottom: 6vh;
   overflow-y: scroll;
 } 
 
