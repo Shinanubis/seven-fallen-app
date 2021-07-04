@@ -67,7 +67,7 @@ function AddingSubDecksCardsPage(props) {
             response = await getRegisterCards(1,10,'FR');
         }
 
-        if(endUrl === 'holybooks'){
+        if(endUrl === 'holybook'){
             response = await getHolyBookCards(1,10,'FR');
         }
 
