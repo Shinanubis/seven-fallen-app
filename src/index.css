@@ -648,7 +648,7 @@ svg.dropdown__icon path{
 
 /* filters */
 .filter__container{
-  width: 90%;
+  width: 83%;
   color:var(--black);
   cursor: pointer;
   height: 4vh;

@@ -61,7 +61,7 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Layout>
-            <Filters containerClasses="filter__container row  justify-end w-80 mb-3" />
+            <Filters containerClasses="filter__container row  justify-end mb-3" />
             <List classes="subdeck list__content layout layout__1">
                 {
                     cardsResponse.message[1].map(elmt => {
