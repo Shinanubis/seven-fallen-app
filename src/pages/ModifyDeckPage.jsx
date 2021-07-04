@@ -126,10 +126,7 @@ function ModifyDeckPage(props){
         e.preventDefault();
         setFormOpen(!formOpen);
         setTimeout(() => {
-            document.body.scrollIntoView({
-                behavior: "smooth",
-                block:"end"
-            });
+            document.body.scroll(0,600);
         }, 250)
     }
 
