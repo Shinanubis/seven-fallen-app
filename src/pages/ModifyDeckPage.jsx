@@ -34,7 +34,7 @@ function ModifyDeckPage(props){
     let { id } = useParams();
     const [edenCards, setEdenCards] = useState([]);
     const [registerCards, setRegisterCards] = useState([]);
-    const [holyBookCards, setHolyBookCards] = useState([]);
+    const [holybookCards, setHolyBookCards] = useState([]);
     /* refs */
     let formRef = useRef();
 
@@ -174,6 +174,9 @@ function ModifyDeckPage(props){
             setHolyBookCards(holybook);
         }
 
+        console.log(edenCards)
+        console.log(registerCards)
+        console.log(holybookCards)
     },[]);
 
     return (
