@@ -192,7 +192,7 @@ function ModifyDeckPage(props){
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">eden</h4>
                 </div>
-                <div className="subdeck__body mb-2">
+                <div className="subdeck__body p-2">
                     {
                         edenCards.cards.length === 0 ?
                             <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
