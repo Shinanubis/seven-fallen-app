@@ -201,8 +201,8 @@ code {
   min-height: 100%;
   width: 100%;
   background-color: var(--white);
-  padding-top: 35vh;
-  padding-bottom: 12vh;
+  padding-top: 2vh;
+  padding-bottom: 5vh;
 }
 
 .empty__container{
