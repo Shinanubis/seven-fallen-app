@@ -167,7 +167,7 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">eden</h4>
                 </div>
                 <div className="subdeck__body p-2">
-                    <div className="card__thumbnail--container">
+                    <div className="card__thumbnail--container dashed-border row justify-center align-center">
                         <FiPlus />
                     </div>
                 </div>

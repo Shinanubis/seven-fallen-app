@@ -744,15 +744,12 @@ svg.dropdown__icon path{
 }
 
 .card__thumbnail--container{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed black;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    color: black;
 }
 
 .subdeck__type{
@@ -1222,6 +1219,10 @@ svg.dropdown__icon path{
 
 .w-100{
   width: 100%;
+}
+
+.dashed-border{
+  border: 2px dashed black;
 }
 
 .good__input,
