@@ -54,11 +54,6 @@ function App() {
     },
     {
         strict: true,
-        path:'/subscribe',
-        component: SubscribePage,
-    },
-    {
-        strict: true,
         path:'/profile',
         component: ProfilePage
     },
@@ -85,7 +80,7 @@ function App() {
     {
         exact: true,
         strict: true,
-        path: '/decks/:id/modify',
+        path: '/decks/:id',
         component: ModifyDeckPage
     },
     {
