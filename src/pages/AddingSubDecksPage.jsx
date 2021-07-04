@@ -31,10 +31,6 @@ function AddingSubDecksCardsPage(props) {
         Minus: {
             id: "remove",
             component : () => <FiMinus id="remove-one" className="toolbar__icon"/>
-        },
-        Trash: {
-            id: "remove-all",
-            component : () => <FiTrash id="remove-all" className="toolbar__icon"/>
         }
     }
 
