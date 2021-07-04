@@ -16,10 +16,6 @@ html{
   height: -webkit-fill-available;
 }
 
-html, body{
-  scrollbar-color: yellow blue !important;
-}
-
 html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input,form{
   margin:0;
   padding: 0;
@@ -1389,7 +1385,6 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-top:8vh;
   margin-bottom: 8vh;
 }
 
