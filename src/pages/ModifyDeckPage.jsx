@@ -16,6 +16,8 @@ import regexModule from '../modules/regex';
 /* api*/
 import { updateOne, getOne } from'../api/Decks.jsx';
 import {getEdenCards } from '../api/Eden.jsx';
+import {getRegisterCards } from '../api/Register.jsx';
+import {getHolyBookCards } from '../api/holyBook.jsx';
 
 /* utilities */
 import checkRegex from '../utilities/checkRegex';
@@ -30,6 +32,10 @@ function ModifyDeckPage(props){
     const [formOpen, setFormOpen] = useState(false);
     const deckName = useRef(null);
     let { id } = useParams();
+    const [edenCards, setEdenCards] = useState([]);
+    const [registerCards, setRegisterCards] = useState([]);
+    const [holyBookCards, setHolyBookCards] = useState([]);
+    /* refs */
     let formRef = useRef();
 
     /* handling functions */
@@ -145,14 +151,29 @@ function ModifyDeckPage(props){
 
     useEffect(async () => {
         let res = await getOne(id);
-        let edenCards = await getEdenCards(id);
+        let eden = await getEdenCards(id);
+        let register = await getRegisterCards(id);
+        let holybook = await getHolyBookCards(id);
+
         if(res.code === 200){
             setDeckInfos(res.message);
         }else{
             setFlashState(false);
             setResponse(res);
         }
-        console.log(edenCards)
+        
+        if(eden.code === 200){
+            setEdenCards(eden);
+        }
+
+        if(register.code === 200){
+            setRegisterCards(register);
+        }
+
+        if(holybook.code === 200){
+            setHolyBookCards(holybook);
+        }
+
     },[]);
 
     return (
