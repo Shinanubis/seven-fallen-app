@@ -53,7 +53,7 @@ const Deck = (props) => {
                 </div>
                 <div className="inner__right--actions">
                     <div className="action" onClick={(e) => handleClick(e, listState, id)}><AiFillCloseCircle/></div>
-                    <Link className="action" to={`/decks/${id}/modify`}><BsPencil/></Link>
+                    <Link className="action" to={`/decks/${id}`}><BsPencil/></Link>
                 </div>
             </div>
         </li>
