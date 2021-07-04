@@ -150,7 +150,7 @@ function ModifyDeckPage(props){
             setFlashState(false);
             setResponse(res);
         }
-        console.log(deckInfos)
+        console.log(res)
     },[]);
 
     return (
