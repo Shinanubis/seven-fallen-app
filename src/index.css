@@ -736,23 +736,13 @@ svg.dropdown__icon path{
 }
 
 .subdeck__body{
-  --n: 4;
   display:grid;
-  grid-template-columns: repeat(auto-fill,minmax(max( 200px, 100% / var(--n)),1fr));
+  grid-template-columns: repeat(3,1fr);
+  border: 1px solid black;
 }
 
 .one{
-  background: tomato;
-  padding: 5px;
-  height: 50px;
-  margin: 10px;
   
-  line-height: 50px;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-  box-sizing:border-box;
 }
 
 .subdeck__type{
