@@ -176,6 +176,26 @@ function ModifyDeckPage(props){
                     </p>s
                 </div>
             </div>
+            <div className="subdeck__box mb-5">
+                <div className="subdeck__heading py-2">
+                    <h4 className="subdeck__type">register</h4>
+                </div>
+                <div className="subdeck__body row justify-between p-2">
+                    <p className="subdeck__infos row align-center">
+                        Num cards : 52
+                    </p>s
+                </div>
+            </div>
+            <div className="subdeck__box mb-5">
+                <div className="subdeck__heading py-2">
+                    <h4 className="subdeck__type">holybook</h4>
+                </div>
+                <div className="subdeck__body row justify-between p-2">
+                    <p className="subdeck__infos row align-center">
+                        Num cards : 52
+                    </p>s
+                </div>
+            </div>
             <Button text="Infos" onClick={handleAppearForm}/>
             <form ref={formRef} className="deck form mt-2 mb-4" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
