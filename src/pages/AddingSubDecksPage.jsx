@@ -22,6 +22,8 @@ function AddingSubDecksCardsPage(props) {
         code: '',
         message: ''
     });
+    let endUrl = props.location.pathname.split('/');
+    endUrl = endUrl[endUrl.length - 1];
 
     const toolBarList = {
         Plus: {
@@ -56,7 +58,7 @@ function AddingSubDecksCardsPage(props) {
 
     useEffect(async () => {
         let response = await getEdenCards(1,10,'FR');
-        console.log(props)
+        console.log(endUrl)
         setCardsResponse(response);
     },[]);
 
