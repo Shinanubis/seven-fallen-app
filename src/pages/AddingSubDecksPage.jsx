@@ -44,11 +44,25 @@ function AddingSubDecksCardsPage(props) {
 
     const handleToolbarList = (e) => {
         e.preventDefault();
-        console.log(e.target.id)
+        if(e.target.id === 'add'){
+            console.log('add')
+        }
+
+        if(e.target.id === 'remove'){
+            console.log("remove one");
+        }
+
+        if(e.target.id === 'remove-all'){
+            console.log('remove all');
+        }
     }
 
+    useEffect(() => {
+        console.log(cardsResponse)
+    }, [cardsResponse])
+
     useEffect(async () => {
-        let response = await getEdenCards(1,20,'FR');
+        let response = await getEdenCards(1,300,'FR');
         setCardsResponse(response);
     },[]);
 
