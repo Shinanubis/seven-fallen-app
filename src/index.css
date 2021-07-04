@@ -737,17 +737,21 @@ svg.dropdown__icon path{
 
 .subdeck__body{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 10px;
-  border: 1px solid var(--dark-grey);
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill,minmax(max( 200px, 100% / var(--n)),1fr));
 }
 
 .one{
-  grid-row: 1;
-  height:112px;
-  background-color:black; 
+  background: tomato;
+  padding: 5px;
+  height: 50px;
+  margin: 10px;
+  
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  box-sizing:border-box;
 }
 
 .subdeck__type{
