@@ -751,6 +751,7 @@ svg.dropdown__icon path{
     -o-border-radius: 4px;
     color: var(--dark-grey);
     font-size: 3vh;
+    cursor:pointer;
 }
 
 .card__thumbnail--container svg {
