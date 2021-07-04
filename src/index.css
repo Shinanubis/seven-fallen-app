@@ -447,10 +447,6 @@ code {
   width: 80%;
 }
 
-.form--section:last-of-type{
-  margin-bottom:calc(2 * var(--vh));
-}
-
 .form__section--title{
   margin-bottom: .75rem;
   font-size: 2.75vh;
