@@ -156,7 +156,7 @@ function ModifyDeckPage(props){
     }, [deckInfos.deck_name]);
 
     useEffect(() => {
-        console.log(edenCards)
+        console.log(edenCards.cards.length === 0)
     }, [edenCards])
 
     useEffect(async () => {
