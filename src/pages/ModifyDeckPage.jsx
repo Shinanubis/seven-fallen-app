@@ -206,7 +206,12 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">register</h4>
                 </div>
                 <div className="subdeck__body">
-
+                    {
+                        registerCards.cards.length === 0 ?
+                            <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
+                            :
+                            null
+                    }
                 </div>
             </div>
             <div className="subdeck__box mb-5">
@@ -214,7 +219,12 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">holybook</h4>
                 </div>
                 <div className="subdeck__body">
-
+                    {
+                        holybookCards.cards.length === 0 ?
+                            <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
+                            :
+                            null
+                    }
                 </div>
             </div>
             <Button text="Infos" onClick={handleAppearForm}/>
