@@ -24,18 +24,21 @@ function AddingSubDecksCardsPage(props) {
     });
 
     const toolBarList = {
-        Minus: {
-            id: "remove",
-            component : () => <FiMinus id="remove-one" className="toolbar__icon"/>
+        Plus: {
+            id: "add",
+            component : () => <FiPlus id="add-one" className="toolbar__icon"/> 
         },
+
         Counter: {
             id: "counter",
             component: () => <p className="toolbar__icon">25</p>
         },
-        Plus: {
-            id: "add",
-            component : () => <FiPlus id="add-one" className="toolbar__icon"/> 
-        }
+
+        Minus: {
+            id: "remove",
+            component : () => <FiMinus id="remove-one" className="toolbar__icon"/>
+        },
+
     }
 
     const handleFlash = (newFlashState) => {
