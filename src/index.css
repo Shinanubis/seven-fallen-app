@@ -1385,7 +1385,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-bottom: 8vh;
+  margin-bottom: 5vh;
 }
 
 /* Media queries */
