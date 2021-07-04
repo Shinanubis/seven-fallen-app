@@ -168,9 +168,7 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">eden</h4>
                 </div>
                 <div className="subdeck__body row justify-between p-2">
-                    <p className="subdeck__infos row align-center">
-                        Num cards : 52
-                    </p>s
+
                 </div>
             </div>
             <div className="subdeck__box mb-5">
@@ -178,9 +176,7 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">register</h4>
                 </div>
                 <div className="subdeck__body row justify-between p-2">
-                    <p className="subdeck__infos row align-center">
-                        Num cards : 52
-                    </p>s
+
                 </div>
             </div>
             <div className="subdeck__box mb-5">
@@ -188,9 +184,7 @@ function ModifyDeckPage(props){
                     <h4 className="subdeck__type">holybook</h4>
                 </div>
                 <div className="subdeck__body row justify-between p-2">
-                    <p className="subdeck__infos row align-center">
-                        Num cards : 52
-                    </p>s
+
                 </div>
             </div>
             <Button text="Infos" onClick={handleAppearForm}/>
