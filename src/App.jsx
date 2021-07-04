@@ -86,19 +86,7 @@ function App() {
     {
         exact:true,
         strict: true,
-        path:'/decks/:id/subdecks',
-        component: DeckCreate
-    },
-    {
-        exact:true,
-        strict: true,
         path:'/decks/:id/eden',
-        component: SubDeckPage
-    },
-    {
-        exact:true,
-        strict: true,
-        path:'/decks/:id/eden/modify',
         component: AddingSubDecksCardsPage
     },
     {
