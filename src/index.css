@@ -203,6 +203,8 @@ code {
 }
 
 .page__deck{
+  display: flex;
+  align-items: center;
   background-color: var(--white);
 }
 
