@@ -1,6 +1,6 @@
 
 import {useEffect,useState, useRef} from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 /* layout parts */
 import Main from '../layouts/Main';
@@ -206,7 +206,9 @@ function ModifyDeckPage(props){
                 <ul className="subdeck__body p-2">
                     {
                         edenCards.cards.length === 0 ?
-                            <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>
+                            <Link to={`/decks/${id}/eden`}>
+                                <AddCard classes="card__thumbnail--container dashed-border row justify-center align-center"/>                            
+                            </Link>
                             :
                             null
                     }
