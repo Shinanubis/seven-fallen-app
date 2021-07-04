@@ -104,4 +104,52 @@ async function getEdenCards(page,count,lang){
     };
 }
 
-export { getEdenCards, getTypesList, getRaritiesList, getKingdomsList, getExtensionsList, getClassesList, getCapacitiesList };
+async function getRegisterCards(page,count,lang){
+    let settings = {
+        method:'GET',
+        headers: {
+            'Authorization': process.env.REACT_APP_TOKEN
+        }
+    }
+    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
+    url.searchParams.append('types', [8]);
+    url.searchParams.append('card_count', count);
+    url.searchParams.append('page', page);
+    let response = await fetch(url,settings);
+    let datas = await response.json();
+    return {
+        code: response.status,
+        message: datas
+    };
+}
+
+async function getHolyBookCards(page,count,lang){
+    let settings = {
+        method:'GET',
+        headers: {
+            'Authorization': process.env.REACT_APP_TOKEN
+        }
+    }
+    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
+    url.searchParams.append('types', [4,5,6,7,9]);
+    url.searchParams.append('card_count', count);
+    url.searchParams.append('page', page);
+    let response = await fetch(url,settings);
+    let datas = await response.json();
+    return {
+        code: response.status,
+        message: datas
+    };
+}
+
+export { 
+        getEdenCards,
+        getRegisterCards,
+        getHolyBookCards,
+        getTypesList, 
+        getRaritiesList, 
+        getKingdomsList, 
+        getExtensionsList, 
+        getClassesList, 
+        getCapacitiesList 
+    };

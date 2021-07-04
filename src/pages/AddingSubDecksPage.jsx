@@ -1,6 +1,6 @@
 import {useState, useEffect, lazy} from 'react';
 
-import {getEdenCards} from '../api/CardsWareHouse';
+import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
 
 import Layout from '../layouts/Layout';
 import Loader from '../components/Loader';
@@ -57,8 +57,20 @@ function AddingSubDecksCardsPage(props) {
     }, [cardsResponse])
 
     useEffect(async () => {
-        let response = await getEdenCards(1,10,'FR');
-        console.log(endUrl)
+        let response = ''; 
+
+        if(endUrl === 'eden'){
+            response = await getEdenCards(1,10,'FR');
+        }
+
+        if(endUrl === 'register'){
+            response = await getRegisterCards(1,10,'FR');
+        }
+
+        if(endUrl === 'holybooks'){
+            response = await getHolyBookCards(1,10,'FR');
+        }
+
         setCardsResponse(response);
     },[]);
 
