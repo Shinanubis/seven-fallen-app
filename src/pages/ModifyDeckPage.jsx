@@ -152,17 +152,6 @@ function ModifyDeckPage(props){
             <div className="row justify-end w-80">
                 <Link className="row justify-between align-center" to={`/decks/${id}/subdecks`}>Subdeck <AiOutlineArrowRight className="arrow ml-2"/></Link>
             </div>
-
-            <Flash 
-                classes="message__flash" 
-                errorClass="message__flash-error" 
-                successClass="message__flash-done" 
-                message={response.message ? response.message : "flash message"}
-                timing={750}
-                flash={flashState}
-                handleFlash={handleFlash}
-            />
-            <PopupContainer>
             <form className="form" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
                     <input id="deck_name" className="form--input mb-2" ref={deckName} type="text" placeholder="deck name" value={deckInfos.deck_name}/>
@@ -201,7 +190,15 @@ function ModifyDeckPage(props){
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
-            </PopupContainer>
+            <Flash 
+                classes="message__flash" 
+                errorClass="message__flash-error" 
+                successClass="message__flash-done" 
+                message={response.message ? response.message : "flash message"}
+                timing={750}
+                flash={flashState}
+                handleFlash={handleFlash}
+            />
         </Main>
     )
 }
