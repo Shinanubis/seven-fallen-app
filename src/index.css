@@ -744,7 +744,8 @@ svg.dropdown__icon path{
 
 .one{
   grid-row: 1;
-  height:112px; 
+  height:112px;
+  background-color:black; 
 }
 
 .subdeck__type{
