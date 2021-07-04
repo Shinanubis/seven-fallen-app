@@ -1,4 +1,5 @@
 import {useState, useEffect, lazy} from 'react';
+import useWindowSize from '../hooks/useWindowSize';
 
 import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
 
@@ -24,7 +25,7 @@ function AddingSubDecksCardsPage(props) {
     });
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
-
+    useWindowSize(window.innerWidth, window.innerHeight);
     const toolBarList = {
         Plus: {
             id: "add",
