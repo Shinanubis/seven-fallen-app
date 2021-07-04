@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 function AddCard(props) {
     const {classes, url} = props;
     return (
-        <li className={classes ? classes : "card__thumbnail--container"}>
-            <Link to={url}>
+        <li>
+            <Link className={classes ? classes : "card__thumbnail--container"} to={url}>
                 <FiPlus />
             </Link>
         </li>
