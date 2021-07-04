@@ -62,7 +62,7 @@ function AddingSubDecksCardsPage(props) {
     }, [cardsResponse])
 
     useEffect(async () => {
-        let response = await getEdenCards(1,300,'FR');
+        let response = await getEdenCards(1,10,'FR');
         setCardsResponse(response);
     },[]);
 
@@ -76,7 +76,7 @@ function AddingSubDecksCardsPage(props) {
                             <li className="card__container">
                                 <img 
                                     className="card__image" 
-                                    src={process.env.REACT_APP_CARDS_STATIC + '/' + elmt.image_path } 
+                                    src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path } 
                                     alt="card"
                                     loading="lazy"
                                 />
