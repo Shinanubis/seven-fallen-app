@@ -131,7 +131,7 @@ function ModifyDeckPage(props){
                 behavior: "smooth",
                 block: "end"
             })
-        }, 100)
+        }, 150)
     }
 
     useEffect(() => {
