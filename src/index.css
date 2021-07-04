@@ -395,7 +395,7 @@ code {
 }
 
 .deck.form.isOpen{
-  height: 624px;
+  height: 584px;
   opacity: 1;
   transition: all .500s ease;
   -webkit-transition: all .500s ease;
