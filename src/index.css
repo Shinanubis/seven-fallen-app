@@ -182,6 +182,10 @@ input.toolbar__icon{
   background-color: transparent;
 }
 
+input.toolbar__icon:focus{
+  color: rgb(59, 231, 59);
+}
+
 .toolbar__icon{
   font-size: 1.25rem;
   color: rgb(59, 231, 59);
