@@ -231,7 +231,7 @@ function ModifyDeckPage(props){
                         :
                         null
                     }
-                    <textarea id="description" className="form__textarea" placeholder="description" value={deckInfos.description}/>
+                    <textarea id="description" className="form__textarea mb-3" placeholder="description" value={deckInfos.description}/>
                 </div>
                 <Button onClick={handleClick} text="update" />
             </form>
