@@ -736,6 +736,7 @@ svg.dropdown__icon path{
 }
 
 .subdeck__body{
+  --n: 4;
   display:grid;
   grid-template-columns: repeat(auto-fill,minmax(max( 200px, 100% / var(--n)),1fr));
 }
