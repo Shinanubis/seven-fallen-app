@@ -112,7 +112,7 @@ async function getRegisterCards(page,count,lang){
         }
     }
     let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}`);
-    url.searchParams.append('types', 8);
+    url.searchParams.append('types', [8]);
     url.searchParams.append('card_count', count);
     url.searchParams.append('page', page);
     let response = await fetch(url,settings);
