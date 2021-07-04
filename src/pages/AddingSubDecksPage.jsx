@@ -31,7 +31,7 @@ function AddingSubDecksCardsPage(props) {
 
         Counter: {
             id: "counter",
-            component: () => <p className="toolbar__icon">25</p>
+            component: () => <p id="counter" className="toolbar__icon">25</p>
         },
 
         Minus: {
