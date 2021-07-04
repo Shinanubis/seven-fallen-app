@@ -126,11 +126,12 @@ function ModifyDeckPage(props){
     const handleAppearForm = (e) => {
         e.preventDefault();
         setFormOpen(!formOpen);
-        formRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "end"
-        })
-
+        setTimeout(() => {
+            formRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            })
+        }, 100)
     }
 
     useEffect(() => {
