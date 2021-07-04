@@ -744,7 +744,7 @@ svg.dropdown__icon path{
 }
 
 .card__thumbnail--container{
-    background-color:var(--black)
+    border: 2px dashed black;
 }
 
 .subdeck__type{
