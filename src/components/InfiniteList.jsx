@@ -11,7 +11,7 @@ function InfiniteList(props) {
 
     /*states*/
     const [isLoading, setIsLoading] = useState(true);
-
+     
     /*add ref to parent component*/
     let listRef = useRef();
 
@@ -22,6 +22,7 @@ function InfiniteList(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
+
         if(elmtBottom <= listBottom){
             setIsLoading(true);
         }else{
@@ -36,10 +37,12 @@ function InfiniteList(props) {
     },[]);
 
     return (
-        <ul ref={listRef} className="subdeck list__content layout layout__1">
-            {props.children}
+        <>
+            <ul ref={listRef} className="subdeck list__content layout layout__1">
+                {props.children}
+            </ul>
             {isLoading === true ? <h4 className="title"> loading ...</h4> : null}
-        </ul>
+        </>
     )
 }
 
