@@ -8,15 +8,12 @@ const withInfiniteScroll = Component => (props) => {
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
 
-    /*refs*/
-    let listRef = useRef(null);
-
-    useEffect(() => {
-        console.log(listRef)
-    }, [listRef.current])
+    const handleOnScroll = (e) => {
+        console.log(e.target)
+    }
 
     return (
-        <Component ref={listRef}>
+        <Component onScroll={handleOnScroll}>
             {props.children}
         </Component>
     )
