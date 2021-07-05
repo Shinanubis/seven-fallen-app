@@ -15,6 +15,7 @@ const withInfiniteScroll = Component => (props) => {
     let elmt = useRef();
 
     useEffect(() => {
+        console.log(elmt)
         window.addEventListener('scroll', handleScroll);
         return window.removeEventListener('scroll', handleScroll);
     },[]);
