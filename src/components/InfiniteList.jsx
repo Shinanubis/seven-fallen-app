@@ -10,7 +10,7 @@ function InfiniteList(props) {
     let elmtBottom = '';
 
     /*states*/
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     /*add ref to parent component*/
     let listRef = useRef();
@@ -22,13 +22,10 @@ function InfiniteList(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-    }
-
-    useEffect(() => {
         if(elmtBottom <= listBottom){
             setIsLoading(true);
         }
-    });
+    }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
