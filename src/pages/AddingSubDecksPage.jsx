@@ -57,6 +57,10 @@ function AddingSubDecksCardsPage(props) {
         console.log(cardsResponse)
     }, [cardsResponse])
 
+    useEffect(() => {
+        console.log(test)
+    }, [window.innerWidth]);
+
     useEffect(async () => {
         let response = ''; 
 
@@ -73,7 +77,6 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCardsResponse(response);
-        console.log(test)
     },[]);
 
     return loaded === true ? (
