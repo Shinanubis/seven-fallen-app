@@ -36,7 +36,7 @@ function InfiniteList(props) {
 
     useEffect(() => {
         console.log(Math.abs(size / numPerPage))
-        next(page + 1);
+
     },[isLoading]);
 
     useEffect(() => {
