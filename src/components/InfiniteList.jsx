@@ -24,6 +24,8 @@ function InfiniteList(props) {
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
         if(elmtBottom <= listBottom){
             setIsLoading(true);
+        }else{
+            setIsLoading(false);
         }
     }
 
