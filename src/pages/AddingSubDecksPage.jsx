@@ -85,9 +85,9 @@ function AddingSubDecksCardsPage(props) {
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
                     loader={<h4>loading...</h4>}
-                    next={getEdenCards(page + 1,10,'FR')}
+                    next={getEdenCards(page,10,'FR')}
                 >
-                    <p>{cardsResponse.message[1]}</p>
+                    {console.log(cardsResponse.message[1])}
                 </InfiniteScroll>
             </List>
             <Flash 
