@@ -79,7 +79,7 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
-            <InfiniteList>
+            <InfiniteList triggerIndex={7}>
                 {
                     cardsResponse.message[1].map(elmt => {
                         return(

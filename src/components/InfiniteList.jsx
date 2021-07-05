@@ -3,18 +3,22 @@ import List from "./List";
 
 function InfiniteList(props) {
 
+    const {triggerIndex} = props;
+
     const handleScroll = (e) => {
         console.log(e.target)
     }
 
+    let listRef = useRef();
+    let elmtRef = useRef();
+
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, true);
+        listRef.addEventListener('scroll', handleScroll, true);
         return window.removeEventListener('scroll', handleScroll) 
     });
 
     return (
-        <ul className="subdeck list__content layout layout__1">
-            {window.addEventListener('scroll', handleScroll)}
+        <ul ref={listRef} className="subdeck list__content layout layout__1">
             {props.children}
         </ul>
     )
