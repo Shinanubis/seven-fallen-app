@@ -47,7 +47,9 @@ function InfiniteList(props) {
         }
 
         setTimeout(() => {
-            elmtRef.current.scrollTo(0,0);
+            elmtRef.current.scrollIntoView({
+                block: "start"
+            });
         });
         
     },[isLoading]);
