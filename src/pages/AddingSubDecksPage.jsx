@@ -84,10 +84,17 @@ function AddingSubDecksCardsPage(props) {
                 <InfiniteScroll 
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
-                    loader={<h4>loading...</h4>}
+                    loader={<h4 className="title">loading...</h4>}
                     next={getEdenCards(page,10,'FR')}
+                    scrollableTarget="list"
                 >
-                    {console.log(cardsResponse.message[1])}
+                    {cardsResponse.message[1].map(elmt => {
+                        return (
+                            <li>
+                                <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
+                            </li>
+                        )
+                    })}
                 </InfiniteScroll>
             </List>
             <Flash 
