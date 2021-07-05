@@ -60,21 +60,6 @@ function AddingSubDecksCardsPage(props) {
     }, [cardsResponse])
 
     useEffect(async () => {
-        let response = '';
-        if(endUrl === 'eden'){
-            response = await getEdenCards(page,10,'FR');
-        }
-
-        if(endUrl === 'register'){
-            response = await getRegisterCards(page,10,'FR');
-        }
-
-        if(endUrl === 'holybook'){
-            response = await getHolyBookCards(page,10,'FR');
-        }
-    }, [page]);
-
-    useEffect(async () => {
         let response = ''; 
 
         if(endUrl === 'eden'){
