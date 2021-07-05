@@ -46,17 +46,14 @@ function InfiniteList(props) {
             next(1);
         }
 
-        setTimeout(() => {
-            elmtRef.current.scrollIntoView({
-                block: "start"
-            });
+        elmtRef.current.scrollTo({
+            top: 0
         });
         
     },[isLoading]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
-
         setIsLoading(false);
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
