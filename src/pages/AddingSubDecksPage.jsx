@@ -25,7 +25,7 @@ function AddingSubDecksCardsPage(props) {
     });
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
-    useWindowSize(window.innerWidth, window.innerHeight);
+    const test = useWindowSize(window.innerWidth, window.innerHeight);
     const toolBarList = {
         Plus: {
             id: "add",
@@ -73,6 +73,7 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCardsResponse(response);
+        console.log(test)
     },[]);
 
     return loaded === true ? (
