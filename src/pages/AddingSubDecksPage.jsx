@@ -83,7 +83,7 @@ function AddingSubDecksCardsPage(props) {
             <List className="subdeck list__content layout layout__1">
                 <InfiniteScroll 
                     dataLength={cardsResponse.message[1].length}
-                    hasMore={false}
+                    hasMore={true}
                     next={() => setPage(2)}
                     scrollableTarget="list"
                 >
