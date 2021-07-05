@@ -6,11 +6,12 @@ function InfiniteList(props) {
     const {triggerIndex , children} = props;
 
     /*add ref to child component*/
+    let listRef = useRef();
     let elmtRef = useRef();
     children[triggerIndex].ref = elmtRef; 
 
     const handleScroll = (e) => {
-        console.log(e.target.scrollHeight)
+        console.log(listRef.current.getBoundingClientRect())
         console.log(elmtRef.current.getBoundingClientRect())
     }
 
@@ -26,7 +27,7 @@ function InfiniteList(props) {
     }, []);
 
     return (
-        <ul className="subdeck list__content layout layout__1">
+        <ul ref={listRef} className="subdeck list__content layout layout__1">
             {props.children}
         </ul>
     )
