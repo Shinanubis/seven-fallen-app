@@ -29,11 +29,14 @@ function InfiniteList(props) {
 
         if(elmtBottom <= listBottom){
             setIsLoading(true);
-            next();
         }else{
             setIsLoading(false);
         }
     }
+
+    useEffect(() => {
+        next();
+    },[isLoading]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
