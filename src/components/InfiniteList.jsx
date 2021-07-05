@@ -36,7 +36,8 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        console.log(page)
+        console.log("result : ", result);
+        console.log("page : ", page);
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
