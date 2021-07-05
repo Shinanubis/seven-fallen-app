@@ -75,29 +75,20 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCardsResponse(response);
-        console.log(page)
     },[page]);
 
     return loaded === true ? (
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
             <List className="subdeck list__content layout layout__1">
-                <InfiniteScroll 
-                    dataLength={cardsResponse.message[0]}
-                    hasMore={true}
-                    loader={<h4 className="title">loading...</h4>}
-                    next={() => setPage(page + 1)}
-                >
-                    {cardsResponse.message[1].map(elmt => {
-                        return (
-                            <li>
-                                <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
-                            </li>
-                        )
-                    })}
-                
-                </InfiniteScroll>
-                </List>
+                {
+                    cardsResponse.message[1].map(elmt => {
+                        <li>
+                            <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
+                        </li>
+                    })
+                }
+            </List>
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
