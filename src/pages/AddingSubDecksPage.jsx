@@ -83,7 +83,7 @@ function AddingSubDecksCardsPage(props) {
             <Filters containerClasses="filter__container row  justify-end mb-3" />
             <List className="subdeck list__content layout layout__1">
                 <InfiniteScroll 
-                    dataLength={cardsResponse.message[1].length}
+                    dataLength={cardsResponse.message[0]}
                     hasMore={true}
                     loader={<h4 className="title">loading...</h4>}
                     next={() => setPage(page + 1)}
