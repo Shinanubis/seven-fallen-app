@@ -87,7 +87,6 @@ function AddingSubDecksCardsPage(props) {
                     hasMore={true}
                     loader={<h4 className="title">loading...</h4>}
                     next={() => setPage(page + 1)}
-                    scrollableTarget="list"
                 >
                     {cardsResponse.message[1].map(elmt => {
                         return (
