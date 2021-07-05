@@ -10,7 +10,7 @@ function InfiniteList(props) {
     children[triggerIndex].ref = elmtRef; 
 
     const handleScroll = (e) => {
-        console.log(elmtRef.current.scrollHeight)
+        console.log(elmtRef.current.scrollTop)
     }
 
     
