@@ -77,32 +77,14 @@ function AddingSubDecksCardsPage(props) {
         setCardsResponse(response);
     },[page]);
 
-    // useEffect(async () => {
-    //     let response = ''; 
-
-    //     if(endUrl === 'eden'){
-    //         response = await getEdenCards(page,10,'FR');
-    //     }
-
-    //     if(endUrl === 'register'){
-    //         response = await getRegisterCards(page,10,'FR');
-    //     }
-
-    //     if(endUrl === 'holybook'){
-    //         response = await getHolyBookCards(page,10,'FR');
-    //     }
-
-    //     setCardsResponse(response);
-    // },[]);
-
     return loaded === true ? (
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
-            <List classes="subdeck list__content layout layout__1">
+            <List>
                 <InfiniteScroll 
+                className="subdeck list__content layout layout__1"
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
-                    loader={<h4 className="title">loading...</h4>}
                     next={() => setPage(page + 1)}
                     scrollableTarget="list"
                 >
