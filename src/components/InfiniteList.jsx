@@ -2,7 +2,8 @@ import {useEffect, useRef, useState} from 'react';
 import LoaderGif from '../img/22-2.gif';
 
 function InfiniteList(props) {
-
+    /*constant*/
+    const MAX_PAGE = Math.trunc(size / numPerPage);
     /*catch props*/
     const {triggerIndex , children, next, page, size, numPerPage} = props;
 
@@ -35,14 +36,14 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        console.log(Math.abs(Math.trunc(size / numPerPage)))
+
 
     },[isLoading]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        console.log(page)
+        console.log(MAX_PAGE)
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
