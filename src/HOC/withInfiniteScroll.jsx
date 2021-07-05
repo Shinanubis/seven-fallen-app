@@ -10,12 +10,9 @@ const withInfiniteScroll = Component => (props) => {
 
     /*refs*/
     let listRef = useRef(null);
-    listRef.current.onscroll = function(e){
-        console.log(e.target)
-    }
 
     useEffect(() => {
-        
+        console.log(listRef)
     }, [])
 
     return (
