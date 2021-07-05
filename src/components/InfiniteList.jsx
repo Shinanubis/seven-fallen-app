@@ -1,7 +1,17 @@
+import {useEffect} from 'react';
 import List from "./List";
-import withInfiniteScroll from "../HOC/withInfiniteScroll";
 
 function InfiniteList(props) {
+
+    const handleScroll = (e) => {
+        console.log(e)
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return window.removeEventListener('scroll', handleScroll) 
+    },[]);
+
     return (
         <List classes="subdeck list__content layout layout__1">
             {props.children}
@@ -9,5 +19,4 @@ function InfiniteList(props) {
     )
 }
 
-InfiniteList = withInfiniteScroll(InfiniteList)
 export default InfiniteList;
