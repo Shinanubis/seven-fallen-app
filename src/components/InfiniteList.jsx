@@ -13,7 +13,7 @@ function InfiniteList(props) {
     let elmtRef = useRef();
 
     useEffect(() => {
-        listRef.addEventListener('scroll', handleScroll, true);
+        window.addEventListener('scroll', handleScroll, true);
         return window.removeEventListener('scroll', handleScroll) 
     });
 
