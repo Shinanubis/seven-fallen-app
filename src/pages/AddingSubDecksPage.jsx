@@ -59,7 +59,7 @@ function AddingSubDecksCardsPage(props) {
 
     useEffect(() => {
         console.log(test)
-    }, [window.innerWidth]);
+    }, [window.onresize]);
 
     useEffect(async () => {
         let response = ''; 
