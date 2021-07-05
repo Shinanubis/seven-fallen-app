@@ -82,9 +82,11 @@ function AddingSubDecksCardsPage(props) {
             <InfiniteList>
                 {
                     cardsResponse.message[1].map(elmt => {
-                        <li>
-                            <img src={elmt.image_path}/>
-                        </li>
+                        return(
+                            <li>
+                                <img src={elmt.image_path}/>
+                            </li>
+                        )
                     })
                 }
             </InfiniteList>
