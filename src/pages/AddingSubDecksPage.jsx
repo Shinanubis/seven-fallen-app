@@ -80,7 +80,13 @@ function AddingSubDecksCardsPage(props) {
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
             <InfiniteList>
-
+                {
+                    cardsResponse.message[1].map(elmt => {
+                        <li>
+                            <img src={elmt.image_path}/>
+                        </li>
+                    })
+                }
             </InfiniteList>
             <Flash 
                 classes="message__flash" 
