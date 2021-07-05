@@ -4,6 +4,7 @@ import List from "./List";
 function InfiniteList(props) {
 
     const {triggerIndex , children} = props;
+    let NewChildren = children[triggerIndex]; 
 
     const handleScroll = (e) => {
         console.log(e.target)
@@ -17,7 +18,7 @@ function InfiniteList(props) {
     });
 
     useEffect(() => {
-        console.log(children)
+        console.log(NewChildren)
     }, []);
 
     return (
