@@ -1,5 +1,4 @@
 import {useState, useEffect, lazy} from 'react';
-import useWindowSize from '../hooks/useWindowSize';
 
 import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
 
@@ -11,6 +10,7 @@ import List from '../components/List';
 import Filters from '../components/Filters';
 import Toolbar from '../components/Toolbar';
 import {FiPlus, FiMinus} from 'react-icons/fi';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -23,6 +23,8 @@ function AddingSubDecksCardsPage(props) {
         code: '',
         message: ''
     });
+    const [page, setPage] = useState(1);
+
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
 
@@ -61,15 +63,15 @@ function AddingSubDecksCardsPage(props) {
         let response = ''; 
 
         if(endUrl === 'eden'){
-            response = await getEdenCards(1,10,'FR');
+            response = await getEdenCards(page,10,'FR');
         }
 
         if(endUrl === 'register'){
-            response = await getRegisterCards(1,10,'FR');
+            response = await getRegisterCards(page,10,'FR');
         }
 
         if(endUrl === 'holybook'){
-            response = await getHolyBookCards(1,10,'FR');
+            response = await getHolyBookCards(page,10,'FR');
         }
 
         setCardsResponse(response);
@@ -79,25 +81,14 @@ function AddingSubDecksCardsPage(props) {
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
             <List classes="subdeck list__content layout layout__1">
-                {
-                    cardsResponse.message[1].map(elmt => {
-                        return (
-                            <li className="card__container">
-                                <img 
-                                    className="card__image" 
-                                    src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path } 
-                                    alt="card"
-                                    loading="lazy"
-                                />
-                                <Toolbar 
-                                    classes="toolbar column justify-between" 
-                                    toolsList={toolBarList} 
-                                    onClick={handleToolbarList} 
-                                />
-                            </li>
-                        )
-                    })
-                }
+                <InfiniteScroll 
+                    dataLength={cardsResponse.message[1].length}
+                    hasMore={true}
+                    loader={<h4>loading...</h4>}
+                    next={getEdenCards(setPage(page + 1),10,'FR')}
+                >
+                    <p>{cardsResponse.message[1]}</p>
+                </InfiniteScroll>
             </List>
             <Flash 
                 classes="message__flash" 
