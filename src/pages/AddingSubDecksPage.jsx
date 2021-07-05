@@ -60,6 +60,21 @@ function AddingSubDecksCardsPage(props) {
     }, [cardsResponse])
 
     useEffect(async () => {
+        let response = '';
+        if(endUrl === 'eden'){
+            response = await getEdenCards(page,10,'FR');
+        }
+
+        if(endUrl === 'register'){
+            response = await getRegisterCards(page,10,'FR');
+        }
+
+        if(endUrl === 'holybook'){
+            response = await getHolyBookCards(page,10,'FR');
+        }
+    }, [page]);
+
+    useEffect(async () => {
         let response = ''; 
 
         if(endUrl === 'eden'){
@@ -85,7 +100,7 @@ function AddingSubDecksCardsPage(props) {
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
                     loader={<h4 className="title">loading...</h4>}
-                    next={getEdenCards(page + 1,10,'FR')}
+                    next={setPage(page + 1)}
                     scrollableTarget="list"
                 >
                     {cardsResponse.message[1].map(elmt => {
