@@ -4,7 +4,7 @@ import List from "./List";
 function InfiniteList(props) {
 
     const handleScroll = (e) => {
-        console.log(e)
+        console.log(e.target)
     }
 
     useEffect(() => {
