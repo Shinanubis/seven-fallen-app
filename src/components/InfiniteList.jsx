@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useRef} from 'react';
 import List from "./List";
 
 function InfiniteList(props) {
@@ -13,7 +13,7 @@ function InfiniteList(props) {
     });
 
     return (
-        <ul classes="subdeck list__content layout layout__1">
+        <ul className="subdeck list__content layout layout__1">
             {window.addEventListener('scroll', handleScroll)}
             {props.children}
         </ul>
