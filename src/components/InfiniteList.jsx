@@ -42,7 +42,7 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        MAX_PAGE = Number(size) / Number(numPerPage);
+        MAX_PAGE = Math.trunc(Number(size) / Number(numPerPage));
         console.log(MAX_PAGE)
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
