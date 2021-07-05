@@ -83,7 +83,7 @@ function AddingSubDecksCardsPage(props) {
                 {
                     cardsResponse.message[1].map(elmt => {
                         return(
-                            <li>
+                            <li className="card__thumbnail--container">
                                 <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
                             </li>
                         )
