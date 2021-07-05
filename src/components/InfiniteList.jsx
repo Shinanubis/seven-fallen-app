@@ -39,7 +39,7 @@ function InfiniteList(props) {
         if((page + 1) <= MAX_PAGE){
             next(page + 1);
         }
-        console.log(page + 1 <= MAX_PAGE)
+        console.log(MAX_PAGE)
     },[isLoading]);
 
     useEffect(() => {
