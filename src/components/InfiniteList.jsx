@@ -18,8 +18,9 @@ function InfiniteList(props) {
     const handleScroll = (e) => {
         let listBottom = listRef.current.getBoundingClientRect().bottom;
         let elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-        console.log("listBottom : ", listBottom)
-        console.log("elmtBottom : ", elmtBottom)
+        if(elmtBottom <= listBottom){
+            window.removeEventListener('scroll', handleScroll);
+        }
     }
 
     
@@ -30,7 +31,7 @@ function InfiniteList(props) {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
-        return window.removeEventListener('scroll', handleScroll) 
+        return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
     return (
