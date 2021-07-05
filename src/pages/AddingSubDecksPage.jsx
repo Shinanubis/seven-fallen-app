@@ -83,9 +83,10 @@ function AddingSubDecksCardsPage(props) {
             <List className="subdeck list__content layout layout__1">
                 {
                     cardsResponse.message[1].map(elmt => {
+                        return (
                         <li>
                             <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
-                        </li>
+                        </li>)
                     })
                 }
             </List>
