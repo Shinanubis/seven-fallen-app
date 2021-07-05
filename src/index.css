@@ -822,6 +822,10 @@ svg.dropdown__icon path{
   -webkit-animation: loading 1s  linear infinite;
 }
 
+.loader__image{
+   height: 2vh;
+}
+
 /* Utilities */
 
 .d-none{

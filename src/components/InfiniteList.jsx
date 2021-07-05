@@ -42,10 +42,10 @@ function InfiniteList(props) {
 
     return (
         <>
-            <ul ref={listRef} className="subdeck list__content layout layout__1">
+            <ul ref={listRef} className="subdeck list__content layout layout__1 mb-2">
                 {props.children}
             </ul>
-            {isLoading === true ? <img src={LoaderGif}/> : null}
+            {isLoading === true ? <img className="loader__image" src={LoaderGif}/> : null}
         </>
     )
 }
