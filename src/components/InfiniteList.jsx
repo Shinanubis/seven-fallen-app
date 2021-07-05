@@ -1,12 +1,17 @@
-import {useEffect, useRef} from 'react';
-import List from "./List";
+import {useEffect, useRef, useState} from 'react';
 
 function InfiniteList(props) {
+
     /*catch props*/
     const {triggerIndex , children} = props;
 
-    /*add ref to child component*/
+    /*states*/
+    const [isLoading, setIsLoading] = useState(true);
+
+    /*add ref to parent component*/
     let listRef = useRef();
+
+    /*add ref to child component*/
     let elmtRef = useRef();
     children[triggerIndex].ref = elmtRef; 
 
@@ -20,18 +25,18 @@ function InfiniteList(props) {
     
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, true);
-        return window.removeEventListener('scroll', handleScroll) 
+
     });
 
     useEffect(() => {
-        console.log("List : ",listRef.current.getBoundingClientRect())
-        console.log("List elmt : " ,elmtRef.current.getBoundingClientRect())
-    }, []);
+        window.addEventListener('scroll', handleScroll, true);
+        return window.removeEventListener('scroll', handleScroll) 
+    },[]);
 
     return (
         <ul ref={listRef} className="subdeck list__content layout layout__1">
             {props.children}
+            {isLoading === true ? <h4 className="title"> loading ...</h4> : null}
         </ul>
     )
 }
