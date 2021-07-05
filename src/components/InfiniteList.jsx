@@ -30,6 +30,8 @@ function InfiniteList(props) {
         if(elmtBottom <= listBottom){
             setIsLoading(true);
             next();
+        }else{
+            setIsLoading(false);
         }
     }
 
