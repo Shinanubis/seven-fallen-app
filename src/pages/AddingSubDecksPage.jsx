@@ -2,7 +2,7 @@ import {useState, useEffect, lazy} from 'react';
 
 import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
 
-import Layout from '../layouts/Layout';
+import Main from '../layouts/Main';
 import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
@@ -77,7 +77,7 @@ function AddingSubDecksCardsPage(props) {
     },[page]);
 
     return loaded === true ? (
-        <Layout>
+        <Main classes="subdeck page">
             <Filters containerClasses="filter__container row  justify-end mb-3" />
             <InfiniteList triggerIndex={7} page={page} next={setPage} size={cardsResponse.message[0]} numPerPage={10}>
                 {
@@ -99,7 +99,7 @@ function AddingSubDecksCardsPage(props) {
                 flash={flashState}
                 handleFlash= {handleFlash}
             />
-        </Layout>
+        </Main>
     )
     :
     <Loader condition={cardsResponse.code === 200} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />

@@ -206,6 +206,10 @@ input.toolbar__icon:focus{
   text-align:center;
 }
 
+.subdeck.page{
+  justify-content: flex-start;
+}
+
 .page--container{
   position: relative;
   height: calc(65 * var(--vh));
