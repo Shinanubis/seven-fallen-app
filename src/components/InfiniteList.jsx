@@ -4,7 +4,7 @@ import LoaderGif from '../img/22-2.gif';
 function InfiniteList(props) {
 
     /*catch props*/
-    const {triggerIndex , children, next} = props;
+    const {triggerIndex , children, next, page} = props;
 
     /*variables*/
     let listBottom = '';
@@ -38,7 +38,7 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        console.log(next)
+        console.log(page)
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
