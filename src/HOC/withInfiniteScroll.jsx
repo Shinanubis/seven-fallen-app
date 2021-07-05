@@ -10,6 +10,7 @@ const withInfiniteScroll = Component => (props) => {
 
     const handleScroll = (e) => {
         console.log(e)
+        setPage(e)
     }
 
     let elmt = useRef();
@@ -18,7 +19,7 @@ const withInfiniteScroll = Component => (props) => {
         console.log(elmt)
         window.addEventListener('scroll', handleScroll);
         return window.removeEventListener('scroll', handleScroll);
-    },[]);
+    },[page]);
 
     return (
         <Component ref={elmt}>
