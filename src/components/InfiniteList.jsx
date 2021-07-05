@@ -39,10 +39,6 @@ function InfiniteList(props) {
     useEffect(() => {
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
-            elmtRef.current.scrollTo({
-                top: 0
-            });
-            
         }
 
         if(isLoading === true && page === MAX_PAGE){
