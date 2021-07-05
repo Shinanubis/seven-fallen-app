@@ -35,7 +35,7 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        next();
+        next(page + 1);
     },[isLoading]);
 
     useEffect(() => {
