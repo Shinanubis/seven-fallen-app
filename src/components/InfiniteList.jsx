@@ -20,14 +20,10 @@ function InfiniteList(props) {
         let elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
         if(elmtBottom <= listBottom){
             window.removeEventListener('scroll', handleScroll);
+        }else{
+            window.addEventListener('scroll', handleScroll, true);
         }
     }
-
-    
-
-    useEffect(() => {
-
-    });
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
