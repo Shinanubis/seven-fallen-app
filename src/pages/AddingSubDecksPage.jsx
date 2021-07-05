@@ -80,9 +80,8 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
-            <List>
+            <List className="subdeck list__content layout layout__1">
                 <InfiniteScroll 
-                className="subdeck list__content layout layout__1"
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
                     next={() => setPage(2)}
