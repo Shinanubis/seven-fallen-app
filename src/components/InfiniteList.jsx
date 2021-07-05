@@ -36,14 +36,15 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        
+        if(page + 1 <= MAX_PAGE){
+            next(page + 1);
+        }
     },[isLoading]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
-        setIsLoading(false);
         MAX_PAGE = Math.trunc(Number(size) / Number(numPerPage));
-        console.log(MAX_PAGE)
+        setIsLoading(false);
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
