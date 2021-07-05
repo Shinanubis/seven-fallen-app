@@ -2,8 +2,10 @@ import {useEffect, useRef} from 'react';
 import List from "./List";
 
 function InfiniteList(props) {
-
+    /*catch props*/
     const {triggerIndex , children} = props;
+
+    /*add ref to child component*/
     let elmtRef = useRef();
     children[triggerIndex].ref = elmtRef; 
 
@@ -19,7 +21,7 @@ function InfiniteList(props) {
     });
 
     useEffect(() => {
-        console.log(children)
+        console.log(elmtRef.current)
     }, []);
 
     return (
