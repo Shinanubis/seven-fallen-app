@@ -8,7 +8,7 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, true);
         return window.removeEventListener('scroll', handleScroll) 
     });
 
