@@ -84,6 +84,7 @@ function AddingSubDecksCardsPage(props) {
                 <InfiniteScroll 
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
+                    loader={<h4 className="title">loading...</h4>}
                     next={() => setPage(2)}
                     scrollableTarget="list"
                 >
