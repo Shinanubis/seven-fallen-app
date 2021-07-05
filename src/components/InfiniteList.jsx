@@ -11,8 +11,10 @@ function InfiniteList(props) {
     children[triggerIndex].ref = elmtRef; 
 
     const handleScroll = (e) => {
-        console.log("List : ",listRef.current.getBoundingClientRect())
-        console.log("List elmt : " , elmtRef.current.getBoundingClientRect())
+        let listBottom = listRef.current.getBoundingClientRect().bottom;
+        let elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
+        console.log("listBottom : ", listBottom)
+        console.log("elmtBottom : ", elmtBottom)
     }
 
     
