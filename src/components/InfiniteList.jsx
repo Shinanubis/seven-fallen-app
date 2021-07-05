@@ -12,7 +12,6 @@ function InfiniteList(props) {
 
     /*states*/
     const [isLoading, setIsLoading] = useState(true);
-    const [page, setPage] = useState(...next);
      
     /*add ref to parent component*/
     let listRef = useRef();
@@ -36,8 +35,7 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        console.log("result : ", result);
-        console.log("page : ", page);
+        console.log(next)
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
