@@ -10,7 +10,7 @@ function InfiniteList(props) {
     let elmtBottom = '';
 
     /*states*/
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     /*add ref to parent component*/
     let listRef = useRef();
