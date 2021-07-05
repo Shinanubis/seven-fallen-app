@@ -10,7 +10,7 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return window.removeEventListener('scroll', handleScroll) 
-    },[]);
+    });
 
     return (
         <ul classes="subdeck list__content layout layout__1">
