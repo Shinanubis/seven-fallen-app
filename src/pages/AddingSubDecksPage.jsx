@@ -75,6 +75,7 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCardsResponse(response);
+        console.log(page)
     },[page]);
 
     return loaded === true ? (
