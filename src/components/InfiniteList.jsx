@@ -23,7 +23,8 @@ function InfiniteList(props) {
     });
 
     useEffect(() => {
-        console.log(elmtRef.current)
+        console.log(listRef.current.getBoundingClientRect())
+        console.log(elmtRef.current.getBoundingClientRect())
     }, []);
 
     return (
