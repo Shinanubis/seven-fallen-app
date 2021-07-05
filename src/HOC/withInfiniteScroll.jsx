@@ -2,7 +2,7 @@ import {useEffect, useState, useRef} from 'react';
 
 const withInfiniteScroll = Component => (props) => {
 
-    const { next } = props;
+    const { next, triggerIndex } = props;
 
     /*state*/
     const [page, setPage] = useState(1);
@@ -10,10 +10,12 @@ const withInfiniteScroll = Component => (props) => {
 
     /*refs*/
     let listRef = useRef(null);
-
+    listRef.current.onscroll = function(e){
+        console.log(e.target)
+    }
 
     useEffect(() => {
-        console.log(props.children)
+        
     }, [])
 
     return (
