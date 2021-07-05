@@ -4,7 +4,7 @@ import LoaderGif from '../img/22-2.gif';
 function InfiniteList(props) {
 
     /*catch props*/
-    const {triggerIndex , children, next, page} = props;
+    const {triggerIndex , children, next, page, size, numPerPage} = props;
 
     /*variables*/
     let listBottom = '';
@@ -35,6 +35,7 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
+        console.log(size / numPerPage)
         next(page + 1);
     },[isLoading]);
 
