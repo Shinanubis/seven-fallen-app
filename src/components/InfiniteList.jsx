@@ -36,10 +36,11 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        if((page + 1) <= MAX_PAGE){
+        if(isLoading === true){
+            console.log(MAX_PAGE)
             next(page + 1);
         }
-        console.log(MAX_PAGE)
+        
     },[isLoading]);
 
     useEffect(() => {
