@@ -36,14 +36,12 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-
-
+        console.log(MAX_PAGE)
     },[isLoading]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        console.log(MAX_PAGE)
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
