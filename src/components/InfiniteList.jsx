@@ -43,6 +43,7 @@ function InfiniteList(props) {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
         console.log(size)
+        console.log(numPerPage)
         return window.removeEventListener('scroll', handleScroll); 
     },[]);
 
