@@ -4,7 +4,7 @@ import LoaderGif from '../img/22-2.gif';
 function InfiniteList(props) {
 
     /*catch props*/
-    const {triggerIndex , children, next, result} = props;
+    const {triggerIndex , children, next} = props;
 
     /*variables*/
     let listBottom = '';
