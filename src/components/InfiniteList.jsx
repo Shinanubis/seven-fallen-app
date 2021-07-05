@@ -12,7 +12,7 @@ function InfiniteList(props) {
 
     /*states*/
     const [isLoading, setIsLoading] = useState(true);
-    const [page, setPage] = useState(next);
+    const [page, setPage] = useState(...next);
      
     /*add ref to parent component*/
     let listRef = useRef();
