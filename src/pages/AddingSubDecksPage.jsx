@@ -6,11 +6,10 @@ import Layout from '../layouts/Layout';
 import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
-import List from '../components/List';
 import Filters from '../components/Filters';
 import Toolbar from '../components/Toolbar';
 import {FiPlus, FiMinus} from 'react-icons/fi';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteList from '../components/InfiniteList';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -80,16 +79,9 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Layout>
             <Filters containerClasses="filter__container row  justify-end mb-3" />
-            <List className="subdeck list__content layout layout__1">
-                {
-                    cardsResponse.message[1].map(elmt => {
-                        return (
-                        <li>
-                            <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
-                        </li>)
-                    })
-                }
-            </List>
+            <InfiniteList>
+
+            </InfiniteList>
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
