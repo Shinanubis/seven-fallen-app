@@ -85,7 +85,7 @@ function AddingSubDecksCardsPage(props) {
                 className="subdeck list__content layout layout__1"
                     dataLength={cardsResponse.message[1].length}
                     hasMore={true}
-                    next={() => setPage(page + 1)}
+                    next={() => setPage(2)}
                     scrollableTarget="list"
                 >
                     {cardsResponse.message[1].map(elmt => {
