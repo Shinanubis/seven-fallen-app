@@ -13,9 +13,9 @@ function InfiniteList(props) {
     },[]);
 
     return (
-        <List classes="subdeck list__content layout layout__1">
+        <ul classes="subdeck list__content layout layout__1">
             {props.children}
-        </List>
+        </ul>
     )
 }
 
