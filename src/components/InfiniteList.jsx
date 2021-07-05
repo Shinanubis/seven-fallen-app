@@ -11,7 +11,7 @@ function InfiniteList(props) {
 
     const handleScroll = (e) => {
         console.log(e.target.scrollTop)
-        console.log(elmtRef.current.scrollTop)
+        console.log(elmtRef.current.getBoundingClientRect())
     }
 
     
