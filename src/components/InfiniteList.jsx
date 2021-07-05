@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
+import LoaderGif from '../img/22-2.gif';
 
 function InfiniteList(props) {
 
@@ -20,7 +21,10 @@ function InfiniteList(props) {
     children[triggerIndex].ref = elmtRef; 
 
     const handleScroll = (e) => {
+        /*catch the list bottom position in relation to the top of the window*/
         listBottom = listRef.current.getBoundingClientRect().bottom;
+
+        /*catch the targeted element's bottom position in relation to the top of the window*/
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
         if(elmtBottom <= listBottom){
