@@ -36,7 +36,7 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        if(page + 1 <= MAX_PAGE){
+        if((page + 1) <= MAX_PAGE){
             next(page + 1);
         }
     },[isLoading]);
