@@ -22,7 +22,7 @@ function InfiniteList(props) {
 
     /*add ref to child component*/
     let elmtRef = useRef();
-    children[newTriggerIndex] = elmtRef;
+    children[newTriggerIndex].ref = elmtRef;
 
     const handleScroll = (e) => {
         /*catch the list bottom position in relation to the top of the window*/
@@ -40,12 +40,6 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, true);   
-        setIsLoading(false);
-        return () => window.removeEventListener('scroll', handleScroll); 
-    }, []);
-
-    useEffect(() => {
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
         }
@@ -61,6 +55,12 @@ function InfiniteList(props) {
             return newDatas;
         });
     },[result]);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, true);   
+        setIsLoading(false);
+        return () => window.removeEventListener('scroll', handleScroll); 
+    }, []);
 
     return (
         <>
