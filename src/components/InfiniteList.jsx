@@ -16,7 +16,7 @@ function InfiniteList(props) {
     const [isLoading, setIsLoading] = useState(false);
 
     /*ref for concatenate array */
-    let arrayRef = useRef(children);
+    let arrayRef = useRef([...children]);
      
     /*add ref to parent component*/
     let listRef = useRef();
@@ -34,22 +34,22 @@ function InfiniteList(props) {
 
         if(elmtBottom <= listBottom){
             setIsLoading(true);
-            arrayRef.current = [...arrayRef, ...children]
         }else{
             setIsLoading(false);
         }
-        console.log(arrayRef)
+        
     }
 
     useEffect(() => {
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
+            arrayRef.current = [...arrayRef, ...children]
         }
 
         if(isLoading === true && page === MAX_PAGE){
             next(1);
         }
-        
+        console.log(arrayRef)
     },[isLoading]);
 
     useEffect(() => {
