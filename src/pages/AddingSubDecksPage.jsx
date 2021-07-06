@@ -51,10 +51,6 @@ function AddingSubDecksCardsPage(props) {
         setFlashState(newFlashState);
     }
 
-    useEffect(() => {
-        console.log(completeList)
-    }, [completeList])
-
     useEffect(async () => {
         let response = ''; 
 
@@ -79,7 +75,7 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            {cardsResponse.message[1].length === cardsResponse.message[0] ?
+            {cardsResponse.message[1].length - 1 === completeList.length ?
                 <h4 className="title">Empty</h4>
                 :
                 <InfiniteList 
