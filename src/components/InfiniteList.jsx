@@ -52,15 +52,8 @@ function InfiniteList(props) {
     useEffect(() => {
         if(page === 1){
             setDatas([...children]);
-        }
-        
-        if(page === 2){
-            setDatas(prevstate => {
-                let newState = [...prevstate, ...children];
-                newState.splice(0, size);
-                console.log(newState);
-                return newState;
-            })
+        }else{
+            setDatas([...datas, ...children]);
         }
 
     },[page]);
