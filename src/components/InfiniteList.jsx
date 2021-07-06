@@ -58,12 +58,12 @@ function InfiniteList(props) {
             console.log(newChildren);
             setDatas([...newDatas, ...newChildren]);
         }
-
     },[page]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
+        setDatas([...children]);
         return () => window.removeEventListener('scroll', handleScroll); 
     },[]);
 
