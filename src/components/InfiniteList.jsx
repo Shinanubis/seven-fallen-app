@@ -50,15 +50,14 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-
-        if(children.length > triggerIndex){
-            children[triggerIndex].ref = elmtRef;
-        }else if(children.length > 0){
+        
+        if(children.length > 0){
             children[children.length - 1] = elmtRef;
         }else{
-            console.log("I'm in else")
+            console.log("I'm in else");
+            return;
         }
-        
+
         setDatas(prevstate => {
             let newDatas = [...prevstate, ...children];
             return newDatas;
