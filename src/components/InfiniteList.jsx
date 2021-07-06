@@ -50,11 +50,11 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        if(children.length > size){
+        if(children.length > 0){
             let newChildren = [...children];
             newChildren.splice(0,10);
             setDatas(prevstate => {
-                let newState = [...prevstate, ...newChildren];
+                let newState = [...newChildren];
                 return newState;
             });
         }
