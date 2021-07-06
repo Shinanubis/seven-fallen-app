@@ -43,7 +43,7 @@ function InfiniteList(props) {
     useEffect(() => {
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
-            arrayRef.current = [...arrayRef, ...children]
+            arrayRef = [...arrayRef, ...children]
         }
 
         if(isLoading === true && page === MAX_PAGE){
