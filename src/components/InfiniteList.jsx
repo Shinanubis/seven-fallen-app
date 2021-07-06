@@ -60,9 +60,9 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        
         datas.push(...children);
-        
+        console.log(datas)
+        setIsLoading(false);
     },[result]);
 
     useEffect(() => {
