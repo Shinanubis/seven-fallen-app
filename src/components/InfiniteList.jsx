@@ -59,6 +59,14 @@ function InfiniteList(props) {
                     return newState;
             });
         }
+
+        return () => {
+            setDatas(prevstate => {
+                let newState = [...prevstate];
+                newState.slice(0,size);
+                return newState;
+            })
+        }
     },[children]);
 
     useEffect(() => {
