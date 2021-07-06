@@ -50,12 +50,11 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        
+        console.log(children.length)
         if(children.length > 0){
             children[children.length - 1] = elmtRef;
         }else{
             console.log("I'm in else");
-            return;
         }
 
         setDatas(prevstate => {
@@ -67,7 +66,6 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
-        console.log(MAX_PAGE)
         return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
