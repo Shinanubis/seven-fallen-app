@@ -54,7 +54,7 @@ function InfiniteList(props) {
             setDatas([...children]);
         }
         
-        if(page >= 2){
+        if(page === 2){
             setDatas(prevstate => {
                 let newState = [...prevstate, ...children];
                 newState.splice(0, size);
