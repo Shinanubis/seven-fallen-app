@@ -16,7 +16,7 @@ function InfiniteList(props) {
     const [isLoading, setIsLoading] = useState(false);
 
     /*ref for concatenate array */
-    let arrayRef = useRef(...children);
+    let arrayRef = useRef([...children]);
      
     /*add ref to parent component*/
     let listRef = useRef();
