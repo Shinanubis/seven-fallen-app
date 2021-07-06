@@ -38,14 +38,15 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        console.log("[]" , children.length)
+        if(children.length > 0){
+            console.log("children is greater than 0")
+        }
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
         return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
     useEffect(() => {
-        console.log("[loading] : ",children.length)
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
         }
@@ -57,7 +58,6 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        console.log("[result] : ",children.length)
         setDatas(prevstate => {
             let newDatas = [...prevstate, ...children];
             return newDatas;
