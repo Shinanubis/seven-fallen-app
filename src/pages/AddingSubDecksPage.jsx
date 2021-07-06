@@ -76,9 +76,6 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            {cardsResponse.message[0] - 1 < completeList.length ?
-                <h4 className="title">Empty</h4>
-                :
                 <InfiniteList 
                     triggerIndex={7} 
                     page={page} 
@@ -96,8 +93,7 @@ function AddingSubDecksCardsPage(props) {
                             )
                         })
                     }
-                </InfiniteList>
-            }    
+                </InfiniteList> 
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
