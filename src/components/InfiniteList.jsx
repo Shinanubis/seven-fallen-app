@@ -67,13 +67,13 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        return window.removeEventListener('scroll', handleScroll); 
+        return () => window.removeEventListener('scroll', handleScroll); 
     },[]);
 
     return (
         <>
             <ul ref={listRef} className="subdeck list__content layout layout__1 mb-2">
-                {datas}
+                {datas.slice(0,size)}
                 {isLoading === true ? <img className="loader__image my-4" src={LoaderGif}/> : null}
             </ul>
             
