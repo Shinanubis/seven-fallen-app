@@ -57,6 +57,7 @@ function InfiniteList(props) {
             let newChildren = [...children];
             if(datas.length === 30){
                 newChildren.splice(0,size);
+                console.log(newChildren)
             }
             console.log(newDatas)
             setDatas([...newDatas, ...newChildren]);
