@@ -34,6 +34,7 @@ function InfiniteList(props) {
 
         if(elmtBottom <= listBottom){
             setIsLoading(true);
+            arrayRef.current = [...arrayRef, ...children]
         }else{
             setIsLoading(false);
         }
