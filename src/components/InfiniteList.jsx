@@ -55,7 +55,9 @@ function InfiniteList(props) {
         }else{
             setDatas(prevstate => {
                 let newState = [...prevstate, ...children];
-                newState.splice(0,size)
+                if(page > 2){
+                    newState.splice(0,size)
+                }
                 console.log(newState)
                 return newState;
             });
