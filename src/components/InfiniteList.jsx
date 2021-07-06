@@ -51,7 +51,7 @@ function InfiniteList(props) {
 
     useEffect(() => {
         if(children.length > 0){
-            setDatas([...datas, ...children]);
+            setDatas([...children]);
         }
     },[children]);
 
