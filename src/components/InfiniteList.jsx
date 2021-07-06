@@ -49,9 +49,10 @@ function InfiniteList(props) {
 
     },[isLoading]);
 
-    useEffect(() => {  
-        console.log(children)
-    },[children]);
+    useEffect(() => {
+        console.log("Page : ",page)  
+        console.log("Children : ",children)
+    },[children,page]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
