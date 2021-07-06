@@ -40,10 +40,7 @@ function InfiniteList(props) {
     useEffect(() => {
         if(children.length === numPerPage){
             children[triggerIndex] = elmtRef;
-        }
-
-        if(children.length > 0 && children.length < numPerPage){
-            console.log("i'm smaller than numPerPage")
+        }else{
             children[children.length - 1] = elmtRef;
         }
 
