@@ -55,7 +55,7 @@ function InfiniteList(props) {
         }else{
             setDatas(prevstate => {
                 console.log(prevstate);
-                return prevstate;
+                return [...prevstate];
             })
         }
 
