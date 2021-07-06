@@ -21,7 +21,13 @@ function InfiniteList(props) {
 
     /*add ref to child component*/
     let elmtRef = useRef();
-    children[triggerIndex].ref = elmtRef;
+
+    if(children.length > triggerIndex){
+        children[triggerIndex].ref = elmtRef;
+    }else if(children.length > 0){
+        children[children.length - 1] = elmtRef;
+    }
+    
      
 
     const handleScroll = (e) => {
