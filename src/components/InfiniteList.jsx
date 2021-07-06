@@ -50,7 +50,7 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-
+        console.log(children);
     },[result]);
 
     useEffect(() => {
