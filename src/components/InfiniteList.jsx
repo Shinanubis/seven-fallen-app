@@ -26,6 +26,8 @@ function InfiniteList(props) {
         children[triggerIndex].ref = elmtRef;
     }else if(children.length > 0){
         children[children.length - 1] = elmtRef;
+    }else{
+        console.log("I'm in else")
     }
     
      
