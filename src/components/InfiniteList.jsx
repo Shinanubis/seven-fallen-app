@@ -54,7 +54,7 @@ function InfiniteList(props) {
             setDatas([...children]);
         }else{
             let newDatas = [...datas, ...children];
-            console.log(newDatas.length)
+            console.log(newDatas)
             setDatas([...newDatas]);
         }
 
