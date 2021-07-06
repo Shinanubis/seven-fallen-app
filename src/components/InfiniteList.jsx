@@ -50,27 +50,10 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        if(children.length > 0){
-            setDatas(prevstate => {
-                let newState = '';
-                newState = [...prevstate, ...children]     
-                    if(prevstate.length > size){ 
-                        newState.splice(0, size)
-                    }
-                    return newState;
-            });
-
+        if(page === 1){
+            setDatas([...children]);
         }
-
-            return () => {
-                setDatas(prevstate => {
-                    let newState = [...prevstate];
-                    newState.splice(0,size);
-                    return newState;
-                });
-            }
-
-    },[children]);
+    },[page]);
 
     useEffect(() => {
         console.log(datas)
