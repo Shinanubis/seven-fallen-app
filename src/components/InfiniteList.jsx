@@ -54,7 +54,6 @@ function InfiniteList(props) {
             setDatas(prevstate => {
                 let newState = '';
                     newState = [...prevstate];
-                    newState.splice(0, size);
                     console.log(newState);
                     return newState;
             });
