@@ -66,7 +66,6 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
-        console.log(MAX_PAGE)
         return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
