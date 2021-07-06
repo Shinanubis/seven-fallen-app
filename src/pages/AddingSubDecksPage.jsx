@@ -52,7 +52,7 @@ function AddingSubDecksCardsPage(props) {
     }
 
     useEffect(() => {
-
+        console.log(completeList)
     }, [completeList])
 
     useEffect(async () => {
@@ -69,7 +69,7 @@ function AddingSubDecksCardsPage(props) {
         if(endUrl === 'holybook'){
             response = await getHolyBookCards(page,10,'FR');
         }
-        
+
         if(response.message[1]){
             setCompleteList([...completeList,...response.message[1]]);
         }
@@ -78,7 +78,6 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Main classes="subdeck page">
-            {console.log(completeList)}
             <Filters containerClasses="filter__container row justify-end my-2" />
             {cardsResponse.message[1].length === cardsResponse.message[0] ?
                 <h4 className="title">Empty</h4>
