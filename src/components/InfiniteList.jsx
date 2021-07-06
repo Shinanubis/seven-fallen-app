@@ -40,6 +40,8 @@ const InfiniteList = (props,ref) => {
 
         if(elmtBottom < listBottom - 20){
             setIsLoading(true);
+        }else{
+            setIsLoading(false);
         }
         
     }
@@ -47,10 +49,6 @@ const InfiniteList = (props,ref) => {
     useEffect(() => {
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
-        }
-
-        if(isLoading === true && page === MAX_PAGE){
-            setIsLoading(false)
         }
 
     },[isLoading]);
