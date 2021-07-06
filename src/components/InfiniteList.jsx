@@ -55,6 +55,7 @@ function InfiniteList(props) {
                 let newState = '';
                 newState = [...children];     
                     if(prevstate.length > size){ 
+                        console.log(prevstate.length)
                         newState = [...prevstate, ...children]
                         newState.splice(0, size)
                     }
