@@ -53,7 +53,12 @@ function InfiniteList(props) {
         if(page === 1){
             setDatas([...children]);
         }else{
-            setDatas([...datas, ...children]);
+            setDatas(prevstate => {
+                let newState = [...prevstate, ...children];
+                newState.splice(0,size)
+                console.log(newState)
+                return newState;
+            });
         }
 
     },[page]);
