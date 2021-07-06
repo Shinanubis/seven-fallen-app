@@ -49,8 +49,13 @@ function InfiniteList(props) {
             next(1);
         }
         
-        arrayRef.current = [...arrayRef.current, ...children]
+        
     },[isLoading]);
+
+    useEffect(() => {
+        arrayRef.current = [...arrayRef.current, ...children]
+        console.log(arrayRef.current)
+    },[children]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
