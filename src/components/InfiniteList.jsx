@@ -67,6 +67,7 @@ function InfiniteList(props) {
                 setDatas(prevstate => {
                     let newState = [...prevstate];
                     newState.splice(0,size);
+                    return newState;
                 });
             }
         }
