@@ -78,7 +78,7 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Main classes="subdeck page">
-            <Filters containerClasses="filter__container row justify-end" />
+            <Filters containerClasses="filter__container row justify-end my-2" />
             <InfiniteList triggerIndex={7} page={page} next={setPage} size={cardsResponse.message[0]} numPerPage={10}>
                 {
                     cardsResponse.message[1].map(elmt => {
