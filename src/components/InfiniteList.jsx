@@ -42,8 +42,9 @@ function InfiniteList(props) {
             children[triggerIndex] = elmtRef;
         }
 
-        if(children.length < numPerPage){
+        if(children.length > 0 && children.length < numPerPage){
             console.log("i'm smaller than numPerPage")
+            children[children.length - 1] = elmtRef;
         }
 
         window.addEventListener('scroll', handleScroll, true);   
