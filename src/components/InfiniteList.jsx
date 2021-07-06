@@ -11,7 +11,7 @@ function InfiniteList(props) {
     /*variables*/
     let listBottom = '';
     let elmtBottom = '';
-    let newTriggerIndex = triggerIndex;
+
 
     /*states*/
     const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,13 @@ function InfiniteList(props) {
 
     /*add ref to child component*/
     let elmtRef = useRef();
-    children[newTriggerIndex].ref = elmtRef;
+    if(children.length > triggerIndex){
+        children[triggerIndex].ref = elmtRef;
+    }else if(children.length > 0){
+        children[children.length - 1].ref = elmtRef;
+    }else{
+        console.log("error")
+    }
 
     const handleScroll = (e) => {
         /*catch the list bottom position in relation to the top of the window*/
