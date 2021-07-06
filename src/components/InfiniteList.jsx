@@ -6,7 +6,7 @@ function InfiniteList(props) {
     const {triggerIndex , children, next, page, size, numPerPage, result} = props;
 
     /*constant*/
-    let MAX_PAGE = size % numPerPage === 0 ? Math.trunc(Number(size) / Number(numPerPage)) : Math.trunc(Number(size) / Number(numPerPage)) + 1;
+    let MAX_PAGE = Math.ceil(size / numPerPage);
 
     /*variables*/
     let listBottom = '';
@@ -63,6 +63,7 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
+        console.log(MAX_PAGE)
         return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
