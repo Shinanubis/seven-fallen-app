@@ -14,6 +14,9 @@ function InfiniteList(props) {
 
     /*states*/
     const [isLoading, setIsLoading] = useState(false);
+
+    /*ref for concatenate array */
+    let arrayRef = useRef(children);
      
     /*add ref to parent component*/
     let listRef = useRef();
@@ -34,6 +37,7 @@ function InfiniteList(props) {
         }else{
             setIsLoading(false);
         }
+        console.log(arrayRef)
     }
 
     useEffect(() => {
@@ -57,8 +61,9 @@ function InfiniteList(props) {
         <>
             <ul ref={listRef} className="subdeck list__content layout layout__1 mb-2">
                 {props.children}
+                {isLoading === true ? <img className="loader__image my-4" src={LoaderGif}/> : null}
             </ul>
-            {isLoading === true ? <img className="loader__image my-4" src={LoaderGif}/> : null}
+            
         </>
     )
 }
