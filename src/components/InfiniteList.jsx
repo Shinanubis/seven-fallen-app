@@ -21,9 +21,6 @@ function InfiniteList(props) {
 
     /*add ref to child component*/
     let elmtRef = useRef();
-    if(children.length === numPerPage){
-        children[triggerIndex] = elmtRef;
-    }
     
     const handleScroll = (e) => {
         /*catch the list bottom position in relation to the top of the window*/
@@ -41,6 +38,9 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
+        if(children.length === numPerPage){
+            children[triggerIndex] = elmtRef;
+        }
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
         return () => window.removeEventListener('scroll', handleScroll); 
