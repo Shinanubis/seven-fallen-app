@@ -40,6 +40,7 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
+
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
         }
@@ -51,16 +52,12 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        if(page === 1){
-            setDatas([...children]);
-        }
         
-        if(page > 1){
             setDatas(prevstate => {
                 let newDatas = [...prevstate, ...children]
                 return newDatas;
             });
-        }
+        
     },[result]);
 
     useEffect(() => {
