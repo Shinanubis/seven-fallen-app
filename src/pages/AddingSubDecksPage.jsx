@@ -1,4 +1,4 @@
-import {useState, useEffect, lazy} from 'react';
+import {useState, useEffect } from 'react';
 
 import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
 
@@ -23,6 +23,8 @@ function AddingSubDecksCardsPage(props) {
         message: ''
     });
     const [page, setPage] = useState(1);
+
+    const [completeList, setCompleteList] = useState([]);
 
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
@@ -74,10 +76,13 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCardsResponse(response);
+        setCompleteList([...completeList, ...response.message[1]]);
+        console.log(completeList)
     },[page]);
 
     return loaded === true ? (
         <Main classes="subdeck page">
+
             <Filters containerClasses="filter__container row justify-end my-2" />
             {cardsResponse.message[1].length === cardsResponse.message[0] ?
                 <h4 className="title">Empty</h4>

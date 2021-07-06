@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import LoaderGif from '../img/22-2.gif';
 
-function InfiniteList(props) {
+const InfiniteList = (props,ref) => {
     /*catch props*/
     const {triggerIndex , children, next, page, size, numPerPage, result} = props;
 
@@ -22,6 +22,7 @@ function InfiniteList(props) {
 
     /*add ref to child component*/
     let elmtRef = useRef();
+
     if(children.length > triggerIndex){
         children[triggerIndex].ref = elmtRef;
     }else if(children.length > 0){
