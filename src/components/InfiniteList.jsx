@@ -50,7 +50,6 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        children[triggerIndex].ref = elmtRef;
         if(page === 1){
             setDatas([...children]);
         }
@@ -66,7 +65,6 @@ function InfiniteList(props) {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
-        setDatas([...children]);
         return () => window.removeEventListener('scroll', handleScroll); 
     },[]);
 
