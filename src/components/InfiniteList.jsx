@@ -55,7 +55,7 @@ function InfiniteList(props) {
         }else{
             let newDatas = [...datas];
             let newChildren = [...children];
-            
+
             if(newDatas.length === 20){
                 newDatas.splice(0,size)
             }
@@ -80,7 +80,7 @@ function InfiniteList(props) {
     return (
         <>
             <ul ref={listRef} className="subdeck list__content layout layout__1 mb-2">
-                {datas.slice(0,size)}
+                {datas}
                 {isLoading === true ? <img className="loader__image my-4" src={LoaderGif}/> : null}
             </ul>
             
