@@ -50,10 +50,14 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        setDatas(prevstate => {
-            let newDatas = [...prevstate, ...children]
-            return newDatas;
-        });
+        if(page === 1){
+            setDatas([...children]);
+        }else{
+            setDatas(prevstate => {
+                let newDatas = [...prevstate, ...children]
+                return newDatas;
+            });
+        }
     },[result]);
 
     useEffect(() => {
