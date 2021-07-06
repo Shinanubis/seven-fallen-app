@@ -52,8 +52,7 @@ function AddingSubDecksCardsPage(props) {
     }
 
     useEffect(() => {
-        console.log(cardsResponse)
-        console.log(completeList)
+
     }, [cardsResponse,completeList])
 
     useEffect(async () => {
