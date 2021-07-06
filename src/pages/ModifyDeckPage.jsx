@@ -14,9 +14,9 @@ import regexModule from '../modules/regex';
 
 /* api*/
 import { updateOne, getOne } from'../api/Decks.jsx';
-import {getEdenCards } from '../api/Eden.jsx';
-import {getRegisterCards } from '../api/Register.jsx';
-import {getHolyBookCards } from '../api/holyBook.jsx';
+import { getEdenCards } from '../api/Eden.jsx';
+import { getRegisterCards } from '../api/Register.jsx';
+import { getHolyBookCards } from '../api/holyBook.jsx';
 
 /* utilities */
 import checkRegex from '../utilities/checkRegex';

@@ -24,11 +24,13 @@ html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input,form{
 }
 
 html,
-body{
+body,
+#root{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
+  height: 100%;
 }
 
 body {
