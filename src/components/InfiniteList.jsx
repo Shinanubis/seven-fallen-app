@@ -50,7 +50,7 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        console.log(children.length)
+        console.log("[result] : ",children.length)
         setDatas(prevstate => {
             let newDatas = [...prevstate, ...children];
             return newDatas;
@@ -58,7 +58,7 @@ function InfiniteList(props) {
     },[result]);
 
     useEffect(() => {
-
+        console.log("[]" , children.length)
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
         return () => window.removeEventListener('scroll', handleScroll); 
