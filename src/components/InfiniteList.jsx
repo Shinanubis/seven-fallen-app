@@ -39,8 +39,13 @@ function InfiniteList(props) {
 
     useEffect(() => {
         if(children.length === numPerPage){
-            console.log("children is greater than 0")
+            children[triggerIndex] = elmtRef;
         }
+
+        if(children.length < numPerPage){
+            console.log("i'm smaller than numPerPage")
+        }
+
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
         return () => window.removeEventListener('scroll', handleScroll); 
