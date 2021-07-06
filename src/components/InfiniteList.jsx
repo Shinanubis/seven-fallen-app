@@ -63,6 +63,10 @@ function InfiniteList(props) {
     },[result]);
 
     useEffect(() => {
+        children[triggerIndex].ref = elmtRef; 
+    });
+
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
         setIsLoading(false);
         return () => window.removeEventListener('scroll', handleScroll); 
