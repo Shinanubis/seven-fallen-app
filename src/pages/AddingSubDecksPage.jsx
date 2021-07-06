@@ -53,7 +53,7 @@ function AddingSubDecksCardsPage(props) {
 
     useEffect(() => {
 
-    }, [cardsResponse,completeList])
+    }, [completeList])
 
     useEffect(async () => {
         let response = ''; 
@@ -69,8 +69,9 @@ function AddingSubDecksCardsPage(props) {
         if(endUrl === 'holybook'){
             response = await getHolyBookCards(page,10,'FR');
         }
+        
         if(response.message[1]){
-            setCompleteList(response.message[1]);
+            setCompleteList([...completeList,...response.message[1]]);
         }
         setCardsResponse(response);
     },[page]);
