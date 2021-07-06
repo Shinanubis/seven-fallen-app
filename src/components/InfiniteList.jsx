@@ -50,14 +50,6 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        if(children.length === numPerPage){
-            children[triggerIndex] = elmtRef;
-        }else if(children.length < numPerPage){
-            console.log("I'm in else if");
-            children[children.length - 1] = elmtRef;
-        }else{
-            console.log("I'm in else");
-        }
 
         setDatas(prevstate => {
             let newDatas = [...prevstate, ...children];
@@ -66,6 +58,14 @@ function InfiniteList(props) {
     },[result]);
 
     useEffect(() => {
+        if(children.length === numPerPage){
+            children[triggerIndex] = elmtRef;
+        }else if(children.length < numPerPage){
+            console.log("I'm in else if");
+            children[children.length - 1] = elmtRef;
+        }else{
+            console.log("I'm in else");
+        }
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
         return () => window.removeEventListener('scroll', handleScroll); 
