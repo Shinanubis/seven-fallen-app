@@ -59,7 +59,18 @@ function InfiniteList(props) {
                     }
                     return newState;
             });
+
         }
+
+        if(children.length > size ){
+            return () => {
+                setDatas(prevstate => {
+                    let newState = [...prevstate];
+                    newState.splice(0,size);
+                });
+            }
+        }
+
     },[children]);
 
     useEffect(() => {
