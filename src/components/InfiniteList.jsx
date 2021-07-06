@@ -38,7 +38,7 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
-        if(children.length > 0){
+        if(children.length === numPerPage){
             console.log("children is greater than 0")
         }
         window.addEventListener('scroll', handleScroll, true);   
