@@ -3,7 +3,7 @@ import LoaderGif from '../img/22-2.gif';
 
 function InfiniteList(props) {
     /*catch props*/
-    const {triggerIndex , children, next, page, size, numPerPage} = props;
+    const {triggerIndex , children, next, page, size, numPerPage, result} = props;
 
     /*constant*/
     let MAX_PAGE = Math.trunc(Number(size) / Number(numPerPage));
@@ -50,9 +50,8 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        console.log("Page : ",page)  
-        console.log("Children : ",children)
-    },[children,page]);
+
+    },[result]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
