@@ -49,19 +49,9 @@ function InfiniteList(props) {
 
     },[isLoading]);
 
-    useEffect(() => {
-            let newDatas = [...datas];
-            let newChildren = [...children];
-            
-            if(page === 2){
-                console.log(children)
-            }
-
-            if(page >= 3){
-                console.log(children);
-            }
-            
-    },[page]);
+    useEffect(() => {  
+        console.log(children)
+    },[children]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
