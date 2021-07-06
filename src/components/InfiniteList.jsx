@@ -53,7 +53,9 @@ function InfiniteList(props) {
         if(children.length > 0){
             setDatas(prevstate => {
                 let newChildren = [...prevstate, ...children];
-                newChildren.splice(0,size)            
+                if(newChildren.length > size){
+                    newChildren.splice(0,size) 
+                }           
                 return newChildren;
             });
         }
