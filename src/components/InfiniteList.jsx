@@ -60,7 +60,6 @@ function InfiniteList(props) {
 
     useEffect(() => {
         console.log(datas)
-        return () => { children = []};
     }, [datas]);
 
     useEffect(() => {
