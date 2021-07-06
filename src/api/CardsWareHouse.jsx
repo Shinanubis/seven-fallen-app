@@ -92,7 +92,7 @@ async function getEdenCards(page,count,lang){
             'Authorization': process.env.REACT_APP_TOKEN
         }
     }
-    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?name=x1&card_count=${count}&page=${page}`);
+    let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[1,2,3]&card_count=${count}&page=${page}`);
     let response = await fetch(url,settings);
     let datas = await response.json();
     return {
