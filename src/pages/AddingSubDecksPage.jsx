@@ -75,6 +75,8 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
+            {console.log(completeList.length)}
+            {console.log(cardsResponse.message[1])}
             {cardsResponse.message[1].length - 1 === completeList.length ?
                 <h4 className="title">Empty</h4>
                 :
