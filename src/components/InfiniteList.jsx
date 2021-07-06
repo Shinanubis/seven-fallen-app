@@ -53,12 +53,11 @@ function InfiniteList(props) {
         if(children.length > 0){
             setDatas(prevstate => {
                 let newDatas = [...children];
-                console.log(newDatas)
                 return newDatas;
             });
         }
 
-        return () => setDatas([]);
+        return () => setDatas([...datas, ...children]);
     },[children]);
 
     useEffect(() => {
