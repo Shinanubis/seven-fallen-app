@@ -23,8 +23,6 @@ function InfiniteList(props) {
     let elmtRef = useRef();
     if(children.length === numPerPage){
         children[triggerIndex] = elmtRef;
-    }else{
-        children[children.length - 1] = elmtRef;
     }
     
     const handleScroll = (e) => {
