@@ -52,9 +52,9 @@ function InfiniteList(props) {
     useEffect(() => {
         if(children.length > 0){
             setDatas(prevstate => {
-                let newState = '';     
-                    if(children.length > size){
-                        newState = [...prevstate, ...children];
+                let newState = '';
+                newState = [...children];     
+                    if(prevstate.length > size){ 
                         newState.splice(0, size)
                     }
                     return newState;
