@@ -51,17 +51,8 @@ function AddingSubDecksCardsPage(props) {
         setFlashState(newFlashState);
     }
 
-    const handleToolbarList = (e) => {
-        e.preventDefault();
-        
-    }
-
     useEffect(() => {
-        console.log(completeList)
-        if(cardsResponse.message[1]){
-            setCompleteList([...completeList, ...cardsResponse.message[1]]);
-        }
-        
+        console.log(cardsResponse.message)
     }, [cardsResponse])
 
     useEffect(async () => {
