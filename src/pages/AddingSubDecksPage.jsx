@@ -79,24 +79,28 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            <InfiniteList 
-                triggerIndex={9} 
-                page={page} 
-                next={setPage} 
-                size={cardsResponse.message[0]} 
-                numPerPage={10} 
-                result={cardsResponse.message[1]}
-            >
-                {
-                    cardsResponse.message[1].map(elmt => {
-                        return(
-                            <li className="card__container">
-                                <img className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
-                            </li>
-                        )
-                    })
-                }
-            </InfiniteList>
+            {cardsResponse.message[1].length === cardsResponse.message[0] ?
+                <h4 className="title">Empty</h4>
+                :
+                <InfiniteList 
+                    triggerIndex={7} 
+                    page={page} 
+                    next={setPage} 
+                    size={cardsResponse.message[0]} 
+                    numPerPage={10} 
+                    result={cardsResponse.message[1]}
+                >
+                    {
+                        cardsResponse.message[1].map(elmt => {
+                            return(
+                                <li className="card__container">
+                                    <img className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
+                                </li>
+                            )
+                        })
+                    }
+                </InfiniteList>
+            }    
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
