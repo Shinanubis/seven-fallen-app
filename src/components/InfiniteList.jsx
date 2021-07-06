@@ -52,7 +52,7 @@ function InfiniteList(props) {
     useEffect(() => {
         if(page === 1){
             setDatas([...children]);
-            
+            children[triggerIndex].ref = elmtRef;
         }
         
         if(page > 1){
