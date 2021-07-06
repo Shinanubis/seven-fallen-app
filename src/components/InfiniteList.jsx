@@ -38,6 +38,13 @@ function InfiniteList(props) {
     }
 
     useEffect(() => {
+        console.log("[]" , children.length)
+        window.addEventListener('scroll', handleScroll, true);   
+        setIsLoading(false);
+        return () => window.removeEventListener('scroll', handleScroll); 
+    }, []);
+
+    useEffect(() => {
         console.log("[loading] : ",children.length)
         if(isLoading === true && page < MAX_PAGE){
             next(page + 1);
@@ -56,13 +63,6 @@ function InfiniteList(props) {
             return newDatas;
         });
     },[result]);
-
-    useEffect(() => {
-        console.log("[]" , children.length)
-        window.addEventListener('scroll', handleScroll, true);   
-        setIsLoading(false);
-        return () => window.removeEventListener('scroll', handleScroll); 
-    }, []);
 
     return (
         <>
