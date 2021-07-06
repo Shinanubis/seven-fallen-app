@@ -50,9 +50,7 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        if(page === 1){
-            setDatas([...children]);
-        }else{
+        if(page > 1){
             let newDatas = [...datas];
             let newChildren = [...children];
 
