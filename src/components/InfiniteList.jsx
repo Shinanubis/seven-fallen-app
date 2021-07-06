@@ -23,8 +23,9 @@ function InfiniteList(props) {
     let elmtRef = useRef();
 
     if(children.length === numPerPage){
+        console.log(children.length)
         children[triggerIndex] = elmtRef;
-    }else if(children.length < numPerPage){
+    }else if(children.length > 0){
         console.log("I'm in else if");
         children[children.length - 1] = elmtRef;
     }else{
