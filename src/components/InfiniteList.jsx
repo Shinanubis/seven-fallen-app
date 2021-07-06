@@ -65,10 +65,13 @@ function InfiniteList(props) {
     },[result]);
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, true);
-        setIsLoading(false);
+        window.addEventListener('scroll', handleScroll, true);   
         return () => window.removeEventListener('scroll', handleScroll); 
     });
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
 
     return (
         <>
