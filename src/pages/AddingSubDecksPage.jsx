@@ -58,7 +58,10 @@ function AddingSubDecksCardsPage(props) {
 
     useEffect(() => {
         console.log(completeList)
-        setCompleteList([...completeList, ...cardsResponse.message[1]]);
+        if(cardsResponse.message[1]){
+            setCompleteList([...completeList, ...cardsResponse.message[1]]);
+        }
+        
     }, [cardsResponse])
 
     useEffect(async () => {
