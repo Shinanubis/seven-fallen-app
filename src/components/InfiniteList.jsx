@@ -62,7 +62,6 @@ function InfiniteList(props) {
 
         }
 
-        if(children.length > size ){
             return () => {
                 setDatas(prevstate => {
                     let newState = [...prevstate];
@@ -70,7 +69,6 @@ function InfiniteList(props) {
                     return newState;
                 });
             }
-        }
 
     },[children]);
 
