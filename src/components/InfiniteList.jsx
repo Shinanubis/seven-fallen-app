@@ -62,14 +62,10 @@ function InfiniteList(props) {
 
             console.log(newDatas);
             console.log(newChildren);
-            setDatas([...newDatas]);
+            setDatas([...newDatas, ...newChildren]);
         }
 
     },[page]);
-
-    useEffect(() => {
-        console.log(datas)
-    }, [datas]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
