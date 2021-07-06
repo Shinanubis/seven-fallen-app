@@ -48,7 +48,7 @@ function InfiniteList(props) {
         if(isLoading === true && page === MAX_PAGE){
             next(1);
         }
-        console.log(arrayRef)
+        console.log(arrayRef.current)
     },[isLoading]);
 
     useEffect(() => {
