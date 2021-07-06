@@ -14,9 +14,7 @@ function InfiniteList(props) {
 
     /*states*/
     const [isLoading, setIsLoading] = useState(false);
-
-    /*ref for concatenate array */
-    let arrayRef = useRef([...children]);
+    const [datas, setDatas] = useState(children);
      
     /*add ref to parent component*/
     let listRef = useRef();
@@ -48,14 +46,12 @@ function InfiniteList(props) {
         if(isLoading === true && page === MAX_PAGE){
             next(1);
         }
-        
-        
+
     },[isLoading]);
 
     useEffect(() => {
-        arrayRef.current = [...arrayRef.current, ...children]
-        console.log(arrayRef.current)
-    },[children]);
+        console.log(datas)
+    }, [datas]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
