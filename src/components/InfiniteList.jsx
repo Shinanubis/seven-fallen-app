@@ -38,7 +38,7 @@ const InfiniteList = (props,ref) => {
         /*catch the targeted element's bottom position in relation to the top of the window*/
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
-        if(elmtBottom < listBottom - 20){
+        if(elmtBottom <= listBottom){
             setIsLoading(true);
         }else{
             setIsLoading(false);
