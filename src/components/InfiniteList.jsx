@@ -52,7 +52,13 @@ function InfiniteList(props) {
     useEffect(() => {
         if(page === 1){
             setDatas([...children]);
+        }else{
+            setDatas(prevstate => {
+                console.log(prevstate);
+                return prevstate;
+            })
         }
+
     },[page]);
 
     useEffect(() => {
