@@ -21,6 +21,7 @@ function InfiniteList(props) {
 
     /*add ref to child component*/
     let elmtRef = useRef();
+    children[triggerIndex].ref = elmtRef;
      
 
     const handleScroll = (e) => {
@@ -50,8 +51,6 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        children[triggerIndex].ref = elmtRef;
-        console.log(elmtRef)
         if(page === 1){
             setDatas([...children]);
         }
@@ -66,11 +65,8 @@ function InfiniteList(props) {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);   
-        return () => window.removeEventListener('scroll', handleScroll); 
-    });
-
-    useEffect(() => {
         setIsLoading(false);
+        return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
     return (
