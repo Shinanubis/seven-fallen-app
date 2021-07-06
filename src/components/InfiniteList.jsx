@@ -14,7 +14,7 @@ function InfiniteList(props) {
 
     /*states*/
     const [isLoading, setIsLoading] = useState(false);
-    let datas = new Array();
+    const [datas, setDatas] = useState([]);
      
     /*add ref to parent component*/
     let listRef = useRef();
@@ -60,9 +60,10 @@ function InfiniteList(props) {
     },[isLoading]);
 
     useEffect(() => {
-        datas.push(...children);
-        console.log(datas)
-        setIsLoading(false);
+        setDatas(prevstate => {
+            let newDatas = [...prevstate, ...children];
+            return newDatas;
+        });
     },[result]);
 
     useEffect(() => {
