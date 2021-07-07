@@ -10,6 +10,7 @@ import Filters from '../components/Filters';
 import Toolbar from '../components/Toolbar';
 import {FiPlus, FiMinus} from 'react-icons/fi';
 import InfiniteList from '../components/InfiniteList';
+import InfiniteListTwo from '../components/InfiniteListTwo';
 import LoaderGif from '../img/22-2.gif';
 
 import dotenv from 'dotenv';
@@ -101,7 +102,7 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-
+            {/* 
                 <InfiniteList 
                     triggerIndex={7} 
                     page={page} 
@@ -126,7 +127,14 @@ function AddingSubDecksCardsPage(props) {
                                 )
                         })
                     }
-                </InfiniteList> 
+                </InfiniteList>  
+            */}
+            <InfiniteListTwo 
+                classesContainer="subdeck list__content layout layout__1 mb-2" 
+                classesElement="card__container"
+                classesImages="card__image"
+                datas={completeList}
+            />
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
