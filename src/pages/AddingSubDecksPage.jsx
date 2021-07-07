@@ -54,11 +54,13 @@ function AddingSubDecksCardsPage(props) {
     }
 
     const handleImageLoad = (e) => {
-        setImageLoaded(prevstate => {
-            let newObj = {...prevstate};
-            newObj[e.target.id] = true;
-            return newObj;
-        });
+        setTimeout(() => {
+            setImageLoaded(prevstate => {
+                let newObj = {...prevstate};
+                newObj[e.target.id] = true;
+                return newObj;
+            });
+        }, 1000)
     }
 
     useEffect(async () => {
@@ -114,6 +116,7 @@ function AddingSubDecksCardsPage(props) {
                         cardsResponse.message[1].map(elmt => {
                                 return(  
                                     <li className="card__container">
+                                            {console.log(`${elmt.id}`,imageLoaded[elmt.id])}
                                             <img
                                                 id = {elmt.id} 
                                                 className={imageLoaded[elmt.id] === false ? "d-none" : "card__image"} 
