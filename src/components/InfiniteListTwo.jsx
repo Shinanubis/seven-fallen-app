@@ -22,8 +22,8 @@ function InfiniteListTwo(props) {
 
     /*handlers*/
     const handleScroll = (e) => {
-        listBottom = listRef.getBoundingClientRect().bottom;
-        elmtBottom = elmtRef.getBoundingClientRect().bottom;
+        listBottom = listRef.current.getBoundingClientRect().bottom;
+        elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
         console.log(listBottom)
         console.log(elmtBottom)
     }
