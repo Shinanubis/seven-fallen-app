@@ -67,7 +67,7 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        console.log(datas.length)
+        console.log(datas.length === size - 1)
         if(page === MAX_PAGE){
             console.log("last page reached")
         }
