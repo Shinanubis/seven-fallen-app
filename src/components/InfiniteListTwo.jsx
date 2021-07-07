@@ -38,6 +38,10 @@ function InfiniteListTwo(props) {
 
     /*use effect*/
     useEffect(() => {
+        setPage();
+    }, [listBottom, elmtBottom]);
+
+    useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     })
