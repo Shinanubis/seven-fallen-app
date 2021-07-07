@@ -39,7 +39,11 @@ function InfiniteListTwo(props) {
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
         if(elmtBottom < listBottom){
-            setIsLoadingList(true);  
+            setIsLoadingList(true);
+
+            if(page === MAX_PAGE && size === datas.length - 1){
+                setIsLoadingList(false);
+            }
         }
     }
 
@@ -52,10 +56,6 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         if(isLoadingList === true){
-            setIsLoadingList(false);
-        }
-
-        if(page === MAX_PAGE){
             setIsLoadingList(false);
         }
 
@@ -77,8 +77,6 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
-                {console.log("datas length", datas.length)}
-                {console.log("trigger index", triggerIndex)}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
