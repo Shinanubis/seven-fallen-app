@@ -18,7 +18,7 @@ function InfiniteListTwo(props) {
     let elmtBottom = 0;
     let newTriggerAt = 0;
 
-    if(triggerAt > datas.length){
+    if(triggerAt > datas.length - 1){
         newTriggerAt = datas.length - 1;
     }else if(triggerAt <= datas.length - 1){
         newTriggerAt = triggerAt;
