@@ -70,6 +70,7 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
+        return () => setTriggerIndex(triggerIndex)
     },[datas]);
 
     return (
