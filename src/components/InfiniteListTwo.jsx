@@ -68,7 +68,7 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
-    },[]);
+    },[datas]);
 
     return (
         <>
