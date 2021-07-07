@@ -65,6 +65,8 @@ function InfiniteListTwo(props) {
     },[datas])
 
     useEffect(() => {
+        console.log("datas length", datas.length)
+        console.log("trigger index", triggerIndex)
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     })
@@ -72,8 +74,6 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
-                {console.log("datas length", datas.length)}
-                {console.log("trigger index", triggerIndex)}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
