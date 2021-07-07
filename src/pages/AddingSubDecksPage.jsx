@@ -54,7 +54,11 @@ function AddingSubDecksCardsPage(props) {
     }
 
     const handleImageLoad = (e) => {
-        setImageLoaded({...imageLoaded, [e.target.id]: true});
+        setImageLoaded(prevstate => {
+            let newObj = {...prevstate};
+            newObj[e.target.id] = true;
+            return newObj;
+        });
     }
 
     useEffect(async () => {
@@ -84,9 +88,6 @@ function AddingSubDecksCardsPage(props) {
 
         if(cardsResponse.message[1] instanceof Array){
             cardsResponse.message[1].map(elmt => {
-                if(newImages[elmt.id] === true){
-                    return;
-                }
                 newImages[elmt.id] = false;    
             })
         }
@@ -117,7 +118,7 @@ function AddingSubDecksCardsPage(props) {
                                         id = {elmt.id} 
                                         className="card__image" 
                                         src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
-                                        onLoad={() => setImageLoaded({...imageLoaded, [elmt.id] : true})}
+                                        onLoad={handleImageLoad}
                                     /> 
                                     <img 
                                         id = {elmt.id}
