@@ -42,14 +42,16 @@ function InfiniteListTwo(props) {
             setIsLoadingList(true);
         }
 
-        console.log(listBottom)
-        console.log(elmtBottom)
     }
 
     /*use effect*/
     useEffect(() => {
             if(isLoadingList === true && page < MAX_PAGE){
                 setPage()   
+            }
+
+            if(isLoadingList === true && page === MAX_PAGE){
+                setIsLoadingList(false)   
             }
     },[isLoadingList]);
 
