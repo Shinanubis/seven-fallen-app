@@ -49,14 +49,10 @@ function InfiniteListTwo(props) {
             if(isLoadingList === true && page < MAX_PAGE){
                 setPage()   
             }
-
-            if(isLoadingList === true && page === MAX_PAGE){
-                setIsLoadingList(false)   
-            }
     },[isLoadingList]);
 
     useEffect(() => {
-        if(isLoadingList === true){
+        if(isLoadingList === true || page === MAX_PAGE){
             setIsLoadingList(false);
         }
 
