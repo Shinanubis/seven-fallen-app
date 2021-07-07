@@ -67,10 +67,10 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        if(page === MAX_PAGE && datas.length === size - 1){
+        if(isLoadingList === true && page === MAX_PAGE && datas.length === size - 1){
             setIsLoadingList(false);
         }
-    },[page,datas]);
+    },[page,datas, isLoadingList]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
