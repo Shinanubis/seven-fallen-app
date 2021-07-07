@@ -61,6 +61,8 @@ function InfiniteListTwo(props) {
     })
 
     useEffect(() => {
+        console.log("datas length : ", datas.length)
+        console.log("trigger", triggerIndex);
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
         }else if(datas.length > 0){
