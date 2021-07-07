@@ -48,11 +48,7 @@ function InfiniteListTwo(props) {
     useEffect(() => {
             if(isLoadingList === true && page < MAX_PAGE){
                 setPage()   
-            }
-
-            if(isLoadingList === true && page === MAX_PAGE){
-                setIsLoadingList(false)
-            }   
+            }  
     },[isLoadingList]);
 
     useEffect(() => {
@@ -82,7 +78,6 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
-                {console.log("render")}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
