@@ -38,8 +38,9 @@ function InfiniteListTwo(props) {
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
         if(elmtBottom < listBottom){
-            setIsLoadingList(true);
-            setIsLoadingList(false);
+            setTimeout(() => {
+                setIsLoadingList(true);
+            }, 1000)    
         }
     }
 
