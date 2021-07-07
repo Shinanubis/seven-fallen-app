@@ -67,10 +67,11 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
+        console.log(listBottom)
         if(page === MAX_PAGE && datas.length === size - 1){
             console.log("last page reached")
         }
-    },[page,datas]);
+    },[page,datas,listBottom, elmtBottom]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
