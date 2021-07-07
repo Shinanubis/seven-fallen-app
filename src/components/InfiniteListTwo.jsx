@@ -8,6 +8,7 @@ function InfiniteListTwo(props) {
             classesElement,
             classesImages, 
             datas,
+            numPerPage,
             setPage,
             triggerAt
           } = props;
@@ -15,6 +16,15 @@ function InfiniteListTwo(props) {
     /*variables*/
     let listBottom = 0;
     let elmtBottom = 0;
+    let newTriggerAt = 0;
+
+    if(triggerAt > datas.length){
+        newTriggerAt = datas.length - 1;
+    }else if(triggerAt <= datas.length - 1){
+        newTriggerAt = triggerAt;
+    }else{
+        console.error("Your trigger value is not good")
+    }
 
     /* refs */
     let listRef = useRef();
@@ -24,8 +34,6 @@ function InfiniteListTwo(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-        console.log(listBottom)
-        console.log(elmtBottom)
     }
 
     /*use effect*/
@@ -41,7 +49,7 @@ function InfiniteListTwo(props) {
                 datas.map((elmt, index) => {
                     return (
                         <li 
-                            ref={index === triggerAt - 1 ? elmtRef : null} 
+                            ref={index === triggerAt ? elmtRef : null} 
                             className={classesElement ? classesElement : "infinite__element"}
                         >
                             <img 
