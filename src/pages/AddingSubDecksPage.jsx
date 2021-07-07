@@ -99,7 +99,6 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            {console.log(imageLoaded)}
                 <InfiniteList 
                     triggerIndex={7} 
                     page={page} 
