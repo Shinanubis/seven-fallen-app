@@ -93,16 +93,15 @@ function InfiniteListTwo(props) {
                         }else{
                             return (
                                     <>
-                                    {setIsLoadingList(false)}
-                                    <li 
-                                        ref={index === datas.length - 1 ? elmtRef : null} 
-                                        className={classesElement ? classesElement : "infinite__element"}
-                                    >
-                                        <img 
-                                            className={classesImages ? classesImages : "infinite__image"} 
-                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
-                                        />
-                                    </li>
+                                        <li 
+                                            ref={index === datas.length - 1 ? elmtRef : null} 
+                                            className={classesElement ? classesElement : "infinite__element"}
+                                        >
+                                            <img 
+                                                className={classesImages ? classesImages : "infinite__image"} 
+                                                src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                            />
+                                        </li>
                                     </>
                             )
                         }
