@@ -10,6 +10,7 @@ import Filters from '../components/Filters';
 import Toolbar from '../components/Toolbar';
 import {FiPlus, FiMinus} from 'react-icons/fi';
 import InfiniteList from '../components/InfiniteList';
+import LoaderGif from '../img/22-2.gif';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -51,6 +52,10 @@ function AddingSubDecksCardsPage(props) {
         setFlashState(newFlashState);
     }
 
+    const handleImageLoad = (e) => {
+        console.log(e.target.id)
+    }
+
     useEffect(async () => {
         let response = ''; 
 
@@ -88,7 +93,17 @@ function AddingSubDecksCardsPage(props) {
                         cardsResponse.message[1].map(elmt => {
                             return(
                                 <li className="card__container">
-                                    <img className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}/>
+                                    <img
+                                        id = {elmt.id} 
+                                        className="card__image" 
+                                        src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                        onLoad={handleImageLoad}
+                                    />
+                                    <img 
+                                        id = {elmt.id}
+                                        className="image__loader" 
+                                        src={LoaderGif} 
+                                    />
                                 </li>
                             )
                         })
