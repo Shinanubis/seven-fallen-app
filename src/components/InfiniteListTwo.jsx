@@ -71,7 +71,7 @@ function InfiniteListTwo(props) {
         if(page === MAX_PAGE){
             console.log("last page reached")
         }
-    },[page]);
+    },[page,datas]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
