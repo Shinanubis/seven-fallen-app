@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import LoaderGif from '../img/22-2.gif';
 
-const InfiniteList = (props,ref) => {
+const InfiniteList = (props) => {
     /*catch props*/
     const {triggerIndex , children, next, page, size, numPerPage, result} = props;
 
@@ -58,10 +58,6 @@ const InfiniteList = (props,ref) => {
             let newDatas = [...prevstate, ...children];   
             return newDatas;
         });
-
-        if(children.length === size - 1){
-            setIsLoading(false)
-        }
     },[result]);
 
     useEffect(() => {
