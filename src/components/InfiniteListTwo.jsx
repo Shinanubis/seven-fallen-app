@@ -31,7 +31,7 @@ function InfiniteListTwo(props) {
     if(triggerAt > datas.length - 1){
         newTriggerAt = datas.length - 1;
     }else if(triggerAt <= datas.length - 1){
-        newTriggerAt = triggerAt;
+        newTriggerAt = triggerAt * page;
     }else{
         console.error("Your trigger value is not good")
     }
@@ -53,16 +53,6 @@ function InfiniteListTwo(props) {
     }
 
     /*use effect*/
-    useEffect(() => {
-        if(page < MAX_PAGE){
-            if(isLoadingList === true){
-                setPage();
-                setTimeout(() => {
-                    setIsLoadingList(false)
-                }, 200);
-            }
-        }
-    },[isLoadingList])
 
     useEffect(() => {
         setIsLoadingList(false);
