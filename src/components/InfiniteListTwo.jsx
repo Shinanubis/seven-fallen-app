@@ -41,7 +41,7 @@ function InfiniteListTwo(props) {
         if(elmtBottom < listBottom){
             setIsLoadingList(true);
 
-            if(page === MAX_PAGE && size === datas.length - 1){
+            if(page === MAX_PAGE){
                 setIsLoadingList(false);
             }
         }
