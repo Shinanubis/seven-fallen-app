@@ -120,6 +120,7 @@ function AddingSubDecksCardsPage(props) {
                                             id = {elmt.id} 
                                             className="card__image" 
                                             src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                            onLoad={() => console.log("hello")}
                                         />           
                                     </li>
                                 )
