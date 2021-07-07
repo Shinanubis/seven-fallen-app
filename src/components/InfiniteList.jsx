@@ -69,7 +69,7 @@ const InfiniteList = (props) => {
     return (
         <>
             <ul ref={listRef} className="subdeck list__content layout layout__1 mb-2">
-                {console.log(datas[0].props.children)}
+                {datas[0] && console.log(datas[0].props.children)}
                 {datas}
                 {isLoading === true ? <img className="loader__image my-4" src={LoaderGif}/> : null}
             </ul>  
