@@ -62,10 +62,6 @@ function InfiniteListTwo(props) {
     })
 
     useEffect(() => {
-        if(!isMounted){
-            console.log("datas length", datas.length)
-            console.log("trigger index", triggerIndex)
-        }
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
         }else if(datas.length < triggerIndex){
@@ -78,6 +74,8 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
+                {console.log("datas length", datas.length)}
+                {console.log("trigger index", triggerIndex)}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
