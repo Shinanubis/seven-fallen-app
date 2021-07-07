@@ -92,6 +92,10 @@ function AddingSubDecksCardsPage(props) {
 
     }, [cardsResponse.message]);
 
+    useEffect(() => {
+        console.log(imageLoaded)
+    },[]) 
+
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
@@ -112,7 +116,7 @@ function AddingSubDecksCardsPage(props) {
                                         id = {elmt.id} 
                                         className="card__image" 
                                         src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
-                                        onLoad={handleImageLoad}
+                                        onLoad={() => setImageLoaded({...imageLoaded, [elmt.id]: true})}
                                     /> 
                                     <img 
                                         id = {elmt.id}
