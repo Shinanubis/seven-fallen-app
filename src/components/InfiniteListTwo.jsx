@@ -34,15 +34,12 @@ function InfiniteListTwo(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
+        if(elmtBottom < listBottom){
+            setPage();
+        } 
     }
 
     /*use effect*/
-    useEffect(() => {
-        if(elmtBottom < listBottom){
-            setPage();
-        }
-        console.log(elmtBottom)    
-    }, [listBottom, elmtBottom]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
