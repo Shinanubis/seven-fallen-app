@@ -54,7 +54,7 @@ function AddingSubDecksCardsPage(props) {
     }
 
     const handleImageLoad = (e) => {
-        console.log(e.target.id)
+        setImageLoaded({...imageLoaded, [e.target.id]: true});
     }
 
     useEffect(async () => {
@@ -119,7 +119,7 @@ function AddingSubDecksCardsPage(props) {
                                     /> 
                                     <img 
                                         id = {elmt.id}
-                                        className={imageLoaded[elmt.id] === true ? "image__loader" : "d-none"} 
+                                        className={imageLoaded[elmt.id] === false ? "image__loader" : "d-none"} 
                                         src={LoaderGif} 
                                     />
                                 </li>
