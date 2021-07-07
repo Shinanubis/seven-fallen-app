@@ -88,11 +88,12 @@ function AddingSubDecksCardsPage(props) {
 
         if(cardsResponse.message[1] instanceof Array){
             cardsResponse.message[1].map(elmt => {
-                newImages = {...newImages,[elmt.id]: false};
+                newImages[elmt.id]=false
             })
         }
 
         setImageLoaded({...newImages});
+        console.log(newImages)
     }, []);
 
     return loaded === true ? (
@@ -114,7 +115,6 @@ function AddingSubDecksCardsPage(props) {
                                         id = {elmt.id} 
                                         className="card__image" 
                                         src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
-                                        onLoad={handleImageLoad}
                                     /> 
                                     <img 
                                         id = {elmt.id}
