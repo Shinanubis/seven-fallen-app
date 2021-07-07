@@ -109,21 +109,18 @@ function AddingSubDecksCardsPage(props) {
                     size={cardsResponse.message[0]} 
                     numPerPage={10} 
                     result={cardsResponse.message[1]}
+                    imageLoaded={imageLoaded}
+                    setImageLoaded={setImageLoaded}
                 >
                     {
                         cardsResponse.message[1].map(elmt => {
                                 return(  
                                     <li className="card__container">
-                                            {imageLoaded[elmt.id] === false ? 
-                                                <img src={LoaderGif} /> 
-                                                : 
-                                                <img
-                                                id = {elmt.id} 
-                                                className={imageLoaded[elmt.id] === false ? "d-none" : "card__image"} 
-                                                src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
-                                                onLoad={() => setImageLoaded({...imageLoaded, [elmt.id]: true})}
-                                                />    
-                                            }
+                                        <img
+                                            id = {elmt.id} 
+                                            className={imageLoaded[elmt.id] === false ? "d-none" : "card__image"} 
+                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                        />           
                                     </li>
                                 )
                         })

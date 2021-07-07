@@ -63,6 +63,7 @@ const InfiniteList = (props) => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);   
         setIsLoading(false);
+        console.log(datas)
         return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
