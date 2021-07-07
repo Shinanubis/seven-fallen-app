@@ -120,7 +120,7 @@ function AddingSubDecksCardsPage(props) {
                                                 src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
                                                 onLoad={handleImageLoad}
                                             />
-                                            {imageLoaded[elmt.id] === false ? <img className="card__image" src={LoaderGif} /> : null}
+                                            {console.log(imageLoaded[elmt.id])}
                                     </li>
                                 )
                         })
