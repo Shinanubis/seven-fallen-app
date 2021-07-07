@@ -54,14 +54,7 @@ function InfiniteListTwo(props) {
         if(isLoadingList === true){
             setIsLoadingList(false);
         }
-    },[datas])
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll,true);
-        return window.removeEventListener("scroll", handleScroll);
-    })
-
-    useEffect(() => {
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
         }else if(datas.length < triggerIndex){
@@ -69,7 +62,12 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
-    },[datas]);
+    },[datas])
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll,true);
+        return window.removeEventListener("scroll", handleScroll);
+    })
 
     return (
         <>
