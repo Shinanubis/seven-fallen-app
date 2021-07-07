@@ -32,7 +32,7 @@ function InfiniteListTwo(props) {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return window.removeEventListener("scroll", handleScroll);
-    })
+    },[])
 
     return (
         <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
