@@ -40,7 +40,7 @@ const InfiniteList = (props,ref) => {
 
         if(elmtBottom <= listBottom){
             setIsLoading(true);
-        }else if(children.length >= size){
+        }else if(children.length === size - 1){
             setIsLoading(false)
         }else{
             setIsLoading(false);
