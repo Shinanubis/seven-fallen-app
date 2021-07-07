@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 function InfiniteListTwo(props) {
+    let isMounted = false;
     
     const { classesContainer, 
             classesElement,
@@ -61,22 +62,23 @@ function InfiniteListTwo(props) {
     })
 
     useEffect(() => {
-        console.log("datas length : ", datas.length)
-        console.log("trigger", triggerIndex);
+        if(!isMounted){
+            console.log("i'm not mounted")
+        }
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
-        }else if(datas.length > 0){
+        }else if(datas.length < triggerIndex){
             setTriggerIndex(datas.length - 1)   
         }else{
             console.log("something wrong happened")
         }
-        return () => setTriggerIndex(triggerIndex)
     },[datas]);
 
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
                 {console.log(triggerIndex)}
+                {console.log(datas)}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
