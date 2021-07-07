@@ -40,7 +40,8 @@ function InfiniteListTwo(props) {
     useEffect(() => {
         if(elmtBottom < listBottom){
             setPage();
-        }    
+        }
+        console.log(elmtBottom)    
     }, [listBottom, elmtBottom]);
 
     useEffect(() => {
