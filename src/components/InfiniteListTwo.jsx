@@ -52,7 +52,7 @@ function InfiniteListTwo(props) {
     },[isLoadingList]);
 
     useEffect(() => {
-        if(isLoadingList === true || page === MAX_PAGE){
+        if(isLoadingList === true){
             setIsLoadingList(false);
         }
 
@@ -64,7 +64,13 @@ function InfiniteListTwo(props) {
             console.log("something wrong happened")
         } 
 
-    },[datas])
+    },[datas]);
+
+    useEffect(() => {
+        if(page === MAX_PAGE){
+            console.log("last page reached")
+        }
+    },[page]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
