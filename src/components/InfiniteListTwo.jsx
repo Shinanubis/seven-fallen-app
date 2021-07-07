@@ -57,6 +57,9 @@ function InfiniteListTwo(props) {
         if(page < MAX_PAGE){
             if(isLoadingList === true){
                 setPage();
+                setTimeout(() => {
+                    setIsLoadingList(false)
+                }, 200);
             }
         }
     },[isLoadingList])
