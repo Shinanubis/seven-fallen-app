@@ -112,19 +112,29 @@ function AddingSubDecksCardsPage(props) {
                 >
                     {
                         cardsResponse.message[1].map(elmt => {
-                            return(
-                                
-                                <li className="card__container">
-                                        {console.log(`${elmt.id} : `,imageLoaded[elmt.id])}
+                            
+                            if(imageLoaded[elmt.id] === true){
+                                return(  
+                                    <li className="card__container">
+                                            <img
+                                                id = {elmt.id} 
+                                                className="card__image" 
+                                                src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                                onLoad={handleImageLoad}
+                                            />
+                                    </li>
+                                )
+                            }else{
+                                return(
+                                    <li className="card__container">
                                         <img
                                             id = {elmt.id} 
                                             className="card__image" 
-                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
-                                            onLoad={handleImageLoad}
+                                            src={LoaderGif}
                                         />
-                                </li>
-                            )
-                            
+                                    </li>
+                                )
+                            }
                         })
                     }
                 </InfiniteList> 
