@@ -67,7 +67,7 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        if(isLoadingList === true && page === MAX_PAGE && datas.length === size - 1){
+        if(page === MAX_PAGE && datas.length === size - 1){
             setIsLoadingList(false);
         }
     },[page,datas]);
