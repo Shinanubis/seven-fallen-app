@@ -88,7 +88,7 @@ function AddingSubDecksCardsPage(props) {
             })
         }
 
-    }, []);
+    }, [cardsResponse.message[1]]);
 
     return loaded === true ? (
         <Main classes="subdeck page">
