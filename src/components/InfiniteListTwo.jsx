@@ -38,7 +38,9 @@ function InfiniteListTwo(props) {
 
     /*use effect*/
     useEffect(() => {
-        setPage();
+        if(elmtBottom < listBottom){
+            setPage();
+        }    
     }, [listBottom, elmtBottom]);
 
     useEffect(() => {
