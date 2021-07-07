@@ -40,11 +40,10 @@ function InfiniteListTwo(props) {
 
         if(elmtBottom < listBottom){
             setIsLoadingList(true);
-
-            if(page === MAX_PAGE){
-                setIsLoadingList(false);
-            }
         }
+
+        console.log(listBottom)
+        console.log(elmtBottom)
     }
 
     /*use effect*/
