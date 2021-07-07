@@ -47,7 +47,9 @@ function InfiniteListTwo(props) {
 
         if(elmtBottom < listBottom){
             setIsLoadingList(true)
-        } 
+        }else{
+            setIsLoadingList(false)
+        }
     }
 
     /*use effect*/
