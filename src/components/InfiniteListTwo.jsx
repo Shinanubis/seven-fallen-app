@@ -54,7 +54,9 @@ function InfiniteListTwo(props) {
 
     /*use effect*/
     useEffect(() => {
-
+        if(page <= MAX_PAGE){
+            setPage();
+        }
     },[isLoadingList])
 
     useEffect(() => {
