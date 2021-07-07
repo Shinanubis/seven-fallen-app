@@ -54,6 +54,10 @@ function InfiniteListTwo(props) {
 
     /*use effect*/
     useEffect(() => {
+
+    },[isLoadingList])
+
+    useEffect(() => {
         setIsLoadingList(false);
     },[datas])
 
@@ -82,7 +86,7 @@ function InfiniteListTwo(props) {
                     })
                 }
             </ul>
-            {isLoadingList === true && <img classsName={classesLoaderList ? classesLoaderList : 'infinite__loader--List'} src={LoaderGif}/>}
+            {isLoadingList === true && <img className={classesLoaderList ? classesLoaderList : 'infinite__loader--List'} src={LoaderGif}/>}
         </>
     )
 }
