@@ -92,13 +92,10 @@ function AddingSubDecksCardsPage(props) {
 
     }, [cardsResponse.message]);
 
-    useEffect(() => {
-        console.log(imageLoaded)
-    },[imageLoaded]);
-
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
+            {console.log(imageLoaded)}
                 <InfiniteList 
                     triggerIndex={7} 
                     page={page} 
@@ -119,7 +116,7 @@ function AddingSubDecksCardsPage(props) {
                                     /> 
                                     <img 
                                         id = {elmt.id}
-                                        className={imageLoaded[elmt.id] === false ? "image__loader" : "d-none"} 
+                                        className="image__loader"
                                         src={LoaderGif} 
                                     />
                                 </li>
