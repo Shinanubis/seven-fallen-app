@@ -95,7 +95,7 @@ function AddingSubDecksCardsPage(props) {
     }, [cardsResponse.message[1]]);
 
     useEffect(() => {
-        console.log(imageLoaded)
+        // console.log(imageLoaded)
     }, [imageLoaded])
 
     return loaded === true ? (
@@ -120,7 +120,7 @@ function AddingSubDecksCardsPage(props) {
                                                 src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
                                                 onLoad={handleImageLoad}
                                             />
-                                            {console.log(imageLoaded[elmt.id])}
+                                            {imageLoaded[elmt.id] === false ? <img src={LoaderGif} /> : null}
                                     </li>
                                 )
                         })
