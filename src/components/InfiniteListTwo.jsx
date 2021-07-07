@@ -54,6 +54,9 @@ function InfiniteListTwo(props) {
         if(isLoadingList === true){
             setIsLoadingList(false);
         }
+    },[datas])
+
+    useEffect(() => {
 
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
@@ -62,11 +65,6 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
-    },[datas])
-
-    useEffect(() => {
-        console.log("datas length", datas.length)
-        console.log("trigger index", triggerIndex)
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     })
@@ -74,6 +72,8 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
+                {console.log("datas length", datas.length)}
+                {console.log("trigger index", triggerIndex)}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
