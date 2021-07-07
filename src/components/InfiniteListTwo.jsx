@@ -1,4 +1,4 @@
-import React from 'react'
+import {useEffect} from 'react'
 
 function InfiniteListTwo(props) {
     const { classesContainer, 
@@ -6,6 +6,10 @@ function InfiniteListTwo(props) {
             classesImages, 
             datas
           } = props;
+    
+    useEffect(() => {
+        console.log(datas)
+    }, [])
 
     return (
         <ul classes={classesContainer ? classesContainer : "infinite__container"}>
