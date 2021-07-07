@@ -42,7 +42,7 @@ function InfiniteListTwo(props) {
                 datas.map((elmt, index) => {
                     return (
                         <li 
-                            ref={index === triggerAt - 1 && elmtRef} 
+                            ref={index === triggerAt - 1 ? elmtRef : null} 
                             className={classesElement ? classesElement : "infinite__element"}
                         >
                             <img 
