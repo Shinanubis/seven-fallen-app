@@ -80,10 +80,6 @@ function AddingSubDecksCardsPage(props) {
     },[page]);
 
     useEffect(() => {
-        console.log(imageLoaded)
-    },[imageLoaded]);
-
-    useEffect(() => {
         let newImages = {};
 
         if(cardsResponse.message[1] instanceof Array){
@@ -92,13 +88,14 @@ function AddingSubDecksCardsPage(props) {
             })
         }
 
-        setImageLoaded({...newImages});
         console.log(newImages)
+
     }, []);
 
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
+
                 <InfiniteList 
                     triggerIndex={7} 
                     page={page} 
