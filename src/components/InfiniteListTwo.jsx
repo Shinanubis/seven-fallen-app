@@ -21,14 +21,6 @@ function InfiniteListTwo(props) {
     /*states*/
     const [isLoadingList, setIsLoadingList] = useState(false);
     const [triggerIndex, setTriggerIndex] = useState(0);
-    
-    if( datas.length > triggerIndex){
-        setTriggerIndex(triggerAt * page);
-    }else if(datas.length < triggerIndex){
-        setTriggerIndex(datas.length - 1)   
-    }else{
-        console.log("something wrong happened")
-    } 
 
     /*constantes*/
     const MAX_PAGE = Math.ceil(size / numPerPage)
@@ -62,6 +54,14 @@ function InfiniteListTwo(props) {
         if(isLoadingList === true){
             setIsLoadingList(false);
         }
+
+        if( datas.length > triggerIndex){
+            setTriggerIndex(triggerAt * page);
+        }else if(datas.length < triggerIndex){
+            setTriggerIndex(datas.length - 1)   
+        }else{
+            console.log("something wrong happened")
+        } 
 
     },[datas])
 
