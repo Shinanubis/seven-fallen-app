@@ -133,6 +133,7 @@ function AddingSubDecksCardsPage(props) {
                 classesContainer="subdeck list__content layout layout__1 mb-2" 
                 classesElement="card__container"
                 classesImages="card__image"
+                classesLoaderList="loader__image"
                 datas={completeList}
                 size={cardsResponse.message[0]}
                 numPerPage={10}

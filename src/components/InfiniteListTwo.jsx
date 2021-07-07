@@ -7,7 +7,8 @@ function InfiniteListTwo(props) {
     
     const { classesContainer, 
             classesElement,
-            classesImages, 
+            classesImages,
+            classesLoaderList, 
             datas,
             size,
             numPerPage,
@@ -79,7 +80,7 @@ function InfiniteListTwo(props) {
                     })
                 }
             </ul>
-            {isLoadingList === true && <img src={LoaderGif}/>}
+            {isLoadingList === true && <img classsName={classesLoaderList ? classesLoaderList : 'infinite__loader--List'} src={LoaderGif}/>}
         </>
     )
 }
