@@ -55,11 +55,14 @@ function InfiniteListTwo(props) {
             setIsLoadingList(false);
         }
 
+        if(page === MAX_PAGE){
+            setIsLoadingList(false);
+        }
+
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
         }else if(datas.length < triggerIndex){
-            setTriggerIndex(datas.length - 1)
-            setIsLoadingList(false);   
+            setTriggerIndex(datas.length - 1)   
         }else{
             console.log("something wrong happened")
         } 
