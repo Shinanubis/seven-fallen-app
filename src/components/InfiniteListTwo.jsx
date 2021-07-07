@@ -56,6 +56,10 @@ function InfiniteListTwo(props) {
             setIsLoadingList(false);
         }
 
+        if(page === MAX_PAGE && datas.length === size - 1){
+            setIsLoadingList(false);
+        }
+
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
         }else if(datas.length < triggerIndex){
@@ -65,12 +69,6 @@ function InfiniteListTwo(props) {
         } 
 
     },[datas]);
-
-    useEffect(() => {
-        if(page === MAX_PAGE && datas.length === size - 1){
-            setIsLoadingList(false);
-        }
-    },[page,datas]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
