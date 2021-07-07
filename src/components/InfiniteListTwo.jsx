@@ -58,12 +58,12 @@ function InfiniteListTwo(props) {
     },[page,datas]);
 
     useEffect(() => {
-        if(page < MAX_PAGE){
             if(isLoadingList === true){
-                setPage();
+                setIsLoadingList(false)
+                setTimeout(() => {
+                    setPage();
+                },1000);        
             }
-        }
-
     },[isLoadingList]);
 
     useEffect(() => {
