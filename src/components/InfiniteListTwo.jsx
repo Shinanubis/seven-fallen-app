@@ -38,33 +38,29 @@ function InfiniteListTwo(props) {
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
         if(elmtBottom < listBottom){
-            setTimeout(() => {
-                setIsLoadingList(true);
-            }, 1000)    
+            setIsLoadingList(true);
+            if(triggerAt > datas.length - 1){
+                newTriggerAt = datas.length - 1;
+            }else if(triggerAt <= datas.length - 1){
+                newTriggerAt = triggerAt * page;
+            }else{
+                console.error("Your trigger value is not good")
+            }   
         }
     }
 
     /*use effect*/
-
     useEffect(() => {
-        if(triggerAt > datas.length - 1){
-            newTriggerAt = datas.length - 1;
-        }else if(triggerAt <= datas.length - 1){
-            newTriggerAt = triggerAt * page;
-        }else{
-            console.error("Your trigger value is not good")
-        }
-
-    },[page,datas]);
-
-    useEffect(() => {
-            if(isLoadingList === true){
-                setIsLoadingList(false)
-                setTimeout(() => {
-                    setPage();
-                },1000);        
+            if(isLoadingList === true && page <= MAX_PAGE){
+                setPage()   
             }
     },[isLoadingList]);
+
+    useEffect(() => {
+        if(isLoadingList === true){
+            setIsLoadingList(false);
+        }
+    },[datas])
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
