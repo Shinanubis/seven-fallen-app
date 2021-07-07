@@ -134,7 +134,7 @@ function AddingSubDecksCardsPage(props) {
                 classesElement="card__container"
                 classesImages="card__image"
                 datas={completeList}
-                setPage={setPage(page + 1)}
+                setPage={() => setPage(page + 1)}
                 triggerAt={9}
             />
             <Flash 
