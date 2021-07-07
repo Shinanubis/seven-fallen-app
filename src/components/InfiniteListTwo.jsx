@@ -18,7 +18,7 @@ function InfiniteListTwo(props) {
                 datas.map(elmt => {
                     return (
                         <li className={classesElement ? classesElement : "infinite__element"}>
-                            <img className={classesImages ? classesImages : "infinite__image"} src={datas.image_path} />
+                            <img className={classesImages ? classesImages : "infinite__image"} src={elmt.image_path} />
                         </li>
                     )
                 })
