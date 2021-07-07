@@ -54,9 +54,6 @@ function InfiniteListTwo(props) {
         if(isLoadingList === true){
             setIsLoadingList(false);
         }
-    },[datas])
-
-    useEffect(() => {
 
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
@@ -65,6 +62,10 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
+
+    },[datas])
+
+    useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     })
