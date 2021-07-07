@@ -53,10 +53,14 @@ function InfiniteListTwo(props) {
     }
 
     /*use effect*/
-
     useEffect(() => {
-        setIsLoadingList(false);
-    },[datas])
+        if(page < MAX_PAGE){
+            if(isLoadingList === true){
+                setPage();
+                setIsLoadingList(false);
+            }
+        }
+    },[isLoadingList]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
