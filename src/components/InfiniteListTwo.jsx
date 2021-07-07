@@ -28,14 +28,6 @@ function InfiniteListTwo(props) {
     let elmtBottom = 0;
     let newTriggerAt = 0;
 
-    if(triggerAt > datas.length - 1){
-        newTriggerAt = datas.length - 1;
-    }else if(triggerAt <= datas.length - 1){
-        newTriggerAt = triggerAt * page;
-    }else{
-        console.error("Your trigger value is not good")
-    }
-
     /* refs */
     let listRef = useRef();
     let elmtRef = useRef();
@@ -53,6 +45,17 @@ function InfiniteListTwo(props) {
     }
 
     /*use effect*/
+
+    useEffect(() => {
+        if(triggerAt > datas.length - 1){
+            newTriggerAt = datas.length - 1;
+        }else if(triggerAt <= datas.length - 1){
+            newTriggerAt = triggerAt * page;
+        }else{
+            console.error("Your trigger value is not good")
+        }
+    },[page]);
+
     useEffect(() => {
         if(page < MAX_PAGE){
             if(isLoadingList === true){
