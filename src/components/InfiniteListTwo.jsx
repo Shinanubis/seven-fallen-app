@@ -1,4 +1,6 @@
-import {useEffect} from 'react'
+import {useEffect} from 'react';
+import dotenv from 'dotenv';
+dotenv.config();
 
 function InfiniteListTwo(props) {
     const { classesContainer, 
@@ -18,7 +20,7 @@ function InfiniteListTwo(props) {
                 datas.map(elmt => {
                     return (
                         <li className={classesElement ? classesElement : "infinite__element"}>
-                            <img className={classesImages ? classesImages : "infinite__image"} src={elmt.image_path} />
+                            <img className={classesImages ? classesImages : "infinite__image"} src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
                         </li>
                     )
                 })
