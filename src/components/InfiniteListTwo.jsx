@@ -78,17 +78,30 @@ function InfiniteListTwo(props) {
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
+                        if(triggerIndex <= datas.length){
                         return (
-                            <li 
-                                ref={index === triggerIndex ? elmtRef : null} 
-                                className={classesElement ? classesElement : "infinite__element"}
-                            >
-                                <img 
-                                    className={classesImages ? classesImages : "infinite__image"} 
-                                    src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
-                                />
-                            </li>
-                        )
+                                <li 
+                                    ref={index === triggerIndex ? elmtRef : null} 
+                                    className={classesElement ? classesElement : "infinite__element"}
+                                >
+                                    <img 
+                                        className={classesImages ? classesImages : "infinite__image"} 
+                                        src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                    />
+                                </li>
+                                )
+                        }else{
+                        return (<li 
+                                    ref={index === datas.length - 1 ? elmtRef : null} 
+                                    className={classesElement ? classesElement : "infinite__element"}
+                                >
+                                    <img 
+                                        className={classesImages ? classesImages : "infinite__image"} 
+                                        src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                    />
+                                </li>
+                                )
+                        }
                     })
                 }
             </ul>
