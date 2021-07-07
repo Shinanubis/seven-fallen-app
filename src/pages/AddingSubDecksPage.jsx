@@ -92,7 +92,7 @@ function AddingSubDecksCardsPage(props) {
             })
         }
 
-        setImageLoaded(newImages);
+        setImageLoaded({...newImages});
     }, []);
 
     return loaded === true ? (
