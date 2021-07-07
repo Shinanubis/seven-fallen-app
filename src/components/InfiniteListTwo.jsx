@@ -14,7 +14,7 @@ function InfiniteListTwo(props) {
     }, [])
 
     return (
-        <ul classes={classesContainer ? classesContainer : "infinite__container"}>
+        <ul className={classesContainer ? classesContainer : "infinite__container"}>
             {
                 datas instanceof Array &&
                 datas.map(elmt => {
