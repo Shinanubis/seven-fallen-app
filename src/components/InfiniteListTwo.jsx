@@ -54,9 +54,8 @@ function InfiniteListTwo(props) {
         }else{
             console.error("Your trigger value is not good")
         }
-        setIsLoadingList(false)
 
-    },[datas]);
+    },[page,datas]);
 
     useEffect(() => {
         if(page < MAX_PAGE){
