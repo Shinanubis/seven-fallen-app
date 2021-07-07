@@ -63,7 +63,8 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         if(!isMounted){
-            console.log("i'm not mounted")
+            console.log(datas.length)
+            console.log(triggerIndex)
         }
         if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
