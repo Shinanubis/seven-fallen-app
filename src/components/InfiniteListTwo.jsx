@@ -68,7 +68,6 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
-        console.log(triggerIndex)
     },[]);
 
     return (
@@ -79,7 +78,7 @@ function InfiniteListTwo(props) {
                     datas.map((elmt, index) => {
                         return (
                             <li 
-                                ref={index === triggerAt ? elmtRef : null} 
+                                ref={index === triggerIndex ? elmtRef : null} 
                                 className={classesElement ? classesElement : "infinite__element"}
                             >
                                 <img 
