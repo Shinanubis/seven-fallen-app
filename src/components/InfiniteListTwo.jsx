@@ -61,9 +61,9 @@ function InfiniteListTwo(props) {
     })
 
     useEffect(() => {
-        if(triggerAt <= datas.length - 1){
+        if( datas.length > triggerIndex){
             setTriggerIndex(triggerAt * page);
-        }else if(triggerAt > datas.length - 1){
+        }else if(datas.length > 0){
             setTriggerIndex(datas.length - 1)   
         }else{
             console.log("something wrong happened")
