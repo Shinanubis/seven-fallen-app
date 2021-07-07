@@ -80,6 +80,10 @@ function AddingSubDecksCardsPage(props) {
     },[page]);
 
     useEffect(() => {
+        console.log(imageLoaded)
+    },[imageLoaded]);
+
+    useEffect(() => {
         let newImages = {};
 
         if(cardsResponse.message[1] instanceof Array){
