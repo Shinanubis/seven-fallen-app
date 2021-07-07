@@ -27,10 +27,10 @@ function InfiniteListTwo(props) {
         console.log(listBottom)
         console.log(elmtBottom)
     }
-    
+
     /*use effect*/
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     })
 
