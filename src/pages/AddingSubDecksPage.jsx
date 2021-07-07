@@ -54,7 +54,6 @@ function AddingSubDecksCardsPage(props) {
     }
 
     const handleImageLoad = (e) => {
-            e.preventDefault();
             setImageLoaded(prevstate => {
                 let newObj = {...prevstate};
                 newObj[e.target.id] = true;
