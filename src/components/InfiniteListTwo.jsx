@@ -19,6 +19,7 @@ function InfiniteListTwo(props) {
 
     /*states*/
     const [isLoadingList, setIsLoadingList] = useState(false);
+    const [triggerIndex, setTriggerIndex] = useState(0); 
 
     /*constantes*/
     const MAX_PAGE = Math.ceil(size / numPerPage)
@@ -26,7 +27,6 @@ function InfiniteListTwo(props) {
     /*variables*/
     let listBottom = 0;
     let elmtBottom = 0;
-    let newTriggerAt = 0;
 
     /* refs */
     let listRef = useRef();
@@ -38,14 +38,7 @@ function InfiniteListTwo(props) {
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
         if(elmtBottom < listBottom){
-            setIsLoadingList(true);
-            if(triggerAt > datas.length - 1){
-                newTriggerAt = datas.length - 1;
-            }else if(triggerAt <= datas.length - 1){
-                newTriggerAt = triggerAt * page;
-            }else{
-                console.error("Your trigger value is not good")
-            }   
+            setIsLoadingList(true);  
         }
     }
 
@@ -66,6 +59,16 @@ function InfiniteListTwo(props) {
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     })
+
+    useEffect(() => {
+        if(triggerAt <= datas.length - 1){
+            setTriggerIndex(triggerAt * page);
+        }else if(triggerAt > datas.length - 1){
+            setTriggerIndex(datas.length - 1)   
+        }else{
+            console.log("something wrong happened")
+        }
+    },[]);
 
     return (
         <>
