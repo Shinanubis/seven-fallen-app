@@ -86,12 +86,12 @@ function AddingSubDecksCardsPage(props) {
             cardsResponse.message[1].map(elmt => {
                 if(!newImages[elmt.id]){
                     newImages[elmt.id] = false;
-                }
-                
+                }    
             })
         }
 
-        console.log(newImages)
+        setImageLoaded(newImages);
+        console.log(imageLoaded)
     }, [cardsResponse.message[1]]);
 
     return loaded === true ? (
