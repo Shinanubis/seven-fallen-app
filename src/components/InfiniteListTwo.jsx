@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState } from 'react';
+import LoaderGif from '../img/22-2.gif';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -59,24 +60,27 @@ function InfiniteListTwo(props) {
     })
 
     return (
-        <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
-            {
-                datas instanceof Array &&
-                datas.map((elmt, index) => {
-                    return (
-                        <li 
-                            ref={index === triggerAt ? elmtRef : null} 
-                            className={classesElement ? classesElement : "infinite__element"}
-                        >
-                            <img 
-                                className={classesImages ? classesImages : "infinite__image"} 
-                                src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
-                            />
-                        </li>
-                    )
-                })
-            }
-        </ul>
+        <>
+            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
+                {
+                    datas instanceof Array &&
+                    datas.map((elmt, index) => {
+                        return (
+                            <li 
+                                ref={index === triggerAt ? elmtRef : null} 
+                                className={classesElement ? classesElement : "infinite__element"}
+                            >
+                                <img 
+                                    className={classesImages ? classesImages : "infinite__image"} 
+                                    src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                />
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+            {isLoadingList === true && <img src={LoaderGif}/>}
+        </>
     )
 }
 
