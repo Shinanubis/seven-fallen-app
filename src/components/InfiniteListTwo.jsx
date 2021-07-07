@@ -77,6 +77,7 @@ function InfiniteListTwo(props) {
 
     return (
         <>
+            {console.log("render")}
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
                 {
                     datas instanceof Array &&
