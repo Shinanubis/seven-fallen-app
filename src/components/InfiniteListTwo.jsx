@@ -68,6 +68,7 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
+        console.log(triggerIndex)
     },[]);
 
     return (
