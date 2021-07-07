@@ -8,10 +8,18 @@ function InfiniteListTwo(props) {
             classesElement,
             classesImages, 
             datas,
+            size,
             numPerPage,
+            page,
             setPage,
             triggerAt
           } = props;
+
+    /*states*/
+    const [isLoadingList, setIsLoadingList] = useState(false);
+
+    /*constantes*/
+    const MAX_PAGE = Math.ceil(size / numPerPage)
 
     /*variables*/
     let listBottom = 0;
@@ -34,12 +42,16 @@ function InfiniteListTwo(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
+
         if(elmtBottom < listBottom){
-            setPage();
+            setIsLoadingList(true)
         } 
     }
 
     /*use effect*/
+    useEffect(() => {
+        setIsLoadingList(false);
+    },[datas])
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);

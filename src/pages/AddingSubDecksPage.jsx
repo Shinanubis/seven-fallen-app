@@ -134,6 +134,9 @@ function AddingSubDecksCardsPage(props) {
                 classesElement="card__container"
                 classesImages="card__image"
                 datas={completeList}
+                size={cardsResponse.message[0]}
+                numPerPage={10}
+                page={page}
                 setPage={() => setPage(page + 1)}
                 triggerAt={9}
             />
