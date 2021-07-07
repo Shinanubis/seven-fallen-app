@@ -40,8 +40,6 @@ const InfiniteList = (props,ref) => {
 
         if(elmtBottom <= listBottom){
             setIsLoading(true);
-        }else if(children.length === size - 1){
-            setIsLoading(false)
         }else{
             setIsLoading(false);
         }
@@ -60,6 +58,10 @@ const InfiniteList = (props,ref) => {
             let newDatas = [...prevstate, ...children];   
             return newDatas;
         });
+
+        if(children.length === size - 1){
+            setIsLoading(false)
+        }
     },[result]);
 
     useEffect(() => {
