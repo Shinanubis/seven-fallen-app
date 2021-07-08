@@ -48,6 +48,10 @@ function InfiniteListTwo(props) {
 
     }
 
+    const handleImageLoading = (e) => {
+        console.log(e.target.id)
+    }
+
     /*use effect*/
     useEffect(() => {
             if(isLoadingList === true && page < MAX_PAGE){
@@ -86,7 +90,7 @@ function InfiniteListTwo(props) {
 
     return (
         <>
-            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
+            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoad={handleImageLoading} >
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
@@ -99,7 +103,11 @@ function InfiniteListTwo(props) {
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
-                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                        />
+                                        <img 
+                                            className={classesImages ? classesImages : "infinite__image--loader"}
+                                            src={LoaderGif}
                                         />
                                     </li>
                                     )
