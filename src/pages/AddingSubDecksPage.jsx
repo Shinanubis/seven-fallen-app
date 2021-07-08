@@ -65,8 +65,9 @@ function AddingSubDecksCardsPage(props) {
             cardsResponse.message[1].map(elmt => {
                 newImages[elmt.id] = false;    
             })
+            console.log(cardsResponse.messsage[1])
         }
-        console.log(cardsResponse.messsage[1])
+        
         setImageLoaded(newImages);
     }, [cardsResponse.message[1]]);
 
