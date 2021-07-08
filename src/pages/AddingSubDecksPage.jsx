@@ -64,11 +64,12 @@ function AddingSubDecksCardsPage(props) {
 
         if(response.message[1]){
             newCompleteList = [...completeList,...response.message[1]];
-            setCompleteList(newCompleteList);
-        }
 
-        if(userSubdeckResponse.code === 200){
-            console.log(userSubdeckResponse)
+            if(userSubdeckResponse.code === 200){
+                console.log(Object.keys(newCompleteList))
+            }
+
+            setCompleteList(newCompleteList);
         }
 
         setCardsResponse(response);
