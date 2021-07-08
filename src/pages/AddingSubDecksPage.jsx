@@ -97,7 +97,6 @@ function AddingSubDecksCardsPage(props) {
                 setPage={() => setPage(page + 1)}
                 triggerAt={9}
             >
-            {num}
             </InfiniteListTwo>
             <Flash 
                 classes="message__flash" 
