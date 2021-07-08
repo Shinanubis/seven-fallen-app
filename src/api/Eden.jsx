@@ -15,6 +15,7 @@ async function getEdenCards(id){
         credentials: 'include'
     }
     let url = new URL(`https://test-seven.site/api/decks/${id}/eden/cards`)
+    console.log(url)
     let response = await fetch(url, settings);
     let datas = await response.json();
     return datas;
