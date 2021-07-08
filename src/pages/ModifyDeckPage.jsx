@@ -180,15 +180,15 @@ function ModifyDeckPage(props){
         }
         
         if(eden.code === 200){
-            setEdenCards(eden.message);
+            setEdenCards(eden.message.cards);
         }
 
         if(register.code === 200){
-            setRegisterCards(register.message);
+            setRegisterCards(register.message.cards);
         }
 
         if(holybook.code === 200){
-            setHolyBookCards(holybook.message);
+            setHolyBookCards(holybook.message.cards);
         }
 
     },[]);
