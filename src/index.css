@@ -1460,8 +1460,7 @@ svg.dropdown__icon path{
 main {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
 }
 
 /* Media queries */
