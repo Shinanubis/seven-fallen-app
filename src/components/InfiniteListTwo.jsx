@@ -20,6 +20,7 @@ function InfiniteListTwo(props) {
     /*states*/
     const [isLoadingList, setIsLoadingList] = useState(false);
     const [triggerIndex, setTriggerIndex] = useState(0);
+    const [imagesLoading, setImagesLoading] = useState({});
 
     /*constantes*/
     const MAX_PAGE = Math.ceil(size / numPerPage)
@@ -76,12 +77,19 @@ function InfiniteListTwo(props) {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
-    })
+    });
+
+    useEffect(() => {
+        let newObj = {};
+        datas.map(elmt => {
+            newObj[elmt.id] = false;
+        })
+        console.log(newObj)
+    },[]);
 
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
-                {console.log(console.log(datas))}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
@@ -123,4 +131,4 @@ function InfiniteListTwo(props) {
     )
 }
 
-export default React.memo(InfiniteListTwo);
+export default InfiniteListTwo;
