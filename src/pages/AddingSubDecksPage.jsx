@@ -44,29 +44,33 @@ function AddingSubDecksCardsPage(props) {
     /*useEffects*/
     useEffect(async () => {
         let response = '';
-        let edenResponse = '';
-        let registerResponse = '';
-        let holybookResponse = ''; 
+        let userSubdeckResponse = '';
+        let newCompleteList = []; 
 
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
-            edenResponse = await getUserEdenCards(id);
+            userSubdeckResponse = await getUserEdenCards(id);
         }
 
         if(endUrl === 'register'){
             response = await getRegisterCards(page,10,'FR');
-            registerResponse = await getUserRegisterCards(id);
+            userSubdeckResponse = await getUserRegisterCards(id);
         }
 
         if(endUrl === 'holybook'){
             response = await getHolyBookCards(page,10,'FR');
-            holybookResponse = await getUserHolyBookCards(id);
+            userSubdeckResponse = await getUserHolyBookCards(id);
         }
 
         if(response.message[1]){
-            let newCompleteList = [...completeList,...response.message[1]];
+            newCompleteList = [...completeList,...response.message[1]];
             setCompleteList(newCompleteList);
         }
+
+        if(userSubdeckResponse.code === 200){
+            console.log(userSubdeckResponse)
+        }
+
         setCardsResponse(response);
     },[page]);
 
