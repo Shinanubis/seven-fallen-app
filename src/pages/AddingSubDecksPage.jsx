@@ -79,6 +79,8 @@ function AddingSubDecksCardsPage(props) {
                     newCompleteList.map((elmt, index) => {
                         if(elmt.id === sub[0]){
                             newCompleteList[index].qty = sub[1];
+                        }else{
+                            newCompleteList[index].qty = 0;
                         }
                     })
                 })
