@@ -180,7 +180,7 @@ function ModifyDeckPage(props){
         }
         
         if(eden.code === 200){
-            console.log(eden)
+            console.log(eden.message[0].cards)
             setEdenCards(eden.message[0].cards);
         }
 
