@@ -1,22 +1,22 @@
 import {useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 
+/*api*/
 import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
+import {getEdenCards as getUserEdenCards} from '../api/Eden';
 
 import Main from '../layouts/Main';
 import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
 import Filters from '../components/Filters';
-import Toolbar from '../components/Toolbar';
-import {FiPlus, FiMinus} from 'react-icons/fi';
-import InfiniteList from '../components/InfiniteList';
 import InfiniteListTwo from '../components/InfiniteListTwo';
-import LoaderGif from '../img/22-2.gif';
 
 import dotenv from 'dotenv';
 dotenv.config();
 
 function AddingSubDecksCardsPage(props) {
+    /*states*/
     const [loaded, setLoaded] = useState(false);
     const [flashMessage, setFlashMessage] = useState(null);
     const [flashState, setFlashState] = useState(null);
@@ -25,22 +25,28 @@ function AddingSubDecksCardsPage(props) {
         message: ''
     });
     const [page, setPage] = useState(1);
-    const [imageLoaded, setImageLoaded] = useState({})
-
     const [completeList, setCompleteList] = useState([]);
+    const [imageLoaded, setImageLoaded] = useState([]);
 
+    /*variables*/
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
+    let id = useParams();
 
+    /*handlers*/
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
     }
 
+    /*useEffects*/
     useEffect(async () => {
-        let response = ''; 
+        let response = '';
+        let edenResponse = ''; 
 
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
+            edenResponse = await getUserEdenCards(id);
+            console.log(edenResponse)
         }
 
         if(endUrl === 'register'){
@@ -55,7 +61,6 @@ function AddingSubDecksCardsPage(props) {
             setCompleteList([...completeList,...response.message[1]]);
         }
         setCardsResponse(response);
-        
     },[page]);
 
     useEffect(() => {
