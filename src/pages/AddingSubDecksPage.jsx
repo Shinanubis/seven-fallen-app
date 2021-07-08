@@ -123,7 +123,7 @@ function AddingSubDecksCardsPage(props) {
                 setPage={() => setPage(page + 1)}
                 triggerAt={9}
             >
-                <CardsCounter value={20}/>
+                <CardsCounter classesContainer="cards__counter--container row justify-center align-center" value={20}/>
             </InfiniteListTwo>
             <Flash 
                 classes="message__flash" 
