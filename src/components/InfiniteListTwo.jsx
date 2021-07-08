@@ -110,14 +110,8 @@ function InfiniteListTwo(props) {
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
-                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                            src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif}
                                         />
-                                        {imagesLoading[elmt.id] === false &&
-                                            <img 
-                                                className={classesImages ? classesImages : "infinite__image--loader"}
-                                                src={LoaderGif}
-                                            />
-                                        }
                                     </li>
                                     )
                         }else{
@@ -133,12 +127,6 @@ function InfiniteListTwo(props) {
                                                 className={classesImages ? classesImages : "infinite__image"} 
                                                 src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
                                             />
-                                            {imagesLoading[elmt.id] === false &&
-                                                <img 
-                                                    className={classesImages ? classesImages : "infinite__image--loader"}
-                                                    src={LoaderGif}
-                                                />
-                                            }
                                         </li>
                                     </>
                             )
