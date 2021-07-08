@@ -50,6 +50,7 @@ function AddingSubDecksCardsPage(props) {
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
             userSubdeckResponse = await getUserEdenCards(id);
+            console.log(userSubdeckResponse);
         }
 
         if(endUrl === 'register'){
@@ -73,7 +74,7 @@ function AddingSubDecksCardsPage(props) {
                         newCompleteList[index].qty = 0;
                     })
                 }else if(userSubdeckResponse.message.length > 0){
-
+                
                 /*else if array get elment seeking of cards with id and add qty to completeList */
                     userSubdeckResponse.message.map((sub,indexSub) => {
                         newCompleteList.map((elmt, index) => {
