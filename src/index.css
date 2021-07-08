@@ -155,7 +155,7 @@ code {
   opacity: .85;
 }
 
-.card__counter{
+.cards__counter{
   color: var(--done)
 }
 
