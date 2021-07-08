@@ -81,15 +81,16 @@ function InfiniteListTwo(props) {
             console.log("something wrong happened")
         }
 
+
+    },[datas]);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll,true);
         let newObj = {};
         datas.map(elmt => {
             newObj[elmt.id] = false;
         })
         setImagesLoading(newObj);
-    },[datas]);
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     });
 
@@ -106,13 +107,11 @@ function InfiniteListTwo(props) {
                                         ref={index === triggerIndex ? elmtRef : null} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                        {imagesLoading[elmt.id] === true&&
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
                                             src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
                                         />
-                                        }
                                         {imagesLoading[elmt.id] === false &&
                                             <img 
                                                 className={classesImages ? classesImages : "infinite__image--loader"}
