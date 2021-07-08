@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 function InfiniteListTwo(props) {
-    let isMounted = false;
     
     const { classesContainer, 
             classesElement,
@@ -37,7 +36,6 @@ function InfiniteListTwo(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-
 
         if(page < MAX_PAGE && elmtBottom < listBottom){
             setIsLoadingList(true);
@@ -83,7 +81,7 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
-                {console.log(triggerIndex)}
+                {console.log(console.log(datas))}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
