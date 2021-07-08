@@ -87,11 +87,12 @@ function InfiniteListTwo(props) {
                     datas.map((elmt, index) => {
                         if(triggerIndex <= datas.length){
                             return (
-                                    <li 
+                                    <li key={index}
                                         ref={index === triggerIndex ? elmtRef : null} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
                                         <img 
+                                            id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
                                             src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
                                         />
@@ -101,10 +102,12 @@ function InfiniteListTwo(props) {
                             return (
                                     <>
                                         <li 
+                                            key={index}
                                             ref={index === datas.length - 1 ? elmtRef : null} 
                                             className={classesElement ? classesElement : "infinite__element"}
                                         >
                                             <img 
+                                                id={elmt.id}
                                                 className={classesImages ? classesImages : "infinite__image"} 
                                                 src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
                                             />
