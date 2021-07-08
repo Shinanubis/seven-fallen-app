@@ -38,8 +38,13 @@ function InfiniteListTwo(props) {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
-        if(elmtBottom < listBottom){
+
+        if(page < MAX_PAGE && elmtBottom < listBottom){
             setIsLoadingList(true);
+        }
+
+        if(page === MAX_PAGE && elmtBottom){
+            setIsLoadingList(false);
         }
 
     }
@@ -77,7 +82,6 @@ function InfiniteListTwo(props) {
 
     return (
         <>
-            {console.log("render")}
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}>
                 {
                     datas instanceof Array &&
