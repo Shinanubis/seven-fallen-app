@@ -70,7 +70,13 @@ function InfiniteListTwo(props) {
             setTriggerIndex(triggerAt * page);
         }else{
             console.log("something wrong happened")
-        } 
+        }
+
+        let newObj = {};
+        datas.map(elmt => {
+            newObj[elmt.id] = false;
+        })
+        console.log(newObj)
 
     },[datas]);
 
@@ -78,14 +84,6 @@ function InfiniteListTwo(props) {
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     });
-
-    useEffect(() => {
-        let newObj = {};
-        datas.map(elmt => {
-            newObj[elmt.id] = false;
-        })
-        console.log(newObj)
-    },[]);
 
     return (
         <>
