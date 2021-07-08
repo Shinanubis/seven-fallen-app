@@ -139,6 +139,22 @@ code {
   margin:0 auto;
 }
 
+/*cards counter*/
+.cards__counter--container{
+  background-color: var(--dark-grey);
+  height: 64px;
+  width: 64px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.card__counter{
+  color: var(--light-grey)
+}
+
 /* return */ 
 .return__block {
   display:flex;

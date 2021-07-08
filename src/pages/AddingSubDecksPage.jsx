@@ -14,6 +14,7 @@ import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
 import Filters from '../components/Filters';
 import InfiniteListTwo from '../components/InfiniteListTwo';
+import CardsCounter from '../components/CardsCounter';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -122,6 +123,7 @@ function AddingSubDecksCardsPage(props) {
                 setPage={() => setPage(page + 1)}
                 triggerAt={9}
             >
+                <CardsCounter value={20}/>
             </InfiniteListTwo>
             <Flash 
                 classes="message__flash" 
