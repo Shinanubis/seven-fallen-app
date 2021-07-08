@@ -180,16 +180,16 @@ function ModifyDeckPage(props){
         }
         
         if(eden.code === 200){
-            console.log(eden.message[0].cards)
-            setEdenCards(eden.message[0].cards);
+            console.log(eden.message[0])
+            setEdenCards(eden.message[0]);
         }
 
         if(register.code === 200){
-            setRegisterCards(register.message[0].cards);
+            setRegisterCards(register.message[0]);
         }
 
         if(holybook.code === 200){
-            setHolyBookCards(holybook.message[0].cards);
+            setHolyBookCards(holybook.message[0]);
         }
 
     },[]);
