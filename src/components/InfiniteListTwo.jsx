@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState } from 'react';
+import React,{useEffect, useRef, useState } from 'react';
 import LoaderGif from '../img/22-2.gif';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -123,4 +123,4 @@ function InfiniteListTwo(props) {
     )
 }
 
-export default InfiniteListTwo;
+export default React.memo(InfiniteListTwo);
