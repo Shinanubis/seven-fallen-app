@@ -102,33 +102,6 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            {/* 
-                <InfiniteList 
-                    triggerIndex={7} 
-                    page={page} 
-                    next={setPage} 
-                    size={cardsResponse.message[0]} 
-                    numPerPage={10} 
-                    result={cardsResponse.message[1]}
-                    imageLoaded={imageLoaded}
-                    setImageLoaded={setImageLoaded}
-                >
-                    {
-                        cardsResponse.message[1].map(elmt => {
-                                return(  
-                                    <li className="card__container">
-                                        <img
-                                            id = {elmt.id} 
-                                            className="card__image" 
-                                            src={imageLoaded[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif}
-                                            onLoad={(e) => setImageLoaded({...imageLoaded, [elmt.id]:true})}
-                                        />           
-                                    </li>
-                                )
-                        })
-                    }
-                </InfiniteList>  
-            */}
             <InfiniteListTwo 
                 classesContainer="subdeck list__content layout layout__1 mb-2" 
                 classesElement="card__container"
