@@ -14,7 +14,8 @@ function InfiniteListTwo(props) {
             numPerPage,
             page,
             setPage,
-            triggerAt
+            triggerAt,
+            children
           } = props;
 
     /*states*/
@@ -97,6 +98,7 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoad={handleImageLoading} >
+                {console.log(children)}
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {

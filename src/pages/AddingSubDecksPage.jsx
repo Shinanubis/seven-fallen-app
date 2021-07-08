@@ -34,6 +34,7 @@ function AddingSubDecksCardsPage(props) {
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
     let id = useParams();
+    let num = 5;
 
     /*handlers*/
     const handleFlash = (newFlashState) => {
@@ -95,7 +96,9 @@ function AddingSubDecksCardsPage(props) {
                 page={page}
                 setPage={() => setPage(page + 1)}
                 triggerAt={9}
-            />
+            >
+            {num}
+            </InfiniteListTwo>
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
