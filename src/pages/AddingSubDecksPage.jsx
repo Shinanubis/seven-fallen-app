@@ -73,7 +73,7 @@ function AddingSubDecksCardsPage(props) {
                     newCompleteList.map((elmt, index) => {
                         newCompleteList[index].qty = 0;
                     })
-                }else if(userSubdeckResponse.message.length > 0){
+                }else if(userSubdeckResponse.message.cards.length > 0){
                 
                 /*else if array get elment seeking of cards with id and add qty to completeList */
                     userSubdeckResponse.message.map((sub,indexSub) => {
