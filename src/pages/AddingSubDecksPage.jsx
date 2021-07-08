@@ -61,7 +61,7 @@ function AddingSubDecksCardsPage(props) {
 
         if(endUrl === 'holybook'){
             response = await getHolyBookCards(page,10,'FR');
-            holybookResponse = await getHolyBookCards(id);
+            holybookResponse = await getUserHolyBookCards(id);
             console.log(holybookResponse)
         }
 
