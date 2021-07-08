@@ -96,7 +96,7 @@ function InfiniteListTwo(props) {
 
     return (
         <>
-            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoadEnd={handleImageLoading} >
+            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoadStart={handleImageLoading} >
                 {console.log(imagesLoading)}
                 {
                     datas instanceof Array &&
