@@ -4,6 +4,8 @@ import {useParams} from 'react-router-dom';
 /*api*/
 import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
 import {getEdenCards as getUserEdenCards} from '../api/Eden';
+import {getRegisterCards as getUserRegisterCards} from '../api/Register';
+import {getHolyBookCards as getUserHolyBookCards} from '../api/HolyBook';
 
 import Main from '../layouts/Main';
 import Loader from '../components/Loader';
@@ -41,7 +43,9 @@ function AddingSubDecksCardsPage(props) {
     /*useEffects*/
     useEffect(async () => {
         let response = '';
-        let edenResponse = ''; 
+        let edenResponse = '';
+        let registerResponse = '';
+        let holybookResponse = ''; 
 
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
@@ -51,10 +55,14 @@ function AddingSubDecksCardsPage(props) {
 
         if(endUrl === 'register'){
             response = await getRegisterCards(page,10,'FR');
+            registerResponse = await getUserRegisterCards(id);
+            console.log(registerResponse)
         }
 
         if(endUrl === 'holybook'){
             response = await getHolyBookCards(page,10,'FR');
+            holybookResponse = await getHolyBookCards(id);
+            console.log(holybookResponse)
         }
 
         if(response.message[1]){
@@ -70,7 +78,6 @@ function AddingSubDecksCardsPage(props) {
             cardsResponse.message[1].map(elmt => {
                 newImages[elmt.id] = false;    
             })
-            console.log(cardsResponse.message[1])
         }
         
         setImageLoaded(newImages);
