@@ -181,15 +181,15 @@ function ModifyDeckPage(props){
         
         if(eden.code === 200){
             console.log(eden)
-            setEdenCards(eden.message.cards);
+            setEdenCards(eden.message[0].cards);
         }
 
         if(register.code === 200){
-            setRegisterCards(register.message.cards);
+            setRegisterCards(register.message[0].cards);
         }
 
         if(holybook.code === 200){
-            setHolyBookCards(holybook.message.cards);
+            setHolyBookCards(holybook.message[0].cards);
         }
 
     },[]);
