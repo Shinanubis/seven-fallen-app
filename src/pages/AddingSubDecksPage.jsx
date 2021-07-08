@@ -66,7 +66,11 @@ function AddingSubDecksCardsPage(props) {
             newCompleteList = [...completeList,...response.message[1]];
 
             if(userSubdeckResponse.code === 200 && completeList instanceof Array){
-                console.log("hello")
+                if(userSubdeckResponse.message.length === 0){
+                    completeList.map(elmt => {
+                        return {...elmt, qty: 0}
+                    })
+                }
             }
 
             setCompleteList(newCompleteList);
