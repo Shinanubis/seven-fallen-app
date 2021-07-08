@@ -196,7 +196,7 @@ function ModifyDeckPage(props){
 
     return (
         <Main classes="page page__deck pt-6">
-            <div className="subdeck__box mb-2">
+            <div className="subdeck__box mt-3 mb-2">
                 <div className="subdeck__heading py-2">
                     <h4 className="subdeck__type">eden</h4>
                 </div>
