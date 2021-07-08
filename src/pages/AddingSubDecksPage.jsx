@@ -50,7 +50,6 @@ function AddingSubDecksCardsPage(props) {
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
             userSubdeckResponse = await getUserEdenCards(id);
-            console.log(userSubdeckResponse.message[0]);
         }
 
         if(endUrl === 'register'){
