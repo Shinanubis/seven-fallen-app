@@ -50,23 +50,21 @@ function AddingSubDecksCardsPage(props) {
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
             edenResponse = await getUserEdenCards(id);
-            console.log(edenResponse)
         }
 
         if(endUrl === 'register'){
             response = await getRegisterCards(page,10,'FR');
             registerResponse = await getUserRegisterCards(id);
-            console.log(registerResponse)
         }
 
         if(endUrl === 'holybook'){
             response = await getHolyBookCards(page,10,'FR');
             holybookResponse = await getUserHolyBookCards(id);
-            console.log(holybookResponse)
         }
 
         if(response.message[1]){
             setCompleteList([...completeList,...response.message[1]]);
+            console.log(completeList)
         }
         setCardsResponse(response);
     },[page]);
