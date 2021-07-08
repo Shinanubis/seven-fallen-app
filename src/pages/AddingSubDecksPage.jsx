@@ -77,7 +77,7 @@ function AddingSubDecksCardsPage(props) {
                     
                 /*else if array get elment seeking of cards with id and add qty to completeList */
                 userSubdeckResponse.message[0].cards.map((sub,indexSub) => {
-                    console.log(sub[indexSub][0]);
+                    console.log(sub[indexSub]);
                 })
 
                 }
