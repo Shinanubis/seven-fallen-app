@@ -188,7 +188,7 @@ const DecksPage = (props) => {
 
     if(decksList.message && decksList.message instanceof Array){
         return (
-            <Layout>
+            <Layout classes="decks page">
                 <Filters containerClasses="filter__container row justify-end mb-2" isVisible={filterClicked} onClick={handleClickFilter}/>
                 <List classes="list__content layout layout__1">
                       { 

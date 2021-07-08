@@ -208,6 +208,10 @@ input.toolbar__icon:focus{
   text-align:center;
 }
 
+.decks.page{
+  justify-content: flex-start;
+}
+
 .subdeck.page{
   justify-content: flex-start;
   height:80vh;
