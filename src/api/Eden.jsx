@@ -14,8 +14,8 @@ async function getEdenCards(id){
         method : 'GET',
         credentials: 'include'
     }
-
-    let response = await fetch(`https://test-seven.site/api/decks/${id}/eden/cards`, settings);
+    let url = new URL(`https://test-seven.site/api/decks/${id}/eden/cards`)
+    let response = await fetch(url, settings);
     let datas = await response.json();
     return datas;
 }
