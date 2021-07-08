@@ -111,10 +111,12 @@ function InfiniteListTwo(props) {
                                             className={classesImages ? classesImages : "infinite__image"} 
                                             src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
                                         />
-                                        <img 
-                                            className={classesImages ? classesImages : "infinite__image--loader"}
-                                            src={LoaderGif}
-                                        />
+                                        {imagesLoading[elmt.id] === false &&
+                                            <img 
+                                                className={classesImages ? classesImages : "infinite__image--loader"}
+                                                src={LoaderGif}
+                                            />
+                                        }
                                     </li>
                                     )
                         }else{
