@@ -80,7 +80,7 @@ function InfiniteListTwo(props) {
         }else{
             console.log("something wrong happened")
         }
-        
+
         let newObj = {};
         datas.map(elmt => {
             newObj[elmt.id] = false;
@@ -96,7 +96,7 @@ function InfiniteListTwo(props) {
 
     return (
         <>
-            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoad={handleImageLoading} >
+            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoadEnd={handleImageLoading} >
                 {console.log(imagesLoading)}
                 {
                     datas instanceof Array &&
