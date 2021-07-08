@@ -65,10 +65,10 @@ function InfiniteListTwo(props) {
             setIsLoadingList(false);
         }
 
-        if( datas.length > triggerIndex){
-            setTriggerIndex(triggerAt * page);
-        }else if(datas.length < triggerIndex){
+        if(datas.length < triggerIndex){
             setTriggerIndex(datas.length - 1)   
+        }else if( datas.length > triggerIndex){
+            setTriggerIndex(triggerAt * page);
         }else{
             console.log("something wrong happened")
         } 
