@@ -84,7 +84,7 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Main classes="subdeck page">
-            {console.log(completeList)}
+            {console.log("completeList : ",completeList)}
             <Filters containerClasses="filter__container row justify-end my-2" />
             <InfiniteListTwo 
                 classesContainer="subdeck list__content layout layout__1 mb-2" 
