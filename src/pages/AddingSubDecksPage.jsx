@@ -7,6 +7,7 @@ import {getEdenCards as getUserEdenCards} from '../api/Eden';
 import {getRegisterCards as getUserRegisterCards} from '../api/Register';
 import {getHolyBookCards as getUserHolyBookCards} from '../api/HolyBook';
 
+/*components*/
 import Main from '../layouts/Main';
 import Loader from '../components/Loader';
 import {RiLoader3Line} from 'react-icons/ri';

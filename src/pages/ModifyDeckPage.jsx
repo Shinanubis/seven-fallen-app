@@ -201,7 +201,7 @@ function ModifyDeckPage(props){
                 </div>
                 <ul className="subdeck__body p-2">
                     {
-                        edenCards.cards.length === 0 ?
+                        edenCards.cards.length >= 0 ?
                             <AddCard 
                                 classes="card__thumbnail--container dashed-border row justify-center align-center" 
                                 url={`/decks/${id}/eden`}
