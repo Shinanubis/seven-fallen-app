@@ -32,34 +32,8 @@ function AddingSubDecksCardsPage(props) {
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
 
-    const toolBarList = {
-        Plus: {
-            id: "add",
-            component : () => <FiPlus id="add-one" className="toolbar__icon"/> 
-        },
-
-        Counter: {
-            id: "counter",
-            component: () => <input id="counter" type="text" className="toolbar__icon" value="25" />
-        },
-
-        Minus: {
-            id: "remove",
-            component : () => <FiMinus id="remove-one" className="toolbar__icon"/>
-        },
-
-    }
-
     const handleFlash = (newFlashState) => {
         setFlashState(newFlashState);
-    }
-
-    const handleImageLoad = (e) => {
-            setImageLoaded(prevstate => {
-                let newObj = {...prevstate};
-                newObj[e.target.id] = false;
-                return newObj;
-            });
     }
 
     useEffect(async () => {
@@ -92,12 +66,9 @@ function AddingSubDecksCardsPage(props) {
                 newImages[elmt.id] = false;    
             })
         }
+        console.log(cardsResponse.messsage[1])
         setImageLoaded(newImages);
     }, [cardsResponse.message[1]]);
-
-    useEffect(() => {
-        // console.log(imageLoaded)
-    }, [imageLoaded])
 
     return loaded === true ? (
         <Main classes="subdeck page">
