@@ -64,7 +64,8 @@ function AddingSubDecksCardsPage(props) {
         }
 
         if(response.message[1]){
-            setCompleteList([...completeList,...response.message[1]]);
+            let newCompleteList = [...completeList,...response.message[1]];
+            setCompleteList(newCompleteList);
         }
         setCardsResponse(response);
     },[page]);
