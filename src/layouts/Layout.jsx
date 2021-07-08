@@ -6,7 +6,7 @@ const layout = (props) => {
         const {classes} = props; 
         return (
         <>
-           <Main className={classes ? classes : "page"}>
+           <Main classes={classes ? classes : "page"}>
                {props.children instanceof Array ? props.children.map((elmt, index) => {
                    return elmt;
                 }) : ''}
