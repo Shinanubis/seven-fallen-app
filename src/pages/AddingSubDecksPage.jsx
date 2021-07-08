@@ -34,8 +34,7 @@ function AddingSubDecksCardsPage(props) {
     /*variables*/
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
-    let id = useParams();
-    let num = 5;
+    let {id} = useParams();
 
     /*handlers*/
     const handleFlash = (newFlashState) => {
