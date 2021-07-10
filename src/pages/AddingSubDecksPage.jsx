@@ -69,21 +69,18 @@ function AddingSubDecksCardsPage(props) {
             newCompleteList = [...completeList,...response.message[1]];
 
             if(userSubdeckResponse.code === 200 && completeList instanceof Array){
-                /*if array empty all cards are initialize to zero*/
-                if(!userSubdeckResponse.message[0].cards){
-                    newCompleteList.map((elmt, index) => {
-                        newCompleteList[index].qty = 0;
-                    })
-                }else if(userSubdeckResponse.message[0].cards){
-                    
-                /*else if array get elment seeking of cards with id and add qty to completeList */
+                /*init qty in completeList*/
+                newCompleteList.map((elmt, index) => {
+                    newCompleteList[index].qty = 0;
+                })
+                
+                if(userSubdeckResponse.message[0].cards){    
+
                 userSubdeckResponse.message[0].cards.map(sub => {
                     newCompleteList.map((elmt, index) => {
                         if(elmt.id === sub[0]){
                             newCompleteList[index].qty = sub[1];
                         }
-                        
-                        console.log(elmt.id === sub[0])
                     })
                 })
 
