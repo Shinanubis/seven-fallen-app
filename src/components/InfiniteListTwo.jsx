@@ -1,5 +1,6 @@
 import React,{useEffect, useRef, useState } from 'react';
 import LoaderGif from '../img/22-2.gif';
+import CardsCounter from './CardsCounter';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -113,7 +114,7 @@ function InfiniteListTwo(props) {
                                             className={classesImages ? classesImages : "infinite__image"} 
                                             src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif}
                                         />
-                                        {props.children}
+                                        <CardsCounter value={elmt[index]}/>
                                     </li>
                                     )
                                 })
