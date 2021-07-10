@@ -87,7 +87,7 @@ function AddingSubDecksCardsPage(props) {
 
                 }
             }
-            console.log(completeList)
+            console.log(newCompleteList)
             setCompleteList(newCompleteList);
         }
 
