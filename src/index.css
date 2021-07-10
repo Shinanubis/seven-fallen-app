@@ -145,6 +145,7 @@ code {
   position: absolute;
   top: 8px;
   left: 8px;
+  padding: 2vh;
   color: var(--done)
 }
 
