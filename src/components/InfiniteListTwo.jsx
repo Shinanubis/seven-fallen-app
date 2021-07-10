@@ -122,7 +122,7 @@ function InfiniteListTwo(props) {
                                 })
                 }
             </ul>
-            {isLoadingList === true && <img className={classesLoaderList ? classesLoaderList : 'infinite__loader--List'} src={LoaderGif}/>}
+            
         </>
     )
 }
