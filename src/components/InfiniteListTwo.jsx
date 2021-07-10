@@ -19,7 +19,6 @@ function InfiniteListTwo(props) {
 
     /*states*/
     const [isLoadingList, setIsLoadingList] = useState(false);
-    const [triggerIndex, setTriggerIndex] = useState(0);
     const [imagesLoading, setImagesLoading] = useState({});
 
     /*constantes*/
@@ -28,6 +27,8 @@ function InfiniteListTwo(props) {
     /*variables*/
     let listBottom = 0;
     let elmtBottom = 0;
+    let triggerIndex = 0;
+    let isMountedOrUpdated = false;
 
     /* refs */
     let listRef = useRef();
@@ -74,9 +75,9 @@ function InfiniteListTwo(props) {
         }
 
         if(datas.length < triggerIndex){
-            setTriggerIndex(datas.length - 1)   
-        }else if( datas.length > triggerIndex){
-            setTriggerIndex(triggerAt * page);
+            triggerIndex = datas.length - 1;   
+        }else if( datas.length >= triggerIndex){
+            triggerIndex = triggerAt * page;
         }else{
             console.log("something wrong happened")
         }
@@ -86,10 +87,14 @@ function InfiniteListTwo(props) {
             newObj[elmt.id] = false;
         })
         setImagesLoading(newObj);
-
     },[datas]);
 
     useEffect(() => {
+        if(!isMountedOrUpdated){
+            console.log(isMountedOrUpdated)   
+        }
+
+        isMountedOrUpdated = true;
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     });
@@ -100,10 +105,9 @@ function InfiniteListTwo(props) {
                 {
                     datas instanceof Array &&
                     datas.map((elmt, index) => {
-                        if(triggerIndex <= datas.length){
                             return (
                                     <li key={index}
-                                        ref={index === triggerIndex ? elmtRef : null} 
+                                        ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
                                         <img 
@@ -114,24 +118,7 @@ function InfiniteListTwo(props) {
                                         {props.children}
                                     </li>
                                     )
-                        }else{
-                            return (
-                                    <>
-                                        <li 
-                                            key={index}
-                                            ref={index === datas.length - 1 ? elmtRef : null} 
-                                            className={classesElement ? classesElement : "infinite__element"}
-                                        >
-                                            <img 
-                                                id={elmt.id}
-                                                className={classesImages ? classesImages : "infinite__image"} 
-                                                src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif} 
-                                            />
-                                        </li>
-                                    </>
-                            )
-                        }
-                    })
+                                })
                 }
             </ul>
             {isLoadingList === true && <img className={classesLoaderList ? classesLoaderList : 'infinite__loader--List'} src={LoaderGif}/>}
