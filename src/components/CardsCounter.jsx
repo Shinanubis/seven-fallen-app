@@ -4,7 +4,7 @@ function CardsCounter(props) {
     const {classes, value} = props;
 
     return (
-            <p className={classes ? classes : "cards__counter"}>{value}</p>
+            <p className={classes ? classes : "d-none"}>{value}</p>
     )
 }
 
