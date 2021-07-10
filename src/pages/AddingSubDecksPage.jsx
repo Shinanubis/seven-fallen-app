@@ -83,7 +83,7 @@ function AddingSubDecksCardsPage(props) {
                             newCompleteList[index].qty = sub[1];
                         }
                         
-                        if(sub[0] === !elmt.id){
+                        if(elmt.id !== sub[0]){
                             newCompleteList[index].qty = 0;
                         }
                     })
