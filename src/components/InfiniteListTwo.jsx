@@ -84,14 +84,15 @@ function InfiniteListTwo(props) {
         }
         isMountedOrUpdated = true;
 
+    },[datas]);
 
-
+    useEffect(() => {
         let newObj = {};
         datas.map(elmt => {
             newObj[elmt.id] = false;
         })
         setImagesLoading(newObj);
-    },[datas]);
+    },[]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
@@ -109,7 +110,7 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                        <CardsCounter classes={"cards__counter--" + elmt.id}/>
+                                        <CardsCounter classes="cards__counter"/>
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
