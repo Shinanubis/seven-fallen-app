@@ -75,19 +75,19 @@ function InfiniteListTwo(props) {
         }
 
         if(!isMountedOrUpdated){
-            console.log(isMountedOrUpdated)   
+            if(datas.length < triggerIndex){
+                triggerIndex = datas.length - 1;
+                console.log("trigger > datas.length",triggerIndex)   
+            }else if( datas.length >= triggerIndex){
+                triggerIndex = triggerAt * page;
+                console.log("trigger <= datas.length",triggerIndex) 
+            }else{
+                console.log("something wrong happened")
+            }
         }
-
         isMountedOrUpdated = true;
-        console.log(isMountedOrUpdated)
 
-        if(datas.length < triggerIndex){
-            triggerIndex = datas.length - 1;   
-        }else if( datas.length >= triggerIndex){
-            triggerIndex = triggerAt * page;
-        }else{
-            console.log("something wrong happened")
-        }
+
 
         let newObj = {};
         datas.map(elmt => {
