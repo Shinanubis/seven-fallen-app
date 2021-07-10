@@ -109,7 +109,7 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                        {imagesLoading[elmt.id] === true ?? <CardsCounter value={elmt.qty}/>}
+                                        {imagesLoading[elmt.id] === true || <CardsCounter value={elmt.qty}/>}
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
