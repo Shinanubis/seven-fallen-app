@@ -18,13 +18,13 @@ function InfiniteListTwo(props) {
           } = props;
 
     /*states*/
+    const [isLoadingList, setIsLoadingList] = useState(false);
     const [imagesLoading, setImagesLoading] = useState({});
 
     /*constantes*/
     const MAX_PAGE = Math.ceil(size / numPerPage)
 
     /*variables*/
-    let isLoadingList = false;
     let listBottom = 0;
     let elmtBottom = 0;
     let triggerIndex = 0;
@@ -40,11 +40,11 @@ function InfiniteListTwo(props) {
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
 
         if(page < MAX_PAGE && elmtBottom < listBottom){
-            isLoadingList = true;
+            setIsLoadingList(true);
         }
 
         if(page === MAX_PAGE && elmtBottom){
-            isLoadingList = false;
+            setIsLoadingList(false);
         }
 
     }
@@ -67,11 +67,11 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         if(isLoadingList === true){
-            isLoadingList = false;
+            setIsLoadingList(false);
         }
 
         if(page === MAX_PAGE && datas.length === size - 1){
-            isLoadingList = false;
+            setIsLoadingList(false);
         }
 
         if(!isMountedOrUpdated){
@@ -82,6 +82,7 @@ function InfiniteListTwo(props) {
             }
         }
         isMountedOrUpdated = true;
+
 
 
         let newObj = {};
