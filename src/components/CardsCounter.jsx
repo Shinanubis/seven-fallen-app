@@ -1,12 +1,10 @@
 import React from 'react'
 
 function CardsCounter(props) {
-    const {classesContainer, classesInner, value} = props;
+    const {classes, value} = props;
 
     return (
-        <div className={classesContainer ? classesContainer : "cards__counter--container"}>
-            <p className={classesInner ? classesInner : "cards__counter"}>{value}</p>
-        </div>
+            <p className={classes ? classes : "cards__counter"}>{value}</p>
     )
 }
 
