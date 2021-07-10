@@ -84,7 +84,7 @@ function AddingSubDecksCardsPage(props) {
                         }
                         
                         if(sub[0] === !elmt.id){
-                            newCompleteList[index].qty = 0;
+                            newCompleteList[index].qty = Number(0);
                         }
                     })
                 })
