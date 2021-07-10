@@ -140,22 +140,11 @@ code {
 }
 
 /*cards counter*/
-.cards__counter--container{
+
+.cards__counter{
   position: absolute;
   top: 8px;
   left: 8px;
-  background-color: var(--dark-grey);
-  height: 64px;
-  width: 64px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  opacity: .85;
-}
-
-.cards__counter{
   color: var(--done)
 }
 
