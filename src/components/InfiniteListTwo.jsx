@@ -74,6 +74,13 @@ function InfiniteListTwo(props) {
             setIsLoadingList(false);
         }
 
+        if(!isMountedOrUpdated){
+            console.log(isMountedOrUpdated)   
+        }
+
+        isMountedOrUpdated = true;
+        console.log(isMountedOrUpdated)
+
         if(datas.length < triggerIndex){
             triggerIndex = datas.length - 1;   
         }else if( datas.length >= triggerIndex){
@@ -90,11 +97,6 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        if(!isMountedOrUpdated){
-            console.log(isMountedOrUpdated)   
-        }
-
-        isMountedOrUpdated = true;
         window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     });
