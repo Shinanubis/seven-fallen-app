@@ -63,6 +63,8 @@ function AddingSubDecksCardsPage(props) {
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
 
+        setCardsResponse(response);
+
         if(response.message[1]){
             newCompleteList = [...completeList,...response.message[1]];
 
@@ -86,12 +88,9 @@ function AddingSubDecksCardsPage(props) {
                 })
 
                 }
+                setCompleteList(newCompleteList);
             }
-            console.log(newCompleteList)
-            setCompleteList(newCompleteList);
         }
-
-        setCardsResponse(response);
     },[page]);
 
     useEffect(() => {
