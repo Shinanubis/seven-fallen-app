@@ -125,4 +125,4 @@ function InfiniteListTwo(props) {
     )
 }
 
-export default InfiniteListTwo;
+export default React.memo(InfiniteListTwo);
