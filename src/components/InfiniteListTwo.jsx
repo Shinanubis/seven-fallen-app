@@ -51,7 +51,6 @@ function InfiniteListTwo(props) {
     }
 
     const handleImageLoading = (e) => {
-        console.log(e)
         if(e.target.id){
             setImagesLoading(prevstate => {
                 let newObj = {...prevstate, [e.target.id]: true};
@@ -114,7 +113,7 @@ function InfiniteListTwo(props) {
                                             className={classesImages ? classesImages : "infinite__image"} 
                                             src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif} 
                                         />
-                                        <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty}/>
+                                        {setTimeout(() => <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty}/>,200)}
                                     </li>
                                     )
                                 })
