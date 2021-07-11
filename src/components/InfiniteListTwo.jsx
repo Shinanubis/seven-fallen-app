@@ -84,7 +84,9 @@ function InfiniteListTwo(props) {
             
         }
         isMountedOrUpdated = true;
-        
+    },[datas]);
+
+    useEffect(() => {
         let newObj = {}
         if(datas){
             datas.map(elmt => {
@@ -92,7 +94,7 @@ function InfiniteListTwo(props) {
             })
             setImagesLoading(newObj)
         }
-    },[datas]);
+    }, []);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
