@@ -90,7 +90,7 @@ function InfiniteListTwo(props) {
         let newObj = {}
         if(datas){
             datas.map(elmt => {
-                newObj[elmt.id] = false;
+                newObj[`page__${elmt.id}`] = false;
             })
             setImagesLoading(newObj)
         }
@@ -104,7 +104,6 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}  onLoad={handleImageLoading}>
-                {console.log(imagesLoading)}
                 {
                     datas.length > 0 &&
                     datas.map((elmt, index) => {
