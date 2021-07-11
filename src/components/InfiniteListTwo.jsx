@@ -60,6 +60,10 @@ function InfiniteListTwo(props) {
     }
 
 
+    let newObj = {};
+    datas.map(elmt => {
+        newObj[elmt.id] = false;
+    });
 
     /*use effect*/
     useEffect(() => {
@@ -83,11 +87,6 @@ function InfiniteListTwo(props) {
             }else if( datas.length >= triggerIndex){
                 triggerIndex = triggerAt * page;
             }
-
-            let newObj = {};
-            datas.map(elmt => {
-                newObj[elmt.id] = false;
-            });
             setImagesLoading(newObj);
         }
         isMountedOrUpdated = true;
