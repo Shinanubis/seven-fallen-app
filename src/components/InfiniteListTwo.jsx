@@ -51,7 +51,7 @@ function InfiniteListTwo(props) {
     }
 
     const handleImageLoading = (e) => {
-        if(e.target.id){
+        if(e.target.id.startWith("page")){
             setImagesLoading(prevstate => {
                 let newObj = {...prevstate, [e.target.id]: true};
                 return newObj;
