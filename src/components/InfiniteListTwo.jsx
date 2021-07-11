@@ -98,6 +98,7 @@ function InfiniteListTwo(props) {
             if(imagesLoading[id] === true){
                 let myStuff = document.getElementById(`cards__counter--${id}`);
                 myStuff.classList.remove('d-none');
+                myStuff.classList.add('cards__counter');
                 console.log("My stuff : ",myStuff)
             }
         }
