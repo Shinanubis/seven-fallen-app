@@ -52,7 +52,10 @@ function InfiniteListTwo(props) {
 
     const handleImageLoading = (e) => {
         if(e.target.id && e.target.id.startsWith("page")){
-            console.log(e.target.id)
+            setImagesLoading(prevstate => {
+                let newObj = {...prevstate, [e.target.id]: true};
+                return newObj;
+            })
         }
     }
 
@@ -94,25 +97,28 @@ function InfiniteListTwo(props) {
                 {
                     datas.length > 0 &&
                     datas.map((elmt, index) => {
-                            return (
-                                    <li key={index}
-                                        ref={elmtRef} 
-                                        className={classesElement ? classesElement : "infinite__element"}
-                                    >
-                                        <img 
-                                            id={`page__${elmt.id}`}
-                                            className={classesImages ? classesImages : "infinite__image"} 
-                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
-                                        />
-                                        <img 
-                                            id={`loader__${elmt.id}`}
-                                            className={imagesLoading[elmt.id] === true ? "d-none" : classesImages}
-                                            src={LoaderGif}  
-                                        />
-                                        <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty} />
-                                    </li>
-                                    )
-                                })
+                        return (
+                                <li key={index}
+                                    ref={elmtRef} 
+                                    className={classesElement ? classesElement : "infinite__element"}
+                                >
+                                    <img 
+                                        id={`page__${elmt.id}`}
+                                        className={imagesLoading[elmt.id] === true ? "cards__image" : "d-none"} 
+                                        src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                    />
+                                    <CardsCounter 
+                                        classes={imagesLoading[elmt.id] === true ? "cards__counter" : "d-none"} 
+                                        value={elmt.qty} 
+                                    />
+                                    <img 
+                                        id={`loader__${elmt.id}`}
+                                        className={imagesLoading[elmt.id] === false ? "cards__image" : "d-none"}
+                                        src={LoaderGif}  
+                                    />
+                                </li>
+                            )
+                        })
                 }
             </ul>
             
