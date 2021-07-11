@@ -97,6 +97,7 @@ function InfiniteListTwo(props) {
             if(id === true){
                 let myStuff = document.getElementById(`cards__counter--${id}`);
                 myStuff.classList.remove('d-none');
+                console.log("My stuff : ",myStuff)
             }
         }
     },[imagesLoading])
