@@ -115,8 +115,7 @@ function InfiniteListTwo(props) {
                                             src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif}
                                            
                                         />
-                                        {elmt.id === 6 && console.log(imagesLoading[elmt.id] === true ? "cards__counter" : "d-none")}
-                                        <p id={`cards__counter--${elmt.id}`} className={imagesLoading[elmt.id] === true ? "cards__counter" : "d-none"}>{elmt.qty}</p>
+                                        {imagesLoading[elmt.id] && <p id={`cards__counter--${elmt.id}`} className="cards__counter">{elmt.qty}</p>}
                                     </li>
                                     )
                                 })
