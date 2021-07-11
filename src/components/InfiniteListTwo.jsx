@@ -93,7 +93,12 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        console.log(Object.keys(imagesLoading))
+        for(let id in imagesLoading){
+            if(id === true){
+                document.getElementById(`cards__counter--${id}`).classList.remove('d-none');
+                document.getElementById(`cards__counter--${id}`).classList.add('cards__counter');
+            }
+        }
     },[imagesLoading])
 
     useEffect(() => {
