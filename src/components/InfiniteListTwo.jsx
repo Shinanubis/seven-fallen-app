@@ -113,7 +113,7 @@ function InfiniteListTwo(props) {
                                             className={classesImages ? classesImages : "infinite__image"} 
                                             src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif} 
                                         />
-                                        <CardsCounter isVisible={setTimeout(() => imagesLoading[elmt.id],100)} classes="cards__counter" value={elmt.qty}/>
+                                        <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty} />
                                     </li>
                                     )
                                 })
