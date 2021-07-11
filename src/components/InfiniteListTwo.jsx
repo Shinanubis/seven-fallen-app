@@ -120,14 +120,12 @@ function InfiniteListTwo(props) {
                                         <CardsCounter 
                                                 classes={imagesLoading[elmt.id] === true ? "cards__counter" : "d-none"} 
                                                 value={elmt.qty} 
+                                        /> 
+                                        <img 
+                                            id={`loader__${elmt.id}`}
+                                            className={imagesLoading[elmt.id] === false ? "cards__counter" : "d-none"}
+                                            src={LoaderGif}  
                                         />
-                                        {imagesLoading[elmt.id] && 
-                                            <img 
-                                                id={`loader__${elmt.id}`}
-                                                className="loader__image"
-                                                src={LoaderGif}  
-                                            />
-                                        }
                                 </li>
                             )
                         })
