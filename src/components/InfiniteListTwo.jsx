@@ -94,10 +94,11 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         for(let id in imagesLoading){
-            console.log("My stuff : ",id)
-            if(id === true){
+            
+            if(imagesLoading[id] === true){
                 let myStuff = document.getElementById(`cards__counter--${id}`);
                 myStuff.classList.remove('d-none');
+                console.log("My stuff : ",myStuff)
             }
         }
     },[imagesLoading])
