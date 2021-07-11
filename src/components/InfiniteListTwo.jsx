@@ -108,12 +108,23 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >   
+                                    {
+                                        imagesLoading[elmt.id] === true ?
+                                        <>
+                                            <img 
+                                                id={elmt.id}
+                                                className={classesImages ? classesImages : "infinite__image"} 
+                                                src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                            />
+                                            <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty} />
+                                        </>
+                                        :
                                         <img 
-                                            id={elmt.id}
-                                            className={classesImages ? classesImages : "infinite__image"} 
-                                            src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif} 
+                                        className={classesImages ? classesImages : "infinite__image"} 
+                                        src={LoaderGif} 
                                         />
-                                        <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty} />
+                                    }
+
                                     </li>
                                     )
                                 })
