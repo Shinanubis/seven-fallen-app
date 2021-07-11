@@ -97,9 +97,14 @@ function InfiniteListTwo(props) {
             
             if(imagesLoading[id] === true){
                 let myStuff = document.getElementById(`cards__counter--${id}`);
-                myStuff.classList.remove('d-none');
-                myStuff.classList.add('cards__counter');
-                console.log("My stuff : ",myStuff)
+                if(myStuff.classList.contains('d-none')){
+                    myStuff.classList.remove('d-none');
+                    myStuff.classList.add('cards__counter');
+                }
+            }else{
+                let myStuff = document.getElementById(`cards__counter--${id}`);
+                myStuff.classList.remove('cards__counter');
+                myStuff.classList.add('d-none');
             }
         }
     },[imagesLoading])
