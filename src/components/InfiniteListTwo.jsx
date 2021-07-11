@@ -83,14 +83,15 @@ function InfiniteListTwo(props) {
             }
         }
         isMountedOrUpdated = true;
+    },[datas]);
 
+    useEffect(() => {
         let newObj = {};
         datas.map(elmt => {
             newObj[elmt.id] = false;
         });
         setImagesLoading(newObj);
-
-    },[datas]);
+    },[]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
