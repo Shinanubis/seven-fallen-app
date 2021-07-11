@@ -59,12 +59,6 @@ function InfiniteListTwo(props) {
         }
     }
 
-
-    let newObj = {};
-    datas.map(elmt => {
-        newObj[elmt.id] = false;
-    });
-
     /*use effect*/
     useEffect(() => {
             if(isLoadingList === true && page < MAX_PAGE){
@@ -87,7 +81,7 @@ function InfiniteListTwo(props) {
             }else if( datas.length >= triggerIndex){
                 triggerIndex = triggerAt * page;
             }
-            setImagesLoading(newObj);
+            
         }
         isMountedOrUpdated = true;
     },[datas]);
