@@ -51,8 +51,8 @@ function InfiniteListTwo(props) {
     }
 
     const handleImageLoading = (e) => {
-        if(typeof e.target.id === 'string'){
-            console.log(e.target.id.startWidth("page"))
+        if(String(e.target.id)){
+            console.log(String(e.target.id).startWidth("page"))
         }
     }
 
