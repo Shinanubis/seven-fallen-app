@@ -1,11 +1,10 @@
 import React from 'react'
 
 function CardsCounter(props) {
-    const {classes, value} = props;
+    const {classes, value, isVisible} = props;
 
-    return (
-            <p className={classes ? classes : "d-none"}>{value}</p>
-    )
+    return isVisible === true ? (<p className={classes ? classes : "d-none"}>{value}</p>) : null;           
+    
 }
 
-export default CardsCounter
+export default CardsCounter;
