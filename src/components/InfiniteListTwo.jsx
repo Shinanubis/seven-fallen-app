@@ -55,7 +55,7 @@ function InfiniteListTwo(props) {
             setImagesLoading(prevstate => {
                 let newObj = {...prevstate, [e.target.id]: true};
                 return newObj;
-            },() => console.log(imagesLoading))
+            })
         }
     }
 
@@ -94,6 +94,7 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}  onLoad={handleImageLoading}>
+                {console.log(imagesLoading)}
                 {
                     datas.length > 0 &&
                     datas.map((elmt, index) => {
