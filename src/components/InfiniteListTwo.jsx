@@ -99,12 +99,8 @@ function InfiniteListTwo(props) {
                 let myStuff = document.getElementById(`cards__counter--${id}`);
                 if(myStuff.classList.contains('d-none')){
                     myStuff.classList.remove('d-none');
-                    myStuff.classList.add('cards__counter');
                 }
-            }else{
-                let myStuff = document.getElementById(`cards__counter--${id}`);
-                myStuff.classList.remove('cards__counter');
-                myStuff.classList.add('d-none');
+
             }
         }
     },[imagesLoading])
