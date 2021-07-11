@@ -51,7 +51,7 @@ function InfiniteListTwo(props) {
     }
 
     const handleImageLoading = (e) => {
-        console.log(typeof e.target.id)
+        console.log(e.target.id instanceof String)
     }
 
     /*use effect*/
