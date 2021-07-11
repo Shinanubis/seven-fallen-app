@@ -87,6 +87,7 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         let newObj = {};
+        console.log("datas : ", datas)
         datas.map(elmt => {
             newObj[elmt.id] = false;
         });
