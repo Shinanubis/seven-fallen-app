@@ -93,6 +93,7 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
+        window.addEventListener("scroll", handleScroll,true);
         for(let id in imagesLoading){
             
             if(imagesLoading[id] === true){
@@ -104,10 +105,6 @@ function InfiniteListTwo(props) {
 
             }
         }
-    },[imagesLoading])
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll,true);
         return window.removeEventListener("scroll", handleScroll);
     });
 
