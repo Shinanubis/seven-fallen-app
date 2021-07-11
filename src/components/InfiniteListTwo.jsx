@@ -91,8 +91,8 @@ function InfiniteListTwo(props) {
         datas.map(elmt => {
             newObj[elmt.id] = false;
         });
-        setImagesLoading(newObj);
-        console.log(imagesLoading)
+        setImagesLoading(newObj,() => console.log(imagesLoading));
+        
     }, [])
 
     useEffect(() => {
