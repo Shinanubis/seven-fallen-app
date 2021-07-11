@@ -55,7 +55,7 @@ function InfiniteListTwo(props) {
             setImagesLoading(prevstate => {
                 let newObj = {...prevstate, [e.target.id]: true};
                 return newObj;
-            })
+            },() => console.log(imagesLoading))
         }
     }
 
