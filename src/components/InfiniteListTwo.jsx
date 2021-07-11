@@ -112,10 +112,9 @@ function InfiniteListTwo(props) {
                                     ref={elmtRef} 
                                     className={classesElement ? classesElement : "infinite__element"}
                                 >
-                                    {console.log(imagesLoading)}
                                         <img 
                                             id={`page__${elmt.id}`}
-                                            className="cards__image" 
+                                            className={imagesLoading[elmt.id] && "cards__image"} 
                                             src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
                                         />
                                         <CardsCounter 
