@@ -51,7 +51,7 @@ function InfiniteListTwo(props) {
     }
 
     const handleImageLoading = (e) => {
-        e.preventDefault();
+        console.log(e)
         if(e.target.id){
             setImagesLoading(prevstate => {
                 let newObj = {...prevstate, [e.target.id]: true};
