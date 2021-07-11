@@ -95,7 +95,7 @@ function InfiniteListTwo(props) {
         })
         console.log("Initial newObj",newObj)
         setImagesLoading(newObj);
-    },[]);
+    },[datas]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
