@@ -92,7 +92,7 @@ function InfiniteListTwo(props) {
             newObj[elmt.id] = false;
         });
         setImagesLoading(newObj);
-        console.log("first render")
+        console.log(imagesLoading)
     }, [])
 
     useEffect(() => {
