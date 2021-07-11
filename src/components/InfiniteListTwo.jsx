@@ -87,16 +87,16 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        console.log(imagesLoading)
-    },[imagesLoading])
-
-    useEffect(() => {
         let newObj = {};
         datas.map(elmt => {
             newObj[elmt.id] = false;
         });
         setImagesLoading(newObj);
     }, [])
+
+    useEffect(() => {
+        console.log(imagesLoading)
+    },[imagesLoading])
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
