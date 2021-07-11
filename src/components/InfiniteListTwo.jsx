@@ -93,7 +93,7 @@ function InfiniteListTwo(props) {
     },[datas]);
 
     useEffect(() => {
-        console.log(imagesLoading)
+        console.log(Object.keys(imagesLoading))
     },[imagesLoading])
 
     useEffect(() => {
