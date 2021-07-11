@@ -59,6 +59,12 @@ function InfiniteListTwo(props) {
         }
     }
 
+    let newObj = {};
+    datas.map(elmt => {
+        newObj[elmt.id] = false;
+    });
+    setImagesLoading(newObj);
+
     /*use effect*/
     useEffect(() => {
             if(isLoadingList === true && page < MAX_PAGE){
@@ -84,14 +90,6 @@ function InfiniteListTwo(props) {
         }
         isMountedOrUpdated = true;
     },[datas]);
-
-    useEffect(() => {
-        let newObj = {};
-        datas.map(elmt => {
-            newObj[elmt.id] = false;
-        });
-        setImagesLoading(newObj);
-    },[]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
