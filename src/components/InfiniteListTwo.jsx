@@ -100,7 +100,7 @@ function InfiniteListTwo(props) {
 
     return (
         <>
-            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}  onLoadEnd={handleImageLoading}>
+            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}  onLoad={handleImageLoading}>
                 {
                     datas.length > 0 &&
                     datas.map((elmt, index) => {
