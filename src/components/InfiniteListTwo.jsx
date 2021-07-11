@@ -100,7 +100,7 @@ function InfiniteListTwo(props) {
 
     return (
         <>
-            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}  onLoad={handleImageLoading}>
+            <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"}  onLoadEnd={handleImageLoading}>
                 {
                     datas.length > 0 &&
                     datas.map((elmt, index) => {
@@ -112,8 +112,7 @@ function InfiniteListTwo(props) {
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
-                                            src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif}
-                                           
+                                            src={imagesLoading[elmt.id] === true ? process.env.REACT_APP_CARDS_STATIC + elmt.image_path : LoaderGif} 
                                         />
                                         {imagesLoading[elmt.id] && <p id={`cards__counter--${elmt.id}`} className="cards__counter">{elmt.qty}</p>}
                                     </li>
