@@ -94,17 +94,6 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll,true);
-        for(let id in imagesLoading){
-            
-            if(imagesLoading[id] === true){
-                let myStuff = document.getElementById(`cards__counter--${id}`);
-                if(myStuff.classList.contains('d-none')){
-                    myStuff.classList.remove('d-none');
-                    myStuff.classList.add('cards__counter');
-                }
-
-            }
-        }
         return window.removeEventListener("scroll", handleScroll);
     });
 
@@ -119,7 +108,7 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                        <p id={`cards__counter--${elmt.id}`} className="d-none">{elmt.qty}</p>
+                                        <p id={`cards__counter--${elmt.id}`} className={imagesLoading[elmt.id] && "d-none"}>{elmt.qty}</p>
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
