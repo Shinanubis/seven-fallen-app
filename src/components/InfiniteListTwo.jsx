@@ -84,15 +84,13 @@ function InfiniteListTwo(props) {
         }
         isMountedOrUpdated = true;
 
-    },[datas]);
-
-    useEffect(() => {
         let newObj = {};
         datas.map(elmt => {
             newObj[elmt.id] = false;
         });
         setImagesLoading(newObj);
-    }, [])
+
+    },[datas]);
 
     useEffect(() => {
         console.log(imagesLoading)
