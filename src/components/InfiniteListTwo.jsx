@@ -102,24 +102,17 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                    {
-                                        imagesLoading[elmt.id] === true ?
-                                        <>
-                                            <img 
-                                                id={elmt.id}
-                                                className={classesImages ? classesImages : "infinite__image"} 
-                                                src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
-                                            />
-                                            <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty} />
-                                        </>
-                                        :
                                         <img 
-                                        id={elmt.id}
-                                        className={classesImages ? classesImages : "infinite__image"} 
-                                        src={LoaderGif} 
+                                            id={`page__${elmt.id}`}
+                                            className={classesImages ? classesImages : "infinite__image"} 
+                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
                                         />
-                                    }
-
+                                        <img 
+                                            id={`loader__${elmt.id}`}
+                                            className={imagesLoading[elmt.id] === true ? "d-none" : classesImages}
+                                            src={LoaderGif}  
+                                        />
+                                        <CardsCounter isVisible={imagesLoading[elmt.id]} classes="cards__counter" value={elmt.qty} />
                                     </li>
                                     )
                                 })
