@@ -107,7 +107,8 @@ function InfiniteListTwo(props) {
                                     <li key={index}
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
-                                    >   
+                                    >
+                                    {console.log(imagesLoading)}   
                                     {
                                         imagesLoading[elmt.id] === true ?
                                         <>
