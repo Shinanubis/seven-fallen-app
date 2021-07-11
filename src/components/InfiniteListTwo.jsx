@@ -108,7 +108,7 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                        <p id={`cards__counter--${elmt.id}`} className={imagesLoading[elmt.id] && "d-none"}>{elmt.qty}</p>
+                                        <p id={`cards__counter--${elmt.id}`} className={imagesLoading[elmt.id] ? "d-none" : "cards__counter"}>{elmt.qty}</p>
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
@@ -121,8 +121,7 @@ function InfiniteListTwo(props) {
                 }
             </ul>
             
-        </>
-    )
+        </>)
 }
 
-export default React.memo(InfiniteListTwo);
+export default InfiniteListTwo;
