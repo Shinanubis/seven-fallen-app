@@ -102,7 +102,6 @@ function InfiniteListTwo(props) {
     return (
         <>
             <ul ref={listRef} className={classesContainer ? classesContainer : "infinite__container"} onLoad={handleImageLoading} >
-                {console.log(imagesLoading)}
                 {
                     datas.length > 0 &&
                     datas.map((elmt, index) => {
@@ -111,7 +110,7 @@ function InfiniteListTwo(props) {
                                         ref={elmtRef} 
                                         className={classesElement ? classesElement : "infinite__element"}
                                     >
-                                        {console.log(imagesLoading[elmt.id])}
+                                        {console.log("images loading in render " + elmt.id + " : " , imagesLoading[elmt.id])}
                                         <img 
                                             id={elmt.id}
                                             className={classesImages ? classesImages : "infinite__image"} 
