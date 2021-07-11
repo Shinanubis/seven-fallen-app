@@ -51,12 +51,11 @@ function InfiniteListTwo(props) {
     }
 
     const handleImageLoading = (e) => {
-        console.log("handleLoader : ",imagesLoading)
         if(e.target.id){
             setImagesLoading(prevstate => {
                 let newObj = {...prevstate, [e.target.id]: true};
                 return newObj;
-            },() => console.log("handler loaderfinish : " , imagesLoading));
+            });
         }
     }
 
@@ -89,11 +88,9 @@ function InfiniteListTwo(props) {
 
     useEffect(() => {
         let newObj = {};
-        console.log("Initial render",datas)
         datas.map(elmt => {
             newObj[elmt.id] = false;
-        })
-        console.log("Initial newObj",newObj)
+        });
         setImagesLoading(newObj);
     },[datas]);
 
