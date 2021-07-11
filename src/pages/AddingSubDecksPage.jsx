@@ -105,20 +105,21 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            <InfiniteListTwo 
-                classesContainer="subdeck list__content layout layout__1 mb-2" 
-                classesElement="card__container"
-                classesImages="card__image"
-                classesLoaderList="loader__image"
-                datas={completeList}
-                size={cardsResponse.message[0]}
-                numPerPage={10}
-                page={page}
-                setPage={() => setPage(page + 1)}
-                triggerAt={9}
-            >
-                
-            </InfiniteListTwo>
+            {completeList && 
+                <InfiniteListTwo 
+                    classesContainer="subdeck list__content layout layout__1 mb-2" 
+                    classesElement="card__container"
+                    classesImages="card__image"
+                    classesLoaderList="loader__image"
+                    datas={completeList}
+                    size={cardsResponse.message[0]}
+                    numPerPage={10}
+                    page={page}
+                    setPage={() => setPage(page + 1)}
+                    triggerAt={9}
+                />
+            }
+
             <Flash 
                 classes="message__flash" 
                 errorClass="message__flash-error" 
