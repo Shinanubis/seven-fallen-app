@@ -123,7 +123,7 @@ function InfiniteListTwo(props) {
                                         /> 
                                         <img 
                                             id={`loader__${elmt.id}`}
-                                            className={imagesLoading["page__"+elmt.id] === false ? "loader__image" : "d-none"}
+                                            className={imagesLoading["page__"+elmt.id] === false ? "loader__block" : "d-none"}
                                             src={LoaderGif}  
                                         />
                                 </li>
