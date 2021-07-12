@@ -14,7 +14,7 @@ import {RiLoader3Line} from 'react-icons/ri';
 import Flash from '../components/Flash';
 import Filters from '../components/Filters';
 import InfiniteListTwo from '../components/InfiniteListTwo';
-import CardsCounter from '../components/CardsCounter';
+import CardsCounter from '../components/Cards__toolbox/CardsCounter';
 
 import dotenv from 'dotenv';
 dotenv.config();

@@ -1,6 +1,6 @@
 import React,{useEffect, useRef, useState } from 'react';
 import LoaderGif from '../img/22-2.gif';
-import CardsCounter from './CardsCounter';
+import CardsCounter from './Cards__toolbox/CardsCounter';
 import dotenv from 'dotenv';
 dotenv.config();
 
