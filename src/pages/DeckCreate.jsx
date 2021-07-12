@@ -182,22 +182,6 @@ const DeckCreate = (props) => {
                 :
                 <Button id="holybook" classes="btn" text="create holybook" onClick={handleClickNav}/>
             }
-            <div className="subdeck__box">
-                <div className="subdeck__heading py-2">
-                        <h4 className="subdeck__type">Side Deck</h4>
-                    </div>
-                    <div className="subdeck__body row justify-between p-2">
-                        <p className="subdeck__infos  row align-center">
-                            Num cards : {subdecks.holybook.message.qty === undefined ? 0 : subdecks.holybook.message.qty }
-                        </p>
-                        <div className="subdeck__icon--list row justify-between">
-                            <Link to={`/decks/${id}/holybook`}>
-                                <GiStack className="subdeck__icon" />
-                            </Link>
-                            <AiFillDelete className="subdeck__icon" onClick={handleDeleteHolyBook}/>
-                        </div>
-                    </div>
-                </div>
         </Layout>
     )
     :

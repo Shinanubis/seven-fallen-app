@@ -246,6 +246,22 @@ function ModifyDeckPage(props){
                     }
                 </ul>
             </div>
+            <div className="subdeck__box mb-2">
+                <div className="subdeck__heading py-2">
+                    <h4 className="subdeck__type">side deck</h4>
+                </div>
+                <ul className="subdeck__body p-2">
+                    {
+                        holybookCards.cards.length === 0 ?
+                            <AddCard 
+                                classes="card__thumbnail--container dashed-border row justify-center align-center"
+                                url={`/decks/${id}/holybook`}
+                            />
+                            :
+                            null
+                    }
+                </ul>
+            </div>
             <Button text="Infos" onClick={handleAppearForm}/>
             <form ref={formRef} className="deck form mt-2 mb-4" onChange={handleChange} onBlur={handleBlur}>
                 <div className="form--section column">
