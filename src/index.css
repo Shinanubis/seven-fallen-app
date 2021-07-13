@@ -142,10 +142,8 @@ code {
 /*cards counter*/
 
 .cards__counter{
-  height: 8vw;
-  width: 8vw;
-  font-size: 8vw;
-  color: var(--done)
+  font-size: 6vw;
+  color: var(--dark-grey)
 }
 
 /* return */ 
