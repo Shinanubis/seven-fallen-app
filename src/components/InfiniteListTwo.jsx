@@ -131,7 +131,7 @@ function InfiniteListTwo(props) {
                         })
                 }
             </ul>
-            
+            <img className={isLoadingList === true ? "loader__image":"d-none" } src={LoaderGif}/>
         </>)
 }
 
