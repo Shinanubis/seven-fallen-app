@@ -142,9 +142,6 @@ code {
 /*cards counter*/
 
 .cards__counter{
-  position: absolute;
-  top: 8px;
-  left: 8px;
   height: 8vw;
   width: 8vw;
   font-size: 8vw;
