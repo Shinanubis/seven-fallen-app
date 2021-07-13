@@ -16,7 +16,14 @@ html{
   height: -webkit-fill-available;
 }
 
-html,body,div,p,h1,h2,h3,h4,ul,li,a,figure,button,input,form{
+html,body,
+div,p,h1,
+h2,h3,h4,
+ul,li,a,
+figure,
+button,
+input,
+form,img{
   margin:0;
   padding: 0;
   border:0;
