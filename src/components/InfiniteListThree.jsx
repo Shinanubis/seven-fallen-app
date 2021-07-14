@@ -73,7 +73,14 @@ function InfiniteListThree(props) {
         }
 
         isMounted = true;
+
+        if(isLoaded === false){
+            setIsLoaded(true);
+        }
+        
     },[datas]);
+
+    useEffect(() => console.log("Children : ",children))
 
 
     return (
