@@ -79,11 +79,9 @@ function AddingSubDecksCardsPage(props) {
                     }
                 })
             })
+            setCompleteList(newCompleteList);
         }
-
-        console.log("Complete list : ",newCompleteList)
-        console.log("Response : ", response)
-        console.log("Subdeck response : ", userSubdeckResponse)
+        console.log("completeList : ", completeList)
     },[page]);
 
     useEffect(() => {
