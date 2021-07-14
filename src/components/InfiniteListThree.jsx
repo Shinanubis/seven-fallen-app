@@ -1,4 +1,5 @@
 import {useState,useRef, useEffect} from 'react';
+import Loader from './Loader';
 
 function throttling(callback, delay) {
     let timerId = undefined;
@@ -17,10 +18,19 @@ function throttling(callback, delay) {
 }
 
 function InfiniteListThree(props) {
-    const {numberPerPage,size,page,setPage, triggerAt,children, datas, loaderList} = props;
+    const {
+            numberPerPage,
+            size,page,
+            setPage, 
+            triggerAt,
+            children,
+            datas,
+            loaderListClasses, 
+            loaderList
+        } = props;
 
     /*states*/
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
@@ -34,6 +44,12 @@ function InfiniteListThree(props) {
     let elmtBottom = null;
     let isMounted = false;
     let triggerIndex = 0;
+
+    /*component*/
+    let LoaderList = '';
+    if(loaderListClasses){
+        LoaderList = <img className={!isLoaded ? loaderListClasses : "d-none"} src={loaderList} alt="loader"/>
+    }
 
     /*handlers*/
     const handleScroll = (e) => {
@@ -60,7 +76,7 @@ function InfiniteListThree(props) {
     return (
         <>  
             {children}
-            {<img className="loader__image" src={loaderList} alt="loader"/>}
+            {<LoaderList />}
         </>
     )
 }
