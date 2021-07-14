@@ -65,7 +65,6 @@ function AddingSubDecksCardsPage(props) {
         }
         
         if(response.message[1] instanceof Array && userSubdeckResponse.message[0].cards instanceof Array){
-
             /*init complte list with qty property for each object*/
             newCompleteList = response.message[1].map(elmt => {
                 return !elmt.qty && {...elmt, qty: 0};
@@ -85,7 +84,7 @@ function AddingSubDecksCardsPage(props) {
     },[page]);
 
     useEffect(() => {
-        console.log(completeList)
+        setLoaded(true);
     }, [completeList])
 
     useEffect(() => {
