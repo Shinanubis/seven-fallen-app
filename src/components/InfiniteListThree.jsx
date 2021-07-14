@@ -48,6 +48,10 @@ const InfiniteListThree = (props) => {
     let listRef = useRef();
     let elmtRef = useRef();
 
+    if(!listRef){
+        console.log(listRef)
+    }
+
     /*variables*/
     let listBottom = null;
     let elmtBottom = null;
@@ -80,10 +84,6 @@ const InfiniteListThree = (props) => {
         }
         
     },[datas]);
-
-    useEffect(() => {
-        console.log(isMounted)
-    });
 
     return (
         <>  
