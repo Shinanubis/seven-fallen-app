@@ -48,7 +48,7 @@ function InfiniteListThree(props) {
     /*component*/
     let LoaderList = '';
     if(loaderListClasses){
-        LoaderList = <img className={!isLoaded ? loaderListClasses : "d-none"} src={loaderList} alt="loader"/>
+        LoaderList = (props) => <img className={!isLoaded ? loaderListClasses : "d-none"} src={loaderList} alt="loader"/>
     }
 
     /*handlers*/
