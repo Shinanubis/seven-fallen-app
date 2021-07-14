@@ -121,7 +121,7 @@ function AddingSubDecksCardsPage(props) {
             } */}
             {
                 <InfiniteListThree page={page} datas={completeList} setPage={setPage} loaderList={() => <LoaderGif />}>
-                    <ul>
+                    <ul className="subdeck list__content layout layout__1 mb-2">
                         
                     </ul>
                 </InfiniteListThree>
