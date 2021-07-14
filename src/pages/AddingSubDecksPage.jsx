@@ -81,10 +81,11 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCompleteList(newCompleteList);
+        setLoaded(true);
     },[page]);
 
     useEffect(() => {
-        setLoaded(true);
+        
     }, [completeList])
 
     useEffect(() => {
