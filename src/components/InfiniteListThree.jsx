@@ -34,7 +34,7 @@ function InfiniteListThree(props) {
     let elmtBottom = null;
     let isMounted = false;
     let triggerIndex = 0;
-    let LoaderGif = loaderList;
+    let LoaderGif = () => loaderList;
 
     /*handlers*/
     const handleScroll = (e) => {
