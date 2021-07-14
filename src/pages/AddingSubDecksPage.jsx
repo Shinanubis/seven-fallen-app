@@ -64,6 +64,8 @@ function AddingSubDecksCardsPage(props) {
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
 
+        console.log("Response : ", response)
+        console.log("Subdeck response : ", userSubdeckResponse)
     },[page]);
 
     useEffect(() => {
