@@ -83,7 +83,7 @@ const InfiniteListThree = (props) => {
 
     useEffect(() => {
         console.log(isMounted)
-    },[]);
+    });
 
     return (
         <>  
