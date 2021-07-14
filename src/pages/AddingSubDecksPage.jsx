@@ -52,6 +52,7 @@ function AddingSubDecksCardsPage(props) {
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
             userSubdeckResponse = await getUserEdenCards(id);
+            setLoaded(true);
         }
 
         if(endUrl === 'register'){
@@ -81,7 +82,6 @@ function AddingSubDecksCardsPage(props) {
         }
 
         setCompleteList(newCompleteList);
-        setLoaded(true);
     },[page]);
 
     useEffect(() => {
