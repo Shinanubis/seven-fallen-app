@@ -17,6 +17,14 @@ function throttling(callback, delay) {
     }
 }
 
+/*components*/
+function LoaderList(props) {
+    const {classes, url} = props;
+    return(
+        <img className={classes && classes} src={url} alt="loader"/>
+    )
+}
+
 function InfiniteListThree(props) {
     const {
             numberPerPage,
@@ -34,9 +42,6 @@ function InfiniteListThree(props) {
 
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
-
-    /*components*/
-    let LoaderList = () => (<img src={loaderList} alt="loader"/>)
 
     /*refs*/
     let listRef = useRef();
@@ -73,9 +78,9 @@ function InfiniteListThree(props) {
     return (
         <>  
             {children}
-            <LoaderList />
+            {isLoaded && <LoaderList classes="loader__image" />}
         </>
     )
 }
 
-export default InfiniteListThree
+export default InfiniteListThree;
