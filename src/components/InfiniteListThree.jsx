@@ -49,9 +49,7 @@ const InfiniteListThree = (props) => {
     let elmtRef = useRef();
 
     if(!listRef.current){
-        children.map(elmt => {
-            console.log(elmt)
-        })
+        console.log(children)
     }
 
     /*variables*/
