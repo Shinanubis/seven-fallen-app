@@ -35,6 +35,9 @@ function InfiniteListThree(props) {
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
 
+    /*components*/
+    let LoaderList = () => (<img src={loaderList} alt="loader"/>)
+
     /*refs*/
     let listRef = useRef();
     let elmtRef = useRef();
@@ -44,12 +47,6 @@ function InfiniteListThree(props) {
     let elmtBottom = null;
     let isMounted = false;
     let triggerIndex = 0;
-
-    /*component*/
-    let LoaderList = '';
-    if(loaderListClasses){
-        LoaderList = () => (<img className={!isLoaded ? loaderListClasses : "d-none"} src={loaderList} alt="loader"/>)
-    }
 
     /*handlers*/
     const handleScroll = (e) => {
@@ -76,7 +73,7 @@ function InfiniteListThree(props) {
     return (
         <>  
             {children}
-            {<LoaderList />}
+            <LoaderList />
         </>
     )
 }
