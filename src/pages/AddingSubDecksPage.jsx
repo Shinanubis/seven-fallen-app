@@ -15,6 +15,7 @@ import Flash from '../components/Flash';
 import Filters from '../components/Filters';
 import InfiniteListTwo from '../components/InfiniteListTwo';
 import CardsCounter from '../components/Cards__toolbox/CardsCounter';
+import LoaderGif from "../img/22-2.gif";
 
 import dotenv from 'dotenv';
 import InfiniteListThree from '../components/InfiniteListThree';
@@ -119,7 +120,7 @@ function AddingSubDecksCardsPage(props) {
                 />
             } */}
             {
-                <InfiniteListThree page={page} setPage={setPage(page + 1)}>
+                <InfiniteListThree page={page} setPage={setPage} loaderList={LoaderGif}>
                     <ul>
                         {
                             console.log(completeList)

@@ -17,7 +17,8 @@ function throttling(callback, delay) {
 }
 
 function InfiniteListThree(props) {
-    const {numberPerPage,size,page,setPage, triggerAt,children, datas} = props;
+    const {numberPerPage,size,page,setPage, triggerAt,children, datas, loaderList} = props;
+    let LoaderGif = loaderList;
 
     /*states*/
     const [isLoading, setIsLoading] = useState(false);
@@ -39,8 +40,6 @@ function InfiniteListThree(props) {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-        
-        throttling(() => console.log("hello"), 500);
     }
 
     /*effect*/
@@ -62,6 +61,7 @@ function InfiniteListThree(props) {
     return (
         <>  
             {children}
+            {isLoading && <LoaderGif />}
         </>
     )
 }
