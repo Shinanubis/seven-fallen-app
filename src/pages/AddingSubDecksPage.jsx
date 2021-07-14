@@ -79,9 +79,9 @@ function AddingSubDecksCardsPage(props) {
                     }
                 })
             })
-            setCompleteList(newCompleteList);
         }
-        console.log("completeList : ", completeList)
+
+        setCompleteList(newCompleteList);
     },[page]);
 
     useEffect(() => {
@@ -98,6 +98,7 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Main classes="subdeck page">
+            {console.log(completeList)}
             <Filters containerClasses="filter__container row justify-end my-2" />
             {/* {Object.keys(completeList).length > 0 && 
                 <InfiniteListTwo 
