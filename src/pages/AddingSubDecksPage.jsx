@@ -64,31 +64,6 @@ function AddingSubDecksCardsPage(props) {
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
 
-        setCardsResponse(response);
-
-        if(response.message[1]){
-            newCompleteList = [...completeList,...response.message[1]];
-
-            if(userSubdeckResponse.code === 200 && completeList instanceof Array){
-                /*init qty in completeList*/
-                newCompleteList.map((elmt, index) => {
-                    newCompleteList[index].qty = 0;
-                })
-                
-                if(userSubdeckResponse.message[0].cards){    
-
-                userSubdeckResponse.message[0].cards.map(sub => {
-                    newCompleteList.map((elmt, index) => {
-                        if(elmt.id === sub[0]){
-                            newCompleteList[index].qty = sub[1];
-                        }
-                    })
-                })
-
-                }
-                setCompleteList(newCompleteList);
-            }
-        }
     },[page]);
 
     useEffect(() => {
