@@ -18,7 +18,6 @@ function throttling(callback, delay) {
 
 function InfiniteListThree(props) {
     const {numberPerPage,size,page,setPage, triggerAt,children, datas, loaderList} = props;
-    let LoaderGif = loaderList;
 
     /*states*/
     const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +34,7 @@ function InfiniteListThree(props) {
     let elmtBottom = null;
     let isMounted = false;
     let triggerIndex = 0;
+    let LoaderGif = loaderList;
 
     /*handlers*/
     const handleScroll = (e) => {
