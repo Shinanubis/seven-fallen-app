@@ -61,7 +61,7 @@ function InfiniteListThree(props) {
     return (
         <>  
             {children}
-            {isLoading && <LoaderGif />}
+            {<LoaderGif />}
         </>
     )
 }
