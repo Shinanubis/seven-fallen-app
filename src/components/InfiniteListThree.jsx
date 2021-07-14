@@ -25,6 +25,10 @@ function InfiniteListThree(props) {
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
 
+    /*refs*/
+    let listRef = useRef();
+    let elmtRef = useRef();
+
     /*variables*/
     let listBottom = null;
     let elmtBottom = null;
@@ -33,6 +37,9 @@ function InfiniteListThree(props) {
 
     /*handlers*/
     const handleScroll = (e) => {
+        listBottom = listRef.current.getBoundingClientRect().bottom;
+        elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
+        
         throttling(() => console.log("hello"), 500);
     }
 
