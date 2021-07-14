@@ -79,7 +79,7 @@ function InfiniteListThree(props) {
     return (
         <>  
             {children}
-            {!isLoaded && <LoaderList classes="loader__image" />}
+            {!isLoaded && <LoaderList classes="loader__image" url={loaderList}/>}
         </>
     )
 }
