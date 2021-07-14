@@ -48,9 +48,8 @@ const InfiniteListThree = (props) => {
     let listRef = useRef();
     let elmtRef = useRef();
 
-    if(!listRef){
-        console.log(listRef)
-    }
+   
+    console.log(listRef)
 
     /*variables*/
     let listBottom = null;
