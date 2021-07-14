@@ -75,7 +75,7 @@ function AddingSubDecksCardsPage(props) {
             userSubdeckResponse.message[0].cards.map(elmt1 => {
                 response.message[1].map((elmt2,index) => {
                     if(elmt1[0] === elmt2.id){
-                        return  completeList[index].qty = elmt1[1]; 
+                        return  newCompleteList[index].qty = elmt1[1]; 
                     }
                 })
             })
