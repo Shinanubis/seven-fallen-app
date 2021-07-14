@@ -85,6 +85,10 @@ function AddingSubDecksCardsPage(props) {
     },[page]);
 
     useEffect(() => {
+        console.log(completeList)
+    }, [completeList])
+
+    useEffect(() => {
         let newImages = {};
 
         if(cardsResponse.message[1] instanceof Array){
@@ -98,7 +102,6 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Main classes="subdeck page">
-            {console.log(completeList)}
             <Filters containerClasses="filter__container row justify-end my-2" />
             {/* {Object.keys(completeList).length > 0 && 
                 <InfiniteListTwo 
@@ -137,6 +140,7 @@ function AddingSubDecksCardsPage(props) {
     )
     :
     <Loader condition={cardsResponse.code === 200} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />
+    
 }
 
 export default AddingSubDecksCardsPage;
