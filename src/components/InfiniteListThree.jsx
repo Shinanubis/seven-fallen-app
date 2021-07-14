@@ -75,10 +75,11 @@ function InfiniteListThree(props) {
         isMounted = true;
     },[datas]);
 
+
     return (
         <>  
             {children}
-            {isLoaded && <LoaderList classes="loader__image" />}
+            {!isLoaded && <LoaderList classes="loader__image" />}
         </>
     )
 }
