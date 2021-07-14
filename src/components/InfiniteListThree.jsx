@@ -1,4 +1,4 @@
-import {useState,useRef, useEffect} from 'react';
+import {useState,useRef, useEffect, forwardRef} from 'react';
 import Loader from './Loader';
 
 function throttling(callback, delay) {
@@ -25,7 +25,7 @@ function LoaderList(props) {
     )
 }
 
-function InfiniteListThree(props) {
+const InfiniteListThree = (props) => {
     const {
             numberPerPage,
             size,page,
@@ -36,6 +36,7 @@ function InfiniteListThree(props) {
             loaderListClasses, 
             loaderList
         } = props;
+    
 
     /*states*/
     const [isLoaded, setIsLoaded] = useState(false);
@@ -80,8 +81,9 @@ function InfiniteListThree(props) {
         
     },[datas]);
 
-    useEffect(() => console.log("Children : ",children))
-
+    useEffect(() => {
+        console.log(isMounted)
+    },[]);
 
     return (
         <>  
@@ -89,6 +91,6 @@ function InfiniteListThree(props) {
             {!isLoaded && <LoaderList classes={loaderListClasses} url={loaderList}/>}
         </>
     )
-}
+};
 
 export default InfiniteListThree;
