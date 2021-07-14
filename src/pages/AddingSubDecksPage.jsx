@@ -65,12 +65,12 @@ function AddingSubDecksCardsPage(props) {
         }
         
         if(response.message[1] instanceof Array && userSubdeckResponse.message[0].cards instanceof Array){
-            newCompleteList = userSubdeckResponse.message[0].cards.map((elmt, index) => {
+            userSubdeckResponse.message[0].cards.map((elmt, index) => {
                 response.message[1].map((res, indexRes) => {
                     if(elmt[0] === res.id){
-                        return {...elmt, qty: elmt[1]}
+                        newCompleteList = [...newCompleteList, {...elmt, qty:[1]}]
                     }else{
-                        return {...elmt, qty: 0}
+                        newCompleteList = [...newCompleteList, {...elmt, qty:0}]
                     }
                 })
             })
