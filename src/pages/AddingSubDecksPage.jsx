@@ -63,7 +63,12 @@ function AddingSubDecksCardsPage(props) {
             response = await getHolyBookCards(page,10,'FR');
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
-
+        
+        if(response.message[1] instanceof Array && userSubdeckResponse.message.cards instanceof Array){
+            newCompleteList = response.message[1].map((elmt, index) => {
+                console.log(elmt)
+            });
+        }
         console.log("Response : ", response)
         console.log("Subdeck response : ", userSubdeckResponse)
     },[page]);
