@@ -120,11 +120,9 @@ function AddingSubDecksCardsPage(props) {
                 />
             } */}
             {
-                <InfiniteListThree page={page} datas={completeList} setPage={setPage} loaderList={LoaderGif}>
+                <InfiniteListThree page={page} datas={completeList} setPage={setPage} loaderList={() => <LoaderGif />}>
                     <ul>
-                        {
-                            console.log(completeList)
-                        }
+                        
                     </ul>
                 </InfiniteListThree>
             }
