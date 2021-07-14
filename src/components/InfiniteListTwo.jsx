@@ -8,8 +8,6 @@ function InfiniteListTwo(props) {
     
     const { classesContainer, 
             classesElement,
-            classesImages,
-            classesLoaderList, 
             datas,
             size,
             numPerPage,

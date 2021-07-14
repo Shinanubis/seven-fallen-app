@@ -17,6 +17,7 @@ import InfiniteListTwo from '../components/InfiniteListTwo';
 import CardsCounter from '../components/Cards__toolbox/CardsCounter';
 
 import dotenv from 'dotenv';
+import InfiniteListThree from '../components/InfiniteListThree';
 dotenv.config();
 
 function AddingSubDecksCardsPage(props) {
@@ -105,7 +106,7 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            {Object.keys(completeList).length > 0 && 
+            {/* {Object.keys(completeList).length > 0 && 
                 <InfiniteListTwo 
                     classesContainer="subdeck list__content layout layout__1 mb-2" 
                     classesElement="card__container"
@@ -118,6 +119,15 @@ function AddingSubDecksCardsPage(props) {
                     setPage={() => setPage(page + 1)}
                     triggerAt={9}
                 />
+            } */}
+            {
+                <InfiniteListThree page={page} setPage={setPage(page + 1)}>
+                    <ul>
+                        {
+                            console.log(completeList)
+                        }
+                    </ul>
+                </InfiniteListThree>
             }
 
             <Flash 
