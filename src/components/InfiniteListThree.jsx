@@ -77,9 +77,7 @@ const InfiniteListThree = (props) => {
             
     /*effect*/
     useEffect(() => {
-        if(isLoaded === false){
-            setIsLoaded(true)
-        }
+
     },[newDatas])
 
     useEffect(() => {
