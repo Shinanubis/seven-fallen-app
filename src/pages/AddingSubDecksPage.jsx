@@ -129,7 +129,6 @@ function AddingSubDecksCardsPage(props) {
                     loaderList={LoaderGif}
                 >
                     <ul className="subdeck list__content layout layout__1 mb-2">
-                        {console.log(completeList)}
                         {
                             completeList instanceof Array &&
                             completeList.length > 0 ? 

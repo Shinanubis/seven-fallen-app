@@ -75,6 +75,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
+        console.log(datas)
         
     },[datas]);
 
