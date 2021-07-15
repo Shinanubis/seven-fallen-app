@@ -36,7 +36,7 @@ const InfiniteListThree = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     /*constantes*/
-        const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
+    const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
    
 
     /*refs*/
@@ -92,6 +92,7 @@ const InfiniteListThree = (props) => {
 
     return (
         <>  
+            {console.log(MAX_PAGES)}
             {children}
             <LoaderList classes={!isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
