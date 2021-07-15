@@ -40,6 +40,7 @@ const InfiniteListThree = (props) => {
 
     /*states*/
     const [isLoaded, setIsLoaded] = useState(false);
+    const [y, setY] = useState();
 
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
@@ -47,19 +48,23 @@ const InfiniteListThree = (props) => {
     /*refs*/
     let listRef = useRef();
     let elmtRef = useRef();
-    let scrollRef = useRef();
+
+    /*variables*/
+    let listBottom = null;
+    let elmtBottom = null;
+    let isMounted = false;
+    let triggerIndex = 0;
 
     /*handlers*/
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-        scrollRef.current = elmtBottom;
+        setY(elmtBottom);
     }
 
     if(children.type === 'ul'){
         children.ref = listRef;
         children.onScroll = handleScroll;
-        console.log(children)
     }
 
     if(typeof triggerAt === 'number'){
@@ -73,12 +78,6 @@ const InfiniteListThree = (props) => {
     }else{
         console.error("triggerAt props should be a number")
     }
-
-    /*variables*/
-    let listBottom = null;
-    let elmtBottom = null;
-    let isMounted = false;
-    let triggerIndex = 0;
 
     /*effect*/
     useEffect(() => {
@@ -102,8 +101,8 @@ const InfiniteListThree = (props) => {
     },[datas]);
 
     useEffect(() => {
-        console.log(scrollRef.current)
-    },[scrollRef])
+        console.log(y)
+    },[y])
 
     return (
         <>  
