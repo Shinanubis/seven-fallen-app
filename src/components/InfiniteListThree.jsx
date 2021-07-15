@@ -36,7 +36,7 @@ const InfiniteListThree = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     /*constantes*/
-    const MAX_PAGES = Math.ceil(size / numberPerPage);
+    const MAX_PAGES = (typeof size === 'number') &&  Math.ceil(size / numberPerPage);
 
     /*refs*/
     let listRef = useRef();

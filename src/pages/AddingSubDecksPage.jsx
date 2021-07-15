@@ -110,7 +110,6 @@ function AddingSubDecksCardsPage(props) {
 
     return loaded === true ? (
         <Main classes="subdeck page">
-            {console.log(sizeRef.current)}
             <Filters containerClasses="filter__container row justify-end my-2" />
             {/* {Object.keys(completeList).length > 0 && 
                 <InfiniteListTwo 
