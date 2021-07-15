@@ -131,7 +131,7 @@ function AddingSubDecksCardsPage(props) {
                     <ul className="subdeck list__content layout layout__1 mb-2">
                         <li>salut</li>
                         <li>salut</li>
-                        <li>salut</li>
+                        <li>batard</li>
                     </ul>
                 </InfiniteListThree>
             }
