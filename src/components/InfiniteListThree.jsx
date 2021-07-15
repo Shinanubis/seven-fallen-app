@@ -38,9 +38,6 @@ const InfiniteListThree = (props) => {
 
     /*constantes*/
     const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
-   
-    /*variable*/
-    let triggerIndex = 0;
 
     /*refs*/
     let listRef = useRef();
@@ -55,28 +52,17 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
-    if(children.props.children > 0){
-        if(triggerAt < props.children.props.length - 1){
-            triggerIndex = triggerAt;
+    if(typeof triggerAt === 'number' && children.props.children){
+        if(triggerAt < children.props.children.length - 1){
+            children.props.children[triggerAt].ref = elmtRef;
         }
     
-        if(triggerAt > props.children.props.length - 1){
-            triggerIndex = props.children.props.length - 1;
+        if(triggerAt >= children.props.children.length - 1){
+            children.props.children[children.props.children.length - 1].ref = elmtRef;
         }
-        children.props.children[triggerIndex].ref = elmtRef;
+    }else{
+        console.log("No children.props.children")
     }
-
-    // if(typeof triggerAt === 'number' && children.props.children){
-    //     if(triggerAt < children.props.children.length - 1){
-    //         children.props.children[triggerRef.current].ref = elmtRef;
-    //     }
-    
-    //     if(triggerAt >= children.props.children.length - 1){
-    //         children.props.children[children.props.children.length - 1].ref = elmtRef;
-    //     }
-    // }else{
-    //     console.log("No children.props.children")
-    // }
 
     /*handlers*/
     const handleScroll = (e) => {
