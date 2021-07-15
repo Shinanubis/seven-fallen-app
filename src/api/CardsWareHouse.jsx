@@ -93,7 +93,6 @@ async function getEdenCards(page,count,lang){
         }
     }
     let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[1,2,3]&card_count=${count}&page=${page}`);
-    console.log(url)
     let response = await fetch(url,settings);
     let datas = await response.json();
     return {
