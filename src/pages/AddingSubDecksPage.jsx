@@ -1,4 +1,4 @@
-import {useState, useEffect } from 'react';
+import {useState, useEffect, useRef } from 'react';
 import {useParams} from 'react-router-dom';
 
 /*api*/
@@ -34,6 +34,9 @@ function AddingSubDecksCardsPage(props) {
     const [completeList, setCompleteList] = useState([]);
     const [imageLoaded, setImageLoaded] = useState([]);
 
+    /*ref*/
+    let sizeRef = useRef();
+
     /*variables*/
     let endUrl = props.location.pathname.split('/');
     endUrl = endUrl[endUrl.length - 1];
@@ -64,7 +67,9 @@ function AddingSubDecksCardsPage(props) {
             response = await getHolyBookCards(page,10,'FR');
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
-        
+
+        sizeRef.current = response.message[0];
+
         if(response.message[1] instanceof Array && userSubdeckResponse.message[0].cards instanceof Array){
             /*init complte list with qty property for each object*/
             newCompleteList = response.message[1].map(elmt => {
@@ -122,7 +127,8 @@ function AddingSubDecksCardsPage(props) {
             } */}
             {
                 <InfiniteListThree 
-                    page={page} 
+                    page={page}
+                    size={sizeRef.current} 
                     datas={completeList}
                     triggerAt={14} 
                     setPage={setPage} 
