@@ -134,7 +134,7 @@ function AddingSubDecksCardsPage(props) {
                     numberPerPage = {10} 
                     datas={completeList}
                     triggerAt={7} 
-                    setPage={setPage} 
+                    setPage={() => setPage(page + 1)} 
                     loaderListClasses="loader__image" 
                     loaderList={LoaderGif}
                 >
