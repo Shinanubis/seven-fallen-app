@@ -52,6 +52,20 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
+    if(typeof triggerAt === 'number' && children.props.children){
+
+        if(triggerAt < children.props.children.length - 1 && page < MAX_PAGES){
+            console.log(triggerAt * page)
+            children.props.children[triggerAt].ref = elmtRef;
+        }
+    
+        if(triggerAt >= children.props.children.length - 1){
+            children.props.children[children.props.children.length - 1].ref = elmtRef;
+        }
+    }else{
+        console.log("No children.props.children")
+    }
+
     /*handlers*/
     const handleScroll = (e) => {
         listBottom.current = Number(listRef.current.getBoundingClientRect().bottom);
@@ -67,23 +81,6 @@ const InfiniteListThree = (props) => {
     }
             
     /*effect*/
-    useEffect(() => {
-
-        if(typeof triggerAt === 'number' && children.props.children){
-
-            if(triggerAt < children.props.children.length - 1 && page < MAX_PAGES){
-                
-                children.props.children[triggerAt].ref = elmtRef;
-            }
-        
-            if(triggerAt >= children.props.children.length - 1){
-                children.props.children[children.props.children.length - 1].ref = elmtRef;
-            }
-        }else{
-            console.log("No children.props.children")
-        }
-
-    },[children])
 
     useEffect(() => {
         if(isLoaded === false){
