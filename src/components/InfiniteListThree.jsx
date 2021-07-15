@@ -82,8 +82,8 @@ const InfiniteListThree = (props) => {
         }else{
             console.log("No children.props.children")
         }
-        
-    },[children.props.children])
+
+    },[children])
 
     useEffect(() => {
         if(isLoaded === false){
