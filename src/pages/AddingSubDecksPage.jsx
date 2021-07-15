@@ -132,6 +132,18 @@ function AddingSubDecksCardsPage(props) {
                         <li>salut</li>
                         <li>salut2</li>
                         <li>batard</li>
+                        <li>salut</li>
+                        <li>salut2</li>
+                        <li>batard</li>
+                        <li>salut</li>
+                        <li>salut2</li>
+                        <li>batard</li>
+                        <li>salut</li>
+                        <li>salut2</li>
+                        <li>batard</li>
+                        <li>salut</li>
+                        <li>salut2</li>
+                        <li>batard</li>
                     </ul>
                 </InfiniteListThree>
             }
