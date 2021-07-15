@@ -127,7 +127,7 @@ function AddingSubDecksCardsPage(props) {
                 <InfiniteListThree 
                     page={page}
                     size={size}
-                    numberPerPage = {7} 
+                    numberPerPage = {10} 
                     datas={completeList}
                     triggerAt={14} 
                     setPage={setPage} 
