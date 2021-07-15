@@ -82,8 +82,7 @@ const InfiniteListThree = (props) => {
         listBottom.current = Number(listRef.current.getBoundingClientRect().bottom);
         elmtBottom.current = Number(elmtRef.current.getBoundingClientRect().bottom);
 
-        if(listBottom.current - elmtBottom.current > 0 && page < MAX_PAGES){
-            console.log(listBottom.current - elmtBottom.current)
+        if(listBottom.current > elmtBottom.current && page < MAX_PAGES){
             setIsLoaded(false);
         }
 
@@ -105,6 +104,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false && page < MAX_PAGES){
             setPage(page + 1);
         }
+        setIsLoaded(true)
     }, [isLoaded]);
 
     useEffect(() => {
