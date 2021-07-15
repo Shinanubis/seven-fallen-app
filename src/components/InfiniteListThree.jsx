@@ -63,8 +63,12 @@ const InfiniteListThree = (props) => {
         listBottom.current = listRef.current.getBoundingClientRect().bottom;
         elmtBottom.current = elmtRef.current.getBoundingClientRect().bottom;
 
-        if(listBottom - elmtBottom > 0){
+        if(listBottom - elmtBottom > 0 && page < MAX_PAGES){
+            setIsLoaded(false);
+        }
 
+        if(page === MAX_PAGES){
+            setIsLoaded(true);
         }
     }
             
@@ -74,6 +78,14 @@ const InfiniteListThree = (props) => {
             setIsLoaded(true);
         }
     },[datas]);
+
+    useEffect(() => {
+
+        if(isLoaded === false && page < MAX_PAGES){
+            setPage(page + 1);
+        }
+
+    }, [isLoaded]);
 
     useEffect(() => {
         window.addEventListener('scroll',throttling(handleScroll, 100), true);
