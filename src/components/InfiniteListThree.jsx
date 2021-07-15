@@ -104,7 +104,6 @@ const InfiniteListThree = (props) => {
 
     return (
         <>  
-            {console.log(elmtRef)}
             {children}
             <LoaderList classes={!isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
