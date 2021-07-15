@@ -63,8 +63,6 @@ const InfiniteListThree = (props) => {
         console.error("Shuld be a number");
     }
 
-    children.props.children[triggerRef.current].ref = elmtRef;
-
     // if(typeof triggerAt === 'number' && children.props.children){
     //     if(triggerAt < children.props.children.length - 1){
     //         children.props.children[triggerRef.current].ref = elmtRef;
@@ -97,6 +95,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
+        children.props.children[triggerRef.current].ref = elmtRef;
     },[datas])
 
     useEffect(() => {
