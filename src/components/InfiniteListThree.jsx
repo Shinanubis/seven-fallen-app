@@ -117,6 +117,7 @@ const InfiniteListThree = (props) => {
 
     return (
         <>  
+            {console.log(triggerIndex)}
             {children}
             <LoaderList classes={!isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
