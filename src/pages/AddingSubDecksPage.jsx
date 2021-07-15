@@ -50,11 +50,10 @@ function AddingSubDecksCardsPage(props) {
         let response = '';
         let userSubdeckResponse = '';
         let newCompleteList = []; 
-
+        console.log("page : ", page)
         if(endUrl === 'eden'){
             response = await getEdenCards(page,10,'FR');
             userSubdeckResponse = await getUserEdenCards(id);
-            console.log(response)
         }
 
         if(endUrl === 'register'){
