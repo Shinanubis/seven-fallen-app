@@ -50,10 +50,23 @@ const InfiniteListThree = (props) => {
     if(children.type === 'ul'){
         children.ref = listRef;
     }
+    
+    if(typeof triggerAt === 'number'){
+        if(triggerAt <= datas.length - 1){
+            triggerRef.current = triggerAt;
+        }
+
+        if(triggerAt > datas.length - 1){
+            triggerRef.current = datas.length - 1;
+        }
+    }else{
+        console.error("Shuld be a number");
+    }
+
 
     if(typeof triggerAt === 'number' && children.props.children){
         if(triggerAt < children.props.children.length - 1){
-            children.props.children[triggerAt].ref = elmtRef;
+            children.props.children[triggerRef.current].ref = elmtRef;
         }
     
         if(triggerAt >= children.props.children.length - 1){
@@ -78,6 +91,10 @@ const InfiniteListThree = (props) => {
     }
             
     /*effect*/
+
+    useEffect(() => {
+
+    },[datas])
 
     useEffect(() => {
         if(isLoaded === false && page < MAX_PAGES){
