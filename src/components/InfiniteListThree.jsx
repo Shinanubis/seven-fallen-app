@@ -55,7 +55,7 @@ const InfiniteListThree = (props) => {
     if(typeof triggerAt === 'number' && children.props.children){
 
         if(triggerAt < children.props.children.length - 1 && page < MAX_PAGES){
-            let newIndex = children.props.children.length - size + triggerAt;
+            let newIndex = children.props.children.length - numberPerPage + triggerAt;
             console.log(newIndex)
             children.props.children[newIndex].ref = elmtRef;
         }else if(triggerAt >= children.props.children.length - 1){
