@@ -1,5 +1,6 @@
 import {useState,useRef, useEffect} from 'react';
 
+/*functions*/
 function throttling(callback, delay) {
     let timer = Date.now();
 
@@ -36,7 +37,7 @@ const InfiniteListThree = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     /*constantes*/
-    let MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
+    const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
    
 
     /*refs*/
@@ -64,7 +65,7 @@ const InfiniteListThree = (props) => {
         listBottom.current = Number(listRef.current.getBoundingClientRect().bottom);
         elmtBottom.current = Number(elmtRef.current.getBoundingClientRect().bottom);
 
-        if(listBottom.current - elmtBottom.current > 0){
+        if(listBottom.current - elmtBottom.current > 0 && page < MAX_PAGES){
             setIsLoaded(false);
         }
 
@@ -75,13 +76,15 @@ const InfiniteListThree = (props) => {
             
     /*effect*/
     useEffect(() => {
-        if(isLoaded === false){
-            setIsLoaded(true);
+        if(isLoaded === false && page < MAX_PAGES){
+            setPage(page + 1);
         }
     },[datas]);
 
     useEffect(() => {
-        console.log(isLoaded)
+        if(isLoaded === false){
+            setPage(page + 1);
+        }
     }, [isLoaded]);
 
     useEffect(() => {
