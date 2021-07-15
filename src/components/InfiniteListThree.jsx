@@ -49,6 +49,22 @@ const InfiniteListThree = (props) => {
     let elmtBottom = useRef();
     let isMounted = useRef(true);
 
+    if(triggerAt <= props.children.props.length - 1){
+        triggerIndex = triggerAt;
+    }
+
+    if(triggerAt > props.children.props.length - 1){
+        triggerIndex = props.children.props.length - 1;
+    }
+
+    if(children.type === 'ul'){
+        children.ref = listRef;
+    }
+
+    if(children.props.children){
+        children.props.children[triggerIndex].ref = elmtRef;
+    }
+
     // if(typeof triggerAt === 'number' && children.props.children){
     //     if(triggerAt < children.props.children.length - 1){
     //         children.props.children[triggerRef.current].ref = elmtRef;
@@ -84,26 +100,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
-
-        if(!isMounted.current){
-            if(triggerAt <= props.children.props.length - 1){
-                triggerIndex = triggerAt;
-            }
-        
-            if(triggerAt > props.children.props.length - 1){
-                triggerIndex = props.children.props.length - 1;
-            }
-        
-            if(children.type === 'ul'){
-                children.ref = listRef;
-            }
-        
-            if(children.props.children){
-                children.props.children[triggerIndex].ref = elmtRef;
-            }
-        }
-        return () => isMounted.current = false;
-        
+        return () => isMounted.current = false;   
     },[datas])
 
     useEffect(() => {
