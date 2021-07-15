@@ -36,7 +36,7 @@ const InfiniteListThree = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     /*constantes*/
-    const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
+    let MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
    
 
     /*refs*/
@@ -63,7 +63,7 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom.current = Number(listRef.current.getBoundingClientRect().bottom);
         elmtBottom.current = Number(elmtRef.current.getBoundingClientRect().bottom);
-        console.log("list - elmt : " , listBottom.current - elmtBottom.current > 0)
+
         if(listBottom.current - elmtBottom.current > 0){
             setIsLoaded(false);
         }
