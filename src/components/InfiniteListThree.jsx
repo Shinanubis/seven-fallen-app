@@ -53,7 +53,7 @@ const InfiniteListThree = (props) => {
     }
 
 
-    if(triggerAt < datas.length - 1){
+    if(triggerAt < children.props.children.length - 1){
         children.props.children[triggerAt].ref = elmtRef;
     }
 
