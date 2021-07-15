@@ -64,7 +64,6 @@ const InfiniteListThree = (props) => {
 
     if(children.type === 'ul'){
         children.ref = listRef;
-        children.onScroll = handleScroll;
     }
 
     if(typeof triggerAt === 'number'){
