@@ -72,7 +72,7 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom.current = listRef.current.getBoundingClientRect().bottom;
         elmtBottom.current = elmtRef.current.getBoundingClientRect().bottom;
-        throttling(console.log("list : ",listBottom.current),1000) 
+        throttling(() => console.log("list : ",listBottom.current),1000) 
     }
             
     /*effect*/
