@@ -84,22 +84,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
-        
-    },[datas])
 
-    useEffect(() => {
-        if(isLoaded === false && page < MAX_PAGES){
-            setPage(page + 1);
-        }
-        
-    }, [isLoaded]);
-
-    useEffect(() => {
-        window.addEventListener('scroll',handleScroll, true);
-        return window.addEventListener('scroll',handleScroll);
-    });
-
-    useEffect(() => {
         if(!isMounted.current){
             if(triggerAt <= props.children.props.length - 1){
                 triggerIndex = triggerAt;
@@ -118,7 +103,20 @@ const InfiniteListThree = (props) => {
             }
         }
         return () => isMounted.current = false;
-    },[])
+        
+    },[datas])
+
+    useEffect(() => {
+        if(isLoaded === false && page < MAX_PAGES){
+            setPage(page + 1);
+        }
+        
+    }, [isLoaded]);
+
+    useEffect(() => {
+        window.addEventListener('scroll',handleScroll, true);
+        return window.addEventListener('scroll',handleScroll);
+    });
 
     return (
         <>  
