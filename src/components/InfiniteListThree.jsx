@@ -85,7 +85,7 @@ const InfiniteListThree = (props) => {
     },[datas]);
 
     useEffect(() => {
-        window.addEventListener('scroll',handleScroll);
+        window.addEventListener('scroll',handleScroll, true);
         return window.addEventListener('scroll',handleScroll);
     });
 
