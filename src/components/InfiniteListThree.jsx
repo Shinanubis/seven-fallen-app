@@ -79,8 +79,8 @@ const InfiniteListThree = (props) => {
     },[datas]);
 
     useEffect(() => {
-        window.addEventListener('scroll',throttling(handleScroll, 500), true);
-        return window.addEventListener('scroll',throttling(handleScroll, 500));
+        window.addEventListener('scroll',throttling(handleScroll, 200), true);
+        return window.addEventListener('scroll',throttling(handleScroll, 200));
     },[]);
 
     return (
