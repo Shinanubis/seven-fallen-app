@@ -51,8 +51,7 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
-    if(typeof triggerAt === 'number' && children.props.children){
-        console.log(children.props.children)
+    if(typeof triggerAt === 'number' && children.props.children !== undefined){
         if(triggerAt < children.props.children.length - 1){
             children.props.children[triggerAt * page].ref = elmtRef;
         }
