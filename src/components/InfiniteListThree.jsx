@@ -72,7 +72,8 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom.current = listRef.current.getBoundingClientRect().bottom;
         elmtBottom.current = elmtRef.current.getBoundingClientRect().bottom;
-        console.log(elmtBottom.current)
+        console.log("elmt : ",listBottom.current)
+        console.log("elmt : ",elmtBottom.current)
     }
             
     /*effect*/
