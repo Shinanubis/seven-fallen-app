@@ -143,7 +143,7 @@ function AddingSubDecksCardsPage(props) {
                             completeList.length > 0 ? 
                             completeList.map(elmt => {
                                 return (
-                                    <li key="id" className="card__container">
+                                    <li key={elmt.id} className="card__container">
                                         <img id={`image__${elmt.id}`} className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} alt="" />
                                         <CardsCounter classes="cards__counter" value={elmt.qty}/>
                                     </li>
