@@ -41,29 +41,13 @@ const InfiniteListThree = (props) => {
    
     /*variable*/
     let triggerIndex = 0;
-    let isMounted = false;
 
     /*refs*/
     let listRef = useRef();
     let elmtRef = useRef();
     let listBottom = useRef();
     let elmtBottom = useRef();
-
-    if(triggerAt <= props.children.props.length - 1){
-        triggerIndex = triggerAt;
-    }
-
-    if(triggerAt > props.children.props.length - 1){
-        triggerIndex = props.children.props.length - 1;
-    }
-
-    if(children.type === 'ul'){
-        children.ref = listRef;
-    }
-
-    if(children.props.children){
-        children.props.children[triggerIndex].ref = elmtRef;
-    }
+    let isMounted = useRef(true);
 
     // if(typeof triggerAt === 'number' && children.props.children){
     //     if(triggerAt < children.props.children.length - 1){
@@ -114,6 +98,27 @@ const InfiniteListThree = (props) => {
         window.addEventListener('scroll',handleScroll, true);
         return window.addEventListener('scroll',handleScroll);
     });
+
+    useEffect(() => {
+        if(!isMounted.current){
+            if(triggerAt <= props.children.props.length - 1){
+                triggerIndex = triggerAt;
+            }
+        
+            if(triggerAt > props.children.props.length - 1){
+                triggerIndex = props.children.props.length - 1;
+            }
+        
+            if(children.type === 'ul'){
+                children.ref = listRef;
+            }
+        
+            if(children.props.children){
+                children.props.children[triggerIndex].ref = elmtRef;
+            }
+        }
+        return () => isMounted.current = false;
+    },[])
 
     return (
         <>  
