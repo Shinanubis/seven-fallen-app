@@ -83,6 +83,7 @@ const InfiniteListThree = (props) => {
         elmtBottom.current = Number(elmtRef.current.getBoundingClientRect().bottom);
 
         if(listBottom.current - elmtBottom.current > 0 && page < MAX_PAGES){
+            console.log(listBottom.current - elmtBottom.current)
             setIsLoaded(false);
         }
 
