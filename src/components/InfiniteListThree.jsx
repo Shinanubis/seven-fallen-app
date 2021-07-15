@@ -40,7 +40,6 @@ const InfiniteListThree = (props) => {
 
     /*states*/
     const [isLoaded, setIsLoaded] = useState(false);
-    const [y, setY] = useState();
 
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
@@ -73,7 +72,6 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-        throttling(console.log("elmt bottom : ", elmtBottom), 500); 
     }
             
     /*effect*/
