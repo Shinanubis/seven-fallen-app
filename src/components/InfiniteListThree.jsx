@@ -51,7 +51,7 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
-    if(typeof triggerAt === 'number'  && children.props.children){
+    if(typeof triggerAt === 'number'  && children.props.children.length > 0){
         if(triggerAt <= children.props.children.length - 1){
             triggerRef.current = triggerAt * page;     
         }
@@ -95,7 +95,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
-        children.props.children[triggerRef.current].ref = elmtRef;
+        
     },[datas])
 
     useEffect(() => {
