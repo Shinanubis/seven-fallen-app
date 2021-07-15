@@ -1,5 +1,4 @@
-import {useState,useRef, useEffect, forwardRef} from 'react';
-import Loader from './Loader';
+import {useState,useRef, useEffect} from 'react';
 
 function throttling(callback, delay) {
     let timer = Date.now();
@@ -34,7 +33,7 @@ const InfiniteListThree = (props) => {
     
 
     /*states*/
-    const [isLoaded, setIsLoaded] = useState(true);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     /*constantes*/
     const MAX_PAGES = Math.ceil(size / numberPerPage);
