@@ -86,7 +86,7 @@ function AddingSubDecksCardsPage(props) {
 
         setCompleteList(prevstate => {
             let newArr = [...prevstate, ...newCompleteList]
-            console.log(newArr)
+            console.log(prevstate)
             return newArr;
         });
         
