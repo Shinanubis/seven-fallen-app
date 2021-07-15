@@ -35,7 +35,6 @@ const InfiniteListThree = (props) => {
 
     /*states*/
     const [isLoaded, setIsLoaded] = useState(true);
-    const [newDatas, setNewDatas] = useState(datas);
 
     /*constantes*/
     const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
@@ -46,6 +45,7 @@ const InfiniteListThree = (props) => {
     let elmtRef = useRef();
     let listBottom = useRef();
     let elmtBottom = useRef();
+    let triggerRef = useRef();
 
     if(children.type === 'ul'){
         children.ref = listRef;
@@ -53,7 +53,7 @@ const InfiniteListThree = (props) => {
 
     if(typeof triggerAt === 'number' && children.props.children){
         if(triggerAt < children.props.children.length - 1){
-            children.props.children[triggerAt * page].ref = elmtRef;
+            children.props.children[triggerAt].ref = elmtRef;
         }
     
         if(triggerAt >= children.props.children.length - 1){
