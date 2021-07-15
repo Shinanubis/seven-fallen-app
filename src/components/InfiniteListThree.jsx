@@ -48,7 +48,8 @@ const InfiniteListThree = (props) => {
     let listRef = useRef();
     let elmtRef = useRef();
 
-    if(!listRef.current){
+    if(children.type === 'ul'){
+        children.ref = listRef;
         console.log(children)
     }
 
