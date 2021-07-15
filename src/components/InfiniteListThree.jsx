@@ -51,30 +51,32 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
-    if(typeof triggerAt === 'number'){
+    if(typeof triggerAt === 'number'  && children.props.children){
         if(triggerAt <= datas.length - 1){
             triggerRef.current = triggerAt * page;
+            children.props.children[triggerRef.current].ref = elmtRef;
         }
 
         if(triggerAt > datas.length - 1){
             triggerRef.current = datas.length - 1;
+            children.props.children[children.props.children.length - 1].ref = elmtRef;
         }
     }else{
         console.error("Shuld be a number");
     }
 
 
-    if(typeof triggerAt === 'number' && children.props.children){
-        if(triggerAt < children.props.children.length - 1){
-            children.props.children[triggerRef.current].ref = elmtRef;
-        }
+    // if(typeof triggerAt === 'number' && children.props.children){
+    //     if(triggerAt < children.props.children.length - 1){
+    //         children.props.children[triggerRef.current].ref = elmtRef;
+    //     }
     
-        if(triggerAt >= children.props.children.length - 1){
-            children.props.children[children.props.children.length - 1].ref = elmtRef;
-        }
-    }else{
-        console.log("No children.props.children")
-    }
+    //     if(triggerAt >= children.props.children.length - 1){
+    //         children.props.children[children.props.children.length - 1].ref = elmtRef;
+    //     }
+    // }else{
+    //     console.log("No children.props.children")
+    // }
 
     /*handlers*/
     const handleScroll = (e) => {
