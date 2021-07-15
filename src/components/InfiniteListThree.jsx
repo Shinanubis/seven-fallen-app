@@ -92,7 +92,7 @@ const InfiniteListThree = (props) => {
 
     return (
         <>  
-            {console.log(size)}
+            {console.log(MAX_PAGES)}
             {children}
             <LoaderList classes={!isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
