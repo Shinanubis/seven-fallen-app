@@ -45,7 +45,7 @@ const InfiniteListThree = (props) => {
     let elmtRef = useRef();
     let listBottom = useRef();
     let elmtBottom = useRef();
-    let triggerRef = useRef();
+    let triggerRef = useRef(0);
 
     if(children.type === 'ul'){
         children.ref = listRef;
@@ -53,8 +53,7 @@ const InfiniteListThree = (props) => {
 
     if(typeof triggerAt === 'number'  && children.props.children){
         if(triggerAt <= children.props.children.length - 1){
-            triggerRef.current = triggerAt * page;
-            
+            triggerRef.current = triggerAt * page;     
         }
 
         if(triggerAt > children.props.children.length - 1){
