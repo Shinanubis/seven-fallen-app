@@ -62,7 +62,7 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom.current = listRef.current.getBoundingClientRect().bottom;
         elmtBottom.current = elmtRef.current.getBoundingClientRect().bottom;
-        console.log("list - elmt : " ,listBottom - elmtBottom)
+        console.log("list - elmt : " ,(listBottom - elmtBottom))
         if(listBottom - elmtBottom > 0 && page < MAX_PAGES){
             setIsLoaded(false);
         }
