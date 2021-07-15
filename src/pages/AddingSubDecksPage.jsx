@@ -95,6 +95,7 @@ function AddingSubDecksCardsPage(props) {
         if(loaded === false){
             setLoaded(true)
         }
+        console.log(completeList)
     }, [completeList])
 
     useEffect(() => {
