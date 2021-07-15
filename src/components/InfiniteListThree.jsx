@@ -77,7 +77,6 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
-        console.log("max page : ", MAX_PAGES)
     },[datas]);
 
     useEffect(() => {
