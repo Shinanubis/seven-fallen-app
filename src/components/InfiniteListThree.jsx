@@ -92,6 +92,9 @@ const InfiniteListThree = (props) => {
     }
             
     /*effect*/
+    useEffect(() => {
+        console.log(page)
+    },[page])
 
     useEffect(() => {
         if(isLoaded === false){
@@ -104,7 +107,7 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false && page < MAX_PAGES){
             setPage(page + 1);
         }
-        setIsLoaded(true)
+        
     }, [isLoaded]);
 
     useEffect(() => {
