@@ -32,10 +32,8 @@ function AddingSubDecksCardsPage(props) {
     });
     const [page, setPage] = useState(1);
     const [completeList, setCompleteList] = useState([]);
+    const [size, setSize] = useState();
     const [imageLoaded, setImageLoaded] = useState([]);
-
-    /*ref*/
-    let sizeRef = useRef();
 
     /*variables*/
     let endUrl = props.location.pathname.split('/');
@@ -68,7 +66,7 @@ function AddingSubDecksCardsPage(props) {
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
 
-        sizeRef.current = response.message[0];
+        setSize(response.message[0]);
 
         if(response.message[1] instanceof Array && userSubdeckResponse.message[0].cards instanceof Array){
             /*init complte list with qty property for each object*/
@@ -128,7 +126,7 @@ function AddingSubDecksCardsPage(props) {
             {
                 <InfiniteListThree 
                     page={page}
-                    size={sizeRef.current} 
+                    size={size} 
                     datas={completeList}
                     triggerAt={14} 
                     setPage={setPage} 
