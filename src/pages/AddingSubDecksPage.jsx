@@ -129,21 +129,20 @@ function AddingSubDecksCardsPage(props) {
                     loaderList={LoaderGif}
                 >
                     <ul className="subdeck list__content layout layout__1 mb-2">
-                        <li>salut</li>
-                        <li>salut2</li>
-                        <li>batard</li>
-                        <li>salut</li>
-                        <li>salut2</li>
-                        <li>batard</li>
-                        <li>salut</li>
-                        <li>salut2</li>
-                        <li>batard</li>
-                        <li>salut</li>
-                        <li>salut2</li>
-                        <li>batard</li>
-                        <li>salut</li>
-                        <li>salut2</li>
-                        <li>batard</li>
+                        {console.log(completeList)}
+                        {
+                            completeList instanceof Array &&
+                            completeList.length > 0 ? 
+                            completeList.map(elmt => {
+                                return (
+                                    <li key="id" className="card__container">
+                                        <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} alt="" />
+                                    </li>
+                                )
+                            })
+                            :
+                            null
+                        }
                     </ul>
                 </InfiniteListThree>
             }
