@@ -76,7 +76,7 @@ const InfiniteListThree = (props) => {
             
     /*effect*/
     useEffect(() => {
-        setIsLoaded(false)
+        
     },[datas]);
 
     useEffect(() => {
@@ -92,7 +92,6 @@ const InfiniteListThree = (props) => {
 
     return (
         <>  
-            {console.log(MAX_PAGES)}
             {children}
             <LoaderList classes={!isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
