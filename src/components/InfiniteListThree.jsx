@@ -54,13 +54,15 @@ const InfiniteListThree = (props) => {
 
     if(typeof triggerAt === 'number' && children.props.children){
 
-        if(triggerAt < children.props.children.length - 1 && page < MAX_PAGES){
+        if(triggerAt <= children.props.children.length - 1 && page < MAX_PAGES){
             let newIndex = children.props.children.length - numberPerPage + triggerAt;
             console.log(newIndex)
             children.props.children[newIndex].ref = elmtRef;
-        }else if(triggerAt >= children.props.children.length - 1){
+        }
+        if(triggerAt > children.props.children.length - 1){
             children.props.children[children.props.children.length - 1].ref = elmtRef;
         }
+
     }else{
         console.log("No children.props.children")
     }
@@ -74,7 +76,7 @@ const InfiniteListThree = (props) => {
             setIsLoaded(false);
         }
 
-        if(page === MAX_PAGES){
+        if(listBottom.current > elmtBottom.current && page === MAX_PAGES){
             setIsLoaded(true);
         }
     }
