@@ -80,19 +80,6 @@ const InfiniteListThree = (props) => {
 
     /*effect*/
     useEffect(() => {
-        if(!isMounted){
-
-            if(datas.length < triggerIndex){
-                triggerIndex = datas.length - 1;  
-            }
-            
-            if( datas.length >= triggerIndex){
-                triggerIndex = triggerAt * page;
-            }
-        }
-
-        isMounted = true;
-
         if(isLoaded === false){
             setIsLoaded(true);
         }
