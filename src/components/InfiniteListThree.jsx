@@ -53,7 +53,7 @@ const InfiniteListThree = (props) => {
 
     if(typeof triggerAt === 'number'){
         if(triggerAt <= datas.length - 1){
-            triggerRef.current = triggerAt;
+            triggerRef.current = triggerAt * page;
         }
 
         if(triggerAt > datas.length - 1){
