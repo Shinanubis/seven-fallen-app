@@ -73,7 +73,7 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom = listRef.current.getBoundingClientRect().bottom;
         elmtBottom = elmtRef.current.getBoundingClientRect().bottom;
-        console.log("elmt bottom : ", elmtBottom); 
+        throttling(console.log("elmt bottom : ", elmtBottom), 500); 
     }
             
     /*effect*/
@@ -85,8 +85,8 @@ const InfiniteListThree = (props) => {
     },[datas]);
 
     useEffect(() => {
-        listRef.current.addEventListener('scroll',handleScroll, true);
-        return listRef.current.addEventListener('scroll',handleScroll);
+        window.addEventListener('scroll',handleScroll, true);
+        return window.addEventListener('scroll',handleScroll);
     });
 
     return (
