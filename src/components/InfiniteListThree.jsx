@@ -55,10 +55,8 @@ const InfiniteListThree = (props) => {
     if(typeof triggerAt === 'number' && children.props.children){
 
         if(triggerAt <= children.props.children.length - 1 && page < MAX_PAGES){
-            let newIndex = children.props.children.length - numberPerPage + triggerAt;
-            
+            let newIndex = children.props.children.length - numberPerPage + triggerAt;  
             children.props.children[newIndex].ref = elmtRef;
-
         }
         
         if(page === MAX_PAGES){
@@ -79,7 +77,7 @@ const InfiniteListThree = (props) => {
             setIsLoaded(false);
         }
 
-        if(listBottom.current > elmtBottom.current && page === MAX_PAGES){
+        if(page === MAX_PAGES){
             setIsLoaded(true);
         }
     }
@@ -90,14 +88,14 @@ const InfiniteListThree = (props) => {
         if(isLoaded === false){
             setIsLoaded(true);
         }
-        return () => isMounted.current = false;   
     },[datas])
 
     useEffect(() => {
+
         if(isLoaded === false && page < MAX_PAGES){
             setPage(page + 1);
         }
-        
+
     }, [isLoaded]);
 
     useEffect(() => {
