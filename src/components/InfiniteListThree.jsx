@@ -52,18 +52,13 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
-    if(children.props.children && children.props.children instanceof Array){
-        children.props.children.map((elmt, index) => {
-            if(triggerAt < datas.length - 1 && triggerAt === index){
-                elmt[index].ref = elmtRef;
-                console.log(elmt[index])
-            }
 
-            if(triggerAt >= datas.length - 1){
-                elmt[datas.length - 1] = elmtRef;
-                console.log(elmt[datas.length - 1])
-            }
-        })
+    if(triggerAt < datas.length - 1){
+        children.props.children[triggerAt].ref = elmtRef;
+    }
+
+    if(triggerAt >= datas.length - 1){
+        children.props.children[children.props.children.length - 1].ref = elmtRef;
     }
 
     /*variables*/
