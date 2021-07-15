@@ -49,7 +49,7 @@ const InfiniteListThree = (props) => {
     let elmtBottom = useRef();
     let isMounted = useRef(true);
 
-    if(triggerAt <= props.children.props.length - 1){
+    if(triggerAt < props.children.props.length - 1){
         triggerIndex = triggerAt;
     }
 
