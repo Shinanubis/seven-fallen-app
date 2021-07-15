@@ -50,7 +50,20 @@ const InfiniteListThree = (props) => {
 
     if(children.type === 'ul'){
         children.ref = listRef;
-        console.log(children)
+    }
+
+    if(children.props.children && children.props.children instanceof Array){
+        children.props.children.map((elmt, index) => {
+            if(triggerAt < datas.length - 1 && triggerAt === index){
+                elmt[index].ref = elmtRef;
+                console.log(elmt[index])
+            }
+
+            if(triggerAt >= datas.length - 1){
+                elmt[datas.length - 1] = elmtRef;
+                console.log(elmt[datas.length - 1])
+            }
+        })
     }
 
     /*variables*/
