@@ -49,19 +49,20 @@ const InfiniteListThree = (props) => {
     let elmtBottom = useRef();
     let isMounted = useRef(true);
 
-    if(triggerAt < props.children.props.length - 1){
-        triggerIndex = triggerAt;
-    }
 
-    if(triggerAt > props.children.props.length - 1){
-        triggerIndex = props.children.props.length - 1;
-    }
 
     if(children.type === 'ul'){
         children.ref = listRef;
     }
 
-    if(children.props.children){
+    if(children.props.children > 0){
+        if(triggerAt < props.children.props.length - 1){
+            triggerIndex = triggerAt;
+        }
+    
+        if(triggerAt > props.children.props.length - 1){
+            triggerIndex = props.children.props.length - 1;
+        }
         children.props.children[triggerIndex].ref = elmtRef;
     }
 
