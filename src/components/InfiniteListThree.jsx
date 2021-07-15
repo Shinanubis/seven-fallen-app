@@ -52,12 +52,12 @@ const InfiniteListThree = (props) => {
     }
 
     if(typeof triggerAt === 'number'  && children.props.children){
-        if(triggerAt <= datas.length - 1){
+        if(triggerAt <= children.props.children.length - 1){
             triggerRef.current = triggerAt * page;
             
         }
 
-        if(triggerAt > datas.length - 1){
+        if(triggerAt > children.props.children.length - 1){
             triggerRef.current = datas.length - 1;
         }
     }else{
