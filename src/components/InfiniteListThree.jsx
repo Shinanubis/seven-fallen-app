@@ -86,12 +86,13 @@ const InfiniteListThree = (props) => {
 
     useEffect(() => {
         window.addEventListener('scroll',handleScroll, true);
-        console.log(size)
+        
         return window.addEventListener('scroll',handleScroll);
     },[]);
 
     return (
         <>  
+            {console.log(size)}
             {children}
             <LoaderList classes={!isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
