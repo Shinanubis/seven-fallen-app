@@ -123,7 +123,7 @@ function AddingSubDecksCardsPage(props) {
                 <InfiniteListThree 
                     page={page} 
                     datas={completeList}
-                    triggerAt={6} 
+                    triggerAt={12} 
                     setPage={setPage} 
                     loaderListClasses="loader__image" 
                     loaderList={LoaderGif}
