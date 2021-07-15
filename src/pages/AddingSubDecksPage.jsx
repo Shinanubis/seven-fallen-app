@@ -82,13 +82,12 @@ function AddingSubDecksCardsPage(props) {
                     }
                 })
             })
-        }
 
-        setCompleteList(prevstate => {
-            let newArr = [...prevstate, ...newCompleteList]
-            console.log(prevstate)
-            return newArr;
-        });
+            setCompleteList(prevstate => {
+                let newArr = [...prevstate, ...newCompleteList]
+                return newArr;
+            });
+        }
         
     },[page]);
 
@@ -96,7 +95,6 @@ function AddingSubDecksCardsPage(props) {
         if(loaded === false){
             setLoaded(true)
         }
-        console.log(completeList)
     }, [completeList])
 
     useEffect(() => {
