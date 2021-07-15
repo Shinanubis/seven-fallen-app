@@ -2,18 +2,13 @@ import {useState,useRef, useEffect, forwardRef} from 'react';
 import Loader from './Loader';
 
 function throttling(callback, delay) {
-    let timerId = undefined;
+    let timer = Date.now();
 
     return function () {
-        if(timerId){
-            return;
-        }
-
-        setTimeout(() => {
+        if(timer + delay - Date.now() < 0){
             callback();
-
-            timerId = undefined;
-        },delay);
+            timer = Date.now()
+        }
     }
 }
 
@@ -72,7 +67,7 @@ const InfiniteListThree = (props) => {
     const handleScroll = (e) => {
         listBottom.current = listRef.current.getBoundingClientRect().bottom;
         elmtBottom.current = elmtRef.current.getBoundingClientRect().bottom;
-        console.log("hello")
+        console.log("elmt : ",elmtBottom.current )
     }
             
     /*effect*/
