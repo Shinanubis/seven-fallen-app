@@ -16,7 +16,7 @@ function throttling(callback, delay) {
 function LoaderList(props) {
     const {classes, url} = props;
     return(
-        <img className={classes && classes} src={url} alt="loader"/>
+        <img className={classes ? classes : "infinite__scroll--loader"} src={url} alt="loader"/>
     )
 }
 
