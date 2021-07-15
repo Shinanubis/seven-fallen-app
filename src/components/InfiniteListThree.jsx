@@ -87,7 +87,7 @@ const InfiniteListThree = (props) => {
     return (
         <>  
             {children}
-            {!isLoaded && <LoaderList classes={loaderListClasses} url={loaderList}/>}
+            <LoaderList classes={isLoaded ? loaderListClasses : "d-none"} url={loaderList}/>
         </>
     )
 };
