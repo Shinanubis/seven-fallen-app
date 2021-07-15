@@ -39,28 +39,30 @@ const InfiniteListThree = (props) => {
     /*constantes*/
     const MAX_PAGES = typeof size === 'number' ? Math.ceil(size / numberPerPage) : 0;
    
+    /*variable*/
+    let triggerIndex = 0;
+    let isMounted = false;
 
     /*refs*/
     let listRef = useRef();
     let elmtRef = useRef();
     let listBottom = useRef();
     let elmtBottom = useRef();
-    let triggerRef = useRef(0);
+
+    if(triggerAt <= props.children.props.length - 1){
+        triggerIndex = triggerAt;
+    }
+
+    if(triggerAt > props.children.props.length - 1){
+        triggerIndex = props.children.props.length - 1;
+    }
 
     if(children.type === 'ul'){
         children.ref = listRef;
     }
 
-    if(typeof triggerAt === 'number'  && children.props.children.length > 0){
-        if(triggerAt <= children.props.children.length - 1){
-            triggerRef.current = triggerAt * page;     
-        }
-
-        if(triggerAt > children.props.children.length - 1){
-            triggerRef.current = datas.length - 1;
-        }
-    }else{
-        console.error("Shuld be a number");
+    if(children.props.children){
+        children.props.children[triggerIndex].ref = elmtRef;
     }
 
     // if(typeof triggerAt === 'number' && children.props.children){
