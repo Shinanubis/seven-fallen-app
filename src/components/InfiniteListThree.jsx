@@ -44,8 +44,6 @@ const InfiniteListThree = (props) => {
     let elmtRef = useRef();
     let listBottom = useRef();
     let elmtBottom = useRef();
-    let isMounted = useRef(true);
-
 
 
     if(children.type === 'ul'){
@@ -60,12 +58,9 @@ const InfiniteListThree = (props) => {
         }
         
         if(page === MAX_PAGES){
-            console.log(children.props.children.length - 1)
             children.props.children[children.props.children.length - 1].ref = elmtRef;
         }
 
-    }else{
-        console.log("No children.props.children")
     }
 
     /*handlers*/
@@ -86,6 +81,10 @@ const InfiniteListThree = (props) => {
 
     useEffect(() => {
         if(isLoaded === false){
+            setIsLoaded(true);
+        }
+
+        if(page === MAX_PAGES && children.props.children.length === size){
             setIsLoaded(true);
         }
     },[datas])
