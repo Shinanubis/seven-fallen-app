@@ -34,7 +34,7 @@ const InfiniteListThree = (props) => {
     
 
     /*states*/
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(true);
     const [newDatas, setNewDatas] = useState(datas);
 
     /*constantes*/
@@ -76,9 +76,6 @@ const InfiniteListThree = (props) => {
     }
             
     /*effect*/
-    useEffect(() => {
-
-    },[newDatas])
 
     useEffect(() => {
         if(isLoaded === false && page < MAX_PAGES){
