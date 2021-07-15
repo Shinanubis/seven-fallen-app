@@ -86,7 +86,7 @@ const InfiniteListThree = (props) => {
 
     useEffect(() => {
         window.addEventListener('scroll',handleScroll, true);
-        console.log(MAX_PAGES)
+        console.log(size)
         return window.addEventListener('scroll',handleScroll);
     },[]);
 
