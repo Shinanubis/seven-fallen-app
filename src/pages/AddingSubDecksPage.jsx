@@ -84,7 +84,9 @@ function AddingSubDecksCardsPage(props) {
             })
         }
 
-        setCompleteList(newCompleteList);
+        setCompleteList(prevstate => {
+            let newArr = [...prevstate, ...newCompleteList]
+        });
         console.log(completeList)
     },[page]);
 
