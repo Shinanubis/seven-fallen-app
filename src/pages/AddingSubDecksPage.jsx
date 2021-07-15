@@ -136,7 +136,7 @@ function AddingSubDecksCardsPage(props) {
                             completeList.map(elmt => {
                                 return (
                                     <li key="id" className="card__container">
-                                        <img src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} alt="" />
+                                        <img className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} alt="" />
                                     </li>
                                 )
                             })
