@@ -50,7 +50,7 @@ const InfiniteListThree = (props) => {
 
     if(typeof triggerAt === 'number' && children.props.children){
         if(triggerAt < children.props.children.length - 1){
-            children.props.children[triggerAt].ref = elmtRef;
+            children.props.children[triggerAt * page].ref = elmtRef;
         }
     
         if(triggerAt >= children.props.children.length - 1){
@@ -80,11 +80,7 @@ const InfiniteListThree = (props) => {
     },[datas]);
 
     useEffect(() => {
-
-        if(isLoaded === false && page < MAX_PAGES){
-            setPage(page + 1);
-        }
-
+        console.log(isLoaded)
     }, [isLoaded]);
 
     useEffect(() => {
