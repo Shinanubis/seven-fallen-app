@@ -66,7 +66,8 @@ const InfiniteListThree = (props) => {
 
     /*handlers*/
     const handleScroll = (e) => {
-        if(children.props.children){
+        console.log(children.props.children.length)
+        if(children.props.children.length > 0){
             listBottom = Number(listRef.current.getBoundingClientRect().bottom);
             elmtBottom = Number(elmtRef.current.getBoundingClientRect().bottom);
     
