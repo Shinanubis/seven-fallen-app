@@ -51,7 +51,7 @@ const InfiniteListThree = (props) => {
         children.ref = listRef;
     }
 
-    if(typeof triggerAt === 'number' && children.props.children){
+    if(typeof triggerAt === 'number' && children.props.children !== null){
 
         if(triggerAt <= children.props.children.length - 1 && page < MAX_PAGES){
             let newIndex = children.props.children.length - numberPerPage + triggerAt;  
@@ -66,15 +66,12 @@ const InfiniteListThree = (props) => {
 
     /*handlers*/
     const handleScroll = (e) => {
-        console.log(children.props.children.length)
-        if(children.props.children.length > 0){
             listBottom = Number(listRef.current.getBoundingClientRect().bottom);
             elmtBottom = Number(elmtRef.current.getBoundingClientRect().bottom);
     
             if(listBottom > elmtBottom && page < MAX_PAGES){
                 setIsLoaded(false);
             }
-        }
     }
             
     /*effect*/
