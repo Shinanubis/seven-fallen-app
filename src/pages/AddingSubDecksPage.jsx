@@ -108,49 +108,35 @@ function AddingSubDecksCardsPage(props) {
     return loaded === true ? (
         <Main classes="subdeck page">
             <Filters containerClasses="filter__container row justify-end my-2" />
-            {/* {Object.keys(completeList).length > 0 && 
-                <InfiniteListTwo 
-                    classesContainer="subdeck list__content layout layout__1 mb-2" 
-                    classesElement="card__container"
-                    classesImages="card__image"
-                    classesLoaderList="loader__image"
-                    datas={completeList}
-                    size={cardsResponse.message[0]}
-                    numPerPage={10}
+            {completeList instanceof Array &&
+             completeList !== null ?
+                <InfiniteListThree 
                     page={page}
-                    setPage={() => setPage(page + 1)}
-                    triggerAt={9}
-                />
-            } */}
-            {   completeList instanceof Array &&
-                completeList !== null ?
-                    <InfiniteListThree 
-                        page={page}
-                        size={size}
-                        numberPerPage = {20} 
-                        datas={completeList}
-                        triggerAt={17} 
-                        setPage={() => setPage(page + 1)} 
-                        loaderListClasses="loader__image" 
-                        loaderList={LoaderGif}
-                    >
-                        <ul className="subdeck list__content layout layout__1 mb-2">
-                            { 
-                                completeList.map(elmt => {
-                                    return (
-                                        <li key={elmt.id} className="card__container">
-                                            <img id={`image__${elmt.id}`} className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} alt="" />
-                                            <CardsCounter classes="cards__counter" value={elmt.qty}/>
-                                        </li>
-                                    )
-                                })
-                            }
-                        </ul>
-                    </InfiniteListThree>
-                    :
-                    <div>
-                        <p className="title">Empty</p>
-                    </div>
+                    size={size}
+                    numberPerPage = {20} 
+                    datas={completeList}
+                    triggerAt={17} 
+                    setPage={() => setPage(page + 1)} 
+                    loaderListClasses="loader__image" 
+                    loaderList={LoaderGif}
+                >
+                    <ul className="subdeck list__content layout layout__1 mb-2">
+                        { 
+                            completeList.map(elmt => {
+                                return (
+                                    <li key={elmt.id} className="card__container">
+                                        <img id={`image__${elmt.id}`} className="card__image" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} alt="" />
+                                        <CardsCounter classes="cards__counter" value={elmt.qty}/>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </InfiniteListThree>
+                :
+                <div>
+                    <p className="title">Empty</p>
+                </div>
             }
             <Flash 
                 classes="message__flash" 
