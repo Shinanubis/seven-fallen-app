@@ -146,7 +146,9 @@ function AddingSubDecksCardsPage(props) {
                                 )
                             })
                             :
-                            null
+                            <li>
+                                <p className="title">Empty</p>
+                            </li>
                         }
                     </ul>
                 </InfiniteListThree>
