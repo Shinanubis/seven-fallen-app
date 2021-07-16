@@ -110,11 +110,12 @@ function AddingSubDecksCardsPage(props) {
 	useEffect(() => {
 		let newImages = {};
 
-		if (completeList instanceof Array) {
+		if (completeList instanceof Array && completeList.length > 0) {
 			completeList.map((elmt) => {
 				newImages[elmt.id] = false;
 			});
 		}
+		console.log("First render : ", newImages);
 
 		setImageLoaded(newImages);
 	}, []);
