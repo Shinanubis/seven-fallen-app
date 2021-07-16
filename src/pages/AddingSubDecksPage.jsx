@@ -135,26 +135,32 @@ function AddingSubDecksCardsPage(props) {
 						{completeList.map((elmt) => {
 							return (
 								<li key={elmt.id} className="card__container">
-									<img
-										id={elmt.id}
-										className="card__image"
-										src={
-											process.env.REACT_APP_CARDS_STATIC +
-											elmt.image_path
-										}
-										alt=""
-									/>
-									<CardsCounter
-										classes="cards__counter"
-										value={elmt.qty}
-									/>
-									<div className="loader__card--container row justify-center align-center">
-										<img
-											className="loader__image"
-											src={ImageLoader}
-											alt="image loader"
-										/>
-									</div>
+									{imageLoaded[elmt.id] === true ? (
+										<>
+											<img
+												id={elmt.id}
+												className="card__image"
+												src={
+													process.env
+														.REACT_APP_CARDS_STATIC +
+													elmt.image_path
+												}
+												alt=""
+											/>
+											<CardsCounter
+												classes="cards__counter"
+												value={elmt.qty}
+											/>
+										</>
+									) : (
+										<div className="loader__card--container row justify-center align-center">
+											<img
+												className="loader__image"
+												src={ImageLoader}
+												alt="image loader"
+											/>
+										</div>
+									)}
 								</li>
 							);
 						})}
