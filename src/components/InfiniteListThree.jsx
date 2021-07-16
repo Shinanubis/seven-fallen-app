@@ -92,7 +92,7 @@ const InfiniteListThree = (props) => {
             setPage();
         }
 
-        if(isLoaded === false && page === MAX_PAGES){
+        if(page === MAX_PAGES){
             setIsLoaded(true);
         }
 
