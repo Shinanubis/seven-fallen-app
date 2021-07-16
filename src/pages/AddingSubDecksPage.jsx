@@ -145,7 +145,11 @@ function AddingSubDecksCardsPage(props) {
 									<>
 										<img
 											id={elmt.id}
-											className="card__image"
+											className={
+												imageLoaded[elmt.id] === true
+													? "card__image"
+													: "d-none"
+											}
 											src={
 												process.env
 													.REACT_APP_CARDS_STATIC +
