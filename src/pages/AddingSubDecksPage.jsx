@@ -105,7 +105,9 @@ function AddingSubDecksCardsPage(props) {
 		if (loaded === false) {
 			setLoaded(true);
 		}
+	}, [completeList]);
 
+	useEffect(() => {
 		let newImages = {};
 
 		if (completeList instanceof Array) {
@@ -115,7 +117,7 @@ function AddingSubDecksCardsPage(props) {
 		}
 
 		setImageLoaded(newImages);
-	}, [completeList]);
+	}, []);
 
 	useEffect(() => {
 		console.log(imageLoaded);
@@ -160,7 +162,7 @@ function AddingSubDecksCardsPage(props) {
 										<CardsCounter
 											classes={
 												imageLoaded[elmt.id] === true
-													? "card__counter"
+													? "cards__counter"
 													: "d-none"
 											}
 											value={elmt.qty}
