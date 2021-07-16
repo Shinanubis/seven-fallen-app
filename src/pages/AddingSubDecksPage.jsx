@@ -107,8 +107,11 @@ function AddingSubDecksCardsPage(props) {
 		}
 
 		setImageLoaded(newImages);
-		console.log(newImages);
 	}, [completeList]);
+
+	useEffect(() => {
+		console.log(imageLoaded);
+	}, [imageLoaded]);
 
 	return loaded === true ? (
 		<Main classes="subdeck page">
