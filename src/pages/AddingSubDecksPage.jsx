@@ -17,7 +17,6 @@ import Loader from "../components/Loader";
 import { RiLoader3Line } from "react-icons/ri";
 import Flash from "../components/Flash";
 import Filters from "../components/Filters";
-import InfiniteListTwo from "../components/InfiniteListTwo";
 import CardsCounter from "../components/Cards__toolbox/CardsCounter";
 import LoaderGif from "../img/22-2.gif";
 
@@ -48,6 +47,8 @@ function AddingSubDecksCardsPage(props) {
 	const handleFlash = (newFlashState) => {
 		setFlashState(newFlashState);
 	};
+
+	const handleImageLoading = (e) => {};
 
 	/*useEffects*/
 	useEffect(async () => {
@@ -108,6 +109,7 @@ function AddingSubDecksCardsPage(props) {
 		}
 
 		setImageLoaded(newImages);
+		console.log("Image Loaded : ", imageLoaded);
 	}, [cardsResponse.message[1]]);
 
 	return loaded === true ? (
@@ -124,7 +126,10 @@ function AddingSubDecksCardsPage(props) {
 					loaderListClasses="loader__image"
 					loaderList={LoaderGif}
 				>
-					<ul className="subdeck list__content layout layout__1 mb-2">
+					<ul
+						className="subdeck list__content layout layout__1 mb-2"
+						onLoad={handleImageLoading}
+					>
 						{completeList.map((elmt) => {
 							return (
 								<li key={elmt.id} className="card__container">
