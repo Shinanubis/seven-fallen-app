@@ -66,15 +66,14 @@ const InfiniteListThree = (props) => {
 
     /*handlers*/
     const handleScroll = (e) => {
-        if(children.props.children !== null){
+        if(listRef.current && elmtRef.current){
             listBottom = Number(listRef.current.getBoundingClientRect().bottom);
             elmtBottom = Number(elmtRef.current.getBoundingClientRect().bottom);
+
             if(listBottom > elmtBottom && page < MAX_PAGES){
                 setIsLoaded(false);
             }
-        }else{
-            return;  
-        } 
+        }
     }
             
     /*effect*/
