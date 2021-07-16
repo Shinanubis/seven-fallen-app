@@ -80,7 +80,7 @@ const InfiniteListThree = (props) => {
     /*effect*/
 
     useEffect(() => {
-        if(isLoaded === false && page === MAX_PAGES){
+        if(isLoaded === false && page < MAX_PAGES){
             setIsLoaded(true);
         }
 
