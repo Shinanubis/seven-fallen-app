@@ -148,11 +148,13 @@ function AddingSubDecksCardsPage(props) {
 										classes="cards__counter"
 										value={elmt.qty}
 									/>
-									<img
-										className="loader__image"
-										src={ImageLoader}
-										alt="image loader"
-									/>
+									<div className="loader__container row justify-center align-center">
+										<img
+											className="loader__image"
+											src={ImageLoader}
+											alt="image loader"
+										/>
+									</div>
 								</li>
 							);
 						})}
