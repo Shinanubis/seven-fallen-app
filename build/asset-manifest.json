@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.2c9be333.chunk.css",
-    "main.js": "/static/js/main.6d03fe69.chunk.js",
-    "main.js.map": "/static/js/main.6d03fe69.chunk.js.map",
+    "main.js": "/static/js/main.7b7b3afd.chunk.js",
+    "main.js.map": "/static/js/main.7b7b3afd.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3feb6fba.js",
     "runtime-main.js.map": "/static/js/runtime-main.3feb6fba.js.map",
     "static/js/2.e8524164.chunk.js": "/static/js/2.e8524164.chunk.js",
@@ -11,6 +11,7 @@
     "static/css/main.2c9be333.chunk.css.map": "/static/css/main.2c9be333.chunk.css.map",
     "static/js/2.e8524164.chunk.js.LICENSE.txt": "/static/js/2.e8524164.chunk.js.LICENSE.txt",
     "static/media/22-2.5f5c400e.gif": "/static/media/22-2.5f5c400e.gif",
+    "static/media/Fading_lines.72e5fa5c.gif": "/static/media/Fading_lines.72e5fa5c.gif",
     "static/media/framus.28ad3f9b.jpg": "/static/media/framus.28ad3f9b.jpg",
     "static/media/merrlyn.a1bb939c.jpg": "/static/media/merrlyn.a1bb939c.jpg"
   },
@@ -18,6 +19,6 @@
     "static/js/runtime-main.3feb6fba.js",
     "static/js/2.e8524164.chunk.js",
     "static/css/main.2c9be333.chunk.css",
-    "static/js/main.6d03fe69.chunk.js"
+    "static/js/main.7b7b3afd.chunk.js"
   ]
 }

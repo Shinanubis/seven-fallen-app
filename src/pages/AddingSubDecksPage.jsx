@@ -19,6 +19,7 @@ import Flash from "../components/Flash";
 import Filters from "../components/Filters";
 import CardsCounter from "../components/Cards__toolbox/CardsCounter";
 import LoaderGif from "../img/22-2.gif";
+import ImageLoader from "../img/Fading_lines.gif";
 
 import dotenv from "dotenv";
 import InfiniteListThree from "../components/InfiniteListThree";
@@ -135,7 +136,7 @@ function AddingSubDecksCardsPage(props) {
 							return (
 								<li key={elmt.id} className="card__container">
 									<img
-										id={`image__${elmt.id}`}
+										id={elmt.id}
 										className="card__image"
 										src={
 											process.env.REACT_APP_CARDS_STATIC +
@@ -146,6 +147,11 @@ function AddingSubDecksCardsPage(props) {
 									<CardsCounter
 										classes="cards__counter"
 										value={elmt.qty}
+									/>
+									<img
+										className="loader__image"
+										src={ImageLoader}
+										alt="image loader"
 									/>
 								</li>
 							);
