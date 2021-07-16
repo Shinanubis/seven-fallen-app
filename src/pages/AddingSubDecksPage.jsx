@@ -49,7 +49,14 @@ function AddingSubDecksCardsPage(props) {
 		setFlashState(newFlashState);
 	};
 
-	const handleImageLoading = (e) => {};
+	const handleImageLoading = (e) => {
+		if (e.target.id) {
+			setImageLoaded((prevstate) => {
+				let newState = { ...prevstate, [e.target.id]: true };
+				return newState;
+			});
+		}
+	};
 
 	/*useEffects*/
 	useEffect(async () => {
@@ -135,32 +142,35 @@ function AddingSubDecksCardsPage(props) {
 						{completeList.map((elmt) => {
 							return (
 								<li key={elmt.id} className="card__container">
-									{imageLoaded[elmt.id] === true ? (
-										<>
-											<img
-												id={elmt.id}
-												className="card__image"
-												src={
-													process.env
-														.REACT_APP_CARDS_STATIC +
-													elmt.image_path
-												}
-												alt=""
-											/>
-											<CardsCounter
-												classes="cards__counter"
-												value={elmt.qty}
-											/>
-										</>
-									) : (
-										<div className="loader__card--container row justify-center align-center">
-											<img
-												className="loader__image"
-												src={ImageLoader}
-												alt="image loader"
-											/>
-										</div>
-									)}
+									<>
+										<img
+											id={elmt.id}
+											className="card__image"
+											src={
+												process.env
+													.REACT_APP_CARDS_STATIC +
+												elmt.image_path
+											}
+											alt=""
+										/>
+										<CardsCounter
+											classes="cards__counter"
+											value={elmt.qty}
+										/>
+									</>
+									<div
+										className={
+											imageLoaded[elmt.id] === false
+												? "loader__card--container row justify-center align-center"
+												: "d-none"
+										}
+									>
+										<img
+											className="loader__image"
+											src={ImageLoader}
+											alt="image loader"
+										/>
+									</div>
 								</li>
 							);
 						})}
