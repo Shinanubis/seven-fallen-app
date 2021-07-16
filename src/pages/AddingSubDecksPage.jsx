@@ -100,8 +100,8 @@ function AddingSubDecksCardsPage(props) {
 
 		let newImages = {};
 
-		if (cardsResponse.message[1] instanceof Array) {
-			cardsResponse.message[1].map((elmt) => {
+		if (completeList instanceof Array) {
+			completeList.map((elmt) => {
 				newImages[elmt.id] = false;
 			});
 		}
