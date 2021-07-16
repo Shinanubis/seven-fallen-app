@@ -109,7 +109,7 @@ function AddingSubDecksCardsPage(props) {
 		}
 
 		setImageLoaded(newImages);
-		console.log("Image Loaded : ", imageLoaded);
+		console.log(process.env.REACT_APP_TOKEN);
 	}, [cardsResponse.message[1]]);
 
 	return loaded === true ? (
