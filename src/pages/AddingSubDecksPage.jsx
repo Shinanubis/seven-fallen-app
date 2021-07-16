@@ -97,9 +97,7 @@ function AddingSubDecksCardsPage(props) {
 		if (loaded === false) {
 			setLoaded(true);
 		}
-	}, [completeList]);
 
-	useEffect(() => {
 		let newImages = {};
 
 		if (cardsResponse.message[1] instanceof Array) {
@@ -109,8 +107,8 @@ function AddingSubDecksCardsPage(props) {
 		}
 
 		setImageLoaded(newImages);
-		console.log(process.env.REACT_APP_TOKEN);
-	}, [cardsResponse.message[1]]);
+		console.log(newImages);
+	}, [completeList]);
 
 	return loaded === true ? (
 		<Main classes="subdeck page">
