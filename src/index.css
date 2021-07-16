@@ -886,7 +886,7 @@ svg.dropdown__icon path {
 .loader__card--container {
 	background-color: #ffffff;
 	width: 100%;
-	height: 18vh;
+	height: 40vh;
 }
 
 .loader__image {
