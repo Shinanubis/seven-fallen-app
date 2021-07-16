@@ -158,7 +158,11 @@ function AddingSubDecksCardsPage(props) {
 											alt=""
 										/>
 										<CardsCounter
-											classes="cards__counter"
+											classes={
+												imageLoaded[elmt.id] === true
+													? "card__counter"
+													: "d-none"
+											}
 											value={elmt.qty}
 										/>
 									</>
