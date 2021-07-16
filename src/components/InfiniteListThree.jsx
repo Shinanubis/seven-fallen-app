@@ -72,6 +72,7 @@ const InfiniteListThree = (props) => {
 
             if(listBottom > elmtBottom && page < MAX_PAGES){
                 setIsLoaded(false);
+                return;
             }
         }
     }
