@@ -51,17 +51,17 @@ function AddingSubDecksCardsPage(props) {
         let userSubdeckResponse = '';
         let newCompleteList = []; 
         if(endUrl === 'eden'){
-            response = await getEdenCards(page,10,'FR');
+            response = await getEdenCards(page,20,'FR');
             userSubdeckResponse = await getUserEdenCards(id);
         }
 
         if(endUrl === 'register'){
-            response = await getRegisterCards(page,10,'FR');
+            response = await getRegisterCards(page,20,'FR');
             userSubdeckResponse = await getUserRegisterCards(id);
         }
 
         if(endUrl === 'holybook'){
-            response = await getHolyBookCards(page,10,'FR');
+            response = await getHolyBookCards(page,20,'FR');
             userSubdeckResponse = await getUserHolyBookCards(id);
         }
 
@@ -127,7 +127,7 @@ function AddingSubDecksCardsPage(props) {
                     <InfiniteListThree 
                         page={page}
                         size={size}
-                        numberPerPage = {10} 
+                        numberPerPage = {20} 
                         datas={completeList}
                         triggerAt={7} 
                         setPage={() => setPage(page + 1)} 
