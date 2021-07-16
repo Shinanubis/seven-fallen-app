@@ -42,9 +42,10 @@ const InfiniteListThree = (props) => {
     /*refs*/
     let listRef = useRef();
     let elmtRef = useRef();
-    let listBottom = useRef();
-    let elmtBottom = useRef();
 
+    /*variables*/
+    let listBottom = 0;
+    let elmtBottom = 0;
 
     if(children.type === 'ul'){
         children.ref = listRef;
@@ -65,10 +66,10 @@ const InfiniteListThree = (props) => {
 
     /*handlers*/
     const handleScroll = (e) => {
-        listBottom.current = Number(listRef.current.getBoundingClientRect().bottom);
-        elmtBottom.current = Number(elmtRef.current.getBoundingClientRect().bottom);
+        listBottom = Number(listRef.current.getBoundingClientRect().bottom);
+        elmtBottom = Number(elmtRef.current.getBoundingClientRect().bottom);
 
-        if(listBottom.current > elmtBottom.current && page < MAX_PAGES){
+        if(listBottom > elmtBottom && page < MAX_PAGES){
             setIsLoaded(false);
         }
     }
