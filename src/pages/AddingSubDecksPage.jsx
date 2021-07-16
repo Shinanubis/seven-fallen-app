@@ -123,7 +123,7 @@ function AddingSubDecksCardsPage(props) {
                 />
             } */}
             {   completeList instanceof Array &&
-                completeList.length > 0 ?
+                completeList !== null?
                     <InfiniteListThree 
                         page={page}
                         size={size}
