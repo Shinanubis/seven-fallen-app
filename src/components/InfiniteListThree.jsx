@@ -72,23 +72,12 @@ const InfiniteListThree = (props) => {
 
             if(listBottom > elmtBottom && page < MAX_PAGES){
                 setIsLoaded(false);
-                return;
+                return 
             }
         }
     }
             
     /*effect*/
-
-    useEffect(() => {
-        if(isLoaded === false && page < MAX_PAGES){
-            setIsLoaded(true);
-        }
-
-        if(isLoaded === false && page === MAX_PAGES && children.props.children.length === size) {
-            console.log("Reach the end of datas...")
-            setIsLoaded(true);
-        }
-    },[datas])
 
     useEffect(() => {
 
@@ -97,6 +86,7 @@ const InfiniteListThree = (props) => {
         }
 
         if(isLoaded === false && page === MAX_PAGES){
+            console.log("I just reach the end")
             setIsLoaded(true);
         }
 
