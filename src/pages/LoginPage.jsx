@@ -24,12 +24,8 @@ function Login(props) {
 		>
 			<img className="logo mb-6" src={logo} alt="logo de 7 fallen" />
 			<p className="mb-2">Deckbuilder v1.0</p>
-			<div className="language mb-2">
-				<div
-					id="fr"
-					className="language__choice"
-					onClick={handleLanguage}
-				>
+			<div className="language mb-2" onClick={handleLanguage}>
+				<div id="fr" className="language__choice">
 					FR
 				</div>
 				<span>&nbsp;-&nbsp;</span>
