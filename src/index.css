@@ -1431,7 +1431,7 @@ svg.dropdown__icon path {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	width: 100%;
+	width: 90%;
 	height: 12vw;
 	font-size: calc(0.27548vw + 12.71074px);
 	font-family: Helvetica, sans-serif;
@@ -1443,6 +1443,7 @@ svg.dropdown__icon path {
 	text-decoration: none;
 	transition: background-color 0.3s, border-color 0.3s;
 	padding: 0 1rem;
+	margin: 0 auto;
 }
 
 .btn__social--text {
