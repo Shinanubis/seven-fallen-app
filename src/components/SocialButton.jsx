@@ -1,12 +1,12 @@
 import React from "react";
 import "./SocialButton.css";
 const SocialButton = (props) => {
-	const { color, bgcolor } = props;
+	const { color, bgcolor, classes } = props;
 	return (
 		<a
 			style={{ backgroundColor: bgcolor, color: color }}
 			href={props.url}
-			className="btn btn__social"
+			className={classes ? classes : "btn btn__social"}
 		>
 			{props.children}
 		</a>

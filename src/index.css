@@ -1406,6 +1406,10 @@ svg.dropdown__icon path {
 	cursor: pointer;
 }
 
+.btn.rounded {
+	border-radius: 200px;
+}
+
 .add__button {
 	display: flex;
 	justify-content: center;
