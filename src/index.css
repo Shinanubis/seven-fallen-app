@@ -230,6 +230,10 @@ input.toolbar__icon:focus {
 	text-align: center;
 }
 
+.login.page {
+	min-height: 100%;
+}
+
 .decks.page {
 	justify-content: flex-start;
 }
