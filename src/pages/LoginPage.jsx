@@ -39,7 +39,7 @@ function Login(props) {
 				</div>
 			</div>
 			<div className="w-100 mb-4">
-				<span className="infos mb-2">Se connecter</span>
+				<p className="infos mb-1">Se connecter</p>
 				<ul className="social__icons--list">
 					<li className="mb-3">
 						<SocialButton
