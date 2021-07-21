@@ -1392,6 +1392,10 @@ svg.dropdown__icon path {
 	display: none;
 }
 
+.infos {
+	color: #606060;
+}
+
 .btn {
 	padding: 4vw 0;
 	font-family: Helvetica, sans-serif;
