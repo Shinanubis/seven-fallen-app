@@ -1,9 +1,10 @@
 import React from "react";
 import "./SocialButton.css";
 const SocialButton = (props) => {
+	const { color, bgcolor } = props;
 	return (
 		<a
-			style={{ backgroundColor: props.bgcolor }}
+			style={{ backgroundColor: bgcolor, color: color }}
 			href={props.url}
 			className="btn btn__social"
 		>

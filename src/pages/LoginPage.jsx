@@ -21,6 +21,7 @@ function Login(props) {
 				<SocialButton
 					bgcolor="#F7F7F7"
 					url="https://test-seven.site/api/auth/google"
+					color="#606060"
 				>
 					<span className="btn__social--text">Google</span>
 				</SocialButton>
