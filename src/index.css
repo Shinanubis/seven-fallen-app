@@ -232,6 +232,8 @@ input.toolbar__icon:focus {
 
 .login.page {
 	min-height: 100%;
+	background-position: center;
+	background-size: cover;
 }
 
 .decks.page {
