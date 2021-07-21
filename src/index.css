@@ -1573,31 +1573,15 @@ main {
 }
 
 @media screen and (min-width: 640px) {
-	.btn {
-		padding: 1.5vw 0;
-		font-size: 3vw;
-	}
 }
 
 @media screen and (min-width: 920px) {
-	.btn {
-		padding: 1.125vw 0;
-		font-size: 2.25vw;
-	}
 }
 
 @media screen and (min-width: 1240px) {
-	.btn {
-		padding: 0.6vw 0;
-		font-size: 1.25vw;
-	}
 }
 
 @media screen and (min-width: 1620px) {
-	.btn {
-		padding: 0.5vw 0;
-		font-size: 1vw;
-	}
 }
 
 /* Transitions Effects */
