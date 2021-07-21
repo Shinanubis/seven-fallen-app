@@ -1,12 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Footer = (props) => {
 	const { classes } = props;
+	let history = useHistory();
 	return (
-		<footer className={classes}>
-			{console.log(props)}
-			{props.children}
-		</footer>
+		<>
+			{console.log(history)}
+			<footer className={classes}>{props.children}</footer>
+		</>
 	);
 };
 
