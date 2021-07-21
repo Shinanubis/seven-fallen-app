@@ -14,7 +14,7 @@ function Login(props) {
 					bgcolor="#395693"
 					url="https://test-seven.site/api/auth/facebook"
 				>
-					<span className="btn__social--text">Login facebook</span>
+					<span className="btn__social--text">Facebook</span>
 				</SocialButton>
 			</li>
 			<li>
@@ -22,7 +22,7 @@ function Login(props) {
 					bgcolor="#F7F7F7"
 					url="https://test-seven.site/api/auth/google"
 				>
-					<span className="btn__social--text">Login Google</span>
+					<span className="btn__social--text">Google</span>
 				</SocialButton>
 			</li>
 		</ul>
