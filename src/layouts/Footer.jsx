@@ -5,11 +5,9 @@ const Footer = (props) => {
 	const { classes } = props;
 
 	let history = useHistory();
-	return (
-		<>
-			{console.log(history)}
-			<footer className={classes}>{props.children}</footer>
-		</>
+
+	return history.location.pathname === "/login" ? null : (
+		<footer className={classes}>{props.children}</footer>
 	);
 };
 
