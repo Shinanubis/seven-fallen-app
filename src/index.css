@@ -895,7 +895,7 @@ svg.dropdown__icon path {
 
 /* Utilities */
 .rounded {
-	border-radius: 200px;
+	border-radius: 200px !important;
 }
 
 .d-none {
