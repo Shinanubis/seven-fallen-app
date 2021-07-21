@@ -9,7 +9,7 @@ dotenv.config();
 function Login(props) {
 	return (
 		<div className="login page">
-			<span className="infos">Se connecter</span>
+			<span className="infos mb-1">Se connecter</span>
 			<ul className="social__icons--list">
 				<li className="mb-3">
 					<SocialButton
