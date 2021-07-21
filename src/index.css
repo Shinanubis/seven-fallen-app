@@ -238,8 +238,7 @@ input.toolbar__icon:focus {
 	min-height: 100%;
 	background-position: center;
 	background-size: cover;
-	justify-content: flex-end;
-	padding: 0 0 40% 0;
+	justify-content: space-around;
 }
 
 .login .logo {
