@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Footer = (props) => {
 	const { classes } = props;
+
 	let history = useHistory();
 	return (
 		<>
