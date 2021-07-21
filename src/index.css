@@ -238,6 +238,10 @@ input.toolbar__icon:focus {
 	padding: 0 0 30% 0;
 }
 
+.login .logo {
+	width: 35%;
+}
+
 .language {
 	display: flex;
 }
