@@ -31,7 +31,7 @@ function Login(props) {
 				>
 					FR
 				</div>
-				<span>&nbsp-&nbsp</span>
+				<span>&nbsp;-&nbsp;</span>
 				<div id="en" className="language__choice">
 					EN
 				</div>
