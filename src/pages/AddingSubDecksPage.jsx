@@ -77,6 +77,7 @@ function AddingSubDecksCardsPage(props) {
 			response = await getHolyBookCards(page, 20, "FR");
 			userSubdeckResponse = await getUserHolyBookCards(id);
 		}
+
 		/*put imageLoaded to false*/
 		setSize(response.message[0]);
 
