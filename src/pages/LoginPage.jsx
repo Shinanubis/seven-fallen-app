@@ -1,14 +1,13 @@
 import "./LoginPage.css";
 import React from "react";
 import SocialButton from "../components/SocialButton";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF } from "react-icons/fa";
+import wizard from "../img/wizard.jpg";
 import dotenv from "dotenv";
 dotenv.config();
 
 function Login(props) {
 	return (
-		<div className="login page">
+		<div className="login page" style={{ backgroundImage: wizard }}>
 			<span className="infos mb-1">Se connecter</span>
 			<ul className="social__icons--list">
 				<li className="mb-3">

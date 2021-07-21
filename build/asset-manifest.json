@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.91353865.chunk.css",
-    "main.js": "/static/js/main.0cc635f7.chunk.js",
-    "main.js.map": "/static/js/main.0cc635f7.chunk.js.map",
+    "main.js": "/static/js/main.7e60c489.chunk.js",
+    "main.js.map": "/static/js/main.7e60c489.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3feb6fba.js",
     "runtime-main.js.map": "/static/js/runtime-main.3feb6fba.js.map",
     "static/js/2.20be4754.chunk.js": "/static/js/2.20be4754.chunk.js",
@@ -13,12 +13,13 @@
     "static/media/22-2.5f5c400e.gif": "/static/media/22-2.5f5c400e.gif",
     "static/media/Fading_lines.72e5fa5c.gif": "/static/media/Fading_lines.72e5fa5c.gif",
     "static/media/framus.28ad3f9b.jpg": "/static/media/framus.28ad3f9b.jpg",
-    "static/media/merrlyn.a1bb939c.jpg": "/static/media/merrlyn.a1bb939c.jpg"
+    "static/media/merrlyn.a1bb939c.jpg": "/static/media/merrlyn.a1bb939c.jpg",
+    "static/media/wizard.a1faacbe.jpg": "/static/media/wizard.a1faacbe.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3feb6fba.js",
     "static/js/2.20be4754.chunk.js",
     "static/css/main.91353865.chunk.css",
-    "static/js/main.0cc635f7.chunk.js"
+    "static/js/main.7e60c489.chunk.js"
   ]
 }
