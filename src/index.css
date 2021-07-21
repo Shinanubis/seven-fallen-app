@@ -123,6 +123,10 @@ code {
 	width: 22%;
 }
 
+.language__choice {
+	cursor: pointer;
+}
+
 .footer {
 	display: flex;
 	align-items: flex-start;
@@ -235,7 +239,7 @@ input.toolbar__icon:focus {
 	background-position: center;
 	background-size: cover;
 	justify-content: flex-end;
-	padding: 0 0 30% 0;
+	padding: 0 0 40% 0;
 }
 
 .login .logo {
