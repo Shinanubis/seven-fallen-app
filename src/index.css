@@ -894,6 +894,9 @@ svg.dropdown__icon path {
 }
 
 /* Utilities */
+.rounded {
+	border-radius: 200px;
+}
 
 .d-none {
 	display: none;
@@ -1402,12 +1405,32 @@ svg.dropdown__icon path {
 	-ms-border-radius: 3px;
 	-o-border-radius: 3px;
 	box-shadow: 0 0 20px -5px #8f8f8f;
-	text-transform: uppercase;
 	cursor: pointer;
 }
 
-.btn.rounded {
-	border-radius: 200px;
+.btn__social {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 12vw;
+	font-size: calc(0.27548vw + 12.71074px);
+	font-family: Helvetica, sans-serif;
+	font-weight: 500;
+	-webkit-font-smoothing: antialiased;
+	color: #fff;
+	cursor: pointer;
+	font-size: calc(0.27548vw + 12.71074px);
+	text-decoration: none;
+	transition: background-color 0.3s, border-color 0.3s;
+	padding: 0 1rem;
+}
+
+.btn__social--text {
+	width: 100%;
+	font-weight: 600;
+	font-size: 4vw;
+	text-align: center;
 }
 
 .add__button {
