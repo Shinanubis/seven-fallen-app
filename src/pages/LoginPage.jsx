@@ -22,7 +22,7 @@ function Login(props) {
 			className="login page"
 			style={{ backgroundImage: `url(${wizard})` }}
 		>
-			<p className="version">Deckbuilder v1.0.0</p>
+			<p className="version">Deckbuilder v1.0</p>
 			<img className="logo mb-6" src={logo} alt="logo de 7 fallen" />
 			<div className="language mb-2">
 				<div
