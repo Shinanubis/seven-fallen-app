@@ -23,7 +23,7 @@ function Login(props) {
 			style={{ backgroundImage: `url(${wizard})` }}
 		>
 			<img className="logo mb-6" src={logo} alt="logo de 7 fallen" />
-			<div>
+			<div className="w-100">
 				<p className="mb-2">Deckbuilder v1.0</p>
 				<div className="language mb-2" onClick={handleLanguage}>
 					<div id="fr" className="language__choice">
@@ -35,7 +35,7 @@ function Login(props) {
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="w-100">
 				<span className="infos mb-1">Se connecter</span>
 				<ul className="social__icons--list">
 					<li className="mb-3">
