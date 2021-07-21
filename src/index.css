@@ -238,6 +238,10 @@ input.toolbar__icon:focus {
 	padding: 0 0 30% 0;
 }
 
+.language {
+	display: flex;
+}
+
 .decks.page {
 	justify-content: flex-start;
 }
