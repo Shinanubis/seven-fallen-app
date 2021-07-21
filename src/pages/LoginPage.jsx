@@ -7,7 +7,10 @@ dotenv.config();
 
 function Login(props) {
 	return (
-		<div className="login page" style={{ backgroundImage: wizard }}>
+		<div
+			className="login page"
+			style={{ backgroundImage: `url(${wizard})` }}
+		>
 			<span className="infos mb-1">Se connecter</span>
 			<ul className="social__icons--list">
 				<li className="mb-3">
