@@ -4,9 +4,7 @@ import { useHistory } from "react-router-dom";
 const Footer = (props) => {
 	const { classes } = props;
 
-	let history = useHistory();
-
-	return history.location.pathname === "/login" ? null : (
+	return(
 		<footer className={classes}>{props.children}</footer>
 	);
 };

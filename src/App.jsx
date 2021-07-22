@@ -5,13 +5,10 @@ import Footer from "./layouts/Footer";
 import Menu from "./components/Menu";
 
 //Settings import
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 
 //Components imports
 import Navigation from "./components/Navigation";
-import Header from "./layouts/Header";
-import Avatar from "./components/Avatar";
-import Logout from "./components/Logout";
 
 // Pages import
 import LandingPage from "./pages/LandingPage";
@@ -175,14 +172,21 @@ function App() {
 		}
 	}, []);
 
+	let history = useHistory();
+
 	return (
 		<>
 			<VhInPixels />
 			<Router basename="/">
 				<Navigation pages={pages} />
-				<Footer classes="footer">
-					<Menu classes="navbar" />
-				</Footer>
+				{
+					history.location.pathname === "/login" ?
+						null
+						:
+						<Footer classes="footer">
+							<Menu classes="navbar" />
+						</Footer>
+				}
 			</Router>
 		</>
 	);
