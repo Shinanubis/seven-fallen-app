@@ -33,7 +33,6 @@ function AddingSubDecksCardsPage(props) {
     const [page, setPage] = useState(1);
     const [completeList, setCompleteList] = useState([]);
     const [size, setSize] = useState();
-    const [imageLoaded, setImageLoaded] = useState([]);
 
     /*variables*/
     let endUrl = props.location.pathname.split('/');
@@ -81,7 +80,7 @@ function AddingSubDecksCardsPage(props) {
                     }
                 })
             })
-            console.log([...completeList, ...newCompleteList])
+
             setCompleteList([...completeList, ...newCompleteList]);
         }
         
@@ -102,7 +101,6 @@ function AddingSubDecksCardsPage(props) {
             })
         }
         
-        setImageLoaded(newImages);
     }, [cardsResponse.message[1]]);
 
     return loaded === true ? (
