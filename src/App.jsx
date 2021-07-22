@@ -179,14 +179,10 @@ function App() {
 			<VhInPixels />
 			<Router basename="/">
 				<Navigation pages={pages} />
-				{
-					history.location.pathname === "/login" ?
-						null
-						:
-						<Footer classes="footer">
-							<Menu classes="navbar" />
-						</Footer>
-				}
+				{console.log(history)}
+				<Footer classes="footer">
+					<Menu classes="navbar" />
+				</Footer>
 			</Router>
 		</>
 	);
