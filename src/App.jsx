@@ -172,17 +172,14 @@ function App() {
 		}
 	}, []);
 
-	let history = useHistory();
-
 	return (
 		<>
 			<VhInPixels />
 			<Router basename="/">
 				<Navigation pages={pages} />
-				{console.log(history)}
-				<Footer classes="footer">
+				{/* <Footer classes="footer">
 					<Menu classes="navbar" />
-				</Footer>
+				</Footer> */}
 			</Router>
 		</>
 	);
