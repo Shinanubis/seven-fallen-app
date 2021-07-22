@@ -1,24 +1,28 @@
-import {useState, useEffect, useRef } from 'react';
-import {useParams} from 'react-router-dom';
+import { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 
 /*api*/
-import {getEdenCards, getRegisterCards, getHolyBookCards} from '../api/CardsWareHouse';
-import {getEdenCards as getUserEdenCards} from '../api/Eden';
-import {getRegisterCards as getUserRegisterCards} from '../api/Register';
-import {getHolyBookCards as getUserHolyBookCards} from '../api/HolyBook';
+import {
+	getEdenCards,
+	getRegisterCards,
+	getHolyBookCards,
+} from "../api/CardsWareHouse";
+import { getEdenCards as getUserEdenCards } from "../api/Eden";
+import { getRegisterCards as getUserRegisterCards } from "../api/Register";
+import { getHolyBookCards as getUserHolyBookCards } from "../api/HolyBook";
 
 /*components*/
-import Main from '../layouts/Main';
-import Loader from '../components/Loader';
-import {RiLoader3Line} from 'react-icons/ri';
-import Flash from '../components/Flash';
-import Filters from '../components/Filters';
-import InfiniteListTwo from '../components/InfiniteListTwo';
-import CardsCounter from '../components/Cards__toolbox/CardsCounter';
+import Main from "../layouts/Main";
+import Loader from "../components/Loader";
+import { RiLoader3Line } from "react-icons/ri";
+import Flash from "../components/Flash";
+import Filters from "../components/Filters";
+import CardsCounter from "../components/Cards__toolbox/CardsCounter";
 import LoaderGif from "../img/22-2.gif";
+import ImageLoader from "../img/Fading_lines.gif";
 
-import dotenv from 'dotenv';
-import InfiniteListThree from '../components/InfiniteListThree';
+import dotenv from "dotenv";
+import InfiniteListThree from "../components/InfiniteListThree";
 dotenv.config();
 
 function AddingSubDecksCardsPage(props) {
