@@ -11,7 +11,7 @@ const LandingPage = (props) => {
 		localStorage.setItem('isAuthenticated', response.isAuthenticate)
 	}, [])
 
-	if(isAuthenticated){
+	if(isAuthenticated === true){
 		return <Redirect to="/decks"/>
 	}
 
