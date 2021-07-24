@@ -7,10 +7,15 @@ const LandingPage = (props) => {
 
 	useEffect(async () => {
 		let response = await getAuthUser();
-		console.log(response)
+		setIsAuthenticated(response.isAuthenticate);
+		localStorage.setItem('isAuthenticated', response.isAuthenticate)
 	}, [])
 
-	return <p>{"Hello"}</p>;
+	if(isAuthenticated){
+		return <Redirect to="/decks"/>
+	}
+
+	return <Redirect to="/login"/>
 };
 
 export default LandingPage;
