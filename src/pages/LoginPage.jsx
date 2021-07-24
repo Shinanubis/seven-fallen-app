@@ -7,7 +7,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 async function getFacebookAuth(){
-	let response = await fetch('https://test-seven.site/api/auth/facebook');
+	let response = await fetch('https://test-seven.site/api/auth/facebook',{
+		method: "GET",
+		credentials: "include"
+	});
 	let datas = await response.json();
 	console.log(datas)
 }
