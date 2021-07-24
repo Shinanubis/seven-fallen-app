@@ -7,6 +7,7 @@ const LandingPage = (props) => {
 
 	useEffect(async () => {
 		let response = await getAuthUser();
+		console.log(response)
 		setIsAuthenticated(response.isAuthenticate);
 		localStorage.setItem('isAuthenticated', response.isAuthenticate)
 	}, [])
