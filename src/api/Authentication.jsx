@@ -7,7 +7,10 @@ async function getAuthUser(){
         credentials: "include" 
     });
     let data = await response.json();
-    return data;
+    return {
+        code: response.status,
+        message: data.message
+    };
 }
 
 export {
