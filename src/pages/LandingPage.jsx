@@ -1,5 +1,3 @@
-import {useEffect} from "react";
-import Button from "../components/Button";
 import { Redirect } from "react-router-dom";
 
 const LandingPage = (props) => {
