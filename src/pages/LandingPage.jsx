@@ -7,6 +7,7 @@ const LandingPage = (props) => {
 
 	useEffect(async () => {
 		let response = await getAuthUser();
+		console.log(response)
 	}, [])
 
 	return <p>{"Hello"}</p>;
