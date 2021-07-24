@@ -6,15 +6,6 @@ import logo from "../img/logos/7-fallen-logo-2.png";
 import dotenv from "dotenv";
 dotenv.config();
 
-async function getFacebookAuth(){
-	let response = await fetch('https://test-seven.site/api/auth/facebook/callback',{
-		method: "GET",
-		credentials: "include"
-	});
-	let datas = await response.json();
-	return datas;
-}
-
 function Login(props) {
 	const handleLanguage = (e) => {
 		if (e.target.id === "fr") {
@@ -25,13 +16,6 @@ function Login(props) {
 			console.log("en");
 		}
 	};
-
-	const handleClick = (e) => {
-		const {id} = e.target;
-		if(id === 'facebook'){
-			getFacebookAuth();
-		}
-	}
 
 	return (
 		<div
@@ -58,7 +42,6 @@ function Login(props) {
 				<p className="infos mb-1">Se connecter</p>
 				<ul className="social__icons--list">
 					<li className="mb-3">
-						<button id="facebook" type="button"  onClick={handleClick}>Facebook</button>
 						<SocialButton
 							bgcolor="#395693"
 							url="https://test-seven.site/api/auth/facebook"

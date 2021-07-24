@@ -1,11 +1,14 @@
+import {useEffect} from 'react';
 import { Redirect } from "react-router-dom";
+import {getAuthUser} from '../api/Authentication';
 
 const LandingPage = (props) => {
-	const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-	if(isAuthenticated){
-		return <Redirect to="/decks" />
-	}
+	useEffect(async () => {
+		let response = await getAuthUser();
+		let data = await response.json();
+		console.log(data)
+	}, [])
 
 	return (
 		<Redirect to="/login"/> 
