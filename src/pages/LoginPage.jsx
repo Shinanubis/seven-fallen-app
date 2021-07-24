@@ -26,7 +26,7 @@ function Login(props) {
 	const handleClick = (e) => {
 		const {id} = e.target;
 		if(id === 'facebook'){
-
+			getFacebookAuth();
 		}
 	}
 
