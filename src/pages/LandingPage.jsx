@@ -1,12 +1,13 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import { Redirect } from "react-router-dom";
 import {getAuthUser} from '../api/Authentication';
 
 const LandingPage = (props) => {
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	useEffect(async () => {
 		let response = await getAuthUser();
-		console.log(response)
+		console.log(response.status)
 	}, [])
 
 	return <p>{"Hello"}</p>;
