@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
+import {useLayoutEffect, useState} from 'react';
 import { Redirect } from "react-router-dom";
 import {getAuthUser} from '../api/Authentication';
 
 const LandingPage = (props) => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-	useEffect(async () => {
+	useLayoutEffect(async () => {
 		let response = await getAuthUser();
 		setIsAuthenticated(response.isAuthenticate);
 		localStorage.setItem('isAuthenticated', response.isAuthenticate)
