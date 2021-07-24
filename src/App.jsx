@@ -177,9 +177,6 @@ function App() {
 			<VhInPixels />
 			<Router basename="/">
 				<Navigation pages={pages} />
-				{/* <Footer classes="footer">
-					<Menu classes="navbar" />
-				</Footer> */}
 			</Router>
 		</>
 	);

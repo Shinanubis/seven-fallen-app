@@ -1,21 +1,19 @@
-import React from "react";
+import {useEffect} from "react";
 import Button from "../components/Button";
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const LandingPage = (props) => {
-	let history = useHistory();
 
-	const handleConnexion = (e, uri) => {
-		e.preventDefault();
-		history.push(uri);
-	};
+
+	if(localStorage.getItem('authentication')){
+		return <Redirect to="decks" />
+	}
 
 	return (
 		<>
 			<Button
 				classes="btn rounded"
 				text="Connexion"
-				onClick={(e) => handleConnexion(e, "/login")}
 			/>
 		</>
 	);
