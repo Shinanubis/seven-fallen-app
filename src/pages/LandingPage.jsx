@@ -25,7 +25,7 @@ const LandingPage = (props) => {
 			<Redirect to="/login"/>
 		)
 	}else{
-		return <Loader condition={isAuthenticated} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />
+		return <Loader condition={isAuthenticated !== null} loaderIcon={RiLoader3Line} setLoaded={setLoaded} />
 	}
 };
 
