@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import {getAuthUser} from '../api/Authentication';
 
 const LandingPage = (props) => {
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [isAuthenticated, setIsAuthenticated] = useState();
 
 	useEffect(async () => {
 		let response = await getAuthUser();
@@ -14,9 +14,9 @@ const LandingPage = (props) => {
 
 	if(isAuthenticated === true){
 		return <Redirect to="/decks"/>
+	}else{
+		return (<Redirect to="/login"/>)
 	}
-
-	return (<Redirect to="/login"/>)
 };
 
 export default LandingPage;
