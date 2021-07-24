@@ -6,13 +6,10 @@ const LandingPage = (props) => {
 
 	useEffect(async () => {
 		let response = await getAuthUser();
-		let data = await response.json();
-		console.log(data)
+		console.log(response)
 	}, [])
 
-	return (
-		<Redirect to="/login"/> 
-	);
+	return <p>{"Hello"}</p>;
 };
 
 export default LandingPage;
