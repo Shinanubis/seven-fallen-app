@@ -6,16 +6,11 @@ const LandingPage = (props) => {
 	const isAuthenticated = localStorage.getItem('isAuthenticated');
 
 	if(isAuthenticated){
-		return <Redirect to="decks" />
+		return <Redirect to="/decks" />
 	}
 
 	return (
-		<>
-			<Button
-				classes="btn rounded"
-				text="Connexion"
-			/>
-		</>
+		<Redirect to="/login"/> 
 	);
 };
 
