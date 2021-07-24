@@ -12,7 +12,7 @@ async function getFacebookAuth(){
 		credentials: "include"
 	});
 	let datas = await response.json();
-	console.log(datas)
+	return datas;
 }
 
 function Login(props) {
@@ -58,14 +58,13 @@ function Login(props) {
 				<p className="infos mb-1">Se connecter</p>
 				<ul className="social__icons--list">
 					<li className="mb-3">
-						<button id="facebook" type='button' className="btn btn__social rounded" onClick={handleClick}>Facebook</button>
-						{/* <SocialButton
+						<SocialButton
 							bgcolor="#395693"
 							url="https://test-seven.site/api/auth/facebook"
 							classes="btn btn__social rounded"
 						>
 							<span className="btn__social--text">Facebook</span>
-						</SocialButton> */}
+						</SocialButton>
 					</li>
 					<li>
 						<SocialButton
