@@ -1,11 +1,11 @@
-import {useLayoutEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import { Redirect } from "react-router-dom";
 import {getAuthUser} from '../api/Authentication';
 
 const LandingPage = (props) => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-	useLayoutEffect(async () => {
+	useEffect(async () => {
 		let response = await getAuthUser();
 		setIsAuthenticated(response.isAuthenticate);
 		localStorage.setItem('isAuthenticated', response.isAuthenticate)
@@ -15,7 +15,7 @@ const LandingPage = (props) => {
 		return <Redirect to="/decks"/>
 	}
 
-	return <Redirect to="/login"/>
+	return (<Redirect to="/login"/>)
 };
 
 export default LandingPage;
