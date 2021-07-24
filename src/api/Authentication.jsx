@@ -9,7 +9,7 @@ async function getAuthUser(){
     let data = await response.json();
     return {
         code: response.status,
-        message: data.message
+        data
     };
 }
 
