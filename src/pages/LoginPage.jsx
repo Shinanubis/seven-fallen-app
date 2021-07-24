@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 async function getFacebookAuth(){
-	let response = await fetch('https://test-seven.site/api/auth/facebook',{
+	let response = await fetch('https://test-seven.site/api/auth/facebook/callback',{
 		method: "GET",
 		credentials: "include"
 	});
@@ -58,6 +58,7 @@ function Login(props) {
 				<p className="infos mb-1">Se connecter</p>
 				<ul className="social__icons--list">
 					<li className="mb-3">
+						<button id="facebook" type="button"  onClick={handleClick}>Facebook</button>
 						<SocialButton
 							bgcolor="#395693"
 							url="https://test-seven.site/api/auth/facebook"
