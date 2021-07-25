@@ -19,7 +19,7 @@ const LandingPage = (props) => {
 			if(response.code === 200){
 				setItem("7fallen", JSON.stringify(response))
 			}
-			console.log(JSON.parse(getItem("7fallen")))
+			console.log(response)
 		},[]);
 
 		if(JSON.parse(getItem("7fallen")).isAuthenticated === true){
