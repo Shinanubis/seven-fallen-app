@@ -28,14 +28,6 @@ function Login(props) {
 		}
 	};
 
-	useEffect(async () => {
-		let response = await getAuthUser();
-		if(response.code === 200){
-			setItem("7fallen", JSON.stringify(response))
-		}
-		console.log(getItem("7fallen"))
-	},[]);
-
 	return (
 		<div
 			className="login page"
