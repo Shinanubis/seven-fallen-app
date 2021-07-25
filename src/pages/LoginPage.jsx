@@ -1,10 +1,13 @@
 import "./LoginPage.css";
-import React from "react";
+import {useEffect} from "react";
 import SocialButton from "../components/SocialButton";
 import wizard from "../img/wizard.jpg";
 import logo from "../img/logos/7-fallen-logo-2.png";
+import useLocalStorage from "../hooks/useLocalStorage";
+import getAuthUser from '../api/Authentication';
 import dotenv from "dotenv";
 dotenv.config();
+
 
 function Login(props) {
 	const handleLanguage = (e) => {
@@ -16,6 +19,18 @@ function Login(props) {
 			console.log("en");
 		}
 	};
+
+	useEffect(async () => {
+		let response = await getAuthUser();
+		console.log(response)
+	},[]);
+
+	const [
+		getItem,
+		setItem,
+		removeItem,
+		clearStorage
+	] = useLocalStorage();
 
 	return (
 		<div

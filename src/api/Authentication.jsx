@@ -13,6 +13,4 @@ async function getAuthUser(){
     };
 }
 
-export {
-    getAuthUser
-}
+export default getAuthUser;
