@@ -12,7 +12,7 @@ const LandingPage = (props) => {
 			clearStorage
 		] = useLocalStorage();
 
-		if(getItem("authenticated") && getItem("authenticated") === true){
+		if(JSON.parse(getItem("7fallen")).isAuthenticated && JSON.parse(getItem("7fallen")).isAuthenticated === true){
 			return <Redirect to="/decks"/>
 		}else{
 			return <Redirect to ="/login"/>
