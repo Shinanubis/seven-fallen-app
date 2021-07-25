@@ -153,7 +153,7 @@ function App() {
 	];
 
 	const [getItem, setItem, removeItem, clearStorage] = useLocalStorage();
-
+	let responseAuth = getAuthUser();
 	useEffect(async () => {
 		if (!sessionStorage.getItem("types")) {
 			let types = await getTypesList("FR");
@@ -175,7 +175,7 @@ function App() {
 			sessionStorage.setItem("extensions", JSON.stringify(extensions));
 		}
 
-		let responseAuth = await getAuthUser();
+		
 		
 		if(responseAuth){
 			setItem("7fallen", JSON.stringify(responseAuth))
