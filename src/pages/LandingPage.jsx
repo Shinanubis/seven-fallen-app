@@ -15,9 +15,6 @@ const LandingPage = (props) => {
 		] = useLocalStorage();
 
 		useEffect(async () => {
-			if(JSON.parse(getItem("7fallen"))){
-				removeItem("7fallen")
-			}
 			let response = await getAuthUser();
 			if(response.code === 200){
 				setItem("7fallen", JSON.stringify(response))
