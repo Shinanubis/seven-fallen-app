@@ -20,7 +20,7 @@ const LandingPage = (props) => {
 			setIsAuthenticate(response);
 		},[]);
 
-		if(JSON.parse(getItem("7fallen")).isAuthenticated === true ){
+		if(JSON.parse(getItem("7fallen")) && JSON.parse(getItem("7fallen")).isAuthenticated === true ){
 			return <Redirect to="/decks"/>
 		}else{
 			return <Redirect to ="/login"/>
