@@ -5,7 +5,8 @@ function Navigation(props) {
     const [pages, isAuthenticated] = props;
     return(
         
-        <Switch > 
+        <Switch >
+            {console.log(isAuthenticated)}
             {pages.map((page, index) => {
                 if(isAuthenticated === true){
                     return (
