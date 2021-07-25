@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import useLocalStorage from './hooks/useLocalStorage';
 
 //Layout element import
 import Footer from "./layouts/Footer";
 import Menu from "./components/Menu";
 
 //Settings import
-import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, useHistory } from "react-router-dom";
 
 //Components imports
 import Navigation from "./components/Navigation";
@@ -40,6 +41,7 @@ import {
 	getClassesList,
 } from "./api/CardsWareHouse";
 import AddingSubDecksCardsPage from "./pages/AddingSubDecksPage";
+import getAuthUser from "./api/Authentication";
 
 function App() {
 	const pages = [
@@ -150,6 +152,8 @@ function App() {
 		},
 	];
 
+	const [getItem, setItem, removeItem, clearStorage] = useLocalStorage();
+
 	useEffect(async () => {
 		if (!sessionStorage.getItem("types")) {
 			let types = await getTypesList("FR");
@@ -170,13 +174,18 @@ function App() {
 			let extensions = await getExtensionsList("FR");
 			sessionStorage.setItem("extensions", JSON.stringify(extensions));
 		}
+
+		let responseAuth = await getAuthUser();
+		if(responseAuth){
+			setItem("7fallen", JSON.stringify(responseAuth))
+		}
 	}, []);
 
 	return (
 		<>
 			<VhInPixels />
 			<Router basename="/">
-				<Navigation pages={pages} />
+				<Navigation pages={pages} isAuthenticated={JSON.parse(getItem("7fallen").isAuthenticated)}/>
 			</Router>
 		</>
 	);
