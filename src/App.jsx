@@ -176,6 +176,7 @@ function App() {
 		}
 
 		let responseAuth = await getAuthUser();
+		console.log(responseAuth)
 		if(responseAuth){
 			setItem("7fallen", JSON.stringify(responseAuth))
 		}
