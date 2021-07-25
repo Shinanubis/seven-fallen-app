@@ -16,10 +16,9 @@ const LandingPage = (props) => {
 		useEffect(async () => {
 			let response = await getAuthUser();
 			setItem("7fallen", JSON.stringify(response))
-			console.log(JSON.parse(getItem("7fallen")).isAuthenticated )
 		},[]);
 
-		if(JSON.parse(getItem("7fallen")) && JSON.parse(getItem("7fallen")).isAuthenticated === true ){
+		if(JSON.parse(getItem("7fallen")).isAuthenticated === true ){
 			return <Redirect to="/decks"/>
 		}else{
 			return <Redirect to ="/login"/>
