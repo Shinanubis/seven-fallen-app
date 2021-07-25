@@ -10,6 +10,14 @@ dotenv.config();
 
 
 function Login(props) {
+
+	const [
+		getItem,
+		setItem,
+		removeItem,
+		clearStorage
+	] = useLocalStorage();
+
 	const handleLanguage = (e) => {
 		if (e.target.id === "fr") {
 			console.log("fr");
@@ -22,15 +30,11 @@ function Login(props) {
 
 	useEffect(async () => {
 		let response = await getAuthUser();
-		console.log(response)
+		if(response.code === 200){
+			setItem("7fallen", JSON.stringify(response))
+		}
+		console.log(getItem("7fallen"))
 	},[]);
-
-	const [
-		getItem,
-		setItem,
-		removeItem,
-		clearStorage
-	] = useLocalStorage();
 
 	return (
 		<div
