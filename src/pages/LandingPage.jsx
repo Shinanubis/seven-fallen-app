@@ -15,6 +15,9 @@ const LandingPage = (props) => {
 		] = useLocalStorage();
 
 		useEffect(async () => {
+			if(JSON.parse(getItem("7fallen"))){
+				removeItem("7fallen")
+			}
 			let response = await getAuthUser();
 			if(response.code === 200){
 				setItem("7fallen", JSON.stringify(response))
@@ -22,8 +25,8 @@ const LandingPage = (props) => {
 			console.log(JSON.parse(getItem("7fallen")))
 		},[]);
 
-		if(JSON.parse(getItem("7fallen")).isAuthenticated && 
-		   JSON.parse(getItem("7fallen")).isAuthenticated === true){
+		if(JSON.parse(getItem("7fallen")).isAuthenticated === true 
+		   && JSON.parse()){
 			return <Redirect to="/decks"/>
 		}else{
 			return <Redirect to ="/login"/>
