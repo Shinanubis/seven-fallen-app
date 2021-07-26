@@ -40,7 +40,7 @@ import AddingSubDecksCardsPage from "./pages/AddingSubDecksPage";
 
 //Contexts
 import { AuthContext } from "./contexts/AuthContext";
-import { Ri24HoursFill } from "react-icons/ri";
+import { RiLoader3Fill } from "react-icons/ri";
 
 
 function App() {
@@ -211,7 +211,7 @@ function App() {
 					/>
 				</Router>
 				:
-				<Loader condition={isAuthenticated} setLoaded={setLoaded} loaderIcon={Ri24HoursFill}/>
+				<Loader condition={isAuthenticated} setLoaded={setLoaded} loaderIcon={RiLoader3Fill}/>
 			}
 		</>
 	);
