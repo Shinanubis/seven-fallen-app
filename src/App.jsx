@@ -166,6 +166,10 @@ function App() {
 			path: "/login",
 			component: LoginPage,
 		},
+		{
+			path: "*",
+			component: ErrorPage,
+		},
 	];
 	
 	useEffect(async () => {
