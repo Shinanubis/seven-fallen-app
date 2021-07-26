@@ -41,6 +41,8 @@ function AuthorizedRoutes(props) {
             </Switch>
         )
     }
+
+    return null;
 }
 
 export default AuthorizedRoutes
