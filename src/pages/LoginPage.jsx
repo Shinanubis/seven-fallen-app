@@ -63,7 +63,7 @@ function Login(props) {
 					{isAuthenticated === true ?
 						<li>
 							<SocialButton
-								bgcolor="#e53935"
+								bgcolor="#d32f2f"
 								url="https://test-seven.site/api/auth/logout"
 								classes="btn btn__social rounded"
 							>
