@@ -160,7 +160,7 @@ function App() {
 
 	const pagesUnAuthenticated = [
 		{
-			strict: true,
+			exact: true,
 			path: "/",
 			component: LandingPage,
 		},
