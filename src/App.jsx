@@ -184,7 +184,7 @@ function App() {
 		<>
 			<VhInPixels />
 			<Router basename="/">
-				<Navigation pages={pages} isAuthenticated={JSON.parse(getItem("7fallen").isAuthenticated)}/>
+				<Navigation pages={pages} />
 			</Router>
 		</>
 	);
