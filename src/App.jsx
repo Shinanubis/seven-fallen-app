@@ -155,6 +155,9 @@ function App() {
 			component: GamersPage,
 		},
 		{
+			strict: true,
+			exact: true,
+			path:"*",
 			component: ErrorPage,
 		},
 	];
