@@ -5,7 +5,7 @@ const AuthContext = createContext([null, () => {}]);
 
 function AuthContextProvider(props){
     const {callback} = props;
-    const [isAuthenticated, setisAuthenticated] = useState(null);
+    const [isAuthenticated, setisAuthenticated] = useState();
 
     useEffect(async () => {
         let response = await callback();
@@ -13,7 +13,7 @@ function AuthContextProvider(props){
     },[])
 
     useEffect(() => {
-        console.log(isAuthenticated)
+        console.log("AuthContext : ",isAuthenticated)
     },[isAuthenticated])
 
     return (
