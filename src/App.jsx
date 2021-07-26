@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import useLocalStorage from './hooks/useLocalStorage';
+import { useEffect, useContext } from "react";
 
 //Settings import
 import { BrowserRouter as Router} from "react-router-dom";
@@ -38,8 +37,10 @@ import {
 	getClassesList,
 } from "./api/CardsWareHouse";
 import AddingSubDecksCardsPage from "./pages/AddingSubDecksPage";
+import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
+	const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
 	const pagesAuthenticated = [
 		{
 			strict: true,
@@ -193,7 +194,11 @@ function App() {
 		<>
 			<VhInPixels />
 			<Router basename="/">
-				<AuthorizedRoutes pagesUnAuthenticated={pagesUnAuthenticated} pagesAuthenticated={pagesAuthenticated}/>
+				<AuthorizedRoutes 
+					pagesUnAuthenticated={pagesUnAuthenticated} 
+					pagesAuthenticated={pagesAuthenticated} 
+					isAuthenticated={isAuthenticated}
+				/>
 			</Router>
 		</>
 	);

@@ -3,12 +3,12 @@ import {createContext, useState, useEffect} from 'react';
 const AuthContext = createContext([false, () => {}]);
 
 function AuthContextProvider(props){
+    const {callback} = props;
     const [isAuthenticated, setisAuthenticated] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setisAuthenticated(true);
-        }, 5000)
+    useEffect(async () => {
+        const response = await callback();
+        console.log(response)
     },[])
 
     useEffect(() => {
@@ -22,4 +22,4 @@ function AuthContextProvider(props){
     )
 }
 
-export default AuthContextProvider;
+export {AuthContext, AuthContextProvider};
