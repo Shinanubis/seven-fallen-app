@@ -38,7 +38,7 @@ function App() {
 	const [loaded, setLoaded] = useState(false);
 
 	//hooks
-	const [getItem, setItem, removeItem, clearStorage] = useSessionStorage;
+	const [getItem, setItem, removeItem, clearStorage] = useSessionStorage();
 
 
 
