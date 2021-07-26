@@ -24,8 +24,7 @@ function AuthorizedRoutes(props) {
 
     return (
         <Switch>
-            {
-                
+            {    
                 unAuthenticatedPages.map((page, index) => {
                     let Component = page.component;
                     return(
