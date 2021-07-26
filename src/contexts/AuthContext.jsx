@@ -9,7 +9,7 @@ function AuthContextProvider(props){
     useEffect(() => {
         setTimeout(() => {
             setisAuthenticated(true)
-        }, 5000)
+        }, 10000)
     },[])
 
     useEffect(() => {
