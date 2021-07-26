@@ -46,7 +46,6 @@ function App() {
 	const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
 	const pagesAuthenticated = [
 		{
-			strict: true,
 			exact: true,
 			path: "/",
 			component: LandingPage,
@@ -161,7 +160,6 @@ function App() {
 
 	const pagesUnAuthenticated = [
 		{
-			strict: true,
 			exact: true,
 			path: "/",
 			component: LandingPage,
