@@ -34,8 +34,8 @@ function App() {
 	const [loaded, setLoaded] = useState(false);
 
 	useEffect(() => {
-		console.log(loaded)
-	}, [loaded])
+		console.log("App : ", isAuthenticated)
+	}, [isAuthenticated])
 
 	useEffect(async () => {
 		if (!sessionStorage.getItem("types")) {
