@@ -1,23 +1,27 @@
 import "./LoginPage.css";
-import {useEffect} from "react";
+//contexts
+import {AuthContext} from '../contexts/AuthContext';
+
+//hooks
+import {useEffect, useContext} from "react";
+
+//components
 import SocialButton from "../components/SocialButton";
 import wizard from "../img/wizard.jpg";
 import logo from "../img/logos/7-fallen-logo-2.png";
-import useLocalStorage from "../hooks/useLocalStorage";
-import getAuthUser from '../api/Authentication';
+
+//environment variables
 import dotenv from "dotenv";
 dotenv.config();
 
 
+
 function Login(props) {
 
-	const [
-		getItem,
-		setItem,
-		removeItem,
-		clearStorage
-	] = useLocalStorage();
+	//contexts
+	const [isAuthenticated] = useContext(AuthContext); 
 
+	//handlers
 	const handleLanguage = (e) => {
 		if (e.target.id === "fr") {
 			console.log("fr");
@@ -27,6 +31,11 @@ function Login(props) {
 			console.log("en");
 		}
 	};
+
+
+	useEffect(() => {
+		console.log("Login page : ",isAuthenticated)
+	},[])
 
 	return (
 		<div
