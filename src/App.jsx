@@ -37,7 +37,12 @@ import {
 	getClassesList,
 } from "./api/CardsWareHouse";
 import AddingSubDecksCardsPage from "./pages/AddingSubDecksPage";
+
+//Contexts
 import { AuthContext } from "./contexts/AuthContext";
+
+/*api*/
+import getAuthUser from './api/Authentication'; 
 
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
@@ -202,7 +207,7 @@ function App() {
 					unAuthenticatedPages={pagesUnAuthenticated} 
 					authenticatedPages={pagesAuthenticated} 
 					isAuthenticated={isAuthenticated}
-					callback={() => {}}
+					callback={getAuthUser}
 				/>
 			</Router>
 		</>
