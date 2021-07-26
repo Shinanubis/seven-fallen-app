@@ -131,7 +131,7 @@ const pages = {
             component: ErrorPage,
         }
     ],
-    unAuthentiicated: [
+    unAuthenticated: [
         {
             exact: true,
             path: "/",
