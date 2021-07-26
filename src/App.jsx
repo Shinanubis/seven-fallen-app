@@ -51,16 +51,19 @@ function App() {
 			component: LandingPage,
 		},
 		{
+			strict: true,
 			exact: true,
 			path: "/login",
 			component: LoginPage,
 		},
 		{
+			strict: true,
 			exact: true,
 			path: "/profile",
 			component: ProfilePage,
 		},
 		{
+			strict: true,
 			exact: true,
 			path: "/decks",
 			component: DecksPage,
