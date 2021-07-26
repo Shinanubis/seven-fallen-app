@@ -33,6 +33,10 @@ function App() {
 	const [pagesAuthenticated, pagesUnAuthenticated] = useContext(PagesContext);
 	const [loaded, setLoaded] = useState(false);
 
+	useEffect(() => {
+		console.log("App 1 :", isAuthenticated && loaded)
+	},[loaded, isAuthenticated])
+
 	useEffect(async () => {
 		if (!sessionStorage.getItem("types")) {
 			let types = await getTypesList("FR");
@@ -53,7 +57,6 @@ function App() {
 			let extensions = await getExtensionsList("FR");
 			sessionStorage.setItem("extensions", JSON.stringify(extensions));
 		}
-		console.log("App 1 :", isAuthenticated)
 		
 	}, []);
 
