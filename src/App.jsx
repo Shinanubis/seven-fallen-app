@@ -58,13 +58,11 @@ function App() {
 		},
 		{
 			exact: true,
-			strict: true,
 			path: "/profile",
 			component: ProfilePage,
 		},
 		{
 			exact: true,
-			strict: true,
 			path: "/decks",
 			component: DecksPage,
 		},
