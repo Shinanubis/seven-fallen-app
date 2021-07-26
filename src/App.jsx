@@ -1,11 +1,11 @@
 import { useEffect, useContext } from "react";
 
 //Settings import
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 //Components imports
-import Navigation from "./components/Navigation";
 import AuthorizedRoutes from "./components/AuthorizedRoutes";
+import Loader from './components/Loader';
 
 // Pages import
 import LandingPage from "./pages/LandingPage";
@@ -44,6 +44,7 @@ import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
+	const [loaded, setLoaded] = setLoaded(false)
 	const pagesAuthenticated = [
 		{
 			exact: true,
@@ -174,7 +175,7 @@ function App() {
 			component: ErrorPage,
 		},
 	];
-	
+
 	useEffect(async () => {
 		if (!sessionStorage.getItem("types")) {
 			let types = await getTypesList("FR");
@@ -194,19 +195,23 @@ function App() {
 		if (!sessionStorage.getItem("extensions")) {
 			let extensions = await getExtensionsList("FR");
 			sessionStorage.setItem("extensions", JSON.stringify(extensions));
-		}	
+		}
 	}, []);
 
 	return (
 		<>
 			<VhInPixels />
-			<Router basename="/">
-				<AuthorizedRoutes 
-					unAuthenticatedPages={pagesUnAuthenticated} 
-					authenticatedPages={pagesAuthenticated} 
-					isAuthenticated={isAuthenticated}
-				/>
-			</Router>
+			{isAuthenticated && loaded ?
+				<Router basename="/">
+					<AuthorizedRoutes
+						unAuthenticatedPages={pagesUnAuthenticated}
+						authenticatedPages={pagesAuthenticated}
+						isAuthenticated={isAuthenticated}
+					/>
+				</Router>
+				:
+				<Loader condition={isAuthenticated} setLoaded={setLoaded}/>
+			}
 		</>
 	);
 }
