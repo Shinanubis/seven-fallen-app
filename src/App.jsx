@@ -157,7 +157,7 @@ function App() {
 		{
 			strict: true,
 			exact: true,
-			path:"*",
+			path:"",
 			component: ErrorPage,
 		},
 	];
@@ -176,7 +176,9 @@ function App() {
 			component: LoginPage,
 		},
 		{
-			path: "*",
+			strict: true,
+			exact: true,
+			path: "",
 			component: ErrorPage,
 		},
 	];
