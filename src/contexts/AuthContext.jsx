@@ -12,10 +12,6 @@ function AuthContextProvider(props){
         setisAuthenticated(response.isAuthenticated)   
     },[])
 
-    useEffect(() => {
-        console.log("AuthContext : ",isAuthenticated)
-    },[isAuthenticated])
-
     return (
         <AuthContext.Provider value={[isAuthenticated, setisAuthenticated]}>
             {props.children}
