@@ -1,7 +1,7 @@
 import {createContext, useState, useEffect} from 'react';
 
 
-const AuthContext = createContext([false, () => {}]);
+const AuthContext = createContext([null, () => {}]);
 
 function AuthContextProvider(props){
     const {callback} = props;
