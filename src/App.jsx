@@ -195,8 +195,8 @@ function App() {
 			<VhInPixels />
 			<Router basename="/">
 				<AuthorizedRoutes 
-					pagesUnAuthenticated={pagesUnAuthenticated} 
-					pagesAuthenticated={pagesAuthenticated} 
+					unAuthenticatedPages={pagesUnAuthenticated} 
+					authenticatedPages={pagesAuthenticated} 
 					isAuthenticated={isAuthenticated}
 				/>
 			</Router>

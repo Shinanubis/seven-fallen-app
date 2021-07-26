@@ -1,12 +1,12 @@
 import {Switch, Route} from 'react-router-dom';
 
 function AuthorizedRoutes(props) {
-    const {unAuthenticatedPages, authenticatedPage, isAuthenticated} = props;
+    const {unAuthenticatedPages, authenticatedPages, isAuthenticated} = props;
 
     if(isAuthenticated === true){
         return (
             <Switch>
-                {authenticatedPage.map((page, index) => {
+                {authenticatedPages.map((page, index) => {
                     let Component = page.component;
                     return (
                         <Route 
@@ -24,7 +24,9 @@ function AuthorizedRoutes(props) {
 
     return (
         <Switch>
+            {console.log(unAuthenticatedPages)}
             {
+                
                 unAuthenticatedPages.map((page, index) => {
                     let Component = page.component;
                     return(
