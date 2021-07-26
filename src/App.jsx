@@ -155,9 +155,6 @@ function App() {
 			component: GamersPage,
 		},
 		{
-			strict: true,
-			exact: true,
-			path:"",
 			component: ErrorPage,
 		},
 	];
@@ -176,9 +173,6 @@ function App() {
 			component: LoginPage,
 		},
 		{
-			strict: true,
-			exact: true,
-			path: "",
 			component: ErrorPage,
 		},
 	];
