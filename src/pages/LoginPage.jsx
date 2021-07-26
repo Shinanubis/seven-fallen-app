@@ -50,8 +50,8 @@ function Login(props) {
 				</div>
 			</div>
 			<div className="w-100 mb-3">
-				<p className="infos mb-1">Se connecter</p>
 				<ul className="social__icons--list">
+					<p className="infos mb-1">Se connecter</p>
 					<li className="mb-3">
 						<SocialButton
 							bgcolor="#395693"
