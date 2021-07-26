@@ -59,38 +59,42 @@ function Login(props) {
 				</div>
 			</div>
 			<div className="w-100 mb-3">
-				{isAuthenticated === true ?
-					<SocialButton
-						bgcolor="#e53935"
-						url="https://test-seven.site/api/auth/logout"
-						classes="btn btn__social rounded"
-					>
-						<span className="btn__social--text">Se déconnecter</span>
-					</SocialButton>
-					:
-					<ul className="social__icons--list">
-						<p className="infos mb-1">Se connecter</p>
-						<li className="mb-3">
-							<SocialButton
-								bgcolor="#395693"
-								url="https://test-seven.site/api/auth/facebook"
-								classes="btn btn__social rounded"
-							>
-								<span className="btn__social--text">Facebook</span>
-							</SocialButton>
-						</li>
+				<ul className="social__icons--list">
+					{isAuthenticated === true ?
 						<li>
 							<SocialButton
-								bgcolor="#F7F7F7"
-								url="https://test-seven.site/api/auth/google"
-								color="#606060"
+								bgcolor="#e53935"
+								url="https://test-seven.site/api/auth/logout"
 								classes="btn btn__social rounded"
 							>
-								<span className="btn__social--text">Google</span>
+								<span className="btn__social--text">Se déconnecter</span>
 							</SocialButton>
 						</li>
-					</ul>
-				}
+						:
+						<>
+							<p className="infos mb-1">Se connecter</p>
+							<li className="mb-3">
+								<SocialButton
+									bgcolor="#395693"
+									url="https://test-seven.site/api/auth/facebook"
+									classes="btn btn__social rounded"
+								>
+									<span className="btn__social--text">Facebook</span>
+								</SocialButton>
+							</li>
+							<li>
+								<SocialButton
+									bgcolor="#F7F7F7"
+									url="https://test-seven.site/api/auth/google"
+									color="#606060"
+									classes="btn btn__social rounded"
+								>
+									<span className="btn__social--text">Google</span>
+								</SocialButton>
+							</li>
+						</>}
+				</ul>
+
 			</div>
 		</div>
 	);
