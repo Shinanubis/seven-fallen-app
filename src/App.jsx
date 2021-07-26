@@ -207,7 +207,7 @@ function App() {
 					unAuthenticatedPages={pagesUnAuthenticated} 
 					authenticatedPages={pagesAuthenticated} 
 					isAuthenticated={isAuthenticated}
-					callback={() => getAuthUser()}
+					callback={getAuthUser}
 				/>
 			</Router>
 		</>
