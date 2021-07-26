@@ -131,27 +131,30 @@ function App() {
 			component: ChoicePage,
 		},
 		{
+			exact: true,
 			strict: true,
 			path: "/cards/from/starter",
 			component: StarterPage,
 		},
 		{
+			exact: true,
 			strict: true,
 			path: "/cards/from/individual",
 			component: IndividualPage,
 		},
 		{
+			exact: true,
 			strict: true,
 			path: "/deck/:name",
 			component: SettingsDeckPage,
 		},
 		{
+			exact: true,
 			strict: true,
 			path: "/gamers",
 			component: GamersPage,
 		},
 		{
-			path: "*",
 			component: ErrorPage,
 		},
 	];
