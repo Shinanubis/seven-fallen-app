@@ -52,7 +52,6 @@ function App() {
 		},
 		{
 			exact: true,
-			strict: true,
 			path: "/login",
 			component: LoginPage,
 		},
