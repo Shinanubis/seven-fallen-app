@@ -14,7 +14,7 @@ function AuthorizedRoutes(props) {
                             strict={page.strict ?? page.strict}
                             exact={page.exact ?? page.exact}
                             path={page.path ?? page.path}
-                            component={() => <Component />}
+                            render={() => <Component />}
                         />)
                     })
                 }
@@ -24,7 +24,6 @@ function AuthorizedRoutes(props) {
 
     return (
         <Switch>
-            {console.log(unAuthenticatedPages)}
             {
                 
                 unAuthenticatedPages.map((page, index) => {
@@ -35,7 +34,7 @@ function AuthorizedRoutes(props) {
                             strict={page.strict ?? page.strict}
                             exact={page.exact ?? page.exact}
                             path={page.path ?? page.path}
-                            component={() => <Component />}    
+                            render={() => <Component />}    
                         />
                     )
                 })
