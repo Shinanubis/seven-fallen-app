@@ -53,6 +53,7 @@ function App() {
 			let extensions = await getExtensionsList("FR");
 			sessionStorage.setItem("extensions", JSON.stringify(extensions));
 		}
+		console.log("App 1 : ",pagesAuthenticated)
 	}, []);
 
 	return (
