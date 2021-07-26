@@ -12,9 +12,11 @@ import getAuthUser from './api/Authentication';
 import pages from './settings/pages.js'
 
 ReactDOM.render(
-    <PagesContextProvider pages={pages}>
+    
         <AuthContextProvider callback={getAuthUser}>
+            <PagesContextProvider pages={pages}>
             <App />
+            </PagesContextProvider>
         </AuthContextProvider>
-    </PagesContextProvider>
+
     , document.getElementById('root'));
