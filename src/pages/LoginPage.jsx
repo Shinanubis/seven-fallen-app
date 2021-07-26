@@ -1,9 +1,9 @@
 import "./LoginPage.css";
 //contexts
-import {AuthContext} from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 //hooks
-import {useEffect, useContext} from "react";
+import { useEffect, useContext } from "react";
 
 //components
 import SocialButton from "../components/SocialButton";
@@ -19,7 +19,7 @@ dotenv.config();
 function Login(props) {
 
 	//contexts
-	const [isAuthenticated] = useContext(AuthContext); 
+	const [isAuthenticated] = useContext(AuthContext);
 
 	//handlers
 	const handleLanguage = (e) => {
@@ -34,8 +34,8 @@ function Login(props) {
 
 
 	useEffect(() => {
-		console.log("Login page : ",isAuthenticated)
-	},[])
+		console.log("Login page : ", isAuthenticated)
+	}, [])
 
 	return (
 		<div
@@ -59,28 +59,38 @@ function Login(props) {
 				</div>
 			</div>
 			<div className="w-100 mb-3">
-				<ul className="social__icons--list">
-					<p className="infos mb-1">Se connecter</p>
-					<li className="mb-3">
-						<SocialButton
-							bgcolor="#395693"
-							url="https://test-seven.site/api/auth/facebook"
-							classes="btn btn__social rounded"
-						>
-							<span className="btn__social--text">Facebook</span>
-						</SocialButton>
-					</li>
-					<li>
-						<SocialButton
-							bgcolor="#F7F7F7"
-							url="https://test-seven.site/api/auth/google"
-							color="#606060"
-							classes="btn btn__social rounded"
-						>
-							<span className="btn__social--text">Google</span>
-						</SocialButton>
-					</li>
-				</ul>
+				{isAuthenticated === true ?
+					<SocialButton
+						bgcolor="#e53935"
+						url="https://test-seven.site/api/auth/logout"
+						classes="btn btn__social rounded"
+					>
+						<span className="btn__social--text">Se déconnecter</span>
+					</SocialButton>
+					:
+					<ul className="social__icons--list">
+						<p className="infos mb-1">Se connecter</p>
+						<li className="mb-3">
+							<SocialButton
+								bgcolor="#395693"
+								url="https://test-seven.site/api/auth/facebook"
+								classes="btn btn__social rounded"
+							>
+								<span className="btn__social--text">Facebook</span>
+							</SocialButton>
+						</li>
+						<li>
+							<SocialButton
+								bgcolor="#F7F7F7"
+								url="https://test-seven.site/api/auth/google"
+								color="#606060"
+								classes="btn btn__social rounded"
+							>
+								<span className="btn__social--text">Google</span>
+							</SocialButton>
+						</li>
+					</ul>
+				}
 			</div>
 		</div>
 	);
