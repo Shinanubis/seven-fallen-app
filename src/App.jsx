@@ -72,7 +72,8 @@ function App() {
 					/>
 				</Router>
 				:
-				<Loader condition={isAuthenticated === false} 
+				<Loader condition={isAuthenticated === false || 
+								   isAuthenticated === true} 
 						setLoaded={setLoaded} 
 						loaderIcon={RiLoader3Fill}
 				/>
