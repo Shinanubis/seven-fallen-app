@@ -21,25 +21,26 @@ function AuthorizedRoutes(props) {
             </Switch>
         )
     }
-
+    if(isAuthenticated === false){
     return (
-        <Switch>
-            {    
-                unAuthenticatedPages.map((page, index) => {
-                    let Component = page.component;
-                    return(
-                        <Route 
-                            key={index}
-                            strict={page.strict ?? page.strict}
-                            exact={page.exact ?? page.exact}
-                            path={page.path ?? page.path}
-                            render={() => <Component />}    
-                        />
-                    )
-                })
-            }
-        </Switch>
-    )
+            <Switch>
+                {    
+                    unAuthenticatedPages.map((page, index) => {
+                        let Component = page.component;
+                        return(
+                            <Route 
+                                key={index}
+                                strict={page.strict ?? page.strict}
+                                exact={page.exact ?? page.exact}
+                                path={page.path ?? page.path}
+                                render={() => <Component />}    
+                            />
+                        )
+                    })
+                }
+            </Switch>
+        )
+    }
 }
 
 export default AuthorizedRoutes
