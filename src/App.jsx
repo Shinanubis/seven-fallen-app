@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 
 //Settings import
 import { BrowserRouter as Router } from "react-router-dom";
@@ -44,7 +44,7 @@ import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
-	const [loaded, setLoaded] = setLoaded(false)
+	const [loaded, setLoaded] = useState(false)
 	const pagesAuthenticated = [
 		{
 			exact: true,
