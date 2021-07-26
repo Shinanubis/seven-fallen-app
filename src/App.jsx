@@ -34,7 +34,7 @@ function App() {
 	const [loaded, setLoaded] = useState(false);
 
 	useEffect(() => {
-		console.log("App 1 :", isAuthenticated && loaded)
+		console.log("App 1 :", isAuthenticated !== undefined && loaded)
 	},[loaded, isAuthenticated])
 
 	useEffect(async () => {
