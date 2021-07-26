@@ -1,4 +1,4 @@
-import {createContext, useEffect} from 'react';
+import {createContext} from 'react';
 
 const PagesContext = createContext([[], []]);
 
