@@ -58,7 +58,7 @@ function App() {
 	return (
 		<>
 			<VhInPixels />
-			{isAuthenticated ?
+			{isAuthenticated && loaded === true ?
 				<Router basename="/">
 					<AuthorizedRoutes
 						unAuthenticatedPages={pagesUnAuthenticated}
