@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import useLocalStorage from './hooks/useLocalStorage';
 
-//Layout element import
-import Footer from "./layouts/Footer";
-import Menu from "./components/Menu";
-
 //Settings import
-import { BrowserRouter as Router, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 //Components imports
 import Navigation from "./components/Navigation";
+import AuthorizedRoutes from "./components/AuthorizedRoutes";
 
 // Pages import
 import LandingPage from "./pages/LandingPage";
@@ -41,21 +38,23 @@ import {
 	getClassesList,
 } from "./api/CardsWareHouse";
 import AddingSubDecksCardsPage from "./pages/AddingSubDecksPage";
-import getAuthUser from "./api/Authentication";
 
 function App() {
-	const pages = [
+	const pagesAuthenticated = [
 		{
+			strict: true,
 			exact: true,
 			path: "/",
 			component: LandingPage,
 		},
 		{
+			exact: true,
 			strict: true,
 			path: "/login",
 			component: LoginPage,
 		},
 		{
+			exact: true,
 			strict: true,
 			path: "/profile",
 			component: ProfilePage,
@@ -148,11 +147,25 @@ function App() {
 			component: GamersPage,
 		},
 		{
+			path: "*",
 			component: ErrorPage,
 		},
 	];
 
-	const [getItem, setItem, removeItem, clearStorage] = useLocalStorage();
+	const pagesUnAuthenticated = [
+		{
+			strict: true,
+			exact: true,
+			path: "/",
+			component: LandingPage,
+		},
+		{
+			exact: true,
+			strict: true,
+			path: "/login",
+			component: LoginPage,
+		},
+	];
 	
 	useEffect(async () => {
 		if (!sessionStorage.getItem("types")) {
@@ -174,17 +187,13 @@ function App() {
 			let extensions = await getExtensionsList("FR");
 			sessionStorage.setItem("extensions", JSON.stringify(extensions));
 		}	
-		let responseAuth = getAuthUser();
-		if(responseAuth){
-			setItem("7fallen", JSON.stringify(responseAuth))
-		}
 	}, []);
 
 	return (
 		<>
 			<VhInPixels />
 			<Router basename="/">
-				<Navigation pages={pages} />
+				<AuthorizedRoutes pagesUnAuthenticated={pagesUnAuthenticated} pagesAuthenticated={pagesAuthenticated}/>
 			</Router>
 		</>
 	);
