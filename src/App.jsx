@@ -1,4 +1,5 @@
 import { useEffect, useContext, useState } from "react";
+import useSessionStorage from "./hooks/useSessionStorage";
 
 //Settings import
 import { BrowserRouter as Router } from "react-router-dom";
@@ -29,35 +30,39 @@ import { RiLoader3Fill } from "react-icons/ri";
 
 
 function App() {
+	//context
 	const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
 	const [pagesAuthenticated, pagesUnAuthenticated] = useContext(PagesContext);
+
+	//states
 	const [loaded, setLoaded] = useState(false);
 
-	useEffect(() => {
-		console.log("App 1 :", isAuthenticated !== undefined && loaded)
-	},[loaded, isAuthenticated])
+	//hooks
+	const [getItem, setItem, removeItem, clearStorage] = useSessionStorage;
+
+
 
 	useEffect(async () => {
-		if (!sessionStorage.getItem("types")) {
+		if (!getItem("types")) {
 			let types = await getTypesList("FR");
-			sessionStorage.setItem("types", JSON.stringify(types));
+			setItem("types", JSON.stringify(types));
 		}
 
-		if (!sessionStorage.getItem("kingdoms")) {
+		if (!getItem("kingdoms")) {
 			let kingdoms = await getKingdomsList("FR");
-			sessionStorage.setItem("kingdoms", JSON.stringify(kingdoms));
+			setItem("kingdoms", JSON.stringify(kingdoms));
 		}
 
-		if (!sessionStorage.getItem("rarities")) {
+		if (!getItem("rarities")) {
 			let rarities = await getRaritiesList("FR");
-			sessionStorage.setItem("rarities", JSON.stringify(rarities));
+			setItem("rarities", JSON.stringify(rarities));
 		}
 
-		if (!sessionStorage.getItem("extensions")) {
+		if (!getItem("extensions")) {
 			let extensions = await getExtensionsList("FR");
-			sessionStorage.setItem("extensions", JSON.stringify(extensions));
+			setItem("extensions", JSON.stringify(extensions));
 		}
-		
+
 	}, []);
 
 	return (
@@ -72,10 +77,10 @@ function App() {
 					/>
 				</Router>
 				:
-				<Loader condition={isAuthenticated === false || 
-								   isAuthenticated === true} 
-						setLoaded={setLoaded} 
-						loaderIcon={RiLoader3Fill}
+				<Loader condition={isAuthenticated === false ||
+					isAuthenticated === true}
+					setLoaded={setLoaded}
+					loaderIcon={RiLoader3Fill}
 				/>
 			}
 		</>

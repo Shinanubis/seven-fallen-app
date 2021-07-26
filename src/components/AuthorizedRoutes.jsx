@@ -45,4 +45,4 @@ function AuthorizedRoutes(props) {
     return null;
 }
 
-export default AuthorizedRoutes
+export default AuthorizedRoutes;
