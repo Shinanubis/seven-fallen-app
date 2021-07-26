@@ -32,11 +32,6 @@ function Login(props) {
 		}
 	};
 
-
-	useEffect(() => {
-		console.log("Login page : ", isAuthenticated)
-	}, [])
-
 	return (
 		<div
 			className="login page"
