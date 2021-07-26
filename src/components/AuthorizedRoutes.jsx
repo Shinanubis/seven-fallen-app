@@ -14,7 +14,7 @@ function AuthorizedRoutes(props) {
                             strict={page.strict ?? page.strict}
                             exact={page.exact ?? page.exact}
                             path={page.path ?? page.path}
-                            render={() => <Component />}
+                            component={() => <Component />}
                         />)
                     })
                 }
@@ -35,7 +35,7 @@ function AuthorizedRoutes(props) {
                             strict={page.strict ?? page.strict}
                             exact={page.exact ?? page.exact}
                             path={page.path ?? page.path}
-                            render={() => <Component />}    
+                            component={() => <Component />}    
                         />
                     )
                 })
