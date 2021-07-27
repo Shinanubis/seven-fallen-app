@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout';
 
 /* api */
 import { getUserDecks, getDecksByKingdoms} from '../api/Decks';
+import { getEdenCards } from '../api/CardsWareHouse';
 
 /* components */
 import Flash from '../components/Flash'
@@ -183,6 +184,8 @@ const DecksPage = (props) => {
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
+        let response2 = await getEdenCards(1, 20, 'FR');
+        console.log(response2)
         setDecksList(response);
     },[]);
 
