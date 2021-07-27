@@ -15,10 +15,6 @@ import Pagination from '../components/Pagination';
 import Filters from '../components/Filters';
 import Popup from '../components/Popup';
 import { Redirect } from 'react-router-dom';
-import getAuthUser from '../api/Authentication';
-
-/*hooks*/
-import useLocalStorage from '../hooks/useLocalStorage';
 
 const DecksPage = (props) => {
 
@@ -39,7 +35,6 @@ const DecksPage = (props) => {
     });
 
     const [checkboxes, setCheckBoxes] = useState([false, false, false, false,false,false,false]);
-    const kingdomsList = JSON.parse(localStorage.getItem('kingdoms'));
 
     /* datas for popup form */
     const popupDatas = {
@@ -101,14 +96,6 @@ const DecksPage = (props) => {
             }
         }
     }
-
-    /*custom hooks*/
-    let [
-        getItem,
-        setItem,
-        removeItem,
-        clearStorage
-    ] = useLocalStorage();
 
     /* handle flash messages */
     const handleFlash = (newFlashState) => {
@@ -196,8 +183,6 @@ const DecksPage = (props) => {
 
     useEffect(async () => {
         let response = await getUserDecks(reqOpt);
-        let userAuth = await getAuthUser();
-        setItem("7fallen", JSON.stringify(userAuth))
         setDecksList(response);
     },[]);
 
