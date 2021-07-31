@@ -67,16 +67,14 @@ function App() {
 		<>
 			<VhInPixels />
 			{isAuthenticated !== undefined && loaded === true ?
-				<>
-					<Router basename="/">
-						<AuthorizedRoutes
-							unAuthenticatedPages={pagesUnAuthenticated}
-							authenticatedPages={pagesAuthenticated}
-							isAuthenticated={isAuthenticated}
-						/>
-					</Router>
+				<Router basename="/">
+					<AuthorizedRoutes
+						unAuthenticatedPages={pagesUnAuthenticated}
+						authenticatedPages={pagesAuthenticated}
+						isAuthenticated={isAuthenticated}
+					/>
 					<BottomNavbar />
-				</>
+				</Router>
 				:
 				<Loader condition={isAuthenticated === false ||
 					isAuthenticated === true}
