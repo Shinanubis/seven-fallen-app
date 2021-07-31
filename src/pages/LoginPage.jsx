@@ -32,8 +32,10 @@ function Login(props) {
 	//handlers
 	const handleLanguage = (e) => {
 		i18n.changeLanguage(e.target.id);
-		if(!getItem(JSON.parse("7fallen").lang)){
-			setItem("7fallen", JSON.stringify({lang: e.target.id}));
+		if(!JSON.parse(getItem("7fallen").lang)){
+			let newObj = JSON.parse(getItem("7fallen"));
+			newObj.lang = e.target.id;
+			setItem("7fallen", JSON.stringify(newObj));
 		}
 	};
 

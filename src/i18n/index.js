@@ -12,7 +12,7 @@ i18n.use(initReactI18next).init({
         translation: translateFR
       }
     },
-    lng: localStorage.getItem(JSON.parse("7fallen")) ? localStorage.getItem(JSON.parse("7fallen").lang) : "fr",
+    lng: JSON.parse(localStorage.getItem("7fallen")) ? JSON.parse(localStorage.getItem("7fallen")).lang : "fr",
     fallbackLng: "fr",
   
     interpolation: {
