@@ -1,24 +1,34 @@
-import { IoSettingsOutline, GrMenu, AiOutlinePlusCircle, BiGridAlt, HiOutlineUsers } from 'react-icons';
-import {Link} from 'react-router-dom';
+import { IoSettingsOutline, AiOutlinePlusCircle, GrMenu, BiGridAlt, HiOutlineUsers } from 'react-icons/all';
+import { Link } from 'react-router-dom';
 
 function BottomNavbar(props) {
     return (
         <nav>
             <ul>
                 <li>
-                    <Link to="/profile"/>
+                    <Link to="/profile">
+                        <IoSettingsOutline />
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/decks"/>
+                    <Link to="/decks">
+                        <GrMenu />
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/decks/create"/>
+                    <Link to="/decks/create">
+                        <AiOutlinePlusCircle />
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/cards"/>
+                    <Link to="/cards">
+                        <BiGridAlt />
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/gamers"/>
+                    <Link to="/gamers">
+                        <HiOutlineUsers />
+                    </Link>
                 </li>
             </ul>
         </nav>
