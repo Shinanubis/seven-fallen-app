@@ -133,12 +133,12 @@ code {
 	bottom:0;
 	left:0;
 	right:0;
-	padding: .5rem 1rem;
+	padding: .75rem 1rem;
 	background-color: #222222;
 }
 
 .navbar .icon {
-	font-size: 4vh;
+	font-size: 3.5vh;
 }
 
 .navbar svg.icon path{
