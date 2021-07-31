@@ -148,6 +148,7 @@ code {
 
 .navbar .menu{
 	display: flex;
+	justify-content: space-between;
 }
 
 .footer {
