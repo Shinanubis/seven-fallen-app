@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
+//i18n need to bundle
+import i18n from "./i18n";
+
+// Contexts
 import { AuthContextProvider } from './contexts/AuthContext';
 import { PagesContextProvider } from './contexts/PagesContext';
 
@@ -15,7 +20,7 @@ ReactDOM.render(
     
         <AuthContextProvider callback={getAuthUser}>
             <PagesContextProvider pages={pages}>
-            <App />
+                <App />
             </PagesContextProvider>
         </AuthContextProvider>
 

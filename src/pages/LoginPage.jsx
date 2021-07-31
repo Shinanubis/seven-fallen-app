@@ -23,9 +23,8 @@ dotenv.config();
 
 function Login(props) {
 
-	//contexts
+	//hooks
 	const [isAuthenticated] = useContext(AuthContext);
-
 	const {t} = useTranslation();
 
 	//handlers
