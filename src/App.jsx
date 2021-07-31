@@ -73,7 +73,7 @@ function App() {
 						authenticatedPages={pagesAuthenticated}
 						isAuthenticated={isAuthenticated}
 					/>
-					<BottomNavbar />
+					{isAuthenticated === true && <BottomNavbar />}
 				</Router>
 				:
 				<Loader condition={isAuthenticated === false ||
