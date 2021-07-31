@@ -35,6 +35,11 @@ function Login(props) {
 		if(!getItem("7fallen")){
 			setItem("7fallen", JSON.stringify({lang: e.target.id}))
 		}
+
+		if(getItem("7fallen") && JSON.parse(getItem("7fallen")).lang){
+			let newObj = JSON.parse(getItem("7fallen"));
+			newObj.lang = e.target.id;
+		}
 	};
 
 	return (
