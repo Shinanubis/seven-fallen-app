@@ -1,25 +1,23 @@
 {
   "files": {
     "main.css": "/static/css/main.1b1cdaa1.chunk.css",
-    "main.js": "/static/js/main.899f0706.chunk.js",
-    "main.js.map": "/static/js/main.899f0706.chunk.js.map",
+    "main.js": "/static/js/main.d934d8c9.chunk.js",
+    "main.js.map": "/static/js/main.d934d8c9.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3feb6fba.js",
     "runtime-main.js.map": "/static/js/runtime-main.3feb6fba.js.map",
-    "static/js/2.27616790.chunk.js": "/static/js/2.27616790.chunk.js",
-    "static/js/2.27616790.chunk.js.map": "/static/js/2.27616790.chunk.js.map",
+    "static/js/2.7ab833e4.chunk.js": "/static/js/2.7ab833e4.chunk.js",
+    "static/js/2.7ab833e4.chunk.js.map": "/static/js/2.7ab833e4.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.1b1cdaa1.chunk.css.map": "/static/css/main.1b1cdaa1.chunk.css.map",
-    "static/js/2.27616790.chunk.js.LICENSE.txt": "/static/js/2.27616790.chunk.js.LICENSE.txt",
-    "static/media/22-2.5f5c400e.gif": "/static/media/22-2.5f5c400e.gif",
-    "static/media/Fading_lines.72e5fa5c.gif": "/static/media/Fading_lines.72e5fa5c.gif",
+    "static/js/2.7ab833e4.chunk.js.LICENSE.txt": "/static/js/2.7ab833e4.chunk.js.LICENSE.txt",
     "static/media/framus.28ad3f9b.jpg": "/static/media/framus.28ad3f9b.jpg",
     "static/media/merrlyn.a1bb939c.jpg": "/static/media/merrlyn.a1bb939c.jpg",
     "static/media/wizard.a1faacbe.jpg": "/static/media/wizard.a1faacbe.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3feb6fba.js",
-    "static/js/2.27616790.chunk.js",
+    "static/js/2.7ab833e4.chunk.js",
     "static/css/main.1b1cdaa1.chunk.css",
-    "static/js/main.899f0706.chunk.js"
+    "static/js/main.d934d8c9.chunk.js"
   ]
 }

@@ -15,7 +15,6 @@ import DeckBuildOptions from "../pages/DeckBuildOptions";
 import DeckImport from "../pages/DeckImport";
 import EmptyDecksList from "../pages/EmptyDecksList";
 import ModifyDeckPage from "../pages/ModifyDeckPage";
-import AddingSubDecksCardsPage from "../pages/AddingSubDecksPage";
 
 const pages = {
     authenticated: [
@@ -60,24 +59,6 @@ const pages = {
             strict: true,
             path: "/decks/:id",
             component: ModifyDeckPage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/decks/:id/eden",
-            component: AddingSubDecksCardsPage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/decks/:id/register",
-            component: AddingSubDecksCardsPage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/decks/:id/holybook",
-            component: AddingSubDecksCardsPage,
         },
         {
             exact: true,

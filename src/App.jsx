@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 //Components imports
 import AuthorizedRoutes from "./components/AuthorizedRoutes";
 import Loader from './components/Loader';
+import BottomNavbar from "./components/BottomNavbar";
 
 //Utilities import
 import VhInPixels from "./utilities/VhInPixels";
@@ -14,10 +15,7 @@ import {
 	getRaritiesList,
 	getTypesList,
 	getKingdomsList,
-	getCapacitiesList,
 	getExtensionsList,
-	getSubdeckCards,
-	getClassesList,
 } from "./api/CardsWareHouse";
 
 
@@ -69,13 +67,16 @@ function App() {
 		<>
 			<VhInPixels />
 			{isAuthenticated !== undefined && loaded === true ?
-				<Router basename="/">
-					<AuthorizedRoutes
-						unAuthenticatedPages={pagesUnAuthenticated}
-						authenticatedPages={pagesAuthenticated}
-						isAuthenticated={isAuthenticated}
-					/>
-				</Router>
+				<>
+					<Router basename="/">
+						<AuthorizedRoutes
+							unAuthenticatedPages={pagesUnAuthenticated}
+							authenticatedPages={pagesAuthenticated}
+							isAuthenticated={isAuthenticated}
+						/>
+					</Router>
+					<BottomNavbar />
+				</>
 				:
 				<Loader condition={isAuthenticated === false ||
 					isAuthenticated === true}
