@@ -17,6 +17,7 @@ import logo from "../img/logos/7-fallen-logo-2.png";
 
 //environment variables
 import dotenv from "dotenv";
+import useLocalStorage from "../hooks/useLocalStorage";
 dotenv.config();
 
 
@@ -25,11 +26,15 @@ function Login(props) {
 
 	//hooks
 	const [isAuthenticated] = useContext(AuthContext);
+	const [getItem, setItem, removeItem, clearStorage] = useLocalStorage();
 	const {t} = useTranslation();
 
 	//handlers
 	const handleLanguage = (e) => {
 		i18n.changeLanguage(e.target.id);
+		if(!getItem(JSON.parse("7fallen").lang)){
+			setItem("7fallen", JSON.stringify({lang: e.target.id}));
+		}
 	};
 
 	return (
