@@ -1,24 +1,13 @@
-import useLocalStorage from "../hooks/useLocalStorage";
 import { Redirect } from "react-router-dom";
-import Loader from '../components/Loader';
-import {RiLoader3Line} from 'react-icons/ri';
-import {useEffect, useState} from 'react';
-import getAuthUser from '../api/Authentication';
+import {useContext} from "react";
+
+import { AuthContext } from "../contexts/AuthContext";
+
 
 const LandingPage = (props) => {
-	const [
-			getItem, 
-			setItem, 
-			removeItem, 
-			clearStorage
-		] = useLocalStorage();
+		const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
 
-		useEffect(async () => {
-			let response = await getAuthUser();
-			setItem("7fallen", JSON.stringify(response))
-		});
-
-		if(JSON.parse(getItem("7fallen")) && JSON.parse(getItem("7fallen")).isAuthenticated === true ){
+		if(isAuthenticated === true){
 			return <Redirect to="/decks"/>
 		}else{
 			return <Redirect to ="/login"/>
