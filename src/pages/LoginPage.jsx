@@ -1,4 +1,9 @@
 import "./LoginPage.css";
+
+//Translation
+import i18n from "../i18n";
+import {useTranslation} from "react-i18next";
+
 //contexts
 import { AuthContext } from '../contexts/AuthContext';
 
@@ -21,15 +26,11 @@ function Login(props) {
 	//contexts
 	const [isAuthenticated] = useContext(AuthContext);
 
+	const {t} = useTranslation();
+
 	//handlers
 	const handleLanguage = (e) => {
-		if (e.target.id === "fr") {
-			console.log("fr");
-		}
-
-		if (e.target.id === "en") {
-			console.log("en");
-		}
+		i18n.changeLanguage(e.target.id);
 	};
 
 	return (
@@ -62,12 +63,12 @@ function Login(props) {
 								url="https://test-seven.site/api/auth/logout"
 								classes="btn btn__social rounded"
 							>
-								<span className="btn__social--text">Se déconnecter</span>
+								<span className="btn__social--text">{t("logout")}</span>
 							</SocialButton>
 						</li>
 						:
 						<>
-							<p className="infos mb-1">Se connecter</p>
+							<p className="infos mb-1">{t("login")}</p>
 							<li className="mb-3">
 								<SocialButton
 									bgcolor="#395693"
