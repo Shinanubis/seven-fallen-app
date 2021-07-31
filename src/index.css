@@ -136,7 +136,10 @@ code {
 	width: 100%;
 	padding: .5rem 1rem;
 	background-color: #222222;
-	color:#ffffff;
+}
+
+.navbar svg.icon{
+	color:white;
 }
 
 .navbar .menu{
