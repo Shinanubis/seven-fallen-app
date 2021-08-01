@@ -155,7 +155,7 @@ code {
 	justify-content: space-between;
 }
 
-.nabar .menu__element{
+.nabar .menu__element .menu__link{
 	display: flex;
 	align-items: center;
 	justify-content: center;
