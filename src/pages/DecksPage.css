@@ -10,8 +10,7 @@
     color: white;
 }
 
-.decks .heading .heading__pseudo,
-.decks .heading .heading__counter
+.decks .heading > *
 {
     display:flex;
     align-items: center;
