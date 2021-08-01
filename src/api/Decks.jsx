@@ -20,7 +20,7 @@ async function getUserDecks(options){
     let url = new URL('https://test-seven.site/api/decks');
 
     let params = {
-        page: options.page ? options.page : 1, 
+        page: options.page ?? 1, 
         size: options.size ? options.size : 10,
         sens: options.sens ? options.sens : 'asc',
         order_by: options.order_by ? options.order_by : 'id'

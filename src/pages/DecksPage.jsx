@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 
 /* components */
 import PageContainer from "../components/PageContainer";
@@ -10,6 +10,10 @@ import {getProfile} from '../api/Profile';
 import { getUserDecks } from '../api/Decks';
 
 const DecksPage = (props) => {
+    const [pageDatas, setPageDatas] = useState({
+        username : '',
+        num_decks : 0
+    })
     
     useEffect(async () => {
         let profile = await getProfile();
