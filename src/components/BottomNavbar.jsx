@@ -10,22 +10,22 @@ function BottomNavbar(props) {
                         <IoSettingsOutline className="icon"/>
                     </Link>
                 </li>
-                <li>
+                <li className="menu__element">
                     <Link className="menu__link" to="/decks">
                         <GrMenu className="icon"/>
                     </Link>
                 </li>
-                <li>
+                <li className="menu__element">
                     <Link className="menu__link" to="/decks/create">
                         <AiOutlinePlusCircle className="icon"/>
                     </Link>
                 </li>
-                <li>
+                <li className="menu__element">
                     <Link className="menu__link" to="/cards">
                         <BiGridAlt className="icon"/>
                     </Link>
                 </li>
-                <li>
+                <li className="menu__element">
                     <Link className="menu__link" to="/gamers">
                         <HiOutlineUsers className="icon"/>
                     </Link>

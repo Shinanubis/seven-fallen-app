@@ -124,11 +124,13 @@ code {
 	width: 22%;
 }
 
+/* choice */
 .language__choice {
 	cursor: pointer;
 	font-size: 3vh;
 }
 
+/* navbar */
 .navbar{
 	position:fixed;
 	bottom:0;
