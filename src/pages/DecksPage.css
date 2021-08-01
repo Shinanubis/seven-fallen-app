@@ -1,3 +1,11 @@
 .page.decks{
     height: 100%;
 }
+
+.decks .heading{
+    padding:5vh;
+}
+
+.decks .heading .heading__logo{
+    height: 10vh;
+}
