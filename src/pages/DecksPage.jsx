@@ -1,11 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
-/* layout */
-import Layout from '../layouts/Layout';
-
-/* api */
-import { getUserDecks, getDecksByKingdoms } from '../api/Decks';
-import { getEdenCards } from '../api/CardsWareHouse';
+import React, { useEffect} from 'react';
 
 /* components */
 import Flash from '../components/Flash'
@@ -13,8 +6,15 @@ import Plus from '../components/Plus';
 import PageContainer from "../components/PageContainer";
 import Logo from '../img/logos/7-fallen-logo-2.png';
 import './DecksPage.css';
+import {getProfile} from '../api/Profile';
 
 const DecksPage = (props) => {
+    
+    useEffect(async () => {
+        let profileResponse = await getProfile();
+        console.log(profileResponse);
+    },[])
+
     return (
         <PageContainer classes="decks">
             <section className="heading">
