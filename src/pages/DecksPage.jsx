@@ -20,7 +20,7 @@ const DecksPage = (props) => {
             <section className="heading">
                 <div className="heading__pseudo">PABLO</div>
                 <img className="heading__logo" src={Logo} alt="7fallen logo" />
-                <div className="heading__counter">NB DECKS 25</div>
+                <div className="heading__counter">DECKS 25</div>
             </section>
         </PageContainer>
     );
