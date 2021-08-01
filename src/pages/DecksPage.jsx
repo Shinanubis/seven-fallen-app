@@ -1,15 +1,24 @@
 import React, { useEffect} from 'react';
 
-/*hoc*/
-import hasProvider from '../HOC/hasProvider';
-
 /* components */
 import PageContainer from "../components/PageContainer";
 import Logo from '../img/logos/7-fallen-logo-2.png';
 import './DecksPage.css';
 
-const deckPage = (props) => {
+/*api*/
+import {getProfile} from '../api/Profile';
+import { getUserDecks } from '../api/Decks';
+
+const DecksPage = (props) => {
     
+    useEffect(() => {
+        let profile = getProfile();
+        console.log(profile);
+
+        let userDecks = getUserDecks();
+        console.log(userDecks)
+    },[])
+
     return (
         <PageContainer classes="decks">
             <section className="heading">
@@ -21,5 +30,4 @@ const deckPage = (props) => {
     );
 }
 
-const DecksPage = hasProvider(deckPage);
 export default DecksPage;
