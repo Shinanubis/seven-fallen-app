@@ -11,11 +11,11 @@ import { getUserDecks } from '../api/Decks';
 
 const DecksPage = (props) => {
     
-    useEffect(() => {
-        let profile = getProfile();
+    useEffect(async () => {
+        let profile = await getProfile();
         console.log(profile);
 
-        let userDecks = getUserDecks();
+        let userDecks = await getUserDecks();
         console.log(userDecks)
     },[])
 
