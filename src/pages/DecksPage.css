@@ -10,8 +10,12 @@
     color: white;
 }
 
-.decks .heading__pseudo{
-    font-size: 2.5vh;
+.decks .heading .heading__pseudo,
+.decks .heading .heading__counter
+{
+    display:flex;
+    align-items: center;
+    font-size: 3vh;
 }
 
 .decks .heading .heading__logo{
