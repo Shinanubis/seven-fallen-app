@@ -155,13 +155,13 @@ code {
 	justify-content: space-between;
 }
 
-.nabar .menu__element{
+.navbar .menu__element{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.nabar .menu__element .menu__link{
+.navbar .menu__element .menu__link{
 	display: flex;
 	align-items: center;
 	justify-content: center;
