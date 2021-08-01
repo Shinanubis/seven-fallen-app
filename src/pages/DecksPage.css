@@ -3,7 +3,8 @@
 }
 
 .decks .heading{
-    padding:5vh;
+    display: flex;
+    padding:2vh;
 }
 
 .decks .heading .heading__logo{
