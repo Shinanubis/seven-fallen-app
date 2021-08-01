@@ -1,10 +1,12 @@
 .page.decks{
     height: 100%;
+    padding:0 2vh;
 }
 
 .decks .heading{
     display: flex;
-    padding:2vh;
+    justify-content: space-between;
+    padding:0 2vh;
 }
 
 .decks .heading .heading__logo{
