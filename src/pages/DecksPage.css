@@ -6,7 +6,7 @@
 .decks .heading{
     display: flex;
     justify-content: space-between;
-    padding:2vh 0;
+    padding:2vh 2vh;
     color: white;
 }
 
