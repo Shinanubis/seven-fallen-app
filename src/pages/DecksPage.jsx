@@ -11,7 +11,7 @@ import { getEdenCards } from '../api/CardsWareHouse';
 import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 const DecksPage = (props) => {
-
+    return null;
 }
 
 
