@@ -155,6 +155,12 @@ code {
 	justify-content: space-between;
 }
 
+.nabar .menu__element{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .footer {
 	display: flex;
 	align-items: flex-start;
