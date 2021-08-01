@@ -12,7 +12,7 @@ import Flash from '../components/Flash'
 import Plus from '../components/Plus';
 import PageContainer from "../components/PageContainer";
 import Logo from '../img/logos/7-fallen-logo-2.png';
-import './deckspage.css';
+import './DecksPage.css';
 
 const DecksPage = (props) => {
     return (
