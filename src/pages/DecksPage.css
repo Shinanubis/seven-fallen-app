@@ -19,6 +19,10 @@
     font-size: .75rem;
 }
 
+.decks .heading .heading__counter{
+    justify-content: flex-end;
+}
+
 .decks .heading .heading__logo{
     height: 10vh;
 }
