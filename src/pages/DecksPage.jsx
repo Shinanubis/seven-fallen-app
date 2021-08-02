@@ -17,19 +17,17 @@ const DecksPage = (props) => {
     
     useEffect(async () => {
         let profile = await getProfile();
-        console.log(profile);
-
         let userDecks = await getUserDecks();
         console.log(userDecks)
     },[])
 
     return (
-        <PageContainer classes="decks">
-            <section className="heading">
+        <PageContainer>
+            <header className="heading">
                 <div className="heading__pseudo">PABLO</div>
                 <img className="heading__logo" src={Logo} alt="7fallen logo" />
                 <div className="heading__counter">DECKS 25</div>
-            </section>
+            </header>
         </PageContainer>
     );
 }
