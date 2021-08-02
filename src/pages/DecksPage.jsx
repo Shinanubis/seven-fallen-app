@@ -5,6 +5,8 @@ import PageContainer from "../components/PageContainer";
 import Logo from '../img/logos/7-fallen-logo-2.png';
 import './DecksPage.css';
 
+import Header from '../components/heading';
+
 /*api*/
 import { getProfile } from '../api/Profile';
 import { getUserDecks } from '../api/Decks';
@@ -26,13 +28,16 @@ const DecksPage = (props) => {
 
     return (
         <PageContainer classes="decks">
-            <header className="heading">
+            {/* <header className="heading">
                 <div className="container">
                     <div className="heading__pseudo">PABLO</div>
                     <img className="heading__logo" src={Logo} alt="7fallen logo" />
                     <div className="heading__counter">DECKS 25</div>
                 </div>
-            </header>
+            </header> */}
+            <Header>
+                
+            </Header>
         </PageContainer>
     );
 }
