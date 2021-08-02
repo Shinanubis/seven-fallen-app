@@ -37,7 +37,7 @@ const DecksPage = (props) => {
             </header> */}
             <Header>
                 <Header.Pseudo pseudo="PABLO"/>
-                <Header.Logo url={Logo}/>
+                <Header.Logo url={Logo} alt="Logo 7fallen"/>
                 <Header.Count count="25" />
             </Header>
         </PageContainer>

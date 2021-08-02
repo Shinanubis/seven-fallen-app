@@ -111,44 +111,6 @@ code {
 	font-size: 3vh;
 }
 
-/* navbar */
-.navbar{
-	position:fixed;
-	bottom:0;
-	left:0;
-	right:0;
-	padding: 1.5vh 1.25rem;
-	background-color: #222222;
-	border-top: 1px solid white;
-}
-
-.navbar .icon {
-	font-size: 4vh;
-}
-
-.navbar svg.icon path{
-	color:white;
-	stroke: white;
-}
-
-.navbar .menu{
-	display: flex;
-	justify-content: space-between;
-}
-
-.navbar .menu__element{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.navbar .menu__element .menu__link{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-}
-
 .footer {
 	display: flex;
 	align-items: flex-start;
