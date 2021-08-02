@@ -937,6 +937,7 @@ svg.dropdown__icon path {
 /* Utilities */
 
 .container{
+	margin: 0 auto;
 	max-width: 90%;
 }
 
