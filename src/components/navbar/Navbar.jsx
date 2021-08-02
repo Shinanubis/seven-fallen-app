@@ -1,9 +1,9 @@
 import NewLink from './Link';
 import Icon from './Icon';
 
-function Navbar({classes, children}) {
+function Navbar({id,classes, children}) {
     return (
-        <nav className={classes ? classes : "navbar"}>
+        <nav id={id ? id : "navbar"} className={classes ? classes : "navbar"}>
             <div className="container">
                 {children}
             </div>
