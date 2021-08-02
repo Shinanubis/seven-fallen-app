@@ -7,7 +7,14 @@
 	border-top: 1px solid white;
 }
 
-.navbar .icon {
+.navbar .menu__link{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.navbar .menu__link .icon {
 	font-size: 4vh;
 }
 
@@ -16,14 +23,3 @@
 	stroke: white;
 }
 
-.navbar .menu{
-	display: flex;
-	justify-content: space-between;
-}
-
-.navbar .menu__link{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-}
