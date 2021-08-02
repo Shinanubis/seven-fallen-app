@@ -1,37 +1,25 @@
 import { IoSettingsOutline, AiOutlinePlusCircle, GrMenu, BiGridAlt, HiOutlineUsers } from 'react-icons/all';
-import { Link } from 'react-router-dom';
+import Navbar from './navbar';
 
 function BottomNavbar(props) {
     return (
-        <nav className="navbar">
-            <ul className="menu">
-                <li className="menu__element">
-                    <Link className="menu__link" to="/profile">
-                        <IoSettingsOutline className="icon"/>
-                    </Link>
-                </li>
-                <li className="menu__element">
-                    <Link className="menu__link" to="/decks">
-                        <GrMenu className="icon"/>
-                    </Link>
-                </li>
-                <li className="menu__element">
-                    <Link className="menu__link" to="/decks/create">
-                        <AiOutlinePlusCircle className="icon"/>
-                    </Link>
-                </li>
-                <li className="menu__element">
-                    <Link className="menu__link" to="/cards">
-                        <BiGridAlt className="icon"/>
-                    </Link>
-                </li>
-                <li className="menu__element">
-                    <Link className="menu__link" to="/gamers">
-                        <HiOutlineUsers className="icon"/>
-                    </Link>
-                </li>
-            </ul>
-        </nav>
+        <Navbar>
+            <Navbar.Link to="/profile">
+                <Navbar.Icon icon={IoSettingsOutline} />
+            </Navbar.Link>
+            <Navbar.Link to="/decks">
+                <Navbar.Icon icon={GrMenu} />
+            </Navbar.Link>
+            <Navbar.Link to="/decks/create">
+                <Navbar.Icon icon={AiOutlinePlusCircle} />
+            </Navbar.Link>
+            <Navbar.Link to="/cards">
+                <Navbar.Icon icon={BiGridAlt} />
+            </Navbar.Link>
+            <Navbar.Link to="/gamers">
+                <Navbar.Icon icon={HiOutlineUsers} />
+            </Navbar.Link>
+        </Navbar>
     )
 }
 

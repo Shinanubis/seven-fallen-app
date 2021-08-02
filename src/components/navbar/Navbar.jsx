@@ -1,4 +1,4 @@
-import Link from './Link';
+import NewLink from './Link';
 import Icon from './Icon';
 
 function Navbar({classes, children}) {
@@ -11,6 +11,6 @@ function Navbar({classes, children}) {
     )
 }
 
-Navbar.Link = Link;
+Navbar.Link = NewLink;
 Navbar.Icon = Icon;
 export default Navbar

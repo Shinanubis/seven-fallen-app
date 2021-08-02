@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AuthorizedRoutes from "./components/AuthorizedRoutes";
 import Loader from './components/Loader';
 import BottomNavbar from "./components/BottomNavbar";
+import Navbar from './components/navbar';
 
 //Utilities import
 import VhInPixels from "./utilities/VhInPixels";
