@@ -9,6 +9,9 @@ import './DecksPage.css';
 import {getProfile} from '../api/Profile';
 import { getUserDecks } from '../api/Decks';
 
+/*styles*/
+import './DecksPage.css';
+
 const DecksPage = (props) => {
     const [pageDatas, setPageDatas] = useState({
         username : '',
