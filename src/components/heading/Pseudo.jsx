@@ -2,7 +2,7 @@ import React from 'react'
 
 function Pseudo({pseudo}) {
     return (
-        <div>
+        <div className="heading__pseudo">
             {pseudo ? pseudo : "Unknow"}
         </div>
     )
