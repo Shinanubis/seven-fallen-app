@@ -1,7 +1,3 @@
-.decks{
-    height: 100%;
-}
-
 .decks .heading{
     display: flex;
     justify-content: center;
