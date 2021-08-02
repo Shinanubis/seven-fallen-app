@@ -3,7 +3,6 @@
 	bottom:0;
 	left:0;
 	right:0;
-	padding: 1.5vh 1.25rem;
 	background-color: #222222;
 	border-top: 1px solid white;
 }
@@ -22,13 +21,7 @@
 	justify-content: space-between;
 }
 
-.navbar .menu__element{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.navbar .menu__element .menu__link{
+.navbar .menu__link{
 	display: flex;
 	align-items: center;
 	justify-content: center;
