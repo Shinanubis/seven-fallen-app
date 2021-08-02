@@ -36,7 +36,9 @@ const DecksPage = (props) => {
                 </div>
             </header> */}
             <Header>
-                
+                <Header.Pseudo pseudo="PABLO"/>
+                <Header.Logo />
+                <Header.Count counter="25" />
             </Header>
         </PageContainer>
     );
