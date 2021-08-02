@@ -6,7 +6,7 @@ function Logo(url, alt) {
             {url ?
                 <img className="heading__logo" src={url} alt={alt ? alt : "no alt text"} />
                 :
-                <img className="heading__logo" src={LogoFallen} alt={alt ? alt : "no alt text"} />
+                <img className="heading__logo" src={`${LogoFallen}`} alt={alt ? alt : "no alt text"} />
             }
         </>
     )
