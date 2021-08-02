@@ -10,6 +10,11 @@
 }
 
 
+.decks .heading__pseudo,
+.decks .heading__counter{
+    width:35%;
+}
+
 .decks .heading .heading__counter{
     justify-content: flex-end;
 }
