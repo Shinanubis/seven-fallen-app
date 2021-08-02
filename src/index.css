@@ -111,21 +111,6 @@ code {
 }
 
 /*Components*/
-.header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	padding: 2vh 9% 2vh 9%;
-	text-align: center;
-	color: var(--grey);
-	background-color: #afafaf;
-	z-index: 10;
-}
-
-.header .header__inner--right {
-	width: 22%;
-}
 
 /* choice */
 .language__choice {
