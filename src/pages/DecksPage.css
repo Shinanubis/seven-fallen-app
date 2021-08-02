@@ -15,11 +15,15 @@
     width:35%;
 }
 
-.decks .heading .heading__counter{
-    justify-content: flex-end;
+.decks .heading__counter{
+    text-align: right;
 }
 
-.decks .heading .heading__logo{
+.decks .heading__counter{
+    text-align: left;
+}
+
+.decks .heading__logo{
     height: 11vh;
     width:11vh;
 }
