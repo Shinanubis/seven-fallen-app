@@ -935,6 +935,11 @@ svg.dropdown__icon path {
 }
 
 /* Utilities */
+
+.container{
+	max-width: 90%;
+}
+
 .rounded {
 	border-radius: 200px !important;
 }
