@@ -5,11 +5,11 @@ import Filter from './Filter';
 
 function Header(props) {
     return (
-        <div className="heading">
+        <header className="heading">
             <div className="container">
                 {props.children}
             </div>
-        </div>
+        </header>
     )
 }
 
