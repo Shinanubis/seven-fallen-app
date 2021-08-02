@@ -25,7 +25,7 @@ const DecksPage = (props) => {
     },[])
 
     return (
-        <PageContainer>
+        <PageContainer classes="decks">
             <header className="heading">
                 <div className="heading__pseudo">PABLO</div>
                 <img className="heading__logo" src={Logo} alt="7fallen logo" />
