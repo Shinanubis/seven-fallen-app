@@ -49,6 +49,8 @@ function App() {
 
 		if (!getItem("kingdoms")) {
 			let kingdoms = await getKingdomsList("FR");
+
+			kingdoms.unshift({id: 0, name: "No kingdom", short_name:"NK"});
 			setItem("kingdoms", JSON.stringify(kingdoms));
 		}
 
@@ -63,7 +65,7 @@ function App() {
 		}
 
 	}, []);
-
+	
 	return (
 		<>
 			<VhInPixels />

@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Energy({classes, children, title, value}) {
+function Energy({classes, children, title, ec}) {
     return (
-        <div className="energy">
+        <div className={classes ? classes : "deck__energy"}>
             <h6 className="energy__title">{title ? title : "title"}</h6>
-            <p className="energy__average">{value ? value : 125.2}</p>
+            <p className="energy__average">{ec ? ec : 0.0}</p>
         </div>
     )
 }

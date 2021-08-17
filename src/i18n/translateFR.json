@@ -1,4 +1,18 @@
 {
     "logout": "Se deconnecter",
-    "login": "Se connecter" 
+    "login": "Se connecter",
+    "bottom message": "Vous n'avez pas encore créé de decks.\nAppuyer sur + pour démarrer la création",
+    "kingdoms": {
+        "0": "Sans Royaume",
+        "1": "Metascience",
+        "2": "Eondra",
+        "3": "Nuit Sans Fin",
+        "4": "Temple de la Lumière",
+        "5": "Poseidia",
+        "6": "Pureté Céleste"
+    },
+    "kingdom": "Royaume",
+    "Enter Deck Name Placeholder": "Entrez le nom du deck ...",
+    "create": "Créer",
+    "new deck": "nouveau deck" 
 }

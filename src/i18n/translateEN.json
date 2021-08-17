@@ -1,4 +1,18 @@
 {
     "logout": "Log out",
-    "login": "Log in" 
+    "login": "Log in",
+    "bottom message": "You haven't created any decks yet.\nPress + to start creation",
+    "kingdoms": {
+        "0": "No kingdom",
+        "1": "Metascience",
+        "2": "Eondra",
+        "3": "Endless Night",
+        "4": "Light's Temple",
+        "5": "Poseidia",
+        "6": "Celestial purity"
+    },
+    "kingdom": "Kingdom",
+    "Enter Deck Name Placeholder": "Enter the deck's name ...",
+    "create": "Create",
+    "new deck": "new deck" 
 }

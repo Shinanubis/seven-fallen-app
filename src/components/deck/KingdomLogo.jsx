@@ -1,6 +1,6 @@
-function KingdomLogo({classes, icon}) {
+function KingdomLogo({classes, icon, logoUrl, alt}) {
     const Icon = icon;
-    return <Icon className={classes ? classes : "icon"} />
+    return <img className={classes ? classes : "icon"} src={logoUrl} alt={alt}/>
 }
 
 export default KingdomLogo;

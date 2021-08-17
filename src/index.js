@@ -17,7 +17,6 @@ import getAuthUser from './api/Authentication';
 import pages from './settings/pages.js'
 
 ReactDOM.render(
-    
         <AuthContextProvider callback={getAuthUser}>
             <PagesContextProvider pages={pages}>
                 <App />

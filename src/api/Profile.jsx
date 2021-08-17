@@ -1,10 +1,13 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 async function getProfile(){
     let settings = {
         method : 'GET',
         credentials: 'include'
     }
 
-    let response = await fetch(`https://test-seven.site/api/profile`, settings);
+    let response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/profile`, settings);
     let datas = response.json();
     return datas;
 }

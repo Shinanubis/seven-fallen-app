@@ -1,6 +1,7 @@
 // Pages import
 import LandingPage from "../pages/LandingPage";
 import DecksPage from "../pages/DecksPage";
+import DeckCreate from "../pages/DeckCreate";
 import CardsPage from "../pages/CardsPage";
 import ProfilePage from "../pages/ProfilePage";
 import GamersPage from "../pages/GamersPage";
@@ -45,7 +46,7 @@ const pages = {
             exact: true,
             strict: true,
             path: "/decks/create",
-            component: AddingDeckPage,
+            component: DeckCreate,
         },
         {
             exact: true,

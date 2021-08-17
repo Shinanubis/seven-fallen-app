@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Body({classes, children}) {
+function Body({classes, children, backgroundBodyColor}) {
     return (
-        <div className={classes ? classes : "deck__body"}>
+        <div className={classes ? classes : "deck__body"} style={{backgroundColor: backgroundBodyColor}}>
             {children}
         </div>  
     )

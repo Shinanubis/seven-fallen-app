@@ -1,0 +1,18 @@
+.create.container {
+    justify-content: center;
+    height:calc(100% - 8vh);
+}
+
+.create .heading{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    margin:2vh 0;
+}
+
+.create .heading__logo{
+    width:11vh;
+    height: 11vh;
+    margin:0 auto;
+}

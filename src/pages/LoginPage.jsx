@@ -32,11 +32,12 @@ function Login(props) {
 	//handlers
 	const handleLanguage = (e) => {
 		i18n.changeLanguage(e.target.id);
+		
 		if(!getItem("7fallen")){
 			setItem("7fallen", JSON.stringify({lang: e.target.id}))
 		}
 
-		if(getItem("7fallen") && JSON.parse(getItem("7fallen")).lang){
+		if(getItem("7fallen")){
 			let newObj = JSON.parse(getItem("7fallen"));
 			newObj.lang = e.target.id;
 			setItem("7fallen", JSON.stringify(newObj))
