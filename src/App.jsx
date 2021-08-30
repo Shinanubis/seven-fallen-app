@@ -38,33 +38,6 @@ function App() {
 
 	//hooks
 	const [getItem, setItem, removeItem, clearStorage] = useSessionStorage();
-
-
-
-	useEffect(async () => {
-		if (!getItem("types")) {
-			let types = await getTypesList("FR");
-			setItem("types", JSON.stringify(types));
-		}
-
-		if (!getItem("kingdoms")) {
-			let kingdoms = await getKingdomsList("FR");
-
-			kingdoms.unshift({id: 0, name: "No kingdom", short_name:"NK"});
-			setItem("kingdoms", JSON.stringify(kingdoms));
-		}
-
-		if (!getItem("rarities")) {
-			let rarities = await getRaritiesList("FR");
-			setItem("rarities", JSON.stringify(rarities));
-		}
-
-		if (!getItem("extensions")) {
-			let extensions = await getExtensionsList("FR");
-			setItem("extensions", JSON.stringify(extensions));
-		}
-
-	}, []);
 	
 	return (
 		<>

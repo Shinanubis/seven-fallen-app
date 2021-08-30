@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Counter(props) {
-    const {count} = props;
+function Counter({count}) {
+
     return (
         <div className="heading__counter">
-            {count ? "DECKS " + count : 0}
+            {count > 0 ? `${count} Deck(s)` : "No decks"}
         </div>
     )
 }

@@ -16,7 +16,7 @@
 .create__deck--title{
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 6vw;
+    font-size: 1.75rem;
     letter-spacing:1px;
 }
 
@@ -48,11 +48,25 @@ input.create__deck--name::placeholder{
     background-color: #606060;
     color: white;
     width: 36%;
-    font-size: 4.75vw;
+    font-size: 1rem;
     letter-spacing: 2px;
     box-shadow: 0 2px 4px #303030;
     border-radius: 6vh;
     text-transform: uppercase;
+    cursor:pointer;
+    transition: background-color 100ms ease, transform 50ms ease;
+}
+
+.create__deck--button:hover{
+    background-color: #505050;
+}
+
+.create__deck--button:active{
+    transform: translateY(-2px) scale(1.04);
+}
+
+.create__deck--button:active:hover{
+    background-color: #606060;
 }
 
 /*dropdown */
@@ -107,7 +121,7 @@ input.create__deck--name::placeholder{
 }
 
 .dropdown__content.open{
-    z-index: 1;
+    z-index: 20;
     opacity:1;
     pointer-events: auto;
     cursor: pointer;

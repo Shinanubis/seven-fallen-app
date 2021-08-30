@@ -3,16 +3,26 @@
     "login": "Se connecter",
     "bottom message": "Vous n'avez pas encore créé de decks.\nAppuyer sur + pour démarrer la création",
     "kingdoms": {
-        "0": "Sans Royaume",
+        "0": "Pas de royaume",
         "1": "Metascience",
         "2": "Eondra",
-        "3": "Nuit Sans Fin",
-        "4": "Temple de la Lumière",
+        "3": "Nuit sans fin",
+        "4": "Temple de la lumière",
         "5": "Poseidia",
-        "6": "Pureté Céleste"
+        "6": "Pureté céleste"
     },
     "kingdom": "Royaume",
     "Enter Deck Name Placeholder": "Entrez le nom du deck ...",
     "create": "Créer",
-    "new deck": "nouveau deck" 
+    "new deck": "nouveau deck",
+    "no divinity": "pas de divinitée",
+    "cards": "cartes",
+    "flash": {
+        "not compliant" : "Votre nom de deck n'est pas conforme",
+        "success": "{{name}} créé(e) avec succès",
+        "internal": "Erreur interne",
+        "already": "{{name}} existe déja",
+        "forbidden": "Interdit",
+        "empty": "Les champs {{names}} ne devrai pas etre vide"
+    } 
 }

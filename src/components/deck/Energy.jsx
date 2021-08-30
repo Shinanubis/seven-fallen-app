@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Energy({classes, children, title, ec}) {
+function Energy({classes, title, ec}) {
     return (
         <div className={classes ? classes : "deck__energy"}>
             <h6 className="energy__title">{title ? title : "title"}</h6>

@@ -1,0 +1,16 @@
+.decks.page {
+	justify-content: flex-start;
+}
+
+.decks__list--container{
+    width: 90%;
+    min-height: 67vh;
+    margin-top: 22vh;
+    overflow-y: scroll;
+}
+
+
+.decks .heading__pseudo,
+.decks .heading__counter{
+    width:35%;
+}

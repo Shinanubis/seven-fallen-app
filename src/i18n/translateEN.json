@@ -6,13 +6,23 @@
         "0": "No kingdom",
         "1": "Metascience",
         "2": "Eondra",
-        "3": "Endless Night",
-        "4": "Light's Temple",
+        "3": "Endless night",
+        "4": "Light's temple",
         "5": "Poseidia",
         "6": "Celestial purity"
     },
     "kingdom": "Kingdom",
     "Enter Deck Name Placeholder": "Enter the deck's name ...",
     "create": "Create",
-    "new deck": "new deck" 
+    "new deck": "new deck",
+    "no divinity": "no divinity",
+    "cards": "cards",
+    "flash": {
+        "not compliant" : "Your deck name isn't compliants",
+        "success": "{{name}} succesfully created",
+        "internal": "Internal error",
+        "already" : "{{name}} already exits",
+        "forbidden": "Forbidden",
+        "empty": "The field(s) {{names}} should not be empty"
+    } 
 }

@@ -7,7 +7,6 @@ const DeckBuildOptions = (props) => {
 
 
     return (
-        <>
             <Layout>
                 <h1>Options :</h1>
                 <div className="block">
@@ -16,8 +15,6 @@ const DeckBuildOptions = (props) => {
                 </div>
                 <NavButton text="back" url="/decks"/>
             </Layout>
-
-        </>
     )
 }
 

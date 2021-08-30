@@ -1,5 +1,4 @@
-function KingdomLogo({classes, icon, logoUrl, alt}) {
-    const Icon = icon;
+function KingdomLogo({classes, logoUrl, alt}) {
     return <img className={classes ? classes : "icon"} src={logoUrl} alt={alt}/>
 }
 

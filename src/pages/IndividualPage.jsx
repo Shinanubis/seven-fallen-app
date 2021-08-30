@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import List from '../components/List'
 import Card from '../components/Card'
-import Image from '../img/cards/framus.jpg'
+import Image from '../img/backgrounds/leana.jpg'
 import Button from '../components/Button'
 import CardsContext from '../contexts/CardsContext'
 import Header from '../layouts/Header'

@@ -1,5 +1,19 @@
+import {Link} from 'react-router-dom';
+import {useEffect, useState} from 'react';
+
 function Logo({url, alt}) {
-    return <img className="heading__logo" src={url} alt={alt ? alt : "no alt text"} />
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const handleLoad = (e) => {
+        setIsLoaded(true);
+    }
+
+
+    return (
+        <Link to="/login" onLoad={handleLoad}>
+            <img className={isLoaded === true ? "heading__logo" : "d-none"} src={url} alt={alt ? alt : "no alt text"} />
+        </Link>
+        )
 }
 
 export default Logo;

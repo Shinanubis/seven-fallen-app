@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Name({classes, children, name}) {
+function Name({classes, name}) {
     return (
         <p className={classes ? classes : "deck__name"}>
             {name}

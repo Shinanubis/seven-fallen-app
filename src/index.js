@@ -9,6 +9,7 @@ import i18n from "./i18n";
 // Contexts
 import { AuthContextProvider } from './contexts/AuthContext';
 import { PagesContextProvider } from './contexts/PagesContext';
+import { SessionContextProvider} from './contexts/SessionContext';
 
 /*api*/
 import getAuthUser from './api/Authentication';
@@ -18,9 +19,11 @@ import pages from './settings/pages.js'
 
 ReactDOM.render(
         <AuthContextProvider callback={getAuthUser}>
-            <PagesContextProvider pages={pages}>
-                <App />
-            </PagesContextProvider>
+            <SessionContextProvider>
+                <PagesContextProvider pages={pages}>
+                    <App />
+                </PagesContextProvider>
+            </SessionContextProvider>
         </AuthContextProvider>
 
     , document.getElementById('root'));

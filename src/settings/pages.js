@@ -1,12 +1,14 @@
 // Pages import
-import LandingPage from "../pages/LandingPage";
-import DecksPage from "../pages/DecksPage";
-import DeckCreate from "../pages/DeckCreate";
+import LandingPage from "../pages/landingPage";
+import LoginPage from "../pages/loginPage";
+import DecksPage from "../pages/decksPage";
+import DeckPage from '../pages/deckPage';
+import DeckCreate from "../pages/deckCreate";
+
 import CardsPage from "../pages/CardsPage";
 import ProfilePage from "../pages/ProfilePage";
 import GamersPage from "../pages/GamersPage";
 import ErrorPage from "../pages/ErrorPage";
-import LoginPage from "../pages/LoginPage";
 import SettingsDeckPage from "../pages/SettingsDeckPage";
 import AddingDeckPage from "../pages/AddingDeckPage";
 import ChoicePage from "../pages/ChoicePage";
@@ -59,7 +61,7 @@ const pages = {
             exact: true,
             strict: true,
             path: "/decks/:id",
-            component: ModifyDeckPage,
+            component: DeckPage,
         },
         {
             exact: true,

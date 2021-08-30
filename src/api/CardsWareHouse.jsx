@@ -10,7 +10,7 @@ async function getTypesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/types/all/${lang}`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/types/all/${lang.toUpperCase()}`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -24,7 +24,7 @@ async function getRaritiesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/rarities/all/${lang}`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/rarities/all/${lang.toUpperCase()}`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -38,7 +38,7 @@ async function getKingdomsList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/kingdoms/all/${lang}`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/kingdoms/all/${lang.toUpperCase()}`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -52,7 +52,7 @@ async function getExtensionsList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/extensions/all/${lang}`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/extensions/all/${lang.toUpperCase()}`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -66,7 +66,7 @@ async function getClassesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang}?name=m`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang.toUpperCase()}?name=m`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -80,7 +80,7 @@ async function getCapacitiesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang}?name=a`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang.toUpperCase()}?name=a`,settings);
     let datas = await response.json();
     return datas;
 }

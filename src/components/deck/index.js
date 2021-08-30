@@ -4,10 +4,11 @@ import Energy from './Energy';
 import Heading from './Heading';
 import Name from './Name';
 import KingdomLogo from './KingdomLogo';
+import "./Deck.css";
 
 function Deck({id, backgroundUrl,children}) {
     return (
-        <Link className="deck deck__link" to={`/decks/${id}`} style={{backgroundImage: `url(${backgroundUrl})`}}>
+        <Link className="deck deck__link" to={`/decks/${id}`} style={backgroundUrl ? {backgroundImage: `url(${backgroundUrl})`} : null}>
             {children}
         </Link>
     )

@@ -1,26 +1,35 @@
-.decks .heading{
+.heading{
+    position: fixed;
+    top:0;
+    left: 0;
+    right:0;
+    height: var(--header-height);
+    background-color: #222;
+}
+
+.heading,
+.heading .container{
     display: flex;
     justify-content: center;
-    margin:2vh 0;
     width:100%;
     color: white;
 }
 
-
-.decks .heading__pseudo,
-.decks .heading__counter{
-    width:35%;
+.heading__pseudo,
+.heading__counter{
+   width: calc(90% / 2 - 6vh);
+   font-size: 2.75vh;
 }
 
-.decks .heading__pseudo{
+.heading__pseudo{
     text-align: left;
 }
 
-.decks .heading__counter{
+.heading__counter{
     text-align: right;
 }
 
-.decks .heading__logo{
-    height: 11vh;
-    width:11vh;
+.heading__logo{
+    height: 8vh;
+    width: 8vh;
 }

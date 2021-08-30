@@ -9,12 +9,12 @@ const Button = forwardRef((props) => {
             type="button"
             className = {classes ? classes : "btn"}
             style={{
-                padding: padding ?? padding,
-                backgroundColor:bgcolor ?? bgcolor,
-                color:color ?? color,
-                width: size ?? size
+                padding: padding ? padding : null,
+                backgroundColor:bgcolor ? bgcolor : null,
+                color:color ? color : null,
+                width: size ? size : null
             }}
-            onClick={onClick ?? onClick}
+            onClick={onClick ? onClick : null}
         >
         {text}
         </button>
