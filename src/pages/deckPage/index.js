@@ -1,34 +1,62 @@
+//hooks imports
 import {useState, useLayoutEffect, useContext, useEffect, useRef} from 'react';
-import {BsDownload} from 'react-icons/bs';
+import {useParams} from "react-router-dom";
+
+//components import
 import Header from "../../components/heading";
 import ToolBox from "../../components/toolbox";
-import kingdomsDatas from "../../settings/kingdom";
 import ListContainer from '../../components/listContainer';
-import {SessionContext} from '../../contexts/SessionContext';
-import {hierarchy} from './settings';
-import {orderBy, merge, unionBy} from 'lodash';
-import './deckPage.css';
+import Popup from '../../components/popup';
 import {AiOutlinePlusCircle, AiOutlineEye,AiOutlineEyeInvisible} from "react-icons/ai";
-import {BsPencil} from "react-icons/bs"
-import {getOne} from "../../api/Decks";
-import {useParams} from "react-router-dom";
+import {BsPencil,BsDownload, BsUpload, BsBarChart} from "react-icons/bs";
+import {BiTrashAlt} from 'react-icons/bi';
+
+//datas import
+import kingdomsDatas from "../../settings/kingdom";
+import {hierarchy} from './settings';
+
+//contexts imports
+import {SessionContext} from '../../contexts/SessionContext';
+
+//utilities imports
+import {orderBy, merge, unionBy} from 'lodash';
+
+//services import
+import {getOne, deleteUserDeck} from "../../api/Decks";
+
+//styles import
+import './deckPage.css';
+
+//utils imports
+import {difference} from 'lodash';
 
 
 function DeckPage(props){
-
-    const [isOpen, setIsOpen] = useState(false);
+    //contexts
     const [session, setLanguage] = useContext(SessionContext);
+
+    //states
+    const [isOpen, setIsOpen] = useState(false);
     const [typeList, setTypeList] = useState()
-    const handleArrowClick = function(e){
-        setIsOpen(!isOpen)
-    }
     const [deck, setDeck] = useState({
         success: {},
         error: {}
     });
+    const [actionPopup, setActionPopup] = useState({
+        isOpen: false,
+        action: ""
+    });
+
+    // url params
     let {id} = useParams();
 
+    //refs
     let kingdomRef = useRef();
+
+    //handlers
+    const handleArrowClick = function(e){
+        setIsOpen(!isOpen)
+    }
 
     const handleLoad = (e) => {
         if(e.target.id === 'kingdom'){
@@ -36,6 +64,45 @@ function DeckPage(props){
         }
     }
 
+    const handleActions = (e) => {
+        e.preventDefault();
+        switch(e.target.id){
+            case 'import':
+                return setActionPopup({
+                    isOpen: true,
+                    action: 'import'
+                })
+            case 'export':
+                return setActionPopup({
+                    isOpen: true,
+                    action: 'export'
+                })
+            case 'delete':
+                return setActionPopup({
+                    isOpen: true,
+                    action: 'delete'
+                })
+            case 'average':
+                return setActionPopup({
+                    isOpen: true,
+                    action: 'average'
+                })
+            case 'cancel':
+                return setActionPopup({
+                    isOpen: false,
+                    action: ""
+                })
+            case 'confirm':
+                return setActionPopup({
+                    isOpen: false,
+                    action: [actionPopup.action, "confirm"]
+                })
+            default:
+                return;
+        }
+    }
+
+    //effects
     useEffect(async () => {
         let deckResponse = await getOne(id);
         if(deckResponse.code === 200){
@@ -85,8 +152,79 @@ function DeckPage(props){
         }
     },[session])
 
+    useEffect(async () => {
+        let response = "";
+
+        if(actionPopup.action instanceof Array){
+            if(difference(actionPopup.action,["delete","confirm"]).length === 0){
+                response = deleteUserDeck(id);
+                console.log(response)
+            }
+
+            if(difference(actionPopup.action,["export","confirm"]).length === 0){
+                console.log(actionPopup.action )
+            }
+
+            if(difference(actionPopup.action,["import","confirm"]).length === 0){
+                console.log(actionPopup.action )
+            }
+
+        }else if(actionPopup.action === "average"){
+            console.log(actionPopup.action)
+        }else{
+            return;
+        }
+        
+
+        if(response){
+            console.log(response)
+        }
+    },[actionPopup.action])
+
     return  (
             <div className="page page__deck container">
+                <Popup isOpen={actionPopup.isOpen} onClick={handleActions}>
+                    {actionPopup.action === "delete" &&   
+                        <>
+                            <Popup.Title text="SUPPRIMER"/>
+                            <Popup.Text text={`Voulez-vous vraiment supprimer ${deck.success.deck_name} ?`}/>
+                            <Popup.Group>
+                                <Popup.Button id="confirm" text="confirmer"/>
+                                <Popup.Button id="cancel" text="annuler"/>
+                            </Popup.Group>
+                        </>
+                    }
+                    {actionPopup.action === 'import' &&   
+                        <>
+                            <Popup.Title text="IMPORTER"/>
+                            <Popup.Text text={`Voulez-vous importer ${deck.success.deck_name} ?`}/>
+                            <Popup.Group>
+                                <Popup.Button id="confirm" text="confirmer"/>
+                                <Popup.Button id="cancel" text="annuler"/>
+                            </Popup.Group>
+                        </>
+                    }
+                    {actionPopup.action === 'export' &&   
+                        <>
+                            <Popup.Title text="EXPORTER"/>
+                            <Popup.Text text={`Voulez-vous exporter ${deck.success.deck_name} ?`}/>
+                            <Popup.Group>
+                                <Popup.Button id="confirm" text="confirmer"/>
+                                <Popup.Button id="cancel" text="annuler"/>
+                            </Popup.Group>
+                        </>
+                    }
+                    {actionPopup.action === 'average' &&   
+                        <>
+                            <Popup.Title text="COUT ENERGY CELESTE"/>
+                            <Popup.Text text={`Voulez-vous la moyenne de ${deck.success.deck_name} ?`}/>
+                            <Popup.Group>
+                                <Popup.Button id="confirm" text="confirmer"/>
+                                <Popup.Button id="cancel" text="annuler"/>
+                            </Popup.Group>
+                        </>
+                    }
+                </Popup>
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
                 </Header>
@@ -140,16 +278,16 @@ function DeckPage(props){
                         }
                     </ListContainer>
                 )}
-                <ToolBox isOpen={isOpen}>
+                <ToolBox isOpen={isOpen} onClick={handleActions}>
                     <ToolBox.Top isOpen={isOpen} title="options" onClick={handleArrowClick}/>
                     <ToolBox.Content>
                         <ToolBox.Row>
-                            <ToolBox.Action icon={BsDownload}/>
-                            <ToolBox.Action icon={BsDownload}/>
+                            <ToolBox.Action id="import" icon={BsUpload} text="IMPORT"/>
+                            <ToolBox.Action id="export" icon={BsDownload} text="EXPORT"/>
                         </ToolBox.Row>
                         <ToolBox.Row>
-                            <ToolBox.Action icon={BsDownload}/>
-                            <ToolBox.Action icon={BsDownload}/>
+                            <ToolBox.Action id="average" icon={BsBarChart}/>
+                            <ToolBox.Action id="delete" icon={BiTrashAlt}/>
                         </ToolBox.Row>
                     </ToolBox.Content>
                 </ToolBox>

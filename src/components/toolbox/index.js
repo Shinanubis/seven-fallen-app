@@ -4,9 +4,9 @@ import Content from './Content';
 import Row from './Row';
 import './toolbox.css';
 
-function ToolBox({children, isOpen}) {
+function ToolBox({children, isOpen, onClick}) {
     return (
-        <div className={isOpen ? "toolbox open" : "toolbox"}>
+        <div className={isOpen ? "toolbox open" : "toolbox"} onClick={onClick ? onClick : null}>
             {children}
         </div>
     );

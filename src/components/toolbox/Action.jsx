@@ -1,10 +1,11 @@
 import {MdKeyboardArrowDown} from 'react-icons/md';
 
-function Action({icon}) {
+function Action({id,icon,text}) {
     const Icon = icon && icon;
     return (
-        <div className="toolbox__action">
+        <div id={id} className="toolbox__action">
             {icon ? <Icon/> : <MdKeyboardArrowDown/>}
+            {text && <p className="toolbox__action--text">{text}</p>}
         </div>
     )
 }

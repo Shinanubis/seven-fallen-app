@@ -1,0 +1,4 @@
+const REMOVE_DECK = 'REMOVE_DECK';
+const ADD_DECK = 'ADD_DECK';
+
+export {REMOVE_DECK, ADD_DECK};

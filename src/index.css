@@ -43,7 +43,7 @@ section {
 	box-sizing: border-box;
 }
 
-*{
+*:not(input){
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

@@ -83,6 +83,17 @@
     font-size: 3vh;
 }
 
+.toolbox__action > * {
+    pointer-events: none;
+}
+
+.toolbox__action--text{
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-left: 4vw;
+    font-size: 1.75vh;
+}
+
 .toolbox__action,
 .toolbox__action:active{
     transition: background-color 100ms ease;
