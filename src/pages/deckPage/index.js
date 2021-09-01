@@ -1,12 +1,13 @@
 //hooks imports
 import {useState, useLayoutEffect, useContext, useEffect, useRef} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 
 //components import
 import Header from "../../components/heading";
 import ToolBox from "../../components/toolbox";
 import ListContainer from '../../components/listContainer';
 import Popup from '../../components/popup';
+import Flash from '../../components/flashMessage';
 import {AiOutlinePlusCircle, AiOutlineEye,AiOutlineEyeInvisible} from "react-icons/ai";
 import {BsPencil,BsDownload, BsUpload, BsBarChart} from "react-icons/bs";
 import {BiTrashAlt} from 'react-icons/bi';
@@ -22,13 +23,13 @@ import {SessionContext} from '../../contexts/SessionContext';
 import {orderBy, merge, unionBy} from 'lodash';
 
 //services import
-import {getOne, deleteUserDeck} from "../../api/Decks";
+import {getOne, deleteUserDeck, updateOne} from "../../api/Decks";
 
 //styles import
 import './deckPage.css';
 
 //utils imports
-import {difference} from 'lodash';
+import {difference, debounce} from 'lodash';
 
 
 function DeckPage(props){
@@ -42,16 +43,22 @@ function DeckPage(props){
         success: {},
         error: {}
     });
+    const [flash, setFlash] = useState({
+        success: "",
+        error: ""
+    });
     const [actionPopup, setActionPopup] = useState({
         isOpen: false,
         action: ""
     });
 
-    // url params
+    // hooks
     let {id} = useParams();
+    let history = useHistory();
 
     //refs
     let kingdomRef = useRef();
+    let deckNameRef = useRef();
 
     //handlers
     const handleArrowClick = function(e){
@@ -63,6 +70,57 @@ function DeckPage(props){
             kingdomRef.current.classList.remove('d-none');
         }
     }
+
+    const handleRedirect = (url) => {
+        history.push(url)
+    }
+
+    const handleInputPopupChange = function(e){
+        console.log(e.target.value)
+    }
+    
+    const handleInfosChanges = debounce(async (e) => {
+        e.preventDefault();
+
+        let response = "";
+
+        if(e.target.id === "is-hidden" && deck.success.is_visible === false){
+            return;
+        }
+
+        if(e.target.id === "is-visible" && deck.success.is_visible === true){
+            return;
+        }
+
+        if(e.target.id === "is-visible" && deck.success.is_visible === false){
+            if(deck.success){
+                response = await updateOne({...deck.success, is_visible: true}, id);
+            }
+        }
+
+        if(e.target.id === "deck_name"){
+            setActionPopup({
+                    isOpen: true,
+                    action: 'deck_name'
+            })
+        }
+
+        if(e.target.id === "is-hidden" && deck.success.is_visible === true){
+            if(deck.success){
+                response = await updateOne({...deck.success, is_visible: false}, id);
+            }
+        }
+
+        if(response && response.code === 200){
+            return setDeck({
+                ...deck,
+                success: {
+                    ...deck.success,
+                    is_visible: response.message[0].is_visible
+                }
+            })
+        }
+    },200);
 
     const handleActions = (e) => {
         e.preventDefault();
@@ -106,11 +164,15 @@ function DeckPage(props){
     useEffect(async () => {
         let deckResponse = await getOne(id);
         if(deckResponse.code === 200){
-            setDeck({...deck, success: deckResponse.message})
+            setDeck({...deck, success: deckResponse.message});
         }else{
-            setDeck({...deck, error: deckResponse.message})
+            setDeck({...deck, error: deckResponse.message});
         }
     }, [])
+
+    useEffect(() => {
+        console.log(deck)
+    }, [deck])
 
     useEffect(() => {
         let result = ''
@@ -156,26 +218,44 @@ function DeckPage(props){
         let response = "";
 
         if(actionPopup.action instanceof Array){
+
             if(difference(actionPopup.action,["delete","confirm"]).length === 0){
-                response = deleteUserDeck(id);
-                console.log(response)
+                response = await deleteUserDeck(id);
+                if(response && response.code === 200){
+                    setFlash({
+                        ...flash,
+                        success: response.message
+                    });
+                }else{
+                    setFlash({
+                        ...flash,
+                        error: response.message
+                    });
+                }
             }
 
             if(difference(actionPopup.action,["export","confirm"]).length === 0){
-                console.log(actionPopup.action )
+                console.log(actionPopup.action);
             }
 
             if(difference(actionPopup.action,["import","confirm"]).length === 0){
-                console.log(actionPopup.action )
+                console.log(actionPopup.action);
+            }
+
+            if(difference(actionPopup.action,["deck_name","confirm"]).length === 0){
+                console.log(deck.success)
+                response = await updateOne(deck.success, id);
+                if(response && response.code === 200){
+                    console.log(response)
+                }
             }
 
         }else if(actionPopup.action === "average"){
-            console.log(actionPopup.action)
+            console.log(actionPopup.action);
         }else{
             return;
         }
         
-
         if(response){
             console.log(response)
         }
@@ -224,26 +304,56 @@ function DeckPage(props){
                             </Popup.Group>
                         </>
                     }
+                    {actionPopup.action === 'deck_name' && 
+                        <>
+                                <Popup.Group>
+                                    <input 
+                                        className="popup__input--field"
+                                        type="text"
+                                        placeholder="Entrez le nom"
+                                        onChange={handleInputPopupChange}
+                                        value={deck.success && deck.success.deck_name} 
+                                    />
+                                </Popup.Group>
+                                <Popup.Group>
+                                    <Popup.Button id="confirm" text="ok"/>
+                                    <Popup.Button id="cancel" text="annuler"/>
+                                </Popup.Group>
+                        </>
+                    }
                 </Popup>
+                <Flash 
+                    success={flash.success} 
+                    error={flash.error} 
+                    setFlash={setFlash} 
+                    redirect={true}
+                    redirectCallback={() => handleRedirect("/decks")} 
+                />
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
                 </Header>
                 {deck.success &&
-                    <div ref={kingdomRef} className="deck__infos d-none" onLoad={handleLoad}> 
+                    <div ref={kingdomRef} className="deck__infos d-none" onLoad={handleLoad} onClick={handleInfosChanges}> 
                         <div className="deck__infos--group">
-                            <h2 className="deck__infos--name">
+                            <h2 id="deck_name" className="deck__infos--name">
                                 {deck.success.deck_name}
                             </h2>
                             <BsPencil className="deck__infos--icon"/>
                         </div>
                         <div className="deck__infos--group">
-                            <div className="deck__infos--kingdom">
-                                {deck.success.kingdom && <img id="kingdom" className="icon" src={kingdomsDatas[deck.success.kingdom].icon_url} alt="kingdom logo"/>}
+                            <div id={`kingdom-${deck.success.kingdom}`} className="deck__infos--kingdom">
+                                {deck.success.kingdom && 
+                                    <img id="kingdom" 
+                                         className="icon" 
+                                         src={kingdomsDatas[deck.success.kingdom].icon_url} 
+                                         alt="kingdom logo"
+                                    />
+                                }
                                 <BsPencil className="deck__infos--icon"/>
                             </div>
                             <div className="deck__infos--visibility">
-                                <AiOutlineEyeInvisible className="icon is-visible"/>
-                                <AiOutlineEye className="icon is-hidden"/>
+                                <AiOutlineEyeInvisible id="is-hidden" className={deck.success.is_visible === false ? "icon is-hidden" : "icon"}/>
+                                <AiOutlineEye id="is-visible" className={deck.success.is_visible === true ? "icon is-visible" : "icon"}/>
                             </div>
                         </div>
                     </div>

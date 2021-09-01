@@ -85,18 +85,20 @@ async function createUserDeck(form){
     return datas;
 }
 
-async function updateOne(form, id){
+async function updateOne(newDatas, id){
+        let form = new FormData();
+        let settings = {
+            method: 'PATCH',
+            credentials: 'include',
+            body: form
+        };
 
-    let settings = {
-        method: 'PATCH',
-        credentials: 'include',
-        body: form
-    };
-
-    let response = await fetch(`https://test-seven.site/api/decks/update/${id}`, settings);
-    let datas = await response.json();
-    return datas;
-
+        Object.keys(newDatas).map(elmt => {
+             form.append(elmt, newDatas[`${elmt}`]);
+        });
+        let response = await fetch(`https://test-seven.site/api/decks/update/${id}`, settings);
+        let datas = await response.json();
+        return datas;
 }
 
 async function deleteUserDeck(id){

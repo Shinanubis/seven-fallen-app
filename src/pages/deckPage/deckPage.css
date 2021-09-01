@@ -12,13 +12,13 @@
 
 .page__deck .deck__infos{
     font-family: "Oswald";
-    width: 45%;
+    width: 50%;
     margin-bottom: 3vh;
 }
 
 .page__deck .deck__infos--group{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     line-height: 0.9;
 }
@@ -28,19 +28,25 @@
 }
 
 .page__deck .deck__infos--name{
+    margin-right: 2vw;
     color: white;
     font-size: 2.25vh;
     text-transform: uppercase;
     font-weight: 400;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .page__deck .deck__infos--kingdom{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     width:50%;
-    cursor: pointer
+    cursor: pointer;
+}
+
+.page__deck .deck__infos--kingdom img,
+.page__deck .deck__infos--kingdom svg{
+    pointer-events: none;
 }
 
 .page__deck .deck__infos--visibility{
@@ -53,6 +59,17 @@
 .page__deck .deck__infos--visibility .icon{
     font-size: 3.5vh;
     cursor:pointer;
+    pointer-events: auto;
+}
+
+.page__deck .deck__infos--visibility .icon.is-visible{
+    color: var(--success);
+    stroke: var(--success);
+}
+
+.page__deck .deck__infos--visibility .icon.is-hidden{
+    color: var(--error);
+    stroke: var(--error);
 }
 
 .page__deck .deck__infos--visibility .icon:not(:last-child){
@@ -61,12 +78,17 @@
 
 .page__deck .deck__infos--kingdom .icon{
     height: 5.5vh;
+    margin-right: 2vw;
 }
 
 .page__deck .deck__infos--icon{
     color: #707070;
     font-size: 2.25vh;
-    cursor: pointer;
+}
+
+.page__deck .deck__infos--icon,
+.page__deck .deck__infos--icon path{
+    pointer-events: none;
 }
 
 .page__deck .list__item:not(:last-child){

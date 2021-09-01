@@ -1,6 +1,8 @@
+//hooks
 import {useState, useEffect, useContext} from 'react'
 import {useTranslation} from 'react-i18next';
 import useOrderBy from '../../hooks/useOrderBy';
+import {useHistory} from 'react-router-dom';
 
 /*components*/
 import CreateDeckForm from "../../components/createDeckForm";
@@ -23,6 +25,8 @@ import kingdomsDatas from '../../settings/kingdom.js';
 
 
 function DeckCreate(props){
+
+    //states
     const [flashIsVisible, setFlashIsVisible] = useState({
         success: "",
         error: "",
@@ -33,11 +37,22 @@ function DeckCreate(props){
         kingdom: 0
     });
     const [dropdownTitle, setDropdownTitle] = useState("")
+
+    //hooks
     const {t} = useTranslation();
     const [session, setLanguage] = useContext(SessionContext);
+    let history = useHistory();
 
     //replace french name by aother language
     let orderedKingdoms = useOrderBy(session.kingdoms, 'name', 'asc');
+
+    //handlers
+    const handleRedirect = (url) => {
+        if(url){
+            return history.push(url);
+        }
+        return;
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -58,6 +73,7 @@ function DeckCreate(props){
         }
         
         if(responseCreate && responseCreate.code == 200){
+            console.log(responseCreate)
             return setFlashIsVisible({
                         ...flashIsVisible, 
                         success: t("flash.success", {name: responseCreate.message[0].deck_name}), 
@@ -103,7 +119,13 @@ function DeckCreate(props){
             <Header>
                 <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
             </Header>
-            <Flash success={flashIsVisible.success} error={flashIsVisible.error} setFlash={setFlashIsVisible}/>
+            <Flash 
+                success={flashIsVisible.success} 
+                error={flashIsVisible.error} 
+                setFlash={setFlashIsVisible}
+                redirect={true}
+                redirectCallback={() => handleRedirect('/decks')}
+            />
             <CreateDeckForm>
                 <CreateDeckForm.Title text={t("new deck")}/>
                 <CreateDeckForm.Name 

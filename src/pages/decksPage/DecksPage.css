@@ -4,8 +4,8 @@
 
 .decks__list--container{
     width: 90%;
-    min-height: 67vh;
-    margin-top: 22vh;
+    max-height: 67vh;
+    margin-top: calc((var(--header-height) + 5vh));
     overflow-y: scroll;
 }
 

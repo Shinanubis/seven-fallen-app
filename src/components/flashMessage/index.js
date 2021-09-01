@@ -3,7 +3,7 @@ import {useEffect, useRef,useState} from 'react';
 import { AiOutlineWarning } from "react-icons/ai";
 import { GrValidate } from "react-icons/gr";
 
-function Flash({success, error, setFlash}){
+function Flash({success, error, setFlash, redirect, redirectCallback}){
     const Warning = AiOutlineWarning;
     const Valid = GrValidate;
 
@@ -26,8 +26,11 @@ function Flash({success, error, setFlash}){
     }
 
     timer = setTimeout(() => {
-        setFlash({error: "", success:""})
-    },1500)
+        if(redirect === true && success){
+          redirectCallback();
+        }
+        setFlash({error: "", success:""});
+    },1500);
 
     return () => {
         clearTimeout(timer)
