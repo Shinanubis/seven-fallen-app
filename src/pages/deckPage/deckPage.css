@@ -33,7 +33,7 @@
     font-size: 2.25vh;
     text-transform: uppercase;
     font-weight: 400;
-    cursor: pointer;
+    pointer-events: none;
 }
 
 .page__deck .deck__infos--kingdom{
@@ -134,3 +134,33 @@
    stroke: #505050;
    font-size: 4vh;
 }
+
+.page__deck .popup__label > img{
+    height: 6vh;
+    margin-right: 2vh;
+}
+
+.page__deck .popup__label--text{
+    font-size: 2.75vh;
+    font-weight: 200;
+}
+
+.page__deck .popup__inner--group{
+    display: flex;
+    justify-content: space-between;
+    width: 61vw;
+}
+
+.page__deck .popup__group.radio{
+    margin-bottom: 2.5vh;
+}
+
+.page__deck .popup__form{
+    height: 100%;
+    width: 100%;
+}
+
+.page__deck .popup__form > *:last-child{
+    margin-top: 6vh; 
+}
+

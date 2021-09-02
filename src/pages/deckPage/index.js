@@ -51,6 +51,7 @@ function DeckPage(props){
         isOpen: false,
         action: ""
     });
+    const [popupInputField, setPopupInputField] = useState("")
 
     // hooks
     let {id} = useParams();
@@ -75,8 +76,13 @@ function DeckPage(props){
         history.push(url)
     }
 
-    const handleInputPopupChange = function(e){
-        console.log(e.target.value)
+    const handleInputPopupChange = debounce(function(text){
+        setPopupInputField(text);
+    }, 300);
+
+    const handleInputRadioChange = function(e){
+        e.preventDefault();
+        setPopupInputField(e.target.value);
     }
     
     const handleInfosChanges = debounce(async (e) => {
@@ -105,6 +111,13 @@ function DeckPage(props){
             })
         }
 
+        if(e.target.id === "kingdom"){
+            setActionPopup({
+                isOpen: true,
+                action: "kingdom"
+            })
+        }
+
         if(e.target.id === "is-hidden" && deck.success.is_visible === true){
             if(deck.success){
                 response = await updateOne({...deck.success, is_visible: false}, id);
@@ -123,7 +136,7 @@ function DeckPage(props){
     },200);
 
     const handleActions = (e) => {
-        e.preventDefault();
+
         switch(e.target.id){
             case 'import':
                 return setActionPopup({
@@ -171,10 +184,12 @@ function DeckPage(props){
     }, [])
 
     useEffect(() => {
-        console.log(deck)
+        console.log("[useEffect] => deck",deck)
     }, [deck])
 
     useEffect(() => {
+
+        /* set the object in order to make a ordered list */ 
         let result = ''
         if(session.types.length > 0){
             //merge objects
@@ -226,11 +241,6 @@ function DeckPage(props){
                         ...flash,
                         success: response.message
                     });
-                }else{
-                    setFlash({
-                        ...flash,
-                        error: response.message
-                    });
                 }
             }
 
@@ -242,11 +252,29 @@ function DeckPage(props){
                 console.log(actionPopup.action);
             }
 
-            if(difference(actionPopup.action,["deck_name","confirm"]).length === 0){
-                console.log(deck.success)
-                response = await updateOne(deck.success, id);
+            if(difference(actionPopup.action, ["kingdom", "confirm"].length === 0)){
+                response = await updateOne({...deck.success, kingdom: popupInputField}, id);
                 if(response && response.code === 200){
-                    console.log(response)
+                    setDeck({
+                        ...deck,
+                        success:{
+                            ...deck.success,
+                            kingdom: response.message[0].kingdom
+                        }
+                    })
+                }
+            }
+
+            if(difference(actionPopup.action,["deck_name","confirm"]).length === 0){
+                response = await updateOne({...deck.success, deck_name: popupInputField}, id);
+                if(response && response.code === 200){
+                    setDeck({
+                        ...deck,
+                        success: {
+                            ...deck.success,
+                            deck_name: response.message[0].deck_name
+                        }
+                    })
                 }
             }
 
@@ -255,10 +283,14 @@ function DeckPage(props){
         }else{
             return;
         }
-        
-        if(response){
-            console.log(response)
+
+        if(response && response.code !== 200){
+            setFlash({
+                ...flash,
+                error: response.message
+            });
         }
+        
     },[actionPopup.action])
 
     return  (
@@ -307,19 +339,55 @@ function DeckPage(props){
                     {actionPopup.action === 'deck_name' && 
                         <>
                                 <Popup.Group>
-                                    <input 
-                                        className="popup__input--field"
-                                        type="text"
+                                    <Popup.InputText
                                         placeholder="Entrez le nom"
-                                        onChange={handleInputPopupChange}
-                                        value={deck.success && deck.success.deck_name} 
+                                        onChange = {handleInputPopupChange}
                                     />
                                 </Popup.Group>
                                 <Popup.Group>
-                                    <Popup.Button id="confirm" text="ok"/>
+                                    <Popup.Button id="confirm" text="confirmer"/>
                                     <Popup.Button id="cancel" text="annuler"/>
                                 </Popup.Group>
                         </>
+                    }
+                    {actionPopup.action === 'kingdom' && 
+                        <form className="popup__form" onChange={handleInputRadioChange}>
+                                {session.kingdoms &&
+                                    session.kingdoms.map(elmt => {
+                                        return (
+                                            <Popup.Group classes="popup__group radio">
+                                                <div className="popup__inner--group">
+                                                    <Popup.Label htmlFor={elmt.id}>
+                                                        <img className="icon" 
+                                                             src={kingdomsDatas[elmt.id].icon_url}
+                                                             alt="kingdom logo"
+                                                        />
+                                                        <p className="popup__label--text">{elmt.name}</p>
+                                                    </Popup.Label>
+                                                    {elmt.id === deck.success.kingdom ?
+                                                        <Popup.InputRadio 
+                                                                id={elmt.id} 
+                                                                name="kingdom" 
+                                                                value={elmt.id}
+                                                                checked={elmt.id === deck.success.kingdom} 
+                                                        />
+                                                        :
+                                                        <Popup.InputRadio 
+                                                                id={elmt.id} 
+                                                                name="kingdom" 
+                                                                value={elmt.id}
+                                                        />
+                                                    }
+                                                </div>
+                                            </Popup.Group>
+                                        )
+                                    })
+                                }
+                                <Popup.Group>
+                                    <Popup.Button id="confirm" text="confirmer"/>
+                                    <Popup.Button id="cancel" text="annuler"/>
+                                </Popup.Group>
+                        </form>
                     }
                 </Popup>
                 <Flash 
@@ -334,14 +402,14 @@ function DeckPage(props){
                 </Header>
                 {deck.success &&
                     <div ref={kingdomRef} className="deck__infos d-none" onLoad={handleLoad} onClick={handleInfosChanges}> 
-                        <div className="deck__infos--group">
-                            <h2 id="deck_name" className="deck__infos--name">
+                        <div id="deck_name" className="deck__infos--group">
+                            <h2 className="deck__infos--name">
                                 {deck.success.deck_name}
                             </h2>
                             <BsPencil className="deck__infos--icon"/>
                         </div>
                         <div className="deck__infos--group">
-                            <div id={`kingdom-${deck.success.kingdom}`} className="deck__infos--kingdom">
+                            <div id="kingdom" className="deck__infos--kingdom">
                                 {deck.success.kingdom && 
                                     <img id="kingdom" 
                                          className="icon" 

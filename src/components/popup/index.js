@@ -4,6 +4,8 @@ import Group from './Group';
 import Text from './Text';
 import Button from './Button';
 import InputText from './InputText';
+import InputRadio from './InputRadio';
+import Label from './Label';
 import './style.css';
 
 function Popup({children, isOpen, onClick}){
@@ -16,6 +18,8 @@ function Popup({children, isOpen, onClick}){
     )
 }
 
+Popup.Label = Label;
+Popup.InputRadio = InputRadio;
 Popup.InputText = InputText;
 Popup.Title = Title;
 Popup.Group = Group;

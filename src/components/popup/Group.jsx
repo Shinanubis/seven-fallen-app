@@ -1,6 +1,6 @@
-function Group({children}) {
+function Group({children, classes}) {
     return (
-        <div className="popup__group">
+        <div className={classes ? classes : "popup__group"}>
             {children}
         </div>
     )
