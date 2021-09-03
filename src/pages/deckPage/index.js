@@ -20,16 +20,15 @@ import {hierarchy} from './settings';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utilities imports
-import {orderBy, merge, unionBy} from 'lodash';
+import {orderBy, merge, unionBy,difference, debounce} from 'lodash';
+import mod from '../../utilities/utils';
 
 //services import
 import {getOne, deleteUserDeck, updateOne} from "../../api/Decks";
+import {getExport} from "../../api/Export";
 
 //styles import
 import './deckPage.css';
-
-//utils imports
-import {difference, debounce} from 'lodash';
 
 
 function DeckPage(props){
@@ -52,6 +51,11 @@ function DeckPage(props){
         action: ""
     });
     const [popupInputField, setPopupInputField] = useState("")
+    const [popupInputRadioField, setPopupInputRadioField] = useState(deck.success.kingdom);
+    const [exportReady, setExportReady] = useState({
+        isReady: false,
+        datas: ""
+    });
 
     // hooks
     let {id} = useParams();
@@ -81,8 +85,8 @@ function DeckPage(props){
     }, 300);
 
     const handleInputRadioChange = function(e){
-        e.preventDefault();
-        setPopupInputField(e.target.value);
+        setDeck({...deck, success: {...deck.success, kingdom: e.target.id}})
+        setPopupInputRadioField(e.target.value);
     }
     
     const handleInfosChanges = debounce(async (e) => {
@@ -158,6 +162,11 @@ function DeckPage(props){
                     isOpen: true,
                     action: 'average'
                 })
+            case 'download': 
+                return setActionPopup({
+                    isOpen: true,
+                    action: [actionPopup.action, "download"]
+                })
             case 'cancel':
                 return setActionPopup({
                     isOpen: false,
@@ -171,6 +180,12 @@ function DeckPage(props){
             default:
                 return;
         }
+    }
+
+    const handleExport = function(e, datasToExport, callback){
+        e.preventDefault();
+        e.stopPropagation();
+        return callback(datasToExport);
     }
 
     //effects
@@ -237,25 +252,28 @@ function DeckPage(props){
             if(difference(actionPopup.action,["delete","confirm"]).length === 0){
                 response = await deleteUserDeck(id);
                 if(response && response.code === 200){
-                    setFlash({
+                    return setFlash({
                         ...flash,
                         success: response.message
                     });
                 }
             }
 
-            if(difference(actionPopup.action,["export","confirm"]).length === 0){
-                console.log(actionPopup.action);
+            if(difference(actionPopup.action,["export","download"]).length === 0){
+                response = await getExport(id);
+                if(response && response.code === 200){
+                    setExportReady(response);
+                } 
             }
 
             if(difference(actionPopup.action,["import","confirm"]).length === 0){
-                console.log(actionPopup.action);
+                return console.log(actionPopup.action);
             }
 
-            if(difference(actionPopup.action, ["kingdom", "confirm"].length === 0)){
-                response = await updateOne({...deck.success, kingdom: popupInputField}, id);
+            if(difference(actionPopup.action, ["kingdom", "confirm"]).length === 0){
+                response = await updateOne({...deck.success}, id);
                 if(response && response.code === 200){
-                    setDeck({
+                    return setDeck({
                         ...deck,
                         success:{
                             ...deck.success,
@@ -265,10 +283,20 @@ function DeckPage(props){
                 }
             }
 
+            if(difference(["export", "download"],actionPopup.action).length === 0){
+                response = await getExport(id);
+                if(response && response.code === 200){
+                    return setExportReady({
+                        isReady: true,
+                        datas: {...response.message}
+                    });
+                }
+            }
+
             if(difference(actionPopup.action,["deck_name","confirm"]).length === 0){
                 response = await updateOne({...deck.success, deck_name: popupInputField}, id);
                 if(response && response.code === 200){
-                    setDeck({
+                    return setDeck({
                         ...deck,
                         success: {
                             ...deck.success,
@@ -279,13 +307,14 @@ function DeckPage(props){
             }
 
         }else if(actionPopup.action === "average"){
-            console.log(actionPopup.action);
+            return console.log(actionPopup.action);
         }else{
             return;
         }
 
         if(response && response.code !== 200){
-            setFlash({
+
+            return setFlash({
                 ...flash,
                 error: response.message
             });
@@ -316,12 +345,24 @@ function DeckPage(props){
                             </Popup.Group>
                         </>
                     }
+                    {difference(['export','download'], actionPopup.action).length === 0 &&   
+                        <>
+                            <Popup.Title text="EXPORTER"/>
+                            <Popup.Text text={`Voulez-vous exporter ${deck.success.deck_name} ?`}/>
+                            {exportReady.isReady === true && 
+                                <Popup.Group>
+                                    <Popup.Button id="ready" text="ready" onClick={(e) => handleExport(e, exportReady.datas, mod.exportToFile)}/>
+                                    <Popup.Button id="cancel" text="annuler"/>
+                                </Popup.Group>
+                            }
+                        </>
+                    }
                     {actionPopup.action === 'export' &&   
                         <>
                             <Popup.Title text="EXPORTER"/>
                             <Popup.Text text={`Voulez-vous exporter ${deck.success.deck_name} ?`}/>
                             <Popup.Group>
-                                <Popup.Button id="confirm" text="confirmer"/>
+                               <Popup.Button id="download" text="download"/>
                                 <Popup.Button id="cancel" text="annuler"/>
                             </Popup.Group>
                         </>
@@ -400,33 +441,33 @@ function DeckPage(props){
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
                 </Header>
-                {deck.success &&
-                    <div ref={kingdomRef} className="deck__infos d-none" onLoad={handleLoad} onClick={handleInfosChanges}> 
-                        <div id="deck_name" className="deck__infos--group">
-                            <h2 className="deck__infos--name">
-                                {deck.success.deck_name}
-                            </h2>
+                {deck.success && 
+                <div ref={kingdomRef} className="deck__infos d-none" onLoad={handleLoad} onClick={handleInfosChanges}> 
+                    <div id="deck_name" className="deck__infos--group">
+                        <h2 className="deck__infos--name">
+                            {deck.success.deck_name}
+                        </h2>
+                        <BsPencil className="deck__infos--icon"/>
+                    </div>
+                    <div className="deck__infos--group">
+                        <div id="kingdom" className="deck__infos--kingdom">
+                            {deck.success.kingdom && 
+                                <img id="kingdom" 
+                                     className="icon" 
+                                     src={kingdomsDatas[deck.success.kingdom].icon_url} 
+                                     alt="kingdom logo"
+                                />
+                            }
                             <BsPencil className="deck__infos--icon"/>
                         </div>
-                        <div className="deck__infos--group">
-                            <div id="kingdom" className="deck__infos--kingdom">
-                                {deck.success.kingdom && 
-                                    <img id="kingdom" 
-                                         className="icon" 
-                                         src={kingdomsDatas[deck.success.kingdom].icon_url} 
-                                         alt="kingdom logo"
-                                    />
-                                }
-                                <BsPencil className="deck__infos--icon"/>
-                            </div>
-                            <div className="deck__infos--visibility">
-                                <AiOutlineEyeInvisible id="is-hidden" className={deck.success.is_visible === false ? "icon is-hidden" : "icon"}/>
-                                <AiOutlineEye id="is-visible" className={deck.success.is_visible === true ? "icon is-visible" : "icon"}/>
-                            </div>
+                        <div className="deck__infos--visibility">
+                            <AiOutlineEyeInvisible id="is-hidden" className={deck.success.is_visible === false ? "icon is-hidden" : "icon"}/>
+                            <AiOutlineEye id="is-visible" className={deck.success.is_visible === true ? "icon is-visible" : "icon"}/>
                         </div>
                     </div>
+                </div>
                 }
-                {typeList && (
+                {typeList && 
                     <ListContainer>
                         {
                             typeList.map((elmt, index) => {
@@ -455,7 +496,7 @@ function DeckPage(props){
                             })
                         }
                     </ListContainer>
-                )}
+                }
                 <ToolBox isOpen={isOpen} onClick={handleActions}>
                     <ToolBox.Top isOpen={isOpen} title="options" onClick={handleArrowClick}/>
                     <ToolBox.Content>

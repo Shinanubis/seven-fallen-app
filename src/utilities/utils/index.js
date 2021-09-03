@@ -44,8 +44,30 @@ let mod = (function () {
     Object.values(newObj).map((elmt) => newArray.push(elmt));
     return newArray;
   };
+
+  const exportToFile = function(datas){
+    let cleanDatas = JSON.stringify(datas);
+
+    //create a blob to transform text to bytes
+    let blob = new Blob([cleanDatas], {type: 'application/json'});
+
+    //transform blob in url object
+    const url = URL.createObjectURL(blob);
+
+    //create a link with download and href attributes
+    let elmt = document.createElement("a");
+    elmt.href = url;
+    elmt.download = 'default.json';
+
+    elmt.click();
+    elmt.remove();
+
+    return true;
+  }
+
   return {
-    sortArrayOfObject
+    sortArrayOfObject,
+    exportToFile
   };
 })();
 

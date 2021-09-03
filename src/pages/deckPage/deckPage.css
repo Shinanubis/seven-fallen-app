@@ -151,13 +151,22 @@
     width: 61vw;
 }
 
-.page__deck .popup__group.radio{
+.page__deck .popup__group,
+.page__deck .popup__title {
     margin-bottom: 2.5vh;
+}
+
+.page__deck .popup__text{
+    margin-bottom: 4vh;
 }
 
 .page__deck .popup__form{
     height: 100%;
     width: 100%;
+}
+
+.page__deck .popup > *:last-child{
+    margin: 0;
 }
 
 .page__deck .popup__form > *:last-child{
