@@ -1,3 +1,5 @@
+import {difference, orderBy , merge} from 'lodash';
+
 let mod = (function () {
 
   const sortArrayOfObject = function (array = [], elmtToOrder) {
@@ -45,9 +47,8 @@ let mod = (function () {
     return newArray;
   };
 
-  const exportToFile = function(datas){
+  const exportToFile = function(datas, elmtToClick){
     let cleanDatas = JSON.stringify(datas);
-
     //create a blob to transform text to bytes
     let blob = new Blob([cleanDatas], {type: 'application/json'});
 
@@ -61,13 +62,42 @@ let mod = (function () {
 
     elmt.click();
     elmt.remove();
+    elmtToClick.click();
 
     return true;
   }
 
+  const includesAll = function(valueToCompare1, valueToCompare2){
+    return difference(valueToCompare1,valueToCompare2).length === 0;
+  }
+
+  const mergeAndOrder = function (obj1, obj2, orderOfEach, endOrder) {
+  return orderBy(
+      merge(orderBy(obj1, orderOfEach), orderBy(obj2, orderOfEach)),
+      endOrder
+    );
+  }
+
+  //take an array of object and return an array with the same objects
+  const rowMakerBy = function(arr, by){
+    let newResult = [];
+    arr.map((elmt, index) => {
+                if(index > 0 && index < arr.length - 1){   
+                    if(arr[index].order === arr[index - 1][by]){
+                        newResult.push(arr[index - 1]);
+                        newResult.push(elmt)
+                    }     
+                }
+              });
+    return newResult;
+  };
+
   return {
     sortArrayOfObject,
-    exportToFile
+    exportToFile,
+    includesAll,
+    mergeAndOrder,
+    rowMakerBy
   };
 })();
 

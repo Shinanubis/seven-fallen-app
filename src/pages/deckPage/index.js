@@ -20,7 +20,7 @@ import {hierarchy} from './settings';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utilities imports
-import {orderBy, merge, unionBy,difference, debounce} from 'lodash';
+import {orderBy, merge, unionBy, debounce} from 'lodash';
 import mod from '../../utilities/utils';
 
 //services import
@@ -168,6 +168,11 @@ function DeckPage(props){
                     action: [actionPopup.action, "download"]
                 })
             case 'cancel':
+                setIsOpen(false);
+                setExportReady({
+                    isReady: false,
+                    datas: ""
+                });
                 return setActionPopup({
                     isOpen: false,
                     action: ""
@@ -182,10 +187,10 @@ function DeckPage(props){
         }
     }
 
-    const handleExport = function(e, datasToExport, callback){
+    const handleExport = function(e, datasToExport, callback, elmtToClick){
         e.preventDefault();
         e.stopPropagation();
-        return callback(datasToExport);
+        return callback(datasToExport, elmtToClick);
     }
 
     //effects
@@ -207,21 +212,15 @@ function DeckPage(props){
         /* set the object in order to make a ordered list */ 
         let result = ''
         if(session.types.length > 0){
+
             //merge objects
-            result = orderBy(merge(orderBy(hierarchy, 'id'),orderBy(session.types, 'id')), "order").filter(obj => obj.order !== "");
-            let newResult = []
+            result = mod.mergeAndOrder(hierarchy, session.types, 'id', 'order')
+                        .filter(obj => obj.order !== "");
             
             //create new array for rows
-            result.map((elmt, index) => {
-                if(index > 0 && index < result.length - 1){   
-                    if(result[index].order === result[index - 1].order){
-                        newResult.push(result[index - 1]);
-                        newResult.push(elmt)
-                    }     
-                }
-            });
+            let newResult = mod.rowMakerBy(result, 'order');
 
-            //change double value in ""
+            //chage double value in ""
             newResult.map(rowElmt => {
                 result.map((elmt, index) => {
                     if(rowElmt.order === elmt.order){
@@ -249,7 +248,7 @@ function DeckPage(props){
 
         if(actionPopup.action instanceof Array){
 
-            if(difference(actionPopup.action,["delete","confirm"]).length === 0){
+            if(mod.includesAll(["delete","confirm"],actionPopup.action)){
                 response = await deleteUserDeck(id);
                 if(response && response.code === 200){
                     return setFlash({
@@ -259,18 +258,29 @@ function DeckPage(props){
                 }
             }
 
-            if(difference(actionPopup.action,["export","download"]).length === 0){
+            if(mod.includesAll(["export","download"],actionPopup.action)){
                 response = await getExport(id);
                 if(response && response.code === 200){
-                    setExportReady(response);
+                    if(response.message instanceof Array && response.message.length === 0){
+                        return setExportReady({
+                            ...exportReady,
+                            isReady: true,
+                            datas: ""
+                        });
+                    }
+                    return setExportReady({
+                        ...exportReady,
+                        isReady: true,
+                        datas: response.message
+                    });
                 } 
             }
 
-            if(difference(actionPopup.action,["import","confirm"]).length === 0){
+            if(mod.includesAll(actionPopup.action,["import","confirm"])){
                 return console.log(actionPopup.action);
             }
 
-            if(difference(actionPopup.action, ["kingdom", "confirm"]).length === 0){
+            if(mod.includesAll(["kingdom", "confirm"],actionPopup.action)){
                 response = await updateOne({...deck.success}, id);
                 if(response && response.code === 200){
                     return setDeck({
@@ -283,17 +293,7 @@ function DeckPage(props){
                 }
             }
 
-            if(difference(["export", "download"],actionPopup.action).length === 0){
-                response = await getExport(id);
-                if(response && response.code === 200){
-                    return setExportReady({
-                        isReady: true,
-                        datas: {...response.message}
-                    });
-                }
-            }
-
-            if(difference(actionPopup.action,["deck_name","confirm"]).length === 0){
+            if(mod.includesAll(["deck_name","confirm"],actionPopup.action)){
                 response = await updateOne({...deck.success, deck_name: popupInputField}, id);
                 if(response && response.code === 200){
                     return setDeck({
@@ -345,24 +345,42 @@ function DeckPage(props){
                             </Popup.Group>
                         </>
                     }
-                    {difference(['export','download'], actionPopup.action).length === 0 &&   
+                    {(
+                        actionPopup.action === 'export' || 
+                        mod.includesAll(['export','download'], actionPopup.action)
+                     )&&   
                         <>
                             <Popup.Title text="EXPORTER"/>
-                            <Popup.Text text={`Voulez-vous exporter ${deck.success.deck_name} ?`}/>
-                            {exportReady.isReady === true && 
-                                <Popup.Group>
-                                    <Popup.Button id="ready" text="ready" onClick={(e) => handleExport(e, exportReady.datas, mod.exportToFile)}/>
-                                    <Popup.Button id="cancel" text="annuler"/>
-                                </Popup.Group>
+                            {
+                                (exportReady.isReady === true && !exportReady.datas) &&
+                                    <Popup.Text text={`${deck.success.deck_name} is empty`}/>                              
                             }
-                        </>
-                    }
-                    {actionPopup.action === 'export' &&   
-                        <>
-                            <Popup.Title text="EXPORTER"/>
-                            <Popup.Text text={`Voulez-vous exporter ${deck.success.deck_name} ?`}/>
+                            {
+                                (exportReady.isReady === true && exportReady.datas) &&
+                                    <Popup.Text text={`${deck.success.deck_name} is ready`}/>
+                            }
+                            {
+                                (exportReady.isReady === false  && !exportReady.datas) &&
+                                    <Popup.Text text={`Voulez vous exporter ${deck.success.deck_name} ?`}/>
+                            }
                             <Popup.Group>
-                               <Popup.Button id="download" text="download"/>
+                                {(
+                                    mod.includesAll(['export','download'], actionPopup.action) &&
+                                    exportReady.isReady === true
+                                 )
+                                    ?
+                                    exportReady.datas && 
+                                        <Popup.Button 
+                                            id="ready" 
+                                            text="ready" 
+                                            onClick={(e) => handleExport(e, exportReady.datas, mod.exportToFile, document.getElementById('cancel'))}
+                                        />
+                                    :
+                                    <Popup.Button 
+                                        id="download" 
+                                        text={"download"}
+                                    />
+                                }
                                 <Popup.Button id="cancel" text="annuler"/>
                             </Popup.Group>
                         </>

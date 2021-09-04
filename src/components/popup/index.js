@@ -1,3 +1,4 @@
+import {memo} from 'react';
 import Title from './Title';
 import Overlay from './Overlay';
 import Group from './Group';
@@ -17,6 +18,7 @@ function Popup({children, isOpen, onClick}){
         </Overlay>
     )
 }
+
 
 Popup.Label = Label;
 Popup.InputRadio = InputRadio;
