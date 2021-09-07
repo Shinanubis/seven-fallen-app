@@ -47,6 +47,18 @@ let mod = (function () {
     return newArray;
   };
 
+  const checkFileExt = function(filename, expected){
+    return filename.split('.').pop() === expected;
+  }
+
+  const checkMimeType = function (fileType, expected) {
+    return fileType === expected;
+  };
+
+  const checkFileSize = function (fileSize, max) {
+    return fileSize <= max;
+  };
+
   const exportToFile = function(datas, elmtToClick){
     let cleanDatas = JSON.stringify(datas);
     //create a blob to transform text to bytes
@@ -92,12 +104,29 @@ let mod = (function () {
     return newResult;
   };
 
+  const checkEvery = function (arr, cb) {
+    return arr.every(cb);
+  };
+
+  const testList = function (functionArr) {
+    let newArray = [];
+    functionArr.forEach((elmt) => {
+      newArray.push(elmt);
+    });
+    return this.checkEvery(newArray, (elmt) => elmt === true);
+  };
+
   return {
     sortArrayOfObject,
     exportToFile,
     includesAll,
     mergeAndOrder,
-    rowMakerBy
+    rowMakerBy,
+    checkFileExt,
+    checkFileSize,
+    checkMimeType,
+    testList,
+    checkEvery
   };
 })();
 

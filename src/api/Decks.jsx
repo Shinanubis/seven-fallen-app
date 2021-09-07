@@ -113,4 +113,12 @@ async function deleteUserDeck(id){
 
 }
 
-export { getAllDecks, getDecksByKingdoms, getUserDecks, getOne, updateOne, deleteUserDeck, createUserDeck };
+export { 
+    getAllDecks, 
+    getDecksByKingdoms, 
+    getUserDecks, 
+    getOne, 
+    updateOne, 
+    deleteUserDeck, 
+    createUserDeck
+};

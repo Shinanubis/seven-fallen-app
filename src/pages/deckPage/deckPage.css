@@ -140,9 +140,18 @@
     margin-right: 2vh;
 }
 
-.page__deck .popup__label--text{
+.page__deck .popup__label--text,
+.page__deck .input__file--label,
+.page__deck .input__file--filename{
     font-size: 2.75vh;
     font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.page__deck .input__file--label{
+    border-bottom: 1px solid #808080;
+    padding-bottom: 1vh;
+    cursor: pointer;
 }
 
 .page__deck .popup__inner--group{
@@ -152,7 +161,9 @@
 }
 
 .page__deck .popup__group,
-.page__deck .popup__title {
+.page__deck .popup__title,
+.page__deck .input__file--label,
+.page__deck .input__file--filename {
     margin-bottom: 2.5vh;
 }
 

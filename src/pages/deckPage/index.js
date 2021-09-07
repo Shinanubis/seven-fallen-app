@@ -8,9 +8,11 @@ import ToolBox from "../../components/toolbox";
 import ListContainer from '../../components/listContainer';
 import Popup from '../../components/popup';
 import Flash from '../../components/flashMessage';
+import InputFile from "../../components/inputFile";
 import {AiOutlinePlusCircle, AiOutlineEye,AiOutlineEyeInvisible} from "react-icons/ai";
 import {BsPencil,BsDownload, BsUpload, BsBarChart} from "react-icons/bs";
 import {BiTrashAlt} from 'react-icons/bi';
+
 
 //datas import
 import kingdomsDatas from "../../settings/kingdom";
@@ -26,6 +28,7 @@ import mod from '../../utilities/utils';
 //services import
 import {getOne, deleteUserDeck, updateOne} from "../../api/Decks";
 import {getExport} from "../../api/Export";
+import {uploadDeck} from '../../api/Import';
 
 //styles import
 import './deckPage.css';
@@ -56,6 +59,11 @@ function DeckPage(props){
         isReady: false,
         datas: ""
     });
+    const [inputFile, setInputFile] = useState({
+        isReady: false,
+        file: "",
+        filename:""
+    })
 
     // hooks
     let {id} = useParams();
@@ -64,6 +72,7 @@ function DeckPage(props){
     //refs
     let kingdomRef = useRef();
     let deckNameRef = useRef();
+    let inputFileRef = useRef();
 
     //handlers
     const handleArrowClick = function(e){
@@ -79,6 +88,45 @@ function DeckPage(props){
     const handleRedirect = (url) => {
         history.push(url)
     }
+
+    const handleFile = (e) => {
+        const FILE_FIELDS_ALLOWED = ["eden", "holy_book", "register"];
+        let reader = new FileReader();
+        let testSet = [
+            mod.checkFileSize(e.target.files[0].size, 1500),
+            mod.checkFileExt(e.target.files[0].name, "json"),
+            mod.checkMimeType(e.target.files[0].type, "application/json")
+        ]
+
+        if(mod.testList(testSet) === true){
+            reader.addEventListener('load', function(evt) {
+                let readerResult = JSON.parse(evt.target.result);
+                let testTablesLength = Object.keys(readerResult)
+                                             .map(elmt => readerResult[elmt].length === 2)
+                                             .every(elmt => elmt === true);
+                if(
+                    mod.includesAll(FILE_FIELDS_ALLOWED, Object.keys(readerResult)) &&
+                    testTablesLength === true
+                ){
+                    setInputFile({
+                        ...inputFile,
+                        isReady: true,
+                        file: e.target.files[0],
+                        filename: e.target.files[0].name
+                    })
+                } 
+            })
+        }else{
+            setInputFile({
+                ...inputFile,
+                isReady: false,
+                file: "",
+                filename: ""
+            })
+        }
+
+        reader.readAsText(e.target.files[0]);
+    };
 
     const handleInputPopupChange = debounce(function(text){
         setPopupInputField(text);
@@ -276,8 +324,20 @@ function DeckPage(props){
                 } 
             }
 
-            if(mod.includesAll(actionPopup.action,["import","confirm"])){
-                return console.log(actionPopup.action);
+            if(mod.includesAll(["import","confirm"],actionPopup.action)){
+                response = await uploadDeck({id, file: inputFile.file});
+                if(response && response.code === 200){
+                        setInputFile({
+                            isReady: false,
+                            file: "",
+                            filename: ""
+                        });
+                        return setDeck({
+                            ...deck,
+                            success: response.message[0]
+                        })
+                }
+                return console.log(response);
             }
 
             if(mod.includesAll(["kingdom", "confirm"],actionPopup.action)){
@@ -338,9 +398,22 @@ function DeckPage(props){
                     {actionPopup.action === 'import' &&   
                         <>
                             <Popup.Title text="IMPORTER"/>
-                            <Popup.Text text={`Voulez-vous importer ${deck.success.deck_name} ?`}/>
-                            <Popup.Group>
-                                <Popup.Button id="confirm" text="confirmer"/>
+                            
+                            <InputFile 
+                                ref={inputFileRef} 
+                                id="file" 
+                                onChange={handleFile} 
+                                text="Choisissez un fichier à importer ..."
+                                className = "input__file d-none"
+                                accept="application/json" 
+                            />
+                            {inputFile.filename && 
+                                <Popup.Group>
+                                    <p className="input__file--filename">{inputFile.filename}</p>
+                                </Popup.Group>
+                            }
+                            <Popup.Group>                                
+                                {inputFile.isReady && <Popup.Button id="confirm" text="confirmer"/>}
                                 <Popup.Button id="cancel" text="annuler"/>
                             </Popup.Group>
                         </>
