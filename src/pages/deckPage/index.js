@@ -641,8 +641,8 @@ function DeckPage(props){
                     <ToolBox.Top isOpen={isOpen} title="options" onClick={handleArrowClick}/>
                     <ToolBox.Content>
                         <ToolBox.Row>
-                            <ToolBox.Action id="import" icon={BsUpload} text="IMPORT"/>
-                            <ToolBox.Action id="export" icon={BsDownload} text="EXPORT"/>
+                            <ToolBox.Action id="import" icon={BsUpload} text={t("import")}/>
+                            <ToolBox.Action id="export" icon={BsDownload} text={t("export")}/>
                         </ToolBox.Row>
                         <ToolBox.Row>
                             <ToolBox.Action id="average" icon={BsBarChart}/>

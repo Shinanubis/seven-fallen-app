@@ -92,6 +92,7 @@
     letter-spacing: 2px;
     margin-left: 4vw;
     font-size: 1.75vh;
+    text-transform: uppercase;
 }
 
 .toolbox__action,

@@ -17,6 +17,12 @@
     "new deck": "nouveau deck",
     "no divinity": "pas de divinitée",
     "cards": "cartes",
+    "ready": "prêt",
+    "cancel": "annuler",
+    "confirm": "confirmer",
+    "download": "télécharger",
+    "import": "importer",
+    "export": "exporter",
     "flash": {
         "not compliant" : "Votre nom de deck n'est pas conforme",
         "success": "{{name}} créé(e) avec succès",
