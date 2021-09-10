@@ -23,6 +23,9 @@
         "internal": "Internal error",
         "already" : "{{name}} already exits",
         "forbidden": "Forbidden",
-        "empty": "The field(s) {{names}} should not be empty"
+        "empty": "The field(s) {{names}} should not be empty",
+        "import": {
+            "success": "{{name}} imported successfully"
+        }
     } 
 }

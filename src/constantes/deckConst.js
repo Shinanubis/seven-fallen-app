@@ -1,0 +1,21 @@
+const REMOVE_DECK = 'delete';
+const IMPORT = 'import';
+const EXPORT = 'export';
+const ADD_DECK = 'create';
+const CHANGE_KINGDOM = "kingdom";
+const CHANGE_VISIBILITY = "visibility";
+const IMPORT_DECK_SUCCESS = 'IMPORT_DECK_SUCCESS';
+const IMPORT_DECK_ERROR = 'INPORT_DECK_ERROR';
+const IMPORT_DECK_PENDING = 'IMPORT_DECK_PENDING';
+
+export {
+    REMOVE_DECK, 
+    ADD_DECK, 
+    EXPORT, 
+    IMPORT, 
+    CHANGE_KINGDOM, 
+    CHANGE_VISIBILITY,
+    IMPORT_DECK_PENDING,
+    IMPORT_DECK_ERROR,
+    IMPORT_DECK_SUCCESS
+};

@@ -1,6 +1,7 @@
 //hooks imports
 import {useState, useLayoutEffect, useContext, useEffect, useRef} from 'react';
 import {useParams, useHistory} from "react-router-dom";
+import {useTranslation} from 'react-i18next';
 
 //components import
 import Header from "../../components/heading";
@@ -68,6 +69,7 @@ function DeckPage(props){
     // hooks
     let {id} = useParams();
     let history = useHistory();
+    const {t} = useTranslation();
 
     //refs
     let kingdomRef = useRef();
@@ -86,35 +88,61 @@ function DeckPage(props){
     }
 
     const handleRedirect = (url) => {
-        history.push(url)
+        if(mod.includesAll(["import","confirm"],actionPopup.action)){
+            return;
+        }
+        return history.push(url)
     }
 
     const handleFile = (e) => {
         const FILE_FIELDS_ALLOWED = ["eden", "holy_book", "register"];
         let reader = new FileReader();
         let testSet = [
-            mod.checkFileSize(e.target.files[0].size, 1500),
+            mod.checkFileSize(e.target.files[0].size, 5000),
             mod.checkFileExt(e.target.files[0].name, "json"),
             mod.checkMimeType(e.target.files[0].type, "application/json")
         ]
 
         if(mod.testList(testSet) === true){
             reader.addEventListener('load', function(evt) {
-                let readerResult = JSON.parse(evt.target.result);
-                let testTablesLength = Object.keys(readerResult)
-                                             .map(elmt => readerResult[elmt].length === 2)
-                                             .every(elmt => elmt === true);
-                if(
-                    mod.includesAll(FILE_FIELDS_ALLOWED, Object.keys(readerResult)) &&
-                    testTablesLength === true
-                ){
-                    setInputFile({
-                        ...inputFile,
-                        isReady: true,
-                        file: e.target.files[0],
-                        filename: e.target.files[0].name
-                    })
-                } 
+                try{
+                    //check if the json content is compliant
+                    if(mod.isJson(evt.target.result) === false){
+                        throw {
+                            ...inputFile,
+                            isReady: false,
+                            file: "",
+                            filename: ""
+                        }
+                    }
+
+                    let readerResult = JSON.parse(evt.target.result);
+
+                    //check tables lentght inside eden, holy_book, register
+                    let testTablesLength = Object.keys(readerResult).map(elmt => readerResult[elmt]
+                                                                                 .map(elmt => {
+                                                                                     if(elmt.length === 0){
+                                                                                         return true;
+                                                                                     }
+                                                                                     return elmt.length === 3
+                                                                                 })
+                                                                                .every(elmt => elmt === true)
+                                                                        )
+                                                                    .every(elmt => elmt === true)
+                    if(
+                        mod.includesAll(FILE_FIELDS_ALLOWED, Object.keys(readerResult)) &&
+                        testTablesLength === true
+                    ){
+                        setInputFile({
+                            ...inputFile,
+                            isReady: true,
+                            file: e.target.files[0],
+                            filename: e.target.files[0].name
+                        })
+                    } 
+                }catch(err){
+                    setInputFile(err)
+                }
             })
         }else{
             setInputFile({
@@ -221,6 +249,11 @@ function DeckPage(props){
                     isReady: false,
                     datas: ""
                 });
+                setInputFile({
+                    isReady: false,
+                    file: "",
+                    filename:""
+                });
                 return setActionPopup({
                     isOpen: false,
                     action: ""
@@ -326,17 +359,31 @@ function DeckPage(props){
 
             if(mod.includesAll(["import","confirm"],actionPopup.action)){
                 response = await uploadDeck({id, file: inputFile.file});
+                setIsOpen(false)
                 if(response && response.code === 200){
                         setInputFile({
                             isReady: false,
                             file: "",
                             filename: ""
                         });
+                        setFlash({
+                            ...flash,
+                            success: t("flash.import.success", {name: deck.success.deck_name})
+                        })
                         return setDeck({
                             ...deck,
                             success: response.message[0]
                         })
                 }
+                setInputFile({
+                    isReady: false,
+                    file: "",
+                    filename: ""
+                });
+                setFlash({
+                    ...flash,
+                    error: response.message
+                })
                 return console.log(response);
             }
 
@@ -399,6 +446,7 @@ function DeckPage(props){
                         <>
                             <Popup.Title text="IMPORTER"/>
                             
+                            {!inputFile.filename &&
                             <InputFile 
                                 ref={inputFileRef} 
                                 id="file" 
@@ -407,6 +455,7 @@ function DeckPage(props){
                                 className = "input__file d-none"
                                 accept="application/json" 
                             />
+                            }
                             {inputFile.filename && 
                                 <Popup.Group>
                                     <p className="input__file--filename">{inputFile.filename}</p>

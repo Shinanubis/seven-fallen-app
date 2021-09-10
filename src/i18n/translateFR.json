@@ -23,6 +23,9 @@
         "internal": "Erreur interne",
         "already": "{{name}} existe déja",
         "forbidden": "Interdit",
-        "empty": "Les champs {{names}} ne devrai pas etre vide"
+        "empty": "Les champs {{names}} ne devrai pas etre vide",
+        "import": {
+            "success": "{{name}} importé avec succés"
+        }
     } 
 }

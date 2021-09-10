@@ -116,6 +116,16 @@ let mod = (function () {
     return this.checkEvery(newArray, (elmt) => elmt === true);
   };
 
+  const isJson = (str) => {
+    try{
+      JSON.parse(str)
+    }catch(e){
+      return false;
+    }
+
+    return true;
+  } 
+
   return {
     sortArrayOfObject,
     exportToFile,
@@ -126,7 +136,8 @@ let mod = (function () {
     checkFileSize,
     checkMimeType,
     testList,
-    checkEvery
+    checkEvery,
+    isJson
   };
 })();
 
