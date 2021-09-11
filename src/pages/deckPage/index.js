@@ -13,6 +13,7 @@ import InputFile from "../../components/inputFile";
 import {AiOutlinePlusCircle, AiOutlineEye,AiOutlineEyeInvisible} from "react-icons/ai";
 import {BsPencil,BsDownload, BsUpload, BsBarChart} from "react-icons/bs";
 import {BiTrashAlt} from 'react-icons/bi';
+import {Link} from 'react-router-dom';
 
 
 //datas import
@@ -284,9 +285,6 @@ function DeckPage(props){
         }
     }, [])
 
-    useEffect(() => {
-        console.log("[useEffect] => deck",deck)
-    }, [deck])
 
     useEffect(() => {
 
@@ -619,7 +617,7 @@ function DeckPage(props){
                                                 return(
                                                     <li key={sub.name} className="sub__list--item">
                                                         <p className="list__item--text">{sub.name}</p>
-                                                        <AiOutlinePlusCircle className="icon"/>
+                                                        <Link to={`/cards/${sub.id}`}><AiOutlinePlusCircle className="icon"/></Link>
                                                     </li>
                                                 )
                                             })}
@@ -630,7 +628,7 @@ function DeckPage(props){
                                 return(
                                         <li key={elmt.order} className="list__item">
                                             <p className="list__item--text">{elmt.name}</p>
-                                            <AiOutlinePlusCircle className="icon"/>
+                                            <Link to={`/cards/${elmt.id}`}><AiOutlinePlusCircle className="icon"/></Link>
                                         </li>
                                     )
                             })

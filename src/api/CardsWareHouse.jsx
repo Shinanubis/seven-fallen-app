@@ -101,6 +101,22 @@ async function getEdenCards(page,count,lang){
     };
 }
 
+async function getCardsByType(page, count, lang, id){
+        let settings = {
+            method:'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_TOKEN
+            }
+        }
+        let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[${id}]&card_count=${count}&page=${page}`);
+        let response = await fetch(url,settings);
+        let datas = await response.json();
+        return {
+            code: response.status,
+            message: datas
+        };  
+}
+
 async function getRegisterCards(page,count,lang){
     let settings = {
         method:'GET',
@@ -142,5 +158,6 @@ export {
         getKingdomsList, 
         getExtensionsList, 
         getClassesList, 
-        getCapacitiesList 
+        getCapacitiesList,
+        getCardsByType 
     };

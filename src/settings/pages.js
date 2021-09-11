@@ -4,20 +4,11 @@ import LoginPage from "../pages/loginPage";
 import DecksPage from "../pages/decksPage";
 import DeckPage from '../pages/deckPage';
 import DeckCreate from "../pages/deckCreate";
-
-import CardsPage from "../pages/CardsPage";
+import CardsType from '../pages/cardsType';
 import ProfilePage from "../pages/ProfilePage";
 import GamersPage from "../pages/GamersPage";
 import ErrorPage from "../pages/ErrorPage";
-import SettingsDeckPage from "../pages/SettingsDeckPage";
-import AddingDeckPage from "../pages/AddingDeckPage";
-import ChoicePage from "../pages/ChoicePage";
-import StarterPage from "../pages/StarterPage";
-import IndividualPage from "../pages/IndividualPage";
-import DeckBuildOptions from "../pages/DeckBuildOptions";
-import DeckImport from "../pages/DeckImport";
-import EmptyDecksList from "../pages/EmptyDecksList";
-import ModifyDeckPage from "../pages/ModifyDeckPage";
+
 
 const pages = {
     authenticated: [
@@ -53,57 +44,14 @@ const pages = {
         {
             exact: true,
             strict: true,
-            path: "/decks/empty",
-            component: EmptyDecksList,
-            props: { text: "No Decks " },
-        },
-        {
-            exact: true,
-            strict: true,
             path: "/decks/:id",
             component: DeckPage,
         },
         {
             exact: true,
             strict: true,
-            path: "/decks/new-deck/build",
-            component: DeckBuildOptions,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/decks/new-deck/import",
-            component: DeckImport,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/cards",
-            component: CardsPage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/cards/from",
-            component: ChoicePage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/cards/from/starter",
-            component: StarterPage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/cards/from/individual",
-            component: IndividualPage,
-        },
-        {
-            exact: true,
-            strict: true,
-            path: "/deck/:name",
-            component: SettingsDeckPage,
+            path: "/cards/:id",
+            component: CardsType,            
         },
         {
             exact: true,

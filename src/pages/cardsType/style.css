@@ -1,0 +1,21 @@
+.options__list{
+    width: 100%;
+    padding: 2vh 4vw;
+    background-color: #606060;
+}
+
+.option__item .kingdoms__list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.kingdoms__title{
+    text-transform: uppercase;
+    margin-bottom: 1vh;
+    font-weight: 400;
+    font-size: 2.25vh;
+}
+
+.kingdom__img{
+    height: 10vw;
+}

@@ -31,6 +31,26 @@ function SessionContextProvider(props){
             localStorage.setItem("lang", language)
         }
 
+        if(session.types.length > 0){
+            session.types.map(elmt => {
+                if(
+                    elmt.id === 8 && 
+                    elmt.name === "Adorateur" && 
+                    localStorage.getItem('lang') === 'fr'
+                   ){
+                    return;
+                }
+
+                if(
+                    elmt.id === 8 && 
+                    elmt.name === "Worshipper" && 
+                    localStorage.getItem('lang') === 'en'
+                   ){
+                    return;
+                }
+            })
+        }
+
         if(localStorage.getItem('lang')){
             types = await getTypesList(localStorage.getItem("lang").toUpperCase());
             rarities = await getRaritiesList(localStorage.getItem("lang").toUpperCase());
