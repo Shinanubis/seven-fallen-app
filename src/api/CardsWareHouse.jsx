@@ -66,7 +66,7 @@ async function getClassesList(lang){
 
     }
 
-    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang.toUpperCase()}?name=m`,settings);
+    let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang.toUpperCase()}`,settings);
     let datas = await response.json();
     return datas;
 }
@@ -99,6 +99,32 @@ async function getEdenCards(page,count,lang){
         code: response.status,
         message: datas
     };
+}
+
+async function getCardById(lang, id){
+    try{
+        let settings = {
+            method:'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_TOKEN
+            }
+        }
+        let url = new URL(`https://api.7fallen.ovh/api/cards/${id}/${lang.toUpperCase()}`);
+        let response = await fetch(url,settings);
+        if(response.code !== 200){
+            throw {
+                code: response.status,
+                message: response.statusText
+            }
+        }
+        let datas = await response.json();
+        return {
+            code: response.status,
+            message: datas
+        };
+    }catch(e){
+        return e;
+    }
 }
 
 async function getCardsByType(page, count, lang, id){
@@ -159,5 +185,6 @@ export {
         getExtensionsList, 
         getClassesList, 
         getCapacitiesList,
-        getCardsByType 
+        getCardsByType,
+        getCardById 
     };

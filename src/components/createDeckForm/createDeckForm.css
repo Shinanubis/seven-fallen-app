@@ -44,17 +44,20 @@ input.create__deck--name::placeholder{
 }
 
 .create__deck--button{
-    padding:.5rem 0;
+    padding: .5rem 2rem;
     background-color: #606060;
-    color: white;
-    width: 36%;
-    font-size: 1rem;
+    color: #fff;
+    font-size: 2vh;
+    font-weight: 100;
+    font-family: "Oswald", sans-serif;
     letter-spacing: 2px;
     box-shadow: 0 2px 4px #303030;
     border-radius: 6vh;
     text-transform: uppercase;
-    cursor:pointer;
-    transition: background-color 100ms ease, transform 50ms ease;
+    cursor: pointer;
+    transition: background-color .1s ease,-webkit-transform 50ms ease;
+    transition: background-color .1s ease,transform 50ms ease;
+    transition: background-color .1s ease,transform 50ms ease,-webkit-transform 50ms ease;
 }
 
 .create__deck--button:hover{

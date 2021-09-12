@@ -1,7 +1,16 @@
+.card__type{
+    flex-wrap: wrap;
+    margin: 4vh auto 0 auto;
+    box-shadow: 0 0 12px 2px #050505;
+    height: calc(100% - var(--navbar-height) - 8vh);
+}
+
 .options__list{
+    height: 45%;
     width: 100%;
     padding: 2vh 4vw;
-    background-color: #606060;
+    background-color: #404040;
+    border-bottom: 1px solid white;
 }
 
 .option__item .kingdoms__list{
@@ -9,7 +18,7 @@
     justify-content: space-between;
 }
 
-.kingdoms__title{
+.options__item--title{
     text-transform: uppercase;
     margin-bottom: 1vh;
     font-weight: 400;
@@ -17,5 +26,54 @@
 }
 
 .kingdom__img{
-    height: 10vw;
+    height: 5.5vh;
+    cursor:pointer;
+}
+
+.cards__list{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem .25rem 0rem .25rem;
+    width: 100%;
+    height:calc(80% - 1rem);
+    overflow-y: scroll;
+    padding-top: 5px;
+}
+
+.cards__list--item{
+    width: 46%;
+    margin-bottom: 3%;
+    margin-right: 4%;
+    box-shadow: 0 0px 6px 0px #050505;
+    border-radius: 6px;
+}
+
+.cards__list--item:nth-child(2n){
+    margin-right: 0;
+}
+
+.card__img{
+    width: 100%;
+    height:100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.cards__container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 55%;
+    width: 100%;
+    background-color:  #202020;
+}
+
+.btn__banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    background-color: #202020;
 }
