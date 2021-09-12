@@ -35,19 +35,7 @@ const DecksPage = (props) => {
         decks: [],
     });
 
-    let listRef = useRef();
-
-    const [isFetching,setIsFetching] = useInfiniteScroll(
-        listRef, 
-        pageDatas.page, 
-        pageDatas.limit, 
-        pageDatas.count,
-        () => {
-            setPageDatas({...pageDatas, page: pageDatas.page + 1})
-            setIsFetching(false);
-        },
-        200
-        );
+    const [loading, setIsLoading, setRef] = useInfiniteScroll();
     
     const {t} = useTranslation();
 
@@ -59,9 +47,17 @@ const DecksPage = (props) => {
         if(profile.code === 200 && userDecks.code === 200){
             let newCount = userDecks.message.shift();
             setPageDatas({...pageDatas, username: profile.message.username, count: newCount,decks: [...pageDatas.decks, ...userDecks.message]});
-            setIsFetching(true);   
+            setIsLoading(false);   
         }
     }, [pageDatas.page]);
+
+    useEffect(async () => {
+        if(loading === true && pageDatas.decks.length < pageDatas.count){
+            setPageDatas({...pageDatas, page: pageDatas.page + 1})
+        }else{
+            setIsLoading(false);
+        }
+    }, [loading])
 
     return (
         <PageContainer classes="decks">
@@ -77,7 +73,7 @@ const DecksPage = (props) => {
                         <BottomMessage.Icon />
                     </BottomMessage>
                 :
-                    <div ref={listRef} className="decks__list--container">
+                    <div ref={setRef} className="decks__list--container">
                         {
                             
                             pageDatas.decks.map((elmt, index) => {
@@ -97,7 +93,7 @@ const DecksPage = (props) => {
                                 }
                             })
                         }
-                        {isFetching === true && <div><FiLoader className="loader"/></div>}
+                        {loading && <div><FiLoader className="loader"/></div>}
                     </div>
             }
         </PageContainer>

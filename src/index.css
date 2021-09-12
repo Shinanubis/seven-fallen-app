@@ -175,8 +175,8 @@ code {
 	height: 40px;
 	width: 40px;
 	color: rgb(59, 231, 59);
-	animation: loading 1s linear infinite;
-	-webkit-animation: loading 1s linear infinite;
+	animation: loading 1.5s cubic-bezier(.25,.1,.25,1) infinite;
+	-webkit-animation: loading 1.5s cubic-bezier(.25,.1,.25,1) infinite;
 }
 
 .loader__card--container {
@@ -731,7 +731,7 @@ code {
 /* animations */
 
 @keyframes loading {
-	from {
+	0%{
 		transform: rotateZ(0deg);
 		-webkit-transform: rotateZ(0deg);
 		-moz-transform: rotateZ(0deg);
@@ -739,7 +739,7 @@ code {
 		-o-transform: rotateZ(0deg);
 	}
 
-	to {
+	100% {
 		transform: rotateZ(360deg);
 		-webkit-transform: rotateZ(360deg);
 		-moz-transform: rotateZ(360deg);

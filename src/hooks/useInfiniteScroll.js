@@ -1,40 +1,33 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {debounce, throttle} from 'lodash';
 
-function useInfiniteScroll(theRef, page, limit, max, callback, triggerFromBottom) {
-  const [isFetching, setIsFetching] = useState(false);
-  const MAX_PAGES = Math.ceil(max / limit);
-  const lastElmt = useRef();
+function useInfiniteScroll() {
+  const [loading, setIsLoading] = useState(false);
+  let parentRef = useRef();
 
-  if ( theRef.current !== undefined && theRef.current.children.length > 0) {
-    lastElmt.current =
-      theRef.current.children[theRef.current.children.length - 1];
+  function handleScroll(e){
+    if(e.target.scrollHeight * 0.9 - e.target.scrollTop < e.target.clientHeight){
+      setIsLoading(true);
+    }
   }
 
-  const handleScroll = (e) => {
-      if (
-        Math.ceil(lastElmt.current.getBoundingClientRect().bottom) - triggerFromBottom <=
-        Math.ceil(theRef.current.clientHeight) && theRef !== undefined
-      ) {
-        if (isFetching === true && page < MAX_PAGES) {
-          callback();
-        }
+  let setRef = useCallback((node) => {
+    if(node){
+      parentRef.current = node;
+    }
 
-        if (isFetching === true && page === MAX_PAGES) {
-          setIsFetching(false);
-        }
-
-      }
-  };
+    if(parentRef.current){
+      parentRef.current.addEventListener('scroll',throttle(handleScroll, 80));
+    }  
+  },[])
 
   useEffect(() => {
-    if(theRef.current){
-      theRef.current.addEventListener("scroll", handleScroll);
-          return () => theRef.current.removeEventListener("scroll",handleScroll);
+    return () => {
+      parentRef.current.removeEventListener('scroll', throttle(handleScroll, 80));
     }
-  });
+  },[])
 
-  return [isFetching, setIsFetching];
+  return [loading, setIsLoading, setRef];
 }
 
 export default useInfiniteScroll;

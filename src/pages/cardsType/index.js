@@ -1,6 +1,7 @@
 //hooks import
 import {useParams} from 'react-router-dom';
 import {useEffect, useState, useContext} from 'react';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 //api
 import {getCardsByType, getCardById} from '../../api/CardsWareHouse';
