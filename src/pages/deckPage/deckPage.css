@@ -1,7 +1,7 @@
 .page__deck.container{
     margin-top:var(--header-height);
     width: 100%;
-    height: calc(100% - 8vh);
+    min-height: 100%;
     justify-content: flex-start;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .page__deck .list{
-    height: 110%;
+    padding-bottom: 18vh;
 }
 
 

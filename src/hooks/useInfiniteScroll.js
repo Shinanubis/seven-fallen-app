@@ -1,15 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import {debounce, throttle} from 'lodash';
 
-function useInfiniteScroll() {
+function useInfiniteScroll(hasMore) {
   const [loading, setIsLoading] = useState(false);
   let parentRef = useRef();
 
   function handleScroll(e){
-    if(e.target.scrollHeight * 0.9 - e.target.scrollTop < e.target.clientHeight){
-      setIsLoading(true);
+      if((e.target.scrollHeight * 0.9) - e.target.scrollTop <= e.target.clientHeight){
+        setIsLoading(true);
+      }
     }
-  }
 
   let setRef = useCallback((node) => {
     if(node){

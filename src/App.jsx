@@ -42,7 +42,6 @@ function App() {
 	return (
 		<>
 			<VhInPixels />
-			{isAuthenticated !== undefined && loaded === true ?
 				<Router basename="/">
 					<AuthorizedRoutes
 						unAuthenticatedPages={pagesUnAuthenticated}
@@ -51,13 +50,6 @@ function App() {
 					/>
 					{isAuthenticated === true && <BottomNavbar />}
 				</Router>
-				:
-				<Loader condition={isAuthenticated === false ||
-					isAuthenticated === true}
-					setLoaded={setLoaded}
-					loaderIcon={RiLoader3Fill}
-				/>
-			}
 		</>
 	);
 }
