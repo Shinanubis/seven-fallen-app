@@ -49,12 +49,14 @@ function CardsType() {
     useEffect(async () => {
         let cardsByType = await getCardsByType(1, 10, lang, id);
         if(cardsByType.code === 200){
+
+            setPageLoaded(true);
+
            setCardsList({
                ...cardsList,
                count: cardsByType.message[0],
                cards: [...cardsList.cards, ...cardsByType.message[1]]
            });
-           setPageLoaded(true);
         }
 
     }, [])
@@ -67,6 +69,12 @@ function CardsType() {
                count: cardsByType.message[0],
                cards: [...cardsList.cards, ...cardsByType.message[1]]
            });
+
+           if(session.type && session.kingdoms){
+               console.log("[session.type] : ", session.type)
+               setPageLoaded(true)
+           }
+
            setIsLoading(false);
         }
 
