@@ -43,10 +43,10 @@
 .cards__list--item{
     height: 50vw;
     max-height: 250px;
-    width: 37,5vw;
+    width: 36vw;
     max-width: 188px; 
-    margin-bottom: 3%;
-    margin-right: 4%;
+    margin-bottom: 6%;
+    margin-right: 7%;
     box-shadow: 0 0px 6px 0px #050505;
     border-radius: 6px;
 }
@@ -71,6 +71,7 @@
     height:100%;
     border-radius: 4px;
     cursor: pointer;
+    background-color: transparent;
 }
 
 

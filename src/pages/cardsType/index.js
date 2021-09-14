@@ -141,13 +141,13 @@ function CardsType() {
                                 cardsList.cards.map(elmt => {
                                     if(Number(id) === 1){
                                         return (
-                                            <ImageLoader variant="li" classes="cards__list--item divinity">
+                                            <ImageLoader id={elmt.id} variant="li" classes="cards__list--item divinity">
                                                 <img id={elmt.id} className="card__img d-none" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
                                             </ImageLoader>
                                         )
                                     }
                                     return (
-                                        <ImageLoader variant="li" classes="cards__list--item">
+                                        <ImageLoader id={elmt.id} variant="li" classes="cards__list--item">
                                             <img id={elmt.id} className="card__img" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
                                         </ImageLoader>
                                     )

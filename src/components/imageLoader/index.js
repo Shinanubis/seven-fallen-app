@@ -4,7 +4,7 @@ import './style.css';
 
 const DefaultLoader = <div className="loader__container"><BiLoaderAlt className="loader"/></div>;
 
-function ImageLoader({children, loader = () => DefaultLoader, variant, classes="image__loader"}){
+function ImageLoader({children, id,loader = () => DefaultLoader, variant, classes="image__loader"}){
     const [imageLoaded, setImageLoaded] = useState(false);
     const Loader = loader;
     function handleLoad(e){
@@ -16,7 +16,7 @@ function ImageLoader({children, loader = () => DefaultLoader, variant, classes="
     switch(variant){
         case 'li':
             return (
-                <li className={classes} onLoad={handleLoad}>
+                <li key={id} className={classes} onLoad={handleLoad}>
                     {children}
                     {imageLoaded === false &&
                         <Loader />
@@ -25,7 +25,7 @@ function ImageLoader({children, loader = () => DefaultLoader, variant, classes="
             )
         default:
             return (
-                <div className={classes} onLoad={handleLoad}>
+                <div key={id} className={classes} onLoad={handleLoad}>
                     {children}
                     {imageLoaded === false && <BiLoaderAlt className="loader"/>}
                 </div>
