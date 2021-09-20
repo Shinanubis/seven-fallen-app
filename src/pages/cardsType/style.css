@@ -5,6 +5,10 @@
     height: calc(100% - var(--navbar-height) - 8vh);
 }
 
+.card__type .form {
+    background-color: #505050;
+}
+
 .options__list{
     width: 100%;
     padding: 2vh 4vw;
@@ -12,9 +16,10 @@
     border-bottom: 1px solid white;
 }
 
-.option__item .kingdoms__list{
+.form .kingdoms__list{
     display: flex;
     justify-content: space-between;
+    width:100%;
 }
 
 .options__item--title{
@@ -31,13 +36,13 @@
 
 .cards__list{
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-content: flex-start;
+    padding:0 3vw;
     flex-wrap: wrap;
-    margin: 1rem .25rem 0rem .25rem;
+    height: 100%;
     width: 100%;
-    height:calc(80% - 1rem);
     overflow-y: scroll;
-    padding-top: 5px;
 }
 
 .cards__list--item{
@@ -48,7 +53,7 @@
     margin-bottom: 6%;
     margin-right: 7%;
     box-shadow: 0 0px 6px 0px #050505;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 .cards__list--item.divinity{
@@ -78,8 +83,10 @@
 .cards__container{
     display: flex;
     flex-wrap: wrap;
-    height: 83%;
+    height: 61%;
     width: 100%;
+    margin-top: 1rem;
+    padding-bottom:1rem;
     background-color:  #202020;
 }
 

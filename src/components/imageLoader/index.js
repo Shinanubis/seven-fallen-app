@@ -8,6 +8,7 @@ function ImageLoader({children, id,loader = () => DefaultLoader, variant, classe
     const [imageLoaded, setImageLoaded] = useState(false);
     const Loader = loader;
     function handleLoad(e){
+        e.stopPropagation();
         setImageLoaded(true);
         e.target.classList.remove("d-none");
     }

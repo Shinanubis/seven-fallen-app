@@ -6,10 +6,10 @@ function useInfiniteScroll(hasMore) {
   let parentRef = useRef();
 
   function handleScroll(e){
-      if((e.target.scrollHeight * 0.9) - e.target.scrollTop <= e.target.clientHeight){
-        setIsLoading(true);
-      }
+    if((e.target.scrollHeight * 0.9) - e.target.scrollTop <= e.target.clientHeight){
+      setIsLoading(true);
     }
+  }
 
   let setRef = useCallback((node) => {
     if(node){
@@ -17,13 +17,13 @@ function useInfiniteScroll(hasMore) {
     }
 
     if(parentRef.current){
-      parentRef.current.addEventListener('scroll',throttle(handleScroll, 80));
+      parentRef.current.addEventListener('scroll',throttle(handleScroll, 200));
     }  
   },[])
 
   useEffect(() => {
     return () => {
-      parentRef.current.removeEventListener('scroll', throttle(handleScroll, 80));
+      parentRef.current.removeEventListener('scroll', throttle(handleScroll, 500));
     }
   },[])
 

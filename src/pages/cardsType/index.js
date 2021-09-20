@@ -4,13 +4,20 @@ import {useEffect, useState, useContext} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 //api
-import {getCardsByType, getCardById} from '../../api/CardsWareHouse';
+import {
+        getCardsByType, 
+        getCardById, 
+        getCardsByMultipleOption, 
+        getClassesList,
+        getCardsByName
+    } from '../../api/CardsWareHouse';
 
 //components
 import {FiLoader} from 'react-icons/fi';
 import {RiLoader3Fill} from 'react-icons/ri';
 import Loader from '../../components/Loader';
-import ImageLoader from '../../components/imageLoader'
+import ImageLoader from '../../components/imageLoader';
+import Form from '../../components/form';
 
 //style
 import './style.css';
@@ -20,6 +27,9 @@ import kingdomsDatas from '../../settings/kingdom';
 
 //contexts imports
 import {SessionContext} from '../../contexts/SessionContext';
+
+//utils
+import {debounce} from 'lodash';
 
 //environment variables
 import dotenv from 'dotenv';
@@ -39,6 +49,14 @@ function CardsType() {
         limit: 10,
         cards: []
     });
+
+    const [formTop, setFormtop] = useState({
+        kingdoms: [],
+        classesList: [],
+        classes: "",
+        name: ""
+    });
+
     const [pageLoaded, setPageLoaded] = useState(false);
     const [hasMore, setHasMore] = useState(true);
 
@@ -46,50 +64,100 @@ function CardsType() {
     const {id} = useParams();
     const [loading, setIsLoading, setRef] = useInfiniteScroll(hasMore);
 
+    //handlers 
+    const handleChange = debounce((e) => {
+        e.stopPropagation();
+        switch(e.target.id){
+            case "classes":
+                return setFormtop({
+                    ...formTop,
+                    classes: e.target.value
+                });
+            case "card-name":
+                return setFormtop({
+                    ...formTop,
+                    name: e.target.value
+                });        
+            default:
+                return;
+        }
+    }, 150);
+
+    const handleClickForm = debounce((e) => {
+        e.stopPropagation();
+        console.log(e.target)
+    }, 100)
+
     useEffect(async () => {
-        let cardsByType = await getCardsByType(1, 10, lang, id);
-        if(cardsByType.code === 200){
-
-            setPageLoaded(true);
-
+        let response = '';
+        let options = {
+            kingdoms: [...formTop.kingdoms],
+            classes: [...formTop.classesList],
+            name: formTop.name
+        };
+        response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)
+        
+        if(response.code === 200){
            setCardsList({
                ...cardsList,
-               count: cardsByType.message[0],
-               cards: [...cardsList.cards, ...cardsByType.message[1]]
+               count: response.message[0],
+               cards: [...cardsList.cards, ...response.message[1]]
            });
+           setPageLoaded(true);
         }
 
-    }, [])
-
-    useEffect(async () => {
-        let cardsByType = await getCardsByType(cardsList.page, cardsList.limit, lang, id);
-        if(cardsByType.code === 200){
-           setCardsList({
-               ...cardsList,
-               count: cardsByType.message[0],
-               cards: [...cardsList.cards, ...cardsByType.message[1]]
-           });
-
-           if(session.type && session.kingdoms){
-               console.log("[session.type] : ", session.type)
-               setPageLoaded(true)
-           }
-
-           setIsLoading(false);
-        }
 
     },[cardsList.page])
+
+    useEffect(async () => {
+        if(formTop.classes.length > 0){
+            let responseClasses = await getClassesList(lang, formTop.classes);
+            if(
+                responseClasses.code === 200 && 
+                responseClasses.message[1].length > 0
+            ){
+                return setFormtop({
+                    ...formTop,
+                    classesList: responseClasses.message[1]
+                })
+            }
+        }else{
+            return setFormtop({
+                    ...formTop,
+                    classes: "",
+                    classesList: []
+                })
+        }
+    }, [formTop.classes])
+
+
+    useEffect(async () => {
+        if(formTop.name.length > 0){
+            let responseCards = await getCardsByName(lang, formTop.name, cardsList.page,cardsList.limit , id);
+            if(
+                responseCards[1].length > 0
+            ){
+                return setCardsList({
+                    ...cardsList,
+                    count: responseCards[0],
+                    cards: responseCards[1]
+                })
+            }
+
+        }
+    }, [formTop.name])
 
     useEffect(() => {
         if(Number(id) === 1){
             if(loading === true && cardsList.cards.length < (cardsList.count - 1)){
+                
                 setHasMore(true)
                 return setCardsList({
                     ...cardsList,
                     page: cardsList.page + 1
                 })
             }
-    
+
             if(loading === true && cardsList.cards.length === (cardsList.count - 1)){
                 setHasMore(false);
                 return setIsLoading(false);
@@ -109,32 +177,42 @@ function CardsType() {
             }
         }
     
-    }, [loading])
+    }, [loading, cardsList.cards])
 
     return (
-        pageLoaded === true ?
+        pageLoaded ?
         <div className="card__type container">
-                    <ul className="options__list">
-                        <li className="option__item">
-                            <h3 className="options__item--title">Royaumes</h3>
+                    <Form onChange={(e) => handleChange(e)} onClick={(e) => handleClickForm(e)}>
+                        <Form.Group>
+                            <Form.Title text="Royaumes" />
                             <div className="kingdoms__list">
-                                {session.kingdoms.length >= 0 &&
-                                    session.kingdoms.map(elmt => <img key={elmt.id} id={elmt.id} className="kingdom__img" src={kingdomsDatas[elmt.id].icon_url}/>)
+                                {session.kingdoms.length > 0 &&
+                                    session.kingdoms.map(elmt =>{
+                                        return (
+                                            <>
+                                                <Form.Label htmlFor={elmt.id}>
+                                                    <img key={elmt.id} className="kingdom__img" src={kingdomsDatas[elmt.id].icon_url}/>
+                                                </Form.Label>
+                                                <Form.Radio id={elmt.id} classes="d-none" value={elmt.id}/>
+                                            </>
+                                        )
+                                    })
                                 }
                             </div>
-                        </li>
-                        <li className="option__item">
-                            <h3 className="options__item--title">Classes</h3>
-                        </li>
-                        <li className="option__item">
-                        </li>
-                        <li className="option__item">
-                        </li>
-                        <li className="option__item">
-                        </li>
-                        <li className="option__item">
-                        </li>
-                    </ul>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.List
+                                id="classes" 
+                                placeholder="classes" 
+                                listId="classes__list" 
+                                dataList={formTop.classesList} 
+                                placeholder="classes"
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Text id="card-name" placeholder="name"/>
+                        </Form.Group>
+                    </Form>
                     <div className="cards__container">
                         <ul ref={setRef} className="cards__list">
                             {cardsList &&
@@ -155,9 +233,6 @@ function CardsType() {
                             }
                             {loading && <div className="list__loader"><FiLoader className="loader"/></div>}
                         </ul>
-                        <div className="btn__banner">
-                            <button className="create__deck--button" type="button">selectionner</button>
-                        </div>
                     </div>
         </div>
         :
