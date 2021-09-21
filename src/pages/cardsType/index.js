@@ -52,6 +52,7 @@ function CardsType() {
 
     const [formTop, setFormtop] = useState({
         kingdoms: [],
+        classeChoice: '',
         classesList: [],
         classes: "",
         name: ""
@@ -83,20 +84,49 @@ function CardsType() {
         }
     }, 150);
 
-    const handleClickForm = debounce((e) => {
-        e.stopPropagation();
-        console.log(e.target)
-    }, 100)
+    const handleClasseChoice = function(id){
+        setFormtop({
+            ...formTop,
+            classeChoice: id
+        })
+    }
 
     useEffect(async () => {
         let response = '';
         let options = {
             kingdoms: [...formTop.kingdoms],
-            classes: [...formTop.classesList],
+            classes: formTop.classeChoice,
+            name: formTop.name
+        };
+
+        if(cardsList.page !== 1){
+            return setCardsList({
+               ...cardsList,
+               page: 1
+           });
+        }
+
+        if(formTop.classeChoice){
+            response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)
+        }
+        
+        if(response.code === 200){
+           setCardsList({
+               ...cardsList,
+               count: response.message[0],
+               cards: response.message[1]
+           });
+        }
+    },[formTop.classeChoice])
+
+    useEffect(async () => {
+        let response = '';
+        let options = {
+            kingdoms: [...formTop.kingdoms],
+            classes: formTop.classeChoice,
             name: formTop.name
         };
         response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)
-        
         if(response.code === 200){
            setCardsList({
                ...cardsList,
@@ -145,7 +175,7 @@ function CardsType() {
             }
 
         }
-    }, [formTop.name])
+    }, [formTop.name]);
 
     useEffect(() => {
         if(Number(id) === 1){
@@ -182,7 +212,7 @@ function CardsType() {
     return (
         pageLoaded ?
         <div className="card__type container">
-                    <Form onChange={(e) => handleChange(e)} onClick={(e) => handleClickForm(e)}>
+                    <Form onChange={(e) => handleChange(e)}>
                         <Form.Group>
                             <Form.Title text="Royaumes" />
                             <div className="kingdoms__list">
@@ -207,6 +237,15 @@ function CardsType() {
                                 listId="classes__list" 
                                 dataList={formTop.classesList} 
                                 placeholder="classes"
+                                setValue = {handleClasseChoice}
+                                resetList= {() => setFormtop({
+                                    ...formTop,
+                                    classesList: []
+                                })}
+                                resetField = {() => setFormtop({
+                                    ...formTop,
+                                    classes: ''
+                                })}
                             />
                         </Form.Group>
                         <Form.Group>

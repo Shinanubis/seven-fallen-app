@@ -1,9 +1,12 @@
 .form {
+    font-family:inherit;
+    font-weight: inherit;
     padding: 1rem;
     width: 100%;
 }
 
 .form__group{
+    position:relative;
     display:flex;
     flex-wrap: wrap;
     width: 100%;
@@ -13,6 +16,37 @@
     font-size: 2.75vh;
     font-weight: 200;
     letter-spacing: 1px;
+}
+
+.suggestions__list{
+    position: absolute;
+    width: 100%;
+    top: calc(100% - 1rem);
+    z-index: 10;
+}
+
+.suggestions__list--item{
+    text-align:center;
+    padding: .5rem;
+    border-bottom: 1px solid gray;
+    background-color: #303030;
+    text-transform: lowercase;
+    cursor:pointer; 
+}
+
+.suggestions__list--item:hover{
+    background-color: #505050;
+}
+
+.suggestions__list--item:active{
+    background-color: #808080;
+    
+}
+
+.suggestions__list--item,
+.suggestions__list--item:hover,
+.suggestions__list--item:active{
+    transition: background-color .100s ease; 
 }
 
 .input__list,
@@ -28,16 +62,11 @@
     text-align: left;
     color: white;
     font-family: "Oswald";
-    font-size: 2.5vh;
+    font-size: 1.125rem;
     font-weight: 200;
     letter-spacing:1px;
 }
 
-.input__list:focus{
-    outline: none;
-}
-
-.input__list::placeholder,
 .input__text::placeholder{
     color:white;
     text-transform: uppercase;
@@ -56,5 +85,5 @@
     text-transform: uppercase;
     margin-bottom: 1vh;
     font-weight: 400;
-    font-size: 2.25vh;
+    font-size: 1.125rem;
 }
