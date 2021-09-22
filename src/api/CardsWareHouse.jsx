@@ -185,7 +185,7 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
         let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[${id}]&page=${page}&card_count=${count}`);
 
         if(options.kingdoms.length > 0){
-            url.searchParams.append("kingdoms", options.kingdoms)   
+            url.searchParams.append("kingdoms", `[${options.kingdoms.join()}]`)   
         }
 
         if(options.classes.length > 0){

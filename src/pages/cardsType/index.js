@@ -1,6 +1,6 @@
 //hooks import
 import {useParams} from 'react-router-dom';
-import {useEffect, useState, useContext} from 'react';
+import {useEffect, useState, useContext, useRef} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 //api
@@ -68,8 +68,28 @@ function CardsType() {
     //handlers 
     const handleChange = debounce((e) => {
         e.stopPropagation();
+
+        if(e.target.name === "kingdom"){
+            setFormtop(prevState => {
+                let newObj = Object.assign({}, prevState)
+                let index = newObj.kingdoms.indexOf(e.target.id);
+                if(index > -1){
+                    newObj.kingdoms.splice(index, 1)
+                }else{
+                    newObj.kingdoms.push(e.target.id);
+                }
+                return newObj;
+            })
+        }
+
         switch(e.target.id){
             case "classes":
+                if(e.target.value === ''){
+                    return setFormtop({
+                        ...formTop,
+                        classes: ""
+                    });
+                }
                 return setFormtop({
                     ...formTop,
                     classes: e.target.value
@@ -82,9 +102,9 @@ function CardsType() {
             default:
                 return;
         }
-    }, 150);
+    }, 200);
 
-    const handleClasseChoice = function(id){
+    const handleClasseChoice = function(id){  
         setFormtop({
             ...formTop,
             classeChoice: id
@@ -99,25 +119,27 @@ function CardsType() {
             name: formTop.name
         };
 
-        if(cardsList.page !== 1){
+        if(formTop.classes.length === 0){
+            options.classes = '';
+        }
+
+        if(cardsList.page > 1){
             return setCardsList({
                ...cardsList,
                page: 1
            });
         }
-
-        if(formTop.classeChoice){
-            response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)
-        }
+            
+        response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)    
         
         if(response.code === 200){
-           setCardsList({
+           return setCardsList({
                ...cardsList,
                count: response.message[0],
                cards: response.message[1]
            });
         }
-    },[formTop.classeChoice])
+    },[JSON.stringify(formTop.kingdoms), formTop.classeChoice, formTop.name])
 
     useEffect(async () => {
         let response = '';
@@ -126,56 +148,49 @@ function CardsType() {
             classes: formTop.classeChoice,
             name: formTop.name
         };
+
+        if(formTop.classes.length === 0){
+            options.classes = '';
+        }
+        
         response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)
+
         if(response.code === 200){
-           setCardsList({
-               ...cardsList,
-               count: response.message[0],
-               cards: [...cardsList.cards, ...response.message[1]]
-           });
-           setPageLoaded(true);
+            if((formTop.kingdoms.length > 0 || formTop.classeChoice) && 
+                cardsList.page === 1
+               ){
+                return setCardsList({
+                    ...cardsList,
+                    count: response.message[0],
+                    cards: response.message[1]
+                })
+            }
+            setCardsList({
+                ...cardsList,
+                count: response.message[0],
+                cards: [...cardsList.cards, ...response.message[1]]
+            });
+            setPageLoaded(true);
         }
 
 
     },[cardsList.page])
 
     useEffect(async () => {
-        if(formTop.classes.length > 0){
-            let responseClasses = await getClassesList(lang, formTop.classes);
-            if(
-                responseClasses.code === 200 && 
-                responseClasses.message[1].length > 0
-            ){
-                return setFormtop({
-                    ...formTop,
-                    classesList: responseClasses.message[1]
-                })
+
+            if(formTop.classes.length > 0){
+                let responseClasses = await getClassesList(lang, formTop.classes);
+                if(
+                    responseClasses.code === 200 
+                ){
+                    return setFormtop({
+                        ...formTop,
+                        classesList: responseClasses.message[1]
+                    })
+                }
             }
-        }else{
-            return setFormtop({
-                    ...formTop,
-                    classes: "",
-                    classesList: []
-                })
-        }
+
     }, [formTop.classes])
-
-
-    useEffect(async () => {
-        if(formTop.name.length > 0){
-            let responseCards = await getCardsByName(lang, formTop.name, cardsList.page,cardsList.limit , id);
-            if(
-                responseCards[1].length > 0
-            ){
-                return setCardsList({
-                    ...cardsList,
-                    count: responseCards[0],
-                    cards: responseCards[1]
-                })
-            }
-
-        }
-    }, [formTop.name]);
 
     useEffect(() => {
         if(Number(id) === 1){
@@ -221,9 +236,18 @@ function CardsType() {
                                         return (
                                             <>
                                                 <Form.Label htmlFor={elmt.id}>
-                                                    <img key={elmt.id} className="kingdom__img" src={kingdomsDatas[elmt.id].icon_url}/>
+                                                    <img 
+                                                        key={elmt.id} 
+                                                        className="kingdom__img"
+                                                        src={kingdomsDatas[elmt.id].icon_url}
+                                                    />
+                                                    <Form.Checkbox 
+                                                        id={elmt.id} 
+                                                        classes="d-none" 
+                                                        name="kingdom" 
+                                                        value={elmt.id} 
+                                                    />
                                                 </Form.Label>
-                                                <Form.Radio id={elmt.id} classes="d-none" value={elmt.id}/>
                                             </>
                                         )
                                     })
@@ -238,14 +262,6 @@ function CardsType() {
                                 dataList={formTop.classesList} 
                                 placeholder="classes"
                                 setValue = {handleClasseChoice}
-                                resetList= {() => setFormtop({
-                                    ...formTop,
-                                    classesList: []
-                                })}
-                                resetField = {() => setFormtop({
-                                    ...formTop,
-                                    classes: ''
-                                })}
                             />
                         </Form.Group>
                         <Form.Group>

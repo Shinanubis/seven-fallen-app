@@ -191,6 +191,11 @@ code {
 
 /* Utilities */
 
+
+.opacity-4{
+	opacity: .4;
+}
+
 .container{
 	display:flex;
 	justify-content: space-between;
