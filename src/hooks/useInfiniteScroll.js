@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import {debounce, throttle} from 'lodash';
 
-function useInfiniteScroll(hasMore) {
+function useInfiniteScroll(hasMore, filters, cb) {
   const [loading, setIsLoading] = useState(false);
+
+
   let parentRef = useRef();
 
   function handleScroll(e){
-    if((e.target.scrollHeight * 0.9) - e.target.scrollTop <= e.target.clientHeight){
+    if(Math.ceil(e.target.scrollHeight - e.target.scrollTop) === e.target.clientHeight && hasMore === true){
       setIsLoading(true);
     }
   }
@@ -23,11 +25,13 @@ function useInfiniteScroll(hasMore) {
 
   useEffect(() => {
     return () => {
-      parentRef.current.removeEventListener('scroll', throttle(handleScroll, 500));
+      if(parentRef.current){
+        parentRef.current.removeEventListener('scroll', throttle(handleScroll, 200));
+      }
     }
-  },[])
+  })
 
-  return [loading, setIsLoading, setRef];
+  return [loading, setIsLoading, setRef, parentRef];
 }
 
 export default useInfiniteScroll;

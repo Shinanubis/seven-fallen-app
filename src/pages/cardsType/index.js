@@ -29,7 +29,7 @@ import kingdomsDatas from '../../settings/kingdom';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utils
-import {debounce} from 'lodash';
+import {debounce, difference} from 'lodash';
 
 //environment variables
 import dotenv from 'dotenv';
@@ -63,21 +63,37 @@ function CardsType() {
 
     //hooks
     const {id} = useParams();
-    const [loading, setIsLoading, setRef] = useInfiniteScroll(hasMore);
+    const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll(hasMore, formTop, () => {
+        if(cardsList.page > 1){
+            setCardsList({
+                ...cardsList,
+                page: 1
+            })
+        }
+    });
 
     //handlers 
     const handleChange = debounce((e) => {
         e.stopPropagation();
-
         if(e.target.name === "kingdom"){
             setFormtop(prevState => {
-                let newObj = Object.assign({}, prevState)
+                let newObj = {...prevState};
                 let index = newObj.kingdoms.indexOf(e.target.id);
                 if(index > -1){
                     newObj.kingdoms.splice(index, 1)
                 }else{
                     newObj.kingdoms.push(e.target.id);
                 }
+
+                console.log("prevstate : ", prevState)
+                console.log("newObj : ", newObj)
+                parentRef.current.scrollTo({
+                    top:0
+                })
+                setCardsList({
+                    ...cardsList,
+                    page:1
+                })
                 return newObj;
             })
         }
@@ -123,106 +139,64 @@ function CardsType() {
             options.classes = '';
         }
 
-        if(cardsList.page > 1){
-            return setCardsList({
-               ...cardsList,
-               page: 1
-           });
-        }
-            
-        response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)    
-        
-        if(response.code === 200){
-           return setCardsList({
-               ...cardsList,
-               count: response.message[0],
-               cards: response.message[1]
-           });
-        }
-    },[JSON.stringify(formTop.kingdoms), formTop.classeChoice, formTop.name])
-
-    useEffect(async () => {
-        let response = '';
-        let options = {
-            kingdoms: [...formTop.kingdoms],
-            classes: formTop.classeChoice,
-            name: formTop.name
-        };
-
-        if(formTop.classes.length === 0){
-            options.classes = '';
-        }
-        
-        response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id)
+        response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
 
         if(response.code === 200){
-            if((formTop.kingdoms.length > 0 || formTop.classeChoice) && 
-                cardsList.page === 1
-               ){
+
+            if(pageLoaded === false){
+                setPageLoaded(true);
+            }
+
+            if(loading === true){
+                setIsLoading(false);
+            }
+
+            if(cardsList.page === 1){
                 return setCardsList({
                     ...cardsList,
                     count: response.message[0],
-                    cards: response.message[1]
+                    cards: [...response.message[1]]
+                })
+            }else{
+                return setCardsList({
+                    ...cardsList,
+                    count: response.message[0],
+                    cards: [...cardsList.cards, ...response.message[1]]
                 })
             }
-            setCardsList({
-                ...cardsList,
-                count: response.message[0],
-                cards: [...cardsList.cards, ...response.message[1]]
-            });
-            setPageLoaded(true);
         }
 
-
-    },[cardsList.page])
+    },[
+        JSON.stringify(formTop.kingdoms),
+        cardsList.page
+    ])
 
     useEffect(async () => {
-
-            if(formTop.classes.length > 0){
-                let responseClasses = await getClassesList(lang, formTop.classes);
-                if(
-                    responseClasses.code === 200 
-                ){
-                    return setFormtop({
-                        ...formTop,
-                        classesList: responseClasses.message[1]
-                    })
-                }
+        let responseClasses = '';
+        if(formTop.classes.length > 0){
+            responseClasses = await getClassesList(lang, formTop.classes);
+            if(responseClasses.code === 200){
+                return setFormtop({
+                    ...formTop,
+                    classesList: responseClasses.message[1]
+                })
             }
+        }
 
     }, [formTop.classes])
 
     useEffect(() => {
-        if(Number(id) === 1){
-            if(loading === true && cardsList.cards.length < (cardsList.count - 1)){
-                
-                setHasMore(true)
-                return setCardsList({
-                    ...cardsList,
-                    page: cardsList.page + 1
-                })
+            if(loading && cardsList.cards.length === cardsList.count){
+                setIsLoading(false)
             }
 
-            if(loading === true && cardsList.cards.length === (cardsList.count - 1)){
-                setHasMore(false);
-                return setIsLoading(false);
-            }
-        }else{
             if(loading === true && cardsList.cards.length < cardsList.count){
-                setHasMore(true)
                 return setCardsList({
                     ...cardsList,
                     page: cardsList.page + 1
                 })
             }
-
-            if(loading === true && cardsList.cards.length === cardsList.count){
-                setHasMore(false);
-                return setIsLoading(false);
-            }
-        }
-    
-    }, [loading, cardsList.cards])
+    }, [loading])
 
     return (
         pageLoaded ?
@@ -238,7 +212,7 @@ function CardsType() {
                                                 <Form.Label htmlFor={elmt.id}>
                                                     <img 
                                                         key={elmt.id} 
-                                                        className="kingdom__img"
+                                                        className={formTop.kingdoms.indexOf(elmt.id + "") > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
                                                         src={kingdomsDatas[elmt.id].icon_url}
                                                     />
                                                     <Form.Checkbox 
