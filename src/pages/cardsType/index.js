@@ -78,24 +78,26 @@ function CardsType() {
         if(e.target.name === "kingdom"){
             setFormtop(prevState => {
                 let newObj = {...prevState};
-                let index = newObj.kingdoms.indexOf(e.target.id);
+                let index = newObj.kingdoms.indexOf(e.target.value);
+                
                 if(index > -1){
                     newObj.kingdoms.splice(index, 1)
                 }else{
-                    newObj.kingdoms.push(e.target.id);
+                    newObj.kingdoms.push(e.target.value);
                 }
-
-                console.log("prevstate : ", prevState)
-                console.log("newObj : ", newObj)
-                parentRef.current.scrollTo({
-                    top:0
-                })
-                setCardsList({
-                    ...cardsList,
-                    page:1
-                })
-                return newObj;
+                
+                if(cardsList.page > 1){
+                    if(parentRef.current){
+                        parentRef.current.scrollTo(0,0)
+                    }
+                    setCardsList({
+                        ...cardsList,
+                        page:1
+                    })
+                }
+                return {...newObj};
             })
+             
         }
 
         switch(e.target.id){
@@ -103,7 +105,7 @@ function CardsType() {
                 if(e.target.value === ''){
                     return setFormtop({
                         ...formTop,
-                        classes: ""
+                        classeChoice: ""
                     });
                 }
                 return setFormtop({
@@ -118,7 +120,7 @@ function CardsType() {
             default:
                 return;
         }
-    }, 200);
+    }, 300);
 
     const handleClasseChoice = function(id){  
         setFormtop({
@@ -128,6 +130,7 @@ function CardsType() {
     }
 
     useEffect(async () => {
+        console.log("after render")
         let response = '';
         let options = {
             kingdoms: [...formTop.kingdoms],
@@ -167,6 +170,8 @@ function CardsType() {
         }
 
     },[
+        formTop.name,
+        formTop.classeChoice,
         JSON.stringify(formTop.kingdoms),
         cardsList.page
     ])
@@ -182,7 +187,6 @@ function CardsType() {
                 })
             }
         }
-
     }, [formTop.classes])
 
     useEffect(() => {
@@ -209,19 +213,20 @@ function CardsType() {
                                     session.kingdoms.map(elmt =>{
                                         return (
                                             <>
-                                                <Form.Label htmlFor={elmt.id}>
-                                                    <img 
+                                                    <Form.Label htmlFor={elmt.id}>
+                                                        <img
+                                                            className={formTop.kingdoms.indexOf(elmt.id.toString()) > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
+                                                            src={kingdomsDatas[elmt.id].icon_url}
+                                                        />
+                                                    </Form.Label>
+                                                    <Form.Checkbox
                                                         key={elmt.id} 
-                                                        className={formTop.kingdoms.indexOf(elmt.id + "") > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
-                                                        src={kingdomsDatas[elmt.id].icon_url}
-                                                    />
-                                                    <Form.Checkbox 
                                                         id={elmt.id} 
                                                         classes="d-none" 
                                                         name="kingdom" 
                                                         value={elmt.id} 
                                                     />
-                                                </Form.Label>
+                                                
                                             </>
                                         )
                                     })
