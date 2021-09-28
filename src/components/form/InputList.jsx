@@ -46,7 +46,12 @@ const MemoList = function ({
             {(dataList.length > 0 && isVisible === true) &&
                 <ul className={classesList} onClick={handleListClick} >
                     {
-                        dataList.map(elmt => <li key={elmt.name} id={elmt.id} className={classesListItem}>{elmt.name}</li>)
+                        dataList.map(elmt => {
+                            if(!elmt.name || !elmt.id){
+                                return <li key={elmt} id={elmt} className={classesListItem}>{elmt}</li>
+                            }
+                            return <li key={elmt.name} id={elmt.id} className={classesListItem}>{elmt.name}</li>
+                        })
                     }
                 </ul> 
 

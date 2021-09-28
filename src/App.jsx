@@ -1,5 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import useSessionStorage from "./hooks/useSessionStorage";
+import {useHistory} from 'react-router-dom';
 
 //Settings import
 import { BrowserRouter as Router } from "react-router-dom";

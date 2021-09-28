@@ -6,9 +6,11 @@ import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 //api
 import {
         getCardsByType, 
-        getCardById, 
+        getCardById,
+        getMultipleId, 
         getCardsByMultipleOption, 
         getClassesList,
+        getCapacitiesList,
         getCardsByName
     } from '../../api/CardsWareHouse';
 
@@ -52,10 +54,18 @@ function CardsType() {
 
     const [formTop, setFormtop] = useState({
         kingdoms: [],
+        atkChoice: '',
         classeChoice: '',
+        capacitieChoice: '',
+        atkList: [],
+        filteredAtkList: [] ,
+        capacitiesList: [],
         classesList: [],
+        capacities: "",
         classes: "",
-        name: ""
+        atk: "",
+        name: "",
+        loading: false,
     });
 
     const [pageLoaded, setPageLoaded] = useState(false);
@@ -63,19 +73,15 @@ function CardsType() {
 
     //hooks
     const {id} = useParams();
-    const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll(hasMore, formTop, () => {
-        if(cardsList.page > 1){
-            setCardsList({
-                ...cardsList,
-                page: 1
-            })
-        }
-    });
+    const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll(hasMore);
+    const [scrollTop, setScrollTop] = useState(false)
 
     //handlers 
     const handleChange = debounce((e) => {
         e.stopPropagation();
+
         if(e.target.name === "kingdom"){
+            setScrollTop(true)
             setFormtop(prevState => {
                 let newObj = {...prevState};
                 let index = newObj.kingdoms.indexOf(e.target.value);
@@ -85,38 +91,69 @@ function CardsType() {
                 }else{
                     newObj.kingdoms.push(e.target.value);
                 }
-                
-                if(cardsList.page > 1){
-                    if(parentRef.current){
-                        parentRef.current.scrollTo(0,0)
-                    }
-                    setCardsList({
-                        ...cardsList,
-                        page:1
-                    })
-                }
+
                 return {...newObj};
             })
              
         }
 
         switch(e.target.id){
+            case "capacities": 
+                if(e.target.value === ''){                    
+                    return setFormtop({
+                        ...formTop,
+                        capacitieChoice: ""
+                    });
+                }
+
+                if(cardsList.page > 1){
+                    setScrollTop(true);
+                }
+
+                return setFormtop({
+                    ...formTop,
+                    capacities: e.target.value
+                });
+
+            case "atk":
+                if(e.target.value === ''){                    
+                    return setFormtop({
+                        ...formTop,
+                        atkChoice: ""
+                    });
+                }
+
+                return setFormtop({
+                    ...formTop,
+                    atk: e.target.value
+                });
+
             case "classes":
-                if(e.target.value === ''){
+                if(e.target.value === ''){                    
                     return setFormtop({
                         ...formTop,
                         classeChoice: ""
                     });
                 }
+
+                if(cardsList.page > 1){
+                    setScrollTop(true);
+                }
+
                 return setFormtop({
                     ...formTop,
                     classes: e.target.value
                 });
+
             case "card-name":
+                if(cardsList.page > 1){
+                    setScrollTop(true);
+                }
                 return setFormtop({
                     ...formTop,
                     name: e.target.value
-                });        
+                });
+
             default:
                 return;
         }
@@ -129,17 +166,50 @@ function CardsType() {
         })
     }
 
+    const handleAtkChoice = function(id){ 
+        setFormtop({
+            ...formTop,
+            atkChoice: id
+        })
+    }
+
+    const handleCapacatieChoice = function(id){
+        setFormtop({
+            ...formTop,
+            capacitieChoice: id
+        })
+    }
+
+    useEffect(() => {
+
+        if(scrollTop === true){
+            parentRef.current.scrollTo(0,0);
+        }
+
+        setCardsList({
+            ...cardsList,
+            page: 1
+        })
+                
+        return setScrollTop(false)
+    }, [scrollTop])
+
     useEffect(async () => {
-        console.log("after render")
         let response = '';
         let options = {
             kingdoms: [...formTop.kingdoms],
+            capacities: formTop.capacitieChoice,
             classes: formTop.classeChoice,
+            atk: formTop.atkChoice,
             name: formTop.name
         };
 
         if(formTop.classes.length === 0){
             options.classes = '';
+        }
+
+        if(formTop.capacities.length === 0){
+            options.capacities = '';
         }
 
         response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
@@ -172,9 +242,61 @@ function CardsType() {
     },[
         formTop.name,
         formTop.classeChoice,
+        formTop.capacitieChoice,
+        formTop.atkChoice,
         JSON.stringify(formTop.kingdoms),
         cardsList.page
     ])
+
+
+    useEffect(async () => {
+        let arrOfIds = [];
+        let response = [];
+        if(cardsList.cards.length > 0){
+            cardsList.cards.map(elmt => arrOfIds.push(elmt.id));
+        }
+        
+        if(arrOfIds.length > 0){
+            let datas = await getMultipleId(lang, arrOfIds);
+            let theAtkList = new Set([]);
+            if(datas.code === 200){
+                response = [...response, ...datas.message];
+                response.map(elmt => theAtkList.add(elmt.attack));
+                setFormtop({
+                    ...formTop,
+                    atkList: Array.from(theAtkList).sort()
+                });
+            }
+        }
+    }, [cardsList.cards])
+
+    useEffect(() => {
+        let rx = new RegExp(`^${formTop.atk}`);
+        let result = formTop.atkList.filter(elmt => rx.test(elmt));
+        
+        if(cardsList.page > 1){
+            setScrollTop(true);
+        }
+        
+        return setFormtop({
+            ...formTop,
+            filteredAtkList: [...result]
+        })
+
+    }, [formTop.atk])
+
+    useEffect(async () => {
+        let responseCapacities = '';
+        if(formTop.capacities.length > 0){
+            responseCapacities = await getCapacitiesList(lang, formTop.capacities);
+            if(responseCapacities.code === 200){
+                return setFormtop({
+                    ...formTop,
+                    capacitiesList: responseCapacities.message[1]
+                })
+            }
+        }
+    }, [formTop.capacities])
 
     useEffect(async () => {
         let responseClasses = '';
@@ -213,20 +335,19 @@ function CardsType() {
                                     session.kingdoms.map(elmt =>{
                                         return (
                                             <>
-                                                    <Form.Label htmlFor={elmt.id}>
-                                                        <img
-                                                            className={formTop.kingdoms.indexOf(elmt.id.toString()) > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
-                                                            src={kingdomsDatas[elmt.id].icon_url}
-                                                        />
-                                                    </Form.Label>
-                                                    <Form.Checkbox
-                                                        key={elmt.id} 
-                                                        id={elmt.id} 
-                                                        classes="d-none" 
-                                                        name="kingdom" 
-                                                        value={elmt.id} 
+                                                <Form.Label htmlFor={elmt.id}>
+                                                    <img
+                                                        className={formTop.kingdoms.indexOf(elmt.id.toString()) > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
+                                                        src={kingdomsDatas[elmt.id].icon_url}
                                                     />
-                                                
+                                                </Form.Label>
+                                                <Form.Checkbox
+                                                    key={elmt.id} 
+                                                    id={elmt.id} 
+                                                    classes="d-none" 
+                                                    name="kingdom" 
+                                                    value={elmt.id} 
+                                                />
                                             </>
                                         )
                                     })
@@ -235,12 +356,29 @@ function CardsType() {
                         </Form.Group>
                         <Form.Group>
                             <Form.List
+                                id="atk" 
+                                placeholder="atk" 
+                                listId="atk__list" 
+                                dataList={formTop.filteredAtkList} 
+                                setValue = {handleAtkChoice}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.List
                                 id="classes" 
                                 placeholder="classes" 
                                 listId="classes__list" 
                                 dataList={formTop.classesList} 
-                                placeholder="classes"
                                 setValue = {handleClasseChoice}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.List
+                                id="capacities" 
+                                placeholder="capacities" 
+                                listId="capacities__list" 
+                                dataList={formTop.capacitiesList} 
+                                setValue = {handleCapacatieChoice}
                             />
                         </Form.Group>
                         <Form.Group>

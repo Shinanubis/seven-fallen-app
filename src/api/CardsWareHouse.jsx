@@ -94,6 +94,29 @@ async function getClassesList(lang, name){
     }
 }
 
+async function getCapacitiesList(lang, name){
+    try{
+        let settings = {
+            method: 'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_TOKEN
+            }
+
+        }
+
+        let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang.toUpperCase()}?name=${name}`,settings);
+        let datas = await response.json();
+
+        return {
+            code: response.status,
+            message: datas
+        }; 
+
+    }catch(e){
+        return e;
+    }
+}
+
 async function getCardsByName(lang, name, page, count, type){
     try {
         let settings = {
@@ -116,20 +139,6 @@ async function getCardsByName(lang, name, page, count, type){
     } catch (e) {
         return e;
     }
-}
-
-async function getCapacitiesList(lang){
-    let settings = {
-        method: 'GET',
-        headers: {
-            'Authorization': process.env.REACT_APP_TOKEN
-        }
-
-    }
-
-    let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang.toUpperCase()}?name=a`,settings);
-    let datas = await response.json();
-    return datas;
 }
 
 async function getEdenCards(page,count,lang){
@@ -174,6 +183,41 @@ async function getCardById(){
     }
 }
 
+async function getMultipleId(lang,a){
+    try{
+        let settings = {
+            method:'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_TOKEN
+            }
+        }
+
+        let url = new URL(`https://api.7fallen.ovh/api/cards/${lang.toUpperCase()}/multiple`);
+        
+        if(a.length > 0){
+            url.searchParams.append("a", `[${a.join()}]`);
+        }
+
+        let response = await fetch(url, settings);
+
+        if(response.status !== 200){
+            throw {
+                code: response.status,
+                message: response.statusText
+            }
+        }
+
+        let datas = await response.json()
+        return {
+            code: response.status,
+            message: datas
+        };
+
+    }catch(e){
+        return e;
+    }
+}
+
 async function getCardsByMultipleOption(page, count, lang, options, id){
     try{
         let settings = {
@@ -184,12 +228,20 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
         }
         let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[${id}]&page=${page}&card_count=${count}`);
 
+        if(options.capacities.length > 0){
+            url.searchParams.append("capacities", `[${options.capacities}]`);
+        }
+
         if(options.kingdoms.length > 0){
             url.searchParams.append("kingdoms", `[${options.kingdoms.join()}]`)   
         }
 
         if(options.classes.length > 0){
             url.searchParams.append("classes", `[${options.classes}]`);
+        }
+
+        if(options.atk.length > 0){
+            url.searchParams.append("attack", options.atk);
         }
 
         if(options.name.length > 0){
@@ -274,5 +326,6 @@ export {
         getCardsByType,
         getCardById,
         getCardsByMultipleOption,
-        getCardsByName 
+        getCardsByName,
+        getMultipleId
     };

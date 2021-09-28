@@ -84,10 +84,10 @@
 .cards__container{
     display: flex;
     flex-wrap: wrap;
-    height: 61%;
+    height: 51%;
     width: 100%;
     margin-top: 1rem;
-    padding-bottom:1rem;
+    padding-bottom: 1rem;
     background-color:  #202020;
 }
 
