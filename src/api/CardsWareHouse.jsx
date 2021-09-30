@@ -206,7 +206,6 @@ async function getMultipleId(lang,a){
                 message: response.statusText
             }
         }
-
         let datas = await response.json()
         return {
             code: response.status,
@@ -214,6 +213,7 @@ async function getMultipleId(lang,a){
         };
 
     }catch(e){
+
         return e;
     }
 }
@@ -238,10 +238,6 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
 
         if(options.classes.length > 0){
             url.searchParams.append("classes", `[${options.classes}]`);
-        }
-
-        if(options.atk.length > 0){
-            url.searchParams.append("attack", options.atk);
         }
 
         if(options.name.length > 0){

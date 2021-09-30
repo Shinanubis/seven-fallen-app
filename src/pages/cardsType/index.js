@@ -1,6 +1,6 @@
 //hooks import
 import {useParams} from 'react-router-dom';
-import {useEffect, useState, useContext, useRef} from 'react';
+import {useEffect, useState, useContext, useRef, useMemo} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 //api
@@ -31,15 +31,54 @@ import kingdomsDatas from '../../settings/kingdom';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utils
-import {debounce, difference} from 'lodash';
+import {debounce, difference, orderBy} from 'lodash';
 
 //environment variables
 import dotenv from 'dotenv';
 dotenv.config();
 
+function getCardsByAtk(arr = [], atkChoice = undefined, classeChoice = '', kingdom = undefined, capacitieChoice = ''){
+    let newObj = {};
+    let newArray = [];
+
+    if(arr.length > 0){
+
+        if(kingdom){
+            newArray = arr.filter(elmt => elmt.kingdom_id === kingdom);
+        }
+
+        if(classeChoice){
+            newArray = arr.filter(elmt => elmt.classes.includes(classeChoice));
+        }
+
+        if(capacitieChoice){
+            newArray = arr.filter(elmt => elmt.capacities.includes(capacitieChoice));
+        }
+
+        if(atkChoice){
+            newArray = arr.filter(elmt => elmt.attack === Number(atkChoice));
+        }
+    }
+    console.log("inside filter function : ", newArray)
+    return [...newArray]
+}
+
+function getCardsByFv(arr = [],choice = ""){
+    let newArray = [];
+    return newArray;
+}
+
+function getCardsByEc(arr = [], choice = ""){
+    let newArray = [];
+    return newArray;
+}
+
 function CardsType() {
     //variables
     const lang = localStorage.getItem('lang');
+    let cardsByAtk = [];
+    let cardsByFv = [];
+    let cardsByEc = [];
 
     //context
     const [session, setLang] = useContext(SessionContext);
@@ -49,7 +88,8 @@ function CardsType() {
         count: 0,
         page: 1,
         limit: 10,
-        cards: []
+        cards: [],
+        cardsDetails: []
     });
 
     const [formTop, setFormtop] = useState({
@@ -116,9 +156,10 @@ function CardsType() {
                 });
 
             case "atk":
-                if(e.target.value === ''){                    
+                if(e.target.value === ''){                  
                     return setFormtop({
                         ...formTop,
+                        atk: '',
                         atkChoice: ""
                     });
                 }
@@ -195,7 +236,15 @@ function CardsType() {
     }, [scrollTop])
 
     useEffect(async () => {
+        let arrOfIds = [];
+        let theAtkList = new Set([]);
+        let cardsByAtk = [];
+        let datas = {
+            code : 404,
+            message: []
+        };
         let response = '';
+        let responseMultiple = '';
         let options = {
             kingdoms: [...formTop.kingdoms],
             capacities: formTop.capacitieChoice,
@@ -203,6 +252,7 @@ function CardsType() {
             atk: formTop.atkChoice,
             name: formTop.name
         };
+        
 
         if(formTop.classes.length === 0){
             options.classes = '';
@@ -212,14 +262,58 @@ function CardsType() {
             options.capacities = '';
         }
 
+
         response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
+        if(response.code === 200){
+            response.message[1].map(elmt => arrOfIds.push(elmt.id));
+            if(response.message[0] > 0){
+                datas = await getMultipleId(lang, arrOfIds); // make the ajax call
+            }
+            
+                
+            if(datas.code === 200){
+                datas.message.map(elmt => theAtkList.add(elmt.attack));
+                setFormtop({
+                    ...formTop,
+                    atkList: Array.from(theAtkList).sort()
+                });
+            }
+        }
+
+        if(formTop.atkChoice){
+            let beforeCardsArr = [...cardsList.cards];
+            let filteredCards = [];
+            console.log("classe : ", formTop.classes)
+            cardsByAtk = getCardsByAtk(cardsList.cardsDetails, formTop.atkChoice);
+            console.log("cardsByAtk : ", cardsByAtk)
+            filteredCards = cardsByAtk.map(elmt => beforeCardsArr.filter(elmtToFilter => elmtToFilter.id === elmt.id)[0])
+            if(loading === true){
+                setIsLoading(false);
+            }
+
+            if(cardsList.page === 1){
+                return setCardsList({
+                    ...cardsList,
+                    count: filteredCards.length,
+                    cards: [...filteredCards],
+                    cardsDetails: [...cardsByAtk]
+                }) 
+            }else{
+                setScrollTop(true)
+                return setCardsList({
+                    ...cardsList,
+                    count: filteredCards.length,
+                    cards: [...cardsList.cards, ...filteredCards],
+                    cardsDetails: [cardsList.cardsDetails, ...cardsByAtk]
+                }) 
+            }  
+        }
 
         if(response.code === 200){
-
             if(pageLoaded === false){
                 setPageLoaded(true);
             }
-
+            
             if(loading === true){
                 setIsLoading(false);
             }
@@ -228,13 +322,15 @@ function CardsType() {
                 return setCardsList({
                     ...cardsList,
                     count: response.message[0],
-                    cards: [...response.message[1]]
+                    cards: [...response.message[1]],
+                    cardsDetails: [...datas.message]
                 })
             }else{
                 return setCardsList({
                     ...cardsList,
                     count: response.message[0],
-                    cards: [...cardsList.cards, ...response.message[1]]
+                    cards: [...cardsList.cards, ...response.message[1]],
+                    cardsDetails: [...cardsList.cardsDetails, ...datas.message]
                 })
             }
         }
@@ -248,41 +344,16 @@ function CardsType() {
         cardsList.page
     ])
 
-
-    useEffect(async () => {
-        let arrOfIds = [];
-        let response = [];
-        if(cardsList.cards.length > 0){
-            cardsList.cards.map(elmt => arrOfIds.push(elmt.id));
-        }
-        
-        if(arrOfIds.length > 0){
-            let datas = await getMultipleId(lang, arrOfIds);
-            let theAtkList = new Set([]);
-            if(datas.code === 200){
-                response = [...response, ...datas.message];
-                response.map(elmt => theAtkList.add(elmt.attack));
-                setFormtop({
-                    ...formTop,
-                    atkList: Array.from(theAtkList).sort()
-                });
-            }
-        }
-    }, [cardsList.cards])
-
     useEffect(() => {
         let rx = new RegExp(`^${formTop.atk}`);
         let result = formTop.atkList.filter(elmt => rx.test(elmt));
         
-        if(cardsList.page > 1){
-            setScrollTop(true);
+        if(formTop.atk > 0){
+            return setFormtop({
+                ...formTop,
+                filteredAtkList: [...result]
+            })
         }
-        
-        return setFormtop({
-            ...formTop,
-            filteredAtkList: [...result]
-        })
-
     }, [formTop.atk])
 
     useEffect(async () => {
@@ -309,6 +380,7 @@ function CardsType() {
                 })
             }
         }
+
     }, [formTop.classes])
 
     useEffect(() => {
@@ -354,15 +426,17 @@ function CardsType() {
                                 }
                             </div>
                         </Form.Group>
-                        <Form.Group>
-                            <Form.List
-                                id="atk" 
-                                placeholder="atk" 
-                                listId="atk__list" 
-                                dataList={formTop.filteredAtkList} 
-                                setValue = {handleAtkChoice}
-                            />
-                        </Form.Group>
+                        {(formTop.atkList[0] !== null && formTop.atkList.length > 0) &&
+                            <Form.Group>
+                                <Form.List
+                                    id="atk" 
+                                    placeholder="atk" 
+                                    listId="atk__list" 
+                                    dataList={formTop.filteredAtkList} 
+                                    setValue = {handleAtkChoice}
+                                />
+                            </Form.Group>
+                        }
                         <Form.Group>
                             <Form.List
                                 id="classes" 
