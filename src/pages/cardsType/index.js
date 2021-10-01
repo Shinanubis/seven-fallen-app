@@ -10,6 +10,7 @@ import {
         getMultipleId, 
         getCardsByMultipleOption, 
         getClassesList,
+        getRaritiesList,
         getCapacitiesList,
         getCardsByName
     } from '../../api/CardsWareHouse';
@@ -20,6 +21,7 @@ import {RiLoader3Fill} from 'react-icons/ri';
 import Loader from '../../components/Loader';
 import ImageLoader from '../../components/imageLoader';
 import Form from '../../components/form';
+import CreateDeckForm from '../../components/createDeckForm';
 
 //style
 import './style.css';
@@ -37,48 +39,9 @@ import {debounce, difference, orderBy} from 'lodash';
 import dotenv from 'dotenv';
 dotenv.config();
 
-function getCardsByAtk(arr = [], atkChoice = undefined, classeChoice = '', kingdom = undefined, capacitieChoice = ''){
-    let newObj = {};
-    let newArray = [];
-
-    if(arr.length > 0){
-
-        if(kingdom){
-            newArray = arr.filter(elmt => elmt.kingdom_id === kingdom);
-        }
-
-        if(classeChoice){
-            newArray = arr.filter(elmt => elmt.classes.includes(classeChoice));
-        }
-
-        if(capacitieChoice){
-            newArray = arr.filter(elmt => elmt.capacities.includes(capacitieChoice));
-        }
-
-        if(atkChoice){
-            newArray = arr.filter(elmt => elmt.attack === Number(atkChoice));
-        }
-    }
-    console.log("inside filter function : ", newArray)
-    return [...newArray]
-}
-
-function getCardsByFv(arr = [],choice = ""){
-    let newArray = [];
-    return newArray;
-}
-
-function getCardsByEc(arr = [], choice = ""){
-    let newArray = [];
-    return newArray;
-}
-
 function CardsType() {
     //variables
     const lang = localStorage.getItem('lang');
-    let cardsByAtk = [];
-    let cardsByFv = [];
-    let cardsByEc = [];
 
     //context
     const [session, setLang] = useContext(SessionContext);
@@ -88,22 +51,25 @@ function CardsType() {
         count: 0,
         page: 1,
         limit: 10,
-        cards: [],
-        cardsDetails: []
+        cards: []
     });
+
+    const [formIsOpen, setFormIsOpen] = useState(false); 
 
     const [formTop, setFormtop] = useState({
         kingdoms: [],
-        atkChoice: '',
         classeChoice: '',
+        raritieChoice: '',
         capacitieChoice: '',
-        atkList: [],
-        filteredAtkList: [] ,
+        extensionChoice: '',
+        extensionList: [],
         capacitiesList: [],
+        raritieList: [],
         classesList: [],
+        extensions: "",
         capacities: "",
+        rarities: "",
         classes: "",
-        atk: "",
         name: "",
         loading: false,
     });
@@ -146,29 +112,47 @@ function CardsType() {
                     });
                 }
 
-                if(cardsList.page > 1){
-                    setScrollTop(true);
-                }
-
                 return setFormtop({
                     ...formTop,
                     capacities: e.target.value
                 });
 
-            case "atk":
-                if(e.target.value === ''){                  
+            case "rarities":
+                if(e.target.value === ''){
+                    setScrollTop(true);                    
                     return setFormtop({
                         ...formTop,
-                        atk: '',
-                        atkChoice: ""
+                        rarities: "",
+                        raritieChoice: ""
                     });
                 }
 
+                let term = '^' + e.target.value;
+                let rx = new RegExp(term,'i');
+                let result = session.rarities.filter(elmt => rx.test(elmt.name) === true);
+
                 return setFormtop({
                     ...formTop,
-                    atk: e.target.value
+                    raritiesList: [...result]
                 });
 
+            case "extensions":
+                if(e.target.value === ''){
+                    setScrollTop(true);                    
+                    return setFormtop({
+                        ...formTop,
+                        extensions: "",
+                        extensionChoice: ""
+                    });
+                }
+                let termForExtension = '^' + e.target.value;
+                let rxForExtensions = new RegExp(termForExtension,'i');
+                let resultForExtensions = session.extensions.filter(elmt => rxForExtensions.test(elmt.name) === true);
+
+                return setFormtop({
+                    ...formTop,
+                    extensionsList: [...resultForExtensions]
+                });
             case "classes":
                 if(e.target.value === ''){                    
                     return setFormtop({
@@ -177,19 +161,12 @@ function CardsType() {
                     });
                 }
 
-                if(cardsList.page > 1){
-                    setScrollTop(true);
-                }
-
                 return setFormtop({
                     ...formTop,
                     classes: e.target.value
                 });
 
             case "card-name":
-                if(cardsList.page > 1){
-                    setScrollTop(true);
-                }
                 return setFormtop({
                     ...formTop,
                     name: e.target.value
@@ -200,25 +177,54 @@ function CardsType() {
         }
     }, 300);
 
-    const handleClasseChoice = function(id){  
-        setFormtop({
+    const handleExtensionChoice = async function(id){
+        if(cardsList.page > 1){
+            await setScrollTop(true)
+        }
+
+        return setFormtop({
+            ...formTop,
+            extensionChoice: id
+        })
+    } 
+
+    const handleRaritieChoice = async function(id){
+        if(cardsList.page > 1){
+            await setScrollTop(true)
+        }
+
+        return setFormtop({
+            ...formTop,
+            raritieChoice: id
+        })
+    }
+
+    const handleClasseChoice = async function(id){
+        if(cardsList.page > 1){
+            await setScrollTop(true)
+        }
+
+        return setFormtop({
             ...formTop,
             classeChoice: id
         })
     }
 
-    const handleAtkChoice = function(id){ 
-        setFormtop({
-            ...formTop,
-            atkChoice: id
-        })
-    }
+    const handleCapacatieChoice = async function(id){
+        if(cardsList.page > 1){
+            await setScrollTop(true)
+        }
 
-    const handleCapacatieChoice = function(id){
-        setFormtop({
+        return setFormtop({
             ...formTop,
             capacitieChoice: id
         })
+    }
+
+    const handleFormOpening = function(e){
+        if(e.target.id === "btn"){
+            setFormIsOpen(!formIsOpen);
+        }
     }
 
     useEffect(() => {
@@ -236,24 +242,22 @@ function CardsType() {
     }, [scrollTop])
 
     useEffect(async () => {
-        let arrOfIds = [];
-        let theAtkList = new Set([]);
-        let cardsByAtk = [];
         let datas = {
             code : 404,
             message: []
         };
+
         let response = '';
         let responseMultiple = '';
         let options = {
             kingdoms: [...formTop.kingdoms],
+            extensions: formTop.extensionChoice,
+            rarities: formTop.raritieChoice,
             capacities: formTop.capacitieChoice,
             classes: formTop.classeChoice,
-            atk: formTop.atkChoice,
             name: formTop.name
         };
         
-
         if(formTop.classes.length === 0){
             options.classes = '';
         }
@@ -262,54 +266,10 @@ function CardsType() {
             options.capacities = '';
         }
 
-
         response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
+
         if(response.code === 200){
-            response.message[1].map(elmt => arrOfIds.push(elmt.id));
-            if(response.message[0] > 0){
-                datas = await getMultipleId(lang, arrOfIds); // make the ajax call
-            }
             
-                
-            if(datas.code === 200){
-                datas.message.map(elmt => theAtkList.add(elmt.attack));
-                setFormtop({
-                    ...formTop,
-                    atkList: Array.from(theAtkList).sort()
-                });
-            }
-        }
-
-        if(formTop.atkChoice){
-            let beforeCardsArr = [...cardsList.cards];
-            let filteredCards = [];
-            console.log("classe : ", formTop.classes)
-            cardsByAtk = getCardsByAtk(cardsList.cardsDetails, formTop.atkChoice);
-            console.log("cardsByAtk : ", cardsByAtk)
-            filteredCards = cardsByAtk.map(elmt => beforeCardsArr.filter(elmtToFilter => elmtToFilter.id === elmt.id)[0])
-            if(loading === true){
-                setIsLoading(false);
-            }
-
-            if(cardsList.page === 1){
-                return setCardsList({
-                    ...cardsList,
-                    count: filteredCards.length,
-                    cards: [...filteredCards],
-                    cardsDetails: [...cardsByAtk]
-                }) 
-            }else{
-                setScrollTop(true)
-                return setCardsList({
-                    ...cardsList,
-                    count: filteredCards.length,
-                    cards: [...cardsList.cards, ...filteredCards],
-                    cardsDetails: [cardsList.cardsDetails, ...cardsByAtk]
-                }) 
-            }  
-        }
-
-        if(response.code === 200){
             if(pageLoaded === false){
                 setPageLoaded(true);
             }
@@ -323,38 +283,26 @@ function CardsType() {
                     ...cardsList,
                     count: response.message[0],
                     cards: [...response.message[1]],
-                    cardsDetails: [...datas.message]
                 })
             }else{
                 return setCardsList({
                     ...cardsList,
                     count: response.message[0],
-                    cards: [...cardsList.cards, ...response.message[1]],
-                    cardsDetails: [...cardsList.cardsDetails, ...datas.message]
+                    cards: [...cardsList.cards, ...response.message[1]]
                 })
             }
         }
 
     },[
         formTop.name,
+        formTop.extensionChoice,
         formTop.classeChoice,
         formTop.capacitieChoice,
-        formTop.atkChoice,
+        formTop.raritieChoice,
         JSON.stringify(formTop.kingdoms),
         cardsList.page
     ])
 
-    useEffect(() => {
-        let rx = new RegExp(`^${formTop.atk}`);
-        let result = formTop.atkList.filter(elmt => rx.test(elmt));
-        
-        if(formTop.atk > 0){
-            return setFormtop({
-                ...formTop,
-                filteredAtkList: [...result]
-            })
-        }
-    }, [formTop.atk])
 
     useEffect(async () => {
         let responseCapacities = '';
@@ -399,7 +347,16 @@ function CardsType() {
     return (
         pageLoaded ?
         <div className="card__type container">
-                    <Form onChange={(e) => handleChange(e)}>
+                    <Form 
+                        classes={formIsOpen ? "form" : "form close"} 
+                        onChange={(e) => handleChange(e)}
+                        onClick={(e) => handleFormOpening(e)}
+                    >
+                        {formIsOpen === false && 
+                            <Form.Group>
+                                <Form.Button id="btn" text={"OPEN"}/>
+                            </Form.Group>
+                        }
                         <Form.Group>
                             <Form.Title text="Royaumes" />
                             <div className="kingdoms__list">
@@ -426,21 +383,28 @@ function CardsType() {
                                 }
                             </div>
                         </Form.Group>
-                        {(formTop.atkList[0] !== null && formTop.atkList.length > 0) &&
-                            <Form.Group>
-                                <Form.List
-                                    id="atk" 
-                                    placeholder="atk" 
-                                    listId="atk__list" 
-                                    dataList={formTop.filteredAtkList} 
-                                    setValue = {handleAtkChoice}
-                                />
-                            </Form.Group>
-                        }
+                       <Form.Group>
+                            <Form.List
+                                id="extensions" 
+                                placeholder="extension" 
+                                listId="extensions__list" 
+                                dataList={formTop.extensionsList} 
+                                setValue = {handleExtensionChoice}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.List
+                                id="rarities" 
+                                placeholder="raritie" 
+                                listId="rarities__list" 
+                                dataList={formTop.raritiesList} 
+                                setValue = {handleRaritieChoice}
+                            />
+                        </Form.Group>
                         <Form.Group>
                             <Form.List
                                 id="classes" 
-                                placeholder="classes" 
+                                placeholder="classe" 
                                 listId="classes__list" 
                                 dataList={formTop.classesList} 
                                 setValue = {handleClasseChoice}
@@ -449,7 +413,7 @@ function CardsType() {
                         <Form.Group>
                             <Form.List
                                 id="capacities" 
-                                placeholder="capacities" 
+                                placeholder="capacitie" 
                                 listId="capacities__list" 
                                 dataList={formTop.capacitiesList} 
                                 setValue = {handleCapacatieChoice}
@@ -457,6 +421,9 @@ function CardsType() {
                         </Form.Group>
                         <Form.Group>
                             <Form.Text id="card-name" placeholder="name"/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Button id="btn" text="CLOSE"/>
                         </Form.Group>
                     </Form>
                     <div className="cards__container">

@@ -6,13 +6,27 @@ import InputCheckbox from './InputCheckbox';
 import Label from './Label';
 import Title from './Title';
 import List from './InputList';
+import Button from './Button';
 import './style.css';
 
-function Form({children, classes = "form", onChange = (e) => null, onClick = (e) => null}) {
-    return (
-        <form className={classes} autocomplete="off" onChange={onChange}>
-            {children}
-        </form>
+function Form({
+        children,
+        id = "form",
+        classes = "form", 
+        onChange = (e) => null, 
+        onClick = (e) => null
+    }) 
+    {
+        return (
+            <form 
+                id={id}
+                className={classes} 
+                autocomplete="off" 
+                onChange={onChange} 
+                onClick={onClick}
+            >
+                {children}
+            </form>
     )
 }
 
@@ -25,5 +39,6 @@ Form.Radio = InputRadio;
 Form.Label = Label;
 Form.Title = Title;
 Form.List = List;
+Form.Button = Button;
 
 export default Form;

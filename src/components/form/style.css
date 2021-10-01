@@ -1,9 +1,10 @@
 .form {
     font-family:inherit;
     font-weight: inherit;
-    padding: 1rem;
-    width: 100%;
+    width: 100%;    
 }
+
+
 
 .form__group{
     position:relative;
@@ -86,4 +87,33 @@
     margin-bottom: 1vh;
     font-weight: 400;
     font-size: 1.125rem;
+}
+
+.form .btn{
+    padding: .5rem 2rem;
+    background-color: #606060;
+    color: #fff;
+    font-size: 2vh;
+    font-weight: 100;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 4px #303030;
+    border-radius: 6vh;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .1s ease,-webkit-transform 50ms ease;
+    transition: background-color .1s ease,transform 50ms ease;
+    transition: background-color .1s ease,transform 50ms ease,-webkit-transform 50ms ease;
+}
+
+.form .btn:hover{
+    background-color: #505050;
+}
+
+.form .btn:active{
+    transform: translateY(-2px) scale(1.04);
+}
+
+.form .btn:active:hover{
+    background-color: #606060;
 }

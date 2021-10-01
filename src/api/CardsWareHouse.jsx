@@ -26,17 +26,21 @@ async function getTypesList(lang){
 }
 
 async function getRaritiesList(lang){
-    let settings = {
-        method: 'GET',
-        headers: {
-            'Authorization': process.env.REACT_APP_TOKEN
+    try{
+        let settings = {
+            method: 'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_TOKEN
+            }
+    
         }
-
+    
+        let response = await fetch(`https://api.7fallen.ovh/api/rarities/all/${lang.toUpperCase()}`,settings);
+        let datas = await response.json();
+        return datas;
+    }catch(e){
+        return e;
     }
-
-    let response = await fetch(`https://api.7fallen.ovh/api/rarities/all/${lang.toUpperCase()}`,settings);
-    let datas = await response.json();
-    return datas;
 }
 
 async function getKingdomsList(lang){
@@ -213,7 +217,6 @@ async function getMultipleId(lang,a){
         };
 
     }catch(e){
-
         return e;
     }
 }
@@ -227,7 +230,6 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
             }
         }
         let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[${id}]&page=${page}&card_count=${count}`);
-
         if(options.capacities.length > 0){
             url.searchParams.append("capacities", `[${options.capacities}]`);
         }
@@ -236,13 +238,22 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
             url.searchParams.append("kingdoms", `[${options.kingdoms.join()}]`)   
         }
 
+        if(options.extensions.length > 0){
+            url.searchParams.append("extensions", `[${options.extensions}]`)
+        }
+
         if(options.classes.length > 0){
             url.searchParams.append("classes", `[${options.classes}]`);
+        }
+
+        if(options.rarities){
+            url.searchParams.append("rarities", `[${options.rarities}]`);
         }
 
         if(options.name.length > 0){
             url.searchParams.append("name", options.name);
         }
+
         let response = await fetch(url, settings);
         if(response.status !== 200){
             throw {

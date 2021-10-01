@@ -14,7 +14,6 @@ const MemoList = function ({
 }) {
 
     const [isVisible, setIsVisible] = useState(false);
-
     let inputRef = useRef();
 
     const handleListClick = function(e){

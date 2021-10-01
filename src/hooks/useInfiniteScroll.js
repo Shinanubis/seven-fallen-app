@@ -8,7 +8,7 @@ function useInfiniteScroll(hasMore, filters, cb) {
   let parentRef = useRef();
 
   function handleScroll(e){
-    if(Math.ceil(e.target.scrollHeight - e.target.scrollTop) === e.target.clientHeight && hasMore === true){
+    if(Math.ceil(e.target.scrollHeight - e.target.scrollTop) <= Math.ceil(e.target.clientHeight + 10)){
       setIsLoading(true);
     }
   }
