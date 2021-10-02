@@ -50,7 +50,7 @@ const pages = {
         {
             exact: true,
             strict: true,
-            path: "/cards/:id",
+            path: "/decks/:deckId/cards/:id",
             component: CardsType,            
         },
         {

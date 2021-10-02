@@ -1,5 +1,5 @@
 //hooks import
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {useEffect, useState, useContext, useRef, useMemo} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
@@ -7,7 +7,6 @@ import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import {
         getCardsByType, 
         getCardById,
-        getMultipleId, 
         getCardsByMultipleOption, 
         getClassesList,
         getRaritiesList,
@@ -15,9 +14,12 @@ import {
         getCardsByName
     } from '../../api/CardsWareHouse';
 
+import {getCardsByType as getCardsType} from '../../api/Cards';
+
 //components
 import {FiLoader} from 'react-icons/fi';
 import {RiLoader3Fill} from 'react-icons/ri';
+import {MdDone} from "react-icons/md";
 import Loader from '../../components/Loader';
 import ImageLoader from '../../components/imageLoader';
 import Form from '../../components/form';
@@ -54,7 +56,7 @@ function CardsType() {
         cards: []
     });
 
-    const [formIsOpen, setFormIsOpen] = useState(false); 
+    const [formIsOpen, setFormIsOpen] = useState(false);
 
     const [formTop, setFormtop] = useState({
         kingdoms: [],
@@ -76,11 +78,14 @@ function CardsType() {
 
     const [pageLoaded, setPageLoaded] = useState(false);
     const [hasMore, setHasMore] = useState(true);
+    const [cardsChoice, setCardsChoice] = useState({})
 
     //hooks
-    const {id} = useParams();
+    const {id, deckId} = useParams();
+    const test = useParams();
     const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll(hasMore);
-    const [scrollTop, setScrollTop] = useState(false)
+    const [scrollTop, setScrollTop] = useState(false);
+    const [cardsChoiceVal, setCardsChoiceVal] = useState({});
 
     //handlers 
     const handleChange = debounce((e) => {
@@ -153,6 +158,7 @@ function CardsType() {
                     ...formTop,
                     extensionsList: [...resultForExtensions]
                 });
+
             case "classes":
                 if(e.target.value === ''){                    
                     return setFormtop({
@@ -227,8 +233,24 @@ function CardsType() {
         }
     }
 
-    useEffect(() => {
+    const handleCardChoice = function(e){
+        setCardsChoice(prevState => {
+            let newCardsChoice = {...prevState};
+            if(newCardsChoice[e.target.id]){
+                delete newCardsChoice[e.target.id];
+            }else{
+                newCardsChoice[e.target.id] = {type:id, qty:1}
+            }
+            return {...newCardsChoice};
+        });
+    }
 
+    useEffect(async () => {
+        let responseCardsByType = await getCardsType(id,deckId);
+        console.log(responseCardsByType);
+    },[]);
+
+    useEffect(() => {
         if(scrollTop === true){
             parentRef.current.scrollTo(0,0);
         }
@@ -237,7 +259,6 @@ function CardsType() {
             ...cardsList,
             page: 1
         })
-                
         return setScrollTop(false)
     }, [scrollTop])
 
@@ -347,106 +368,125 @@ function CardsType() {
     return (
         pageLoaded ?
         <div className="card__type container">
-                    <Form 
-                        classes={formIsOpen ? "form" : "form close"} 
-                        onChange={(e) => handleChange(e)}
-                        onClick={(e) => handleFormOpening(e)}
-                    >
-                        {formIsOpen === false && 
-                            <Form.Group>
-                                <Form.Button id="btn" text={"OPEN"}/>
-                            </Form.Group>
+            <Form 
+                classes={formIsOpen ? "form" : "form close"} 
+                onChange={(e) => handleChange(e)}
+                onClick={(e) => handleFormOpening(e)}
+            >
+                {formIsOpen === false && 
+                    <Form.Group>
+                        <Form.Button id="btn" text={"OPEN"}/>
+                    </Form.Group>
+                }
+                <Form.Group>
+                    <Form.Title text="Royaumes" />
+                    <div className="kingdoms__list">
+                        {session.kingdoms.length > 0 &&
+                            session.kingdoms.map(elmt =>{
+                                return (
+                                    <>
+                                        <Form.Label htmlFor={elmt.id}>
+                                            <img
+                                                className={formTop.kingdoms.indexOf(elmt.id.toString()) > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
+                                                src={kingdomsDatas[elmt.id].icon_url}
+                                            />
+                                        </Form.Label>
+                                        <Form.Checkbox
+                                            key={elmt.id} 
+                                            id={elmt.id} 
+                                            classes="d-none" 
+                                            name="kingdom" 
+                                            value={elmt.id} 
+                                        />
+                                    </>
+                                )
+                            })
                         }
-                        <Form.Group>
-                            <Form.Title text="Royaumes" />
-                            <div className="kingdoms__list">
-                                {session.kingdoms.length > 0 &&
-                                    session.kingdoms.map(elmt =>{
-                                        return (
-                                            <>
-                                                <Form.Label htmlFor={elmt.id}>
-                                                    <img
-                                                        className={formTop.kingdoms.indexOf(elmt.id.toString()) > -1 ? "kingdom__img opacity-4" : "kingdom__img"}
-                                                        src={kingdomsDatas[elmt.id].icon_url}
-                                                    />
-                                                </Form.Label>
-                                                <Form.Checkbox
-                                                    key={elmt.id} 
-                                                    id={elmt.id} 
-                                                    classes="d-none" 
-                                                    name="kingdom" 
-                                                    value={elmt.id} 
-                                                />
-                                            </>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </Form.Group>
-                       <Form.Group>
-                            <Form.List
-                                id="extensions" 
-                                placeholder="extension" 
-                                listId="extensions__list" 
-                                dataList={formTop.extensionsList} 
-                                setValue = {handleExtensionChoice}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.List
-                                id="rarities" 
-                                placeholder="raritie" 
-                                listId="rarities__list" 
-                                dataList={formTop.raritiesList} 
-                                setValue = {handleRaritieChoice}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.List
-                                id="classes" 
-                                placeholder="classe" 
-                                listId="classes__list" 
-                                dataList={formTop.classesList} 
-                                setValue = {handleClasseChoice}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.List
-                                id="capacities" 
-                                placeholder="capacitie" 
-                                listId="capacities__list" 
-                                dataList={formTop.capacitiesList} 
-                                setValue = {handleCapacatieChoice}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Text id="card-name" placeholder="name"/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Button id="btn" text="CLOSE"/>
-                        </Form.Group>
-                    </Form>
-                    <div className="cards__container">
-                        <ul ref={setRef} className="cards__list">
-                            {cardsList &&
-                                cardsList.cards.map(elmt => {
-                                    if(Number(id) === 1){
-                                        return (
-                                            <ImageLoader id={elmt.id} variant="li" classes="cards__list--item divinity">
-                                                <img id={elmt.id} className="card__img d-none" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
-                                            </ImageLoader>
-                                        )
-                                    }
-                                    return (
-                                        <ImageLoader id={elmt.id} variant="li" classes="cards__list--item">
-                                            <img id={elmt.id} className="card__img" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
-                                        </ImageLoader>
-                                    )
-                                })
-                            }
-                            {loading && <div className="list__loader"><FiLoader className="loader"/></div>}
-                        </ul>
                     </div>
+                </Form.Group>
+               <Form.Group>
+                    <Form.List
+                        id="extensions" 
+                        placeholder="extension" 
+                        listId="extensions__list" 
+                        dataList={formTop.extensionsList} 
+                        setValue = {handleExtensionChoice}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.List
+                        id="rarities" 
+                        placeholder="raritie" 
+                        listId="rarities__list" 
+                        dataList={formTop.raritiesList} 
+                        setValue = {handleRaritieChoice}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.List
+                        id="classes" 
+                        placeholder="classe" 
+                        listId="classes__list" 
+                        dataList={formTop.classesList} 
+                        setValue = {handleClasseChoice}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.List
+                        id="capacities" 
+                        placeholder="capacitie" 
+                        listId="capacities__list" 
+                        dataList={formTop.capacitiesList} 
+                        setValue = {handleCapacatieChoice}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Text id="card-name" placeholder="name"/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Button id="btn" text="CLOSE"/>
+                </Form.Group>
+            </Form>
+            <div className="cards__container">
+                <ul ref={setRef} className="cards__list" onClick={handleCardChoice}>
+                    {cardsList &&
+                        cardsList.cards.map(elmt => {
+                            if(Number(id) === 1){
+                                return (
+                                    <ImageLoader id={elmt.id} variant="li" classes="cards__list--item divinity">
+                                        <img 
+                                            id={elmt.id} 
+                                            className="card__img d-none" 
+                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                        />
+                                    </ImageLoader>
+                                )
+                            }
+                            return (
+                                <ImageLoader 
+                                    id={elmt.id} 
+                                    variant="li" 
+                                    classes={
+                                        cardsChoice[elmt.id] 
+                                        ? 
+                                        "cards__list--item checked" 
+                                        : 
+                                        "cards__list--item"
+                                    }
+                                    >
+                                    <img id={elmt.id} className="card__img" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
+                                    {cardsChoice[elmt.id] &&
+                                        <div className="card__checked--box"> 
+                                            <MdDone className="card__checked--icon"/>
+                                        </div>
+                                    }
+                                </ImageLoader>
+                            )
+                        })
+                    }
+                    {loading && <div className="list__loader"><FiLoader className="loader"/></div>}
+                </ul>
+            </div>
         </div>
         :
         <Loader loaderIcon={FiLoader}/>

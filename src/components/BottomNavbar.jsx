@@ -1,4 +1,10 @@
-import { IoSettingsOutline, AiOutlinePlusCircle, GrMenu, BiGridAlt, HiOutlineUsers } from 'react-icons/all';
+import { 
+    IoSettingsOutline, 
+    AiOutlinePlusCircle, 
+    GrMenu, 
+    BiGridAlt, 
+    HiOutlineUsers 
+} from 'react-icons/all';
 import Navbar from './navbar';
 
 function BottomNavbar(props) {

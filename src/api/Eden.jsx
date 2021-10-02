@@ -10,14 +10,18 @@ async function getEden(id){
 }
 
 async function getEdenCards(id){
-    let settings = {
-        method : 'GET',
-        credentials: 'include'
+    try{    
+        let settings = {
+            method : 'GET',
+            credentials: 'include'
+        }
+        let url = new URL(`https://test-seven.site/api/decks/${id}/eden/cards`)
+        let response = await fetch(url, settings);
+        let datas = await response.json();
+        return datas;
+    }catch(e){
+        return e;
     }
-    let url = new URL(`https://test-seven.site/api/decks/${id}/eden/cards`)
-    let response = await fetch(url, settings);
-    let datas = await response.json();
-    return datas;
 }
 
 async function createEden(id){

@@ -7,6 +7,35 @@
     overflow-y: hidden;
 }
 
+.card__type .card__checked--box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background-color: rgba(20,20,20, .5);
+    pointer-events:none;
+}
+
+.card__type .card__checked--icon{
+    font-size: 3rem;
+    color: greenyellow;
+    pointer-events:none;
+}
+.card__type .card__checked--icon{
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: greenyellow;
+    pointer-events:none;
+}
+
+
 /* Start transition */
 .card__type .form {
     display: flex;
@@ -14,7 +43,7 @@
     flex-wrap:wrap;
     background-color: #505050;
     padding:3vh;
-    min-height: 12vh;
+    min-height: 11vh;
     max-height: 100vh;
     transition: height .500s ease;
 }
@@ -25,7 +54,7 @@
 }
 
 .card__type .form.close{
-    height: 12vh;
+    height: 11vh;
     overflow-y: hidden;
     transition: height .500s ease;
 }
@@ -92,6 +121,7 @@
 }
 
 .card__type .cards__list--item{
+    position:relative;
     height: 50vw;
     max-height: 250px;
     width: 36vw;

@@ -599,8 +599,14 @@ function DeckPage(props){
                             <BsPencil className="deck__infos--icon"/>
                         </div>
                         <div className="deck__infos--visibility">
-                            <AiOutlineEyeInvisible id="is-hidden" className={deck.success.is_visible === false ? "icon is-hidden" : "icon"}/>
-                            <AiOutlineEye id="is-visible" className={deck.success.is_visible === true ? "icon is-visible" : "icon"}/>
+                            <AiOutlineEyeInvisible 
+                                id="is-hidden" 
+                                className={deck.success.is_visible === false ? "icon is-hidden" : "icon"}
+                            />
+                            <AiOutlineEye 
+                                id="is-visible" 
+                                className={deck.success.is_visible === true ? "icon is-visible" : "icon"}
+                            />
                         </div>
                     </div>
                 </div>
@@ -617,7 +623,7 @@ function DeckPage(props){
                                                 return(
                                                     <li key={sub.name} className="sub__list--item">
                                                         <p className="list__item--text">{sub.name}</p>
-                                                        <Link to={`/cards/${sub.id}`}><AiOutlinePlusCircle className="icon"/></Link>
+                                                        <Link to={`/decks/${id}/cards/${sub.id}`}><AiOutlinePlusCircle className="icon"/></Link>
                                                     </li>
                                                 )
                                             })}
@@ -628,7 +634,7 @@ function DeckPage(props){
                                 return(
                                         <li key={elmt.order} className="list__item">
                                             <p className="list__item--text">{elmt.name}</p>
-                                            <Link to={`/cards/${elmt.id}`}><AiOutlinePlusCircle className="icon"/></Link>
+                                            <Link to={`/decks/${id}/cards/${elmt.id}`}><AiOutlinePlusCircle className="icon"/></Link>
                                         </li>
                                     )
                             })
