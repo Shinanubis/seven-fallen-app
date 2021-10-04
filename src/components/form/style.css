@@ -89,11 +89,13 @@
     font-size: 1.125rem;
 }
 
+.bottom-block .btn,
+.form__group .btn,
 .form .btn{
-    padding: .5rem 2rem;
+    padding: 0.25rem 2rem;
     background-color: #606060;
     color: #fff;
-    font-size: 2vh;
+    font-size: .75rem;
     font-weight: 100;
     font-family: "Oswald", sans-serif;
     letter-spacing: 2px;
@@ -106,14 +108,17 @@
     transition: background-color .1s ease,transform 50ms ease,-webkit-transform 50ms ease;
 }
 
+.card__type .bottom-block .btn:hover,
 .form .btn:hover{
     background-color: #505050;
 }
 
+.card__type .bottom-block .btn:active,
 .form .btn:active{
     transform: translateY(-2px) scale(1.04);
 }
 
+.card__type .bottom-block .btn:active:hover,
 .form .btn:active:hover{
     background-color: #606060;
 }

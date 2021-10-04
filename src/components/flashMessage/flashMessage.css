@@ -12,6 +12,7 @@
     opacity: 0;
     line-height: 1.25;
     font-size: 1rem;
+    z-index: 99;
   }
   
   .flash__message .text {

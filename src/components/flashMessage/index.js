@@ -29,7 +29,7 @@ function Flash({success, error, setFlash, redirect, redirectCallback}){
         if(redirect === true && success){
           redirectCallback();
         }
-        setFlash({error: "", success:""});
+        setFlash({pending: false, error: "", success:""});
     },1500);
 
     return () => {

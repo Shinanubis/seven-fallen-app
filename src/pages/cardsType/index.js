@@ -2,6 +2,7 @@
 import {useParams, useHistory} from 'react-router-dom';
 import {useEffect, useState, useContext, useRef, useMemo} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import {useTranslation} from 'react-i18next';
 
 //api
 import {
@@ -14,16 +15,21 @@ import {
         getCardsByName
     } from '../../api/CardsWareHouse';
 
-import {getCardsByType as getCardsType} from '../../api/Cards';
+import {
+    getCardsByType as getCardsType, 
+    updateCardsByType
+} from '../../api/Cards';
 
 //components
 import {FiLoader} from 'react-icons/fi';
 import {RiLoader3Fill} from 'react-icons/ri';
+import {BiLoaderAlt} from 'react-icons/bi';
 import {MdDone} from "react-icons/md";
 import Loader from '../../components/Loader';
 import ImageLoader from '../../components/imageLoader';
 import Form from '../../components/form';
 import CreateDeckForm from '../../components/createDeckForm';
+import Flash from '../../components/flashMessage';
 
 //style
 import './style.css';
@@ -57,6 +63,11 @@ function CardsType() {
     });
 
     const [formIsOpen, setFormIsOpen] = useState(false);
+    const [updateState, setUpdateState] = useState({
+        pending: false,
+        success: "",
+        error: ""
+    });
 
     const [formTop, setFormtop] = useState({
         kingdoms: [],
@@ -86,6 +97,7 @@ function CardsType() {
     const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll(hasMore);
     const [scrollTop, setScrollTop] = useState(false);
     const [cardsChoiceVal, setCardsChoiceVal] = useState({});
+    const {t} = useTranslation();
 
     //handlers 
     const handleChange = debounce((e) => {
@@ -192,6 +204,13 @@ function CardsType() {
             ...formTop,
             extensionChoice: id
         })
+    }
+
+    const handleValid = async function(){
+        setUpdateState({
+            ...updateState,
+            pending: true
+        })
     } 
 
     const handleRaritieChoice = async function(id){
@@ -239,7 +258,7 @@ function CardsType() {
             if(newCardsChoice[e.target.id]){
                 delete newCardsChoice[e.target.id];
             }else{
-                newCardsChoice[e.target.id] = {type:id, qty:1}
+                newCardsChoice[e.target.id] = {type:Number(id), qty:1}
             }
             return {...newCardsChoice};
         });
@@ -247,7 +266,9 @@ function CardsType() {
 
     useEffect(async () => {
         let responseCardsByType = await getCardsType(id,deckId);
-        console.log(responseCardsByType);
+        if(responseCardsByType.code === 200){
+            setCardsChoice({...responseCardsByType.message});
+        }
     },[]);
 
     useEffect(() => {
@@ -261,6 +282,7 @@ function CardsType() {
         })
         return setScrollTop(false)
     }, [scrollTop])
+
 
     useEffect(async () => {
         let datas = {
@@ -352,6 +374,28 @@ function CardsType() {
 
     }, [formTop.classes])
 
+    useEffect(async () => {
+        let response = ''
+        if(updateState.pending === true){
+            response = await updateCardsByType(id, deckId, cardsChoice);
+            if(response.code === 200){
+                setUpdateState({
+                    ...updateState,
+                    pending:false,
+                    success: response.message,
+                    error: ""
+                })
+            }else{
+                setUpdateState({
+                    ...updateState,
+                    pending: false,
+                    error: response.message,
+                    success: ""
+                })
+            } 
+        } 
+    },[updateState])
+
     useEffect(() => {
             if(loading && cardsList.cards.length === cardsList.count){
                 setIsLoading(false)
@@ -368,6 +412,7 @@ function CardsType() {
     return (
         pageLoaded ?
         <div className="card__type container">
+            <Flash success={updateState.success} error={updateState.error} setFlash={setUpdateState}/>
             <Form 
                 classes={formIsOpen ? "form" : "form close"} 
                 onChange={(e) => handleChange(e)}
@@ -375,11 +420,11 @@ function CardsType() {
             >
                 {formIsOpen === false && 
                     <Form.Group>
-                        <Form.Button id="btn" text={"OPEN"}/>
+                        <Form.Button id="btn" text={t("filter")}/>
                     </Form.Group>
                 }
                 <Form.Group>
-                    <Form.Title text="Royaumes" />
+                    <Form.Title text={t("kingdom")} />
                     <div className="kingdoms__list">
                         {session.kingdoms.length > 0 &&
                             session.kingdoms.map(elmt =>{
@@ -406,8 +451,8 @@ function CardsType() {
                 </Form.Group>
                <Form.Group>
                     <Form.List
-                        id="extensions" 
-                        placeholder="extension" 
+                        id="extension(s)" 
+                        placeholder="extension(s)" 
                         listId="extensions__list" 
                         dataList={formTop.extensionsList} 
                         setValue = {handleExtensionChoice}
@@ -416,7 +461,7 @@ function CardsType() {
                 <Form.Group>
                     <Form.List
                         id="rarities" 
-                        placeholder="raritie" 
+                        placeholder={t("raritie")} 
                         listId="rarities__list" 
                         dataList={formTop.raritiesList} 
                         setValue = {handleRaritieChoice}
@@ -425,7 +470,7 @@ function CardsType() {
                 <Form.Group>
                     <Form.List
                         id="classes" 
-                        placeholder="classe" 
+                        placeholder={t("class")} 
                         listId="classes__list" 
                         dataList={formTop.classesList} 
                         setValue = {handleClasseChoice}
@@ -434,17 +479,17 @@ function CardsType() {
                 <Form.Group>
                     <Form.List
                         id="capacities" 
-                        placeholder="capacitie" 
+                        placeholder={t("capacitie")} 
                         listId="capacities__list" 
                         dataList={formTop.capacitiesList} 
                         setValue = {handleCapacatieChoice}
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Text id="card-name" placeholder="name"/>
+                    <Form.Text id="card-name" placeholder={t("name")}/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Button id="btn" text="CLOSE"/>
+                    <Form.Button id="btn" text={t("close")}/>
                 </Form.Group>
             </Form>
             <div className="cards__container">
@@ -459,6 +504,11 @@ function CardsType() {
                                             className="card__img d-none" 
                                             src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
                                         />
+                                        {cardsChoice[elmt.id] &&
+                                            <div className="card__checked--box"> 
+                                                <MdDone className="card__checked--icon"/>
+                                            </div>
+                                        }
                                     </ImageLoader>
                                 )
                             }
@@ -486,6 +536,12 @@ function CardsType() {
                     }
                     {loading && <div className="list__loader"><FiLoader className="loader"/></div>}
                 </ul>
+                    <div className="bottom-block">
+                        <button type="button" id="btn" className="btn" onClick={handleValid}>
+                            {updateState.pending && <BiLoaderAlt className="btn__loader"/>}
+                            {t("valid")}
+                        </button>
+                    </div>
             </div>
         </div>
         :

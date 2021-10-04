@@ -1,9 +1,9 @@
 .card__type{
     flex-wrap: wrap;
-    margin: 4vh auto 0 auto;
+    margin: 3vh auto 0;
     box-shadow: 0 0 12px 2px #050505;
     height: calc(100% - var(--navbar-height) - 8vh);
-    align-content: flex-start;
+    align-content: space-between;
     overflow-y: hidden;
 }
 
@@ -42,8 +42,8 @@
     align-items: center;
     flex-wrap:wrap;
     background-color: #505050;
-    padding:3vh;
-    min-height: 11vh;
+    padding:2vh;
+    min-height: 3rem;
     max-height: 100vh;
     transition: height .500s ease;
 }
@@ -54,9 +54,20 @@
 }
 
 .card__type .form.close{
-    height: 11vh;
-    overflow-y: hidden;
+    height: 3rem;
+    padding:0;
+    overflow: hidden;
     transition: height .500s ease;
+}
+
+.card__type .form.close .form__group {
+    display: flex;
+    align-items: center;
+    height:100%;
+}
+
+.card__type .form.close .form__group .btn{
+    height: auto;
 }
 
 .card__type .form.close > *:not(:first-child){
@@ -66,9 +77,10 @@
 
 .card__type .form.close + *{
     max-height:100vh;
-    height: 71vh;
+    height: 85%;
     min-height:1vh;
     transition: height .500s ease;
+    
 }
 
 .card__type .form + *{
@@ -94,6 +106,7 @@
 .card__type .form .kingdoms__list{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width:100%;
 }
 
@@ -105,8 +118,12 @@
 }
 
 .card__type .kingdom__img{
-    height: 2.25rem;
+    width: 100%;
     cursor:pointer;
+}
+
+.card__type .form__label{
+    width: 14%;
 }
 
 .card__type .cards__list{
@@ -115,9 +132,10 @@
     align-content: flex-start;
     padding:0 3vw;
     flex-wrap: wrap;
-    height: 100%;
+    height: 86%;
     width: 100%;
     overflow-y: scroll;
+    margin-bottom: 2vh;
 }
 
 .card__type .cards__list--item{
@@ -160,9 +178,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 2vh;
-    padding-bottom: 3vh;
-    background-color:  #202020;
+    background-color: transparent;
 }
 
 .card__type .btn__banner{
@@ -174,9 +190,59 @@
     background-color: #202020;
 }
 
+.card__type .bottom-block{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+.card__type .bottom-block .btn{
+    position:relative;
+    padding: .25rem 2rem;
+    background-color: #606060;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 100;
+    font-family: "Oswald",sans-serif;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 4px #303030;
+    border-radius: 6vh;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .1s ease,-webkit-transform 50ms ease;
+    transition: background-color .1s ease,transform 50ms ease;
+    transition: background-color .1s ease,transform 50ms ease,-webkit-transform 50ms ease;
+}
+
+.card__type .bottom-block .btn .btn__loader{
+    position: absolute;
+    left:4%;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--success);
+    transform-origin: center;
+    animation: loader-button 1s infinite;
+}
+
+.card__type .flash__message{
+    top: 3vh;
+}
+
 .list__loader{
     text-align: center;
     width: 100%;
     height:40px;
     align-self: end;
+}
+
+@keyframes loader-button{
+    from{
+        transform: translateY(-50%) rotateZ(0deg);
+    }
+
+    to{
+        transform: translateY(-50%) rotateZ(360deg);
+    }
 }
