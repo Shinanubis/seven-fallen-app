@@ -79,6 +79,7 @@ input.create__deck--name::placeholder{
     flex-direction: column;
     width:70%;
     border-bottom: 1px solid #ababab;
+    height: 30px;
 }
 
 .dropdown__header{
@@ -96,8 +97,7 @@ input.create__deck--name::placeholder{
 
 .dropdown__icon{
     display: flex;
-    align-items: center;
-    height:100%;
+    height:70%;
     cursor:pointer;
 }
 
@@ -105,6 +105,7 @@ input.create__deck--name::placeholder{
     font-size: 1.75rem;
     transform-origin: center;
     transition: transform .2s ease;
+    pointer-events:none;
 }
 
 .dropdown__icon svg.reverse{
@@ -113,18 +114,18 @@ input.create__deck--name::placeholder{
 }
 
 .dropdown__content{
-    position:absolute;
-    top: calc(100% + .5rem);
+    display: none;
     pointer-events: none;
     width:100%;
     background-color: #505050;
     box-shadow: 0 0 4px #303030;
     opacity:0;
     transition: opacity .2s ease;
+    z-index: 20;
 }
 
 .dropdown__content.open{
-    z-index: 20;
+    display: block;
     opacity:1;
     pointer-events: auto;
     cursor: pointer;
