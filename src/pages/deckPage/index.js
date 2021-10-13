@@ -28,6 +28,7 @@ import {orderBy, merge, unionBy, debounce} from 'lodash';
 import mod from '../../utilities/utils';
 
 //services import
+import {getMultipleId} from '../../api/CardsWareHouse';
 import {getOne, deleteUserDeck, updateOne} from "../../api/Decks";
 import {getExport} from "../../api/Export";
 import {uploadDeck} from '../../api/Import';
@@ -67,10 +68,13 @@ function DeckPage(props){
         filename:""
     })
 
+    const [cards, setCards] = useState([]);
+
     // hooks
     let {id} = useParams();
     let history = useHistory();
     const {t} = useTranslation();
+    let lang = localStorage.getItem("lang")
 
     //refs
     let kingdomRef = useRef();
@@ -278,13 +282,17 @@ function DeckPage(props){
     //effects
     useEffect(async () => {
         let deckResponse = await getOne(id);
+        let responseCards = await getExport(id);
+        let cards = [].concat(responseCards.message.eden, responseCards.message.holy_book, responseCards.message.register)
+                      .map(elmt => elmt[0]);
+        // let responseId = await getMultipleId(lang, cards);
         if(deckResponse.code === 200){
+            setCards([...cards]);
             setDeck({...deck, success: deckResponse.message});
         }else{
             setDeck({...deck, error: deckResponse.message});
         }
     }, [])
-
 
     useEffect(() => {
 
@@ -382,7 +390,6 @@ function DeckPage(props){
                     ...flash,
                     error: response.message
                 })
-                return console.log(response);
             }
 
             if(mod.includesAll(["kingdom", "confirm"],actionPopup.action)){

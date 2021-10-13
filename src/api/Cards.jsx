@@ -1,6 +1,27 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+async function getAllCards(id){
+    try{
+        let settings = {
+            method: "GET",
+            credentials: "include"
+        };
+
+        let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${id}/cards`);
+        let datas = await response.json();
+
+        if(response != 200){
+            throw {...datas};
+        }
+
+        return {...datas};
+
+    }catch(e){
+        return {...e}
+    }
+}
+
 async function getCardsByType(id, deckId){
     try{
         let settings = {
@@ -59,6 +80,7 @@ async function updateCardsByType(id, deckId, payload){
 }
 
 export {
+    getAllCards,
     getCardsByType,
     updateCardsByType
 }

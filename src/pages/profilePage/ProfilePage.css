@@ -1,0 +1,41 @@
+.profile__page{
+    min-height:100%;
+    padding:0 2rem;
+    padding-top: var(--header-height);
+}
+
+.profile__page.page{
+    justify-content: flex-start;
+}
+
+.profile__page .avatar__block{
+    margin-top:5vh;
+    margin-bottom:10vh;
+}
+
+.profile__page img.avatar{
+    border-radius: 50%;
+}
+
+.profile__page .avatar{
+    width: 20vh;
+    height: 20vh;
+}
+
+.profile__page .avatar svg{
+    stroke-width: 2;
+    width:100%;
+    height:100%;
+}
+
+.profile__page .user__id{
+    color:white;
+}
+
+.profile__page .input__text{
+    text-align: center;
+}
+
+.profile__page .toolbox .toolbox__row{
+    height: 42%;
+}
