@@ -12,14 +12,14 @@ const InputText = forwardRef(function ({
     const deb = debounce((text) => onChange(text), debounceTime)
 
     return (
-        <input
-            id={id} 
-            className={classes} 
-            ref={ref}
-            type="text"
-            onChange = {(e) => deb(e.target.value)} 
-            placeholder={placeholder}
-        />
+            <input
+                id={id} 
+                className={classes} 
+                ref={ref}
+                type="text"
+                onChange = {(e) => deb(e.target.value)} 
+                placeholder={placeholder}
+            />
     )
 })
 

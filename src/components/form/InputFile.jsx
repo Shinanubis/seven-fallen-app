@@ -1,6 +1,15 @@
-function InputFile({classes = "input__file"}) {
+function InputFile({
+        classes = "input__file", 
+        id = "input__file",
+        onChange = () => ""
+    }) {
     return (
-        <input className={classes} type="file" />
+        <input 
+            id={id} 
+            className={classes} 
+            type="file"
+            onChange ={onChange} 
+        />
     )
 }
 

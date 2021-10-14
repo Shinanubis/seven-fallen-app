@@ -83,6 +83,11 @@
     font-size: 3vh;
 }
 
+.toolbox__action .action__loader{
+    color: var(--success);
+    animation: loading 1s infinite;
+}
+
 .toolbox__action > * {
     pointer-events: none;
 }

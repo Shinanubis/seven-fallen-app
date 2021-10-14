@@ -48,11 +48,11 @@ let mod = (function () {
   };
 
   const checkFileExt = function(filename, expected){
-    return filename.split('.').pop() === expected;
+    return expected.includes(filename.split('.').pop());
   }
 
   const checkMimeType = function (fileType, expected) {
-    return fileType === expected;
+    return expected.includes(fileType);
   };
 
   const checkFileSize = function (fileSize, max) {
@@ -124,7 +124,8 @@ let mod = (function () {
     }
 
     return true;
-  } 
+  }
+
 
   return {
     sortArrayOfObject,
