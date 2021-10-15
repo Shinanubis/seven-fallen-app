@@ -49,7 +49,7 @@ const ProfilePage = (props) => {
                 ...user,
                 success: {...user.success, username: text}
             })
-    },1000)
+    },300)
 
     const handleUpload = function(e){
         try{
@@ -102,7 +102,7 @@ const ProfilePage = (props) => {
         }
     }
 
-    const handleClick = function(e){
+    const handleClick = debounce(function(e){
        switch(e.target.id){
            case "update":
                 return setUser({
@@ -119,7 +119,7 @@ const ProfilePage = (props) => {
             default: 
                 return setUser({...user});
        }
-    }
+    }, 400)
 
 
     useEffect(async () => {
@@ -128,12 +128,18 @@ const ProfilePage = (props) => {
             switch(user.type){
                 case "update":
                     response = await updateProfile({username: user.success.username, avatar: user.file});
-                    return;
+                    if(response.code === 200){
+                        return setUser({
+                            ...user,
+                            pending: false,
+                            success: {...response.message}
+                        })
+                    }
                 case "delete":
                     return;
             }
         }
-    },[user])
+    },[user.pending])
 
     useEffect(async () => {
         let responseUser = await getProfile();
@@ -170,18 +176,14 @@ const ProfilePage = (props) => {
                                     />
                             }
                             {
-                                user.type === "update" &&
                                 user.pending === true &&
-                                    <Avatar 
-                                        url={user.success.avatar} 
-                                        alt="user image"
-                                    />
+                                    <Loader loaderIcon={RiLoader3Line}/>
                             }
                             {
                                 user.type === "update" &&
                                 user.pending === false &&  
                                     <Avatar 
-                                        url={user.success.avatar} 
+                                        url={user.success.avatar && "/avatars" + user.success.avatar} 
                                         alt="user image"
                                     />
                             }
