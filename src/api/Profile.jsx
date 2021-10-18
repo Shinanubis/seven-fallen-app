@@ -35,7 +35,7 @@ async function updateProfile(options){
             body: form
         }
 
-        let response = await fetch('https://test-seven.site/api/profile', settings);
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/profile`, settings);
         let datas = await response.json();
         return datas;
     }catch(e){
@@ -44,14 +44,18 @@ async function updateProfile(options){
 }
 
 async function deleteProfile(){
-    let settings = {
-        method: 'DELETE',
-        credentials: 'include',
-    }
+    try{
+        let settings = {
+            method: 'DELETE',
+            credentials: 'include',
+        }
 
-    let response = await fetch('https://test-seven.site/api/profile', settings);
-    let datas = await response.json();
-    return datas;
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/profile`, settings);
+        let datas = await response.json();
+        return datas;
+    }catch(e){
+        return e;
+    }
 }
 
 async function getAvatar(){

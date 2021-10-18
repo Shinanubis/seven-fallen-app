@@ -2,7 +2,7 @@ import React,{useState, useEffect, useRef} from 'react';
 import { BsPencil } from 'react-icons/bs';
 
 /* api */
-import {getProfile, updateProfile} from '../../api/Profile';
+import {getProfile, updateProfile,deleteProfile} from '../../api/Profile';
 
 /* components */
 import { RiLoader3Line } from 'react-icons/ri';
@@ -38,6 +38,7 @@ const ProfilePage = (props) => {
         success: {},
         error: {}
     });
+    const [logout, setLogout] = useState(false);
 
     //refs
     const inputRef = useRef();
@@ -136,7 +137,15 @@ const ProfilePage = (props) => {
                         })
                     }
                 case "delete":
-                    return;
+                    response = await deleteProfile();
+                    if(response.code === 200){
+                        setUser({
+                            ...user,
+                            pending:false,
+                            success:{...response.message}
+                        });
+                        return setLogout();
+                    }
             }
         }
     },[user.pending])
