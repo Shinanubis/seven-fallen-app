@@ -29,7 +29,15 @@
     text-align: right;
 }
 
+.heading__filter,
 .heading__logo{
     height: 8vh;
     width: 8vh;
+    cursor:pointer;
+}
+
+.heading__filter--icon{
+    width: 8vh;
+    height: 8vh;
+    pointer-events: none;
 }

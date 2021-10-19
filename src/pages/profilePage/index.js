@@ -188,10 +188,6 @@ const ProfilePage = (props) => {
         }
     },[user.pending])
 
-    useEffect(() => {
-        console.log(user)
-    },[user])
-
     useEffect(async () => {
         let response = '';
         if(!confirmPopup.isOpen && confirmPopup.action === "confirm"){
@@ -232,7 +228,7 @@ const ProfilePage = (props) => {
         }
     },[]);
 
-    return  !pageLoading ?
+    return !pageLoading ?
                 <div className="profile__page page">
                     <Header>
                         <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>

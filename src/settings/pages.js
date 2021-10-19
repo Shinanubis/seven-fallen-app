@@ -6,7 +6,7 @@ import DeckPage from '../pages/deckPage';
 import DeckCreate from "../pages/deckCreate";
 import CardsType from '../pages/cardsType';
 import ProfilePage from "../pages/profilePage";
-import GamersPage from "../pages/GamersPage";
+import GamersPage from "../pages/gamersPage";
 import ErrorPage from "../pages/ErrorPage";
 
 

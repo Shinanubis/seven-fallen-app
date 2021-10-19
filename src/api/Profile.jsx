@@ -89,11 +89,5 @@ async function deleteAvatar(){
     } 
 }
 
-async function updateAvatar(){
-    let settings = {
-        method : 'PATCH',
-        credentials: 'include'
-    }
-}
 
-export {getProfile, updateProfile, deleteProfile, getAvatar, addAvatar, updateAvatar , deleteAvatar}
+export {getProfile, updateProfile, deleteProfile, getAvatar, addAvatar, deleteAvatar}
