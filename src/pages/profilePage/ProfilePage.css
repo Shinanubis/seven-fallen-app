@@ -29,6 +29,19 @@
     height:60px;
 }
 
+.profile__page .popup{
+    background-color: #570000;
+}
+
+.profile__page .popup .popup__button#confirm{
+    background-color:black;
+}
+
+.profile__page .popup .popup__button#cancel{
+    background-color:white;
+    color:black;
+}
+
 .profile__page .form__label .loader__block,
 .profile__page .avatar__block .form__label,
 .profile__page .avatar,
