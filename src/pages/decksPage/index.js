@@ -39,8 +39,6 @@ const DecksPage = (props) => {
     
     const {t} = useTranslation();
 
-    
-
     useEffect(async () => {
         let profile = await getProfile();
         let userDecks = await getUserDecks({page: pageDatas.page, size: pageDatas.limit, sens: "asc", order_by: 'id'});

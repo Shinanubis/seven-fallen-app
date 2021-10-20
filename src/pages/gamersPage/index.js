@@ -1,10 +1,13 @@
 //hooks
 import {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 //components
 import Header from '../../components/heading';
 import {CgMenuCheese} from 'react-icons/cg';
 import {RiLoader3Line} from 'react-icons/ri';
+import {FiLoader} from 'react-icons/fi';
 import {HiOutlineUserCircle} from 'react-icons/hi';
 import Loader from '../../components/Loader';
 import Member from '../../components/member';
@@ -19,26 +22,44 @@ import './gamerspage.css';
 import{getAllUsers} from '../../api/Users'
 
 function GamersPage(props) {
+
     //states
     const [pageLoading, setPageLoading] = useState(true);
     const [users, setUsers] = useState({
         pending: true,
+        page:1,
+        limit: 20,
+        count: 0,
         success: [],
         error: {}
     })
 
+    //hooks
+    let [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll();
+
     useEffect(async () => {
-        let response = await getAllUsers();
+        let response = await getAllUsers({page: users.page, size: users.limit});
         if(response.code === 200){
-            setPageLoading(false)
+            setPageLoading(false);
+            setIsLoading(false);
             return setUsers({
+                ...users,
                 pending: false,
-                success: [...response.message],
+                count: response.message[0],
+                success: [...users.success, ...response.message[1]],
                 error: {}
             })
         }
         
-    },[])
+    },[users.page])
+
+    useEffect(() => {
+        if(loading === true && users.success.length < users.count){
+            setUsers({...users, page: users.page + 1})
+        }else{
+            setIsLoading(false);
+        }
+    },[loading])
 
     return !pageLoading ?
             <div className="gamers__page page">
@@ -47,12 +68,12 @@ function GamersPage(props) {
                     <Header.Filter icon={CgMenuCheese} />
                 </Header>
                 <h1 className="title">LISTE DES JOUEURS</h1>
-                <ul className="gamers__list">
-                    {console.log(users.success.length > 0)}
-                    {users.success.length > 0 ?
-                        users.success[1].map( elmt => {
+                <ul ref={setRef} className="gamers__list">
+                    {(!users.pending && users.success.length > 0) ?
+                        users.success.map(elmt => {
                             return (
-                                    <Member classes="gamers__list--item" variant="li">
+                                <Member classes="gamers__list--item" variant="li">
+                                    <Link className="" to={`/users/${elmt.id}/decks`}>    
                                         {elmt.avatar ?
                                             <Member.Avatar 
                                                 url={"/avatars" + elmt.avatar}
@@ -65,12 +86,14 @@ function GamersPage(props) {
                                         }
                                         <Member.Text text={elmt.username} />
                                         <Member.Text text={elmt.created_at.substring(0, elmt.created_at.indexOf("T"))}/>
-                                    </Member>
+                                    </Link>
+                                </Member>
                             )
                         })
                         :
                         null
                     }
+                    {loading && <div className="loader__box"><FiLoader className="loader"/></div>}
                 </ul>
             </div>
         :
