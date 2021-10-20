@@ -70,3 +70,11 @@
 .profile__page .toolbox .toolbox__row{
     height: 42%;
 }
+
+.profile__page  .popup{
+   padding:1rem; 
+}
+
+.profile__page  .popup__text{
+    margin-bottom:1rem;
+}

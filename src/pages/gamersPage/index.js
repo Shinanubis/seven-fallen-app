@@ -1,3 +1,6 @@
+//vendors
+import {orderBy, sortBy} from 'lodash';
+
 //hooks
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
@@ -37,6 +40,11 @@ function GamersPage(props) {
     //hooks
     let [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll();
 
+    //handlers
+    const handleFilterClick = function(){
+        console.log("hello")
+    }
+
     useEffect(async () => {
         let response = await getAllUsers({page: users.page, size: users.limit});
         if(response.code === 200){
@@ -65,7 +73,7 @@ function GamersPage(props) {
             <div className="gamers__page page">
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
-                    <Header.Filter icon={CgMenuCheese} />
+                    <Header.Filter icon={CgMenuCheese} onClick={handleFilterClick}/>
                 </Header>
                 <h1 className="title">LISTE DES JOUEURS</h1>
                 <ul ref={setRef} className="gamers__list">
@@ -73,7 +81,7 @@ function GamersPage(props) {
                         users.success.map(elmt => {
                             return (
                                 <Member classes="gamers__list--item" variant="li">
-                                    <Link className="" to={`/users/${elmt.id}/decks`}>    
+                                    <Link className="gamers__list--link" to={`/users/${elmt.id}/decks`}>    
                                         {elmt.avatar ?
                                             <Member.Avatar 
                                                 url={"/avatars" + elmt.avatar}
