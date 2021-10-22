@@ -3,6 +3,7 @@ import InputFile from './InputFile';
 import InputText from './InputText';
 import InputRadio from './InputRadio';
 import InputCheckbox from './InputCheckbox';
+import InputSearch from './InputSearch';
 import Label from './Label';
 import Title from './Title';
 import List from './InputList';
@@ -40,5 +41,6 @@ Form.Label = Label;
 Form.Title = Title;
 Form.List = List;
 Form.Button = Button;
+Form.Search = InputSearch;
 
 export default Form;

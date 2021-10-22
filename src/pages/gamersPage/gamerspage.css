@@ -16,13 +16,12 @@
 .gamers__page .heading a,
 .gamers__page .heading .heading__filter{
     display: flex;
-
     justify-content: flex-end;
 }
 
 .gamers__page .heading .heading__filter .heading__filter--icon{
-    height: 6vh;
-    margin-top: 1.5vh;
+    height: 5vh;
+    margin-top: 2.2vh;
 }
 
 .gamers__page .heading a{
@@ -38,9 +37,10 @@
     flex-wrap:wrap;
     justify-content: space-around;
     width: 90%;
-    height: calc(100vh - var(--navbar-height) - var(--header-height) - 6.5vh);
+    height: calc(83vh - var(--navbar-height) - var(--header-height) - 6.5vh);
     padding: .5rem 0 0 0;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .gamers__page .gamers__list .gamers__list--item{
@@ -54,7 +54,6 @@
     justify-content: center;
     flex-wrap: wrap;
     width:100%;
-    height: 100%;
 }
 
 .gamers__page .member__avatar,
@@ -129,4 +128,15 @@
 .gamers__page .popup__group .popup__input--radio{
     align-self: center;
     margin-bottom: 0;
+}
+
+.gamers__page .form{
+    width:80%;
+    margin-bottom: 2rem;
+}
+
+.gamers__page .form .input__search{
+    font-size: 1rem;
+    text-align:center;
+    margin-bottom:0;
 }

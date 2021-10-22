@@ -10,6 +10,7 @@
     position:relative;
     display:flex;
     flex-wrap: wrap;
+    align-items: center;
     width: 100%;
 }
 
@@ -52,7 +53,8 @@
 
 .input__list,
 .input__file--label,
-.input__text{
+.input__text,
+.input__search{
     border-bottom: 1px solid #808080;
     width: 100%;
     padding-bottom: 1vh;
@@ -68,6 +70,23 @@
     letter-spacing:1px;
 }
 
+.input__search{
+    width: 82%;
+}
+
+.input__search--icon{
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.input__search--icon svg{
+    pointer-events: none;
+}
+
+.input__search::placeholder,
 .input__text::placeholder{
     color:white;
     text-transform: uppercase;
