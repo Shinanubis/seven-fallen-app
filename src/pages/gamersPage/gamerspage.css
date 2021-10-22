@@ -97,3 +97,36 @@
     letter-spacing: 1px;
     text-shadow: 1px 1px 4px #202020;
 }
+
+.gamers__page .popup{
+    display: block;
+    width:90vw;
+    padding: 1.4rem 2rem; 
+}
+
+.gamers__page .popup .popup__title{
+    text-align:left;
+    margin-bottom: 1rem;
+}
+
+.gamers__page .popup .popup__container{
+    width:100%;
+    margin-bottom:1.25rem;
+    border-bottom: 1px solid #858585;
+    padding-bottom: .75rem;
+}
+
+.gamers__page .popup .popup__group{
+    justify-content: space-between;
+    margin-bottom:.5rem;
+}
+
+.gamers__page .popup .popup__button{
+    padding: .4rem 1rem;
+    min-width: 88px;
+}
+
+.gamers__page .popup__group .popup__input--radio{
+    align-self: center;
+    margin-bottom: 0;
+}

@@ -401,7 +401,7 @@ function CardsType() {
                 setIsLoading(false)
             }
 
-            if(loading === true && cardsList.cards.length < cardsList.count){
+            if(loading && cardsList.cards.length < cardsList.count){
                 return setCardsList({
                     ...cardsList,
                     page: cardsList.page + 1
