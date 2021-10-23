@@ -1,61 +1,55 @@
+.shared__decks--page,
 .gamers__page{
     padding-top: calc(var(--header-height));
 }
 
+.shared__decks--page .title,
 .gamers__page .title{
-    font-size: 2.5vh;
+    font-size: 3vh;
     font-weight: 400;
     margin-bottom: 2vh;
 }
 
-
+.shared__decks--page .heading .container,
 .gamers__page .heading .container{
     padding: 0 4%;
 }
 
+.shared__decks--page .heading a,
+.shared__decks--page .heading .heading__filter, 
 .gamers__page .heading a,
 .gamers__page .heading .heading__filter{
     display: flex;
     justify-content: flex-end;
 }
 
+.shared__decks--page .heading .heading__filter .heading__filter--icon, 
 .gamers__page .heading .heading__filter .heading__filter--icon{
     height: 5vh;
     margin-top: 2.2vh;
 }
 
+.shared__decks--page .heading a,
 .gamers__page .heading a{
     width: calc(50% + 4vh);
 }
 
+.shared__decks--page .heading .heading__filter,
 .gamers__page .heading .heading__filter{
     width: calc(50% - 4vh);
 }
 
-.gamers__page .gamers__list{
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-    width: 90%;
-    height: calc(83vh - var(--navbar-height) - var(--header-height) - 6.5vh);
-    padding: .5rem 0 0 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-.gamers__page .gamers__list .gamers__list--item{
-    width:30%;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-
-.gamers__page .gamers__list .gamers__list--item .gamers__list--link{
+.shared__decks--page .list .list__item .gamers__list--link, 
+.gamers__page .list .list__item .gamers__list--link{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width:100%;
 }
 
+.shared__decks--page .member__avatar,
+.shared__decks--page .member__avatar .default,
+.shared__decks--page .member__text,
 .gamers__page .member__avatar,
 .gamers__page .member__avatar .default,
 .gamers__page .member__text{
@@ -71,6 +65,7 @@
     line-height: 5.5rem;
 }
 
+.shared__decks--page .loader__box,
 .gamers__page .loader__box{
     width:100%;
 }
@@ -89,6 +84,7 @@
     margin-bottom: .25rem;
 }
 
+.shared__decks--page .member__text,
 .gamers__page .member__text{
     width: 100%;
     font-size: 0.75rem;
@@ -97,17 +93,20 @@
     text-shadow: 1px 1px 4px #202020;
 }
 
+.shared__decks--page .popup,
 .gamers__page .popup{
     display: block;
     width:90vw;
     padding: 1.4rem 2rem; 
 }
 
+.shared__decks--page .popup .popup__title,
 .gamers__page .popup .popup__title{
     text-align:left;
     margin-bottom: 1rem;
 }
 
+.shared__decks--page .popup .popup__container,
 .gamers__page .popup .popup__container{
     width:100%;
     margin-bottom:1.25rem;
@@ -115,26 +114,31 @@
     padding-bottom: .75rem;
 }
 
+.shared__decks--page .popup .popup__group,
 .gamers__page .popup .popup__group{
     justify-content: space-between;
     margin-bottom:.5rem;
 }
 
+.shared__decks--page .popup .popup__button,
 .gamers__page .popup .popup__button{
     padding: .4rem 1rem;
     min-width: 88px;
 }
 
+.shared__decks--page .popup__group .popup__input--radio,
 .gamers__page .popup__group .popup__input--radio{
     align-self: center;
     margin-bottom: 0;
 }
 
+.shared__decks--page .form,
 .gamers__page .form{
     width:80%;
     margin-bottom: 2rem;
 }
 
+.shared__decks--page .form .input__search,
 .gamers__page .form .input__search{
     font-size: 1rem;
     text-align:center;

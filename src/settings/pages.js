@@ -7,6 +7,7 @@ import DeckCreate from "../pages/deckCreate";
 import CardsType from '../pages/cardsType';
 import ProfilePage from "../pages/profilePage";
 import GamersPage from "../pages/gamersPage";
+import SharedDecksPage from "../pages/sharedDecksPage";
 import ErrorPage from "../pages/ErrorPage";
 
 
@@ -58,6 +59,12 @@ const pages = {
             strict: true,
             path: "/gamers",
             component: GamersPage,
+        },
+        {
+            exact: true,
+            strict: true,
+            path: "/shared/decks",
+            component: SharedDecksPage,
         },
         {
             component: ErrorPage,

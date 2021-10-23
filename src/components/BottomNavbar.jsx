@@ -19,7 +19,7 @@ function BottomNavbar(props) {
             <Navbar.Link to="/decks/create">
                 <Navbar.Icon icon={AiOutlinePlusCircle} />
             </Navbar.Link>
-            <Navbar.Link to="/cards">
+            <Navbar.Link to="/shared/decks">
                 <Navbar.Icon icon={BiGridAlt} />
             </Navbar.Link>
             <Navbar.Link to="/gamers">

@@ -9,6 +9,7 @@ import Loader from '../../components/Loader';
 import Member from '../../components/member';
 import Popup from '../../components/popup';
 import Form from '../../components/form';
+import List from '../../components/list';
 import {GoSettings} from 'react-icons/go';
 import {RiLoader3Line} from 'react-icons/ri';
 import {FiLoader} from 'react-icons/fi';
@@ -38,15 +39,10 @@ function GamersPage(props) {
     })
     const [popupOpen, setPopupOpen] = useState(false);
     const [formState, setFormState] = useState({
+        search: '',
         classifyBy: 'username',
         sens: 'asc'
     });
-
-    const [searchState, setSearchState] = useState({
-        pending: false,
-        value: ""
-    });
-
 
     //hooks
     let [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll();
@@ -56,49 +52,45 @@ function GamersPage(props) {
 
     //handlers
     const handleFilterClick = function(){
-        setPopupOpen(true);
+        setUsers({
+            ...users,
+            type:'filter'
+        }) 
     }
 
     const handleSearchChange = function(e){
         if(!inputSearchRef.current.value){
-            setFormState({
-                classifyBy: '',
-                sens:''
-            })            
+            setUsers({
+                ...users,
+                page:1,
+                type: 'change'
+            })
         }
     }
 
     const handleSearchClick = function(e){
-        if(inputSearchRef.current.value){
-            setUsers({
-                ...users,
-                type: 'search'
-            })
-
-            setFormState({
-                classifyBy: 'username',
-                sens: 'asc'
-            })
-            return setSearchState({
-                ...searchState,
-                pending: true,
-                value: inputSearchRef.current.value
-            });
-        }
+        e.stopPropagation();
+        setUsers({
+            ...users,
+            type: 'search',
+            page:1
+        })
     }
 
     const handleFormClick = function(e){
         e.stopPropagation()
+
         if(e.target.value){
             setFormState({
                 classifyBy: e.target.name === 'rank' ? e.target.value : formState.classifyBy,
                 sens: e.target.name === 'sens' ? e.target.value : formState.sens
             });
-        }
+        }       
 
         if(e.target.id === "valid"){
             return setUsers({
                 ...users,
+                page: 1,
                 type: "valid"
             })
         }
@@ -107,40 +99,57 @@ function GamersPage(props) {
             return setUsers({
                 ...users,
                 type: "reset",
+                page: 1
             });
         }   
     }
 
     useEffect(() => {
+
         if(users.type !== 'get'){
             parentRef.current.scrollTo(0,0);
         }
 
-        if(users.type === 'reset'){
-            setFormState({
+        if(users.type === 'filter'){
+            setPopupOpen(true);
+            return setFormState({
                 ...formState,
+                search: '',
                 classifyBy: 'username',
                 sens: 'asc'
             })
         }
 
-        if(users.type === 'search'){
-            setFormState({
-                ...formState,
-                classifyBy: 'username',
-                sens: 'asc'
-            })
-        }
-
-        if(popupOpen){
+        if(users.type === 'valid'){
             setPopupOpen(false);
         }
 
-        return setUsers({
-            ...users,
-            page: 1
-        });
+        if(users.type === 'reset'){
+            setPopupOpen(false)
+            inputSearchRef.current.value = '';
+            return setFormState({
+                ...formState,
+                search: '',
+                classifyBy: 'username',
+                sens: 'asc'
+            })
+        }
 
+        if(users.type === 'change'){
+            return setFormState({
+                search: '',
+                classifyBy: 'username',
+                sens: 'asc'
+            })
+        }
+
+        if(users.type === 'search' && inputSearchRef.current.value){
+            return setFormState({
+                search: inputSearchRef.current.value,
+                classifyBy: 'username',
+                sens: 'asc'
+            })
+        }
     },[users.type])
 
     useEffect(async () => {
@@ -156,13 +165,13 @@ function GamersPage(props) {
             }
         }
 
-        if(users.type === 'search'){
+        if(formState.search){
             options = {
                 page: users.page,
                 size: users.limit,
-                search: searchState.value,
-                order_by: '',
-                sens: ''
+                search: formState.search,
+                order_by: 'username',
+                sens: 'asc'
             }
         }
 
@@ -201,8 +210,7 @@ function GamersPage(props) {
         }
     },[
         users.page,
-        formState,
-        searchState
+        formState
     ])
 
     useEffect(() => {
@@ -266,14 +274,19 @@ function GamersPage(props) {
                 <h1 className="title">LISTE DES JOUEURS</h1>
                 <Form>
                     <Form.Group>
-                        <Form.Search ref={inputSearchRef} onClick={handleSearchClick} onChange={handleSearchChange} placeholder="SEARCH ..."/>
+                        <Form.Search 
+                            ref={inputSearchRef} 
+                            onClick={handleSearchClick} 
+                            onChange={handleSearchChange} 
+                            placeholder="SEARCH ..."
+                        />
                     </Form.Group>
                 </Form>
-                <ul ref={setRef} className="gamers__list">
+                <List ref={setRef}>
                     {(!users.pending && users.success.length > 0) ?
                         users.success.map(elmt => {
                             return (
-                                <Member classes="gamers__list--item" variant="li">
+                                <List.Item>
                                     <Link className="gamers__list--link" to={`/users/${elmt.id}/decks`}>    
                                         {elmt.avatar ?
                                             <Member.Avatar 
@@ -289,14 +302,14 @@ function GamersPage(props) {
                                         <Member.Text text={"ID : " + elmt.id} />
                                         <Member.Text text={elmt.created_at.substring(0, elmt.created_at.indexOf("T"))}/>
                                     </Link>
-                                </Member>
+                                </List.Item>
                             )
                         })
                         :
                         null
                     }
                     {loading && <div className="loader__box"><FiLoader className="loader"/></div>}
-                </ul>
+                </List>
             </div>
         :
             <Loader loaderIcon={RiLoader3Line}/>
