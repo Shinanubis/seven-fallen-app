@@ -320,6 +320,34 @@ async function getHolyBookCards(page,count,lang){
     };
 }
 
+async function getDivinities(page, count, lang, typeId){
+    try{
+        let responseOne = await getCardsByType(page, count, lang, typeId);
+        let arrOfIds = [];
+        let newDatas = [];
+
+        if(responseOne.code === 200){
+            arrOfIds = responseOne.message[1].map(elmt => elmt.id)
+        }
+        
+        let responseTwo = await getMultipleId(lang, arrOfIds);
+        if(responseTwo.code === 200){
+            newDatas = responseOne.message[1].map(elmt1 => {
+                let newObj = {...elmt1};
+                responseTwo.message.map(elmt2 => {
+                    if(elmt1.id === elmt2.id){
+                       newObj.name = elmt2.name;
+                    }
+                })
+                return newObj;
+            })
+        }
+        return [...newDatas];
+    }catch(e){
+        return e;
+    }
+}
+
 export { 
         getEdenCards,
         getRegisterCards,
@@ -334,5 +362,6 @@ export {
         getCardById,
         getCardsByMultipleOption,
         getCardsByName,
-        getMultipleId
+        getMultipleId,
+        getDivinities
     };

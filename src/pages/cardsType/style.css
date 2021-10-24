@@ -43,6 +43,7 @@
     flex-wrap:wrap;
     background-color: #505050;
     padding:2vh;
+    margin-bottom:.5rem;
     min-height: 3rem;
     max-height: 100vh;
     transition: height .500s ease;

@@ -39,7 +39,7 @@ const kingdomsDatas = {
         },
     7 : {   
             name: "La Voie",
-            color: "#C65384",
+            color: "#4f286a",
             icon_url: process.env.REACT_APP_BASE_URL + "/logos/Ecusson-La_Voie.png"
         }
 }

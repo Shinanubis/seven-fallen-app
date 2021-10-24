@@ -1,5 +1,13 @@
 import {createContext, useState, useEffect} from 'react';
-import {getTypesList,getRaritiesList,getKingdomsList,getExtensionsList} from '../api/CardsWareHouse';
+import {unionBy, merge} from 'lodash';
+
+import {
+    getTypesList,
+    getRaritiesList,
+    getKingdomsList,
+    getExtensionsList,
+    getDivinities
+} from '../api/CardsWareHouse';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -22,6 +30,10 @@ function SessionContextProvider(props){
         let rarities = "";
         let kingdoms = "";
         let extensions = "";
+        let divinities = [];
+        let divinitiesIdArr = [];
+        let divinitiesFirstResponse = [];
+        let divinitiesSecondResponse = [];
 
         if(localStorage.length === 0){
             localStorage.setItem("lang", "fr");
@@ -56,33 +68,39 @@ function SessionContextProvider(props){
             rarities = await getRaritiesList(localStorage.getItem("lang").toUpperCase());
             kingdoms = await getKingdomsList(localStorage.getItem("lang").toUpperCase());
             extensions = await getExtensionsList(localStorage.getItem("lang").toUpperCase());
+            divinities = await getDivinities(1,20,localStorage.getItem("lang").toUpperCase(), 1);
         }else{
             return;
         }
-              
-        
+
         if(types){
-            datas.types = types
+            datas.types = types;
         }else{
-            datas.types = []
+            datas.types = [];
         }
 
         if(rarities){
-            datas.rarities = rarities
+            datas.rarities = rarities;
         }else{
-            datas.rarities = []
+            datas.rarities = [];
         }
 
         if(kingdoms){
-            datas.kingdoms = kingdoms
+            datas.kingdoms = kingdoms;
         }else{
-            datas.kingdoms = []
+            datas.kingdoms = [];
         }
 
         if(extensions){
-            datas.extensions = extensions
+            datas.extensions = extensions;
         }else{
-            datas.extensions = []
+            datas.extensions = [];
+        }
+
+        if(divinities){
+            datas.divinities = divinities;
+        }else{
+            datas.divinities = [];
         }
 
         setSession({
@@ -90,7 +108,8 @@ function SessionContextProvider(props){
             types: datas.types,
             kingdoms: datas.kingdoms,
             rarities: datas.rarities,
-            extensions: datas.extensions
+            extensions: datas.extensions,
+            divinities: datas.divinities
         })
 
     },[language])

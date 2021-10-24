@@ -4,3 +4,42 @@
     margin-bottom:.5rem;
     line-height: 5.5rem;
 }
+
+
+.shared__decks--page .dropdown__container{
+    width:100%;
+    border: none;
+}
+
+.shared__decks--page .dropdown__icon svg{
+    font-size: 3.75vh;
+}
+
+.shared__decks--page .form__title,
+.shared__decks--page .dropdown__title{
+    text-align: left;
+    letter-spacing: 0;
+    font-weight:400;
+    font-size: 2vh;
+}
+
+.shared__decks--page .kingdoms__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.shared__decks--page .form__label{
+    width: 14%;
+}
+
+.shared__decks--page .kingdom__img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.shared__decks--page .dropdown--item{
+    padding: .5rem 0;
+    border-bottom: 1px solid #acacac;
+}

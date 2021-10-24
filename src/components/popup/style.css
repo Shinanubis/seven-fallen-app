@@ -86,7 +86,7 @@
 }
 
 .popup__input--radio{
-    margin-bottom: -10px;
+    align-self: center;
 }
 
 .popup__input--field:focus{

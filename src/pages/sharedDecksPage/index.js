@@ -1,5 +1,5 @@
 //hooks
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState, useRef, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
@@ -22,7 +22,10 @@ import kingdomsDatas from '../../settings/kingdom';
 import './shareddeckspage.css';
 
 //api
-import{getAllDecks} from '../../api/Decks'
+import{getAllDecks} from '../../api/Decks';
+
+//contexts imports
+import {SessionContext} from '../../contexts/SessionContext';
 
 function SharedDecksPage(props) {
 
@@ -43,6 +46,9 @@ function SharedDecksPage(props) {
         classifyBy: 'deck_name',
         sens: 'asc'
     });
+
+    //context
+    const [session, setLang] = useContext(SessionContext);
 
     //hooks
     let [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll();
@@ -81,7 +87,7 @@ function SharedDecksPage(props) {
         e.stopPropagation()
 
         if(e.target.value){
-            setFormState({
+            return setFormState({
                 classifyBy: e.target.name === 'rank' ? e.target.value : formState.classifyBy,
                 sens: e.target.name === 'sens' ? e.target.value : formState.sens
             });
@@ -120,14 +126,14 @@ function SharedDecksPage(props) {
         }
 
         if(users.type === 'reset'){
-            setPopupOpen(false)
+            setPopupOpen(false);
             inputSearchRef.current.value = '';
             return setFormState({
                 ...formState,
                 search: '',
                 classifyBy: 'deck_name',
                 sens: 'asc'
-            })
+            });
         }
 
         if(users.type === 'change'){
@@ -143,13 +149,13 @@ function SharedDecksPage(props) {
                 search: inputSearchRef.current.value,
                 classifyBy: 'deck_name',
                 sens: 'asc'
-            })
+            });
         }
     },[users.type])
 
     useEffect(async () => {
         let response = '';
-        let options = {}
+        let options = {};
         if(
             users.type === 'get' || 
             users.type === 'valid' || 
@@ -227,6 +233,42 @@ function SharedDecksPage(props) {
                 </Header>
                 <Popup isOpen={popupOpen} onClick={handleFormClick}>
                     <div className="popup__container">
+                        <Popup.Title text="FILTRES" />
+                        <Form.Group>
+                            <Form.Title text="FILTRE PAR ROYAUMES" />
+                            <div className="kingdoms__list">
+                                {session.kingdoms.length > 0 &&
+                                    session.kingdoms.map(elmt =>{
+                                        return (
+                                            <>
+                                                <Form.Label htmlFor={elmt.id}>
+                                                    <img
+                                                        className="kingdom__img"
+                                                        src={kingdomsDatas[elmt.id].icon_url}
+                                                    />
+                                                </Form.Label>
+                                                <Form.Checkbox
+                                                    key={elmt.id} 
+                                                    id={elmt.id} 
+                                                    classes="d-none" 
+                                                    name="kingdom" 
+                                                    value={elmt.id} 
+                                                />
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <Form.Dropdown 
+                                options={
+                                    session.divinities && 
+                                    session.divinities.map(elmt => {return {id: elmt.id, value: elmt.name}})
+                                } 
+                                title="FILTRE PAR DIVINITEE"
+                            />
+                        </Form.Group>
+                    </div>
+                    <div className="popup__container">
                         <Popup.Title text="CLASSEMENT"/>
                         <Popup.Group>
                             <Popup.Label htmlFor="id">
@@ -263,7 +305,7 @@ function SharedDecksPage(props) {
                         </Popup.Group>
                     </div>
                     <Popup.Group>
-                        <Popup.Button id="valid" text="VALIDER" />
+                        <Popup.Button id="valid" text="FERMER" />
                         <Popup.Button id="reset" text="RESET" />
                     </Popup.Group>
                 </Popup>

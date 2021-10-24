@@ -1,25 +1,30 @@
 .page__deck.container{
     margin-top:var(--header-height);
     width: 100%;
-    min-height: 100%;
     justify-content: flex-start;
 }
 
 .page__deck .list__container{
-    width: 90%;
     overflow-y: scroll;
     padding: 2vh 0;
+    display: flex;
+    justify-content: center;
 }
-
-.page__deck .list{
-    padding-bottom: 18vh;
-}
-
 
 .page__deck .deck__infos{
     font-family: "Oswald";
     width: 50%;
     margin-bottom: 3vh;
+}
+
+.page__deck .list{
+    width:auto;
+    padding: .5rem 1rem;
+}
+
+.page__deck .list .list__item {
+    width: 100%;
+    cursor: pointer;
 }
 
 .page__deck .deck__infos--group{
@@ -104,6 +109,7 @@
 .page__deck .sub__list{
     display: flex;
     justify-content: space-between;
+    width:100%;
     margin-bottom: 2.25vh;
 }
 
@@ -163,7 +169,7 @@
 .page__deck .popup__inner--group{
     display: flex;
     justify-content: space-between;
-    width: 61vw;
+    width: 80%;
 }
 
 .page__deck .popup__group,

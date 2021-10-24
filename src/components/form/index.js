@@ -1,4 +1,5 @@
 import Group from './Group';
+import Dropdown from './Dropdown';
 import InputFile from './InputFile';
 import InputText from './InputText';
 import InputRadio from './InputRadio';
@@ -31,7 +32,7 @@ function Form({
     )
 }
 
-
+Form.Dropdown = Dropdown;
 Form.Checkbox = InputCheckbox;
 Form.Group = Group;
 Form.Text = InputText;
