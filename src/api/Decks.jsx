@@ -11,19 +11,23 @@ async function getAllDecks(options){
         let url = new URL(process.env.REACT_APP_BASE_URL + '/api/decks/shared');
 
         if(options.page){
-            url.searchParams.append('page',options.page)
+            url.searchParams.append('page',options.page);
         }
 
         if(options.size){
-            url.searchParams.append('size', options.size)
+            url.searchParams.append('size', options.size);
         }
 
         if(options.order_by){
-            url.searchParams.append('order_by', options.order_by)
+            url.searchParams.append('order_by', options.order_by);
         }
 
         if(options.sens){
-            url.searchParams.append('sens', options.sens)
+            url.searchParams.append('sens', options.sens);
+        }
+
+        if(options.kingdoms){
+            url.searchParams.append('kingdoms', `[${options.kingdoms.join('')}]`);
         }
 
         if(options.search){

@@ -27,6 +27,9 @@ import{getAllDecks} from '../../api/Decks';
 //contexts imports
 import {SessionContext} from '../../contexts/SessionContext';
 
+//utilities
+import {debounce} from 'lodash';
+
 function SharedDecksPage(props) {
 
     //states
@@ -43,8 +46,14 @@ function SharedDecksPage(props) {
     const [popupOpen, setPopupOpen] = useState(false);
     const [formState, setFormState] = useState({
         search: '',
+        kingdoms: [],
+        divinity: '',
         classifyBy: 'deck_name',
         sens: 'asc'
+    });
+    const [dataList, setDataList] = useState({
+        divinityList: [],
+        value: ''
     });
 
     //context
@@ -110,6 +119,46 @@ function SharedDecksPage(props) {
         }   
     }
 
+    const handleDivinitieChoice = function(id){
+        return setDataList({
+            ...dataList,
+            value: id
+        })
+    }
+
+    const handleFiltersChange = debounce((e) => {
+        if(e.target.name === 'kingdom'){
+            if(formState.kingdoms.includes(e.target.value)){
+                let newArr = [...formState.kingdoms];
+                newArr.splice(newArr.findIndex(elmt => elmt === e.target.value))
+                return setFormState({
+                    ...formState,
+                    kingdoms: [...newArr]
+                })    
+            }
+            return setFormState({
+                ...formState, 
+                kingdoms: [...formState.kingdoms, e.target.value]
+            });
+        }
+
+        if(e.target.name === "divinity"){
+            if(e.target.value === ''){
+                return setDataList({
+                    ...dataList,
+                    divinityList: []
+                });   
+        }
+        let term = '^' + e.target.value;
+        let rx = new RegExp(term,'i');
+        let result = session.divinities.filter(elmt => rx.test(elmt.name) === true);
+        return setDataList({
+            ...dataList,
+            divinityList: [...result]
+            });
+        }
+    },300)
+
     useEffect(() => {
 
         if(users.type !== 'get'){
@@ -169,7 +218,7 @@ function SharedDecksPage(props) {
                 sens: formState.sens !== 'asc' && formState.sens
             }
         }
-
+        
         if(formState.search){
             options = {
                 page: users.page,
@@ -232,7 +281,7 @@ function SharedDecksPage(props) {
                     <Header.Filter icon={GoSettings} onClick={handleFilterClick}/>
                 </Header>
                 <Popup isOpen={popupOpen} onClick={handleFormClick}>
-                    <div className="popup__container">
+                    <Form className="popup__container" onChange={handleFiltersChange}>
                         <Popup.Title text="FILTRES" />
                         <Form.Group>
                             <Form.Title text="FILTRE PAR ROYAUMES" />
@@ -241,7 +290,16 @@ function SharedDecksPage(props) {
                                     session.kingdoms.map(elmt =>{
                                         return (
                                             <>
-                                                <Form.Label htmlFor={elmt.id}>
+                                                <Form.Label 
+                                                    classes={
+                                                        formState.kingdoms && formState.kingdoms.includes(elmt.id + "") 
+                                                        ? 
+                                                        "form__label opacity-4" 
+                                                        : 
+                                                        "form__label"
+                                                    } 
+                                                    htmlFor={elmt.id}
+                                                >
                                                     <img
                                                         className="kingdom__img"
                                                         src={kingdomsDatas[elmt.id].icon_url}
@@ -258,16 +316,20 @@ function SharedDecksPage(props) {
                                         )
                                     })
                                 }
-                            </div>
-                            <Form.Dropdown 
-                                options={
-                                    session.divinities && 
-                                    session.divinities.map(elmt => {return {id: elmt.id, value: elmt.name}})
-                                } 
-                                title="FILTRE PAR DIVINITEE"
+                            </div> 
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.List 
+                                id="divinity"
+                                listId="divinities" 
+                                placeholder="Search by Divinity..."
+                                name="divinity" 
+                                listId="search__list" 
+                                dataList={dataList.divinityList} 
+                                setValue = {handleDivinitieChoice}
                             />
                         </Form.Group>
-                    </div>
+                    </Form>
                     <div className="popup__container">
                         <Popup.Title text="CLASSEMENT"/>
                         <Popup.Group>
@@ -310,7 +372,7 @@ function SharedDecksPage(props) {
                     </Popup.Group>
                 </Popup>
                 <h1 className="title">DECKS PARTAGES PAR LES JOUEURS</h1>
-                <Form>
+                <Form onChange={handleSearchChange}>
                     <Form.Group>
                         <Form.Search 
                             ref={inputSearchRef} 

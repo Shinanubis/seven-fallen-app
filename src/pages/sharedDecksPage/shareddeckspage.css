@@ -43,3 +43,17 @@
     padding: .5rem 0;
     border-bottom: 1px solid #acacac;
 }
+
+.shared__decks--page .popup .form{
+    margin-bottom: 1.25rem;
+    width:100%;
+}
+
+.shared__decks--page .popup .form .suggestions__list{
+    top:100%;
+}
+
+.shared__decks--page .popup .form .input__text{
+    margin-bottom:0;
+    font-size: .8rem;
+}
