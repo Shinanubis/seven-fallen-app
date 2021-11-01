@@ -87,20 +87,28 @@ function SharedDecksPage(props) {
     }
 
     const handleSearchChange = function(e){
-        if(!inputSearchRef.current.value){
-            setUsers({
+        if(inputSearchRef.current.value.length === 0){
+            setFormState({
+                ...formState,
+                search: inputSearchRef.current.value
+            });
+            return setUsers({
                 ...users,
-                page:1,
-                type: 'change'
+                pending: true,
+                page: 1
             })
         }
     }
 
     const handleSearchClick = function(e){
         e.stopPropagation();
-        setUsers({
+        setFormState({
+            ...formState,
+            search: inputSearchRef.current.value,
+        });
+        return setUsers({
             ...users,
-            type: 'search',
+            pending: true,
             page:1
         })
     }
@@ -111,6 +119,7 @@ function SharedDecksPage(props) {
             return setUsers({
                 ...users,
                 pending: true,
+                page: 1,
                 type: "valid"
             });
         }
@@ -122,7 +131,7 @@ function SharedDecksPage(props) {
                 divinity: '',
                 classifyBy: 'deck_name',
                 sens: 'asc'
-            })
+            });
             return setUsers({
                 ...users,
                 pending: true,
@@ -188,6 +197,7 @@ function SharedDecksPage(props) {
         if(users.pending === false){
             return;
         }
+
         let response = '';
         let options = {
             size: users.limit,
@@ -195,9 +205,9 @@ function SharedDecksPage(props) {
             order_by: formState.classifyBy,
             sens: formState.sens,
             kingdoms: formState.kingdoms.length > 0 && [...formState.kingdoms],
+            search: formState.search,
             divinity: formState.divinity
         };
-        console.log('options : ', options)
         response = await getAllDecks(options);
         if(response.code === 200){
             if(pageLoading){
@@ -208,6 +218,9 @@ function SharedDecksPage(props) {
                 setIsLoading(false);
             }
             
+            if(popupOpen){
+                setPopupOpen(false);
+            }
 
             if(users.page === 1){
                 return setUsers({
@@ -235,9 +248,12 @@ function SharedDecksPage(props) {
     ])
 
     useEffect(() => {
-
         if(loading && (users.success.length < users.count)){
-            return setUsers({...users, page: users.page + 1})
+            return setUsers({
+                ...users, 
+                page: users.page + 1, 
+                pending: true
+            })
         }else{
             return setIsLoading(false);
         }
@@ -246,6 +262,7 @@ function SharedDecksPage(props) {
 
     return !pageLoading ?
             <div className="shared__decks--page page">
+            
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
                     <Header.Filter icon={GoSettings} onClick={handleFilterClick}/>
@@ -261,6 +278,7 @@ function SharedDecksPage(props) {
                                         session.kingdoms.map(elmt =>{
                                             return (
                                                 <>
+
                                                     <Form.Label 
                                                         classes={
                                                             formState.kingdoms && formState.kingdoms.includes(elmt.id + "") 
@@ -360,7 +378,7 @@ function SharedDecksPage(props) {
                     </Form>
                 </Popup>
                 <h1 className="title">DECKS PARTAGES PAR LES JOUEURS</h1>
-                <Form onChange={handleSearchChange}>
+                <Form>
                     <Form.Group>
                         <Form.Search 
                             ref={inputSearchRef} 
@@ -375,6 +393,11 @@ function SharedDecksPage(props) {
                         users.success.map(elmt => {
                             return (
                                 <List.Item>
+                                    {session.divinities && console.log(session.divinities.filter(test => {
+                                        if(elmt.divinity){
+                                            return elmt.divinity === test.id;
+                                        }
+                                    })[0])}
                                     <Link className="gamers__list--link" to={`/users/${elmt.id}/decks`}>    
                                         {elmt.kingdom ?
                                             <Member.Avatar 
@@ -386,9 +409,17 @@ function SharedDecksPage(props) {
                                                 <HiOutlineUserCircle className="default"/>
                                             </div>
                                         }
-                                        <Member.Text text={elmt.deck_name} />
                                         <Member.Text text={"ID : " + elmt.id} />
-                                        <Member.Text text={elmt.num_cards}/>
+                                        <Member.Text text={elmt.deck_name} />
+                                        <Member.Text 
+                                            text={
+                                                session.divinities && 
+                                                session.divinities.filter(god => god.id === elmt.divinity)[0] ?
+                                                session.divinities.filter(god => god.id === elmt.divinity)[0].name
+                                                :
+                                                "No divinity"
+                                            } 
+                                        />
                                     </Link>
                                 </List.Item>
                             )
