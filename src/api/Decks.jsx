@@ -26,8 +26,12 @@ async function getAllDecks(options){
             url.searchParams.append('sens', options.sens);
         }
 
+        if(options.divinity){
+            url.searchParams.append('divinity', options.divinity);
+        }
+
         if(options.kingdoms){
-            url.searchParams.append('kingdoms', `[${options.kingdoms.join('')}]`);
+            url.searchParams.append('kingdoms', `[${options.kingdoms.join(',')}]`);
         }
 
         if(options.search){

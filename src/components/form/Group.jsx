@@ -1,6 +1,6 @@
-function Group({children}) {
+function Group({classes='form__group', children}) {
     return (
-        <div className="form__group">
+        <div className={classes}>
             {children}
         </div>
     )

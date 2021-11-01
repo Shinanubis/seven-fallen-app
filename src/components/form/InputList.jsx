@@ -7,6 +7,7 @@ const MemoList = function ({
     classes = "input__text",
     classesList = "suggestions__list",
     classesListItem = "suggestions__list--item",
+    dataListItemName="item",
     dataList=[],
     setValue= () => [], 
     name="input__list", 
@@ -47,9 +48,9 @@ const MemoList = function ({
                     {
                         dataList.map(elmt => {
                             if(!elmt.name || !elmt.id){
-                                return <li key={elmt} id={elmt} className={classesListItem}>{elmt}</li>
+                                return <li key={elmt} id={elmt} className={classesListItem} data-type={dataListItemName}>{elmt}</li>
                             }
-                            return <li key={elmt.name} id={elmt.id} className={classesListItem}>{elmt.name}</li>
+                            return <li key={elmt.name} id={elmt.id} className={classesListItem} data-type={dataListItemName}>{elmt.name}</li>
                         })
                     }
                 </ul> 

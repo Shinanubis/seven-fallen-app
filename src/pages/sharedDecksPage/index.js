@@ -65,12 +65,25 @@ function SharedDecksPage(props) {
     //refs
     const inputSearchRef = useRef();
 
+    //utils
+    const searchTyping = debounce(function(regex, text, toCompare, field, state, fieldState, cb){
+        let result = toCompare.filter(elmt => regex.test(elmt[field]) === true);
+        if(text === ''){
+            return cb({
+                ...state,
+                [fieldState]: []
+            });
+        }
+        return cb({
+            ...state,
+            [fieldState]: [...result]
+        });
+    },100)
+
     //handlers
     const handleFilterClick = function(){
-        setUsers({
-            ...users,
-            type:'filter'
-        }) 
+            setPopupOpen(true);
+            inputSearchRef.current.value = '';
     }
 
     const handleSearchChange = function(e){
@@ -93,48 +106,62 @@ function SharedDecksPage(props) {
     }
 
     const handleFormClick = function(e){
-        e.stopPropagation()
-
-        if(e.target.value){
-            return setFormState({
-                classifyBy: e.target.name === 'rank' ? e.target.value : formState.classifyBy,
-                sens: e.target.name === 'sens' ? e.target.value : formState.sens
-            });
-        }       
-
-        if(e.target.id === "valid"){
+        e.stopPropagation();
+        if(e.target.id === 'valid'){
             return setUsers({
                 ...users,
-                page: 1,
+                pending: true,
                 type: "valid"
-            })
+            });
         }
 
-        if(e.target.id === "reset"){
+        if(e.target.id === 'reset'){
+            setFormState({
+                search: '',
+                kingdoms: [],
+                divinity: '',
+                classifyBy: 'deck_name',
+                sens: 'asc'
+            })
             return setUsers({
                 ...users,
-                type: "reset",
-                page: 1
+                pending: true,
+                page: 1,
+                type: "reset"
             });
-        }   
+        }     
     }
 
     const handleDivinitieChoice = function(id){
-        return setDataList({
-            ...dataList,
-            value: id
+        return setFormState({
+            ...formState,
+            divinity: id
         })
     }
 
-    const handleFiltersChange = debounce((e) => {
+    const handleFiltersChange = (e) => {
+        if(e.target.name === 'sens'){
+            return setFormState({
+                ...formState,
+                sens: e.target.value 
+            });
+        }
+        
+        if(e.target.name === 'rank'){
+            return setFormState({
+                ...formState,
+                classifyBy: e.target.value 
+            });
+        }
+
         if(e.target.name === 'kingdom'){
             if(formState.kingdoms.includes(e.target.value)){
                 let newArr = [...formState.kingdoms];
-                newArr.splice(newArr.findIndex(elmt => elmt === e.target.value))
+                newArr.splice(newArr.findIndex(elmt => elmt === e.target.value),1);
                 return setFormState({
                     ...formState,
                     kingdoms: [...newArr]
-                })    
+                });    
             }
             return setFormState({
                 ...formState, 
@@ -143,91 +170,34 @@ function SharedDecksPage(props) {
         }
 
         if(e.target.name === "divinity"){
-            if(e.target.value === ''){
-                return setDataList({
-                    ...dataList,
-                    divinityList: []
-                });   
+            let term = '^' + e.target.value;
+            let rx = new RegExp(term,'i');
+            searchTyping(
+                rx, 
+                e.target.value, 
+                session.divinities, 
+                'name', 
+                dataList,
+                'divinityList',
+                setDataList
+            );
         }
-        let term = '^' + e.target.value;
-        let rx = new RegExp(term,'i');
-        let result = session.divinities.filter(elmt => rx.test(elmt.name) === true);
-        return setDataList({
-            ...dataList,
-            divinityList: [...result]
-            });
-        }
-    },300)
-
-    useEffect(() => {
-
-        if(users.type !== 'get'){
-            parentRef.current.scrollTo(0,0);
-        }
-
-        if(users.type === 'filter'){
-            setPopupOpen(true);
-            inputSearchRef.current.value = '';
-        }
-
-        if(users.type === 'valid'){
-            setPopupOpen(false);
-        }
-
-        if(users.type === 'reset'){
-            setPopupOpen(false);
-            inputSearchRef.current.value = '';
-            return setFormState({
-                ...formState,
-                search: '',
-                classifyBy: 'deck_name',
-                sens: 'asc'
-            });
-        }
-
-        if(users.type === 'change'){
-            return setFormState({
-                search: '',
-                classifyBy: 'deck_name',
-                sens: 'asc'
-            })
-        }
-
-        if(users.type === 'search' && inputSearchRef.current.value){
-            return setFormState({
-                search: inputSearchRef.current.value,
-                classifyBy: 'deck_name',
-                sens: 'asc'
-            });
-        }
-    },[users.type])
+    };
 
     useEffect(async () => {
+        if(users.pending === false){
+            return;
+        }
         let response = '';
-        let options = {};
-        if(
-            users.type === 'get' || 
-            users.type === 'valid' || 
-            users.type === 'reset' || 
-            users.type === 'filter'
-        ){
-            options = {
-                page: users.page,
-                size: users.limit,
-                order_by: formState.classifyBy !== 'deck_name' && formState.classifyBy,
-                sens: formState.sens !== 'asc' && formState.sens
-            }
-        }
-        
-        if(formState.search){
-            options = {
-                page: users.page,
-                size: users.limit,
-                search: formState.search,
-                order_by: 'deck_name',
-                sens: 'asc'
-            }
-        }
+        let options = {
+            size: users.limit,
+            page: users.page,
+            order_by: formState.classifyBy,
+            sens: formState.sens,
+            kingdoms: formState.kingdoms.length > 0 && [...formState.kingdoms],
+            divinity: formState.divinity
+        };
+        console.log('options : ', options)
         response = await getAllDecks(options);
         if(response.code === 200){
             if(pageLoading){
@@ -261,7 +231,7 @@ function SharedDecksPage(props) {
         }
     },[
         users.page,
-        formState
+        users.pending
     ])
 
     useEffect(() => {
@@ -281,95 +251,113 @@ function SharedDecksPage(props) {
                     <Header.Filter icon={GoSettings} onClick={handleFilterClick}/>
                 </Header>
                 <Popup isOpen={popupOpen} onClick={handleFormClick}>
-                    <Form className="popup__container" onChange={handleFiltersChange}>
-                        <Popup.Title text="FILTRES" />
-                        <Form.Group>
-                            <Form.Title text="FILTRE PAR ROYAUMES" />
-                            <div className="kingdoms__list">
-                                {session.kingdoms.length > 0 &&
-                                    session.kingdoms.map(elmt =>{
-                                        return (
-                                            <>
-                                                <Form.Label 
-                                                    classes={
-                                                        formState.kingdoms && formState.kingdoms.includes(elmt.id + "") 
-                                                        ? 
-                                                        "form__label opacity-4" 
-                                                        : 
-                                                        "form__label"
-                                                    } 
-                                                    htmlFor={elmt.id}
-                                                >
-                                                    <img
-                                                        className="kingdom__img"
-                                                        src={kingdomsDatas[elmt.id].icon_url}
+                    <Form onChange={handleFiltersChange}>
+                        <div className="popup__container">
+                            <Popup.Title text="FILTRES" />
+                            <Form.Group>
+                                <Form.Title text="FILTRE PAR ROYAUMES" />
+                                <div className="kingdoms__list">
+                                    {session.kingdoms.length > 0 &&
+                                        session.kingdoms.map(elmt =>{
+                                            return (
+                                                <>
+                                                    <Form.Label 
+                                                        classes={
+                                                            formState.kingdoms && formState.kingdoms.includes(elmt.id + "") 
+                                                            ? 
+                                                            "form__label opacity-4" 
+                                                            : 
+                                                            "form__label"
+                                                        } 
+                                                        htmlFor={elmt.id}
+                                                    >
+                                                        <img
+                                                            className="kingdom__img"
+                                                            src={kingdomsDatas[elmt.id].icon_url}
+                                                        />
+                                                    </Form.Label>
+                                                    <Form.Checkbox
+                                                        key={elmt.id} 
+                                                        id={elmt.id} 
+                                                        classes="d-none" 
+                                                        name="kingdom" 
+                                                        value={elmt.id} 
                                                     />
-                                                </Form.Label>
-                                                <Form.Checkbox
-                                                    key={elmt.id} 
-                                                    id={elmt.id} 
-                                                    classes="d-none" 
-                                                    name="kingdom" 
-                                                    value={elmt.id} 
-                                                />
-                                            </>
-                                        )
-                                    })
-                                }
-                            </div> 
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.List 
-                                id="divinity"
-                                listId="divinities" 
-                                placeholder="Search by Divinity..."
-                                name="divinity" 
-                                listId="search__list" 
-                                dataList={dataList.divinityList} 
-                                setValue = {handleDivinitieChoice}
-                            />
-                        </Form.Group>
+                                                </>
+                                            )
+                                        })
+                                    }
+                                </div> 
+                            </Form.Group>
+                            <Form.Group classes="form__group mb-2">
+                                <Form.List 
+                                    id="divinity"
+                                    listId="divinities" 
+                                    placeholder="Search by Divinity..."
+                                    name="divinity" 
+                                    listId="search__list"
+                                    dataListItemName="divinity" 
+                                    dataList={dataList.divinityList} 
+                                    setValue = {handleDivinitieChoice}
+                                />
+                            </Form.Group>
+                        </div>
+                        <div className="popup__container">
+                            <Popup.Title text="CLASSEMENT"/>
+                            <Popup.Group>
+                                <Popup.Label htmlFor="id">
+                                    <Popup.Text text="CLASSER PAR ID"/>
+                                </Popup.Label>
+                                <Popup.InputRadio 
+                                    id="id" 
+                                    name="rank" 
+                                    checked={formState.classifyBy === 'id'} 
+                                    value="id"
+                                />
+                            </Popup.Group>
+                            <Popup.Group>
+                                <Popup.Label htmlFor="deck_name">
+                                    <Popup.Text text="CLASSER PAR NOM DE DECKS"/>
+                                </Popup.Label>
+                                <Popup.InputRadio 
+                                    id="deck_name" 
+                                    name="rank" 
+                                    checked={formState.classifyBy === 'deck_name'} 
+                                    value="deck_name"
+                                />
+                            </Popup.Group>
+                            <Popup.Group>
+                                <Popup.Label htmlFor="kingdom">
+                                    <Popup.Text text="CLASSER PAR ROYAUME"/>
+                                </Popup.Label>
+                                <Popup.InputRadio 
+                                    id="kingdom" 
+                                    name="rank" 
+                                    checked={formState.classifyBy === 'kingdom'} 
+                                    value="kingdom"
+                                />
+                            </Popup.Group>
+                        </div>
+                        <div className="popup__container">
+                            <Popup.Title text="SENS"/>
+                            <Popup.Group>
+                                <Popup.Label data-value="desc" htmlFor="desc">
+                                    <Popup.Text text="DESCENDANT"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="desc" name="sens" checked={formState.sens === 'desc'} value="desc" />
+                            </Popup.Group>
+                            <Popup.Group>
+                                <Popup.Label data-value="asc" htmlFor="asc">
+                                    <Popup.Text text="ASCENDANT"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="asc" name="sens" checked={formState.sens === 'asc'} value="asc"/>
+                            </Popup.Group>
+                        </div>
+                        <Popup.Group>
+                            <Popup.Button id="valid" text="VALIDER" />
+                            <Popup.Button id="reset" text="RESET" />
+                        </Popup.Group>
                     </Form>
-                    <div className="popup__container">
-                        <Popup.Title text="CLASSEMENT"/>
-                        <Popup.Group>
-                            <Popup.Label htmlFor="id">
-                                <Popup.Text text="CLASSER PAR ID"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="id" name="rank" checked={formState.classifyBy === 'id'} value="id"/>
-                        </Popup.Group>
-                        <Popup.Group>
-                            <Popup.Label htmlFor="deck_name">
-                                <Popup.Text text="CLASSER PAR NOM DE DECKS"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="deck_name" name="rank" checked={formState.classifyBy === 'deck_name'} value="deck_name"/>
-                        </Popup.Group>
-                        <Popup.Group>
-                            <Popup.Label htmlFor="kingdom">
-                                <Popup.Text text="CLASSER PAR ROYAUME"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="kingdom" name="rank" checked={formState.classifyBy === 'kingdom'} value="kingdom"/>
-                        </Popup.Group>
-                    </div>
-                    <div className="popup__container">
-                        <Popup.Title text="SENS"/>
-                        <Popup.Group>
-                            <Popup.Label data-value="desc" htmlFor="desc">
-                                <Popup.Text text="DESCENDANT"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="desc" name="sens" checked={formState.sens === 'desc'} value="desc" />
-                        </Popup.Group>
-                        <Popup.Group>
-                            <Popup.Label data-value="asc" htmlFor="asc">
-                                <Popup.Text text="ASCENDANT"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="asc" name="sens" checked={formState.sens === 'asc'} value="asc"/>
-                        </Popup.Group>
-                    </div>
-                    <Popup.Group>
-                        <Popup.Button id="valid" text="FERMER" />
-                        <Popup.Button id="reset" text="RESET" />
-                    </Popup.Group>
                 </Popup>
                 <h1 className="title">DECKS PARTAGES PAR LES JOUEURS</h1>
                 <Form onChange={handleSearchChange}>
