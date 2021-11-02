@@ -52,130 +52,94 @@ function GamersPage(props) {
 
     //handlers
     const handleFilterClick = function(){
-        setUsers({
-            ...users,
-            type:'filter'
-        }) 
+            setPopupOpen(true);
+            inputSearchRef.current.value = '';
     }
 
+    const handleFiltersChange = (e) => {
+        if(e.target.name === 'sens'){
+            return setFormState({
+                ...formState,
+                sens: e.target.value 
+            });
+        }
+        
+        if(e.target.name === 'rank'){
+            return setFormState({
+                ...formState,
+                classifyBy: e.target.value 
+            });
+        }
+
+    };
+
     const handleSearchChange = function(e){
-        if(!inputSearchRef.current.value){
-            setUsers({
+        if(inputSearchRef.current.value.length === 0){
+            setFormState({
+                ...formState,
+                search: inputSearchRef.current.value
+            });
+            return setUsers({
                 ...users,
-                page:1,
-                type: 'change'
+                pending: true,
+                page: 1
             })
         }
     }
 
     const handleSearchClick = function(e){
         e.stopPropagation();
-        setUsers({
+        setFormState({
+            ...formState,
+            search: inputSearchRef.current.value 
+        });
+        return setUsers({
             ...users,
-            type: 'search',
+            pending: true,
             page:1
-        })
+        });
     }
 
     const handleFormClick = function(e){
-        e.stopPropagation()
-
-        if(e.target.value){
-            setFormState({
-                classifyBy: e.target.name === 'rank' ? e.target.value : formState.classifyBy,
-                sens: e.target.name === 'sens' ? e.target.value : formState.sens
-            });
-        }       
+        e.stopPropagation();  
 
         if(e.target.id === "valid"){
             return setUsers({
                 ...users,
                 page: 1,
+                pending: true,
                 type: "valid"
             })
         }
 
         if(e.target.id === "reset"){
+            setFormState({
+                search: '',
+                classifyBy: 'username',
+                sens: 'asc'
+            });
             return setUsers({
                 ...users,
                 type: "reset",
+                pending: true,
                 page: 1
             });
         }   
     }
 
-    useEffect(() => {
-
-        if(users.type !== 'get'){
-            parentRef.current.scrollTo(0,0);
-        }
-
-        if(users.type === 'filter'){
-            setPopupOpen(true);
-            return setFormState({
-                ...formState,
-                search: '',
-                classifyBy: 'username',
-                sens: 'asc'
-            })
-        }
-
-        if(users.type === 'valid'){
-            setPopupOpen(false);
-        }
-
-        if(users.type === 'reset'){
-            setPopupOpen(false)
-            inputSearchRef.current.value = '';
-            return setFormState({
-                ...formState,
-                search: '',
-                classifyBy: 'username',
-                sens: 'asc'
-            })
-        }
-
-        if(users.type === 'change'){
-            return setFormState({
-                search: '',
-                classifyBy: 'username',
-                sens: 'asc'
-            })
-        }
-
-        if(users.type === 'search' && inputSearchRef.current.value){
-            return setFormState({
-                search: inputSearchRef.current.value,
-                classifyBy: 'username',
-                sens: 'asc'
-            })
-        }
-    },[users.type])
 
     useEffect(async () => {
-        let response = '';
-        let options = {}
-
-        if(users.type === 'get' || users.type === 'valid' || users.type === 'reset'){
-            options = {
-                page: users.page,
-                size: users.limit,
-                order_by: formState.classifyBy !== 'username' && formState.classifyBy,
-                sens: formState.sens !== 'asc' && formState.sens
-            }
+        if(!users.pending){
+            return;
         }
-
-        if(formState.search){
-            options = {
-                page: users.page,
-                size: users.limit,
-                search: formState.search,
-                order_by: 'username',
-                sens: 'asc'
-            }
-        }
-
-        response = await getAllUsers(options);
+        let options = {
+            size: users.limit,
+            page: users.page,
+            order_by: formState.classifyBy,
+            sens: formState.sens,
+            search: formState.search
+        };
+        let response = await getAllUsers(options);
 
         if(response.code === 200){
             
@@ -187,6 +151,9 @@ function GamersPage(props) {
                 setIsLoading(false);
             }
             
+            if(popupOpen){
+                setPopupOpen(false);
+            }
 
             if(users.page === 1){
                 return setUsers({
@@ -210,13 +177,17 @@ function GamersPage(props) {
         }
     },[
         users.page,
-        formState
+        users.pending
     ])
 
     useEffect(() => {
 
         if(loading && (users.success.length < users.count)){
-            return setUsers({...users, page: users.page + 1})
+            return setUsers({
+                ...users, 
+                page: users.page + 1,
+                pending: true
+            })
         }else{
             return setIsLoading(false);
         }
@@ -230,46 +201,48 @@ function GamersPage(props) {
                     <Header.Filter icon={GoSettings} onClick={handleFilterClick}/>
                 </Header>
                 <Popup isOpen={popupOpen} onClick={handleFormClick}>
-                    <div className="popup__container">
-                        <Popup.Title text="CLASSEMENT"/>
+                    <Form onChange={handleFiltersChange}>
+                        <div className="popup__container">
+                            <Popup.Title text="CLASSEMENT"/>
+                            <Popup.Group>
+                                <Popup.Label data-value="id" htmlFor="id">
+                                    <Popup.Text text="CLASSER PAR ID"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="id" name="rank" checked={formState.classifyBy === 'id'} value="id"/>
+                            </Popup.Group>
+                            <Popup.Group>
+                                <Popup.Label data-value="username" htmlFor="username">
+                                    <Popup.Text text="CLASSER PAR NOM"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="username" name="rank" checked={formState.classifyBy === 'username'} value="username"/>
+                            </Popup.Group>
+                            <Popup.Group>
+                                <Popup.Label data-value="created_at" htmlFor="created_at">
+                                    <Popup.Text text="CLASSER PAR DATE D'INSCRIPTION"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="created_at" name="rank" checked={formState.classifyBy === 'created_at'} value="created_at"/>
+                            </Popup.Group>
+                        </div>
+                        <div className="popup__container">
+                            <Popup.Title text="SENS"/>
+                            <Popup.Group>
+                                <Popup.Label data-value="desc" htmlFor="desc">
+                                    <Popup.Text text="DESCENDANT"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="desc" name="sens" checked={formState.sens === 'desc'} value="desc" />
+                            </Popup.Group>
+                            <Popup.Group>
+                                <Popup.Label data-value="asc" htmlFor="asc">
+                                    <Popup.Text text="ASCENDANT"/>
+                                </Popup.Label>
+                                <Popup.InputRadio id="asc" name="sens" checked={formState.sens === 'asc'} value="asc"/>
+                            </Popup.Group>
+                        </div>
                         <Popup.Group>
-                            <Popup.Label data-value="id" htmlFor="id">
-                                <Popup.Text text="CLASSER PAR ID"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="id" name="rank" checked={formState.classifyBy === 'id'} value="id"/>
+                            <Popup.Button id="valid" text="VALIDER" />
+                            <Popup.Button id="reset" text="RESET" />
                         </Popup.Group>
-                        <Popup.Group>
-                            <Popup.Label data-value="username" htmlFor="username">
-                                <Popup.Text text="CLASSER PAR NOM"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="username" name="rank" checked={formState.classifyBy === 'username'} value="username"/>
-                        </Popup.Group>
-                        <Popup.Group>
-                            <Popup.Label data-value="created_at" htmlFor="created_at">
-                                <Popup.Text text="CLASSER PAR DATE D'INSCRIPTION"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="created_at" name="rank" checked={formState.classifyBy === 'created_at'} value="created_at"/>
-                        </Popup.Group>
-                    </div>
-                    <div className="popup__container">
-                        <Popup.Title text="SENS"/>
-                        <Popup.Group>
-                            <Popup.Label data-value="desc" htmlFor="desc">
-                                <Popup.Text text="DESCENDANT"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="desc" name="sens" checked={formState.sens === 'desc'} value="desc" />
-                        </Popup.Group>
-                        <Popup.Group>
-                            <Popup.Label data-value="asc" htmlFor="asc">
-                                <Popup.Text text="ASCENDANT"/>
-                            </Popup.Label>
-                            <Popup.InputRadio id="asc" name="sens" checked={formState.sens === 'asc'} value="asc"/>
-                        </Popup.Group>
-                    </div>
-                    <Popup.Group>
-                        <Popup.Button id="valid" text="VALIDER" />
-                        <Popup.Button id="reset" text="RESET" />
-                    </Popup.Group>
+                    </Form>
                 </Popup>
                 <h1 className="title">LISTE DES JOUEURS</h1>
                 <Form>

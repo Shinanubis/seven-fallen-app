@@ -194,7 +194,7 @@ function SharedDecksPage(props) {
     };
 
     useEffect(async () => {
-        if(users.pending === false){
+        if(!users.pending){
             return;
         }
 
@@ -393,11 +393,6 @@ function SharedDecksPage(props) {
                         users.success.map(elmt => {
                             return (
                                 <List.Item>
-                                    {session.divinities && console.log(session.divinities.filter(test => {
-                                        if(elmt.divinity){
-                                            return elmt.divinity === test.id;
-                                        }
-                                    })[0])}
                                     <Link className="gamers__list--link" to={`/users/${elmt.id}/decks`}>    
                                         {elmt.kingdom ?
                                             <Member.Avatar 

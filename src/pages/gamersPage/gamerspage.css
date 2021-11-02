@@ -133,10 +133,15 @@
     margin-bottom: 0;
 }
 
-.shared__decks--page .form,
-.gamers__page .form{
+.gamers__page .form,
+.shared__decks--page .form{
     width:80%;
     margin-bottom: 2rem;
+}
+
+.gamers__page .popup .form{
+    width: 100%;
+    margin-bottom:0;
 }
 
 .shared__decks--page .form .input__search,
