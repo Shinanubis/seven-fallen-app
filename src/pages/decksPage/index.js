@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 
 /* components */
 import PageContainer from "../../components/PageContainer";
@@ -26,6 +26,12 @@ import {useTranslation} from "react-i18next";
 /*datas*/
 import kingdomsDatas from '../../settings/kingdom.js';
 
+/*contexts*/
+import {SessionContext} from '../../contexts/SessionContext';
+
+import dotenv from 'dotenv';
+dotenv.config();
+
 const DecksPage = (props) => {
     const [pageDatas, setPageDatas] = useState({
         username: '',
@@ -35,8 +41,9 @@ const DecksPage = (props) => {
         decks: [],
     });
 
+    /*hooks*/
     const [loading, setIsLoading, setRef] = useInfiniteScroll();
-    
+    const [session, setLang] = useContext(SessionContext);
     const {t} = useTranslation();
 
     useEffect(async () => {
@@ -77,10 +84,22 @@ const DecksPage = (props) => {
                             pageDatas.decks.map((elmt, index) => {
                                 if(typeof elmt !== 'number'){
                                     return (
-                                        <Deck classes="deck deck__link" id={elmt.id}>
-                                            <Deck.Heading>
-                                                <p className="">{t("no divinity")}</p>
-                                            </Deck.Heading>
+                                        <Deck 
+                                            classes="deck deck__link" 
+                                            id={elmt.id} 
+                                            backgroundUrl={
+                                                (
+                                                    session.divinities && 
+                                                    session.divinities.filter(god => god.id === elmt.divinity)[0]
+                                                ) &&
+                                                process.env.REACT_APP_CARDS_STATIC + session.divinities.filter(god => god.id === elmt.divinity)[0].image_path 
+                                            }
+                                        >
+                                                {!(session.divinities && session.divinities.filter(god => god.id === elmt.divinity)[0]) &&
+                                                    <Deck.Heading>
+                                                        <p>{t("no divinity")}</p>
+                                                    </Deck.Heading>
+                                                }
                                             <Deck.Body backgroundBodyColor={kingdomsDatas[elmt.kingdom].color}>
                                                 <Deck.Logo logoUrl={kingdomsDatas[elmt.kingdom].icon_url}/>
                                                 <Deck.Name name={elmt.deck_name}/>

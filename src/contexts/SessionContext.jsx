@@ -68,7 +68,7 @@ function SessionContextProvider(props){
             rarities = await getRaritiesList(localStorage.getItem("lang").toUpperCase());
             kingdoms = await getKingdomsList(localStorage.getItem("lang").toUpperCase());
             extensions = await getExtensionsList(localStorage.getItem("lang").toUpperCase());
-            divinities = await getDivinities(1,20,localStorage.getItem("lang").toUpperCase(), 1);
+            divinities = await getDivinities(1,40,localStorage.getItem("lang").toUpperCase(), 1);
         }else{
             return;
         }

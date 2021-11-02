@@ -505,10 +505,10 @@ function DeckPage(props){
                                     :
                                     <Popup.Button 
                                         id="download" 
-                                        text={"download"}
+                                        text={t("download")}
                                     />
                                 }
-                                <Popup.Button id="cancel" text="annuler"/>
+                                <Popup.Button id="cancel" text={t("cancel")}/>
                             </Popup.Group>
                         </>
                     }

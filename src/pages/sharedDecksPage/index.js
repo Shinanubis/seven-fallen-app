@@ -393,7 +393,7 @@ function SharedDecksPage(props) {
                         users.success.map(elmt => {
                             return (
                                 <List.Item>
-                                    <Link className="gamers__list--link" to={`/users/${elmt.id}/decks`}>    
+                                    <Link className="gamers__list--link" to={`/shared/decks/${elmt.id}`}>    
                                         {elmt.kingdom ?
                                             <Member.Avatar 
                                                 url={kingdomsDatas[elmt.kingdom].icon_url}

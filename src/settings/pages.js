@@ -1,3 +1,6 @@
+// contexts
+import {withCardsContext} from '../contexts/CardsContext';
+
 // Pages import
 import LandingPage from "../pages/landingPage";
 import LoginPage from "../pages/loginPage";
@@ -7,7 +10,9 @@ import DeckCreate from "../pages/deckCreate";
 import CardsType from '../pages/cardsType';
 import ProfilePage from "../pages/profilePage";
 import GamersPage from "../pages/gamersPage";
+import GamerDecksPage from '../pages/gamerDecksPage';
 import SharedDecksPage from "../pages/sharedDecksPage";
+import SharedDeckPage from "../pages/sharedDeckPage";
 import ErrorPage from "../pages/ErrorPage";
 
 
@@ -63,8 +68,20 @@ const pages = {
         {
             exact: true,
             strict: true,
+            path: "/gamers/:userId/decks",
+            component: withCardsContext(GamerDecksPage)
+        },
+        {
+            exact: true,
+            strict: true,
             path: "/shared/decks",
             component: SharedDecksPage,
+        },
+        {
+            exact: true,
+            strict: true,
+            path: "/shared/decks/:deckId",
+            component: withCardsContext(SharedDeckPage),
         },
         {
             component: ErrorPage,

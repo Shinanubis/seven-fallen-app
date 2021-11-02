@@ -260,7 +260,7 @@ function GamersPage(props) {
                         users.success.map(elmt => {
                             return (
                                 <List.Item>
-                                    <Link className="gamers__list--link" to={`/users/${elmt.id}/decks`}>    
+                                    <Link className="gamers__list--link" to={`/gamers/${elmt.id}/decks`}>    
                                         {elmt.avatar ?
                                             <Member.Avatar 
                                                 url={"/avatars" + elmt.avatar}

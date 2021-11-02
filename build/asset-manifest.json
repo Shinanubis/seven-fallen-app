@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.654cd409.chunk.css",
-    "main.js": "/static/js/main.5c68b774.chunk.js",
-    "main.js.map": "/static/js/main.5c68b774.chunk.js.map",
+    "main.css": "/static/css/main.55c34698.chunk.css",
+    "main.js": "/static/js/main.01c86974.chunk.js",
+    "main.js.map": "/static/js/main.01c86974.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.056e0bd9.js",
     "runtime-main.js.map": "/static/js/runtime-main.056e0bd9.js.map",
     "static/js/2.098cd3b6.chunk.js": "/static/js/2.098cd3b6.chunk.js",
     "static/js/2.098cd3b6.chunk.js.map": "/static/js/2.098cd3b6.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.654cd409.chunk.css.map": "/static/css/main.654cd409.chunk.css.map",
+    "static/css/main.55c34698.chunk.css.map": "/static/css/main.55c34698.chunk.css.map",
     "static/js/2.098cd3b6.chunk.js.LICENSE.txt": "/static/js/2.098cd3b6.chunk.js.LICENSE.txt",
     "static/media/leana.3bceda43.jpg": "/static/media/leana.3bceda43.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.056e0bd9.js",
     "static/js/2.098cd3b6.chunk.js",
-    "static/css/main.654cd409.chunk.css",
-    "static/js/main.5c68b774.chunk.js"
+    "static/css/main.55c34698.chunk.css",
+    "static/js/main.01c86974.chunk.js"
   ]
 }
