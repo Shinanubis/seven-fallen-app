@@ -1,4 +1,3 @@
-import {useEffect} from 'react';
 import Counter from "./Counter";
 import Logo from "./Logo";
 import Pseudo from "./Pseudo";

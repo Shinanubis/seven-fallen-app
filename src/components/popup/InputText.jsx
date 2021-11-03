@@ -1,8 +1,4 @@
-import {useState , useEffect, forwardRef} from 'react';
-import {debounce} from "lodash";
-
 function InputText({classes, placeholder, onChange}) {
-
     return (
             <input
                 className={classes ? classes : "popup__input--field"} 

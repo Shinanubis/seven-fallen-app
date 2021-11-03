@@ -1,5 +1,4 @@
 import {createContext, useState, useEffect} from 'react';
-import {unionBy, merge} from 'lodash';
 
 import {
     getTypesList,
@@ -30,11 +29,8 @@ function SessionContextProvider(props){
         let rarities = "";
         let kingdoms = "";
         let extensions = "";
-        let divinities = [];
-        let divinitiesIdArr = [];
-        let divinitiesFirstResponse = [];
-        let divinitiesSecondResponse = [];
-
+        let divinities = [];  
+        
         if(localStorage.length === 0){
             localStorage.setItem("lang", "fr");
         }
@@ -44,12 +40,14 @@ function SessionContextProvider(props){
         }
 
         if(session.types.length > 0){
+            // eslint-disable-next-line array-callback-return
             session.types.map(elmt => {
                 if(
                     elmt.id === 8 && 
                     elmt.name === "Adorateur" && 
                     localStorage.getItem('lang') === 'fr'
                    ){
+                    // eslint-disable-next-line array-callback-return
                     return;
                 }
 
@@ -58,6 +56,7 @@ function SessionContextProvider(props){
                     elmt.name === "Worshipper" && 
                     localStorage.getItem('lang') === 'en'
                    ){
+                    // eslint-disable-next-line array-callback-return
                     return;
                 }
             })
@@ -67,8 +66,8 @@ function SessionContextProvider(props){
             types = await getTypesList(localStorage.getItem("lang").toUpperCase());
             rarities = await getRaritiesList(localStorage.getItem("lang").toUpperCase());
             kingdoms = await getKingdomsList(localStorage.getItem("lang").toUpperCase());
-            extensions = await getExtensionsList(localStorage.getItem("lang").toUpperCase());
             divinities = await getDivinities(1,40,localStorage.getItem("lang").toUpperCase(), 1);
+            extensions = await getExtensionsList(localStorage.getItem("lang").toUpperCase());
         }else{
             return;
         }

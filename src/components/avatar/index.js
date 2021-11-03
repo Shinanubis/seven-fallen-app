@@ -1,4 +1,3 @@
-import {formwardRef} from 'react';
 import {HiOutlineUserCircle} from 'react-icons/hi'
 
 const Avatar = function({classes = "avatar", url="", alt="user avatar"}){

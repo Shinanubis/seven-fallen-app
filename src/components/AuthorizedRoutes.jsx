@@ -1,4 +1,4 @@
-import {Switch, Route, useParams} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
 function AuthorizedRoutes(props) {
     const {unAuthenticatedPages, authenticatedPages, isAuthenticated} = props;

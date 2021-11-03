@@ -1,4 +1,3 @@
-import {memo} from 'react';
 import Title from './Title';
 import Overlay from './Overlay';
 import Group from './Group';

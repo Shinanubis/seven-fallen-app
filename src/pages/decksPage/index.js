@@ -1,8 +1,7 @@
-import { useEffect, useState, useRef, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
 /* components */
 import PageContainer from "../../components/PageContainer";
-import Logo from '../../img/logos/7-fallen-logo-2.png';
 import Deck from '../../components/deck';
 import BottomMessage from '../../components/bottomMessage'
 import {FiLoader} from 'react-icons/fi';
@@ -17,7 +16,6 @@ import { getUserDecks } from '../../api/Decks';
 import './DecksPage.css';
 
 /*hooks*/
-import useElementHeight from '../../hooks/useElementHeight';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 /*translate*/
@@ -46,6 +44,7 @@ const DecksPage = (props) => {
     const [session, setLang] = useContext(SessionContext);
     const {t} = useTranslation();
 
+    
     useEffect(async () => {
         let profile = await getProfile();
         let userDecks = await getUserDecks({page: pageDatas.page, size: pageDatas.limit, sens: "asc", order_by: 'id'});
@@ -89,7 +88,7 @@ const DecksPage = (props) => {
                                             id={elmt.id} 
                                             backgroundUrl={
                                                 (
-                                                    session.divinities && 
+                                                    session.divinities instanceof Array && 
                                                     session.divinities.filter(god => god.id === elmt.divinity)[0]
                                                 ) &&
                                                 process.env.REACT_APP_CARDS_STATIC + session.divinities.filter(god => god.id === elmt.divinity)[0].image_path 

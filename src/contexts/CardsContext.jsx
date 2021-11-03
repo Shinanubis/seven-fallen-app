@@ -1,4 +1,4 @@
-import {createContext, useState, useMemo} from 'react';
+import {createContext, useState} from 'react';
 
 const CardsContext = createContext();
 

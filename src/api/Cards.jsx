@@ -8,17 +8,14 @@ async function getAllCards(id){
             credentials: "include"
         };
 
-        let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${id}/cards`);
+        let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${id}/cards`, settings);
         let datas = await response.json();
-
-        if(response != 200){
-            throw {...datas};
+        if(datas.code !== 200){
+            throw new Error(datas);
         }
-
-        return {...datas};
-
+        return datas;
     }catch(e){
-        return {...e}
+        return e;
     }
 }
 
@@ -33,10 +30,10 @@ async function getCardsByType(id, deckId){
         let datas = await response.json();
 
         if(response.status !== 200){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: datas.message
-            }
+            })
         }
 
         return {
@@ -64,10 +61,10 @@ async function updateCardsByType(id, deckId, payload){
         let datas = await response.json();
 
         if(response.status !== 200){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: datas.message
-            }
+            })
         }
 
         return {

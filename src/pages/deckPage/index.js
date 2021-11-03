@@ -29,9 +29,14 @@ import mod from '../../utilities/utils';
 
 //services import
 import {getMultipleId} from '../../api/CardsWareHouse';
-import {getOne, deleteUserDeck, updateOne} from "../../api/Decks";
+import {
+    getOne, 
+    deleteUserDeck, 
+    updateOne
+} from "../../api/Decks";
 import {getExport} from "../../api/Export";
 import {uploadDeck} from '../../api/Import';
+import {getAllCards} from '../../api/Cards';
 
 //styles import
 import './deckPage.css';
@@ -281,6 +286,7 @@ function DeckPage(props){
 
     //effects
     useEffect(async () => {
+        let cardsResponse = await getAllCards(id);
         let deckResponse = await getOne(id);
         let responseCards = await getExport(id);
         let cards = [].concat(responseCards.message.eden, responseCards.message.holy_book, responseCards.message.register)
@@ -622,7 +628,6 @@ function DeckPage(props){
                     <ListContainer>
                         {
                             typeList.map((elmt, index) => {
-                                
                                 if(elmt instanceof Array){
                                     return (
                                         <ul className="sub__list">

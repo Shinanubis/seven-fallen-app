@@ -1,4 +1,4 @@
-import {memo, useState, useEffect, useRef} from 'react';
+import {memo, useState, useRef} from 'react';
 import {debounce} from 'lodash'
 
 const MemoList = function ({

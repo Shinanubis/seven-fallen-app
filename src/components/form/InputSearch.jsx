@@ -1,4 +1,4 @@
-import {useState, useEffect, forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {HiSearch} from 'react-icons/hi';
 import {debounce} from 'lodash';
 

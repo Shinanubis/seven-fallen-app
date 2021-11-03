@@ -13,10 +13,10 @@ async function getTypesList(lang){
 
         let response = await fetch(`https://api.7fallen.ovh/api/types/all/${lang.toUpperCase()}`,settings);
         if(response.status !== 200 && !response.ok){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: response.message || response.statusText 
-            }
+            })
         }
         let datas = await response.json();
         return datas;
@@ -44,17 +44,21 @@ async function getRaritiesList(lang){
 }
 
 async function getKingdomsList(lang){
-    let settings = {
-        method: 'GET',
-        headers: {
-            'Authorization': process.env.REACT_APP_TOKEN
+    try{
+        let settings = {
+            method: 'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_TOKEN
+            }
+
         }
 
+        let response = await fetch(`https://api.7fallen.ovh/api/kingdoms/all/${lang.toUpperCase()}`,settings);
+        let datas = await response.json();
+        return datas;
+    }catch(e){
+        return e;
     }
-
-    let response = await fetch(`https://api.7fallen.ovh/api/kingdoms/all/${lang.toUpperCase()}`,settings);
-    let datas = await response.json();
-    return datas;
 }
 
 async function getExtensionsList(lang){
@@ -83,10 +87,10 @@ async function getClassesList(lang, name){
 
         let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang.toUpperCase()}?name=${name}`,settings);
         if(response.status !== 200 && !response.ok){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: response.message || response.statusText 
-            }
+            })
         }
         let datas = await response.json();
         return {
@@ -133,10 +137,10 @@ async function getCardsByName(lang, name, page, count, type){
 
         let response = await fetch(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?name=${name}&page=${page}&card_count=${count}&types=[${type}]`,settings);
         if(response.status !== 200 && !response.ok){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: response.message || response.statusText 
-            }
+            })
         }
         let datas = await response.json();
         return datas;   
@@ -172,10 +176,10 @@ async function getCardById(){
         let url = new URL(`https://api.7fallen.ovh/api/cards/6/FR`);
         let response = await fetch(url,settings);
         if(response.status !== 200){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: response.statusText
-            }
+            })
         }
         let datas = await response.json();
         return {
@@ -205,10 +209,10 @@ async function getMultipleId(lang,a){
         let response = await fetch(url, settings);
 
         if(response.status !== 200){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: response.statusText
-            }
+            })
         }
         let datas = await response.json()
         return {
@@ -256,10 +260,10 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
 
         let response = await fetch(url, settings);
         if(response.status !== 200){
-            throw {
+            throw new Error({
                 code: response.status,
                 message: response.statusText
-            }
+            })
         }
         let datas = await response.json();
         return {
@@ -334,6 +338,7 @@ async function getDivinities(page, count, lang, typeId){
         if(responseTwo.code === 200){
             newDatas = responseOne.message[1].map(elmt1 => {
                 let newObj = {...elmt1};
+                // eslint-disable-next-line array-callback-return
                 responseTwo.message.map(elmt2 => {
                     if(elmt1.id === elmt2.id){
                        newObj.name = elmt2.name;
@@ -342,7 +347,7 @@ async function getDivinities(page, count, lang, typeId){
                 return newObj;
             })
         }
-        return [...newDatas];
+        return newDatas;
     }catch(e){
         return e;
     }

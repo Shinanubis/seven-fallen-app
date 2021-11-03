@@ -1,18 +1,14 @@
 //hooks import
-import {useParams, useHistory} from 'react-router-dom';
-import {useEffect, useState, useContext, useRef, useMemo} from 'react';
+import {useParams} from 'react-router-dom';
+import {useEffect, useState, useContext} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import {useTranslation} from 'react-i18next';
 
 //api
 import {
-        getCardsByType, 
-        getCardById,
         getCardsByMultipleOption, 
         getClassesList,
-        getRaritiesList,
-        getCapacitiesList,
-        getCardsByName
+        getCapacitiesList
     } from '../../api/CardsWareHouse';
 
 import {
@@ -22,13 +18,11 @@ import {
 
 //components
 import {FiLoader} from 'react-icons/fi';
-import {RiLoader3Fill} from 'react-icons/ri';
 import {BiLoaderAlt} from 'react-icons/bi';
 import {MdDone} from "react-icons/md";
 import Loader from '../../components/Loader';
 import ImageLoader from '../../components/imageLoader';
 import Form from '../../components/form';
-import CreateDeckForm from '../../components/createDeckForm';
 import Flash from '../../components/flashMessage';
 
 //style
@@ -41,7 +35,7 @@ import kingdomsDatas from '../../settings/kingdom';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utils
-import {debounce, difference, orderBy} from 'lodash';
+import {debounce} from 'lodash';
 
 //environment variables
 import dotenv from 'dotenv';
@@ -52,6 +46,7 @@ function CardsType() {
     const lang = localStorage.getItem('lang');
 
     //context
+    // eslint-disable-next-line no-unused-vars
     const [session, setLang] = useContext(SessionContext);
 
     //states
@@ -88,15 +83,12 @@ function CardsType() {
     });
 
     const [pageLoaded, setPageLoaded] = useState(false);
-    const [hasMore, setHasMore] = useState(true);
     const [cardsChoice, setCardsChoice] = useState({})
 
     //hooks
     const {id, deckId} = useParams();
-    const test = useParams();
-    const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll(hasMore);
+    const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll();
     const [scrollTop, setScrollTop] = useState(false);
-    const [cardsChoiceVal, setCardsChoiceVal] = useState({});
     const {t} = useTranslation();
 
     //handlers 
@@ -264,11 +256,14 @@ function CardsType() {
         });
     }
 
-    useEffect(async () => {
-        let responseCardsByType = await getCardsType(id,deckId);
-        if(responseCardsByType.code === 200){
-            setCardsChoice({...responseCardsByType.message});
-        }
+    useEffect(() => {
+        async function fetchDatasCardsType(){
+            let responseCardsByType = await getCardsType(id,deckId);
+            if(responseCardsByType.code === 200){
+                setCardsChoice({...responseCardsByType.message});
+            }
+        };
+        fetchDatasCardsType();
     },[]);
 
     useEffect(() => {

@@ -1,20 +1,25 @@
 import {createContext, useState, useEffect} from 'react';
 
+/*api*/
+import getAuthUser from '../api/Authentication';
+
 
 const AuthContext = createContext([null, () => {}]);
 
-function AuthContextProvider(props){
-    const {callback} = props;
+function AuthContextProvider({children}){
     const [isAuthenticated, setisAuthenticated] = useState();
 
-    useEffect(async () => {
-        let response = await callback();
-        setisAuthenticated(response.isAuthenticated)   
+    useEffect(() => {
+        async function fetchData(){
+            let response = await getAuthUser();
+            setisAuthenticated(response.isAuthenticated) 
+        }
+        fetchData();  
     },[])
 
     return (
         <AuthContext.Provider value={[isAuthenticated, setisAuthenticated]}>
-            {props.children}
+            {children}
         </AuthContext.Provider>
     )
 }

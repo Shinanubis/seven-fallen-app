@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import {debounce, throttle} from 'lodash';
+import { throttle} from 'lodash';
 
 function useInfiniteScroll(hasMore, filters, cb) {
   const [loading, setIsLoading] = useState(false);

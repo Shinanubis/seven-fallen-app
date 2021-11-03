@@ -1,5 +1,5 @@
 import './flashMessage.css';
-import {useEffect, useRef,useState} from 'react';
+import {useEffect, useRef} from 'react';
 import { AiOutlineWarning } from "react-icons/ai";
 import { GrValidate } from "react-icons/gr";
 

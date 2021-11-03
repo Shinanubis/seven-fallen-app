@@ -126,7 +126,8 @@ async function updateOne(newDatas, id){
             credentials: 'include',
             body: form
         };
-
+        
+        // eslint-disable-next-line array-callback-return
         Object.keys(newDatas).map(elmt => {
              form.append(elmt, newDatas[`${elmt}`]);
         });
@@ -147,7 +148,7 @@ async function deleteUserDeck(id){
 
 }
 
-export { 
+export {
     getAllDecks, 
     getDecksByKingdoms, 
     getUserDecks, 

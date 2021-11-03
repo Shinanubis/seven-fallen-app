@@ -23,10 +23,10 @@ async function updateProfile(options){
             form.append('avatar', options.avatar);
             form.append('username', options.username);
         }else{
-            throw {
+            throw new Error({
                 code: 502,
                 message: "Payload Not Compliant"
-            }
+            })
         }
         
         let settings = {
@@ -82,12 +82,10 @@ async function addAvatar(form){
     return datas;
 }
 
-async function deleteAvatar(){
-    let settings = {
-        method : 'PATCH',
-        credentials: 'include'
-    } 
+export {
+    getProfile, 
+    updateProfile, 
+    deleteProfile, 
+    getAvatar, 
+    addAvatar
 }
-
-
-export {getProfile, updateProfile, deleteProfile, getAvatar, addAvatar, deleteAvatar}
