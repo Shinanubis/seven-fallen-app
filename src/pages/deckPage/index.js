@@ -316,7 +316,7 @@ function DeckPage(props){
                 if(!pageLoaded){
                     setPageLoaded(true);
                 }
-                setCardsDisplayed({...cardsResponse.message})
+                setCardsDisplayed({...cardsResponse.message});
             }
             setCards([...cards]);
             setDeck({...deck, success: deckResponse.message});
@@ -658,11 +658,13 @@ function DeckPage(props){
                                             {elmt.map(sub => {
                                                 return(
                                                     <li key={sub.name} className="sub__list--item">
-                                                        {console.log()}
                                                         <p 
                                                             className="list__item--text"
                                                         >
-                                                            {`${sub.name} ${cardsDisplayed[sub.id] && Object.keys(cardsDisplayed[sub.id]).length}`} 
+                                                            {`${sub.name} `}
+                                                            {(cardsDisplayed[sub.id] && Object.keys(cardsDisplayed[sub.id]).length) && 
+                                                                <span>{Object.keys(cardsDisplayed[sub.id]).length}</span>
+                                                            }
                                                         </p>
                                                         <Link to={`/decks/${id}/cards/${sub.id}`}><AiOutlinePlusCircle className="icon"/></Link>
                                                         {cardsDisplayed[sub.id] && 
@@ -698,7 +700,10 @@ function DeckPage(props){
                                                 <p 
                                                     className="list__item--text"
                                                 >
-                                                    {`${elmt.name} ${cardsDisplayed[elmt.id] && Object.keys(cardsDisplayed[elmt.id]).length}`}
+                                                    {`${elmt.name} `}
+                                                    {(cardsDisplayed[elmt.id] && Object.keys(cardsDisplayed[elmt.id]).length) && 
+                                                        <span>{Object.keys(cardsDisplayed[elmt.id]).length}</span>
+                                                    }
                                                 </p>
                                                 <Link to={`/decks/${id}/cards/${elmt.id}`}><AiOutlinePlusCircle className="icon"/></Link>
                                                 {cardsDisplayed[elmt.id] && 
