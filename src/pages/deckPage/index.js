@@ -4,6 +4,8 @@ import {useParams, useHistory} from "react-router-dom";
 import {useTranslation} from 'react-i18next';
 
 //components import
+import {AiOutlinePlus, AiOutlineMinus,AiOutlineCloseCircle} from 'react-icons/ai';
+import {BiPencil} from 'react-icons/bi';
 import Header from "../../components/heading";
 import ToolBox from "../../components/toolbox";
 import ListContainer from '../../components/listContainer';
@@ -14,6 +16,8 @@ import {AiOutlinePlusCircle, AiOutlineEye,AiOutlineEyeInvisible} from "react-ico
 import {BsPencil,BsDownload, BsUpload, BsBarChart} from "react-icons/bs";
 import {BiTrashAlt} from 'react-icons/bi';
 import {Link} from 'react-router-dom';
+import Loader from '../../components/Loader';
+import {FiLoader} from 'react-icons/fi';
 
 
 //datas import
@@ -24,7 +28,10 @@ import {hierarchy} from './settings';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utilities imports
-import {orderBy, merge, unionBy, debounce} from 'lodash';
+import orderBy from 'lodash/orderBy';
+import merge from 'lodash/merge';
+import debounce from 'lodash/debounce';
+import unionBy from 'lodash/unionBy';
 import mod from '../../utilities/utils';
 
 //services import
@@ -61,7 +68,8 @@ function DeckPage(props){
         isOpen: false,
         action: ""
     });
-    const [popupInputField, setPopupInputField] = useState("")
+    const [cardsDisplayed, setCardsDisplayed] = useState({});
+    const [popupInputField, setPopupInputField] = useState("");
     const [popupInputRadioField, setPopupInputRadioField] = useState(deck.success.kingdom);
     const [exportReady, setExportReady] = useState({
         isReady: false,
@@ -74,6 +82,7 @@ function DeckPage(props){
     })
 
     const [cards, setCards] = useState([]);
+    const [pageLoaded, setPageLoaded] = useState(false);
 
     // hooks
     let {id} = useParams();
@@ -103,6 +112,13 @@ function DeckPage(props){
         }
         return history.push(url)
     }
+
+    const handleListAction = debounce((e) => {
+        const {action, id} = e.target.dataset;
+        if(action && id){
+            console.log(`${e.target.dataset.action} on ${e.target.dataset.id}`)
+        }
+    }, 200)
 
     const handleFile = (e) => {
         const FILE_FIELDS_ALLOWED = ["eden", "holy_book", "register"];
@@ -286,13 +302,22 @@ function DeckPage(props){
 
     //effects
     useEffect(async () => {
-        let cardsResponse = await getAllCards(id);
+        let cardsIds = [];
+        let cardsByIdResponse = '';
+        let cardsResponse = '';
         let deckResponse = await getOne(id);
         let responseCards = await getExport(id);
         let cards = [].concat(responseCards.message.eden, responseCards.message.holy_book, responseCards.message.register)
                       .map(elmt => elmt[0]);
-        // let responseId = await getMultipleId(lang, cards);
+        
         if(deckResponse.code === 200){
+            cardsResponse = await getAllCards(id);
+            if(cardsResponse.code === 200){
+                if(!pageLoaded){
+                    setPageLoaded(true);
+                }
+                setCardsDisplayed({...cardsResponse.message})
+            }
             setCards([...cards]);
             setDeck({...deck, success: deckResponse.message});
         }else{
@@ -440,7 +465,7 @@ function DeckPage(props){
         
     },[actionPopup.action])
 
-    return  (
+    return(pageLoaded ?
             <div className="page page__deck container">
                 <Popup isOpen={actionPopup.isOpen} onClick={handleActions}>
                     {actionPopup.action === "delete" &&   
@@ -625,17 +650,41 @@ function DeckPage(props){
                 </div>
                 }
                 {typeList && 
-                    <ListContainer>
-                        {
-                            typeList.map((elmt, index) => {
+                    <ListContainer onClick={handleListAction}>
+                        {typeList.map((elmt, index) => {
                                 if(elmt instanceof Array){
                                     return (
                                         <ul className="sub__list">
                                             {elmt.map(sub => {
                                                 return(
                                                     <li key={sub.name} className="sub__list--item">
-                                                        <p className="list__item--text">{sub.name}</p>
+                                                        {console.log()}
+                                                        <p 
+                                                            className="list__item--text"
+                                                        >
+                                                            {`${sub.name} ${cardsDisplayed[sub.id] && Object.keys(cardsDisplayed[sub.id]).length}`} 
+                                                        </p>
                                                         <Link to={`/decks/${id}/cards/${sub.id}`}><AiOutlinePlusCircle className="icon"/></Link>
+                                                        {cardsDisplayed[sub.id] && 
+                                                        <ul className="inner__list">
+                                                           {Object.keys(cardsDisplayed[sub.id]).map(cardId => {
+                                                               return (
+                                                                   <li key={cardId} 
+                                                                       className="inner__list--item special"
+                                                                    >
+                                                                        <img src={cardsDisplayed[sub.id][cardId].image_path} alt="7 fallen image" />
+                                                                        <div className="counter__box">
+                                                                            <BiPencil className="counter__pen"/>
+                                                                            <AiOutlineMinus className="counter__box--minus" data-action="minus" data-id={sub.id}/>
+                                                                            <span className="counter__num">{cardsDisplayed[sub.id][cardId].qty}</span>
+                                                                            <AiOutlinePlus className="counter__box--plus" data-action="plus" data-id={sub.id}/>
+                                                                            <AiOutlineCloseCircle className="counter__box--close" data-action="close" data-id={sub.id}/>
+                                                                        </div>
+                                                                   </li>
+                                                               )
+                                                           })} 
+                                                        </ul>
+                                                        }
                                                     </li>
                                                 )
                                             })}
@@ -644,10 +693,42 @@ function DeckPage(props){
                                 } 
 
                                 return(
-                                        <li key={elmt.order} className="list__item">
-                                            <p className="list__item--text">{elmt.name}</p>
-                                            <Link to={`/decks/${id}/cards/${elmt.id}`}><AiOutlinePlusCircle className="icon"/></Link>
-                                        </li>
+                                        <>
+                                            <li key={elmt.order} className="list__item">
+                                                <p 
+                                                    className="list__item--text"
+                                                >
+                                                    {`${elmt.name} ${cardsDisplayed[elmt.id] && Object.keys(cardsDisplayed[elmt.id]).length}`}
+                                                </p>
+                                                <Link to={`/decks/${id}/cards/${elmt.id}`}><AiOutlinePlusCircle className="icon"/></Link>
+                                                {cardsDisplayed[elmt.id] && 
+                                                <ul className="inner__list">
+                                                   {Object.keys(cardsDisplayed[elmt.id]).map(cardId => {
+                                                       return (
+                                                           <li key={cardId} 
+                                                               className={elmt.id !== 1 ? 
+                                                                   "inner__list--item" 
+                                                                   : 
+                                                                   "inner__list--item divinity"
+                                                                }
+                                                            >
+                                                                <img src={cardsDisplayed[elmt.id][cardId].image_path} alt="7 fallen image" />
+                                                                {elmt.id !== 1 &&
+                                                                    <div className="counter__box">
+                                                                        <BiPencil className="counter__pen"/>
+                                                                        <AiOutlineMinus className="counter__box--minus" data-action="minus" data-id={elmt.id}/>
+                                                                        <span className="counter__num">{cardsDisplayed[elmt.id][cardId].qty}</span>
+                                                                        <AiOutlinePlus className="counter__box--plus" data-action="plus" data-id={elmt.id}/>
+                                                                        <AiOutlineCloseCircle className="counter__box--close" data-action="close" data-id={elmt.id}/>
+                                                                    </div>
+                                                                }
+                                                           </li>
+                                                       )
+                                                   })} 
+                                                </ul>
+                                                }
+                                            </li>
+                                        </>
                                     )
                             })
                         }
@@ -667,6 +748,8 @@ function DeckPage(props){
                     </ToolBox.Content>
                 </ToolBox>
             </div>
+            :
+            <Loader loaderIcon={FiLoader}/>
         )
 }
 

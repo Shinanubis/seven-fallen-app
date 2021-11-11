@@ -16,7 +16,7 @@
 .create__deck--title{
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 3.5vh;
+    font-size: 1.25rem;
     letter-spacing:1px;
 }
 
@@ -92,7 +92,7 @@ input.create__deck--name::placeholder{
 .dropdown__title{
     letter-spacing: 2px;
     font-weight: 100;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .dropdown__icon{

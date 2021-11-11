@@ -205,7 +205,7 @@ async function getMultipleId(lang,a){
         if(a.length > 0){
             url.searchParams.append("a", `[${a.join()}]`);
         }
-
+        
         let response = await fetch(url, settings);
 
         if(response.status !== 200){

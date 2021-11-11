@@ -35,7 +35,7 @@ import kingdomsDatas from '../../settings/kingdom';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utils
-import {debounce} from 'lodash';
+import debounce from 'lodash/debounce';
 
 //environment variables
 import dotenv from 'dotenv';
@@ -198,8 +198,8 @@ function CardsType() {
         })
     }
 
-    const handleValid = async function(){
-        setUpdateState({
+    const handleValid = function(){
+        return setUpdateState({
             ...updateState,
             pending: true
         })
@@ -250,7 +250,7 @@ function CardsType() {
             if(newCardsChoice[e.target.id]){
                 delete newCardsChoice[e.target.id];
             }else{
-                newCardsChoice[e.target.id] = {type:Number(id), qty:1}
+                newCardsChoice[e.target.id] = {type:Number(id), image_path: e.target.src, qty:1, max: Number(e.target.dataset.max)}
             }
             return {...newCardsChoice};
         });
@@ -305,7 +305,6 @@ function CardsType() {
         }
 
         response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
-
         if(response.code === 200){
             
             if(pageLoaded === false){
@@ -370,7 +369,7 @@ function CardsType() {
     }, [formTop.classes])
 
     useEffect(async () => {
-        let response = ''
+        let response = '';
         if(updateState.pending === true){
             response = await updateCardsByType(id, deckId, cardsChoice);
             if(response.code === 200){
@@ -381,26 +380,36 @@ function CardsType() {
                     error: ""
                 })
             }else{
-                setUpdateState({
+                return setUpdateState({
                     ...updateState,
                     pending: false,
                     error: response.message,
                     success: ""
                 })
-            } 
-        } 
+            }
+        }
+
     },[updateState])
 
     useEffect(() => {
-            if(loading && cardsList.cards.length === cardsList.count){
-                setIsLoading(false)
-            }
-
-            if(loading && cardsList.cards.length < cardsList.count){
-                return setCardsList({
-                    ...cardsList,
-                    page: cardsList.page + 1
-                })
+            if(Number(id) === 1){
+                if(loading && cardsList.cards.length < (cardsList.count - 1)){
+                    return setCardsList({
+                        ...cardsList,
+                        page: cardsList.page + 1
+                    })
+                }else{
+                    return setIsLoading(false)
+                }
+            }else{
+                if(loading && cardsList.cards.length < cardsList.count){
+                    return setCardsList({
+                        ...cardsList,
+                        page: cardsList.page + 1
+                    })
+                }else{
+                    return setIsLoading(false)
+                }
             }
     }, [loading])
 
@@ -489,15 +498,20 @@ function CardsType() {
             </Form>
             <div className="cards__container">
                 <ul ref={setRef} className="cards__list" onClick={handleCardChoice}>
-                    {cardsList &&
+                    {cardsList.cards.length > 0 &&
                         cardsList.cards.map(elmt => {
                             if(Number(id) === 1){
                                 return (
-                                    <ImageLoader id={elmt.id} variant="li" classes="cards__list--item divinity">
+                                    <ImageLoader 
+                                        id={elmt.id} 
+                                        variant="li" 
+                                        classes="cards__list--item divinity"
+                                    >
                                         <img 
                                             id={elmt.id} 
                                             className="card__img d-none" 
-                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} 
+                                            src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                            data-max={elmt.nb_max_per_deck} 
                                         />
                                         {cardsChoice[elmt.id] &&
                                             <div className="card__checked--box"> 
@@ -519,7 +533,12 @@ function CardsType() {
                                         "cards__list--item"
                                     }
                                     >
-                                    <img id={elmt.id} className="card__img" src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path} />
+                                    <img 
+                                        id={elmt.id} 
+                                        className="card__img" 
+                                        src={process.env.REACT_APP_CARDS_STATIC + elmt.image_path}
+                                        data-max={elmt.nb_max_per_deck}  
+                                    />
                                     {cardsChoice[elmt.id] &&
                                         <div className="card__checked--box"> 
                                             <MdDone className="card__checked--icon"/>

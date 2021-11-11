@@ -3,7 +3,8 @@ import { useEffect, useState, useContext } from 'react';
 /* components */
 import PageContainer from "../../components/PageContainer";
 import Deck from '../../components/deck';
-import BottomMessage from '../../components/bottomMessage'
+import BottomMessage from '../../components/bottomMessage';
+import Loader from '../../components/Loader';
 import {FiLoader} from 'react-icons/fi';
 
 import Header from '../../components/heading';
@@ -39,6 +40,8 @@ const DecksPage = (props) => {
         decks: [],
     });
 
+    const [pageLoaded, setPageLoaded] = useState(false);
+
     /*hooks*/
     const [loading, setIsLoading, setRef] = useInfiniteScroll();
     const [session, setLang] = useContext(SessionContext);
@@ -51,6 +54,9 @@ const DecksPage = (props) => {
         if(profile.code === 200 && userDecks.code === 200){
             let newCount = userDecks.message.shift();
             setPageDatas({...pageDatas, username: profile.message.username, count: newCount,decks: [...pageDatas.decks, ...userDecks.message]});
+            if(!pageLoaded){
+                setPageLoaded(true);
+            }
             setIsLoading(false);   
         }
     }, [pageDatas.page]);
@@ -63,7 +69,7 @@ const DecksPage = (props) => {
         }
     }, [loading])
 
-    return (
+    return (pageLoaded ?
         <PageContainer classes="decks">
             <Header>
                 <Header.Pseudo pseudo={pageDatas.username}/>
@@ -78,8 +84,7 @@ const DecksPage = (props) => {
                     </BottomMessage>
                 :
                     <div ref={setRef} className="decks__list--container">
-                        {
-                            
+                        {   
                             pageDatas.decks.map((elmt, index) => {
                                 if(typeof elmt !== 'number'){
                                     return (
@@ -87,18 +92,15 @@ const DecksPage = (props) => {
                                             classes="deck deck__link" 
                                             id={elmt.id} 
                                             backgroundUrl={
-                                                (
-                                                    session.divinities instanceof Array && 
-                                                    session.divinities.filter(god => god.id === elmt.divinity)[0]
-                                                ) &&
-                                                process.env.REACT_APP_CARDS_STATIC + session.divinities.filter(god => god.id === elmt.divinity)[0].image_path 
+                                                (session.divinities && session.divinities.filter(god => god.id === Number(elmt.divinity))[0]) &&
+                                                process.env.REACT_APP_CARDS_STATIC + session.divinities.filter(god => god.id === Number(elmt.divinity))[0].image_path 
                                             }
                                         >
-                                                {!(session.divinities && session.divinities.filter(god => god.id === elmt.divinity)[0]) &&
-                                                    <Deck.Heading>
-                                                        <p>{t("no divinity")}</p>
-                                                    </Deck.Heading>
-                                                }
+                                            {!(session.divinities && session.divinities.filter(god => god.id === Number(elmt.divinity))[0]) &&
+                                                <Deck.Heading>
+                                                    <p>{t("no divinity")}</p>
+                                                </Deck.Heading>
+                                            }
                                             <Deck.Body backgroundBodyColor={kingdomsDatas[elmt.kingdom].color}>
                                                 <Deck.Logo logoUrl={kingdomsDatas[elmt.kingdom].icon_url}/>
                                                 <Deck.Name name={elmt.deck_name}/>
@@ -113,6 +115,8 @@ const DecksPage = (props) => {
                     </div>
             }
         </PageContainer>
+        :
+        <Loader loaderIcon={FiLoader}/>
     );
 }
 

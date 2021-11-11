@@ -11,14 +11,15 @@ function Flash({success, error, setFlash, redirect, redirectCallback}){
 
   useEffect(() => {
     let timer = "";
-    if (success.length > 0) {
+
+    if (success && success.length > 0) {
       flashRef.current.classList.add("fade-in", "success");
       timer = setTimeout(() => {
         flashRef.current.classList.remove("fade-in", "success");
       }, 1000);
     }
 
-    if (error.length > 0) {
+    if (error && error.length > 0) {
       flashRef.current.classList.add("fade-in", "error");
       timer = setTimeout(() => {
         flashRef.current.classList.remove("fade-in", "error");

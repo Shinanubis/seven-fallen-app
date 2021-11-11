@@ -278,7 +278,6 @@ function SharedDecksPage(props) {
                                         session.kingdoms.map(elmt =>{
                                             return (
                                                 <>
-
                                                     <Form.Label 
                                                         classes={
                                                             formState.kingdoms && formState.kingdoms.includes(elmt.id + "") 
@@ -409,8 +408,8 @@ function SharedDecksPage(props) {
                                         <Member.Text 
                                             text={
                                                 session.divinities && 
-                                                session.divinities.filter(god => god.id === elmt.divinity)[0] ?
-                                                session.divinities.filter(god => god.id === elmt.divinity)[0].name
+                                                session.divinities.filter(god => god.id === Number(elmt.divinity))[0] ?
+                                                session.divinities.filter(god => god.id === Number(elmt.divinity))[0].name
                                                 :
                                                 "No divinity"
                                             } 

@@ -143,10 +143,10 @@
     position:relative;
     height: 50vw;
     max-height: 250px;
-    width: 36vw;
+    width: 46%;
     max-width: 188px; 
     margin-bottom: 6%;
-    margin-right: 7%;
+    margin-right: 4%;
     box-shadow: 0 0px 6px 0px #050505;
     border-radius: 4px;
 }

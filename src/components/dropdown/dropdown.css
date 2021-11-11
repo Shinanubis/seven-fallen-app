@@ -16,7 +16,7 @@
 .dropdown__title{
     letter-spacing: 2px;
     font-weight: 100;
-    font-size: 1.75vh;
+    font-size: 1rem;
 }
 
 .dropdown__icon{
