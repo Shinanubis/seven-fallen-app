@@ -3,15 +3,13 @@
     flex-wrap:wrap;
     justify-content: flex-start;
     width: 90%;
-    height: calc(83vh - var(--navbar-height) - var(--header-height) - 6.5vh);
+    height: calc(78.5vh - var(--navbar-height) - var(--header-height) - 6.5vh);
     padding: .5rem 0 0 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .list .list__item{
     width:30%;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     margin-right: 3%;
 }

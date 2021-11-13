@@ -60,8 +60,42 @@ async function updateCardsByType(id, deckId, payload){
         return datas;
 }
 
+async function updateOneCard(deckId, typeId, callback, state){
+    try{
+        let form = new FormData();
+        let newObj = {...state.cards[typeId]};
+        Object.keys(state.cards[typeId]).map(elmt => newObj[elmt].type = typeId);
+        console.log("NewObj : ", newObj)
+        form.append('payload', JSON.stringify(newObj));
+        let settings = {
+            method: "PATCH",
+            credentials: "include",
+            body: form
+        };        
+        let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${deckId}/cards/${typeId}`, settings);
+        let datas = await response.json();
+        if(datas.code !== 200){
+            throw new Error({...datas})
+        }
+        return callback({
+            ...state,
+            pending: false,
+            action: '',
+            success: datas.message
+        });
+    }catch(e){
+        return callback({
+            ...state,
+            pending: false,
+            action: '',
+            error: e.message
+        })
+    }
+}
+
 export {
     getAllCards,
     getCardsByType,
-    updateCardsByType
+    updateCardsByType,
+    updateOneCard
 }

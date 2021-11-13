@@ -6,9 +6,10 @@
 
 .page__deck .list__container{
     overflow-y: scroll;
-    padding: 2vh 0;
+    margin: 0 0 13vh 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width:90%;
 }
 
@@ -20,6 +21,7 @@
 
 .page__deck .list{
     width:auto;
+    height:auto;
     padding: .5rem 0;
 }
 
@@ -31,6 +33,7 @@
 .page__deck .deck__infos--group{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
     line-height: 0.9;
 }
@@ -39,13 +42,16 @@
     margin-bottom: 2vh;
 }
 
-.page__deck .deck__infos--name{
+.page__deck .deck__infos--text{
     margin-right: 2vw;
     color: white;
     font-size: 2.25vh;
     text-transform: uppercase;
     font-weight: 400;
     pointer-events: none;
+    text-overflow: ellipsis;
+    inline-size: 80%;
+    overflow-x: hidden;
 }
 
 .page__deck .deck__infos--kingdom{
@@ -131,8 +137,8 @@
 
 .page__deck .sub__list--item .inner__list .inner__list--item,
 .page__deck .list__item .inner__list .inner__list--item{
-    margin: 0 0 4vw 0;
     width: 46%;
+    margin-bottom: .5rem;
 }
 
 .page__deck .list__item .inner__list .inner__list--item.divinity,
@@ -249,6 +255,10 @@
     font-size:5vw;
     max-width: 240px;
     cursor: default;
+}
+
+.page__deck .counter__box.divinity{
+    max-width: 16%;
 }
 
 .page__deck .counter__box > *{
