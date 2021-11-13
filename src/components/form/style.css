@@ -111,7 +111,7 @@
 .bottom-block .btn,
 .form__group .btn,
 .form .btn{
-    padding: 0.25rem 2rem;
+    height:28px;
     background-color: #606060;
     color: #fff;
     font-size: .75rem;

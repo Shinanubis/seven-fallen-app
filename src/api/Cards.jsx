@@ -64,14 +64,15 @@ async function updateOneCard(deckId, typeId, callback, state){
     try{
         let form = new FormData();
         let newObj = {...state.cards[typeId]};
-        Object.keys(state.cards[typeId]).map(elmt => newObj[elmt].type = typeId);
-        console.log("NewObj : ", newObj)
+        if(state.cards[typeId]){
+            Object.keys(state.cards[typeId]).map(elmt => newObj[elmt].type = typeId);
+        }
         form.append('payload', JSON.stringify(newObj));
         let settings = {
             method: "PATCH",
             credentials: "include",
             body: form
-        };        
+        };       
         let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${deckId}/cards/${typeId}`, settings);
         let datas = await response.json();
         if(datas.code !== 200){

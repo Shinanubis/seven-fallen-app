@@ -1,8 +1,8 @@
 .card__type{
     flex-wrap: wrap;
-    margin: 3vh auto 0;
+    margin: 20px auto auto auto;
     box-shadow: 0 0 12px 2px #050505;
-    height: calc(100% - var(--navbar-height) - 8vh);
+    height: calc(95% - var(--navbar-height) - 8vh);
     align-content: space-between;
     overflow-y: hidden;
 }
@@ -65,10 +65,6 @@
     display: flex;
     align-items: center;
     height:100%;
-}
-
-.card__type .form.close .form__group .btn{
-    height: auto;
 }
 
 .card__type .form.close > *:not(:first-child){
@@ -200,7 +196,6 @@
 
 .card__type .bottom-block .btn{
     position:relative;
-    padding: .25rem 2rem;
     background-color: #606060;
     color: #fff;
     font-size: .75rem;

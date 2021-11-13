@@ -106,6 +106,34 @@ async function getOne(id){
     return datas;
 }
 
+async function fetchDeckInfos(id, state, callback){
+    try {
+        let settings = {
+            method: 'GET',
+            credentials: 'include',
+        };
+
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/decks/${id}`, settings);
+
+        if(response.status >= 400 && response.status <= 499){
+            let error = await response.json();
+            throw new Error({...error})
+        }
+        
+        let datas = await response.json();
+        return callback({
+            ...state,
+            error: {},
+            success: {...datas.message}
+        })
+    } catch (error) {
+        return callback({
+            ...state,
+            error,
+        })
+    }
+}
+
 async function createUserDeck(form){
 
     let settings = {
@@ -149,6 +177,7 @@ async function deleteUserDeck(id){
 }
 
 export {
+    fetchDeckInfos,
     getAllDecks, 
     getDecksByKingdoms, 
     getUserDecks, 

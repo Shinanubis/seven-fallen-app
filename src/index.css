@@ -635,7 +635,7 @@ code {
 }
 
 .btn {
-	padding: 4vw 0;
+	height:28px;
 	font-family: Helvetica, sans-serif;
 	font-size: 3vw;
 	font-weight: 600;

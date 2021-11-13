@@ -18,7 +18,7 @@ import {BiTrashAlt} from 'react-icons/bi';
 import {Link} from 'react-router-dom';
 import Loader from '../../components/Loader';
 import {FiLoader} from 'react-icons/fi';
-
+import {HiOutlineBookOpen} from 'react-icons/hi';
 
 //datas import
 import kingdomsDatas from "../../settings/kingdom";
@@ -39,7 +39,8 @@ import {getMultipleId} from '../../api/CardsWareHouse';
 import {
     getOne, 
     deleteUserDeck, 
-    updateOne
+    updateOne,
+    fetchDeckInfos
 } from "../../api/Decks";
 import {getExport} from "../../api/Export";
 import {uploadDeck} from '../../api/Import';
@@ -69,7 +70,7 @@ function DeckPage(props){
         action: ""
     });
     const [cardsDisplayed, setCardsDisplayed] = useState({
-        pending: true,
+        pending: false,
         action: '',
         type: '',
         cards: {},
@@ -121,6 +122,7 @@ function DeckPage(props){
     }
 
     const handleListAction = debounce((e) => {
+        e.stopPropagation();
         const {action, type, id} = e.target.dataset;
         if(action && type && id){
             switch(action){
@@ -131,6 +133,7 @@ function DeckPage(props){
                         if(newObj.cards[type] && Object.keys(newObj.cards[type]).length === 0){
                             delete newObj.cards[type];
                         }
+                        newObj.type = type;
                         newObj.action = action;
                         newObj.pending = true;
                         return {...newObj};
@@ -160,7 +163,7 @@ function DeckPage(props){
                         newObj.action = action;
                         newObj.cards[type][id].qty = previousQty !== 1 ? (Number(newObj.cards[type][id].qty) - 1) + '' : 1;
                         newObj.pending = (previousQty !== newObj.cards[type][id].qty && newObj.cards[type][id].qty > 0);
-                        console.log((previousQty !== newObj.cards[type][id].qty && newObj.cards[type][id].qty > 0))
+                        newObj.type = type;
                         return {...newObj};
                     });
 
@@ -520,11 +523,14 @@ function DeckPage(props){
     },[actionPopup.action]);
 
     useEffect(() => {
-        console.log(cardsDisplayed.pending)
-        if(cardsDisplayed.pending){
-            updateOneCard(id, cardsDisplayed.type, setCardsDisplayed, cardsDisplayed);
+        async function updateCardsAndDeck(){
+            await updateOneCard(id, cardsDisplayed.type, setCardsDisplayed, cardsDisplayed);
+            await fetchDeckInfos(id, deck, setDeck);
         }
-    },[cardsDisplayed])
+        if(cardsDisplayed.pending){
+            updateCardsAndDeck();
+        }
+    },[cardsDisplayed.pending])
 
     useEffect(() => {
         if(!pageLoaded && 
@@ -692,6 +698,9 @@ function DeckPage(props){
                 />
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
+                    <p className="header__text">
+                        Livre Sacré {deck.success.holyBookQty}
+                    </p>
                 </Header>
                 {typeList && 
                     <ListContainer >
@@ -702,11 +711,6 @@ function DeckPage(props){
                                     {deck.success.deck_name}
                                 </p>
                                 <BsPencil className="deck__infos--icon"/>
-                            </div>
-                            <div id="deck_name" className="deck__infos--group">
-                                <p className="deck__infos--text">
-                                    Livre Sacré {deck.success.holyBookQty}
-                                </p>
                             </div>
                             <div className="deck__infos--group">
                                 <div id="kingdom" className="deck__infos--kingdom">
@@ -745,7 +749,11 @@ function DeckPage(props){
                                                         >
                                                             {`${sub.name} `}
                                                             {cardsDisplayed.cards[sub.id] && 
-                                                                <span>{Object.keys(cardsDisplayed.cards[sub.id]).length}</span>
+                                                                <span>{
+                                                                    Object.values(cardsDisplayed.cards[sub.id])
+                                                                          .reduce((prev, curr) => Number(prev) + Number(curr.qty), 0)
+                                                                    }
+                                                                </span>
                                                             }
                                                         </p>
                                                         <Link to={`/decks/${id}/cards/${sub.id}`}>
@@ -758,29 +766,33 @@ function DeckPage(props){
                                                                    <li key={cardId} 
                                                                        className="inner__list--item special"
                                                                     >
-                                                                        <img src={cardsDisplayed.cards[sub.id][cardId].image_path} alt="7 fallen image" />
-                                                                        <div className="counter__box">
-                                                                            <BiPencil className="counter__pen"/>
-                                                                            <AiOutlineMinus 
-                                                                                className="counter__box--minus" 
-                                                                                data-action="minus" 
-                                                                                data-type={sub.id}
-                                                                                data-id = {cardId}
-                                                                            />
-                                                                            <span className="counter__num">{cardsDisplayed.cards[sub.id][cardId].qty}</span>
-                                                                            <AiOutlinePlus 
-                                                                                className="counter__box--plus" 
-                                                                                data-action="plus" 
-                                                                                data-type={sub.id}
-                                                                                data-id = {cardId}
-                                                                            />
-                                                                            <AiOutlineCloseCircle 
-                                                                                className="counter__box--close" 
-                                                                                data-action="close" 
-                                                                                data-type={sub.id}
-                                                                                data-id = {cardId}
-                                                                            />
-                                                                        </div>
+                                                                        <img src={cardsDisplayed.cards[sub.id][cardId].image_path} alt="7 fallen image" />        
+                                                                            <div className="counter__box">
+                                                                            {Number(cardsDisplayed.cards[sub.id][cardId].max) > 1 &&
+                                                                                <>
+                                                                                    <AiOutlineMinus 
+                                                                                        className="counter__box--minus" 
+                                                                                        data-action="minus" 
+                                                                                        data-type={sub.id}
+                                                                                        data-id = {cardId}
+                                                                                    />
+                                                                                    <span className="counter__num">{cardsDisplayed.cards[sub.id][cardId].qty}</span>
+                                                                                    <AiOutlinePlus 
+                                                                                        className="counter__box--plus" 
+                                                                                        data-action="plus" 
+                                                                                        data-type={sub.id}
+                                                                                        data-id = {cardId}
+                                                                                    />
+                                                                                </>
+                                                                            }
+                                                                                <AiOutlineCloseCircle 
+                                                                                    className="counter__box--close" 
+                                                                                    data-action="close" 
+                                                                                    data-type={sub.id}
+                                                                                    data-id = {cardId}
+                                                                                />
+                                                                            </div>
+                                                                        
                                                                    </li>
                                                                )
                                                            })} 
@@ -801,9 +813,10 @@ function DeckPage(props){
                                                 >
                                                     {`${elmt.name} `}
                                                     {cardsDisplayed.cards[elmt.id] && 
-                                                        <span>
-                                                            {Object.keys(cardsDisplayed.cards[elmt.id]).length > 0 &&
-                                                                Object.keys(cardsDisplayed.cards[elmt.id]).length
+                                                        <span>{
+                                                                Object.values(cardsDisplayed.cards[elmt.id]).reduce((prev, curr) => 
+                                                                    Number(prev) + Number(curr.qty), 0
+                                                                )
                                                             }
                                                         </span>
                                                     }
@@ -822,8 +835,8 @@ function DeckPage(props){
                                                             >
                                                                 <img src={cardsDisplayed.cards[elmt.id][cardId].image_path} alt="7 fallen image" />
                                                                 <div className={elmt.id !== 1 ? "counter__box" : "counter__box divinity"}>
-                                                                    <BiPencil className="counter__pen"/>
-                                                                    {elmt.id !== 1 &&
+                                                                    {(elmt.id !== 1 &&
+                                                                     Number(cardsDisplayed.cards[elmt.id][cardId].max) > 1) &&
                                                                         <>
                                                                             <AiOutlineMinus 
                                                                                 className="counter__box--minus" 
