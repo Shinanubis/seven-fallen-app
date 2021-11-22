@@ -1,0 +1,8 @@
+.chart__box{
+      width: 84%;
+      height: 400px;
+}
+
+.chart__box canvas{
+      width: 100%;
+}

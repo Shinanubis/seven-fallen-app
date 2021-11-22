@@ -1,5 +1,5 @@
 //hooks
-import {useState, useEffect, useContext} from 'react'
+import {useState, useContext} from 'react'
 import {useTranslation} from 'react-i18next';
 import useOrderBy from '../../hooks/useOrderBy';
 import {useHistory} from 'react-router-dom';
@@ -7,8 +7,6 @@ import {useHistory} from 'react-router-dom';
 /*components*/
 import CreateDeckForm from "../../components/createDeckForm";
 import Header from '../../components/heading';
-import {GrCaretDown} from 'react-icons/gr';
-import Logo from '../../img/logos/7-fallen-logo-2.png';
 import Flash from "../../components/flashMessage";
 
 /*style*/
@@ -72,27 +70,26 @@ function DeckCreate(props){
             responseCreate = await createUserDeck(form);
         }
         
-        if(responseCreate && responseCreate.code == 200){
-            console.log(responseCreate)
+        if(responseCreate && responseCreate.code === 200){
             return setFlashIsVisible({
                         ...flashIsVisible, 
                         success: t("flash.success", {name: responseCreate.message[0].deck_name}), 
                         error:""
                     });
-        }else if(responseCreate && responseCreate.code == 409){
+        }else if(responseCreate && responseCreate.code === 409){
             let name = responseCreate.message.split(' ')[0];
             return setFlashIsVisible({
                         ...flashIsVisible, 
                         error: t("flash.already",{name}), 
                         success:""
                     });
-        }else if(responseCreate && responseCreate.code == 400){
+        }else if(responseCreate && responseCreate.code === 400){
             return setFlashIsVisible({
                         ...flashIsVisible, 
                         error: t(`flash.${responseCreate.message}`), 
                         success:""
                     });
-        }else if(responseCreate && responseCreate.code == 403){
+        }else if(responseCreate && responseCreate.code === 403){
             return setFlashIsVisible({
                 ...flashIsVisible, 
                 error: t(`flash.${responseCreate.message}`), 

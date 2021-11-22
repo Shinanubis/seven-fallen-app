@@ -56,8 +56,8 @@ async function getUserDecks(options){
     let params = {
         page: options.page ?? 1, 
         size: options.size ? options.size : 10,
-        sens: options.sens ? options.sens : 'asc',
-        order_by: options.order_by ? options.order_by : 'id'
+        sens: options.sens ? options.sens : 'desc',
+        order_by: options.order_by ? options.order_by : 'created_at'
     };
 
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));

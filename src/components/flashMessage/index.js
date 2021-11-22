@@ -36,7 +36,7 @@ function Flash({success, error, setFlash, redirect, redirectCallback}){
     return () => {
         clearTimeout(timer)
     };
-  },[error,success]);
+  },[error, success, redirect, redirectCallback, setFlash]);
 
   return (
     <p ref={flashRef} className="flash__message">

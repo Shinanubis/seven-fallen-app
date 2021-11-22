@@ -193,54 +193,56 @@ function SharedDecksPage(props) {
         }
     };
 
-    useEffect(async () => {
+    useEffect(() => {
         if(!users.pending){
             return;
         }
+        async function fetchAllDecks(){
+            let response = '';
+            let options = {
+                size: users.limit,
+                page: users.page,
+                order_by: formState.classifyBy,
+                sens: formState.sens,
+                kingdoms: formState.kingdoms.length > 0 && [...formState.kingdoms],
+                search: formState.search,
+                divinity: formState.divinity
+            };
+            response = await getAllDecks(options);
+            if(response.code === 200){
+                if(pageLoading){
+                    setPageLoading(false);
+                }
 
-        let response = '';
-        let options = {
-            size: users.limit,
-            page: users.page,
-            order_by: formState.classifyBy,
-            sens: formState.sens,
-            kingdoms: formState.kingdoms.length > 0 && [...formState.kingdoms],
-            search: formState.search,
-            divinity: formState.divinity
-        };
-        response = await getAllDecks(options);
-        if(response.code === 200){
-            if(pageLoading){
-                setPageLoading(false);
-            }
+                if(loading){
+                    setIsLoading(false);
+                }
 
-            if(loading){
-                setIsLoading(false);
-            }
-            
-            if(popupOpen){
-                setPopupOpen(false);
-            }
+                if(popupOpen){
+                    setPopupOpen(false);
+                }
 
-            if(users.page === 1){
+                if(users.page === 1){
+                    return setUsers({
+                        ...users,
+                        pending: false,
+                        type: 'get',
+                        count: response.message[0],
+                        success: [...response.message[1]],
+                        error: {}
+                    })
+                }
+
                 return setUsers({
                     ...users,
                     pending: false,
                     type: 'get',
                     count: response.message[0],
-                    success: [...response.message[1]],
+                    success: [...users.success, ...response.message[1]],
                     error: {}
                 })
             }
-
-            return setUsers({
-                ...users,
-                pending: false,
-                type: 'get',
-                count: response.message[0],
-                success: [...users.success, ...response.message[1]],
-                error: {}
-            })
+            fetchAllDecks();
         }
     },[
         users.page,

@@ -1,5 +1,4 @@
 import React,{useState, useEffect, useRef} from 'react';
-import { BsPencil } from 'react-icons/bs';
 
 /* api */
 import {getProfile, updateProfile,deleteProfile} from '../../api/Profile';
@@ -12,7 +11,6 @@ import Loader from '../../components/Loader';
 import Header from '../../components/heading';
 import Form from '../../components/form';
 import Avatar from '../../components/avatar';
-import ImageLoader from '../../components/imageLoader';
 import Popup from '../../components/popup';
 import Flash from '../../components/flashMessage';
 
@@ -50,7 +48,6 @@ const ProfilePage = (props) => {
 
     //refs
     const inputRef = useRef();
-    const avatarRef = useRef();
     const linkRef = useRef();
 
     //handlers
@@ -65,30 +62,30 @@ const ProfilePage = (props) => {
         try{
 
             if(!window.File || !window.FileReader || !window.FileList || !window.Blob){
-                throw{
+                throw new Error({
                     message: "Your browser is too old to support HTML5 File API"
-                }
+                })
             }
 
             let reader = new FileReader();
             let file = e.target.files[0];
 
             if(!mod.checkFileSize(file.size, 1000000)){
-                throw {
+                throw new Error({
                     message: "Excessive file size max 1MB..."
-                }
+                });
             }
             
             if(!mod.checkMimeType(file.type, ["image/jpeg", "image/png"])){
-                throw {
+                throw new Error({
                     message: "Should be jpeg or png ..."
-                }
+                })
             }
 
             if(!mod.checkFileExt(file.name, ["jpg","jpeg","png", "JPG", "JPEG", "PNG"])){
-                throw {
+                throw new Error({
                     message: "Bad file extension should be jpg, jpeg, or png ..."
-                }
+                })
             }
 
             reader.addEventListener('load', function(e){
@@ -101,9 +98,9 @@ const ProfilePage = (props) => {
             })
 
             reader.addEventListener('error', function(e){
-                throw {
+                throw new Error({
                     message: `An error occured during the file reading : ${file.name}`
-                }
+                })
             })
 
             reader.readAsDataURL(file)
@@ -157,35 +154,38 @@ const ProfilePage = (props) => {
         linkRef.current.click();
     }
 
-    useEffect(async () => {
-        let response = '';
-        if(user.pending){
-            switch(user.type){
-                case "update":
-                    response = await updateProfile({username: user.success.username, avatar: user.file});
-                    if(response.code === 200){
-                        setFlash({
-                            ...flash,
-                            success: "Updated successfully",
-                            error: ""
-                        })
-                        return setUser({
+    useEffect(() => {
+        async function fetchUpdateProfile(){
+            let response = '';
+            if(user.pending){
+                switch(user.type){
+                    case "update":
+                        response = await updateProfile({username: user.success.username, avatar: user.file});
+                        if(response.code === 200){
+                            setFlash({
+                                ...flash,
+                                success: "Updated successfully",
+                                error: ""
+                            })
+                            return setUser({
+                                ...user,
+                                pending: false,
+                                success: {...response.message}
+                            })
+                        }
+                    case "delete":
+                        setUser({
                             ...user,
-                            pending: false,
-                            success: {...response.message}
+                            pending: false
                         })
-                    }
-                case "delete":
-                    setUser({
-                        ...user,
-                        pending: false
-                    })
-                    return setConfirmPopup({
-                        ...confirmPopup,
-                        isOpen: true
-                    })
+                        return setConfirmPopup({
+                            ...confirmPopup,
+                            isOpen: true
+                        })
+                }
             }
         }
+        fetchUpdateProfile();
     },[user.pending])
 
     useEffect(async () => {

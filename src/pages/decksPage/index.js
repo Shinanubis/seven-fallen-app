@@ -50,7 +50,7 @@ const DecksPage = (props) => {
     
     useEffect(async () => {
         let profile = await getProfile();
-        let userDecks = await getUserDecks({page: pageDatas.page, size: pageDatas.limit, sens: "asc", order_by: 'id'});
+        let userDecks = await getUserDecks({page: pageDatas.page, size: pageDatas.limit, sens: "desc"});
         if(profile.code === 200 && userDecks.code === 200){
             let newCount = userDecks.message.shift();
             setPageDatas({...pageDatas, username: profile.message.username, count: newCount,decks: [...pageDatas.decks, ...userDecks.message]});

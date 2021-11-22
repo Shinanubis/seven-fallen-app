@@ -1,11 +1,10 @@
 //hooks imports
-import {useState, useLayoutEffect, useContext, useEffect, useRef} from 'react';
+import {useState, useContext, useEffect, useRef} from 'react';
 import {useParams, useHistory} from "react-router-dom";
 import {useTranslation} from 'react-i18next';
 
 //components import
 import {AiOutlinePlus, AiOutlineMinus,AiOutlineCloseCircle} from 'react-icons/ai';
-import {BiPencil} from 'react-icons/bi';
 import Header from "../../components/heading";
 import ToolBox from "../../components/toolbox";
 import ListContainer from '../../components/listContainer';
@@ -18,7 +17,7 @@ import {BiTrashAlt} from 'react-icons/bi';
 import {Link} from 'react-router-dom';
 import Loader from '../../components/Loader';
 import {FiLoader} from 'react-icons/fi';
-import {HiOutlineBookOpen} from 'react-icons/hi';
+import LineChart from '../../components/chart';
 
 //datas import
 import kingdomsDatas from "../../settings/kingdom";
@@ -28,14 +27,11 @@ import {hierarchy} from './settings';
 import {SessionContext} from '../../contexts/SessionContext';
 
 //utilities imports
-import orderBy from 'lodash/orderBy';
-import merge from 'lodash/merge';
 import debounce from 'lodash/debounce';
 import unionBy from 'lodash/unionBy';
 import mod from '../../utilities/utils';
 
 //services import
-import {getMultipleId} from '../../api/CardsWareHouse';
 import {
     getOne, 
     deleteUserDeck, 
@@ -96,11 +92,9 @@ function DeckPage(props){
     let {id} = useParams();
     let history = useHistory();
     const {t} = useTranslation();
-    let lang = localStorage.getItem("lang")
 
     //refs
     let kingdomRef = useRef();
-    let deckNameRef = useRef();
     let inputFileRef = useRef();
 
     //handlers
@@ -189,12 +183,12 @@ function DeckPage(props){
                 try{
                     //check if the json content is compliant
                     if(mod.isJson(evt.target.result) === false){
-                        throw {
+                        throw new Error({
                             ...inputFile,
                             isReady: false,
                             file: "",
                             filename: ""
-                        }
+                        })
                     }
 
                     let readerResult = JSON.parse(evt.target.result);
@@ -356,30 +350,31 @@ function DeckPage(props){
     }
 
     //effects
-    useEffect(async () => {
-        let cardsIds = [];
-        let cardsByIdResponse = '';
-        let cardsResponse = '';
-        let deckResponse = await getOne(id);
-        let responseCards = await getExport(id);
-        let cards = [].concat(responseCards.message.eden, responseCards.message.holy_book, responseCards.message.register)
-                      .map(elmt => elmt[0]);
-        
-        if(deckResponse.code === 200){
-            cardsResponse = await getAllCards(id);
-            if(cardsResponse.code === 200){
-                setCardsDisplayed({
-                    ...cardsDisplayed,
-                    pending: false,
-                    cards: {...cardsResponse.message}
-                });
-            }
-            setCards([...cards]);
-            setDeck({...deck, success: deckResponse.message});
-        }else{
-            setDeck({...deck, error: deckResponse.message});
-        }
+    useEffect(() => {
+        async function fetchOneDeck(){
+            let cardsResponse = '';
+            let deckResponse = await getOne(id);
+            let responseCards = await getExport(id);
+            let cards = [].concat(responseCards.message.eden, responseCards.message.holy_book, responseCards.message.register)
+                          .map(elmt => elmt[0]);
 
+            if(deckResponse.code === 200){
+                cardsResponse = await getAllCards(id);
+                if(cardsResponse.code === 200){
+                    setCardsDisplayed({
+                        ...cardsDisplayed,
+                        pending: false,
+                        cards: {...cardsResponse.message}
+                    });
+                }
+                setCards([...cards]);
+                setDeck({...deck, success: deckResponse.message});
+            }else{
+                setDeck({...deck, error: deckResponse.message});
+            }
+        }
+        fetchOneDeck();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -420,7 +415,6 @@ function DeckPage(props){
 
     useEffect(async () => {
         let response = "";
-
         if(actionPopup.action instanceof Array){
 
             if(mod.includesAll(["delete","confirm"],actionPopup.action)){
@@ -513,7 +507,6 @@ function DeckPage(props){
         }
 
         if(response && response.code !== 200){
-
             return setFlash({
                 ...flash,
                 error: response.message
@@ -546,6 +539,10 @@ function DeckPage(props){
         JSON.stringify(deck.success),
         JSON.stringify(deck.error)
     ])
+
+    useEffect(() => {
+        console.log(cardsDisplayed)
+    },[cardsDisplayed])
 
     return(pageLoaded ?
             <div className="page page__deck container">
@@ -628,11 +625,7 @@ function DeckPage(props){
                     {actionPopup.action === 'average' &&   
                         <>
                             <Popup.Title text="COUT ENERGY CELESTE"/>
-                            <Popup.Text text={`Voulez-vous la moyenne de ${deck.success.deck_name} ?`}/>
-                            <Popup.Group>
-                                <Popup.Button id="confirm" text="confirmer"/>
-                                <Popup.Button id="cancel" text="annuler"/>
-                            </Popup.Group>
+                            <LineChart />
                         </>
                     }
                     {actionPopup.action === 'deck_name' && 

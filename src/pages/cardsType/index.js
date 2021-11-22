@@ -264,72 +264,71 @@ function CardsType() {
             }
         };
         fetchDatasCardsType();
-    },[]);
+    },[id,deckId]);
 
     useEffect(() => {
         if(scrollTop === true){
             parentRef.current.scrollTo(0,0);
         }
 
-        setCardsList({
-            ...cardsList,
-            page: 1
+        setCardsList(prevState => {
+            let newObj = {
+                ...prevState,
+                page: 1
+            };
+            return {...newObj};
         })
         return setScrollTop(false)
-    }, [scrollTop])
+    }, [scrollTop, parentRef])
 
 
-    useEffect(async () => {
-        let datas = {
-            code : 404,
-            message: []
-        };
+    useEffect(() => {
+        async function fetchCardsCardsMultipleOptions(){
+            let response = '';
+            let options = {
+                kingdoms: [...formTop.kingdoms],
+                extensions: formTop.extensionChoice,
+                rarities: formTop.raritieChoice,
+                capacities: formTop.capacitieChoice,
+                classes: formTop.classeChoice,
+                name: formTop.name
+            };
 
-        let response = '';
-        let responseMultiple = '';
-        let options = {
-            kingdoms: [...formTop.kingdoms],
-            extensions: formTop.extensionChoice,
-            rarities: formTop.raritieChoice,
-            capacities: formTop.capacitieChoice,
-            classes: formTop.classeChoice,
-            name: formTop.name
-        };
-        
-        if(formTop.classes.length === 0){
-            options.classes = '';
-        }
-
-        if(formTop.capacities.length === 0){
-            options.capacities = '';
-        }
-
-        response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
-        if(response.code === 200){
-            
-            if(pageLoaded === false){
-                setPageLoaded(true);
-            }
-            
-            if(loading === true){
-                setIsLoading(false);
+            if(formTop.classes.length === 0){
+                options.classes = '';
             }
 
-            if(cardsList.page === 1){
-                return setCardsList({
-                    ...cardsList,
-                    count: response.message[0],
-                    cards: [...response.message[1]],
-                })
-            }else{
-                return setCardsList({
-                    ...cardsList,
-                    count: response.message[0],
-                    cards: [...cardsList.cards, ...response.message[1]]
-                })
+            if(formTop.capacities.length === 0){
+                options.capacities = '';
+            }
+
+            response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
+            if(response.code === 200){
+
+                if(pageLoaded === false){
+                    setPageLoaded(true);
+                }
+
+                if(loading === true){
+                    setIsLoading(false);
+                }
+
+                if(cardsList.page === 1){
+                    return setCardsList({
+                        ...cardsList,
+                        count: response.message[0],
+                        cards: [...response.message[1]],
+                    })
+                }else{
+                    return setCardsList({
+                        ...cardsList,
+                        count: response.message[0],
+                        cards: [...cardsList.cards, ...response.message[1]]
+                    })
+                }
             }
         }
-
+        fetchCardsCardsMultipleOptions();
     },[
         formTop.name,
         formTop.extensionChoice,
@@ -341,54 +340,61 @@ function CardsType() {
     ])
 
 
-    useEffect(async () => {
-        let responseCapacities = '';
-        if(formTop.capacities.length > 0){
-            responseCapacities = await getCapacitiesList(lang, formTop.capacities);
-            if(responseCapacities.code === 200){
-                return setFormtop({
-                    ...formTop,
-                    capacitiesList: responseCapacities.message[1]
-                })
+    useEffect(() => {
+        async function fetchCapacities(){
+            let responseCapacities = '';
+            if(formTop.capacities.length > 0){
+                responseCapacities = await getCapacitiesList(lang, formTop.capacities);
+                if(responseCapacities.code === 200){
+                    return setFormtop({
+                        ...formTop,
+                        capacitiesList: responseCapacities.message[1]
+                    })
+                }
             }
         }
+        fetchCapacities();
     }, [formTop.capacities])
 
-    useEffect(async () => {
-        let responseClasses = '';
-        if(formTop.classes.length > 0){
-            responseClasses = await getClassesList(lang, formTop.classes);
-            if(responseClasses.code === 200){
-                return setFormtop({
-                    ...formTop,
-                    classesList: responseClasses.message[1]
-                })
+    useEffect(() => {
+        async function fetchClasses(){
+            let responseClasses = '';
+            if(formTop.classes.length > 0){
+                responseClasses = await getClassesList(lang, formTop.classes);
+                if(responseClasses.code === 200){
+                    return setFormtop({
+                        ...formTop,
+                        classesList: responseClasses.message[1]
+                    })
+                }
             }
         }
-
+        fetchClasses()
     }, [formTop.classes])
 
-    useEffect(async () => {
-        let response = '';
-        if(updateState.pending === true){
-            response = await updateCardsByType(id, deckId, cardsChoice);
-            if(response.code === 200){
-                setUpdateState({
-                    ...updateState,
-                    pending:false,
-                    success: response.message,
-                    error: ""
-                })
-            }else{
-                return setUpdateState({
-                    ...updateState,
-                    pending: false,
-                    error: response.message,
-                    success: ""
-                })
+    useEffect(() => {
+        async function fetchCardsByType(){
+            let response = '';
+            if(updateState.pending === true){
+                response = await updateCardsByType(id, deckId, cardsChoice);
+                if(response.code === 200){
+                    setUpdateState({
+                        ...updateState,
+                        pending:false,
+                        success: response.message,
+                        error: ""
+                    })
+                }else{
+                    return setUpdateState({
+                        ...updateState,
+                        pending: false,
+                        error: response.message,
+                        success: ""
+                    })
+                }
             }
         }
-
+        fetchCardsByType();
     },[updateState])
 
     useEffect(() => {
