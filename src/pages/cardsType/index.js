@@ -283,7 +283,7 @@ function CardsType() {
 
 
     useEffect(() => {
-        async function fetchCardsCardsMultipleOptions(){
+        async function fetchCardsMultipleOptions(){
             let response = '';
             let options = {
                 kingdoms: [...formTop.kingdoms],
@@ -328,7 +328,7 @@ function CardsType() {
                 }
             }
         }
-        fetchCardsCardsMultipleOptions();
+        fetchCardsMultipleOptions();
     },[
         formTop.name,
         formTop.extensionChoice,

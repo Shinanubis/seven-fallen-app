@@ -153,7 +153,7 @@ function DeckPage(props){
                         newObj.action = action;
                         newObj.pending = true;
                         newObj.cards[type][id].qty = Math.min(Number(newObj.cards[type][id].qty) + 1, Number(newObj.cards[type][id].max));
-                        newObj.success = "";
+                        newObj.success = '';
                         newObj.error = '';
                         newObj.type = type;
                         newObj.id = Number(id);
@@ -167,7 +167,7 @@ function DeckPage(props){
                         newObj.action = action;
                         newObj.cards[type][id].qty = previousQty !== 1 ? (Number(newObj.cards[type][id].qty) - 1) + '' : 1;
                         newObj.pending = (previousQty !== newObj.cards[type][id].qty && newObj.cards[type][id].qty > 0);
-                        newObj.success = "";
+                        newObj.success = '';
                         newObj.error = '';
                         newObj.type = type;
                         newObj.id = Number(id);

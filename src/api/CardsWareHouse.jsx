@@ -4,22 +4,21 @@ dotenv.config();
 async function getTypesList(lang){
     try{
         let settings = {
-            method: 'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
-
+            method: 'GET'
         }
 
-        let response = await fetch(`https://api.7fallen.ovh/api/types/all/${lang.toUpperCase()}`,settings);
-        if(response.status !== 200 && !response.ok){
-            throw new Error({
-                code: response.status,
-                message: response.message || response.statusText 
-            })
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/types/all`,settings);
+
+        if(response.status === 200 && response.statusText === 'OK'){
+            let datas = await response.json();
+            return datas.message;
         }
-        let datas = await response.json();
-        return datas;
+
+        throw new Error({
+            code: response.status,
+            message: response.statusText
+        });
+
     }catch(e){
         return e;
     }
@@ -28,16 +27,21 @@ async function getTypesList(lang){
 async function getRaritiesList(lang){
     try{
         let settings = {
-            method: 'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
-    
+            method: 'GET'
         }
     
-        let response = await fetch(`https://api.7fallen.ovh/api/rarities/all/${lang.toUpperCase()}`,settings);
-        let datas = await response.json();
-        return datas;
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/rarities/all`,settings);
+
+        if(response.status === 200 && response.statusText === 'OK'){
+            let datas = await response.json();
+            return datas.message;
+        }
+
+        throw new Error({
+            code: response.status,
+            message: response.statusText
+        });
+
     }catch(e){
         return e;
     }
@@ -46,46 +50,48 @@ async function getRaritiesList(lang){
 async function getKingdomsList(lang){
     try{
         let settings = {
-            method: 'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
-
+            method: 'GET'
         }
 
-        let response = await fetch(`https://api.7fallen.ovh/api/kingdoms/all/${lang.toUpperCase()}`,settings);
-        let datas = await response.json();
-        return datas;
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/kingdoms/all`,settings);
+
+        if(response.status === 200 && response.statusText === 'OK'){
+            let datas = await response.json();
+            return datas.message;
+        }
+
+        throw new Error({
+            code: response.status,
+            message: response.statusText
+        })
+
     }catch(e){
         return e;
     }
 }
 
 async function getExtensionsList(lang){
-    let settings = {
-        method: 'GET',
-        headers: {
-            'Authorization': process.env.REACT_APP_TOKEN
+    try{
+        let settings = {
+            method: 'GET',
         }
 
-    }
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/extensions/all`,settings);
+        let datas = await response.json();
+        return datas.message;
 
-    let response = await fetch(`https://api.7fallen.ovh/api/extensions/all/${lang.toUpperCase()}`,settings);
-    let datas = await response.json();
-    return datas;
+    }catch(e){
+        return e;
+    }   
 }
 
 async function getClassesList(lang, name){
     try {
         let settings = {
-            method: 'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
-
+            method: 'GET'
         }
 
-        let response = await fetch(`https://api.7fallen.ovh/api/classes/all/${lang.toUpperCase()}?name=${name}`,settings);
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/classes/all?name=${name}`,settings);
         if(response.status !== 200 && !response.ok){
             throw new Error({
                 code: response.status,
@@ -95,7 +101,7 @@ async function getClassesList(lang, name){
         let datas = await response.json();
         return {
             code: response.status,
-            message: datas
+            message: datas.message
         };  
     } catch (e) {
         return e;
@@ -105,20 +111,23 @@ async function getClassesList(lang, name){
 async function getCapacitiesList(lang, name){
     try{
         let settings = {
-            method: 'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
-
+            method: 'GET'
         }
 
-        let response = await fetch(`https://api.7fallen.ovh/api/capacities/all/${lang.toUpperCase()}?name=${name}`,settings);
-        let datas = await response.json();
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/capacities/all?name=${name}`,settings);
 
+        if(response.status !== 200 && !response.ok){
+            throw new Error({
+                code: response.status,
+                message: response.message || response.statusText 
+            })
+        };
+
+        let datas = await response.json();
         return {
             code: response.status,
-            message: datas
-        }; 
+            message: datas.message
+        };  
 
     }catch(e){
         return e;
@@ -233,7 +242,7 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
                 'Authorization': process.env.REACT_APP_TOKEN
             }
         }
-        let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[${id}]&page=${page}&card_count=${count}`);
+        let url = new URL(`${process.env.REACT_APP_BASE_URL_API}/cards/all?types=[${id}]&page=${page}&card_count=${count}`);
         if(options.capacities.length > 0){
             url.searchParams.append("capacities", `[${options.capacities}]`);
         }
