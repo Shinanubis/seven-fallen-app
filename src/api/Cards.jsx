@@ -49,7 +49,7 @@ async function updateCardsByType(id, deckId, payload){
         let form = new FormData();
         form.append('payload', JSON.stringify(payload));
         let settings = {
-            method: "PATCH",
+            method: "POST",
             credentials: "include",
             body: form
         };
@@ -60,19 +60,18 @@ async function updateCardsByType(id, deckId, payload){
         return datas;
 }
 
-async function updateOneCard(deckId, typeId, callback, state){
+async function updateOneCard(deckId, typeId, cardId, callback, state){
     try{
         let form = new FormData();
-        let newObj = {...state.cards[typeId]};
-        if(state.cards[typeId]){
-            Object.keys(state.cards[typeId]).map(elmt => newObj[elmt].type = typeId);
-        }
-        form.append('payload', JSON.stringify(newObj));
+        let newObj = {...state.cards[typeId][cardId]};
+        form.append('payload', JSON.stringify({card_id: Number(cardId),qty: Number(newObj.qty)}));
+
         let settings = {
             method: "PATCH",
             credentials: "include",
             body: form
-        };       
+        }; 
+    
         let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${deckId}/cards/${typeId}`, settings);
         let datas = await response.json();
         if(datas.code !== 200){
@@ -82,7 +81,8 @@ async function updateOneCard(deckId, typeId, callback, state){
             ...state,
             pending: false,
             action: '',
-            success: datas.message
+            success: datas.message,
+            error:''
         });
     }catch(e){
         return callback({

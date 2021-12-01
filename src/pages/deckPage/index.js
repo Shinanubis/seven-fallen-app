@@ -69,8 +69,15 @@ function DeckPage(props){
         pending: false,
         action: '',
         type: '',
+        id: '',
         cards: {},
         success: '',
+        error: ''
+    });
+
+    const [cardToUpdate, setCardToUpdate] = useState({
+        pending: false,
+        success: {},
         error: ''
     });
     const [popupInputField, setPopupInputField] = useState("");
@@ -145,8 +152,11 @@ function DeckPage(props){
                         }
                         newObj.action = action;
                         newObj.pending = true;
-                        newObj.cards[type][id].qty = (Number(newObj.cards[type][id].qty) + 1) + '';
+                        newObj.cards[type][id].qty = Math.min(Number(newObj.cards[type][id].qty) + 1, Number(newObj.cards[type][id].max));
+                        newObj.success = "";
+                        newObj.error = '';
                         newObj.type = type;
+                        newObj.id = Number(id);
                         return {...newObj};
                     });
 
@@ -157,7 +167,10 @@ function DeckPage(props){
                         newObj.action = action;
                         newObj.cards[type][id].qty = previousQty !== 1 ? (Number(newObj.cards[type][id].qty) - 1) + '' : 1;
                         newObj.pending = (previousQty !== newObj.cards[type][id].qty && newObj.cards[type][id].qty > 0);
+                        newObj.success = "";
+                        newObj.error = '';
                         newObj.type = type;
+                        newObj.id = Number(id);
                         return {...newObj};
                     });
 
@@ -378,7 +391,6 @@ function DeckPage(props){
     }, [])
 
     useEffect(() => {
-
         /* set the object in order to make a ordered list */ 
         let result = ''
         if(session.types.length > 0){
@@ -517,7 +529,7 @@ function DeckPage(props){
 
     useEffect(() => {
         async function updateCardsAndDeck(){
-            await updateOneCard(id, cardsDisplayed.type, setCardsDisplayed, cardsDisplayed);
+            await updateOneCard(id, cardsDisplayed.type, cardsDisplayed.id, setCardsDisplayed, cardsDisplayed);
             await fetchDeckInfos(id, deck, setDeck);
         }
         if(cardsDisplayed.pending){
