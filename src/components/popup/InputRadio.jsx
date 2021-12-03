@@ -1,10 +1,12 @@
-function InputRadio({id, name,value,classes, checked}) {
+function InputRadio({id, name, value, classes, checked, handleChange}) {
     return <input 
                 id={id && id} 
                 className={classes ? classes : "popup__input--radio"} 
                 type="radio" value={value} 
                 name={name && name}
-                checked={checked && checked} 
+                onChange = {handleChange}
+                value = {id}
+                checked={checked}
             />
 }
 

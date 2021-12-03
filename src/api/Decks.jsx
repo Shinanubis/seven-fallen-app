@@ -8,7 +8,7 @@ async function getAllDecks(options){
             method: 'GET',
             credentials: 'include'
         };
-        let url = new URL(process.env.REACT_APP_BASE_URL + '/api/decks/shared');
+        let url = new URL(process.env.REACT_APP_BASE_URL_API + '/api/decks/shared');
 
         if(options.page){
             url.searchParams.append('page',options.page);
@@ -51,7 +51,7 @@ async function getUserDecks(options){
         method: 'GET',
         credentials: 'include'
     };
-    let url = new URL('https://test-seven.site/api/decks');
+    let url = new URL(`${process.env.REACT_APP_BASE_URL_API}/decks`);
 
     let params = {
         page: options.page ?? 1, 
@@ -78,7 +78,7 @@ async function getDecksByKingdoms(options){
         body: form
     };
 
-    let url = new URL('https://test-seven.site/api/decks/kingdoms');
+    let url = new URL(`${process.env.REACT_APP_BASE_URL_API}/decks/kingdoms`);
 
     let params = {
         mode: options.mode ? options.mode : "",
@@ -101,7 +101,7 @@ async function getOne(id){
         credentials: 'include',
     };
 
-    let response = await fetch(`https://test-seven.site/api/decks/${id}`, settings);
+    let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/decks/${id}`, settings);
     let datas = await response.json();
     return datas;
 }
@@ -113,7 +113,7 @@ async function fetchDeckInfos(id, state, callback){
             credentials: 'include',
         };
 
-        let response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/decks/${id}`, settings);
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/decks/${id}`, settings);
 
         if(response.status >= 400 && response.status <= 499){
             let error = await response.json();
@@ -125,7 +125,8 @@ async function fetchDeckInfos(id, state, callback){
             ...state,
             error: {},
             success: {...datas.message}
-        })
+        });
+
     } catch (error) {
         return callback({
             ...state,
@@ -142,12 +143,13 @@ async function createUserDeck(form){
         body: form
     };
 
-    let response = await fetch('https://test-seven.site/api/decks/add', settings);
+    let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/decks/add`, settings);
     let datas = response.json();
     return datas;
 }
 
-async function updateOne(newDatas, id){
+async function updateOne(newDatas, id, callback){
+    try {
         let form = new FormData();
         let settings = {
             method: 'PATCH',
@@ -159,9 +161,23 @@ async function updateOne(newDatas, id){
         Object.keys(newDatas).map(elmt => {
              form.append(elmt, newDatas[`${elmt}`]);
         });
-        let response = await fetch(`https://test-seven.site/api/decks/update/${id}`, settings);
-        let datas = await response.json();
-        return datas;
+        let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/decks/${id}`, settings);
+        console.log(response);
+        if(response.status === 200 && response.ok){
+            let datas = await response.json();
+            return callback({
+                success: "Update successfully", 
+                error: ''
+            }); 
+        }
+
+        throw new Error('Something wrong happened during the update');  
+    } catch (error) {
+        return callback({
+            success: '',
+            error: error
+        })
+    }
 }
 
 async function deleteUserDeck(id){
@@ -170,7 +186,7 @@ async function deleteUserDeck(id){
         credentials: 'include'
     };
 
-    let response = await fetch(`https://test-seven.site/api/decks/delete/${id}`, settings);
+    let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/decks/delete/${id}`, settings);
     let datas = await response.json();
     return datas;
 

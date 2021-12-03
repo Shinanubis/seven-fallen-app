@@ -1,4 +1,6 @@
 import {createContext, useState, useEffect} from 'react';
+import Loader from '../components/Loader';
+import {FiLoader} from 'react-icons/fi';
 
 import {
     getTypesList,
@@ -13,9 +15,10 @@ dotenv.config();
 const SessionContext = createContext();
 
 function SessionContextProvider({children}){
-
+    let Children = () => children;
     const [language, setLanguage] = useState() 
     const [session, setSession] = useState({
+        loading: true,
         types: [],
         rarities: [],
         kingdoms: [],
@@ -105,6 +108,7 @@ function SessionContextProvider({children}){
 
             setSession({
                 ...session,
+                loading: false,
                 types: datas.types,
                 kingdoms: datas.kingdoms,
                 rarities: datas.rarities,
@@ -117,7 +121,7 @@ function SessionContextProvider({children}){
 
     return (
         <SessionContext.Provider value={[session, setLanguage]}>
-            {children}
+                {children}
         </SessionContext.Provider>
     )
 }

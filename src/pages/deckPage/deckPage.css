@@ -4,6 +4,10 @@
     justify-content: flex-start;
 }
 
+.page__deck .flash__message{
+    top:2vh;
+}
+
 .page__deck .list__container{
     overflow-y: scroll;
     margin: 0 0 13vh 0;

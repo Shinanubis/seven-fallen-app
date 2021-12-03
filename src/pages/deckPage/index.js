@@ -57,6 +57,7 @@ function DeckPage(props){
     const [isOpen, setIsOpen] = useState(false);
     const [typeList, setTypeList] = useState()
     const [deck, setDeck] = useState({
+        action:'',
         success: {},
         error: {}
     });
@@ -95,6 +96,7 @@ function DeckPage(props){
         filename:""
     })
 
+    const [action, setAction] = useState("");
     const [cards, setCards] = useState([]);
     const [pageLoaded, setPageLoaded] = useState(false);
 
@@ -279,27 +281,30 @@ function DeckPage(props){
     }, 300);
 
     const handleInputRadioChange = function(e){
-        setDeck({...deck, success: {...deck.success, kingdom: e.target.id}})
-        setPopupInputRadioField(e.target.value);
+        if(e.target.dataset.id){
+            return setDeck({...deck, success: {...deck.success, kingdom: e.target.dataset.id}})
+        }
+        return setDeck({...deck, success: {...deck.success, kingdom: e.target.id}})
     }
     
     const handleInfosChanges = debounce(async (e) => {
         e.preventDefault();
-
-        let response = "";
-
-        if(e.target.id === "is-hidden" && deck.success.is_visible === false){
-            return;
+        if(e.target.id === 'is-hidden' && deck.success.is_visible){
+            return setDeck({
+                ...deck,
+                action: 'change__visibility',
+                success: {...deck.success, is_visible: false},
+                error: ''
+            })
         }
 
-        if(e.target.id === "is-visible" && deck.success.is_visible === true){
-            return;
-        }
-
-        if(e.target.id === "is-visible" && deck.success.is_visible === false){
-            if(deck.success){
-                response = await updateOne({...deck.success, is_visible: true}, id);
-            }
+        if(e.target.id === 'is-visible' && !deck.success.is_visible){
+            return setDeck({
+                ...deck,
+                action: "change__visibility",
+                success: {...deck.success, is_visible: true},
+                error: ''
+            })
         }
 
         if(e.target.id === "deck_name"){
@@ -316,21 +321,6 @@ function DeckPage(props){
             })
         }
 
-        if(e.target.id === "is-hidden" && deck.success.is_visible === true){
-            if(deck.success){
-                response = await updateOne({...deck.success, is_visible: false}, id);
-            }
-        }
-
-        if(response && response.code === 200){
-            return setDeck({
-                ...deck,
-                success: {
-                    ...deck.success,
-                    is_visible: response.message[0].is_visible
-                }
-            })
-        }
     },200);
 
     const handleActions = (e) => {
@@ -518,16 +508,10 @@ function DeckPage(props){
             }
 
             if(mod.includesAll(["kingdom", "confirm"],actionPopup.action)){
-                response = await updateOne({...deck.success}, id);
-                if(response && response.code === 200){
-                    return setDeck({
-                        ...deck,
-                        success:{
-                            ...deck.success,
-                            kingdom: response.message[0].kingdom
-                        }
-                    })
-                }
+                return setDeck({
+                    ...deck,
+                    action: "change__kingdom"
+                })
             }
 
             if(mod.includesAll(["deck_name","confirm"],actionPopup.action)){
@@ -590,7 +574,26 @@ function DeckPage(props){
         JSON.stringify(deck.error)
     ])
 
-    return(pageLoaded ?
+    useEffect(() => {
+        
+        async function change_visibility(){
+            await updateOne(deck.success, id, setFlash);
+            return setDeck({
+                ...deck,
+                action: ''
+            })
+        };
+        
+        if( 
+            deck.action === 'change__visibility' || 
+            deck.action === 'change__kingdom'
+           ){
+            console.log(deck.action)
+            change_visibility();
+        }
+    },[deck.action])
+
+    return(pageLoaded && !session.loading ?
             <div className="page page__deck container">
                 <Popup isOpen={actionPopup.isOpen} onClick={handleActions}>
                     {actionPopup.action === "delete" &&   
@@ -689,31 +692,36 @@ function DeckPage(props){
                         </>
                     }
                     {actionPopup.action === 'kingdom' && 
-                        <form className="popup__form" onChange={handleInputRadioChange}>
+                        <form className="popup__form">
                                 {session.kingdoms &&
                                     session.kingdoms.map(elmt => {
                                         return (
                                             <Popup.Group classes="popup__group radio">
                                                 <div className="popup__inner--group">
-                                                    <Popup.Label htmlFor={elmt.id}>
-                                                        <img className="icon" 
-                                                             src={kingdomsDatas[elmt.id].icon_url}
-                                                             alt="kingdom logo"
+                                                    <Popup.Label htmlfor={elmt.id} onClick={handleInputRadioChange}>
+                                                        <img
+                                                            id = {`image__${elmt.id}`} 
+                                                            className="icon" 
+                                                            src={kingdomsDatas[elmt.id].icon_url}
+                                                            alt="kingdom logo"
+                                                            data-id={elmt.id}
                                                         />
-                                                        <p className="popup__label--text">{elmt.name}</p>
+                                                        <p data-id={elmt.id}>{elmt.name}</p>
                                                     </Popup.Label>
-                                                    {elmt.id === deck.success.kingdom ?
+                                                    {deck.success.kingdom === elmt.id ?
                                                         <Popup.InputRadio 
                                                                 id={elmt.id} 
-                                                                name="kingdom" 
+                                                                name="kingdom"
                                                                 value={elmt.id}
-                                                                checked={elmt.id === deck.success.kingdom} 
+                                                                handleChange={handleInputRadioChange} 
+                                                                checked={elmt.id == deck.success.kingdom} 
                                                         />
                                                         :
                                                         <Popup.InputRadio 
                                                                 id={elmt.id} 
-                                                                name="kingdom" 
+                                                                name="kingdom"
                                                                 value={elmt.id}
+                                                                handleChange={handleInputRadioChange} 
                                                         />
                                                     }
                                                 </div>
@@ -732,8 +740,6 @@ function DeckPage(props){
                     success={flash.success} 
                     error={flash.error} 
                     setFlash={setFlash} 
-                    redirect={true}
-                    redirectCallback={() => handleRedirect("/decks")} 
                 />
                 <Header>
                     <Header.Logo url={kingdomsDatas[0].icon_url} alt="Logo 7fallen"/>
@@ -754,7 +760,8 @@ function DeckPage(props){
                             <div className="deck__infos--group">
                                 <div id="kingdom" className="deck__infos--kingdom">
                                     {deck.success.kingdom && 
-                                        <img id="kingdom" 
+                                        <img  
+                                             id = "kingdom"
                                              className="icon" 
                                              src={kingdomsDatas[deck.success.kingdom].icon_url} 
                                              alt="kingdom logo"

@@ -1,5 +1,5 @@
-function Label({children, htmlFor}) {
-    return <label className="popup__label" htmlFor={htmlFor}>{children}</label>
+function Label({children, htmlfor, onClick}) {
+    return <label className="popup__label" htmlFor={htmlfor} onClick={onClick}>{children}</label>
 }
 
 export default Label
