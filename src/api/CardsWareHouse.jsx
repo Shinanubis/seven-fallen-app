@@ -9,15 +9,12 @@ async function getTypesList(lang){
 
         let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/types/all`,settings);
 
-        if(response.status === 200 && response.statusText === 'OK'){
+        if(response.status === 200 && response.ok){
             let datas = await response.json();
             return datas.message;
         }
 
-        throw new Error({
-            code: response.status,
-            message: response.statusText
-        });
+        throw new Error(response.statusText);
 
     }catch(e){
         return e;
@@ -32,7 +29,7 @@ async function getRaritiesList(lang){
     
         let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/rarities/all`,settings);
 
-        if(response.status === 200 && response.statusText === 'OK'){
+        if(response.status === 200 && response.ok){
             let datas = await response.json();
             return datas.message;
         }
@@ -55,7 +52,7 @@ async function getKingdomsList(lang){
 
         let response = await fetch(`${process.env.REACT_APP_BASE_URL_API}/kingdoms/all`,settings);
 
-        if(response.status === 200 && response.statusText === 'OK'){
+        if(response.status === 200 && response.ok){
             let datas = await response.json();
             return datas.message;
         }

@@ -15,7 +15,9 @@ function Flash({success, error, setFlash, redirect, redirectCallback}){
     if (success && success.length > 0) {
       flashRef.current.classList.add("fade-in", "success");
       timer = setTimeout(() => {
-        flashRef.current.classList.remove("fade-in", "success");
+        if(flashRef.current){
+          flashRef.current.classList.remove("fade-in", "success");
+        }
       }, 1000);
     }
 

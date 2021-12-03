@@ -1,5 +1,5 @@
 //hooks import
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {useEffect, useState, useContext} from 'react';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import {useTranslation} from 'react-i18next';
@@ -90,6 +90,7 @@ function CardsType() {
     const [loading, setIsLoading, setRef, parentRef] = useInfiniteScroll();
     const [scrollTop, setScrollTop] = useState(false);
     const {t} = useTranslation();
+    const history = useHistory();
 
     //handlers 
     const handleChange = debounce((e) => {
@@ -304,7 +305,7 @@ function CardsType() {
 
             response = await getCardsByMultipleOption(cardsList.page, cardsList.limit, lang, options , id);
             if(response.code === 200){
-
+                             
                 if(pageLoaded === false){
                     setPageLoaded(true);
                 }
@@ -422,7 +423,13 @@ function CardsType() {
     return (
         pageLoaded ?
         <div className="card__type container">
-            <Flash success={updateState.success} error={updateState.error} setFlash={setUpdateState}/>
+            <Flash 
+                success={updateState.success} 
+                error={updateState.error} 
+                setFlash={setUpdateState}
+                redirect={true}
+                redirectCallback = {() => history.push(`/decks/${deckId}`)}
+            />
             <Form 
                 classes={formIsOpen ? "form" : "form close"} 
                 onChange={(e) => handleChange(e)}
@@ -461,7 +468,7 @@ function CardsType() {
                 </Form.Group>
                <Form.Group>
                     <Form.List
-                        id="extension(s)" 
+                        id="extensions" 
                         placeholder="extension(s)" 
                         listId="extensions__list" 
                         dataList={formTop.extensionsList} 

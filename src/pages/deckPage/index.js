@@ -1,3 +1,6 @@
+//constantes
+import {HOLYBOOK_TYPE_IDS} from '../../constantes/types.js';
+
 //hooks imports
 import {useState, useContext, useEffect, useRef} from 'react';
 import {useParams, useHistory} from "react-router-dom";
@@ -122,7 +125,7 @@ function DeckPage(props){
         return history.push(url)
     }
 
-    const handleListAction = debounce((e) => {
+    const handleListAction = (e) => {
         e.stopPropagation();
         const {action, type, id} = e.target.dataset;
         if(action && type && id){
@@ -141,6 +144,19 @@ function DeckPage(props){
                     });
 
                 case 'plus':
+                    if(HOLYBOOK_TYPE_IDS.includes(Number(type))){
+                        if(cardsDisplayed.cards[type][id].qty < cardsDisplayed.cards[type][id].max){
+                            setDeck({
+                                ...deck,
+                                success: {
+                                    ...deck.success, 
+                                    holyBookQty: deck.success.holyBookQty + 1
+                                },
+                                error: ''
+                            });
+                        }
+                    }
+
                     return setCardsDisplayed(prevState => {
                         let newObj = {...prevState};
                         if(newObj.cards[type][id].qty === newObj.cards[type][id].max){
@@ -161,6 +177,20 @@ function DeckPage(props){
                     });
 
                 case 'minus':
+
+                    if(HOLYBOOK_TYPE_IDS.includes(Number(type))){
+                        if(Number(cardsDisplayed.cards[type][id].qty) > 1){
+                            setDeck({
+                                ...deck,
+                                success: {
+                                    ...deck.success, 
+                                    holyBookQty: deck.success.holyBookQty - 1
+                                },
+                                error: ''
+                            });
+                        }
+                    }
+
                     return setCardsDisplayed(prevState => {
                         let newObj = {...prevState};
                         let previousQty = Number(newObj.cards[type][id].qty);
@@ -180,7 +210,7 @@ function DeckPage(props){
                     })
             }
         }
-    }, 200)
+    }
 
     const handleFile = (e) => {
         const FILE_FIELDS_ALLOWED = ["eden", "holy_book", "register"];
@@ -382,8 +412,10 @@ function DeckPage(props){
                 }
                 setCards([...cards]);
                 setDeck({...deck, success: deckResponse.message});
+                setPageLoaded(true);
             }else{
                 setDeck({...deck, error: deckResponse.message});
+                setPageLoaded(true);
             }
         }
         fetchOneDeck();
@@ -420,7 +452,6 @@ function DeckPage(props){
                     result[index] = newResult;
                 }
             })
-
             setTypeList(result)
         }
     },[session])
@@ -529,18 +560,25 @@ function DeckPage(props){
 
     useEffect(() => {
         async function updateCardsAndDeck(){
-            await updateOneCard(id, cardsDisplayed.type, cardsDisplayed.id, setCardsDisplayed, cardsDisplayed);
-            await fetchDeckInfos(id, deck, setDeck);
+            await updateOneCard(
+                id, 
+                cardsDisplayed.type, 
+                cardsDisplayed.id, 
+                setCardsDisplayed, 
+                cardsDisplayed
+            );
         }
-        if(cardsDisplayed.pending){
+
+        if(cardsDisplayed.pending && (cardsDisplayed.action === 'minus' || cardsDisplayed.action === 'plus')){
             updateCardsAndDeck();
         }
+
     },[cardsDisplayed.pending])
 
     useEffect(() => {
         if(!pageLoaded && 
-            cardsDisplayed && 
-            typeList &&
+            !!cardsDisplayed && 
+            !!typeList &&
             (Object.keys(deck.success).length >= 1 || Object.keys(deck.error).length >= 1)
         ){
             setPageLoaded(true);
@@ -551,10 +589,6 @@ function DeckPage(props){
         JSON.stringify(deck.success),
         JSON.stringify(deck.error)
     ])
-
-    useEffect(() => {
-        console.log(cardsDisplayed)
-    },[cardsDisplayed])
 
     return(pageLoaded ?
             <div className="page page__deck container">

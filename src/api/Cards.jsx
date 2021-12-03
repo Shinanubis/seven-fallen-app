@@ -60,7 +60,7 @@ async function updateCardsByType(id, deckId, payload){
         return datas;
 }
 
-async function updateOneCard(deckId, typeId, cardId, callback, state){
+async function updateOneCard(deckId, typeId, cardId, callback, state, deck, setDeck){
     try{
         let form = new FormData();
         let newObj = {...state.cards[typeId][cardId]};
@@ -74,9 +74,11 @@ async function updateOneCard(deckId, typeId, cardId, callback, state){
     
         let response = await fetch(process.env.REACT_APP_BASE_URL + `/api/decks/${deckId}/cards/${typeId}`, settings);
         let datas = await response.json();
+        
         if(datas.code !== 200){
             throw new Error({...datas})
         }
+
         return callback({
             ...state,
             pending: false,
