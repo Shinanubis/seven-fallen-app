@@ -1,4 +1,5 @@
-import {createContext, useState, useEffect} from 'react';
+import {createContext, useState, useEffect, useContext} from 'react';
+import {AuthContext} from './AuthContext';
 import Loader from '../components/Loader';
 import {FiLoader} from 'react-icons/fi';
 
@@ -25,6 +26,7 @@ function SessionContextProvider({children}){
         extensions: []
     });
 
+    const authContext = useContext(AuthContext)
 
     useEffect(() => {
         async function getAllDatas(){
@@ -66,7 +68,7 @@ function SessionContextProvider({children}){
                 })
             }
 
-            if(localStorage.getItem('lang')){
+            if(localStorage.getItem('lang') && authContext[0]){
                 types = await getTypesList(localStorage.getItem("lang").toUpperCase());
                 rarities = await getRaritiesList(localStorage.getItem("lang").toUpperCase());
                 kingdoms = await getKingdomsList(localStorage.getItem("lang").toUpperCase());
@@ -117,7 +119,7 @@ function SessionContextProvider({children}){
             })
         }
         getAllDatas();
-    },[language])
+    },[language, authContext])
 
     return (
         <SessionContext.Provider value={[session, setLanguage]}>

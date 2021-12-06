@@ -18,14 +18,14 @@ function Flash({success, error, setFlash, redirect, redirectCallback}){
         if(flashRef.current){
           flashRef.current.classList.remove("fade-in", "success");
         }
-      }, 1000);
+      }, 600);
     }
 
     if (error && error.length > 0) {
       flashRef.current.classList.add("fade-in", "error");
       timer = setTimeout(() => {
         flashRef.current.classList.remove("fade-in", "error");
-      }, 1000);
+      }, 600);
     }
 
     timer = setTimeout(() => {
@@ -33,7 +33,7 @@ function Flash({success, error, setFlash, redirect, redirectCallback}){
           redirectCallback();
         }
         setFlash({pending: false, error: "", success:""});
-    },1500);
+    },1000);
 
     return () => {
         clearTimeout(timer)

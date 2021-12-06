@@ -197,19 +197,16 @@ async function getCardById(){
     }
 }
 
-async function getMultipleId(lang,a){
+async function getMultipleId(lang, a){
     try{
         let settings = {
-            method:'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
+            method:'GET'
         }
 
-        let url = new URL(`https://api.7fallen.ovh/api/cards/${lang.toUpperCase()}/multiple`);
-        
+        let url = new URL(`${process.env.REACT_APP_BASE_URL_API}/cards/multiple`);
+
         if(a.length > 0){
-            url.searchParams.append("a", `[${a.join()}]`);
+            url.searchParams.append("ids", `[${a.join()}]`);
         }
         
         let response = await fetch(url, settings);
@@ -285,11 +282,8 @@ async function getCardsByMultipleOption(page, count, lang, options, id){
 async function getCardsByType(page, count, lang, id){
         let settings = {
             method:'GET',
-            headers: {
-                'Authorization': process.env.REACT_APP_TOKEN
-            }
         }
-        let url = new URL(`https://api.7fallen.ovh/api/cards/all/${lang.toUpperCase()}?types=[${id}]&card_count=${count}&page=${page}`);
+        let url = new URL(`${process.env.REACT_APP_BASE_URL_API}/cards/all?types=[${id}]&card_count=${count}&page=${page}`);
         let response = await fetch(url,settings);
         let datas = await response.json();
         return {

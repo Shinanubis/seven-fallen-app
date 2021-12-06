@@ -43,7 +43,7 @@ import {
 } from "../../api/Decks";
 import {getExport} from "../../api/Export";
 import {uploadDeck} from '../../api/Import';
-import {getAllCards, updateOneCard} from '../../api/Cards';
+import {getAllCards, updateOneCard, updateCardsByType} from '../../api/Cards';
 
 //styles import
 import './deckPage.css';
@@ -140,7 +140,7 @@ function DeckPage(props){
                             delete newObj.cards[type];
                         }
                         newObj.type = type;
-                        newObj.action = action;
+                        newObj.action = 'delete__card';
                         newObj.pending = true;
                         return {...newObj};
                     });
@@ -514,17 +514,15 @@ function DeckPage(props){
                 })
             }
 
-            if(mod.includesAll(["deck_name","confirm"],actionPopup.action)){
-                response = await updateOne({...deck.success, deck_name: popupInputField}, id);
-                if(response && response.code === 200){
-                    return setDeck({
-                        ...deck,
-                        success: {
-                            ...deck.success,
-                            deck_name: response.message[0].deck_name
-                        }
-                    })
-                }
+            if(mod.includesAll(["deck_name","confirm"], actionPopup.action)){
+                return setDeck({
+                    ...deck,
+                    action: 'change__name',
+                    success: {
+                        ...deck.success,
+                        deck_name: popupInputField
+                    }
+                })
             }
 
         }else if(actionPopup.action === "average"){
@@ -553,10 +551,36 @@ function DeckPage(props){
             );
         }
 
+        async function deleteOneCard(type, id, cards){
+            try{
+                let response = await updateCardsByType(Number(cardsDisplayed.type), id, cards);
+                if(response.message){
+                    setFlash({
+                        success: response.message,
+                        error: ''
+                    });
+                }
+                
+                return setCardsDisplayed({
+                    ...cardsDisplayed,
+                    pending: false,
+                    type:''
+                })
+            }catch(error){
+                    setFlash({
+                        success: '',
+                        error: error
+                    })
+            }                  
+        }
+
         if(cardsDisplayed.pending && (cardsDisplayed.action === 'minus' || cardsDisplayed.action === 'plus')){
             updateCardsAndDeck();
         }
 
+        if(cardsDisplayed.pending && (cardsDisplayed.action === 'delete__card')){
+            deleteOneCard(cardsDisplayed.type, id, cardsDisplayed.cards[Number(cardsDisplayed.type)] || {});
+        }
     },[cardsDisplayed.pending])
 
     useEffect(() => {
@@ -586,12 +610,14 @@ function DeckPage(props){
         
         if( 
             deck.action === 'change__visibility' || 
-            deck.action === 'change__kingdom'
+            deck.action === 'change__kingdom' ||
+            deck.action === 'change__name'
            ){
-            console.log(deck.action)
+
             change_visibility();
         }
     },[deck.action])
+
 
     return(pageLoaded && !session.loading ?
             <div className="page page__deck container">

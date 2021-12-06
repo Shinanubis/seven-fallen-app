@@ -12,7 +12,9 @@ function AuthContextProvider({children}){
     useEffect(() => {
         async function fetchData(){
             let response = await getAuthUser();
-            setisAuthenticated(response.isAuthenticated) 
+            if(response.code === 200 || response.code === 401){
+                setisAuthenticated(response.isAuthenticated) 
+            }   
         }
         fetchData();  
     },[])

@@ -30,7 +30,7 @@
   
   .flash__message.fade-in {
     opacity: 1;
-    transition: opacity 500ms ease;
+    transition: opacity 400ms ease;
   }
   .flash__message .icon {
     line-height: 1.25;
