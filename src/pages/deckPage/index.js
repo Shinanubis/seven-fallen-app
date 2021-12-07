@@ -1,5 +1,5 @@
 //constantes
-import {HOLYBOOK_TYPE_IDS} from '../../constantes/types.js';
+import {EDEN_TYPE_IDS, HOLYBOOK_TYPE_IDS, REGISTER_TYPE_IDS} from '../../constantes/types.js';
 
 //hooks imports
 import {useState, useContext, useEffect, useRef} from 'react';
@@ -48,6 +48,23 @@ import {getAllCards, updateOneCard, updateCardsByType} from '../../api/Cards';
 //styles import
 import './deckPage.css';
 
+
+//helpers
+
+function setCounter(arrValues, objValues){
+    let newObj = {...objValues};
+    let counter = 0;
+    Object.keys(newObj)
+          .map(elmt => newObj[arrValues.includes(Number(elmt)) && elmt])
+          .map(obj => {
+              if(obj){
+                  for(const key in obj){
+                      counter += obj[key].qty
+                  }
+              }  
+          });
+    return counter; 
+}
 
 function DeckPage(props){
     //contexts
@@ -580,6 +597,31 @@ function DeckPage(props){
 
         if(cardsDisplayed.pending && (cardsDisplayed.action === 'delete__card')){
             deleteOneCard(cardsDisplayed.type, id, cardsDisplayed.cards[Number(cardsDisplayed.type)] || {});
+
+            if(EDEN_TYPE_IDS.includes(Number(cardsDisplayed.type))){
+
+                return setDeck(prevState => {
+                    let newObj = {...prevState};
+                    newObj.success.edenQty = setCounter(EDEN_TYPE_IDS, cardsDisplayed.cards);
+                    return {...newObj};  
+                });
+            }
+
+            if(HOLYBOOK_TYPE_IDS.includes(Number(cardsDisplayed.type))){
+                return setDeck(prevState => {
+                    let newObj = {...prevState};
+                    newObj.success.holyBookQty = setCounter(HOLYBOOK_TYPE_IDS, cardsDisplayed.cards);
+                    return {...newObj};  
+                });
+            }
+
+            if(REGISTER_TYPE_IDS.includes(Number(cardsDisplayed.type))){
+                return setDeck(prevState => {
+                    let newObj = {...prevState};
+                    newObj.success.registerQty = setCounter(REGISTER_TYPE_IDS, cardsDisplayed.cards);
+                    return {...newObj};  
+                });
+            }
         }
     },[cardsDisplayed.pending])
 
@@ -618,6 +660,9 @@ function DeckPage(props){
         }
     },[deck.action])
 
+    useEffect(() => {
+        console.log(deck)
+    }, [deck])
 
     return(pageLoaded && !session.loading ?
             <div className="page page__deck container">
